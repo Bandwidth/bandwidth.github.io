@@ -1,0 +1,31 @@
+{
+    "plugins": [ "theme-api", "header" ],
+    "pluginsConfig": {
+        "theme-api": {
+            "languages": [
+                {
+                    "lang": "js",
+                    "name": "JavaScript",
+                    "default": true
+                },
+                {
+                    "lang": "csharp",
+                    "name": "C#"
+                },
+                {
+                    "lang": "ruby",
+                    "name": "ruby"
+
+                },
+                {
+                    "lang": "shell",
+                    "name": "cURL"
+
+                }
+            ]
+        },
+      "layout": {
+            "headerPath" : "layouts/header.html"
+        }
+    }
+}

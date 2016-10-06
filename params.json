@@ -1,6 +1,0 @@
-{
-  "name": "Bandwidth Open Source",
-  "tagline": "",
-  "body": "## [Zombese](https://github.com/bandwidthcom/zombese)\r\n#### Maintained by\r\n@a-type\r\n#### About\r\n[Zombese](https://github.com/bandwidthcom/zombese) is only intended to cover the happy path for setting up a WebRTC connection between two clients running in Zombie.js. Because of this, only orchestration-related parts of the WebRTC API are implemented. Things like the MediaStream API are not implemented.\r\n\r\n---\r\n## [Opkit](https://github.com/bandwidthcom/opkit)\r\n#### Maintained by\r\n@illiriks & @rrao24\r\n#### About\r\n[Opkit](https://github.com/bandwidthcom/opkit) is a devops bot framework for Slack. It aims to provide an easy-to-use and resource-light way to set up a bot, optimized for rapid deployment onto a cloud hosting provider. We've found that simple bots made using this framework run comfortably on even very small instances (like Heroku's hobby tier). It's optimized for use with AWS, and includes helpful methods that provide information on things like SQS queue sizes and Cloudwatch alarms.\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
