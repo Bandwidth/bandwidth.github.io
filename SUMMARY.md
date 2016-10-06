@@ -2,9 +2,12 @@
 
 ## Overview
 
-* [My Awesome API](README.md)
+* [Bandwidth](README.md)
 
-## Methods
+## How To
 
 * [Defining Methods](methods.md)
-* [Buy TN](buytn.md)
+
+## App Platform
+* [Buy TN](howto/buytn.md)
+* [Send SMS/MMS](howto/sendSMSMMS.md)
