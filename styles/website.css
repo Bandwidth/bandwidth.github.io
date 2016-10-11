@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* CSS Document */
+.head{
+   display: block;
+   height:70px;
+   width: 100%;
+}
+.book-body, .book-summary{
+  height: calc(100% - 70px);
+  position: fixed;
+  bottom: 0;
+  top: inherit;
+}
+.book-header{
+  top: 70px;
+}
+.book-header .btn.lang-switcher.active {
+    background-color: #fff;
+    border-bottom: 5px solid #00bcec;
+    color: #364149;
+}
+.book-header .btn.lang-switcher {
+    text-transform: uppercase;
+}
+.book-summary ul.summary li.active>a {
+    color: #00bcec;
+    font-weight: bold;
+}
+.markdown-section a{
+  color: #00bcec !important;
+}
+a{
+  font-weight: 500;
+  border-bottom: 1px solid;
+  text-decoration:none;
+  cursor: pointer;
+  cursor: hand;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+}
+a:hover{
+  padding-bottom:.15em;
+  text-decoration: none !important;
+}
+a:active{
+  padding-bottom:0em;
+  color:#dcdcdc;
+}
