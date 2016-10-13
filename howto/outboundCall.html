@@ -1,0 +1,418 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Create outbound call &#xB7; GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="smsDLR.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book"><div class="head">
+   <img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png">
+   <h1>|&#xA0; For Developers</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+
+
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Bandwidth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">How To</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../methods.html">
+            
+                <a href="../methods.html">
+            
+                    
+                    Defining Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">App Platform</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="buytn.html">
+            
+                <a href="buytn.html">
+            
+                    
+                    Buy TN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="sendSMSMMS.html">
+            
+                <a href="sendSMSMMS.html">
+            
+                    
+                    Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="smsDLR.html">
+            
+                <a href="smsDLR.html">
+            
+                    
+                    Send SMS with DLR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.4" data-path="outboundCall.html">
+            
+                <a href="outboundCall.html">
+            
+                    
+                    Create outbound call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="..">Create outbound call</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="create-outbound-call">Create outbound call</h2>
+<p><img src="images/how-to-outbound-call.png" alt="Graphic"></p>
+<p>There is a single HTTP POST required using the <code>/calls</code> resource.  See the <a href="https://bandwidth.github.io/docs/?shell#post-calls" target="_blank"><code>/calls</code></a> resource for a complete reference.</p>
+<h3 id="using-postman">Using Postman</h3>
+<p><a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" target="_blank"><img src="images/postman.svg" alt="Postman"></a></p>
+<ul>
+<li>Import the example to Postman by clicking the button and access it in &#x201C;Collections&#x201D;.</li>
+<li>Make sure to replace the {userId} in the url and the {token} and {secret} in Authorization.  Your credentials can be found in the &#x201C;Account&#x201D; tab of the API console.</li>
+<li>Also set the phone numbers and message in Body.</li>
+</ul>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-from-your-server-to-bandwidth">Example: From your server to Bandwidth</h3>
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+    -d \
+    &apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;
+    }&apos;
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//NodeJS</span>
+
+<span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+
+<span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    userId    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
+    apiToken  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    apiSecret : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
+});
+
+client.Call.create({
+    <span class="hljs-keyword">from</span>: <span class="hljs-string">&quot;+12525089000&quot;</span>,
+    to: <span class="hljs-string">&quot;+15035555555&quot;</span>,
+    callbackUrl: <span class="hljs-string">&quot;http://requestb.in/10sze251&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(id);
+})
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-comment">//Download the .net sdk from ap.bandwidth.com/docs/helper-libraries/net</span>
+
+<span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Bandwidth.Net;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Api;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+{
+  <span class="hljs-comment">//API credentials which can be found on your account page at https://catapult.inetwork.com/pages/login.jsf</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> UserId = <span class="hljs-string">&quot;u-YOUR_USER_ID&quot;</span>; <span class="hljs-comment">//{user_id}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Token = <span class="hljs-string">&quot;t-YOUR_API_TOKEN&quot;</span>; <span class="hljs-comment">//{token}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Secret = <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>; <span class="hljs-comment">//{secret}</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">try</span>
+    {
+      RunAsync().Wait();
+    }
+    <span class="hljs-keyword">catch</span> (Exception ex)
+    {
+      Console.Error.WriteLine(ex.Message);
+      Environment.ExitCode = <span class="hljs-number">1</span>;
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+    <span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData
+    {
+      From = <span class="hljs-string">&quot;+12525089000&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+      To = <span class="hljs-string">&quot;+15035555555&quot;</span>,
+      CallbackUrl = <span class="hljs-string">&quot;http://requestb.in/10sze251&quot;</span>
+    });
+    Console.WriteLine($<span class="hljs-string">&quot;Call Id is {call.Id}&quot;</span>);
+  }
+}
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment"># install gem from https://github.com/bandwidthcom/ruby-bandwidth</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&quot;ruby-bandwidth&quot;</span>
+
+<span class="hljs-comment"># find your credentials http://ap.bandwidth.com/docs/security/</span>
+<span class="hljs-symbol">Bandwidth:</span><span class="hljs-symbol">:Client</span>.global_options = {
+   <span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;your_user_id&quot;</span>,
+   <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;your_api_token&quot;</span>,
+   <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;your_api_secret&quot;</span>}
+
+call = <span class="hljs-symbol">Bandwidth:</span><span class="hljs-symbol">:Call</span>.create({
+   <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+12525089000&quot;</span>, <span class="hljs-comment"># Replace with a Bandwidth Number</span>
+   <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+15035555555&quot;</span>,
+   <span class="hljs-symbol">:callbackUrl</span> =&gt; <span class="hljs-string">&quot;http://requestb.in/10sze251&quot;</span>})  <span class="hljs-comment"># Replace with your server URL</span>
+
+puts call.id
+</code></pre>
+</div></div></div>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Create outbound call","level":"3.4","depth":1,"previous":{"title":"Send SMS with DLR","level":"3.3","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/outboundCall.md","mtime":"2016-10-13T15:27:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-13T15:30:45.581Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

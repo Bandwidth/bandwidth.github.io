@@ -38,6 +38,8 @@
 
     
         
+        <link rel="stylesheet" href="../styles/website.css">
+        
     
         
     
@@ -61,6 +63,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="smsDLR.html">
+    
     
     <link rel="prev" href="buytn.html">
     
@@ -68,7 +72,19 @@
     </head>
     <body>
         
-<div class="book"><div class="head">SquigglySquag</div><div class="head">SquigglySquag</div>
+<div class="book"><div class="head">
+   <img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png">
+   <h1>|&#xA0; For Developers</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+
+
+
     <div class="book-summary">
         
             
@@ -152,6 +168,32 @@
             
                     
                     Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="smsDLR.html">
+            
+                <a href="smsDLR.html">
+            
+                    
+                    Send SMS with DLR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="outboundCall.html">
+            
+                <a href="outboundCall.html">
+            
+                    
+                    Create outbound call
             
                 </a>
             
@@ -356,7 +398,7 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Send SMS/MMS","level":"3.2","depth":1,"previous":{"title":"Buy TN","level":"3.1","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sendSMSMMS.md","mtime":"2016-10-06T20:41:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-06T20:22:05.415Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Send SMS/MMS","level":"3.2","depth":1,"next":{"title":"Send SMS with DLR","level":"3.3","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"previous":{"title":"Buy TN","level":"3.1","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sendSMSMMS.md","mtime":"2016-10-06T20:45:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-13T15:30:45.581Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -366,7 +408,7 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         
@@ -383,10 +425,6 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     
         
         <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
         
     
         

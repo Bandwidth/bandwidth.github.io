@@ -1,0 +1,574 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Send SMS with DLR &#xB7; GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="outboundCall.html">
+    
+    
+    <link rel="prev" href="sendSMSMMS.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book"><div class="head">
+   <img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png">
+   <h1>|&#xA0; For Developers</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+
+
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Bandwidth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">How To</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../methods.html">
+            
+                <a href="../methods.html">
+            
+                    
+                    Defining Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">App Platform</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="buytn.html">
+            
+                <a href="buytn.html">
+            
+                    
+                    Buy TN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="sendSMSMMS.html">
+            
+                <a href="sendSMSMMS.html">
+            
+                    
+                    Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.3" data-path="smsDLR.html">
+            
+                <a href="smsDLR.html">
+            
+                    
+                    Send SMS with DLR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="outboundCall.html">
+            
+                <a href="outboundCall.html">
+            
+                    
+                    Create outbound call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="..">Send SMS with DLR</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="send-smsmms-with-delivery-receipts">Send SMS/MMS with Delivery Receipts</h2>
+<p>Delivery Receipts (DLR) add two new states to the messaging lifecyle &#x2013; delivered and not delivered. When a message is sent, it is sent by the SMPP gateway to the SMSC with the delivery receipt value set. The SMSC will return the final disposition of the message as determined by the carrier. Values returned include the following:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>Error Code</strong></th>
+<th style="text-align:left"><strong>SMSC Description</strong></th>
+<th style="text-align:left"><strong>Bandwidth API Description</strong></th>
+<th style="text-align:left"><strong>Expose the error</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">Message Delivered to Carrier</td>
+<td style="text-align:left">Message delivered to carrier</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">187</td>
+<td style="text-align:left">Spam Detected &#x2013; Statistical</td>
+<td style="text-align:left">Statistical spam detected</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">188</td>
+<td style="text-align:left">Spam Detected -Keyword</td>
+<td style="text-align:left">Keyword spam detected</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">189</td>
+<td style="text-align:left">Spam Detected</td>
+<td style="text-align:left">Spam detected</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">482</td>
+<td style="text-align:left">Loop Detected</td>
+<td style="text-align:left">Loop detected</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">600</td>
+<td style="text-align:left">Destination Carrier Queue Full</td>
+<td style="text-align:left">Destination carrier could not accept messages</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">610</td>
+<td style="text-align:left">submit_sm or submit_multi failed</td>
+<td style="text-align:left">Message submission failed</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">620</td>
+<td style="text-align:left">Destination App Error</td>
+<td style="text-align:left">Destination application error</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">630</td>
+<td style="text-align:left">NACK</td>
+<td style="text-align:left">Message not acknowledge</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">700</td>
+<td style="text-align:left">Invalid Service Type</td>
+<td style="text-align:left">Invalid service type</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">720</td>
+<td style="text-align:left">Invalid Destination Address</td>
+<td style="text-align:left">Invalid destination number</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">740</td>
+<td style="text-align:left">Invalid Source Address</td>
+<td style="text-align:left">Invalid source number</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">999</td>
+<td style="text-align:left">Unknown Error</td>
+<td style="text-align:left">Unknown error</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<p>The app platform will send a new event on delivery receipt based on the value of the new messages parameter, receiptRequested. The event will initially only be delivered on failure, but will, eventually allow an event for every receipt on every message.</p>
+<h3 id="messages-resource">Messages Resource</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>Property</strong></th>
+<th style="text-align:left"><strong>Type</strong></th>
+<th style="text-align:left"><strong>Description</strong></th>
+<th style="text-align:left"><strong>Default</strong></th>
+<th style="text-align:left"><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">receiptRequested</td>
+<td style="text-align:left">string (1 &#x2013; 16)</td>
+<td style="text-align:left">Controls how delivery receipt events are delivered. The default value, no, will result in no delivery receipt events being generated. The value of yes will result in delivery receipts on  failure, e.g. if the message is not delivered by the stage carrier. The value of all results in an per message, when the delivery receipts is available</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">none,all, error</td>
+</tr>
+<tr>
+<td style="text-align:left">State</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Remains unchanged</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Delivery State</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Delivered/Not-Delivered</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Delivery Code</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Delivery Description</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-send-sms-with-delivery-receipt">Example: Send SMS with delivery receipt</h3>
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+        -d \
+    &apos;
+    {
+        &quot;to&quot;: &quot;+18284467788&quot;,
+        &quot;from&quot;: &quot;+19197124466&quot;,
+        &quot;text&quot;: &quot;Watch out for the construction on I-25 and Hwy 52&quot;,
+        &quot;receiptRequested&quot; : &quot;all&quot;,
+        &quot;callbackUrl&quot; : &quot;http://yourserver.com/message/dlr&quot;
+    }&apos;
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//NodeJS</span>
+
+<span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+
+<span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    userId    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
+    apiToken  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    apiSecret : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
+});
+<span class="hljs-keyword">var</span> message = {
+    <span class="hljs-keyword">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>,  <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+    to: <span class="hljs-string">&quot;+191955512142&quot;</span>,
+    text: <span class="hljs-string">&quot;Hello World&quot;</span>,
+    receiptRequested: <span class="hljs-string">&quot;all&quot;</span>,
+    callbackUrl: <span class="hljs-string">&quot;http://requestb.in&quot;</span>,
+    tag: <span class="hljs-built_in">Date</span>.now().toString()
+};
+
+<span class="hljs-comment">//Use Promises</span>
+client.Message.send(message)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
+})
+.catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(err.message);
+});
+
+<span class="hljs-comment">//Use callbacks</span>
+client.Message.send(message, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, message</span>) </span>{
+    <span class="hljs-keyword">if</span> (err) {
+        <span class="hljs-built_in">console</span>.log(err);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-comment">//Download the .net sdk from ap.bandwidth.com/docs/helper-libraries/net</span>
+
+<span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Bandwidth.Net;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Api;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+{
+  <span class="hljs-comment">//API credentials which can be found on your account page at https://catapult.inetwork.com/pages/login.jsf</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> UserId = <span class="hljs-string">&quot;u-userID&quot;</span>; <span class="hljs-comment">//{user_id}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Token = <span class="hljs-string">&quot;t-token&quot;</span>; <span class="hljs-comment">//{token}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Secret = <span class="hljs-string">&quot;secret&quot;</span>; <span class="hljs-comment">//{secret}</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">try</span>
+    {
+      RunAsync().Wait();
+    }
+    <span class="hljs-keyword">catch</span> (Exception ex)
+    {
+      Console.Error.WriteLine(ex.Message);
+      Environment.ExitCode = <span class="hljs-number">1</span>;
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+    <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData
+    {
+      From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+        To = <span class="hljs-string">&quot;+191955512142&quot;</span>,
+        Text = <span class="hljs-string">&quot;Test&quot;</span>,
+        ReceiptRequested = MessageReceiptRequested.All,
+        CallbackUrl = <span class="hljs-string">&quot;http://requestb.in&quot;</span>
+    });
+
+  }
+}
+</code></pre>
+</div><div class="api-method-example"><p>Callback events will be sent on each state transition.</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;sms&quot;</span>,
+    <span class="hljs-string">&quot;direction&quot;</span>:<span class="hljs-string">&quot;out&quot;</span>,
+    <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;m-kv54fk7x66fakdnb5owdk4y&quot;</span>,
+    <span class="hljs-string">&quot;messageUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/messages/m-kv54fk7x66fakdnb5owdk4y&quot;</span>,
+    <span class="hljs-string">&quot;from&quot;</span>:<span class="hljs-string">&quot;+13233326955&quot;</span>,
+    <span class="hljs-string">&quot;to&quot;</span>:<span class="hljs-string">&quot;+13865245000&quot;</span>,
+    <span class="hljs-string">&quot;text&quot;</span>:<span class="hljs-string">&quot;Example&quot;</span>,
+    <span class="hljs-string">&quot;applicationId&quot;</span>:<span class="hljs-string">&quot;a-25nh2lj6qrxznkfu4b732jy&quot;</span>,
+    <span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>:<span class="hljs-string">&quot;not-delivered&quot;</span>,
+    &#x201C;errorcode&#x201D;:&#x201D;<span class="hljs-number">720</span>&#x201D;,
+    &#x201C;error&#x201D;:&#x201D;Invalid Service Type&#x201D;
+}
+</code></pre>
+</div></div></div>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Send SMS with DLR","level":"3.3","depth":1,"next":{"title":"Create outbound call","level":"3.4","depth":1,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},"previous":{"title":"Send SMS/MMS","level":"3.2","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/smsDLR.md","mtime":"2016-10-13T15:26:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-13T15:30:45.581Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
