@@ -5,6 +5,45 @@
    height:70px;
    width: 100%;
 }
+.head img{
+   padding: 15px;
+   max-height: 70px;
+   float: left;  
+}
+.head ul{
+   width: 400px;
+   float:right;
+   list-style: none;
+   margin: 0;
+   margin-right: 15px;
+}
+.head ul li{
+   float: right;
+   height: 70px;
+   line-height: 70px;
+   margin-left: 25px;
+}
+.head a{
+   border-bottom: none;
+   color: inherit; 
+}
+.head h1{
+   float: left;
+   font-weight: 100;
+   color: #adadad; 
+}
+.headbutton{
+   padding: 10px 15px;
+   background-color:#00bcec;
+   color:#fff !important;
+   border-bottom: none;
+   border-radius:5px;
+   text-transform:uppercase;
+   font-weight:bold;
+}
+.headbutton:hover{
+   padding-bottom: 10px;  
+}
 .book-body, .book-summary{
   height: calc(100% - 70px);
   position: fixed;
@@ -12,6 +51,7 @@
   top: inherit;
 }
 .book-header{
+  border-top: 1px solid rgba(0,0,0,.07);
   top: 70px;
 }
 .book-header .btn.lang-switcher.active {
@@ -46,4 +86,7 @@ a:hover{
 a:active{
   padding-bottom:0em;
   color:#dcdcdc;
+}
+pre{
+  border-radius: 3px;  
 }
