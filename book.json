@@ -1,5 +1,5 @@
 {
-    "plugins": [ "theme-api", "header" ],
+    "plugins": [ "theme-api", "header", "sharing" ],
     "pluginsConfig": {
         "theme-api": {
             "languages": [
@@ -25,6 +25,18 @@
         },
       "layout": {
             "headerPath" : "layouts/header.html"
-        }
+        },
+      "sharing": {
+            "facebook": false,
+            "twitter": false,
+            "google": false,
+            "weibo": false,
+            "instapaper": false,
+            "vk": false,
+            "all": [
+            "facebook", "google", "twitter",
+            "weibo", "instapaper"
+        ]
+      }
     }
 }
