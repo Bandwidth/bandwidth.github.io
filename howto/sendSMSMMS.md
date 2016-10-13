@@ -6,7 +6,7 @@
 
 ### Using Postman
 
-[![Postman](images/postman.svg)](https://app.getpostman.com/run-collection/8aec904a67e85cbbede2)
+<a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg">![Postman](images/postman.svg)</a>
 
 * Import the example to Postman by clicking the button and access it in “Collections”.
 * Make sure to replace the {userId} in the url and the {token} and {secret} in Authorization.  Your credentials can be found in the “Account” tab of the API console.
