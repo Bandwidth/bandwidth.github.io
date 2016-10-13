@@ -44,6 +44,9 @@
 .headbutton:hover{
    padding-bottom: 10px;  
 }
+.aimg { 
+   border-bottom: none; 
+}
 .book-body, .book-summary{
   height: calc(100% - 70px);
   position: fixed;
@@ -68,6 +71,26 @@
 }
 .markdown-section a{
   color: #00bcec !important;
+}
+.markdown-section {
+    padding: 0px 30px 0;
+}
+.markdown-section h1 {
+    padding-top: 15px;
+}
+.book.color-theme-3 .book-header .btn.lang-switcher.active {
+    background-color: #186469;
+    background-color: #2D3134;
+    color: #fff;
+}
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+    padding: 5px 15px;
+}
+.book-summary ul.summary li.header {
+    padding: 20px 15px 0px 15px;
+}
+.book-summary ul.summary li.header:first-child {
+    padding-top: 5px;
 }
 a{
   font-weight: 500;
