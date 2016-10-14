@@ -5,11 +5,17 @@
 * [Bandwidth](README.md)
 
 ## How To
+* [App Platform](howto/howto.md)
+ * [Buy TN](howto/buytn.md)
+ * [Message Tutorial]()
+  * [Send SMS/MMS](howto/sendSMSMMS.md)
+  * [Send SMS with DLR](howto/smsDLR.md)
+ * [Voice Tutorial]()
+  * [Create outbound call](howto/outboundCall.md)
+* [Dashboard](howto/howto.md)
+ * [Test Port out]()
+ * [Stuff]()
 
-* [Defining Methods](methods.md)
-
-## App Platform
-* [Buy TN](howto/buytn.md)
-* [Send SMS/MMS](howto/sendSMSMMS.md)
-* [Send SMS with DLR](howto/smsDLR.md)
-* [Create outbound call](howto/outboundCall.md)
+## Security
+* [Access Bandwidth App Platform API](security.md)
+* [Secure your callbacks](callbackSecurity.md)
