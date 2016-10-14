@@ -19,3 +19,7 @@
 ## Security
 * [Access Bandwidth App Platform API](security.md)
 * [Secure your callbacks](callbackSecurity.md)
+
+## API Reference
+ * [App Platform](https://bandwidth.github.io/ap-docs/)
+ * [Dashboard](https://test.dashboard.bandwidth.com/apidocs/)
