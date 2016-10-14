@@ -16,7 +16,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
     $children = $chapter.children('ul.articles');
     $parent = $chapter.parent();
     $siblings = $chapter.siblings().children('ul.articles');
-
+    console.log($chapter);
     expand($chapter);
 
     if ($children.length > 0) {
