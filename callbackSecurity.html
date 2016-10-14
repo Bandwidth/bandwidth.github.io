@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Bandwidth &#xB7; GitBook</title>
+        <title>Secure your callbacks &#xB7; GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -67,8 +67,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="howto/howto.html">
     
+    <link rel="prev" href="security.html">
     
 
     </head>
@@ -111,7 +111,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -293,7 +293,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="callbackSecurity.html">
+        <li class="chapter active" data-level="3.2" data-path="callbackSecurity.html">
             
                 <a href="callbackSecurity.html">
             
@@ -336,7 +336,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".">Bandwidth</a>
+        <a href=".">Secure your callbacks</a>
     </h1>
 </div>
 
@@ -351,7 +351,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="bandwidth-developers">Bandwidth Developers</h1>
+                                <h2 id="setting-up-basic-auth-for-callbacks">Setting Up Basic Auth for Callbacks</h2>
+<p>You can password protect your web server for Bandwidth Callbacks for example:</p>
+<p><code>https://username:password@yoursecurehost.com/yoursecureapp</code></p>
+<p>Modify the callback URL for your application. This can be done through the API (<a href="#applications">see documentation</a>) or through the web portal on the &#x201C;My Apps&#x201D; tab. Select the Application you want to modify, and then click the &#x201C;Edit&#x201D; button.</p>
+<p><img src="images/basic-auth.png" alt="api"></p>
+<p>Scroll down and edit either the &#x201C;Call URL&#x201D; or the &#x201C;Messaging URL&#x201D; (or both). The URL should be structured as follows:</p>
+<p><code>https://{username}:{password}@yourdomain.com/</code></p>
+<p>You must use HTTPS in order to use basic auth with App Platform callbacks, and your callback server should present a valid, trusted certificate. Your username and password should also be <a href="http://www.w3schools.com/tags/ref_urlencode.asp" target="_blank">URL Encoded</a> to prevent special characters from being lost.</p>
+<p><img src="images/basic-auth2.png" alt="api2"></p>
+<p>Basic Auth also works for Call and Messaging fallback URLs as well. In addition, you can also use Basic Auth in your callbacks for specific messages and calls that you create. For instance, if you want callback events for a specific outgoing message, when you create the message with a <code>POST</code> to the API and set the callback URL, you can add credentials to this URL as well. The same requirements (HTTPS, and URL Encoded) apply here as well.</p>
+<p>When your application receives a callback from the App Platform, the &#x201C;Authorization&#x201D; header will now be set. The &#x201C;Authorization&#x201D; header will tell your application what type of authorization is being sent &#x2013; in this case &#x201C;Basic&#x201D; &#x2013; followed by a <a href="https://en.wikipedia.org/wiki/Base64" target="_blank">Base64 Encoded</a> string containing the username and password, separated by a colon, that you configured in your callback URL.</p>
+<p><img src="images/basic-auth3.png" alt="api3"></p>
+<p>Your application can now be written to only accept a request if it contains the expected credentials in the &#x201C;Authorization&#x201D; header, because only you will ever know the credentials. When you set the callback URL on the API (or on the web portal) the credentials are encrypted in transit, and they are also encrypted when they are stored in the database. They are also encrypted in transit between your application and the App Platform, so other parties cannot extract your credentials by inspecting your network traffic. This is why it is important to use a valid, trusted certificate on your application server, to ensure the security of your callbacks.</p>
 
                                 
                                 </section>
@@ -385,7 +397,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bandwidth","level":"1.1","depth":1,"next":{"title":"App Platform","level":"2.1","depth":1,"path":"howto/howto.md","ref":"howto/howto.md","articles":[{"title":"Buy TN","level":"2.1.1","depth":2,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},{"title":"Message Tutorial","level":"2.1.2","depth":2,"ref":"","articles":[]},{"title":"Send SMS/MMS","level":"2.1.3","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.1.4","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},{"title":"Voice Tutorial","level":"2.1.5","depth":2,"ref":"","articles":[]},{"title":"Create outbound call","level":"2.1.6","depth":2,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-10-13T19:40:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T17:08:43.797Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Secure your callbacks","level":"3.2","depth":1,"previous":{"title":"Access Bandwidth App Platform API","level":"3.1","depth":1,"path":"security.md","ref":"security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"callbackSecurity.md","mtime":"2016-10-14T16:39:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T17:08:43.797Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

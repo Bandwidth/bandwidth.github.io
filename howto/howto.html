@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Buy TN &#xB7; GitBook</title>
+        <title>App Platform &#xB7; GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -67,8 +67,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="buytn.html">
     
-    <link rel="prev" href="howto.html">
+    
+    <link rel="prev" href="../">
     
 
     </head>
@@ -131,7 +133,7 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="howto.html">
+        <li class="chapter active" data-level="2.1" data-path="howto.html">
             
                 <a href="howto.html">
             
@@ -145,7 +147,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1.1" data-path="buytn.html">
+        <li class="chapter " data-level="2.1.1" data-path="buytn.html">
             
                 <a href="buytn.html">
             
@@ -228,7 +230,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="howto.html">
+        <li class="chapter active" data-level="2.2" data-path="howto.html">
             
                 <a href="howto.html">
             
@@ -336,7 +338,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="..">Buy TN</a>
+        <a href="..">App Platform</a>
     </h1>
 </div>
 
@@ -351,65 +353,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h2 id="buy-phone-number">Buy Phone Number</h2>
-<p>There are 2 ways to buy a phone number:</p>
-<ol>
-<li><code>GET</code> on the <code>availableNumbers</code> resource, followed by a <code>POST</code> to the <code>phoneNumbers</code> resource</li>
-<li><code>POST</code> on the <code>availableNumbers</code> resource</li>
-</ol>
-</div><div class="api-method-code"><div class="api-method-example"><h3 id="search-then-order">Search then Order</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&amp;state=NC&amp;pattern=*2%3F9*&amp;quantity=2 \
-  -u {token}:{secret} \
-  -H &quot;Content-type: application/json&quot; \
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Search available local phone numbers with area code 910</span>
+                                <h2 id="app-platform-how-to-guides">App Platform How-To Guides</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tutorial</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="buytn.html">Buy Phone Number</a></td>
+<td style="text-align:left">This example shows you how to buy numbers for use with your Application Platform account.</td>
+</tr>
+<tr>
+<td style="text-align:left">Setup Incoming Messages &amp; Calls (REST)</td>
+<td style="text-align:left">Learn how to setup your application to receive inbound calls and texting messaging.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="messaging-tutorials">Messaging Tutorials</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tutorial</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="sendSMSMMS.html">Send a SMS/MMS (REST)</a></td>
+<td style="text-align:left">This example shows you how to send an outbound SMS or MMS message to a mobile phone.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="">SMS Auto-Reply (BXML)</a></td>
+<td style="text-align:left">This example shows you how to receive an inbound SMS text message and auto-reply to it.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="smsDLR.html">SMS Delivery Receipts (REST)</a></td>
+<td style="text-align:left">This example shows you how to send an outbound SMS or MMS message to a mobile phone with delivery receipts</td>
+</tr>
+</tbody>
+</table>
 
-<span class="hljs-comment">// Promise</span>
-client.AvailableNumber.search(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">1</span> })
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{
-    <span class="hljs-keyword">return</span> client.PhoneNumber.create({
-        number: numbers[<span class="hljs-number">0</span>].number,
-        name: <span class="hljs-string">&quot;My 910 Number&quot;</span>,
-        applicationId: <span class="hljs-string">&quot;a-1234&quot;</span>
-    });
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(number.id);
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchLocalAsync(<span class="hljs-keyword">new</span> LocalNumberQuery{ AreaCode = <span class="hljs-string">&quot;910&quot;</span>, Quantity = <span class="hljs-number">1</span>});
-<span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.CreateAsync(<span class="hljs-keyword">new</span> CreatePhoneNumberData {
-    Number = results[<span class="hljs-number">0</span>].number,
-    Name = <span class="hljs-string">&quot;My 910 Number&quot;</span>,
-    ApplicationId = <span class="hljs-string">&quot;a-1234&quot;</span>
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">results = AvailableNumber.search_local(client, {<span class="hljs-symbol">:area_code</span> =&gt; <span class="hljs-string">&quot;910&quot;</span>, <span class="hljs-symbol">:quantity</span> =&gt; <span class="hljs-number">1</span>})
-puts(<span class="hljs-string">&quot;Found numbers: <span class="hljs-subst">#{(numbers.map {|n| n[<span class="hljs-symbol">:number</span>]}</span>).join(&apos;, &apos;)}&quot;</span>)
-number = PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; numbers[<span class="hljs-number">0</span>][<span class="hljs-symbol">:number</span>]})
-puts(<span class="hljs-string">&quot;Now you are owner of number <span class="hljs-subst">#{number.number}</span> (id <span class="hljs-subst">#{number.id}</span>)&quot;</span>)
-</code></pre>
-</div><div class="api-method-example"><h3 id="search-and-order">Search and Order</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">#coming soon
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Search 2 available local phone numbers with area code 910 and order them</span>
-
-<span class="hljs-comment">// Promise</span>
-client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">2</span> })
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{
-    numbers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(number.id);
-    })
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchAndOrderLocalAsync(
-  <span class="hljs-keyword">new</span> LocalNumberQueryForOrder{ AreaCode = <span class="hljs-string">&quot;910&quot;</span>, Quantity = <span class="hljs-number">2</span>});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment">##</span>
-<span class="hljs-comment"># coming soon</span>
-<span class="hljs-comment">##</span>
-</code></pre>
-</div></div></div>
                                 
                                 </section>
                             
@@ -442,7 +428,7 @@ client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Buy TN","level":"2.1.1","depth":2,"next":{"title":"Message Tutorial","level":"2.1.2","depth":2,"ref":"","articles":[]},"previous":{"title":"App Platform","level":"2.1","depth":1,"path":"howto/howto.md","ref":"howto/howto.md","articles":[{"title":"Buy TN","level":"2.1.1","depth":2,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},{"title":"Message Tutorial","level":"2.1.2","depth":2,"ref":"","articles":[]},{"title":"Send SMS/MMS","level":"2.1.3","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.1.4","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},{"title":"Voice Tutorial","level":"2.1.5","depth":2,"ref":"","articles":[]},{"title":"Create outbound call","level":"2.1.6","depth":2,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/buytn.md","mtime":"2016-10-13T19:40:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T17:08:43.797Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"App Platform","level":"2.1","depth":1,"next":{"title":"Buy TN","level":"2.1.1","depth":2,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"previous":{"title":"Bandwidth","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/howto.md","mtime":"2016-10-14T15:55:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T17:08:43.797Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
