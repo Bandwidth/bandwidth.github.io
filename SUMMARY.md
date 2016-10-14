@@ -5,14 +5,14 @@
 * [Bandwidth](README.md)
 
 ## How To
-* [App Platform](howto/howto.md)
+* [App Platform](howto/aphowto.md)
  * [Buy TN](howto/buytn.md)
  * [Message Tutorial]()
   * [Send SMS/MMS](howto/sendSMSMMS.md)
   * [Send SMS with DLR](howto/smsDLR.md)
  * [Voice Tutorial]()
   * [Create outbound call](howto/outboundCall.md)
-* [Dashboard](howto/howto.md)
+* [Dashboard](howto/dbhowto.md)
  * [Test Port out]()
  * [Stuff]()
 
