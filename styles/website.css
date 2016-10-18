@@ -30,7 +30,7 @@
 .head h1{
    float: left;
    font-weight: 100;
-   color: #adadad; 
+   color: #333333; 
 }
 .headbutton{
    padding: 10px 15px;
@@ -56,6 +56,9 @@
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
   top: 70px;
+}
+.book-header h1 a, .book-header h1 a:hover {
+   border-bottom: none;  
 }
 .book-header .btn.lang-switcher.active {
     background-color: #fff;
@@ -117,6 +120,30 @@ a:active{
 }
 pre{
   border-radius: 3px;  
+}
+th{
+  color: #fff; 
+  background: #3a455c;
+  border:none !important;
+}
+.markdown-section code {
+    padding: .3em;
+    margin: 0;
+    font-size: .85em;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+.get{
+   background-color: #6cbf0d;  
+}
+.post{
+   background-color: #00bcec;  
+}
+.put{
+   background-color: #a5639b;  
+}
+.delete{
+   background-color:#e8562e;  
 }
 .alert{
 	display:inline-block;
