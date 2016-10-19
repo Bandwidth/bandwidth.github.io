@@ -134,16 +134,20 @@ th{
     border-radius: 3px;
 }
 .get{
-   background-color: #6cbf0d;  
+   background-color: #6cbf0d;
+   color: #fff;
 }
 .post{
-   background-color: #00bcec;  
+   background-color: #00bcec;
+   color: #fff; 
 }
 .put{
-   background-color: #a5639b;  
+   background-color: #a5639b;
+   color: #fff;  
 }
 .delete{
-   background-color:#e8562e;  
+   background-color:#e8562e;
+   color: #fff;
 }
 .alert{
 	display:inline-block;
@@ -153,6 +157,7 @@ th{
 	background-color: #fceae6;
 	font-weight: 700;
 	width:auto;
+   line-height: 2em;
 }
 .alert:before{
 	display:inline-block;
