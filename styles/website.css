@@ -134,20 +134,20 @@ th{
     border-radius: 3px;
 }
 .get{
-   background-color: #6cbf0d;
-   color: #fff;
+   background-color: #6cbf0d !important;
+   color: #fff !important;
 }
 .post{
-   background-color: #00bcec;
-   color: #fff; 
+   background-color: #00bcec !important;
+   color: #fff !important; 
 }
 .put{
-   background-color: #a5639b;
-   color: #fff;  
+   background-color: #a5639b !important;
+   color: #fff !important;  
 }
 .delete{
-   background-color:#e8562e;
-   color: #fff;
+   background-color:#e8562e !important;
+   color: #fff !important;
 }
 .alert{
 	display:inline-block;
