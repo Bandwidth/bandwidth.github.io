@@ -130,14 +130,15 @@ th{
     padding: .3em;
     margin: 0;
     font-size: .85em;
-    background-color: #f7f7f7;
+    background-color: #f1f1f1;
     border-radius: 3px;
+    border: 1px solid #e4e4e4;
 }
 .chapter code {
     padding: .3em;
     margin: 0;
     font-size: .85em;
-    background-color: #f7f7f7;
+    background-color: #f1f1f1;
     border-radius: 3px;
     font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
     direction: ltr;
@@ -149,18 +150,22 @@ th{
 .get{
    background-color: #6cbf0d !important;
    color: #fff !important;
+   border:none !important;
 }
 .post{
    background-color: #00bcec !important;
-   color: #fff !important; 
+   color: #fff !important;
+   border:none !important; 
 }
 .put{
    background-color: #a5639b !important;
-   color: #fff !important;  
+   color: #fff !important;
+   border:none !important;  
 }
 .delete{
    background-color:#e8562e !important;
    color: #fff !important;
+   border:none !important;
 }
 .alert{
 	display:inline-block;
