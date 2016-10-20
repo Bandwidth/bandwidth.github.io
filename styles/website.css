@@ -121,6 +121,9 @@ a:active{
 pre{
   border-radius: 3px;  
 }
+pre code{
+  border: none !important;
+}
 th{
   color: #fff; 
   background: #3a455c;
