@@ -134,7 +134,7 @@ th{
     border-radius: 3px;
     border: 1px solid #e4e4e4;
 }
-.chapter code {
+code {
     padding: .3em;
     margin: 0;
     font-size: .85em;
@@ -143,7 +143,7 @@ th{
     font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
     direction: ltr;
 }
-.chapter code:before, .chapter code:after{
+code:before, code:after{
     letter-spacing: -.2em;
     content: "\00a0";
 }
