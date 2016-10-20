@@ -133,6 +133,19 @@ th{
     background-color: #f7f7f7;
     border-radius: 3px;
 }
+.chapter code {
+    padding: .3em;
+    margin: 0;
+    font-size: .85em;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    direction: ltr;
+}
+.chapter code:before, .chapter code:after{
+    letter-spacing: -.2em;
+    content: "\00a0";
+}
 .get{
    background-color: #6cbf0d !important;
    color: #fff !important;
