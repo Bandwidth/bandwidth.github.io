@@ -1,5 +1,5 @@
 {
-    "plugins": [ "theme-api", "header", "sharing", "toggle-chapters", "addcssjs" ],
+    "plugins": [ "theme-api", "header", "sharing", "toggle-chapters" ],
     "pluginsConfig": {
         "theme-api": {
             "languages": [
@@ -37,9 +37,6 @@
             "facebook", "google", "twitter",
             "weibo", "instapaper"
         ]
-      },
-      "addcssjs": {
-            "js": ["js/custom.js", "js/jquery-3.1.1.min.js"]
       }
     }
 }
