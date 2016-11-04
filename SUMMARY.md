@@ -2,7 +2,7 @@
 
 ## Overview
 
-* [Bandwidth](README.md)
+* [Home](README.md)
 
 ## How To
 * [App Platform](howto/aphowto.md)
