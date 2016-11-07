@@ -1,5 +1,5 @@
 {
-    "plugins": [ "theme-api", "header", "sharing", "toggle-chapters" ],
+    "plugins": [ "theme-api", "header", "sharing", "fontsettings", "toggle-chapters" ],
     "pluginsConfig": {
         "theme-api": {
             "languages": [
