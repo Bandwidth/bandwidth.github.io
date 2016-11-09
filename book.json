@@ -1,5 +1,13 @@
 {
-    "plugins": [ "theme-api", "header", "sharing", "fontsettings", "toggle-chapters" ],
+    "plugins": [
+        "theme-api",
+        "header",
+        "sharing",
+        "fontsettings",
+        "toggle-chapters",
+        "custom-favicon",
+        "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"
+    ],
     "pluginsConfig": {
         "theme-api": {
             "languages": [
@@ -23,10 +31,14 @@
                 }
             ]
         },
-      "layout": {
+      "customJquery": {
+        "js": "js/custom.js"
+      },
+        "layout": {
             "headerPath" : "layouts/header.html"
         },
-      "sharing": {
+        "favicon": "images/favicon.ico",
+        "sharing": {
             "facebook": false,
             "twitter": false,
             "google": false,
@@ -34,9 +46,9 @@
             "instapaper": false,
             "vk": false,
             "all": [
-            "facebook", "google", "twitter",
-            "weibo", "instapaper"
-        ]
-      }
+                "facebook", "google", "twitter",
+                "weibo", "instapaper"
+            ]
+        }
     }
 }

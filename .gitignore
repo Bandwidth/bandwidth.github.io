@@ -66,3 +66,4 @@ runTestsDebug.sh
 .mimosa/require/*
 logfile
 _book
+tmp
