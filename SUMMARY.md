@@ -23,7 +23,7 @@
 
 ## SDKs
  * [Node JS](clientLib/node.md)
- * [C-Sharp](clientLib/chsarp.md)
+ * [C-Sharp](clientLib/csharp.md)
  * [Ruby](clientLib/ruby.md)
  * [Python](clientLib/python.md)
  * [Java](clientLib/java.md)
