@@ -3,8 +3,6 @@
         "theme-api",
         "header",
         "sharing",
-        "fontsettings",
-        "toggle-chapters",
         "custom-favicon",
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"
     ],
@@ -45,10 +43,7 @@
             "weibo": false,
             "instapaper": false,
             "vk": false,
-            "all": [
-                "facebook", "google", "twitter",
-                "weibo", "instapaper"
-            ]
+            "all": []
         }
     }
 }
