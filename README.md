@@ -1,5 +1,5 @@
 #Welcome to Bandwidth!
-Here you will find everything you need to get started. Jump right into the [full API reference](https://bandwidth.github.io/ap-docs/) or see how its done with with a scenario below:
+Here you will find everything you need to get started. Jump right into the [full API reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html) or see how its done with with a scenario below:
 
 <div class="devCards">
   <i class="icons8-hashtag" style="font-size: 40px"></i>

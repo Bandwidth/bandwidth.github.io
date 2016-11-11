@@ -13,15 +13,13 @@
   * [Send SMS with DLR](howto/smsDLR.md)
 * [Voice Tutorials](howto/voice.md)
   * [Create outbound call](howto/outboundCall.md)
-  * [Basic call forwarding](howto/basicCallForward.md)
-  * [Advanced call forwarding](howto/advancedCallForwarding.md)
 
 ## Security
 * [Access Bandwidth App Platform API](security.md)
 * [Secure your callbacks](callbackSecurity.md)
 
 ## API Reference
- * [Full API reference](https://bandwidth.github.io/ap-docs/methods/restApi.html)
+ * [Full API reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
 
 ## SDKs
 * [Node JS](clientLib/node.md)
