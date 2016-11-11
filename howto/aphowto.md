@@ -1,8 +1,8 @@
 ## App Platform How-To Guides
 
-| Tutorial                               | Description                                                                               |
-|:---------------------------------------|:------------------------------------------------------------------------------------------|
-| [Buy Telephone Number](buytn.md)           | This example shows you how to buy numbers for use with your Application Platform account. |
+| Tutorial                                                              | Description                                                                               |
+|:----------------------------------------------------------------------|:------------------------------------------------------------------------------------------|
+| [Buy Telephone Number](buytn.md)                                      | This example shows you how to buy numbers for use with your Application Platform account. |
 | [Setup Incoming Messages & Calls (REST)](incomingCallandMessaging.md) | Learn how to setup your application to receive inbound calls and texting messaging.       |
 
 ### Messaging Tutorials
@@ -14,6 +14,6 @@
 
 ### Voice Tutorials
 
-| Tutorial                                  | Description                                                                                                |
-|:------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| [Create outbound call (REST)](outboundCall.md)    | This example shows you how to create and outbound call to a phone number.                       |
+| Tutorial                                       | Description                                                               |
+|:-----------------------------------------------|:--------------------------------------------------------------------------|
+| [Create outbound call (REST)](outboundCall.md) | This example shows you how to create and outbound call to a phone number. |

@@ -19,11 +19,11 @@
 * [Secure your callbacks](callbackSecurity.md)
 
 ## API Reference
- * [Full API reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
+* [Full API reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
 
 ## SDKs
-* [Node JS](clientLib/node.md)
-* [C#](clientLib/chsarp.md)
-* [Ruby](clientLib/ruby.md)
-* [Python](clientLib/python.md)
-* [Java](clientLib/java.md)
+ * [Node JS](clientLib/node.md)
+ * [C-Sharp](clientLib/chsarp.md)
+ * [Ruby](clientLib/ruby.md)
+ * [Python](clientLib/python.md)
+ * [Java](clientLib/java.md)
