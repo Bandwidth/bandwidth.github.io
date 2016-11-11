@@ -6,6 +6,7 @@
 
 ## How To
 * [App Platform](howto/aphowto.md)
+* [Incoming Call & Messaging](howto/incoming.md)
  * [Buy TN](howto/buytn.md)
  * [Message Tutorial]()
   * [Send SMS/MMS](howto/sendSMSMMS.md)
@@ -34,8 +35,9 @@
  * [App Platform](https://bandwidth.github.io/ap-docs/methods/restApi.html)
 
 ## SDKs
-* [Node JS]()
-* [C#]()
-* [Ruby]()
-* [Python]()
+* [Node JS](clientLib/node.md)
+* [C#](clientLib/chsarp.md)
+* [Ruby](clientLib/ruby.md)
+* [Python](clientLib/python.md)
+* [Java](clientLib/java.md)
 
