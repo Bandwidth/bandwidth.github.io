@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Ruby</title>
+        <title>C-Sharp</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -63,10 +63,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="python.html">
+    <link rel="next" href="ruby.html">
     
     
-    <link rel="prev" href="csharp.html">
+    <link rel="prev" href="node.html">
     
 
     </head>
@@ -316,7 +316,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="csharp.html">
+        <li class="chapter active" data-level="5.2" data-path="csharp.html">
             
                 <a href="csharp.html">
             
@@ -329,7 +329,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.3" data-path="ruby.html">
+        <li class="chapter " data-level="5.3" data-path="ruby.html">
             
                 <a href="ruby.html">
             
@@ -398,7 +398,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="..">Ruby</a>
+        <a href="..">C-Sharp</a>
     </h1>
 </div>
 
@@ -413,15 +413,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="ruby-library">Ruby Library</h2>
-<p>A ruby client library for the <a href="http://bandwidth.com/products/application-platform?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=_" target="_blank">Bandwidth Application Platform</a></p>
-<p>The current version is v1.0.14, released 4 May, 2016.</p>
-<p><a href="https://github.com/bandwidthcom/ruby-bandwidth/tree/v1.0.14" target="_blank"><img src="../images/github_logo.png" alt="github"></a></p>
+                                <h2 id="c-library">C# Library</h2>
+<p>A .Net client library for the <a href="http://bandwidth.com/products/application-platform?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=_" target="_blank">Bandwidth Application Platform</a></p>
+<p>The current version is v3.0, released ## August, 2016. Version 2.14 is available  <a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v2.14" target="_blank">here</a>.</p>
+<p><a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v3-preview" target="_blank"><img src="../images/github_logo.png" alt="github"></a></p>
+<p><a href="http://bwdemos.com/csharp-bandwidth/html/R_Project_API.htm" target="_blank">Full API Reference</a></p>
 <h3 id="installing-the-sdk">Installing the SDK</h3>
-<p><code>ruby-bandwidth</code> is available on rubygem:</p>
-<pre><code>gem install ruby-bandwidth
+<p><code>Bandwidth.Net</code> is available on Nuget (Nuget 3.0+ is required):</p>
+<pre><code>Install-Package Bandwidth.Net
 </code></pre><h3 id="supported-versions">Supported Versions</h3>
-<p>`ruby-bandwidth should work on Ruby 1.9+.</p>
+<p><code>Bandwidth.Net</code> should work on all levels of .Net Framework 4.5+.</p>
 <table>
 <thead>
 <tr>
@@ -431,33 +432,33 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">&lt;1.9</td>
+<td style="text-align:left">&lt;4.5</td>
 <td style="text-align:left">Unsupported</td>
 </tr>
 <tr>
-<td style="text-align:left">1.9</td>
+<td style="text-align:left">4.5</td>
 <td style="text-align:left">Supported</td>
 </tr>
 <tr>
-<td style="text-align:left">2.0</td>
+<td style="text-align:left">4.6</td>
 <td style="text-align:left">Supported</td>
 </tr>
 <tr>
-<td style="text-align:left">2.1</td>
+<td style="text-align:left">.Net Core (netstandard1.6)</td>
 <td style="text-align:left">Supported</td>
 </tr>
 <tr>
-<td style="text-align:left">2.2</td>
+<td style="text-align:left">PCL (Profile111)</td>
 <td style="text-align:left">Supported</td>
 </tr>
 <tr>
-<td style="text-align:left">2.3</td>
+<td style="text-align:left">Xamarin (IOS, Android, MonoTouch)</td>
 <td style="text-align:left">Supported</td>
 </tr>
 </tbody>
 </table>
 <h3 id="client-initialization">Client initialization</h3>
-<p>All interaction with the API is done through a class <code>Client</code>. The <code>Client</code> constructor takes as parameter hash with next keys:</p>
+<p>All interaction with the API is done through a class <code>Client</code>. The <code>Client</code> constructor takes an next options:</p>
 <table>
 <thead>
 <tr>
@@ -469,25 +470,25 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>user_id</code></td>
+<td style="text-align:left"><code>userId</code></td>
 <td style="text-align:left">Your user ID</td>
 <td style="text-align:left">none</td>
 <td style="text-align:left">Yes</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>api_token</code></td>
+<td style="text-align:left"><code>apiToken</code></td>
 <td style="text-align:left">Your API token</td>
 <td style="text-align:left">none</td>
 <td style="text-align:left">Yes</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>api_secret</code></td>
+<td style="text-align:left"><code>apiSecret</code></td>
 <td style="text-align:left">Your API secret</td>
 <td style="text-align:left">none</td>
 <td style="text-align:left">Yes</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>base_url</code></td>
+<td style="text-align:left"><code>baseUrl</code></td>
 <td style="text-align:left">The Bandwidth API URL</td>
 <td style="text-align:left"><code>https://api.catapult.inetwork.com</code></td>
 <td style="text-align:left">No</td>
@@ -495,21 +496,59 @@
 </tbody>
 </table>
 <p>To initialize the <code>Client</code> instance, provide your API credentials which can be found on your account page in <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank">the portal</a>.</p>
-<pre><code class="lang-ruby">client = <span class="hljs-symbol">Bandwidth:</span><span class="hljs-symbol">:Client</span>.new(
-    <span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-regexp">//</span> &lt;-- note, this is <span class="hljs-keyword">not</span> the same as the username you used to login to the portal
-    <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
-    <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
-)
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Bandwidth.Net;
+
+<span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(
+    <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
+    <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
+);
 </code></pre>
 <p>Your <code>client</code> object is now ready to use the API.</p>
+<h4 id="lazy-evalutions">Lazy evalutions</h4>
+<p>This library uses lazy evalutions in next cases:</p>
+<pre><code>- Object creation,
+- Get list of objects
+</code></pre><h4 id="object-creation">Object Creation</h4>
+<p>When you create a bridge, call, message, etc. you will receive instance of <code>ILazyInstance&lt;&gt;</code> as result. It allow you to get <code>Id</code> of created object and created object on demand via property <code>Instance</code>.</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> application = <span class="hljs-keyword">await</span> client.Application.CreateAsync(<span class="hljs-keyword">new</span> CreateApplicationData {Name = <span class="hljs-string">&quot;MyFirstApp&quot;</span>});
+
+Console.WriteLine(application.Id); <span class="hljs-comment">//will return Id of created application</span>
+
+Console.WriteLine(application.Instance.Name); <span class="hljs-comment">//will make request to Catapult API to get application data</span>
+
+Console.WriteLine(application.Instance.Name); <span class="hljs-comment">//will use cached application&apos;s data</span>
+</code></pre>
+<h4 id="get-list-of-objects">Get list of objects</h4>
+<p>Executing of methods which returns collections of objects will not execute Catapult API request immediately. THis request will be executed only when you try enumerate items of the collection.</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> calls = client.Call.List(); <span class="hljs-comment">// will not execute any requests to Catapult API here</span>
+
+<span class="hljs-keyword">foreach</span>(<span class="hljs-keyword">var</span> call <span class="hljs-keyword">in</span> calls) <span class="hljs-comment">// a request to Catapult API will be executed here</span>
+{
+    Console.WriteLine(call.From);
+}
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">var</span> list = calls.ToList(); <span class="hljs-comment">// a request to Catapult API will be executed here</span>
+</code></pre>
 <h3 id="send-a-sms">Send a SMS</h3>
-<pre><code class="lang-ruby">message = <span class="hljs-symbol">Bandwidth:</span><span class="hljs-symbol">:Message</span>.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>})
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+12345678901&quot;</span>, <span class="hljs-comment">// This must be a Bandwidth number on your account</span>
+    To   = <span class="hljs-string">&quot;+12345678902&quot;</span>,
+    Text = <span class="hljs-string">&quot;Hello world.&quot;</span>
+});
+Console.WriteLine($<span class="hljs-string">&quot;Message Id is {message.Id}&quot;</span>);
 </code></pre>
 <h3 id="make-a-call">Make a call</h3>
-<pre><code class="lang-ruby">call = <span class="hljs-symbol">Bandwidth:</span><span class="hljs-symbol">:Call</span>.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>})
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData {
+    From = <span class="hljs-string">&quot;+12345678901&quot;</span>, <span class="hljs-comment">// This must be a Bandwidth number on your account</span>
+    To   = <span class="hljs-string">&quot;+12345678902&quot;</span>
+});
+Console.WriteLine($<span class="hljs-string">&quot;Call Id is {call.Id}&quot;</span>);
 </code></pre>
 <h3 id="providing-feedback">Providing feedback</h3>
-<p>For current discussions on 1.0 please see the <a href="https://github.com/bandwidthcom/ruby-bandwidth/labels/1.0" target="_blank">1.0 issues section on GitHub</a>. To start a new topic on 1.0, please open an issue and use the <code>1.0</code> tag. Your feedback is greatly appreciated!</p>
+<p>For current discussions on 3.0 please see the <a href="https://github.com/bandwidthcom/csharp-bandwidth/labels/3.0" target="_blank">3.0 issues section on GitHub</a>. To start a new topic on 3.0, please open an issue and use the <code>3.0</code> tag. Your feedback is greatly appreciated!</p>
 
                                 
                                 </section>
@@ -543,7 +582,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ruby","level":"5.3","depth":1,"next":{"title":"Python","level":"5.4","depth":1,"path":"clientLib/python.md","ref":"clientLib/python.md","articles":[]},"previous":{"title":"C-Sharp","level":"5.2","depth":1,"path":"clientLib/csharp.md","ref":"clientLib/csharp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/ruby.md","mtime":"2016-11-11T19:03:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-11T19:15:06.386Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"C-Sharp","level":"5.2","depth":1,"next":{"title":"Ruby","level":"5.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"previous":{"title":"Node JS","level":"5.1","depth":1,"path":"clientLib/node.md","ref":"clientLib/node.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/csharp.md","mtime":"2016-11-11T19:05:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-11T19:15:06.386Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
