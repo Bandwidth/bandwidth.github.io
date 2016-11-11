@@ -3,7 +3,7 @@
 
 
 [data-icons8]:before,
-.icons8-administrator-male:before,
+.icons8-administrator:before,
 .icons8-amazon:before,
 .icons8-appointment-reminders:before,
 .icons8-ascending-sorting:before,
@@ -44,14 +44,19 @@
 .icons8-calendar-7:before,
 .icons8-calendar-8:before,
 .icons8-calendar-9:before,
+.icons8-call-transfer:before,
+.icons8-call-transfer-filled:before,
 .icons8-cat:before,
 .icons8-cheap-2:before,
 .icons8-checked-checkbox:before,
 .icons8-checkmark:before,
-.icons8-circled-user-male:before,
 .icons8-code:before,
-.icons8-collaborator-male:before,
+.icons8-collaborator:before,
+.icons8-collapse:before,
 .icons8-controller:before,
+.icons8-copy:before,
+.icons8-courses:before,
+.icons8-courses-filled:before,
 .icons8-crown:before,
 .icons8-csv:before,
 .icons8-delete:before,
@@ -64,6 +69,7 @@
 .icons8-download-from-cloud:before,
 .icons8-empty-box:before,
 .icons8-error-filled:before,
+.icons8-exclamation-mark-filled:before,
 .icons8-exit:before,
 .icons8-expand-arrow:before,
 .icons8-expensive-2:before,
@@ -74,16 +80,23 @@
 .icons8-forward:before,
 .icons8-gender-neutral-user:before,
 .icons8-google-logo-filled:before,
-.icons8-guest-male:before,
+.icons8-guest:before,
+.icons8-hashtag:before,
+.icons8-hashtag-filled:before,
 .icons8-help:before,
 .icons8-help-2:before,
+.icons8-home:before,
 .icons8-insert-table:before,
+.icons8-journey:before,
+.icons8-journey-filled:before,
 .icons8-lock:before,
 .icons8-lol:before,
 .icons8-low-price:before,
+.icons8-maintenance:before,
 .icons8-menu:before,
+.icons8-menu-2:before,
 .icons8-message:before,
-.icons8-moderator-male:before,
+.icons8-moderator:before,
 .icons8-more:before,
 .icons8-ms-excel:before,
 .icons8-music-video:before,
@@ -100,6 +113,8 @@
 .icons8-search-filled:before,
 .icons8-security-checked:before,
 .icons8-skype-filled:before,
+.icons8-sms:before,
+.icons8-sms-filled:before,
 .icons8-sorting-options:before,
 .icons8-speech-bubble:before,
 .icons8-speech-bubble-filled:before,
@@ -117,6 +132,7 @@
 .icons8-thumb-up:before,
 .icons8-toggle-off:before,
 .icons8-toggle-on-filled:before,
+.icons8-toolbox:before,
 .icons8-trash:before,
 .icons8-tripadvisor:before,
 .icons8-tv-show:before,
@@ -126,15 +142,16 @@
 .icons8-up-2:before,
 .icons8-user:before,
 .icons8-user-female-body:before,
+.icons8-user-male-circle:before,
 .icons8-video-playlist:before,
 .icons8-whatsapp-filled:before,
-.icons8-worker-male:before,
+.icons8-worker:before,
 .icons8-xls:before,
 { @include icons8-font; }
 
 [data-icons8]:before { content: attr(data-icons8); }
 
-.icons8-administrator-male:before { content: $icons8-var-administrator-male; }
+.icons8-administrator:before { content: $icons8-var-administrator; }
 .icons8-amazon:before { content: $icons8-var-amazon; }
 .icons8-appointment-reminders:before { content: $icons8-var-appointment-reminders; }
 .icons8-ascending-sorting:before { content: $icons8-var-ascending-sorting; }
@@ -175,14 +192,19 @@
 .icons8-calendar-7:before { content: $icons8-var-calendar-7; }
 .icons8-calendar-8:before { content: $icons8-var-calendar-8; }
 .icons8-calendar-9:before { content: $icons8-var-calendar-9; }
+.icons8-call-transfer:before { content: $icons8-var-call-transfer; }
+.icons8-call-transfer-filled:before { content: $icons8-var-call-transfer-filled; }
 .icons8-cat:before { content: $icons8-var-cat; }
 .icons8-cheap-2:before { content: $icons8-var-cheap-2; }
 .icons8-checked-checkbox:before { content: $icons8-var-checked-checkbox; }
 .icons8-checkmark:before { content: $icons8-var-checkmark; }
-.icons8-circled-user-male:before { content: $icons8-var-circled-user-male; }
 .icons8-code:before { content: $icons8-var-code; }
-.icons8-collaborator-male:before { content: $icons8-var-collaborator-male; }
+.icons8-collaborator:before { content: $icons8-var-collaborator; }
+.icons8-collapse:before { content: $icons8-var-collapse; }
 .icons8-controller:before { content: $icons8-var-controller; }
+.icons8-copy:before { content: $icons8-var-copy; }
+.icons8-courses:before { content: $icons8-var-courses; }
+.icons8-courses-filled:before { content: $icons8-var-courses-filled; }
 .icons8-crown:before { content: $icons8-var-crown; }
 .icons8-csv:before { content: $icons8-var-csv; }
 .icons8-delete:before { content: $icons8-var-delete; }
@@ -195,6 +217,7 @@
 .icons8-download-from-cloud:before { content: $icons8-var-download-from-cloud; }
 .icons8-empty-box:before { content: $icons8-var-empty-box; }
 .icons8-error-filled:before { content: $icons8-var-error-filled; }
+.icons8-exclamation-mark-filled:before { content: $icons8-var-exclamation-mark-filled; }
 .icons8-exit:before { content: $icons8-var-exit; }
 .icons8-expand-arrow:before { content: $icons8-var-expand-arrow; }
 .icons8-expensive-2:before { content: $icons8-var-expensive-2; }
@@ -205,16 +228,23 @@
 .icons8-forward:before { content: $icons8-var-forward; }
 .icons8-gender-neutral-user:before { content: $icons8-var-gender-neutral-user; }
 .icons8-google-logo-filled:before { content: $icons8-var-google-logo-filled; }
-.icons8-guest-male:before { content: $icons8-var-guest-male; }
+.icons8-guest:before { content: $icons8-var-guest; }
+.icons8-hashtag:before { content: $icons8-var-hashtag; }
+.icons8-hashtag-filled:before { content: $icons8-var-hashtag-filled; }
 .icons8-help:before { content: $icons8-var-help; }
 .icons8-help-2:before { content: $icons8-var-help-2; }
+.icons8-home:before { content: $icons8-var-home; }
 .icons8-insert-table:before { content: $icons8-var-insert-table; }
+.icons8-journey:before { content: $icons8-var-journey; }
+.icons8-journey-filled:before { content: $icons8-var-journey-filled; }
 .icons8-lock:before { content: $icons8-var-lock; }
 .icons8-lol:before { content: $icons8-var-lol; }
 .icons8-low-price:before { content: $icons8-var-low-price; }
+.icons8-maintenance:before { content: $icons8-var-maintenance; }
 .icons8-menu:before { content: $icons8-var-menu; }
+.icons8-menu-2:before { content: $icons8-var-menu-2; }
 .icons8-message:before { content: $icons8-var-message; }
-.icons8-moderator-male:before { content: $icons8-var-moderator-male; }
+.icons8-moderator:before { content: $icons8-var-moderator; }
 .icons8-more:before { content: $icons8-var-more; }
 .icons8-ms-excel:before { content: $icons8-var-ms-excel; }
 .icons8-music-video:before { content: $icons8-var-music-video; }
@@ -231,6 +261,8 @@
 .icons8-search-filled:before { content: $icons8-var-search-filled; }
 .icons8-security-checked:before { content: $icons8-var-security-checked; }
 .icons8-skype-filled:before { content: $icons8-var-skype-filled; }
+.icons8-sms:before { content: $icons8-var-sms; }
+.icons8-sms-filled:before { content: $icons8-var-sms-filled; }
 .icons8-sorting-options:before { content: $icons8-var-sorting-options; }
 .icons8-speech-bubble:before { content: $icons8-var-speech-bubble; }
 .icons8-speech-bubble-filled:before { content: $icons8-var-speech-bubble-filled; }
@@ -248,6 +280,7 @@
 .icons8-thumb-up:before { content: $icons8-var-thumb-up; }
 .icons8-toggle-off:before { content: $icons8-var-toggle-off; }
 .icons8-toggle-on-filled:before { content: $icons8-var-toggle-on-filled; }
+.icons8-toolbox:before { content: $icons8-var-toolbox; }
 .icons8-trash:before { content: $icons8-var-trash; }
 .icons8-tripadvisor:before { content: $icons8-var-tripadvisor; }
 .icons8-tv-show:before { content: $icons8-var-tv-show; }
@@ -257,8 +290,9 @@
 .icons8-up-2:before { content: $icons8-var-up-2; }
 .icons8-user:before { content: $icons8-var-user; }
 .icons8-user-female-body:before { content: $icons8-var-user-female-body; }
+.icons8-user-male-circle:before { content: $icons8-var-user-male-circle; }
 .icons8-video-playlist:before { content: $icons8-var-video-playlist; }
 .icons8-whatsapp-filled:before { content: $icons8-var-whatsapp-filled; }
-.icons8-worker-male:before { content: $icons8-var-worker-male; }
+.icons8-worker:before { content: $icons8-var-worker; }
 .icons8-xls:before { content: $icons8-var-xls; }
 

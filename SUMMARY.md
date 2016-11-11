@@ -5,10 +5,10 @@
 * [Home](README.md)
 
 ## How To
-* [App Platform](howto/aphowto.md)
-* [Incoming Call & Messaging](howto/incomingCallandMessaging.md)
-* [Buy TN](howto/buytn.md)
-* [Message Tutorial](howto/messages.md)
+* [Tutorials](howto/aphowto.md)
+* [Buy Telephone Number](howto/buytn.md)
+* [Incoming Messages and Calls](howto/incomingCallandMessaging.md)
+* [Messaging Tutorials](howto/messages.md)
   * [Send SMS/MMS](howto/sendSMSMMS.md)
   * [Send SMS with DLR](howto/smsDLR.md)
 * [Voice Tutorials](howto/voice.md)
@@ -21,7 +21,7 @@
 * [Secure your callbacks](callbackSecurity.md)
 
 ## API Reference
- * [App Platform](https://bandwidth.github.io/ap-docs/methods/restApi.html)
+ * [Full API reference](https://bandwidth.github.io/ap-docs/methods/restApi.html)
 
 ## SDKs
 * [Node JS](clientLib/node.md)
@@ -29,4 +29,3 @@
 * [Ruby](clientLib/ruby.md)
 * [Python](clientLib/python.md)
 * [Java](clientLib/java.md)
-

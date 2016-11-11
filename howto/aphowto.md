@@ -2,8 +2,8 @@
 
 | Tutorial                               | Description                                                                               |
 |:---------------------------------------|:------------------------------------------------------------------------------------------|
-| [Buy Phone Number](buytn.md)           | This example shows you how to buy numbers for use with your Application Platform account. |
-| Setup Incoming Messages & Calls (REST) | Learn how to setup your application to receive inbound calls and texting messaging.       |
+| [Buy Telephone Number](buytn.md)           | This example shows you how to buy numbers for use with your Application Platform account. |
+| [Setup Incoming Messages & Calls (REST)](incomingCallandMessaging.md) | Learn how to setup your application to receive inbound calls and texting messaging.       |
 
 ### Messaging Tutorials
 | Tutorial                                  | Description                                                                                                |
