@@ -180,6 +180,10 @@ button:active{
 .aimg {
    border-bottom: none;
 }
+a img {
+  border:none;
+  vertical-align:top;
+}
 .book-body, .book-summary{
   height: calc(100% - 70px);
   position: fixed;
@@ -217,7 +221,6 @@ button:active{
 }
 .book-summary ul.summary li.active>a {
     color: #008db1;
-    font-weight: bold;
 }
 .markdown-section a{
   color: #008db1 !important;
@@ -283,6 +286,10 @@ a{
 }
 a:hover{
   padding-bottom:.15em;
+  text-decoration: none !important;
+}
+a:focus{
+  border-bottom: 5px solid #d9f5fc;
   text-decoration: none !important;
 }
 a:active{
