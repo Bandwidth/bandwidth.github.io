@@ -17,8 +17,7 @@ In order to recieve incoming call and messaging events, you'll need to:
 {% sample lang="js" %}
 
 ```js
-//NodeJS
-
+// npm install --save node-bandwidth
 var Bandwidth = require("node-bandwidth");
 
 var client = new Bandwidth({
@@ -27,46 +26,44 @@ var client = new Bandwidth({
 	apiSecret : "{{apiSecret}}"
 });
 
-// Need to use the id of the new application when ordering phone number
-var appId;
+function createApplication (params) {
+	return client.Application.create(params)
+}
+
+function searchAndOrderPhoneNumber (state, applicationId) {
+	return client.AvailableNumber.search("local", {state: state})
+	.then(function (availableNumbers) {
+		//Parameters for ordering the phone number
+		var phoneNumberPayload = {
+			//Be sure to set the applicationId to the id of application created
+			applicationId : applicationId,
+			number : availableNumbers[0].number,
+			name : availableNumbers[0].nationalNumber
+		}
+		//Order the phone number
+		return client.PhoneNumber.create(phoneNumberPayload);
+	});
+}
 
 //Parameters for creating new application
 var appPayload = {
-	name: "MyFirstApp", // Name
+	name: "MyFirstApp2", // Name
 	incomingCallUrl: "http://example.com/calls", //Callback URL for phone calls
 	incomingMessageUrl : "http://example.com/messages" //Callback URL for messages
 };
 
-//Create the application
-client.Application.create(appPayload)
-.then(function (response) {
-	appId = response.id;
-	console.log("Application ID: " + appId);
-	return client.Application.get(appId);
-})
+createApplication(appPayload)
 .then(function (application) {
-	console.log("Application Name: " + application.name);
-	//Search for phone numbers in North Carolina
-	return client.AvailableNumber.search("local", {state:"NC"});
-})
-.then(function (availableNumbers) {
-	//Parameters for ordering the phone number
-	var phoneNumberPayload = {
-		//Be sure to set the applicationId to the id of application created
-		applicationId : appId,
-		number : availableNumbers[0].number,
-		name : availableNumbers[0].nationalNumber
-	}
-	//Order the phone number
-	return client.PhoneNumber.create(phoneNumberPayload);
-})
-.then(function (phoneNumber) {
-	console.log("Phone Number ID: " + phoneNumber.id);
+	console.log("Application ID: " + application.id);
+	return searchAndOrderPhoneNumber("NC", application.id);
 })
 .catch(function (e) {
 	console.error(e);
 	throw e;
 });
+
+
+
 ```
 
 {% sample lang="csharp" %}
