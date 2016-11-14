@@ -447,8 +447,7 @@
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html" target="_blank">Assign the phone number to the application</a></li>
 </ol>
 <h3 id="example-setup-an-application-and-order-phone-number">Example: Setup an application and order phone number</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//NodeJS</span>
-
+</div><div class="api-method-code"><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// npm install --save node-bandwidth</span>
 <span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
@@ -457,41 +456,36 @@
     apiSecret : <span class="hljs-string">&quot;{{apiSecret}}&quot;</span>
 });
 
-<span class="hljs-comment">// Need to use the id of the new application when ordering phone number</span>
-<span class="hljs-keyword">var</span> appId;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createApplication</span> (<span class="hljs-params">params</span>) </span>{
+    <span class="hljs-keyword">return</span> client.Application.create(params)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchAndOrderPhoneNumber</span> (<span class="hljs-params">state, applicationId</span>) </span>{
+    <span class="hljs-keyword">return</span> client.AvailableNumber.search(<span class="hljs-string">&quot;local&quot;</span>, {state: state})
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">availableNumbers</span>) </span>{
+        <span class="hljs-comment">//Parameters for ordering the phone number</span>
+        <span class="hljs-keyword">var</span> phoneNumberPayload = {
+            <span class="hljs-comment">//Be sure to set the applicationId to the id of application created</span>
+            applicationId : applicationId,
+            number : availableNumbers[<span class="hljs-number">0</span>].number,
+            name : availableNumbers[<span class="hljs-number">0</span>].nationalNumber
+        }
+        <span class="hljs-comment">//Order the phone number</span>
+        <span class="hljs-keyword">return</span> client.PhoneNumber.create(phoneNumberPayload);
+    });
+}
 
 <span class="hljs-comment">//Parameters for creating new application</span>
 <span class="hljs-keyword">var</span> appPayload = {
-    name: <span class="hljs-string">&quot;MyFirstApp&quot;</span>, <span class="hljs-comment">// Name</span>
+    name: <span class="hljs-string">&quot;MyFirstApp2&quot;</span>, <span class="hljs-comment">// Name</span>
     incomingCallUrl: <span class="hljs-string">&quot;http://example.com/calls&quot;</span>, <span class="hljs-comment">//Callback URL for phone calls</span>
     incomingMessageUrl : <span class="hljs-string">&quot;http://example.com/messages&quot;</span> <span class="hljs-comment">//Callback URL for messages</span>
 };
 
-<span class="hljs-comment">//Create the application</span>
-client.Application.create(appPayload)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    appId = response.id;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Application ID: &quot;</span> + appId);
-    <span class="hljs-keyword">return</span> client.Application.get(appId);
-})
+createApplication(appPayload)
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">application</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Application Name: &quot;</span> + application.name);
-    <span class="hljs-comment">//Search for phone numbers in North Carolina</span>
-    <span class="hljs-keyword">return</span> client.AvailableNumber.search(<span class="hljs-string">&quot;local&quot;</span>, {state:<span class="hljs-string">&quot;NC&quot;</span>});
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">availableNumbers</span>) </span>{
-    <span class="hljs-comment">//Parameters for ordering the phone number</span>
-    <span class="hljs-keyword">var</span> phoneNumberPayload = {
-        <span class="hljs-comment">//Be sure to set the applicationId to the id of application created</span>
-        applicationId : appId,
-        number : availableNumbers[<span class="hljs-number">0</span>].number,
-        name : availableNumbers[<span class="hljs-number">0</span>].nationalNumber
-    }
-    <span class="hljs-comment">//Order the phone number</span>
-    <span class="hljs-keyword">return</span> client.PhoneNumber.create(phoneNumberPayload);
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">phoneNumber</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Phone Number ID: &quot;</span> + phoneNumber.id);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Application ID: &quot;</span> + application.id);
+    <span class="hljs-keyword">return</span> searchAndOrderPhoneNumber(<span class="hljs-string">&quot;NC&quot;</span>, application.id);
 })
 .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
     <span class="hljs-built_in">console</span>.error(e);
@@ -575,7 +569,7 @@ client.Application.create(appPayload)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.3","depth":1,"next":{"title":"Messaging Tutorials","level":"2.4","depth":1,"path":"howto/messages.md","ref":"howto/messages.md","articles":[{"title":"Send SMS/MMS","level":"2.4.1","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.4.2","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]}]},"previous":{"title":"Buy Telephone Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-11-14T19:40:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T19:42:28.845Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.3","depth":1,"next":{"title":"Messaging Tutorials","level":"2.4","depth":1,"path":"howto/messages.md","ref":"howto/messages.md","articles":[{"title":"Send SMS/MMS","level":"2.4.1","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.4.2","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]}]},"previous":{"title":"Buy Telephone Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-11-14T20:24:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T20:24:36.754Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
