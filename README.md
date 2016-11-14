@@ -3,7 +3,7 @@ Here you will find everything you need to get started. Jump right into the [full
 
 <div class="devCards">
   <i class="icons8-hashtag" style="font-size: 40px"></i>
-  <h2>Numbers</h2>
+  <h2>Telephone Numbers</h2>
   <a href="howto/buytn.html">Buy a telephone number</a><br>
   You will need to do this first. Go for it!
 </div><div class="devCards">
