@@ -21,6 +21,9 @@
 ## API Reference
 * [Full API reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
 
+## Deployable Demos
+* [All Languages](howto/deployableDemos.md)
+
 ## SDKs
  * [Node JS](clientLib/node.md)
  * [C-Sharp](clientLib/csharp.md)
