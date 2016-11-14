@@ -2,8 +2,8 @@
 
 ## Buy Phone Number
 There are 2 ways to buy a phone number:
-1. `GET` on the `availableNumbers` resource, followed by a `POST` to the `phoneNumbers` resource
-2. `POST` on the `availableNumbers` resource
+1. <code class="get">GET</code> on the `availableNumbers` resource, followed by a <code class="post">POST</code> to the `phoneNumbers` resource
+2. <code class="post">POST</code> on the `availableNumbers` resource
 
 {% common %}
 ### Search then Order
