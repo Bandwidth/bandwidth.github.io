@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -446,8 +442,90 @@
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html" target="_blank">Order a phone number</a></li>
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html" target="_blank">Assign the phone number to the application</a></li>
 </ol>
-<h3 id="example-setup-an-application-and-order-phone-number">Example: Setup an application and order phone number</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// npm install --save node-bandwidth</span>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-create-an-application">Example: Create an application</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;name&quot;: &quot;MyFirstApp&quot;,
+        &quot;incomingCallUrl&quot;: &quot;http://example.com/calls.php&quot;,
+        &quot;incomingMessageUrl&quot;: &quot;http://example.com/messages.php&quot;,
+        &quot;callbackHttpMethod&quot;: &quot;GET&quot;,
+        &quot;autoAnswer&quot;: true
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
+client.Application.create({
+    name: <span class="hljs-string">&apos;MyFirstApp&apos;</span>,
+    incomingCallUrl: <span class="hljs-string">&apos;http://your-server.com/CallCallback&apos;</span>,
+    incomingMessageUrl: <span class="hljs-string">&apos;http://your-server.com/MsgCallback&apos;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">application</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(application.id);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> application = <span class="hljs-keyword">await</span> client.Application.CreateAsync(<span class="hljs-keyword">new</span> CreateApplicationData{
+    Name = <span class="hljs-string">&quot;SampleApp2&quot;</span>,
+    IncomingCallUrl = <span class="hljs-string">&quot;http://your-server.com/CallCallback&quot;</span>,
+    IncomingMessageUrl = <span class="hljs-string">&quot;http://your-server.com/MsgCallback&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">application = Application.create(client, {
+    <span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&quot;SampleApp2&quot;</span>,
+    <span class="hljs-symbol">:incoming_call_url</span> =&gt; <span class="hljs-string">&quot;http://your-server.com/CallCallback&quot;</span>,
+    <span class="hljs-symbol">:incoming_message_url</span> =&gt; <span class="hljs-string">&quot;http://your-server.com/MsgCallback&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-search-and-order-phone-number">Example: Search and order phone number</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/<span class="hljs-built_in">local</span>?city=Cary&amp;state=NC&amp;quantity=2 \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Search 2 available local phone numbers with area code 910 and order them</span>
+
+<span class="hljs-comment">// Promise</span>
+client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">2</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.AvailableNumber.serchAndOrder(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">2</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, numbers</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchAndOrderLocalAsync(
+  <span class="hljs-keyword">new</span> LocalNumberQueryForOrder{ AreaCode = <span class="hljs-string">&quot;910&quot;</span>, Quantity = <span class="hljs-number">2</span>});
+<span class="hljs-keyword">var</span> firstResult = results.First();
+<span class="hljs-keyword">var</span> number = firstResult.Number;
+<span class="hljs-keyword">var</span> numberId = firstResult.Id;
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">results = AvailableNumber.search_and_order_local(client, {<span class="hljs-symbol">area_code:</span> <span class="hljs-string">&apos;910&apos;</span>, <span class="hljs-symbol">quantity:</span> <span class="hljs-number">2</span>})
+first_result = results.<span class="hljs-keyword">next</span>
+number = first_result[<span class="hljs-symbol">:number</span>]
+number_id = first_result[<span class="hljs-symbol">:id</span>]
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-add-phone-number-to-application">Example: Add phone number to application</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;applicationId&quot;: &quot;{application_id}&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.PhoneNumber.UpdateAsync(numberId, <span class="hljs-keyword">new</span> UpdatePhoneNUmberData {
+    ApplicationId = <span class="hljs-string">&quot;{application_id}&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">phoneNumber.update({<span class="hljs-symbol">:application_id</span> =&gt; <span class="hljs-string">&quot;{application_id}&quot;</span>})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-setup-an-application-and-order-phone-number">Example: Setup an application and order phone number</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// npm install --save node-bandwidth</span>
 <span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
@@ -537,6 +615,7 @@ createApplication(appPayload)
 }
 </code></pre>
 </div></div></div>
+
                                 
                                 </section>
                             
@@ -569,7 +648,7 @@ createApplication(appPayload)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.3","depth":1,"next":{"title":"Messaging Tutorials","level":"2.4","depth":1,"path":"howto/messages.md","ref":"howto/messages.md","articles":[{"title":"Send SMS/MMS","level":"2.4.1","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.4.2","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]}]},"previous":{"title":"Buy Telephone Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-11-14T20:24:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T20:24:36.754Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.3","depth":1,"next":{"title":"Messaging Tutorials","level":"2.4","depth":1,"path":"howto/messages.md","ref":"howto/messages.md","articles":[{"title":"Send SMS/MMS","level":"2.4.1","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.4.2","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]}]},"previous":{"title":"Buy Telephone Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-11-14T20:54:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:03:51.281Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -580,10 +659,6 @@ createApplication(appPayload)
     
         
         <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
         
     
         
