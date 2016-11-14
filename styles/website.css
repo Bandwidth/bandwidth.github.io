@@ -203,6 +203,9 @@ button:active{
     background-color: #272B2D;
     color: #D0D4D7;
 }
+.page-inner section{
+    font-size: 1em !important;
+}
 .api-method-code {
     color: #EEE;
     background-color: #272B2D !important;
