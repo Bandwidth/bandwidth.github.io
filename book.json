@@ -4,7 +4,6 @@
         "header",
         "sharing",
         "custom-favicon",
-        "toggle-chapters",
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"
     ],
     "pluginsConfig": {
