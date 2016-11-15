@@ -223,6 +223,9 @@ a img {
 .book-summary ul.summary li.active>a {
   color: #00bcec;
 }
+.summary li:last-child{
+  display: none;
+}
 .markdown-section a{
   color: #008db1 !important;
 }
