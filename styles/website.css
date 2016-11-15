@@ -241,7 +241,8 @@ a img {
   padding: 5px 15px;
 }
 .book-summary ul.summary li.header {
-  padding: 20px 15px 0px 15px;
+  padding: 15px 15px 0px 15px;
+  font-size: .85em;
 }
 .book-summary ul.summary li.header:first-child {
   padding-top: 5px;
