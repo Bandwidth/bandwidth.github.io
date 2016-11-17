@@ -30,3 +30,6 @@
  * [Ruby](clientLib/ruby.md)
  * [Python](clientLib/python.md)
  * [Java](clientLib/java.md)
+
+## FAQ
+* [FAQ](http://dev.bandwidth.com/faq)
