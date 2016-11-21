@@ -15,3 +15,82 @@ Here you will find everything you need to get started. Jump right into the [full
   <h2>Messaging</h2>
   <a href="howto/sendSMSMMS.html">Send a text</a><br>SMS or MMS, send it now.
 </div>
+
+### Send Message
+
+```js
+client.Message.send({
+    from : "+19195551212",
+    to   : "+19195551213",
+    text : "Thank you for susbcribing to Unicorn Enterprises!"
+})
+.then(function(message){
+    console.log(message.id);
+});
+```
+
+```csharp
+var message = await client.Message.SendAsync(new MessageData {
+    From = "+19195551212",
+    To = "+19195551213",
+    Text = "Thank you for susbcribing to Unicorn Enterprises!"
+});
+```
+
+```ruby
+message = Message.create(client, {
+    :from => "+19195551212",
+    :to => "+19195551213",
+    :text => "Thank you for susbcribing to Unicorn Enterprises!"
+})
+```
+
+```bash
+
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+        -d \
+    '
+    {
+        "from": "{fromNumber}",
+        "to": "{toNumber}",
+        "text": "Good morning, this is a test message",
+        "callbackUrl": "http://my.callback.url"
+    }'
+```
+
+### Make Call
+
+```js
+client.Call.create({
+    from: "{fromNumber}",
+    to: "{toNumber}"
+})
+.then(function (call) {
+    console.log(call.id);
+})
+```
+
+```csharp
+var call = await client.Call.CreateAsync(new CreateCallData{
+    From = "{fromNumber}",
+    To = "{toNumber}"
+});
+```
+
+```ruby
+call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
+```
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+    -d \
+    '
+    {
+        "from": "{fromNumber}",
+        "to": "{toNumber}"
+    }'
+  ```
