@@ -308,18 +308,27 @@ a img {
   border-bottom: none;
 }
 .book-header .btn.lang-switcher.active {
-  background-color: #2d3134;
-  border-bottom: 5px solid #00bcec;
-  color: #fff;
+  background-color: #272B2D;
+  color: #00bcec;
 }
 .book-header .btn.lang-switcher {
   text-transform: uppercase;
   background-color: #272B2D;
   color: #D0D4D7;
   float: left;
+  line-height: 70px;
+  padding-bottom: 70px;
+  font-weight: bold;
 }
 .first-code-lang{
-  margin-left: calc(50% - 86.4px);
+  margin-left: calc(50% - 94.4px);
+  padding-left: 30px;
+}
+.last-code-lang{
+  padding-right: calc(50% - 244.52px);
+}
+.api-method-example h3{
+  margin-top: 0px;
 }
 .page-inner section{
   font-size: 1em !important;
@@ -327,6 +336,7 @@ a img {
 .api-method-code {
   color: #EEE;
   background-color: #272B2D !important;
+  height: 100vh;
 }
 .api-method-code pre {
   color: #EEE;
