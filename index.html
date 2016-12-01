@@ -245,6 +245,19 @@
             
         </li>
     
+        <li class="chapter " data-level="2.6" data-path="howto/messagingHub.html">
+            
+                <a href="howto/messagingHub.html">
+            
+                    
+                    Setup Numbers for Messaging Hub
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -472,6 +485,68 @@
   <a href="howto/sendSMSMMS.html">Send a text</a><br>SMS or MMS, send it now.
 </div>
 
+<h3 id="send-message">Send Message</h3>
+<pre><code class="lang-js">client.Message.send({
+    <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    to   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    text : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(message.id);
+});
+</code></pre>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+});
+</code></pre>
+<pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+})
+</code></pre>
+<pre><code class="lang-bash">
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;text&quot;: &quot;Good morning, this is a test message&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;
+    }&apos;</span>
+</code></pre>
+<h3 id="make-call">Make Call</h3>
+<pre><code class="lang-js">client.Call.create({
+    <span class="hljs-keyword">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    to: <span class="hljs-string">&quot;{toNumber}&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">call</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(call.id);
+})
+</code></pre>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData{
+    From = <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    To = <span class="hljs-string">&quot;{toNumber}&quot;</span>
+});
+</code></pre>
+<pre><code class="lang-ruby">call = Call.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;{fromNumber}&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;{toNumber}&quot;</span>})
+</code></pre>
+<pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;
+    }&apos;</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -504,7 +579,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Home","level":"1.1","depth":1,"next":{"title":"Tutorials","level":"2.1","depth":1,"path":"howto/aphowto.md","ref":"howto/aphowto.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-15T18:39:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-17T19:02:30.505Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Home","level":"1.1","depth":1,"next":{"title":"Tutorials","level":"2.1","depth":1,"path":"howto/aphowto.md","ref":"howto/aphowto.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-11-21T14:38:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-01T16:53:38.515Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
