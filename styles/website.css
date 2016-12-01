@@ -314,11 +314,17 @@ a img {
 .book-header .btn.lang-switcher {
   text-transform: uppercase;
   background-color: #272B2D;
-  color: #D0D4D7;
+  color: #8e8e8e;
   float: left;
   line-height: 70px;
   padding-bottom: 70px;
   font-weight: bold;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.book-header .btn.lang-switcher:hover{
+  color: #fff;
 }
 .first-code-lang{
   margin-left: calc(50% - 93.4px);
@@ -337,6 +343,7 @@ a img {
   color: #EEE;
   background-color: #272B2D !important;
   min-height: 100vh;
+  padding: 0px 30px 15px !important;
 }
 .api-method-code pre {
   color: #EEE;
@@ -458,7 +465,7 @@ pre{
 pre code{
   border: none !important;
 }
-pre.smstut, pre.voicetut, pre.pntut{
+pre.smstut, pre.voicetut, pre.pntut, .markdown-section pre{
   padding-left: 30px;
   border-radius: 0px;
   background-color: #272B2D;
