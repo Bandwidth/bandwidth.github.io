@@ -13,6 +13,7 @@
   * [Send SMS with DLR](howto/smsDLR.md)
 * [Voice Tutorials](howto/voice.md)
   * [Create outbound call](howto/outboundCall.md)
+* [Setup Numbers for Messaging Hub](howto/messagingHub.md)
 
 ## Security
 * [Access Bandwidth App Platform API](security.md)
