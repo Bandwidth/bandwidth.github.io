@@ -1,6 +1,6 @@
 <div id="hero">
-<h1>Add phone calling and text messaging to your app.</h1>
-<p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<br> or jump right in to the full <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">API reference.</a></p><br>
+  <h1>Add phone calling and text messaging to your app.</h1>
+  <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<br> or jump right in to the full <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">API reference.</a></p><br>
   <div id="smscard" class="devCards sms active">
     <h2><i class="icons8-sms" style="font-size: 20px"></i> Messaging</h2>
     Send a text. It is really simple! SMS or MMS, send it now.
@@ -154,22 +154,22 @@ var results = await client.AvailableNumber.SearchAndOrderLocalAsync(
   $('.lang-js').parent().addClass('active');
 
   $('code').not('.lang-js').parent().hide();
-    $('.trigger').click(function() {
-        $('code').parent().removeClass('active');
-        $('.' + $(this).data('rel')).parent().addClass('active');
+  $('.trigger').click(function() {
+      $('code').parent().removeClass('active');
+      $('.' + $(this).data('rel')).parent().addClass('active');
 
-        if ($('#voicecard').hasClass('active')){
-          $('pre').hide();
-          $('.voicetut.active').show();
-        }
-        if ($('#smscard').hasClass('active')){
-          $('pre').hide();
-          $('.smstut.active').show();
-        } else if ($('#pncard').hasClass('active')){
-          $('pre').hide();
-          $('.pntut.active').show();
-        }
-    });
+      if ($('#voicecard').hasClass('active')){
+        $('pre').hide();
+        $('.voicetut.active').show();
+      }
+      if ($('#smscard').hasClass('active')){
+        $('pre').hide();
+        $('.smstut.active').show();
+      } else if ($('#pncard').hasClass('active')){
+        $('pre').hide();
+        $('.pntut.active').show();
+      }
+  });
 
   var tuts = $('.voicetut, .smstut, .pntut');
 

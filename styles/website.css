@@ -321,11 +321,11 @@ a img {
   font-weight: bold;
 }
 .first-code-lang{
-  margin-left: calc(50% - 94.4px);
-  padding-left: 30px;
+  margin-left: calc(50% - 93.4px);
+  padding-left: 30px !important;
 }
 .last-code-lang{
-  padding-right: calc(50% - 244.52px);
+  padding-right: calc(50% - 245.52px) !important;
 }
 .api-method-example h3{
   margin-top: 0px;
@@ -336,7 +336,7 @@ a img {
 .api-method-code {
   color: #EEE;
   background-color: #272B2D !important;
-  height: 100vh;
+  min-height: 100vh;
 }
 .api-method-code pre {
   color: #EEE;
@@ -353,15 +353,17 @@ a img {
   color: #008db1 !important;
 }
 .markdown-section {
-  padding: 0px 30px 0;
+  padding: 20px 30px;
 }
 .markdown-section h1 {
-  padding-top: 15px;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 .markdown-section h2 {
   font-size: 1.5em;
   font-weight: 900;
   text-transform: uppercase;
+  margin-top: 0px;
 }
 .book.color-theme-3 .book-header .btn.lang-switcher.active {
   background-color: #186469;
@@ -402,19 +404,19 @@ a img {
   width: 33.333%;
   min-width:300px;
   vertical-align:top;
-  border: 1px solid rgba(0,0,0,.07);
+  border: 1px solid rgba(0,0,0,.15);
   border-bottom: none;
   min-height: 202px;
 }
 #smscard{
-  border-radius: 3px 0px 0px 3px;
+  border-radius: 5px 0px 0px 5px;
 }
 #voicecard{
   border-left: 0px;
   border-right: 0px;
 }
 #pncard{
-  border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 .devCards h2{
   margin: 0;
@@ -587,7 +589,7 @@ code:before, code:after{
   padding: 0px !important;
 }
 #hero{
-  padding: 0px 30px;
+  padding: 20px 30px;
   max-height: 320px;
 }
 .languageselector{
