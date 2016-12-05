@@ -725,29 +725,15 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
   display: block;
   width: 100%;
 }
-/*
- * Icon Font Bandwidth
- * Made with love by Icons8 [ https://icons8.com/ ] using FontCustom [ https://github.com/FontCustom/fontcustom ]
- *
- * Contacts:
- *    [ https://icons8.com/contact ]
- *
- * Follow Icon8 on
- *    Twitter [ https://twitter.com/icons_8 ]
- *    Facebook [ https://www.facebook.com/Icons8 ]
- *    Google+ [ https://plus.google.com/+Icons8 ]
- *    GitHub [ https://github.com/icons8 ]
- */
-
 
 @font-face {
   font-family: "Bandwidth";
-  src: url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.eot");
-  src: url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.eot?#iefix") format("embedded-opentype"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.woff2") format("woff2"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.woff") format("woff"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.ttf") format("truetype"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.svg#Bandwidth") format("svg");
+  src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.eot");
+  src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.eot?#iefix") format("embedded-opentype"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.woff2") format("woff2"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.woff") format("woff"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.ttf") format("truetype"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.svg#Bandwidth") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -755,7 +741,7 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "Bandwidth";
-    src: url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.svg#Bandwidth") format("svg");
+    src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.svg#Bandwidth") format("svg");
   }
 }
 
@@ -861,6 +847,7 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
 .icons8-music-video:before,
 .icons8-ok:before,
 .icons8-ok-filled:before,
+.icons8-open-in-window:before,
 .icons8-pdf-2:before,
 .icons8-phone:before,
 .icons8-phone-filled:before,
@@ -1019,6 +1006,7 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
 .icons8-music-video:before { content: "\f169"; }
 .icons8-ok:before { content: "\f10a"; }
 .icons8-ok-filled:before { content: "\f10b"; }
+.icons8-open-in-window:before { content: "\f191"; }
 .icons8-pdf-2:before { content: "\f15e"; }
 .icons8-phone:before { content: "\f141"; }
 .icons8-phone-filled:before { content: "\f142"; }
