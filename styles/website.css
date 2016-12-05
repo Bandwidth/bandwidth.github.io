@@ -21,6 +21,9 @@ body *{
   margin-top: 0px;
   top: 50px;
 }
+a[aria-label="Change Layout"]{
+  display: none !important;
+}
 .head{
   display: block;
   height:70px;
@@ -331,7 +334,7 @@ a img {
   color: #fff;
 }
 .first-code-lang{
-  margin-left: calc(50% - 93.4px);
+  margin-left: calc(50% - 50px);
   padding-left: 30px !important;
 }
 .last-code-lang{
