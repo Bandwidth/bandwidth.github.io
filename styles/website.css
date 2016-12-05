@@ -17,6 +17,10 @@ body *{
 .book.font-family-1, .book-summary {
   font-family: 'Raleway', sans-serif;
 }
+.page-inner{
+  margin-top: 0px;
+  top: 50px;
+}
 .head{
   display: block;
   height:70px;
