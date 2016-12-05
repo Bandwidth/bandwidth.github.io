@@ -150,8 +150,8 @@ number = PhoneNumber.create(client, {:number => numbers[0][:number]})
 puts("Now you are owner of number #{number.number} (id #{number.id})")
 ```
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
   // Adding classes for sms, voice and pns
   $('#send-a-message').nextUntil('h3').addClass('smstut');
   $('#send-a-message').addClass('smstut');
@@ -160,7 +160,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   $('#buy-a-telephone-number').nextUntil('h3').addClass('pntut');
   $('#buy-a-telephone-number').addClass('pntut');
 
-  // Access to parent on this page only
+  // Access to parent div on this page only
   $('#hero').parent().addClass('landingpage');
 
   // Setting default language
@@ -189,6 +189,8 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   var tuts = $('.voicetut, .smstut, .pntut');
 
   tuts.hide();
+
+  // Disable buttons on cards that are inactive
   $('.devCards.active').find('.fulltut').prop("disabled",false);
 
   $('#smsexpand').click(function(){
@@ -217,4 +219,4 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
       $('.devCards.active').find('.fulltut').prop("disabled",false);
   });
   $('.smstut.active').show();
-  </script>
+</script>
