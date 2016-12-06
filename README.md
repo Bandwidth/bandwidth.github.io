@@ -152,6 +152,9 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
+$(document).ready(function landing(){
+
+  if ($(window).width() >= 980) {
   // Adding classes for sms, voice and pns
   $('#send-a-message').nextUntil('h3').addClass('smstut');
   $('#send-a-message').addClass('smstut');
@@ -193,7 +196,6 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   // Disable buttons on cards that are inactive
   $('.devCards.active').find('.fulltut').prop("disabled",false);
 
-
   $('#smsexpand').click(function(){
       $('pre').hide();
       $('.smstut.active').show();
@@ -220,4 +222,75 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
       $('.devCards.active').find('.fulltut').prop("disabled",false);
   });
   $('.smstut.active').show();
+  } else {
+    // Adding classes for sms, voice and pns
+    $('#send-a-message').nextUntil('h3').addClass('smstut');
+    $('#send-a-message').addClass('smstut');
+    $('#make-a-call').nextUntil('h3').addClass('voicetut');
+    $('#make-a-call').addClass('voicetut');
+    $('#buy-a-telephone-number').nextUntil('h3').addClass('pntut');
+    $('#buy-a-telephone-number').addClass('pntut');
+
+    // Access to parent div on this page only
+    $('#hero').parent().addClass('landingpage');
+
+    // Setting default language
+    $('.lang-curl').parent().addClass('active');
+
+    // Toggle between languages
+    $('code').not('.lang-curl').parent().hide();
+    $('.trigger').click(function() {
+        $('code').parent().removeClass('active');
+        $('.' + $(this).data('rel')).parent().addClass('active');
+
+        if ($('#voicecard').hasClass('active')){
+          $('pre').hide();
+          $('.voicetut.active').show();
+        }
+        if ($('#smscard').hasClass('active')){
+          $('pre').hide();
+          $('.smstut.active').show();
+        } else if ($('#pncard').hasClass('active')){
+          $('pre').hide();
+          $('.pntut.active').show();
+        }
+    });
+
+    // Showing proper code sample or sms, voice and pns
+    var tuts = $('.voicetut, .smstut, .pntut');
+
+    tuts.hide();
+
+    // Disable buttons on cards that are inactive
+    $('.devCards.active').find('.fulltut').prop("disabled",false);
+
+    $('#smscard').click(function(){
+        $('pre').hide();
+        $('.smstut.active').show();
+        $('.devCards').removeClass('active');
+        $(this).addClass('active');
+        $('.devCards').find('.fulltut').prop("disabled",true);
+        $('.devCards.active').find('.fulltut').prop("disabled",false);
+    });
+    $('#voicecard').click(function(){
+        $('pre').hide();
+        $('.voicetut.active').show();
+        $('.devCards').removeClass('active');
+        $(this).addClass('active');
+        $('.devCards').find('.fulltut').prop("disabled",true);
+        $('.devCards.active').find('.fulltut').prop("disabled",false);
+    });
+
+    $('#pncard').click(function(){
+        $('pre').hide();
+        $('.pntut.active').show();
+        $('.devCards').removeClass('active');
+        $(this).addClass('active');
+        $('.devCards').find('.fulltut').prop("disabled",true);
+        $('.devCards.active').find('.fulltut').prop("disabled",false);
+    });
+    $('.smstut.active').show();
+  }
+});
+$(window).resize(landing);
 </script>
