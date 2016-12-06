@@ -5,5 +5,6 @@ module.exports = function ($) {
 		var newTitle = title.replace(' · GitBook', '');
 		$('title').text(newTitle);
 	}
+	$('ul.summary a:contains(reference)').append('&nbsp;<i class="icons8-open-in-window" style="float:right;"></i>');
 	return $.html();
 }
