@@ -33,7 +33,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
                 
             
         
@@ -79,7 +79,7 @@
 <div class="book"><link href="../styles/styles.min.css" type="text/css">
 <div class="head">
    <a href="http://www.bandwidth.com" class="aimg"><img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png"></a>
-   <h1>|&#xA0; For Developers</h1>
+   <h2> For Developers</h2>
    <ul>
    	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank"><button class="medium hover-go right">Sign up</button></a></li>
    	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
@@ -408,7 +408,7 @@
 
     
         
-        <li class="header">FAQ</li>
+        <li class="header">Help</li>
         
         
     
@@ -480,20 +480,20 @@
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html" target="_blank">Assign the phone number to the application</a></li>
 </ol>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="example-create-an-application">Example: Create an application</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
+</div><div class="api-method-sample" data-lang="curl" data-name="CURL"><pre><code class="lang-curl">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
     -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+    -H &quot;Content-type: application/json&quot; \
+    -d \
+    &apos;
     {
         &quot;name&quot;: &quot;MyFirstApp&quot;,
         &quot;incomingCallUrl&quot;: &quot;http://example.com/calls.php&quot;,
         &quot;incomingMessageUrl&quot;: &quot;http://example.com/messages.php&quot;,
         &quot;callbackHttpMethod&quot;: &quot;GET&quot;,
         &quot;autoAnswer&quot;: true
-    }&apos;</span>
+    }&apos;
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
 client.Application.create({
     name: <span class="hljs-string">&apos;MyFirstApp&apos;</span>,
     incomingCallUrl: <span class="hljs-string">&apos;http://your-server.com/CallCallback&apos;</span>,
@@ -516,11 +516,11 @@ client.Application.create({
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-search-and-order-phone-number">Example: Search and order phone number</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/<span class="hljs-built_in">local</span>?city=Cary&amp;state=NC&amp;quantity=2 \
+</div><div class="api-method-sample" data-lang="curl" data-name="CURL"><pre><code class="lang-curl">curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&amp;state=NC&amp;quantity=2 \
   -u {token}:{secret} \
-  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+  -H &quot;Content-type: application/json&quot; \
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Search 2 available local phone numbers with area code 910 and order them</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// Search 2 available local phone numbers with area code 910 and order them</span>
 
 <span class="hljs-comment">// Promise</span>
 client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">2</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{});
@@ -540,16 +540,16 @@ number = first_result[<span class="hljs-symbol">:number</span>]
 number_id = first_result[<span class="hljs-symbol">:id</span>]
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-add-phone-number-to-application">Example: Add phone number to application</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="Bash"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
+</div><div class="api-method-sample" data-lang="curl" data-name="CURL"><pre><code class="lang-curl">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
     -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-        <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+    -H &quot;Content-type: application/json&quot; \
+        -d \
+    &apos;
     {
         &quot;applicationId&quot;: &quot;{application_id}&quot;
-    }&apos;</span>
+    }&apos;
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
 client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
 
 <span class="hljs-comment">// Callback</span>
@@ -562,7 +562,7 @@ client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&q
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">phoneNumber.update({<span class="hljs-symbol">:application_id</span> =&gt; <span class="hljs-string">&quot;{application_id}&quot;</span>})
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-setup-an-application-and-order-phone-number">Example: Setup an application and order phone number</h3>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// npm install --save node-bandwidth</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// npm install --save node-bandwidth</span>
 <span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
@@ -685,7 +685,7 @@ createApplication(appPayload)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.3","depth":1,"next":{"title":"Messaging Tutorials","level":"2.4","depth":1,"path":"howto/messages.md","ref":"howto/messages.md","articles":[{"title":"Send SMS/MMS","level":"2.4.1","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.4.2","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]}]},"previous":{"title":"Buy Telephone Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-11-17T19:03:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-01T16:53:38.515Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.3","depth":1,"next":{"title":"Messaging Tutorials","level":"2.4","depth":1,"path":"howto/messages.md","ref":"howto/messages.md","articles":[{"title":"Send SMS/MMS","level":"2.4.1","depth":2,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with DLR","level":"2.4.2","depth":2,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]}]},"previous":{"title":"Buy Telephone Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-12-06T21:12:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-06T21:13:08.570Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -723,7 +723,7 @@ createApplication(appPayload)
         
     
         
-        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        <script src="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
         
     
 
