@@ -32,5 +32,5 @@
  * [Python](clientLib/python.md)
  * [Java](clientLib/java.md)
 
-## FAQ
+## Help
 * [FAQ](http://dev.bandwidth.com/faq)

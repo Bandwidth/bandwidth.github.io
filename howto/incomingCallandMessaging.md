@@ -14,9 +14,9 @@ In order to recieve incoming call and messaging events, you'll need to:
 {% common %}
 ### Example: Create an application
 
-{% sample lang="bash" %}
+{% sample lang="curl" %}
 
-```bash
+```curl
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -67,9 +67,9 @@ application = Application.create(client, {
 {% common %}
 ### Example: Search and order phone number
 
-{% sample lang="bash" %}
+{% sample lang="curl" %}
 
-```bash
+```curl
 curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -108,9 +108,9 @@ number_id = first_result[:id]
 
 {% common %}
 ### Example: Add phone number to application
-{% sample lang="bash" %}
+{% sample lang="curl" %}
 
-```bash
+```curl
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
