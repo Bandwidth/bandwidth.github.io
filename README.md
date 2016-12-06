@@ -69,8 +69,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     {
         "from": "{fromNumber}",
         "to": "{toNumber}",
-        "text": "Good morning, this is a test message",
-        "callbackUrl": "http://my.callback.url"
+        "text": "Good morning, this is a test message"
     }'
 ```
 
@@ -119,8 +118,6 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city
 
 ```js
 // Search available local phone numbers with area code 910
-
-// Promise
 client.AvailableNumber.search("local", { areaCode : "910", quantity : 1 })
 .then(function (numbers) {
     return client.PhoneNumber.create({
