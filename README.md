@@ -1,18 +1,18 @@
 <div id="hero">
   <h1>Add phone calling and text messaging to your app.</h1>
-  <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<br> or jump right in to the full <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">API reference.</a></p><br>
+  <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<span class="remove4mobile"><br></span> or jump right in to the full <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">API reference.</a></p><br>
   <div id="smscard" class="devCards sms active">
     <h2><i class="icons8-sms" style="font-size: 21px"></i> Messaging</h2>
-    Send a text. It is really simple! SMS or MMS, send it now.
-    <br><br><button class="iconic-button iconic-small" id="smsexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/sendSMSMMS.html" class="aimg"><button class="fulltut medium" id="smsfulltut" disabled>Full Tutorial</button></a>
+    <span class="remove4mobile">Send a text. It is really simple! SMS or MMS, send it now.
+    <br><br></span><button class="iconic-button iconic-small" id="smsexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/sendSMSMMS.html" class="aimg"><button class="fulltut medium" id="smsfulltut" disabled>Full Tutorial</button></a>
   </div><div id="voicecard" class="devCards voice">
     <h2><i class="icons8-phone" style="font-size: 17px"></i> Voice</h2>
-    Wondering how to make a call? Put that number to use!
-    <br><br><button class="iconic-button iconic-small" id="voiceexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/outboundCall.html" class="aimg"><button class="fulltut medium" id="voicefulltut" disabled>Full Tutorial</button></a>
+    <span class="remove4mobile">Wondering how to make a call? Put that number to use!
+    <br><br></span><button class="iconic-button iconic-small" id="voiceexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/outboundCall.html" class="aimg"><button class="fulltut medium" id="voicefulltut" disabled>Full Tutorial</button></a>
   </div><div id="pncard"class="devCards pn">
     <h2><i class="icons8-hashtag" style="font-size: 21px"></i> Phone Numbers</h2>
-    Learn how to get a telephone number. You will need to do this first. Go for it!
-    <br><br><button class="iconic-button iconic-small" id="pnexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/buytn.html" class="aimg"><button class="fulltut medium" id="pnfulltut" disabled>Full Tutorial</button></a>
+    <span class="remove4mobile">Learn how to get a telephone number. You will need to do this first. Go for it!
+    <br><br></span><button class="iconic-button iconic-small" id="pnexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/buytn.html" class="aimg"><button class="fulltut medium" id="pnfulltut" disabled>Full Tutorial</button></a>
   </div>
 </div>
 
@@ -192,6 +192,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 
   // Disable buttons on cards that are inactive
   $('.devCards.active').find('.fulltut').prop("disabled",false);
+
 
   $('#smsexpand').click(function(){
       $('pre').hide();

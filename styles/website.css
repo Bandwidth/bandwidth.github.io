@@ -378,6 +378,7 @@ a img {
   font-weight: 900;
   text-transform: uppercase;
   margin-top: 0px;
+  line-height: initial;
 }
 .book.color-theme-3 .book-header .btn.lang-switcher.active {
   background-color: #186469;
@@ -419,8 +420,10 @@ a img {
   min-width:300px;
   vertical-align:top;
   border: 1px solid rgba(0,0,0,.15);
-  border-bottom: none;
   min-height: 202px;
+}
+.devCards.active{
+  border-bottom: none;
 }
 #smscard{
   border-radius: 5px 0px 0px 5px;
@@ -728,7 +731,48 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
   display: block;
   width: 100%;
 }
-
+@media (max-width: 1315px){
+  .devCards{
+    font-size: .75em;
+    min-width: 0px;
+    min-height: 165px;
+  }
+  .fulltut{
+    padding: 8px 30px;
+  }
+  #hero{
+    max-height: 280px;
+  }
+}
+@media (max-width: 880px){
+  .devCards{
+    font-size: 1em;
+    width: 100%;
+    min-height: 0px;
+    padding: 1em;
+  }
+  #hero{
+    max-height: none;
+  }
+  .remove4mobile{
+    display: none;
+  }
+  #smscard{
+    border-radius: 5px 5px 0px 0px;
+  }
+  #voicecard{
+    border-left: 1px solid rgba(0,0,0,.15);
+    border-right: 1px solid rgba(0,0,0,.15);
+    border-bottom: 0px;
+    border-top: 0px;
+  }
+  #pncard{
+    border-radius: 0px 0px 5px 5px;
+  }
+  .fulltut{
+    padding: 10.5px 30px;
+  }
+}
 @font-face {
   font-family: "Bandwidth";
   src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.eot");
