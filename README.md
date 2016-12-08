@@ -18,7 +18,7 @@
 
 <div class="languageselector">
       <div class="radio-group clearfix">
-          <input type="radio" name="basic-options" value="four" id="radio-four" class="lang-curl trigger" data-rel="lang-curl" checked />
+          <input type="radio" name="basic-options" value="four" id="radio-four" class="lang-bash trigger" data-rel="lang-bash" checked />
           <label for="radio-four"><span>curl</span></label>
           <input type="radio" name="basic-options" value="one" id="radio-one" class="lang-js trigger" data-rel="lang-js"/>
           <label for="radio-one"><span>js</span></label>
@@ -60,11 +60,11 @@ message = Message.create(client, {
 })
 ```
 
-```curl
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     -u {token}:{secret} \
     -H "Content-type: application/json" \
-        -d \
+    -d \
     '
     {
         "from": "{fromNumber}",
@@ -96,7 +96,7 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
 ```
 
-```curl
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
     -u {token}:{secret} \
     -H "Content-type: application/json" \
@@ -110,7 +110,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 
 ### Buy a telephone number
 
-```curl
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&pattern=*2%3F9*&quantity=2 \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -164,10 +164,10 @@ $(document).ready(function landing(){
   $('#hero').parent().addClass('landingpage');
 
   // Setting default language
-  $('.lang-curl').parent().addClass('active');
+  $('.lang-bash').parent().addClass('active');
 
   // Toggle between languages
-  $('code').not('.lang-curl').parent().hide();
+  $('code').not('.lang-bash').parent().hide();
   $('.trigger').click(function() {
       $('code').parent().removeClass('active');
       $('.' + $(this).data('rel')).parent().addClass('active');
@@ -232,10 +232,10 @@ $(document).ready(function landing(){
     $('#hero').parent().addClass('landingpage');
 
     // Setting default language
-    $('.lang-curl').parent().addClass('active');
+    $('.lang-bash').parent().addClass('active');
 
     // Toggle between languages
-    $('code').not('.lang-curl').parent().hide();
+    $('code').not('.lang-bash').parent().hide();
     $('.trigger').click(function() {
         $('code').parent().removeClass('active');
         $('.' + $(this).data('rel')).parent().addClass('active');
