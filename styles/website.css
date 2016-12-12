@@ -593,7 +593,7 @@ code:before, code:after{
   border-color: #b5df86;
 }
 .success:before {
-  content:"\f12c";
+  content: "\f15a";
   border:2px solid #b5df86;
 }
 .global{
