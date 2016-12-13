@@ -61,7 +61,7 @@ message = Message.create(client, {
 ```
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
     -u {token}:{secret} \
     -H "Content-type: application/json" \
     -d \
@@ -111,9 +111,9 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 ### Buy a telephone number
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&pattern=*2%3F9*&quantity=2 \
+curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
   -u {token}:{secret} \
-  -H "Content-type: application/json" \
+  -H "Content-type: application/json"
 ```
 
 ```js
