@@ -66,3 +66,5 @@ runTestsDebug.sh
 .mimosa/require/*
 logfile
 _book
+dashboard.md
+
