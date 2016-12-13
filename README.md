@@ -31,8 +31,6 @@
 
 <div class="divider"></div>
 
-<span class="test">
-
 ### Send a message
 
 ```js
@@ -74,8 +72,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
         "text": "Good morning, this is a test message"
     }'
 ```
-
-</span>
 
 ### Make a call
 
