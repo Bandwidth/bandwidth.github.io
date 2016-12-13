@@ -29,10 +29,14 @@ a[aria-label="Change Layout"]{
   height:70px;
   width: 100%;
 }
-.head img{
-  padding: 15px;
-  max-height: 70px;
+#headerLogo{
+  background-image: url('/images/logo-footer(1).png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 188.23px;
+  height: 40px;
   float: left;
+  margin: 15px;
 }
 .head ul{
   width: 400px;
@@ -236,7 +240,6 @@ button:active{
 }
 .active .fulltut{
   opacity: 1;
-
 }
 .active .iconic-button{
   border-radius: 0px 50px 50px 0px;
@@ -590,7 +593,7 @@ code:before, code:after{
   border-color: #b5df86;
 }
 .success:before {
-  content:"\f12c";
+  content: "\f15a";
   border:2px solid #b5df86;
 }
 .global{
@@ -763,14 +766,26 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
     }
   }
 @media (max-width: 980px){
+  #headerLogo{
+    background-image: url('/images/logo-footer.png');
+    width: 40px;
+  }
+  .head h2{
+    display: none;
+  }
+  .head ul {
+    padding-left: 0px;
+    width: 300px;
+  }
   .book-body .body-inner {
     overflow-y: hidden;
   }
   .devCards{
     font-size: 1em;
-    width: 100%;
-    min-height: 0px;
+    width: 33.333%;
+    min-height: 55px;
     padding: 1em;
+    text-align: center;
   }
   .devCards.pn.active{
     color: #6cbf0d;
@@ -788,20 +803,17 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
     line-height: 1.3em;
     padding-bottom: 1em;
   }
+  h2 i{
+    display: block;
+  }
   .remove4mobile{
     display: none;
   }
   #smscard{
-    border-radius: 5px 5px 0px 0px;
-  }
-  #voicecard{
-    border-left: 1px solid rgba(0,0,0,.15);
-    border-right: 1px solid rgba(0,0,0,.15);
-    border-bottom: 0px;
-    border-top: 0px;
+    border-radius: 5px 0px 0px 5px;
   }
   #pncard{
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 5px 5px 0px;
   }
   .devCards .fulltut, .devCards .iconic-button{
     display: none;
