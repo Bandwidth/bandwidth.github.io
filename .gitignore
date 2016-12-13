@@ -66,4 +66,7 @@ runTestsDebug.sh
 .mimosa/require/*
 logfile
 _book
+<<<<<<< HEAD
 tmp
+=======
+>>>>>>> master
