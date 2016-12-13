@@ -5,7 +5,8 @@
         "sharing",
         "custom-favicon",
         "toggle-chapters",
-        "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"
+        "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
+        "gtm"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -30,11 +31,15 @@
                 }
             ]
         },
-      "customJquery": {
-        "js": "js/custom.js"
-      },
+        "customJquery": {
+            "js": "js/custom.js"
+        },
         "layout": {
             "headerPath" : "layouts/header.html"
+        },
+        "gtm": {
+            "token": "GTM-P2JT7Z",
+            "virtualPageViews": true
         },
         "favicon": "images/favicon.ico",
         "sharing": {

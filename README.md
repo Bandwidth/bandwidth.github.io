@@ -293,5 +293,4 @@ $(document).ready(function landing(){
     $('.smstut.active').show();
   }
 });
-
 </script>
