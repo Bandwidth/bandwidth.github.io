@@ -289,5 +289,4 @@ $(document).ready(function landing(){
     $('.smstut.active').show();
   }
 });
-$(window).resize(landing);
 </script>
