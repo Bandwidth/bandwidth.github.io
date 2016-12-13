@@ -5,14 +5,11 @@
 * [Home](README.md)
 
 ## How To
-* [Tutorials](howto/aphowto.md)
 * [Buy Telephone Number](howto/buytn.md)
 * [Incoming Messages and Calls](howto/incomingCallandMessaging.md)
-* [Messaging Tutorials](howto/messages.md)
-  * [Send SMS/MMS](howto/sendSMSMMS.md)
-  * [Send SMS with DLR](howto/smsDLR.md)
-* [Voice Tutorials](howto/voice.md)
-  * [Create outbound call](howto/outboundCall.md)
+* [Send SMS/MMS](howto/sendSMSMMS.md)
+* [Send SMS with DLR](howto/smsDLR.md)
+* [Create outbound call](howto/outboundCall.md)
 * [Setup Numbers for Messaging Hub](howto/messagingHub.md)
 
 ## Security
