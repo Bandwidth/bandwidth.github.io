@@ -49,7 +49,7 @@ var number = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData {
 {% sample lang="ruby" %}
 
 ```ruby
-results = AvailableNumber.search_local(client, {:area_code => "910", :quantity => 1})
+numbers = AvailableNumber.search_local(client, {:area_code => "910", :quantity => 1})
 puts("Found numbers: #{(numbers.map {|n| n[:number]}).join(', ')}")
 number = PhoneNumber.create(client, {:number => numbers[0][:number]})
 puts("Now you are owner of number #{number.number} (id #{number.id})")
