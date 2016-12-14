@@ -30,7 +30,7 @@ a[aria-label="Change Layout"]{
   width: 100%;
 }
 #headerLogo{
-  background-image: url('/images/logo-footer(1).png');
+  background-image: url('/images/headerLogo.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 188.23px;
@@ -767,7 +767,7 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
   }
 @media (max-width: 980px){
   #headerLogo{
-    background-image: url('/images/logo-footer.png');
+    background-image: url('/images/mobileLogo.png');
     width: 40px;
   }
   .head h2{
