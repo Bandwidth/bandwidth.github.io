@@ -11,6 +11,42 @@ In order to recieve incoming call and messaging events, you'll need to:
 2. [Order a phone number](http://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html)
 3. [Assign the phone number to the application](http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html)
 
+### Sample Payloads
+For detailed information on _all_ [callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html), refer to the full API reference:
+* [Messaging Callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
+* [Voice Callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html)
+
+#### Incoming Messages
+```json
+{
+	"eventType"     : "sms",
+	"direction"     : "in",
+	"messageId"     : "{messageId}",
+	"messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+	"from"          : "+13233326955",
+	"to"            : "+13865245000",
+	"text"          : "Example",
+	"applicationId" : "{appId}",
+	"time"          : "2012-11-14T16:13:06.076Z",
+	"state"         : "received"
+}
+```
+
+#### Incoming Phone Call
+
+```json
+{
+	"eventType"     : "incomingcall",
+	"from"          : "+13233326955",
+	"to"            : "+13865245000",
+	"callId"        : "{callId}",
+	"callUri"       : "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
+	"callState"     : "active",
+	"applicationId" : "{appId}",
+	"time"          : "2012-11-14T16:21:59.616Z"
+}
+```
+
 {% common %}
 ### Example: Create an application
 

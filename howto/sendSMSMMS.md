@@ -4,13 +4,12 @@
 
 ![Graphic](images/how-to-send-sms.png)
 
-### Using Postman
-
 <a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg">![Postman](images/postman.svg)</a>
 
-* Import the example to Postman by clicking the button and access it in “Collections”.
-* Make sure to replace the {userId} in the url and the {token} and {secret} in Authorization.  Your credentials can be found in the “Account” tab of the API console.
-* Also set the phone numbers and message in Body.
+### Receive Incoming Messages
+
+To recieve incoming text messages and multimedia messages. You must have the `phonenumber` assigned to an `application` with a valid `messagingCallbackUrl`.
+Learn how to configure incoming messages in [this guide](incomingCallandMessaging.md).
 
 {% common %}
 ### Example: Send a SMS
