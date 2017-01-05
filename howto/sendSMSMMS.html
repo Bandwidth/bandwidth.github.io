@@ -174,7 +174,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
                 <a href="incomingCallandMessaging.html">
             
                     
-                    Incoming Messages and Calls
+                    Receive Text Messages and Calls
             
                 </a>
             
@@ -447,13 +447,10 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
                                 <div class="api-method"><div class="api-method-definition"><h2 id="send-smsmms">Send SMS/MMS</h2>
 <p><em><em>This example shows you how to send an outbound SMS or MMS message to a mobile phone.</em></em></p>
 <p><img src="images/how-to-send-sms.png" alt="Graphic"></p>
-<h3 id="using-postman">Using Postman</h3>
 <p><a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg" target="_blank"><img src="images/postman.svg" alt="Postman"></a></p>
-<ul>
-<li>Import the example to Postman by clicking the button and access it in &#x201C;Collections&#x201D;.</li>
-<li>Make sure to replace the {userId} in the url and the {token} and {secret} in Authorization.  Your credentials can be found in the &#x201C;Account&#x201D; tab of the API console.</li>
-<li>Also set the phone numbers and message in Body.</li>
-</ul>
+<h3 id="receive-incoming-messages">Receive Incoming Messages</h3>
+<p>To recieve incoming text messages and multimedia messages. You must have the <code>phonenumber</code> assigned to an <code>application</code> with a valid <code>messagingCallbackUrl</code>.
+Learn how to configure incoming messages in <a href="incomingCallandMessaging.html">this guide</a>.</p>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="example-send-a-sms">Example: Send a SMS</h3>
 </div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">// find your credentials http://ap.bandwidth.com/docs/security/
 // Replace from number with a Bandwidth Phone Number on your account
@@ -597,7 +594,7 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Send SMS/MMS","level":"2.3","depth":1,"next":{"title":"Send SMS with DLR","level":"2.4","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"previous":{"title":"Incoming Messages and Calls","level":"2.2","depth":1,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sendSMSMMS.md","mtime":"2016-12-14T17:05:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-19T15:09:08.535Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Send SMS/MMS","level":"2.3","depth":1,"next":{"title":"Send SMS with DLR","level":"2.4","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"previous":{"title":"Receive Text Messages and Calls","level":"2.2","depth":1,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sendSMSMMS.md","mtime":"2017-01-05T18:10:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-05T18:11:09.124Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

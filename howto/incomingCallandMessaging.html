@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Incoming Messages and Calls</title>
+        <title>Receive Text Messages and Calls</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -174,7 +174,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
                 <a href="incomingCallandMessaging.html">
             
                     
-                    Incoming Messages and Calls
+                    Receive Text Messages and Calls
             
                 </a>
             
@@ -429,7 +429,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="..">Incoming Messages and Calls</a>
+        <a href="..">Receive Text Messages and Calls</a>
     </h1>
 </div>
 
@@ -453,6 +453,38 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html" target="_blank">Order a phone number</a></li>
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html" target="_blank">Assign the phone number to the application</a></li>
 </ol>
+<h3 id="sample-payloads">Sample Payloads</h3>
+<p>For detailed information on <em>all</em> <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">callbacks</a>, refer to the full API reference:</p>
+<ul>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">Messaging Callbacks</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html" target="_blank">Voice Callbacks</a></li>
+</ul>
+<h4 id="incoming-messages">Incoming Messages</h4>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;sms&quot;</span>,
+    <span class="hljs-string">&quot;direction&quot;</span>     : <span class="hljs-string">&quot;in&quot;</span>,
+    <span class="hljs-string">&quot;messageId&quot;</span>     : <span class="hljs-string">&quot;{messageId}&quot;</span>,
+    <span class="hljs-string">&quot;messageUri&quot;</span>    : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+    <span class="hljs-string">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+13233326955&quot;</span>,
+    <span class="hljs-string">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+13865245000&quot;</span>,
+    <span class="hljs-string">&quot;text&quot;</span>          : <span class="hljs-string">&quot;Example&quot;</span>,
+    <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+    <span class="hljs-string">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>         : <span class="hljs-string">&quot;received&quot;</span>
+}
+</code></pre>
+<h4 id="incoming-phone-call">Incoming Phone Call</h4>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;incomingcall&quot;</span>,
+    <span class="hljs-string">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+13233326955&quot;</span>,
+    <span class="hljs-string">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+13865245000&quot;</span>,
+    <span class="hljs-string">&quot;callId&quot;</span>        : <span class="hljs-string">&quot;{callId}&quot;</span>,
+    <span class="hljs-string">&quot;callUri&quot;</span>       : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}&quot;</span>,
+    <span class="hljs-string">&quot;callState&quot;</span>     : <span class="hljs-string">&quot;active&quot;</span>,
+    <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+    <span class="hljs-string">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:21:59.616Z&quot;</span>
+}
+</code></pre>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="example-create-an-application">Example: Create an application</h3>
 </div><div class="api-method-sample" data-lang="curl" data-name="CURL"><pre><code class="lang-curl">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
     -u {token}:{secret} \
@@ -659,7 +691,7 @@ createApplication(appPayload)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Incoming Messages and Calls","level":"2.2","depth":1,"next":{"title":"Send SMS/MMS","level":"2.3","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"previous":{"title":"Buy Telephone Number","level":"2.1","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2016-12-14T17:05:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-19T15:09:08.535Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Receive Text Messages and Calls","level":"2.2","depth":1,"next":{"title":"Send SMS/MMS","level":"2.3","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"previous":{"title":"Buy Telephone Number","level":"2.1","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2017-01-05T18:10:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-05T18:11:09.124Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
