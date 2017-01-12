@@ -1,5 +1,5 @@
 {% method %}
-## Incoming Call & Messaging (REST)
+## Receive messages and calls (REST)
 
 Incoming calls and messages are sent to a web address configured in [`applications`](http://dev.bandwidth.com/ap-docs/methods/applications/applications.html).
 

@@ -1,6 +1,6 @@
 <div id="hero">
-  <h1>Add phone calling and text messaging to your app.</h1>
-  <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<span class="remove4mobile"><br></span> or jump right in to the full <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">API reference.</a></p><br>
+  <h1>Add phone calls, text messages, and phone number management to your app or enterprise software solution.</h1>
+  <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<span class="remove4mobile"><br></span> or jump right in to the <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">full API reference.</a></p><br>
   <div id="smscard" class="devCards sms active">
     <h2><i class="icons8-sms" style="font-size: 21px"></i> <span class="remove4mobile">Messaging</span></h2>
     <span class="remove4mobile">Send a text. It is really simple! SMS or MMS, send it now.
@@ -147,6 +147,13 @@ number = PhoneNumber.create(client, {:number => numbers[0][:number]})
 puts("Now you are owner of number #{number.number} (id #{number.id})")
 ```
 
+<div class="why">
+  <h2>Why Bandwidth?</h2>
+</div>
+<div class="getStarted">
+  <h2>Get Started</h2>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 $(document).ready(function landing(){
@@ -157,7 +164,7 @@ $(document).ready(function landing(){
   $('#send-a-message').addClass('smstut');
   $('#make-a-call').nextUntil('h3').addClass('voicetut');
   $('#make-a-call').addClass('voicetut');
-  $('#buy-a-telephone-number').nextUntil('h3').addClass('pntut');
+  $('#buy-a-telephone-number').nextUntil('div').addClass('pntut');
   $('#buy-a-telephone-number').addClass('pntut');
 
   // Access to parent div on this page only
