@@ -6,7 +6,9 @@
         "custom-favicon",
         "toggle-chapters",
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
-        "gtm"
+        "gtm",
+        "crazyegg",
+        "usabilla"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -28,6 +30,10 @@
                 {
                     "lang": "shell",
                     "name": "cURL"
+                },
+                {
+                    "lang": "bash",
+                    "name": "cURL"
                 }
             ]
         },
@@ -40,6 +46,13 @@
         "gtm": {
             "token": "GTM-P2JT7Z",
             "virtualPageViews": true
+        },
+        "crazyegg" : {
+            "partOne": "0029",
+            "partTwo": "8291"
+        },
+        "usabilla" : {
+            "usabillaId" : "73009503da29"
         },
         "favicon": "images/favicon.ico",
         "sharing": {

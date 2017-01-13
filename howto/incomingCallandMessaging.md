@@ -17,7 +17,11 @@ For detailed information on _all_ [callbacks](http://dev.bandwidth.com/ap-docs/a
 * [Voice Callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html)
 
 #### Incoming Messages
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
 	"eventType"     : "sms",
 	"direction"     : "in",
@@ -34,7 +38,11 @@ For detailed information on _all_ [callbacks](http://dev.bandwidth.com/ap-docs/a
 
 #### Incoming Phone Call
 
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
 	"eventType"     : "incomingcall",
 	"from"          : "+13233326955",
@@ -50,9 +58,9 @@ For detailed information on _all_ [callbacks](http://dev.bandwidth.com/ap-docs/a
 {% common %}
 ### Example: Create an application
 
-{% sample lang="curl" %}
+{% sample lang="bash" %}
 
-```curl
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -103,9 +111,9 @@ application = Application.create(client, {
 {% common %}
 ### Example: Search and order phone number
 
-{% sample lang="curl" %}
+{% sample lang="shell" %}
 
-```curl
+```bash
 curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -144,9 +152,9 @@ number_id = first_result[:id]
 
 {% common %}
 ### Example: Add phone number to application
-{% sample lang="curl" %}
+{% sample lang="bash" %}
 
-```curl
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
