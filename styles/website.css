@@ -336,13 +336,6 @@ a img {
 .book-header .btn.lang-switcher:hover{
   color: #fff;
 }
-.first-code-lang{
-  margin-left: calc(50% - 50px);
-  padding-left: 30px !important;
-}
-.last-code-lang{
-  padding-right: calc(50% - 245.52px) !important;
-}
 .api-method-example h3{
   margin-top: 0px;
 }
@@ -365,12 +358,6 @@ a img {
 }
 .summary li:last-child{
   display: none;
-}
-.markdown-section a{
-  color: #008db1 !important;
-}
-.markdown-section {
-  padding: 20px 30px;
 }
 .markdown-section h1 {
   padding-top: 0px;
@@ -610,7 +597,10 @@ code:before, code:after{
 }
 #hero{
   padding: 20px 30px;
-  max-height: 320px;
+  max-height: 350px;
+}
+#hero h1{
+  line-height: 1.3em;
 }
 .languageselector{
   background-color: #272B2D;
@@ -734,6 +724,10 @@ div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
   display: block;
   width: 100%;
 }
+.why, .getStarted{
+      padding: 20px 30px;
+}
+
 @media (max-width: 1315px){
   .devCards{
     font-size: .75em;

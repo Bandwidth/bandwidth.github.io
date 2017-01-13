@@ -6,9 +6,9 @@
 
 ## How To
 * [Buy Telephone Number](howto/buytn.md)
-* [Receive Text Messages and Calls](howto/incomingCallandMessaging.md)
+* [Receive Messages and Calls](howto/incomingCallandMessaging.md)
 * [Send SMS/MMS](howto/sendSMSMMS.md)
-* [Send SMS with DLR](howto/smsDLR.md)
+* [Send SMS with Delivery Receipt](howto/smsDLR.md)
 * [Create outbound call](howto/outboundCall.md)
 * [Setup Numbers for Messaging Hub](howto/messagingHub.md)
 
