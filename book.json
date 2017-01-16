@@ -8,7 +8,9 @@
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
         "gtm",
         "crazyegg",
-        "usabilla"
+        "usabilla",
+        "-fontsettings",
+        "bandwidth-fonts"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -63,6 +65,11 @@
             "instapaper": false,
             "vk": false,
             "all": []
+        },
+        "fontsettings": {
+            "theme": "white",
+            "family": "sans", 
+            "size": 2         
         }
     }
 }
