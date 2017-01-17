@@ -151,13 +151,37 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   <h2>Why Bandwidth?</h2>
   <p>Whether you’re looking to create a one-of-a-kind text messaging experience in your app, or simply make a reliable phone call from one phone to another, Bandwidth can get you there – quickly and easily. We’re built to scale, and trusted by everyone from exciting new application start-ups and traditional telecom companies, to some of the most demanding Internet giants in the business.
   </p>
-  <button class="medium">Learn more</button>
+  <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/"><button class="medium hover-go right">Learn more</button></a>
 </div>
 <div class="getStarted">
   <h2>Get Started</h2>
-  <p>1. <a href="https://catapult.inetwork.com/portal/signup">Sign up</a> for a free Bandwidth API account. </p>
-  <p>2. Get your API token and secret. Full tutorial <a href="/security.html">here.</a></p>
-  <p>3. Buy a telephone number and assign it to your application. Think about this like buying a web domain for your website. <a href="/howto/buytn.html">Learn how.</a></p>
+  <div class="numArea">
+    <a href="https://catapult.inetwork.com/portal/signup"><span class="number">1</span></a>
+  </div>
+  <div class="textArea">
+    <p><a href="https://catapult.inetwork.com/portal/signup">Sign up</a> for a free Bandwidth API account. Your first $1 of usage is on us!</p>
+  </div>
+  <br>
+  <div class="numArea">
+    <a href="/security.html"><span class="number">2</span></a>
+  </div>
+  <div class="textArea">
+    <p>Get your API token and secret <a href="/security.html">here.</a></p>
+  </div>
+  <br>
+  <div class="numArea">
+    <a href="/howto/buytn.html"><span class="number">3</span></a>
+  </div>
+  <div class="textArea">
+    <p>Get a telephone number and assign it to your application. Think about this like buying a web domain for your website. <a href="/howto/buytn.html">Learn how.</a></p>
+  </div>
+  <br>
+  <div class="numArea">
+    <span class="number">4</span>
+  </div>
+  <div class="textArea">
+    <p><a href="/howto/sendSMSMMS.html">Send a message</a> or <a href="/howto/outboundCall.html">make a call.</a></p>
+  </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

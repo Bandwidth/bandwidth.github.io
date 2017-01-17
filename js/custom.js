@@ -6,7 +6,9 @@ module.exports = function ($) {
 		$('title').text(newTitle);
 	}
 
-	$('ul.summary a:contains(reference), ul.summary a:contains(FAQ), ul.summary a:contains(pricing)').append('&nbsp;<i class="icons8-open-in-window" style="float:right;"></i>');
+	$('ul.summary a:contains(reference), ul.summary a:contains(FAQ)').append('&nbsp;<i class="icons8-open-in-window" style="float:right;"></i>');
+
+	$('a').has('button, span').css('border-bottom','0px');
 
 	return $.html();
 }
