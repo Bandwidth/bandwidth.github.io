@@ -149,9 +149,15 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 
 <div class="why">
   <h2>Why Bandwidth?</h2>
+  <p>Whether you’re looking to create a one-of-a-kind text messaging experience in your app, or simply make a reliable phone call from one phone to another, Bandwidth can get you there – quickly and easily. We’re built to scale, and trusted by everyone from exciting new application start-ups and traditional telecom companies, to some of the most demanding Internet giants in the business.
+  </p>
+  <button class="medium">Learn more</button>
 </div>
 <div class="getStarted">
   <h2>Get Started</h2>
+  <p>1. <a href="https://catapult.inetwork.com/portal/signup">Sign up</a> for a free Bandwidth API account. </p>
+  <p>2. Get your API token and secret. Full tutorial <a href="/security.html">here.</a></p>
+  <p>3. Buy a telephone number and assign it to your application. Think about this like buying a web domain for your website. <a href="/howto/buytn.html">Learn how.</a></p>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
