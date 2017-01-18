@@ -67,3 +67,4 @@ runTestsDebug.sh
 logfile
 _book
 tmp
+.nvmrc
