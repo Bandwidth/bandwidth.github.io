@@ -10,5 +10,7 @@ module.exports = function ($) {
 
 	$('a').has('button, span').css('border-bottom','0px');
 
+	$('.markdown-section').has('.api-method-code').css('padding-top','0px');
+
 	return $.html();
 }
