@@ -17,10 +17,12 @@ Bandwidth API users are only allowed to read, modify, and delete resources they 
 ### Examples
 
 {% sample lang="shell" %}
+
 ```shell
 curl -u {token}:{secret} https://api.catapult.inetwork.com/v1/users/{user_id}
 ```
 {% sample lang="js" %}
+
 ```javascript
 var Bandwidth = require("node-bandwidth");
 
