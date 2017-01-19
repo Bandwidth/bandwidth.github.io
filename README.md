@@ -1,5 +1,6 @@
 <div id="hero">
-  <h1>Add phone calls, text messages, and phone number management to your app or enterprise software solution.</h1>
+  <h1 class="remove4mobile">Add phone calls, text messages, and phone number management to your app or enterprise software solution.</h1>
+  <h2 class="mobileShow">Add phone calls, text messages, and phone number management to your app.</h2>
   <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<span class="remove4mobile"><br></span> or jump right in to the <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">full API reference.</a></p><br>
   <div class="cardsContainer">
     <div id="smscard" class="devCards sms active">
