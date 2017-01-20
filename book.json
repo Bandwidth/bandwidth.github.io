@@ -10,7 +10,9 @@
         "crazyegg",
         "usabilla",
         "-fontsettings",
-        "bandwidth-fonts"
+        "bandwidth-fonts",
+        "-highlight",
+        "bandwidth-highlight"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {

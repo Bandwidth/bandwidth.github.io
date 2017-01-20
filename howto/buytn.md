@@ -2,8 +2,8 @@
 
 ## Buy Phone Number
 There are 2 ways to buy a phone number:
-1. <code class="get">GET</code> on the `availableNumbers` resource, followed by a <code class="post">POST</code> to the `phoneNumbers` resource
-2. <code class="post">POST</code> on the `availableNumbers` resource
+1. <code class="get">GET</code> on the [`availableNumbers`](http://dev.bandwidth.com/ap-docs/methods/availableNumbers/getAvailableNumbersLocal.html) resource, followed by a <code class="post">POST</code> to the [`phoneNumbers`](http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html) resource
+2. <code class="post">POST</code> on the [`availableNumbers`](http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html) resource
 
 {% common %}
 ### Search then Order
