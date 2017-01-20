@@ -155,7 +155,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   <p>Whether you’re looking to create a one-of-a-kind text messaging experience in your app, or simply make a reliable phone call from one phone to another, Bandwidth can get you there – quickly and easily. We’re built to scale, and trusted by everyone from exciting new application start-ups and traditional telecom companies, to some of the most demanding Internet giants in the business.
   </p>
   <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/"><button class="medium hover-go right">Learn more</button></a>
-  <a href="http://www.bandwidth.com/pricing/"><button class="medium hover-go right light secondary">Pricing</button></a>
+  <a href="/pricing.html"><button class="medium hover-go right light secondary">Pricing</button></a>
 </div>
 <div class="getStarted">
   <h2>Get Started</h2>

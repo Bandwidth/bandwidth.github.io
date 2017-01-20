@@ -3,7 +3,7 @@
 ## Overview
 
 * [Home](README.md)
-* [Pricing](http://www.bandwidth.com/pricing)
+* [Pricing](pricing.md)
 
 ## How To
 * [Buy Telephone Number](howto/buytn.md)
