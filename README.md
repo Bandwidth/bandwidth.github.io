@@ -266,7 +266,7 @@ $(document).ready(function landing(){
     $('#send-a-message').addClass('smstut');
     $('#make-a-call').nextUntil('h3').addClass('voicetut');
     $('#make-a-call').addClass('voicetut');
-    $('#buy-a-telephone-number').nextUntil('h3').addClass('pntut');
+    $('#buy-a-telephone-number').nextUntil('div').addClass('pntut');
     $('#buy-a-telephone-number').addClass('pntut');
 
     // Access to parent div on this page only
