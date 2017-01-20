@@ -1,21 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600,600i,700,800,900');
 /*
  * Theme 1
  */
 .color-theme-1 .dropdown-menu {
-  background-color: #111111;
+  background-color: #111;
   border-color: #7e888b;
 }
 .color-theme-1 .dropdown-menu .dropdown-caret .caret-inner {
-  border-bottom: 9px solid #111111;
+  border-bottom: 9px solid #111;
 }
 .color-theme-1 .dropdown-menu .buttons {
   border-color: #7e888b;
 }
 .color-theme-1 .dropdown-menu .button {
-  color: #afa790;
+  color: #AFA790;
 }
 .color-theme-1 .dropdown-menu .button:hover {
-  color: #73553c;
+  color: #73553C;
 }
 /*
  * Theme 2
@@ -46,10 +47,10 @@
 }
 .book.color-theme-1 .book-body {
   color: #704214;
-  background: #f3eacb;
+  background: #F3EACB;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section {
-  background: #f3eacb;
+  background: #F3EACB;
 }
 .book.color-theme-2 .book-body {
   color: #bdcadb;
@@ -77,7 +78,7 @@
   font-family: Georgia, serif;
 }
 .book.font-family-1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
   color: #704214;
@@ -122,7 +123,7 @@
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal table tr {
   color: inherit;
   background-color: #fdf6e3;
-  border-color: #444444;
+  border-color: #444;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
   background-color: #fbeecb;
@@ -176,14 +177,14 @@
   background-color: #35394b;
 }
 .book.color-theme-1 .book-header {
-  color: #afa790;
+  color: #AFA790;
   background: transparent;
 }
 .book.color-theme-1 .book-header .btn {
-  color: #afa790;
+  color: #AFA790;
 }
 .book.color-theme-1 .book-header .btn:hover {
-  color: #73553c;
+  color: #73553C;
   background: none;
 }
 .book.color-theme-1 .book-header h1 {
@@ -204,10 +205,10 @@
   color: #bdcadb;
 }
 .book.color-theme-1 .book-body .navigation {
-  color: #afa790;
+  color: #AFA790;
 }
 .book.color-theme-1 .book-body .navigation:hover {
-  color: #73553c;
+  color: #73553C;
 }
 .book.color-theme-2 .book-body .navigation {
   color: #383f52;
@@ -219,8 +220,8 @@
  * Theme 1
  */
 .book.color-theme-1 .book-summary {
-  color: #afa790;
-  background: #111111;
+  color: #AFA790;
+  background: #111;
   border-right: 1px solid rgba(0, 0, 0, 0.07);
 }
 .book.color-theme-1 .book-summary .book-search {
@@ -238,11 +239,11 @@
   color: #33cc33;
 }
 .book.color-theme-1 .book-summary ul.summary li.done > a {
-  color: #877f6a;
+  color: #877F6A;
 }
 .book.color-theme-1 .book-summary ul.summary li a,
 .book.color-theme-1 .book-summary ul.summary li span {
-  color: #877f6a;
+  color: #877F6A;
   background: transparent;
   font-weight: normal;
 }
