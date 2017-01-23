@@ -12,6 +12,7 @@
 * [Send SMS with Delivery Receipt](howto/smsDLR.md)
 * [Create outbound call](howto/outboundCall.md)
 * [Setup Numbers for Messaging Hub](howto/messagingHub.md)
+* [Mobile Apps](howto/acrobits.md)
 
 ## Security
 * [Access Bandwidth App Platform API](security.md)
