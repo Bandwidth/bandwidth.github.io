@@ -19,11 +19,11 @@ This guide shows you how to get up and running with the Acrobits SDK with an exa
 
 The server component is an example server-side application that exposes a simple API that shows how a mobile app would register to receive an endpoint and credentials. The server app also handles the call flow events from the App Platform API. The server apps are available in GitHub and can be deployed to Heroku with a one button deployment. These are available in Node, Ruby, and C#. We’ll use the Ruby app in this tutorial.
 
-| Server Language | Link                                                                      | Deploy                                                                                                                                                                                                                                                                           |
-|:----------------|:--------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Node            | [Github](https://github.com/BandwidthExamples/node-voice-reference-app)   | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BandwidthExamples/node-voice-reference-app)                                                                                                                       |
-| Ruby            | [Github](https://github.com/BandwidthExamples/ruby-voice-reference-app)   | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BandwidthExamples/ruby-voice-reference-app)                                                                                                                       |
-| C#              | [Github](https://github.com/BandwidthExamples/csharp-voice-reference-app) | [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?repository=https://github.com/BandwidthExamples/csharp-voice-reference-app?ptmpl=https://raw.githubusercontent.com/BandwidthExamples/csharp-voice-reference-app/master/azuredeploy.json) |
+| Server Language                  | Link                                                                      | Deploy                                                                                                                                                                                                                                                                           |
+|:---------------------------------|:--------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Node                             | [Github](https://github.com/BandwidthExamples/node-voice-reference-app)   | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BandwidthExamples/node-voice-reference-app)                                                                                                                       |
+| Ruby **- Used in this tutorial** | [Github](https://github.com/BandwidthExamples/ruby-voice-reference-app)   | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BandwidthExamples/ruby-voice-reference-app)                                                                                                                       |
+| C#                               | [Github](https://github.com/BandwidthExamples/csharp-voice-reference-app) | [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?repository=https://github.com/BandwidthExamples/csharp-voice-reference-app?ptmpl=https://raw.githubusercontent.com/BandwidthExamples/csharp-voice-reference-app/master/azuredeploy.json) |
 
 There are two ways to deploy the server app from GitHub:
  1. Use the 1 button deployment to Heroku
@@ -38,8 +38,6 @@ When you press that button, you are taken to your Heroku screen to enter informa
 You can find that information from the App Platform Dev Console, by clicking the Account tab
 
 ![Account Info](images/acrobits/Figure3.png)
-
-Scroll down to the bottom of the page to find your User Id, API Token and API Secret.
 
 ![UserId](images/acrobits/Figure3b.gif)
 
@@ -69,11 +67,11 @@ Start by pulling the app down from Github (see instructions in README.md). Open 
 
 Open the strings.xml file and replace the `application_server_url` property with the URL from deploying the server code. If you deployed to Heroku, it’ll look something like this – `https://thawing-spire-92827.herokuapp.com/index.html`
 
-| Step                                                                                                                                                                                                                                                     | Screenshot                                |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
-| Launch the Mobile App, either as a virtual device or on a specific hardware device. <br> When the application launches, the register screen is displayed                                                                                                 | ![Figure 6](images/acrobits/Figure6.png)  |
-| You can enter any username and the reference app contacts the server for: <br> - A new endpoint <br> - Telephone number <br> When registration is complete, the dialer is displayed.                                     | ![Figure 7](images/acrobits/Figure6b.png) |
-| From here you can make and receive calls to any telephone number. Open Settings to see: <br> - The Bandwidth number <br> - The endpoint <br> - The domain <br> - The server url | ![Figure 8](images/acrobits/Figure7.png)  |
+| Step                                                                                                                                                                                 | Screenshot                                |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| Launch the Mobile App, either as a virtual device or on a specific hardware device. <br> When the application launches, the register screen is displayed                             | ![Figure 6](images/acrobits/Figure6.png)  |
+| You can enter any username and the reference app contacts the server for: <br> - A new endpoint <br> - Telephone number <br> When registration is complete, the dialer is displayed. | ![Figure 7](images/acrobits/Figure6b.png) |
+| From here you can make and receive calls to any telephone number. Open Settings to see: <br> - The Bandwidth number <br> - The endpoint <br> - The domain <br> - The server url      | ![Figure 8](images/acrobits/Figure7.png)  |
 
 ## Testing
 You can test some of the advanced features of the Acrobits SDK like the cell/wifi hand-off as follows:
