@@ -2,9 +2,9 @@
 
 This guide shows you how to get up and running with the Acrobits SDK with an example client app. The example app is available for both Android and iOS.
 
-* Setup server componet
-* Download example from github
-* Launch mobile app & register with server
+1. Setup server componet
+2. Download example from github
+3. Launch mobile app & register with server
 
 ## Prerequisites
 
@@ -81,5 +81,3 @@ You can test some of the advanced features of the Acrobits SDK like the cell/wif
 3. Enable wifi on the device, leaving airplane mode on. Verify that voice is, again, enabled.
 
 To see push notifications in action, see the Push Notification with Acrobits Tutorial.
-
-
