@@ -6,7 +6,7 @@
 * [Pricing](pricing.md)
 
 ## How To
-* [Buy Telephone Number](howto/buytn.md)
+* [Buy a Number](howto/buytn.md)
 * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
 * [Send SMS/MMS](howto/sendSMSMMS.md)
 * [Send SMS with Delivery Receipt](howto/smsDLR.md)

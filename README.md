@@ -1,6 +1,6 @@
 <div id="hero">
   <div class="heroImage"></div>
-  <h1 class="remove4mobile">Add phone calls, text messages, and phone number management to your app or enterprise software solution.</h1>
+  <h1 class="remove4mobile">Add phone calls, text messages, and number management to your app or enterprise software solution.</h1>
   <h2 class="mobileShow">Add phone calls, text messages, and phone number management to your app.</h2>
   <p>Ready to bring your ideas to life? It's pretty easy. See how it's done using the examples below,<span class="remove4mobile"><br></span> or jump right in to the <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">full API reference.</a></p><br>
   <div class="cardsContainer">
@@ -13,7 +13,7 @@
       <span class="remove4mobile">Wondering how to make a call? Put that number to use!
       <br><br></span><button class="iconic-button iconic-small" id="voiceexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/outboundCall.html" class="aimg"><button class="fulltut medium" id="voicefulltut" disabled>Full Tutorial</button></a>
     </div><div id="pncard"class="devCards pn">
-      <h2><i class="icons8-hashtag" style="font-size: 21px"></i> <span class="remove4mobile">Phone Numbers</span></h2>
+      <h2><i class="icons8-hashtag" style="font-size: 21px"></i> <span class="remove4mobile">Numbers</span></h2>
       <span class="remove4mobile">Learn how to get a telephone number. You will need to do this first. Go for it!
       <br><br></span><button class="iconic-button iconic-small" id="pnexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/buytn.html" class="aimg"><button class="fulltut medium" id="pnfulltut" disabled>Full Tutorial</button></a>
     </div>
