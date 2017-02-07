@@ -6,13 +6,14 @@
 * [Pricing](pricing.md)
 
 ## How To
-* [Buy a Number](howto/buytn.md)
+* [Get Started](getStarted.md)
+* [Get a Number](howto/buytn.md)
 * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
 * [Send SMS/MMS](howto/sendSMSMMS.md)
 * [Send SMS with Delivery Receipt](howto/smsDLR.md)
 * [Create outbound call](howto/outboundCall.md)
 * [Setup Numbers for Messaging Hub](howto/messagingHub.md)
-* [Mobile Apps](howto/acrobits.md)
+* [For Mobile Apps](howto/acrobits.md)
 
 ## Security
 * [Access Bandwidth App Platform API](security.md)
