@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Buy Telephone Number</title>
+        <title>Get a Number</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -77,7 +77,7 @@
     <link rel="next" href="incomingCallandMessaging.html">
     
     
-    <link rel="prev" href="../pricing.html">
+    <link rel="prev" href="../getStarted.html">
     
 
 
@@ -169,12 +169,12 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="buytn.html">
+        <li class="chapter " data-level="2.1" data-path="../getStarted.html">
             
-                <a href="buytn.html">
+                <a href="../getStarted.html">
             
                     
-                    Buy Telephone Number
+                    Get Started
             
                 </a>
             
@@ -182,7 +182,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="incomingCallandMessaging.html">
+        <li class="chapter active" data-level="2.2" data-path="buytn.html">
+            
+                <a href="buytn.html">
+            
+                    
+                    Get a Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="incomingCallandMessaging.html">
             
                 <a href="incomingCallandMessaging.html">
             
@@ -195,7 +208,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="sendSMSMMS.html">
+        <li class="chapter " data-level="2.4" data-path="sendSMSMMS.html">
             
                 <a href="sendSMSMMS.html">
             
@@ -208,7 +221,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="smsDLR.html">
+        <li class="chapter " data-level="2.5" data-path="smsDLR.html">
             
                 <a href="smsDLR.html">
             
@@ -221,7 +234,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="outboundCall.html">
+        <li class="chapter " data-level="2.6" data-path="outboundCall.html">
             
                 <a href="outboundCall.html">
             
@@ -234,7 +247,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="messagingHub.html">
+        <li class="chapter " data-level="2.7" data-path="messagingHub.html">
             
                 <a href="messagingHub.html">
             
@@ -247,12 +260,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.7" data-path="acrobits.html">
+        <li class="chapter " data-level="2.8" data-path="acrobits.html">
             
                 <a href="acrobits.html">
             
                     
-                    Mobile Apps
+                    For Mobile Apps
             
                 </a>
             
@@ -455,7 +468,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="..">Buy Telephone Number</a>
+        <a href="..">Get a Number</a>
     </h1>
 </div>
 
@@ -473,8 +486,8 @@
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="buy-phone-number">Buy Phone Number</h2>
 <p>There are 2 ways to buy a phone number:</p>
 <ol>
-<li><code class="get">GET</code> on the <a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/getAvailableNumbersLocal.html" target="_blank"><code>availableNumbers</code></a> resource, followed by a <code class="post">POST</code> to the <a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html" target="_blank"><code>phoneNumbers</code></a> resource</li>
-<li><code class="post">POST</code> on the <a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html" target="_blank"><code>availableNumbers</code></a> resource</li>
+<li><code class="get">GET</code> on the <a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/getAvailableNumbersLocal.html" target="_blank" class="externalLink"><code>availableNumbers</code></a> resource, followed by a <code class="post">POST</code> to the <a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html" target="_blank" class="externalLink"><code>phoneNumbers</code></a> resource</li>
+<li><code class="post">POST</code> on the <a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html" target="_blank" class="externalLink"><code>availableNumbers</code></a> resource</li>
 </ol>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="search-then-order">Search then Order</h3>
 </div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&amp;state=NC&amp;pattern=*2%3F9*&amp;quantity=2 \
@@ -562,7 +575,7 @@ client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Buy Telephone Number","level":"2.1","depth":1,"next":{"title":"Receive Messages and Calls","level":"2.2","depth":1,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},"previous":{"title":"Pricing","level":"1.2","depth":1,"path":"pricing.md","ref":"pricing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/buytn.md","mtime":"2017-01-23T20:24:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-23T21:11:12.944Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Get a Number","level":"2.2","depth":1,"next":{"title":"Receive Messages and Calls","level":"2.3","depth":1,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},"previous":{"title":"Get Started","level":"2.1","depth":1,"path":"getStarted.md","ref":"getStarted.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/buytn.md","mtime":"2017-01-23T21:23:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-07T19:01:35.319Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -14,5 +14,7 @@ module.exports = function ($) {
 
 	$('.page-inner').has('iframe').contents().find('div, section').css({'height':'100vh','padding':'0px'});
 
+	$('.markdown-section').find("a[target='_blank']").addClass('externalLink');
+
 	return $.html();
 }

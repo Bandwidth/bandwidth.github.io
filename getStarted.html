@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Secure your callbacks</title>
+        <title>Get Started</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -74,8 +74,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="howto/buytn.html">
     
-    <link rel="prev" href="security.html">
+    
+    <link rel="prev" href="pricing.html">
     
 
 
@@ -167,7 +169,7 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="getStarted.html">
+        <li class="chapter active" data-level="2.1" data-path="getStarted.html">
             
                 <a href="getStarted.html">
             
@@ -291,7 +293,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.2" data-path="callbackSecurity.html">
+        <li class="chapter " data-level="3.2" data-path="callbackSecurity.html">
             
                 <a href="callbackSecurity.html">
             
@@ -466,7 +468,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".">Secure your callbacks</a>
+        <a href=".">Get Started</a>
     </h1>
 </div>
 
@@ -481,19 +483,37 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="setting-up-basic-auth-for-callbacks">Setting Up Basic Auth for Callbacks</h2>
-<p>You can password protect your web server for Bandwidth Callbacks for example:</p>
-<p><code>https://username:password@yoursecurehost.com/yoursecureapp</code></p>
-<p>Modify the callback URL for your application. This can be done through the API (<a href="#applications">see documentation</a>) or through the web portal on the &#x201C;My Apps&#x201D; tab. Select the Application you want to modify, and then click the &#x201C;Edit&#x201D; button.</p>
-<p><img src="images/basic-auth.png" alt="api"></p>
-<p>Scroll down and edit either the &#x201C;Call URL&#x201D; or the &#x201C;Messaging URL&#x201D; (or both). The URL should be structured as follows:</p>
-<p><code>https://{username}:{password}@yourdomain.com/</code></p>
-<p>You must use HTTPS in order to use basic auth with App Platform callbacks, and your callback server should present a valid, trusted certificate. Your username and password should also be <a href="http://www.w3schools.com/tags/ref_urlencode.asp" target="_blank" class="externalLink">URL Encoded</a> to prevent special characters from being lost.</p>
-<p><img src="images/basic-auth2.png" alt="api2"></p>
-<p>Basic Auth also works for Call and Messaging fallback URLs as well. In addition, you can also use Basic Auth in your callbacks for specific messages and calls that you create. For instance, if you want callback events for a specific outgoing message, when you create the message with a <code>POST</code> to the API and set the callback URL, you can add credentials to this URL as well. The same requirements (HTTPS, and URL Encoded) apply here as well.</p>
-<p>When your application receives a callback from the App Platform, the &#x201C;Authorization&#x201D; header will now be set. The &#x201C;Authorization&#x201D; header will tell your application what type of authorization is being sent &#x2013; in this case &#x201C;Basic&#x201D; &#x2013; followed by a <a href="https://en.wikipedia.org/wiki/Base64" target="_blank" class="externalLink">Base64 Encoded</a> string containing the username and password, separated by a colon, that you configured in your callback URL.</p>
-<p><img src="images/basic-auth3.png" alt="api3"></p>
-<p>Your application can now be written to only accept a request if it contains the expected credentials in the &#x201C;Authorization&#x201D; header, because only you will ever know the credentials. When you set the callback URL on the API (or on the web portal) the credentials are encrypted in transit, and they are also encrypted when they are stored in the database. They are also encrypted in transit between your application and the App Platform, so other parties cannot extract your credentials by inspecting your network traffic. This is why it is important to use a valid, trusted certificate on your application server, to ensure the security of your callbacks.</p>
+                                <div class="getStarted">
+  <h2 id="get-started">Get Started</h2>
+  <div class="numArea">
+    <a href="https://catapult.inetwork.com/portal/signup" target="_blank" style="border-bottom: 0px;" class="externalLink"><span class="number">1</span></a>
+  </div>
+  <div class="textArea">
+    <p><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="externalLink">Sign up</a> for a free Bandwidth API account. Your first $1 of usage is on us!</p>
+  </div>
+  <br>
+  <div class="numArea">
+    <a href="security.html" style="border-bottom: 0px;"><span class="number">2</span></a>
+  </div>
+  <div class="textArea">
+    <p>Get your API token and secret <a href="security.html">here.</a></p>
+  </div>
+  <br>
+  <div class="numArea">
+    <a href="howto/buytn.html" style="border-bottom: 0px;"><span class="number">3</span></a>
+  </div>
+  <div class="textArea">
+    <p>Get a telephone number and assign it to your application. Think about this like buying a web domain for your website. <a href="howto/buytn.html">Learn how.</a></p>
+  </div>
+  <br>
+  <div class="numArea">
+    <span class="number">4</span>
+  </div>
+  <div class="textArea">
+    <p><a href="howto/sendSMSMMS.html">Send a message</a> or <a href="howto/outboundCall.html">make a call.</a></p>
+  </div>
+</div>
+
 
                                 
                                 </section>
@@ -527,7 +547,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Secure your callbacks","level":"3.2","depth":1,"next":{"title":"Full API reference","level":"4.1","depth":1,"url":"http://dev.bandwidth.com/ap-docs/methods/restApi.html","ref":"http://dev.bandwidth.com/ap-docs/methods/restApi.html","articles":[]},"previous":{"title":"Access Bandwidth App Platform API","level":"3.1","depth":1,"path":"security.md","ref":"security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"callbackSecurity.md","mtime":"2017-01-23T21:23:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-07T19:01:35.319Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Get Started","level":"2.1","depth":1,"next":{"title":"Get a Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"previous":{"title":"Pricing","level":"1.2","depth":1,"path":"pricing.md","ref":"pricing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"getStarted.md","mtime":"2017-02-07T18:57:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-07T19:01:35.319Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
