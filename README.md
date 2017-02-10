@@ -164,6 +164,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 $(document).ready(function landing(){
 
   if ($(window).width() >= 980) {
+
   // Adding classes for sms, voice and pns
   $('#send-a-message').nextUntil('h3').addClass('smstut');
   $('#send-a-message').addClass('smstut');
