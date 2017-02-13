@@ -234,7 +234,7 @@ $(document).ready(function landing(){
   $('.smstut.active').show();
   } else {
     // Adding classes for sms, voice and pns
-    $('.book-summary, .book-body').addClass('mobile');
+    <!-- $('.book-summary, .book-body').addClass('mobile'); -->
     $('#send-a-message').nextUntil('h3').addClass('smstut');
     $('#send-a-message').addClass('smstut');
     $('#make-a-call').nextUntil('h3').addClass('voicetut');
