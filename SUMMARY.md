@@ -3,7 +3,7 @@
 ## Overview
 
 * [Home](README.md)
-* [Pricing](pricing.md)
+* [Pricing](http://www.bandwidth.com/pricing/)
 
 ## How To
 * [Get Started](getStarted.md)
