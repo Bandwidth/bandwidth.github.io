@@ -12,7 +12,7 @@
 * [Send SMS/MMS](howto/sendSMSMMS.md)
 * [Send SMS with Delivery Receipt](howto/smsDLR.md)
 * [Create outbound call](howto/outboundCall.md)
-* [Setup Numbers for Messaging Hub](howto/messagingHub.md)
+* [How to Import Bandwidth Numbers](howto/messagingHub.md)
 * [For Mobile Apps](howto/acrobits.md)
 
 ## Security
