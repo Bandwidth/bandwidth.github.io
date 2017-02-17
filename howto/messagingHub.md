@@ -1,4 +1,4 @@
-## How to import numbers for use with Bandwidth messaging hub
+## How to Import Bandwidth Numbers to your account
 
 ![Description Image](../images/how-to-import-numbers.png)
 
