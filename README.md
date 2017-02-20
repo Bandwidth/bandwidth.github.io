@@ -198,19 +198,6 @@ $(document).ready(function landing(){
       }
   });
 
-  <!-- $('.lang-bash').click(function(){
-      gitbook.storage.setItem(':themeApi','{"split":true,"currentLang":"shell"}');
-  });
-  $('.lang-js').click(function(){
-      gitbook.storage.setItem(':themeApi','{"split":true,"currentLang":"js"}');
-  });
-  $('.lang-csharp').click(function(){
-      gitbook.storage.setItem(':themeApi','{"split":true,"currentLang":"csharp"}');
-  });
-  $('.lang-ruby').click(function(){
-      gitbook.storage.setItem(':themeApi','{"split":true,"currentLang":"ruby"}');
-  }); -->
-
   // Showing proper code sample or sms, voice and pns
   var tuts = $('.voicetut, .smstut, .pntut');
 
