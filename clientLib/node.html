@@ -103,14 +103,13 @@
     
 <div class="book"><link href="../styles/styles.min.css" type="text/css">
 <div class="head">
-     <div id="banner">
+     <!-- <div id="banner">
        <div class="bannerContainer">
-        <img src="../images/dev-week-logo.png">
-         <p>&#xA0;&#xA0;&#xA0;&#xA0;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS &amp; Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW &gt;&gt;</a></p>
+        <img src="../images/dev-week-logo.png" />
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS & Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW >></a></p>
          <p id="bannerClose">X</p>
        </div>
-     </div>
-   
+     </div> -->
    <a href="http://www.bandwidth.com" class="aimg"><div id="headerLogo"></div></a>
    <h2> For Developers</h2>
    <ul>
@@ -157,14 +156,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../pricing.html">
+        <li class="chapter " data-level="1.2">
             
-                <a href="../pricing.html">
+                <a target="_blank" href="http://www.bandwidth.com/pricing/">
             
                     
                     Pricing
             
-                </a>
+                &#xA0;<i class="icons8-open-in-window" style="float:right;"></i></a>
             
 
             
@@ -492,19 +491,19 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="nodejs-library">NodeJS Library</h2>
-<p><a href="https://github.com/bandwidthcom/node-bandwidth" target="_blank" class="externalLink"><img src="../images/github_logo.png" alt="github"></a></p>
-<p>The current version is v2, released 5 August, 2016. Version 1.3.3 is available  <a href="https://github.com/bandwidthcom/node-bandwidth/tree/v1.3.3" target="_blank" class="externalLink">here</a>.</p>
-<h3 id="full-api-reference"><a href="http://bwdemos.com/node-bandwidth/index.html" target="_blank" class="externalLink">Full API Reference</a></h3>
+<p><a href="https://github.com/bandwidthcom/node-bandwidth" target="_blank"><img src="../images/github_logo.png" alt="github"></a></p>
+<p>The current version is v2, released 5 August, 2016. Version 1.3.3 is available  <a href="https://github.com/bandwidthcom/node-bandwidth/tree/v1.3.3" target="_blank">here</a>.</p>
+<h3 id="full-api-reference"><a href="http://bwdemos.com/node-bandwidth/index.html" target="_blank">Full API Reference</a></h3>
 <p>The Full API Reference is available either as an interactive site or as a single Markdown file:</p>
 <ul>
-<li><a href="http://bwdemos.com/node-bandwidth/index.html" target="_blank" class="externalLink">Site</a>.</li>
-<li><a href="https://github.com/bandwidthcom/node-bandwidth/blob/master/docs/api.md" target="_blank" class="externalLink">Single MD file</a></li>
+<li><a href="http://bwdemos.com/node-bandwidth/index.html" target="_blank">Site</a>.</li>
+<li><a href="https://github.com/bandwidthcom/node-bandwidth/blob/master/docs/api.md" target="_blank">Single MD file</a></li>
 </ul>
 <h3 id="installing-the-sdk">Installing the SDK</h3>
 <p><code>node-bandwidth</code> is available on NPM:</p>
 <pre><code>npm install --save node-bandwidth
 </code></pre><h3 id="supported-versions">Supported Versions</h3>
-<p><code>node-bandwidth</code> should work on all versions of node newer than <code>0.10.*</code>. However, due to the rapid development in the Node and npm environment, we can only provide <em>support</em> on <a href="https://github.com/nodejs/LTS" target="_blank" class="externalLink">LTS versions of Node</a></p>
+<p><code>node-bandwidth</code> should work on all versions of node newer than <code>0.10.*</code>. However, due to the rapid development in the Node and npm environment, we can only provide <em>support</em> on <a href="https://github.com/nodejs/LTS" target="_blank">LTS versions of Node</a></p>
 <table>
 <thead>
 <tr>
@@ -581,7 +580,7 @@
 </tr>
 </tbody>
 </table>
-<p>To initialize the client object, provide your API credentials which can be found on your account page in <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank" class="externalLink">the portal</a>.</p>
+<p>To initialize the client object, provide your API credentials which can be found on your account page in <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank">the portal</a>.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
@@ -621,7 +620,7 @@
 });
 </code></pre>
 <h3 id="providing-feedback">Providing feedback</h3>
-<p>For current discussions on 2.0 please see the <a href="https://github.com/bandwidthcom/node-bandwidth/labels/2.0" target="_blank" class="externalLink">2.0 issues section on GitHub</a>. To start a new topic on 2.0, please open an issue and use the <code>2.0</code> tag. Your feedback is greatly appreciated!</p>
+<p>For current discussions on 2.0 please see the <a href="https://github.com/bandwidthcom/node-bandwidth/labels/2.0" target="_blank">2.0 issues section on GitHub</a>. To start a new topic on 2.0, please open an issue and use the <code>2.0</code> tag. Your feedback is greatly appreciated!</p>
 
                                 
                                 </section>
@@ -655,7 +654,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Node JS","level":"6.1","depth":1,"next":{"title":"C-Sharp","level":"6.2","depth":1,"path":"clientLib/csharp.md","ref":"clientLib/csharp.md","articles":[]},"previous":{"title":"All Languages","level":"5.1","depth":1,"path":"howto/deployableDemos.md","ref":"howto/deployableDemos.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/node.md","mtime":"2017-02-13T22:04:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-17T19:24:58.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Node JS","level":"6.1","depth":1,"next":{"title":"C-Sharp","level":"6.2","depth":1,"path":"clientLib/csharp.md","ref":"clientLib/csharp.md","articles":[]},"previous":{"title":"All Languages","level":"5.1","depth":1,"path":"howto/deployableDemos.md","ref":"howto/deployableDemos.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/node.md","mtime":"2017-02-20T16:28:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-20T19:10:37.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

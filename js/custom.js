@@ -6,11 +6,10 @@ module.exports = function ($) {
 		$('title').text(newTitle);
 	}
 
-	$('ul.summary a:contains(reference), ul.summary a:contains(FAQ)').append('&nbsp;<i class="icons8-open-in-window" style="float:right;"></i>');
+	$('ul.summary a:contains(reference), ul.summary a:contains(FAQ), ul.summary a:contains(Pricing)').append('&nbsp;<i class="icons8-open-in-window" style="float:right;"></i>');
 	$('a').has('button, span').css('border-bottom','0px')
 	$('.markdown-section').has('.api-method-code').css('padding-top','0px');
 	$('.page-inner').has('iframe').contents().find('div, section').css({'height':'100vh','padding':'0px'});
-	$('.markdown-section').find("a[target='_blank']").addClass('externalLink');
 
 	return $.html();
 }

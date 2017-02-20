@@ -103,14 +103,13 @@
     
 <div class="book"><link href="../styles/styles.min.css" type="text/css">
 <div class="head">
-     <div id="banner">
+     <!-- <div id="banner">
        <div class="bannerContainer">
-        <img src="../images/dev-week-logo.png">
-         <p>&#xA0;&#xA0;&#xA0;&#xA0;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS &amp; Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW &gt;&gt;</a></p>
+        <img src="../images/dev-week-logo.png" />
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS & Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW >></a></p>
          <p id="bannerClose">X</p>
        </div>
-     </div>
-   
+     </div> -->
    <a href="http://www.bandwidth.com" class="aimg"><div id="headerLogo"></div></a>
    <h2> For Developers</h2>
    <ul>
@@ -157,14 +156,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../pricing.html">
+        <li class="chapter " data-level="1.2">
             
-                <a href="../pricing.html">
+                <a target="_blank" href="http://www.bandwidth.com/pricing/">
             
                     
                     Pricing
             
-                </a>
+                &#xA0;<i class="icons8-open-in-window" style="float:right;"></i></a>
             
 
             
@@ -492,19 +491,19 @@
                                 <section class="normal markdown-section" style="padding-top: 0px;">
                                 
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="receive-messages-and-calls-rest">Receive messages and calls (REST)</h2>
-<p>Incoming calls and messages are sent to a web address configured in <a href="http://dev.bandwidth.com/ap-docs/methods/applications/applications.html" target="_blank" class="externalLink"><code>applications</code></a>.</p>
+<p>Incoming calls and messages are sent to a web address configured in <a href="http://dev.bandwidth.com/ap-docs/methods/applications/applications.html" target="_blank"><code>applications</code></a>.</p>
 <p><img src="../images/app-welcome.png" alt="WhyCallBack"></p>
 <p>In order to recieve incoming call and messaging events, you&apos;ll need to:</p>
 <ol>
-<li><a href="http://dev.bandwidth.com/ap-docs/methods/applications/postApplications.html" target="_blank" class="externalLink">Create an application</a></li>
-<li><a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html" target="_blank" class="externalLink">Order a phone number</a></li>
-<li><a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html" target="_blank" class="externalLink">Assign the phone number to the application</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/methods/applications/postApplications.html" target="_blank">Create an application</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html" target="_blank">Order a phone number</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html" target="_blank">Assign the phone number to the application</a></li>
 </ol>
 <h3 id="sample-payloads">Sample Payloads</h3>
-<p>For detailed information on <em>all</em> <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank" class="externalLink">callbacks</a>, refer to the full API reference:</p>
+<p>For detailed information on <em>all</em> <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">callbacks</a>, refer to the full API reference:</p>
 <ul>
-<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank" class="externalLink">Messaging Callbacks</a></li>
-<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html" target="_blank" class="externalLink">Voice Callbacks</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">Messaging Callbacks</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html" target="_blank">Voice Callbacks</a></li>
 </ul>
 <h4 id="incoming-messages">Incoming Messages</h4>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
@@ -746,7 +745,7 @@ createApplication(appPayload)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Receive Messages and Calls","level":"2.3","depth":1,"next":{"title":"Send SMS/MMS","level":"2.4","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"previous":{"title":"Get a Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2017-02-13T22:04:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-17T19:24:58.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Receive Messages and Calls","level":"2.3","depth":1,"next":{"title":"Send SMS/MMS","level":"2.4","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"previous":{"title":"Get a Number","level":"2.2","depth":1,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/incomingCallandMessaging.md","mtime":"2017-02-20T16:28:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-20T19:10:37.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

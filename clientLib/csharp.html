@@ -103,14 +103,13 @@
     
 <div class="book"><link href="../styles/styles.min.css" type="text/css">
 <div class="head">
-     <div id="banner">
+     <!-- <div id="banner">
        <div class="bannerContainer">
-        <img src="../images/dev-week-logo.png">
-         <p>&#xA0;&#xA0;&#xA0;&#xA0;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS &amp; Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW &gt;&gt;</a></p>
+        <img src="../images/dev-week-logo.png" />
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS & Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW >></a></p>
          <p id="bannerClose">X</p>
        </div>
-     </div>
-   
+     </div> -->
    <a href="http://www.bandwidth.com" class="aimg"><div id="headerLogo"></div></a>
    <h2> For Developers</h2>
    <ul>
@@ -157,14 +156,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../pricing.html">
+        <li class="chapter " data-level="1.2">
             
-                <a href="../pricing.html">
+                <a target="_blank" href="http://www.bandwidth.com/pricing/">
             
                     
                     Pricing
             
-                </a>
+                &#xA0;<i class="icons8-open-in-window" style="float:right;"></i></a>
             
 
             
@@ -492,10 +491,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="c-library">C# Library</h2>
-<p>A .Net client library for the <a href="http://bandwidth.com/products/application-platform?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=_" target="_blank" class="externalLink">Bandwidth Application Platform</a></p>
-<p>The current version is v3.0, released ## August, 2016. Version 2.14 is available  <a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v2.14" target="_blank" class="externalLink">here</a>.</p>
-<p><a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v3-preview" target="_blank" class="externalLink"><img src="../images/github_logo.png" alt="github"></a></p>
-<p><a href="http://bwdemos.com/csharp-bandwidth/html/R_Project_API.htm" target="_blank" class="externalLink">Full API Reference</a></p>
+<p>A .Net client library for the <a href="http://bandwidth.com/products/application-platform?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=_" target="_blank">Bandwidth Application Platform</a></p>
+<p>The current version is v3.0, released ## August, 2016. Version 2.14 is available  <a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v2.14" target="_blank">here</a>.</p>
+<p><a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v3-preview" target="_blank"><img src="../images/github_logo.png" alt="github"></a></p>
+<p><a href="http://bwdemos.com/csharp-bandwidth/html/R_Project_API.htm" target="_blank">Full API Reference</a></p>
 <h3 id="installing-the-sdk">Installing the SDK</h3>
 <p><code>Bandwidth.Net</code> is available on Nuget (Nuget 3.0+ is required):</p>
 <pre><code>Install-Package Bandwidth.Net
@@ -573,7 +572,7 @@
 </tr>
 </tbody>
 </table>
-<p>To initialize the <code>Client</code> instance, provide your API credentials which can be found on your account page in <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank" class="externalLink">the portal</a>.</p>
+<p>To initialize the <code>Client</code> instance, provide your API credentials which can be found on your account page in <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank">the portal</a>.</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Bandwidth.Net;
 
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(
@@ -626,7 +625,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Message Id is <span class="hl
 Console.WriteLine(<span class="hljs-string">$&quot;Call Id is <span class="hljs-subst">{call.Id}</span>&quot;</span>);
 </code></pre>
 <h3 id="providing-feedback">Providing feedback</h3>
-<p>For current discussions on 3.0 please see the <a href="https://github.com/bandwidthcom/csharp-bandwidth/labels/3.0" target="_blank" class="externalLink">3.0 issues section on GitHub</a>. To start a new topic on 3.0, please open an issue and use the <code>3.0</code> tag. Your feedback is greatly appreciated!</p>
+<p>For current discussions on 3.0 please see the <a href="https://github.com/bandwidthcom/csharp-bandwidth/labels/3.0" target="_blank">3.0 issues section on GitHub</a>. To start a new topic on 3.0, please open an issue and use the <code>3.0</code> tag. Your feedback is greatly appreciated!</p>
 
                                 
                                 </section>
@@ -660,7 +659,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Call Id is <span class="hljs-
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C-Sharp","level":"6.2","depth":1,"next":{"title":"Ruby","level":"6.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"previous":{"title":"Node JS","level":"6.1","depth":1,"path":"clientLib/node.md","ref":"clientLib/node.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/csharp.md","mtime":"2017-02-13T22:04:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-17T19:24:58.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"C-Sharp","level":"6.2","depth":1,"next":{"title":"Ruby","level":"6.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"previous":{"title":"Node JS","level":"6.1","depth":1,"path":"clientLib/node.md","ref":"clientLib/node.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/csharp.md","mtime":"2017-02-20T16:28:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-20T19:10:37.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

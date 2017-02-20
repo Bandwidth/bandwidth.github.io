@@ -103,14 +103,13 @@
     
 <div class="book"><link href="../styles/styles.min.css" type="text/css">
 <div class="head">
-     <div id="banner">
+     <!-- <div id="banner">
        <div class="bannerContainer">
-        <img src="../images/dev-week-logo.png">
-         <p>&#xA0;&#xA0;&#xA0;&#xA0;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS &amp; Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW &gt;&gt;</a></p>
+        <img src="../images/dev-week-logo.png" />
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS & Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW >></a></p>
          <p id="bannerClose">X</p>
        </div>
-     </div>
-   
+     </div> -->
    <a href="http://www.bandwidth.com" class="aimg"><div id="headerLogo"></div></a>
    <h2> For Developers</h2>
    <ul>
@@ -157,14 +156,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../pricing.html">
+        <li class="chapter " data-level="1.2">
             
-                <a href="../pricing.html">
+                <a target="_blank" href="http://www.bandwidth.com/pricing/">
             
                     
                     Pricing
             
-                </a>
+                &#xA0;<i class="icons8-open-in-window" style="float:right;"></i></a>
             
 
             
@@ -493,9 +492,9 @@
                                 
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="create-outbound-call">Create outbound call</h2>
 <p><img src="images/how-to-outbound-call.png" alt="Graphic"></p>
-<p>There is a single HTTP POST required using the <code>/calls</code> resource.  See the <a href="https://bandwidth.github.io/docs/?shell#post-calls" target="_blank" class="externalLink"><code>/calls</code></a> resource for a complete reference.</p>
+<p>There is a single HTTP POST required using the <code>/calls</code> resource.  See the <a href="https://bandwidth.github.io/docs/?shell#post-calls" target="_blank"><code>/calls</code></a> resource for a complete reference.</p>
 <h3 id="using-postman">Using Postman</h3>
-<p><a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg externalLink" target="_blank"><img src="images/postman.svg" alt="Postman"></a></p>
+<p><a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg" target="_blank"><img src="images/postman.svg" alt="Postman"></a></p>
 <ul>
 <li>Import the example to Postman by clicking the button and access it in &#x201C;Collections&#x201D;.</li>
 <li>Make sure to replace the {userId} in the url and the {token} and {secret} in Authorization.  Your credentials can be found in the &#x201C;Account&#x201D; tab of the API console.</li>
@@ -622,7 +621,7 @@ puts call.id
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Create outbound call","level":"2.6","depth":1,"next":{"title":"How to Import Bandwidth Numbers","level":"2.7","depth":1,"path":"howto/messagingHub.md","ref":"howto/messagingHub.md","articles":[]},"previous":{"title":"Send SMS with Delivery Receipt","level":"2.5","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/outboundCall.md","mtime":"2017-02-13T22:04:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-17T19:24:58.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Create outbound call","level":"2.6","depth":1,"next":{"title":"How to Import Bandwidth Numbers","level":"2.7","depth":1,"path":"howto/messagingHub.md","ref":"howto/messagingHub.md","articles":[]},"previous":{"title":"Send SMS with Delivery Receipt","level":"2.5","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/outboundCall.md","mtime":"2017-02-20T16:28:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-20T19:10:37.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

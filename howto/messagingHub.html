@@ -103,14 +103,13 @@
     
 <div class="book"><link href="../styles/styles.min.css" type="text/css">
 <div class="head">
-     <div id="banner">
+     <!-- <div id="banner">
        <div class="bannerContainer">
-        <img src="../images/dev-week-logo.png">
-         <p>&#xA0;&#xA0;&#xA0;&#xA0;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS &amp; Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW &gt;&gt;</a></p>
+        <img src="../images/dev-week-logo.png" />
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;Bandwidth loves Developer Week! Check out our limited viewing of the Evolution of SMS & Messaging Webinar. <a href="http://bandwidth.com/developerweek" target="_blank">WATCH IT NOW >></a></p>
          <p id="bannerClose">X</p>
        </div>
-     </div>
-   
+     </div> -->
    <a href="http://www.bandwidth.com" class="aimg"><div id="headerLogo"></div></a>
    <h2> For Developers</h2>
    <ul>
@@ -157,14 +156,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../pricing.html">
+        <li class="chapter " data-level="1.2">
             
-                <a href="../pricing.html">
+                <a target="_blank" href="http://www.bandwidth.com/pricing/">
             
                     
                     Pricing
             
-                </a>
+                &#xA0;<i class="icons8-open-in-window" style="float:right;"></i></a>
             
 
             
@@ -653,7 +652,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
 </code></pre>
 <h2 id="step-3-create-application---using-the-bandwidth-communication-api">Step 3 <em>Create Application</em> - Using the Bandwidth Communication API</h2>
-<p>You&apos;ll need to configure an <a href="http://dev.bandwidth.com/ap-docs/methods/applications/applications.html" target="_blank" class="externalLink"><code>application</code></a> in the Bandwidth Communication API. You may already have an application configured; if so, take note of the <code>applicationId</code>. Otherwise you&apos;ll need to create an application.</p>
+<p>You&apos;ll need to configure an <a href="http://dev.bandwidth.com/ap-docs/methods/applications/applications.html" target="_blank"><code>application</code></a> in the Bandwidth Communication API. You may already have an application configured; if so, take note of the <code>applicationId</code>. Otherwise you&apos;ll need to create an application.</p>
 <table>
 <thead>
 <tr>
@@ -685,7 +684,7 @@
 </tr>
 <tr>
 <td style="text-align:left"><code>callbackHttpMethod</code></td>
-<td style="text-align:left">Set to <code class="post">POST</code> to use <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank" class="externalLink">REST API Control</a><br> Set to <code class="get">GET</code> to use <a href="http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html" target="_blank" class="externalLink">BXML Control</a></td>
+<td style="text-align:left">Set to <code class="post">POST</code> to use <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">REST API Control</a><br> Set to <code class="get">GET</code> to use <a href="http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html" target="_blank">BXML Control</a></td>
 <td style="text-align:left">No</td>
 </tr>
 </tbody>
@@ -770,7 +769,7 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4j
 </code></pre><h2 id="step-5-send-message---using-the-bandwidth-communication-api">Step 5 <em>Send Message</em> - Using the Bandwidth Communication API</h2>
 <p>To send a message with your imported number, use the <code>/messaging</code> capabilities as normal.</p>
 <ul>
-<li><a href="http://dev.bandwidth.com/ap-docs/methods/messages/messages.html" target="_blank" class="externalLink">Learn About Sending Messages</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/methods/messages/messages.html" target="_blank">Learn About Sending Messages</a></li>
 </ul>
 <h3 id="example-send-new-message">Example: Send New Message</h3>
 <p><code class="post">POST</code> to <code>https://api.catapult.inetwork.com/v1/users/{userId}/messages</code></p>
@@ -788,8 +787,8 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih
 </code></pre><h2 id="step-6-incoming-messages---using-the-bandwidth-communication-api">Step 6 <em>Incoming Messages</em> - Using the Bandwidth Communication API</h2>
 <p>Bandwith will send you either a <code class="get">GET</code> or <code class="post">POST</code> HTTP Callback based on your <code>application</code> configuration in Step 3.</p>
 <ul>
-<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank" class="externalLink">Learn About Incoming Messages <em>POST</em></a></li>
-<li><a href="http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html" target="_blank" class="externalLink">Learn About Incoming Messages <em>GET</em></a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">Learn About Incoming Messages <em>POST</em></a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html" target="_blank">Learn About Incoming Messages <em>GET</em></a></li>
 </ul>
 <h3 id="example-get-callback">Example <code>GET</code> Callback</h3>
 <p>All the relevant fields are passed as query parameters</p>
@@ -854,7 +853,7 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How to Import Bandwidth Numbers","level":"2.7","depth":1,"next":{"title":"For Mobile Apps","level":"2.8","depth":1,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},"previous":{"title":"Create outbound call","level":"2.6","depth":1,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/messagingHub.md","mtime":"2017-02-17T19:24:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-17T19:24:58.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"How to Import Bandwidth Numbers","level":"2.7","depth":1,"next":{"title":"For Mobile Apps","level":"2.8","depth":1,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},"previous":{"title":"Create outbound call","level":"2.6","depth":1,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/messagingHub.md","mtime":"2017-02-20T16:28:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-20T19:10:37.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
