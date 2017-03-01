@@ -10,6 +10,7 @@
 * [Get a Number](howto/buytn.md)
 * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
 * [Send SMS/MMS](howto/sendSMSMMS.md)
+* [Send SMS/MMS V2](howto/sendSMSMMS_v2.md)
 * [Send SMS with Delivery Receipt](howto/smsDLR.md)
 * [Create outbound call](howto/outboundCall.md)
 * [How to Import Bandwidth Numbers](howto/messagingHub.md)

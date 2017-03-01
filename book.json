@@ -12,7 +12,8 @@
         "-fontsettings",
         "bandwidth-fonts",
         "-highlight",
-        "bandwidth-highlight"
+        "bandwidth-highlight",
+        "codetabs"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
