@@ -5,7 +5,7 @@
 
 ### Running Examples
 
-* Find your credentials for all examples in your [account tab](security.md)
+* Find your credentials for all examples in your [account tab](../security.md)
 * Replace the <code class="delete">from</code> number with a Bandwidth Number](howto/buytn.md)
 * Replace the <code class="delete">to</code> number with your cell phone number.
 
@@ -14,11 +14,11 @@
 <a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg">![Postman](images/postman.svg)</a>
 
 * Import the example to Postman by clicking the button and access it in “Collections”.
-* Replace the following in Postman Authorization with _YOUR_  information from the [Account](security.md) tab.
+* Replace the following in Postman Authorization with _YOUR_  information from the [Account](../security.md) tab.
     * `{userId}`
     * `{token}`
     * `{secret}`
-* Replace the following in the Postman body. You **WILL NEED** a [Bandwidth Number](howto/buytn.md)
+* Replace the following in the Postman body. You **WILL NEED** a [Bandwidth Number](buytn.md)
     * `"from": "bandwidthNumber"` : With a the Bandwidth telephone number.
     * `"to": "toNumber"` : With your cell phone number.
 
