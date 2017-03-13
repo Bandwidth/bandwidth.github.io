@@ -493,33 +493,56 @@
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="send-smsmms">Send SMS/MMS</h2>
 <p><em><em>This example shows you how to send an outbound SMS or MMS message to a mobile phone.</em></em></p>
 <p><img src="images/how-to-send-sms.png" alt="Graphic"></p>
+<h3 id="running-examples">Running Examples</h3>
+<ul>
+<li>Find your credentials for all examples in your <a href="../security.html">account tab</a></li>
+<li>Replace the <code class="delete">from</code> number with a Bandwidth Number](howto/buytn.md)</li>
+<li>Replace the <code class="delete">to</code> number with your cell phone number.</li>
+</ul>
+<h3 id="using-postman">Using PostMan</h3>
 <p><a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg" target="_blank"><img src="images/postman.svg" alt="Postman"></a></p>
+<ul>
+<li>Import the example to Postman by clicking the button and access it in &#x201C;Collections&#x201D;.</li>
+<li>Replace the following in Postman Authorization with <em>YOUR</em>  information from the <a href="../security.html">Account</a> tab.<ul>
+<li><code>{userId}</code></li>
+<li><code>{token}</code></li>
+<li><code>{secret}</code></li>
+</ul>
+</li>
+<li>Replace the following in the Postman body. You <strong>WILL NEED</strong> a <a href="buytn.html">Bandwidth Number</a><ul>
+<li><code>&quot;from&quot;: &quot;bandwidthNumber&quot;</code> : With a the Bandwidth telephone number.</li>
+<li><code>&quot;to&quot;: &quot;toNumber&quot;</code> : With your cell phone number.</li>
+</ul>
+</li>
+</ul>
 <h3 id="receive-incoming-messages">Receive Incoming Messages</h3>
-<p>To recieve incoming text messages and multimedia messages. You must have the <code>phonenumber</code> assigned to an <code>application</code> with a valid <code>messagingCallbackUrl</code>.
-Learn how to configure incoming messages in <a href="incomingCallandMessaging.html">this guide</a>.</p>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-send-a-sms">Example: Send a SMS</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">// find your credentials http://ap.bandwidth.com/docs/security/
-// Replace from number with a Bandwidth Phone Number on your account
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+<p>To recieve incoming text messages and multimedia messages. You must have the <code>phonenumber</code> assigned to an <code>application</code> with a valid <code>messagingCallbackUrl</code>.</p>
+<p>Learn how to configure incoming messages in <a href="incomingCallandMessaging.html">this guide</a>.</p>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-2-send-a-sms">Example 1 of 2: Send a SMS</h3>
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
     -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d &apos;{&quot;from&quot;: &quot;+12525089000&quot;, &quot;to&quot;: &quot;+15035555555&quot;, &quot;text&quot;: &quot;Hello there from Bandwidth!&quot;}&apos;
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;{
+        &quot;from&quot;: &quot;+12525089000&quot;,
+        &quot;to&quot;: &quot;+15035555555&quot;,
+        &quot;text&quot;: &quot;Hello there from Bandwidth!&quot;
+    }&apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// install sdk: npm install node-bandwidth</span>
 
 <span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
-    <span class="hljs-attr">userId</span>    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
-    apiToken  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-attr">userId</span>    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>,
+    <span class="hljs-attr">apiToken</span>  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
     <span class="hljs-attr">apiSecret</span> : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
 });
 <span class="hljs-keyword">var</span> message = {
-    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>,  <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
     to: <span class="hljs-string">&quot;+191955512142&quot;</span>,
     <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Hello World&quot;</span>
 };
 
-<span class="hljs-comment">//Use Promises</span>
 client.Message.send(message)
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
@@ -527,46 +550,75 @@ client.Message.send(message)
 .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
     <span class="hljs-built_in">console</span>.log(err.message);
 });
-
-<span class="hljs-comment">//Use callbacks</span>
-client.Message.send(message, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, message</span>) </span>{
-    <span class="hljs-keyword">if</span> (err) {
-        <span class="hljs-built_in">console</span>.log(err);
-        <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
-});
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
-    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
-    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
-    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
-});
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-comment">//Download the .net sdk from dev.bandwidth.com/clientLib/csharp.html</span>
+
+<span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Bandwidth.Net;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Api;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> UserId = <span class="hljs-string">&quot;u-userID&quot;</span>; <span class="hljs-comment">//{user_id}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Token = <span class="hljs-string">&quot;t-token&quot;</span>; <span class="hljs-comment">//{token}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Secret = <span class="hljs-string">&quot;secret&quot;</span>; <span class="hljs-comment">//{secret}</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">try</span>
+    {
+      RunAsync().Wait();
+    }
+    <span class="hljs-keyword">catch</span> (Exception ex)
+    {
+      Console.Error.WriteLine(ex.Message);
+      Environment.ExitCode = <span class="hljs-number">1</span>;
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+    <span class="hljs-keyword">var</span> sms = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData
+    {
+      From = <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+      To = <span class="hljs-string">&quot;+191955512142&quot;</span>,
+      Text = <span class="hljs-string">&quot;Hello World&quot;</span>
+    });
+  }
+}
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
-    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment"># &lt;-- This must be a Bandwidth number on your account</span>
     <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
     <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-send-a-mms-picture-messaging">Example: Send a MMS (Picture Messaging)</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">// find your credentials http://ap.bandwidth.com/docs/security/
-// Replace from number with a Bandwidth Phone Number on your account
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{user-id}/messages \
+</div><div class="api-method-example"><h3 id="example-2-of-2-send-a-mms-picture-messaging">Example 2 of 2: Send a MMS (Picture Messaging)</h3>
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
     -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d &apos;{&quot;from&quot;: &quot;+12018994225&quot;, &quot;to&quot;: &quot;+12223334444&quot;, &quot;text&quot;: &quot;Hello there from Bandwidth!&quot;, &quot;media&quot;:[&quot;https://s3.amazonaws.com/bwdemos/logo.png&quot;]}&apos;
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;+12018994225&quot;,
+        &quot;to&quot;: &quot;+12223334444&quot;,
+        &quot;text&quot;: &quot;Hello there from Bandwidth!&quot;,
+        &quot;media&quot;:[&quot;https://s3.amazonaws.com/bwdemos/logo.png&quot;]
+    }&apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// install sdk: npm install node-bandwidth</span>
 
 <span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
-    <span class="hljs-attr">userId</span>    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
-    apiToken  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-attr">userId</span>    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>,
+    <span class="hljs-attr">apiToken</span>  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
     <span class="hljs-attr">apiSecret</span> : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
 });
 <span class="hljs-keyword">var</span> message = {
-    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>,  <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
     to: <span class="hljs-string">&quot;+191955512142&quot;</span>,
     <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Test&quot;</span>,
     <span class="hljs-attr">media</span>: [<span class="hljs-string">&quot;https://s3.amazonaws.com/bwdemos/logo.png&quot;</span>]
@@ -580,34 +632,55 @@ client.Message.send(message)
 .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
     <span class="hljs-built_in">console</span>.log(err.message);
 });
-
-<span class="hljs-comment">//Use callbacks</span>
-client.Message.send(message, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, message</span>) </span>{
-    <span class="hljs-keyword">if</span> (err) {
-        <span class="hljs-built_in">console</span>.log(err);
-        <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
-});
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
-    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
-    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
-    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
-    Media = <span class="hljs-keyword">new</span>[] {<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;</span>},
-    CallbackUrl = <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
-});
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-comment">//Download the .net sdk from http://dev.bandwidth.com/clientLib/csharp.html</span>
+
+<span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Bandwidth.Net;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Api;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> UserId = <span class="hljs-string">&quot;u-userID&quot;</span>; <span class="hljs-comment">//{user_id}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Token = <span class="hljs-string">&quot;t-token&quot;</span>; <span class="hljs-comment">//{token}</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Secret = <span class="hljs-string">&quot;secret&quot;</span>; <span class="hljs-comment">//{secret}</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">try</span>
+    {
+      RunAsync().Wait();
+    }
+    <span class="hljs-keyword">catch</span> (Exception ex)
+    {
+      Console.Error.WriteLine(ex.Message);
+      Environment.ExitCode = <span class="hljs-number">1</span>;
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+    <span class="hljs-keyword">var</span> mms = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData
+    {
+      From = <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+      To = <span class="hljs-string">&quot;+191955512142&quot;</span>,
+      Text = <span class="hljs-string">&quot;Test&quot;</span>,
+      Media = <span class="hljs-keyword">new</span>[] {<span class="hljs-string">&quot;https://s3.amazonaws.com/bwdemos/logo.png&quot;</span>}
+    });
+  }
+}
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
-    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
-    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, #&lt;-- This must be a Bandwidth number on your account
+    :to =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
     <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
-    <span class="hljs-symbol">:media</span> =&gt; [<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;</span>],
-    <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+    <span class="hljs-symbol">:media</span> =&gt; [<span class="hljs-string">&quot;https://s3.amazonaws.com/bwdemos/logo.png&quot;</span>]
 })
 </code></pre>
 </div></div></div>
-
                                 
                                 </section>
                             
@@ -640,7 +713,7 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Send SMS/MMS","level":"2.4","depth":1,"next":{"title":"Send SMS with Delivery Receipt","level":"2.5","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"previous":{"title":"Receive Messages and Calls","level":"2.3","depth":1,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sendSMSMMS.md","mtime":"2017-03-07T21:25:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-07T21:26:06.141Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Send SMS/MMS","level":"2.4","depth":1,"next":{"title":"Send SMS with Delivery Receipt","level":"2.5","depth":1,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"previous":{"title":"Receive Messages and Calls","level":"2.3","depth":1,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sendSMSMMS.md","mtime":"2017-03-13T15:23:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T15:27:01.245Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

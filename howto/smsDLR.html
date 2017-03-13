@@ -633,35 +633,35 @@
 </tbody>
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-send-sms-with-delivery-receipt">Example: Send SMS with delivery receipt</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-        -d \
-    &apos;
-    {
-        &quot;to&quot;: &quot;+18284467788&quot;,
-        &quot;from&quot;: &quot;+19197124466&quot;,
-        &quot;text&quot;: &quot;Watch out for the construction on I-25 and Hwy 52&quot;,
-        &quot;receiptRequested&quot; : &quot;all&quot;,
-        &quot;callbackUrl&quot; : &quot;http://yourserver.com/message/dlr&quot;
-    }&apos;
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+  <span class="hljs-string">&apos;
+  {
+    &quot;to&quot;: &quot;+18284467788&quot;,
+    &quot;from&quot;: &quot;+19197124466&quot;,
+    &quot;text&quot;: &quot;Watch out for the construction on I-25 and Hwy 52&quot;,
+    &quot;receiptRequested&quot; : &quot;all&quot;,
+    &quot;callbackUrl&quot; : &quot;http://yourserver.com/message/dlr&quot;
+  }&apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//NodeJS</span>
 
 <span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
 
 <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
-    <span class="hljs-attr">userId</span>    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
-    apiToken  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-attr">userId</span>    : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>,
+    <span class="hljs-attr">apiToken</span>  : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
     <span class="hljs-attr">apiSecret</span> : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
 });
 <span class="hljs-keyword">var</span> message = {
-    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>,  <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
-    to: <span class="hljs-string">&quot;+191955512142&quot;</span>,
-    <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Hello World&quot;</span>,
-    <span class="hljs-attr">receiptRequested</span>: <span class="hljs-string">&quot;all&quot;</span>,
-    <span class="hljs-attr">callbackUrl</span>: <span class="hljs-string">&quot;http://requestb.in&quot;</span>,
-    <span class="hljs-attr">tag</span>: <span class="hljs-built_in">Date</span>.now().toString()
+  <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>,  <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+  to: <span class="hljs-string">&quot;+191955512142&quot;</span>,
+  <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Hello World&quot;</span>,
+  <span class="hljs-attr">receiptRequested</span>: <span class="hljs-string">&quot;all&quot;</span>,
+  <span class="hljs-attr">callbackUrl</span>: <span class="hljs-string">&quot;http://requestb.in&quot;</span>,
+  <span class="hljs-attr">tag</span>: <span class="hljs-built_in">Date</span>.now().toString()
 };
 
 <span class="hljs-comment">//Use Promises</span>
@@ -672,19 +672,8 @@ client.Message.send(message)
 .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
     <span class="hljs-built_in">console</span>.log(err.message);
 });
-
-<span class="hljs-comment">//Use callbacks</span>
-client.Message.send(message, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, message</span>) </span>{
-    <span class="hljs-keyword">if</span> (err) {
-        <span class="hljs-built_in">console</span>.log(err);
-        <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
-});
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-comment">//Download the .net sdk from ap.bandwidth.com/docs/helper-libraries/net</span>
-
-<span class="hljs-keyword">using</span> System;
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">using</span> System.Threading.Tasks;
 <span class="hljs-keyword">using</span> Bandwidth.Net;
 <span class="hljs-keyword">using</span> Bandwidth.Net.Api;
@@ -716,31 +705,35 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData
     {
       From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
-        To = <span class="hljs-string">&quot;+191955512142&quot;</span>,
-        Text = <span class="hljs-string">&quot;Test&quot;</span>,
-        ReceiptRequested = MessageReceiptRequested.All,
-        CallbackUrl = <span class="hljs-string">&quot;http://requestb.in&quot;</span>
+      To = <span class="hljs-string">&quot;+191955512142&quot;</span>,
+      Text = <span class="hljs-string">&quot;Test&quot;</span>,
+      ReceiptRequested = MessageReceiptRequested.All,
+      CallbackUrl = <span class="hljs-string">&quot;http://requestb.in&quot;</span>
     });
 
   }
 }
 </code></pre>
 </div><div class="api-method-example"><p>Callback events will be sent on each state transition.</p>
-<pre><code class="lang-json">{
-    &quot;eventType&quot;:&quot;sms&quot;,
-    &quot;direction&quot;:&quot;out&quot;,
-    &quot;messageId&quot;: &quot;m-kv54fk7x66fakdnb5owdk4y&quot;,
-    &quot;messageUri&quot;: &quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/messages/m-kv54fk7x66fakdnb5owdk4y&quot;,
-    &quot;from&quot;:&quot;+13233326955&quot;,
-    &quot;to&quot;:&quot;+13865245000&quot;,
-    &quot;text&quot;:&quot;Example&quot;,
-    &quot;applicationId&quot;:&quot;a-25nh2lj6qrxznkfu4b732jy&quot;,
-    &quot;time&quot;:&quot;2012-11-14T16:13:06.076Z&quot;,
-    &quot;state&quot;:&quot;not-delivered&quot;,
-    &#x201C;errorcode&#x201D;:&#x201D;720&#x201D;,
-    &#x201C;error&#x201D;:&#x201D;Invalid Service Type&#x201D;
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+  <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;sms&quot;</span>,
+  <span class="hljs-attr">&quot;direction&quot;</span>:<span class="hljs-string">&quot;out&quot;</span>,
+  <span class="hljs-attr">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;m-kv54fk7x66fakdnb5owdk4y&quot;</span>,
+  <span class="hljs-attr">&quot;messageUri&quot;</span>: <span class="hljs-string">&quot;https://api.../&lt;userId&gt;/messages/m-absd&quot;</span>,
+  <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+13233326955&quot;</span>,
+  <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+13865245000&quot;</span>,
+  <span class="hljs-attr">&quot;text&quot;</span>:<span class="hljs-string">&quot;Example&quot;</span>,
+  <span class="hljs-attr">&quot;applicationId&quot;</span>:<span class="hljs-string">&quot;a-25nh2lj6qrxznkfu4b732jy&quot;</span>,
+  <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>:<span class="hljs-string">&quot;not-delivered&quot;</span>,
+  <span class="hljs-attr">&quot;errorcode&quot;</span>: <span class="hljs-string">&quot;720&quot;</span>,
+  <span class="hljs-attr">&quot;error&quot;</span>:<span class="hljs-string">&quot;Invalid Service Type&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
                                 
@@ -775,7 +768,7 @@ client.Message.send(message, <span class="hljs-function"><span class="hljs-keywo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Send SMS with Delivery Receipt","level":"2.5","depth":1,"next":{"title":"Create outbound call","level":"2.6","depth":1,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},"previous":{"title":"Send SMS/MMS","level":"2.4","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/smsDLR.md","mtime":"2017-03-07T21:25:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-07T21:26:06.141Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Send SMS with Delivery Receipt","level":"2.5","depth":1,"next":{"title":"Create outbound call","level":"2.6","depth":1,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},"previous":{"title":"Send SMS/MMS","level":"2.4","depth":1,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/smsDLR.md","mtime":"2017-03-13T15:26:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T15:27:01.245Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
