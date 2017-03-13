@@ -33,19 +33,20 @@ The app platform will send a new event on delivery receipt based on the value of
 ### Example: Send SMS with delivery receipt
 
 {% sample lang="shell" %}
-```shell
+
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
-	'
-	{
-		"to": "+18284467788",
-		"from": "+19197124466",
-		"text": "Watch out for the construction on I-25 and Hwy 52",
-		"receiptRequested" : "all",
-		"callbackUrl" : "http://yourserver.com/message/dlr"
-	}'
+  -u {token}:{secret} \
+  -H "Content-type: application/json" \
+    -d \
+  '
+  {
+    "to": "+18284467788",
+    "from": "+19197124466",
+    "text": "Watch out for the construction on I-25 and Hwy 52",
+    "receiptRequested" : "all",
+    "callbackUrl" : "http://yourserver.com/message/dlr"
+  }'
 ```
 
 {% sample lang="js" %}
@@ -56,17 +57,17 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 var Bandwidth = require("node-bandwidth");
 
 var client = new Bandwidth({
-    userId    : "YOUR_USER_ID", // <-- note, this is not the same as the username you used to login to the portal
+    userId    : "YOUR_USER_ID",
     apiToken  : "YOUR_API_TOKEN",
     apiSecret : "YOUR_API_SECRET"
 });
 var message = {
-	from: "+19195551212",  // <-- This must be a Bandwidth number on your account
-	to: "+191955512142",
-	text: "Hello World",
-	receiptRequested: "all",
-	callbackUrl: "http://requestb.in",
-	tag: Date.now().toString()
+  from: "+19195551212",  // <-- This must be a Bandwidth number on your account
+  to: "+191955512142",
+  text: "Hello World",
+  receiptRequested: "all",
+  callbackUrl: "http://requestb.in",
+  tag: Date.now().toString()
 };
 
 //Use Promises
@@ -78,21 +79,11 @@ client.Message.send(message)
     console.log(err.message);
 });
 
-//Use callbacks
-client.Message.send(message, function(err, message) {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    console.log("Message sent with ID " + message.id);
-});
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-//Download the .net sdk from ap.bandwidth.com/docs/helper-libraries/net
-
 using System;
 using System.Threading.Tasks;
 using Bandwidth.Net;
@@ -125,10 +116,10 @@ public class Program
     await client.Message.SendAsync(new MessageData
     {
       From = "+19195551212",
-	    To = "+191955512142",
-	    Text = "Test",
-	    ReceiptRequested = MessageReceiptRequested.All,
-	    CallbackUrl = "http://requestb.in"
+      To = "+191955512142",
+      Text = "Test",
+      ReceiptRequested = MessageReceiptRequested.All,
+      CallbackUrl = "http://requestb.in"
     });
 
   }
@@ -136,21 +127,27 @@ public class Program
 ```
 
 {% common %}
+
 Callback events will be sent on each state transition.
-```json
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-	"eventType":"sms",
-	"direction":"out",
-	"messageId": "m-kv54fk7x66fakdnb5owdk4y",
-	"messageUri": "https://api.catapult.inetwork.com/v1/users/<user-id>/messages/m-kv54fk7x66fakdnb5owdk4y",
-	"from":"+13233326955",
-	"to":"+13865245000",
-	"text":"Example",
-	"applicationId":"a-25nh2lj6qrxznkfu4b732jy",
-	"time":"2012-11-14T16:13:06.076Z",
-	"state":"not-delivered",
-	“errorcode”:”720”,
-	“error”:”Invalid Service Type”
+  "eventType":"sms",
+  "direction":"out",
+  "messageId": "m-kv54fk7x66fakdnb5owdk4y",
+  "messageUri": "https://api.../<userId>/messages/m-absd",
+  "from":"+13233326955",
+  "to":"+13865245000",
+  "text":"Example",
+  "applicationId":"a-25nh2lj6qrxznkfu4b732jy",
+  "time":"2012-11-14T16:13:06.076Z",
+  "state":"not-delivered",
+  "errorcode": "720",
+  "error":"Invalid Service Type"
 }
 ```
 
