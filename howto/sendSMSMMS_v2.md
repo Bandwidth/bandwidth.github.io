@@ -1,5 +1,4 @@
-{% method %}
-## Send SMS/MMS
+# Send SMS/MMS
 *_This example shows you how to send an outbound SMS or MMS message to a mobile phone._*
 
 ![Graphic](images/how-to-send-sms.png)
@@ -29,12 +28,10 @@ To recieve incoming text messages and multimedia messages. You must have the `ph
 
 Learn how to configure incoming messages in [this guide](incomingCallandMessaging.md).
 
-{% common %}
-### Example 1 of 2: Send a SMS
+## Example: Send a SMS
 
-{% sample lang="shell" %}
+{% codetabs name="Curl", type="bash" -%}
 
-```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -44,11 +41,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
         "to": "+15035555555",
         "text": "Hello there from Bandwidth!"
     }'
-```
 
-{% sample lang="js" %}
 
-```js
+{% language name="Node", type="js" -%}
+
 // install sdk: npm install node-bandwidth
 
 var Bandwidth = require("node-bandwidth");
@@ -70,11 +66,9 @@ client.Message.send(message)
 .catch(function(err) {
     console.log(err.message);
 });
-```
 
-{% sample lang="csharp" %}
+{% language name="C#", type="csharp" -%}
 
-```csharp
 //Download the .net sdk from dev.bandwidth.com/clientLib/csharp.html
 
 using System;
@@ -113,25 +107,23 @@ public class Program
     });
   }
 }
-```
 
 
-{% sample lang="ruby" %}
+{% language name="Ruby", type="rb" -%}
 
-```ruby
 message = Message.create(client, {
     :from => "+19195551212", # <-- This must be a Bandwidth number on your account
     :to => "+19195551213",
     :text => "Thank you for susbcribing to Unicorn Enterprises!"
 })
-```
 
-{% common %}
-### Example 2 of 2: Send a MMS (Picture Messaging)
+{%- endcodetabs %}
 
-{% sample lang="shell" %}
 
-```bash
+## Example: Send a MMS (Picture Messaging)
+
+{% codetabs name="Curl", type="bash" -%}
+
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -143,11 +135,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
         "text": "Hello there from Bandwidth!",
         "media":["https://s3.amazonaws.com/bwdemos/logo.png"]
     }'
-```
 
-{% sample lang="js" %}
 
-```js
+{% language name="Node", type="js" -%}
+
 // install sdk: npm install node-bandwidth
 
 var Bandwidth = require("node-bandwidth");
@@ -171,12 +162,10 @@ client.Message.send(message)
 .catch(function(err) {
     console.log(err.message);
 });
-```
 
 
-{% sample lang="csharp" %}
+{% language name="C#", type="csharp" -%}
 
-```csharp
 //Download the .net sdk from http://dev.bandwidth.com/clientLib/csharp.html
 
 using System;
@@ -216,19 +205,15 @@ public class Program
     });
   }
 }
-```
 
-{% sample lang="ruby" %}
+{% language name="Ruby", type="rb" -%}
 
-```ruby
 message = Message.create(client, {
     :from => "+19195551212", #<-- This must be a Bandwidth number on your account
     :to => "+19195551213",
     :text => "Thank you for susbcribing to Unicorn Enterprises!",
     :media => ["https://s3.amazonaws.com/bwdemos/logo.png"]
 })
-```
 
+{%- endcodetabs %}
 
-
-{% endmethod %}
