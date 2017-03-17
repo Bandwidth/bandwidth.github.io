@@ -82,9 +82,6 @@ a[aria-label="Change Layout"]{
   background-color: #2D3134;
   color: #fff;
 }
-.book-summary ul.summary li a, .book-summary ul.summary li span {
-  padding: 5px 15px;
-}
 .book-summary ul.summary li.header {
   padding: 15px 15px 0px 15px;
   font-size: .85em;
