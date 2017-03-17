@@ -14,6 +14,8 @@
 * [Create outbound call](howto/outboundCall.md)
 * [How to Import Bandwidth Numbers](howto/messagingHub.md)
 * [For Mobile Apps](howto/acrobits.md)
+* [Configure SIP](howto/sip.md)
+* [WebRTC](howto/webrtc.md)
 
 ## Security
 * [Access Bandwidth App Platform API](security.md)
