@@ -31,12 +31,14 @@ A domain is a way to logically group endpoints.  The name of the domain will be
 
 <code class="post">POST</code>`/v1/users/{user-id}/domains`
 
-```http
+```json
 {
   "name": "xyz-corp-testing",
   "description": "Testing Demo Domain"
 }
+```
 
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}
 ```
@@ -55,7 +57,7 @@ If you don't want all your SIP clients to ring simultaneously, create an endpoin
 
 <code class="post">POST</code>`/v1/users/{user-id}/domains/{domain-id}/endpoints`
 
-```http
+```json
 {
 	"name" : "jsmith_mobile",
 	"description" : "John Smiths mobile client",
@@ -64,7 +66,8 @@ If you don't want all your SIP clients to ring simultaneously, create an endpoin
 	"enabled" : "true",
 	"credentials" : { "password" : "abc123" }
 }
-
+```
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
 ```
@@ -75,7 +78,7 @@ For testing purposes, download a SIP client like [yate](http://yateclient.yate.r
 
 <code class="get">GET</code>`/v1/users/{user-id}/domains/{domain-id}/endpoints`
 
-```http
+```json
 200 OK
 Content-Type: application/json
 [
@@ -109,17 +112,22 @@ The API calls for each sequence in this flow is described below:
 
 Create a New Outbound Call to Your SIP Endpoint. You can start a new outbound call to your SIP endpoint, **be sure to set the callbackUrl so you can detect the ‘answer’ event for the next step.**
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`v1/users/{user-id}/calls`
 
-```http
+{% common %}
+### Create a New Outbound Call
+{% sample lang="http" %}
+
+
+```json
 {
   "from": "+1555444333",
   "to": "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
-  "callbackUrl" : "http://yourserver.com”
+  "callbackUrl" : "http://yourserver.com"
 }
+```
 
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{callId}
 ```
@@ -130,11 +138,14 @@ Location: /v1/users/{userId}/calls/{callId}
 
 Outbound call - receive an [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event from Bandwidth. When the SIP client answers the call, Bandwidth will POST to your callback URL the `answer` event that you will use to say something to the caller.
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`http://yourwebserver.com`
 
-```http
+{% common %}
+### Receive Answer event
+
+{% sample lang="http" %}
+
+```json
 {
    "callState":"active",
    "from":"+1555444333",
@@ -151,20 +162,23 @@ Outbound call - receive an [`answer`](http://dev.bandwidth.com/ap-docs/apiCallba
 ### 3: Speak Sentence
 
 Use the [speak sentence](http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallIdAudio.html) to speak “Hello SIP Client”. 
+<code class="post">POST</code>`v1/users/{user-id}/calls/{call-id}/audio`
+
+{% common %}
+### Speak Sentence
 
 {% sample lang="http" %}
 
-<code class="post">POST</code>`v1/users/{user-id}/calls/{call-id}/audio`
-
-```http
+```json
 {
   "gender": "female",
   "voice": "kate",
   "sentence": "Hello sip client",
   "locale": "en_US"
 }
+```
 
-
+```
 200 OK
 ```
 {% endextendmethod %}
@@ -174,11 +188,13 @@ Use the [speak sentence](http://dev.bandwidth.com/ap-docs/extendmethods/calls/po
 
 Detect when “speaking” is done. To know when speaking completes, you will receive a [callback](http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html) `{"eventType": "speak", "status": "done"}`.
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`http://yourwebserver.com`
 
-```http
+{% common %}
+### Receive Speak Event
+{% sample lang="http" %}
+
+```json
 {
    "time":"2014-06-17T01:14:30Z",
    "eventType":"speak",
@@ -195,19 +211,28 @@ Detect when “speaking” is done. To know when speaking completes, you will r
 
 After the text to speech completes, you can simply [hangup](http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallId.html).  
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`/v1/users/{user-id}/calls/{call-id}`
 
-```http
+{% common %}
+### Hang-up the call
+
+{% sample lang="http" %}
+
+```json
 {
    "state": "completed"
 }
+```
 
+```
 200 OK
 ```
 
 {% sample lang="ruby" %}
+
+```ruby
+## coming soon
+```
 
 {% endextendmethod %}
 
@@ -224,11 +249,14 @@ The API calls for each sequence in this flow is described below:
 
 **Receive an Incoming Call Event from your SIP Endpoint**. Note that your application is set for autoAnswer = false so the call will ring until you answer it in sequence 4 below.
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`http://yourwebserver.com`
 
-```http
+{% common %}
+### Receive an Incoming Call Event
+
+{% sample lang="http" %}
+
+```json
 {
    "callState":"active",
    "to":"+15552223333",
@@ -246,17 +274,22 @@ The API calls for each sequence in this flow is described below:
 
 **Create a New Outbound Call to the PSTN.** You can start a new outbound call to your SIP endpoint, **be sure to set the callbackUrl so you can detect the ‘answer’ event for the next step.**
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`/v1/users/{user-id}/calls`
 
-```http
+{% common %}
+### Create a New Outbound Call to the PSTN.
+
+{% sample lang="http" %}
+
+```json
 {
   "from": "+1555444333",
   "to": "+15552223333",
   "callbackUrl" : "http://yourserver.com"
 }
+```
 
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{callId}
 ```
@@ -266,11 +299,14 @@ Location: /v1/users/{userId}/calls/{callId}
 ### Step 3: Receive an ‘answer’ event from Bandwidth
 **Outbound call - receive an ‘answer’ event from Bandwidth.** When the PSTN call answers the call, Bandwidth will POST to your callback URL the [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the SIP client call leg and bridging the calls together.
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`http://yourwebserver.com`
 
-```http
+{% common %}
+### Receive an ‘answer’ event from Bandwidth
+
+{% sample lang="http" %}
+
+```json
 {
    "callState":"active",
    "from": "+1555444333",
@@ -282,25 +318,35 @@ Location: /v1/users/{userId}/calls/{callId}
 }
 ```
 
+{% common %}
 **Answer the call.**
-<code class="post">POST</code>`/v1/users/{user-id}/calls/{call-id}`
 
-```http
+{% sample lang="http" %}
+<code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}
+
+```json
 {
    "state": "active"
 }
+```
 
+```
 200 OK
 ```
 
+{% common %}
 **Bridge calls together.**
-<code class="post">POST</code>`/v1/users/{userId}/bridges`
 
-```http
+{% sample lang="http" %}
+<code class="post">POST</code>/v1/users/{userId}/bridges
+
+```json
 {
   "callIds":  ["{callId1}","{callId2}"]
 }
+```
 
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{bridgeId}
 ```
@@ -319,11 +365,14 @@ The API calls for each sequence in this flow is described below:
 
 **Receive an Incoming Call Event from PSTN**. Note that your application is set for autoAnswer = false so the call will ring until you answer it in sequence 4 below.
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`http://yourwebserver.com`
 
-```http
+{% common %}
+### Receive an Incoming Call Event from PSTN
+
+{% sample lang="http" %}
+
+```json
 {
    "callState":"active",
    "from":"+12223334444",
@@ -340,17 +389,22 @@ The API calls for each sequence in this flow is described below:
 ### Step 2: Create a New Outbound Call to the PSTN
 **Create a New Outbound Call to the PSTN**. You can start a new outbound call to your SIP endpoint, **be sure to set the callbackUrl so you can detect the ‘answer’ event for the next step.**
 
-{% sample lang="http" %}
-
 <code class="post">POST</code>`/v1/users/{user-id}/calls`
 
-```http
+{% common %}
+### Create a New Outbound Call to the PSTN
+
+{% sample lang="http" %}
+
+```json
 {
   "from": "+1555444333",
   "to": "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
-  "callbackUrl" : "http://yourserver.com”
+  "callbackUrl" : "http://yourserver.com"
 }
+```
 
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{callId}
 ```
@@ -360,11 +414,13 @@ Location: /v1/users/{userId}/calls/{callId}
 ### Step 3: Receive an ‘answer’ event from Bandwidth
 **Outbound SIP call - receive an ‘answer’ event from Bandwidth**. When the call answers the call, Bandwidth will POST to your callback URL the [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the PSTN call leg and bridging the calls together.
 
-{% sample lang="http" %}
-
 <code class="post">POST</code> http://yourwebserver.com
 
-```http
+{% common %}
+### Receive an ‘answer’ event from Bandwidth
+{% sample lang="http" %}
+
+```json
 {
    "callState":"active",
    "from": "+1555444333",
@@ -376,26 +432,34 @@ Location: /v1/users/{userId}/calls/{callId}
 }
 ```
 
+{% common %}
 **Answer the call.**
+{% sample lang="http" %}
 
-<code class="post">POST</code>`/v1/users/{user-id}/calls/{call-id}`
+<code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}
 
-```http
+```json
 {
    "state": "active"
 }
+```
 
+```
 200 OK
 ```
 
+{% common %}
 **Bridge calls together.**
-<code class="post">POST</code>`/v1/users/{userId}/bridges`
+{% sample lang="http" %}
+<code class="post">POST</code>/v1/users/{userId}/bridges
 
-```http
+```json
 {
   "callIds":  ["{callId1}","{callId2}"]
 }
+```
 
+```
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{bridgeId}
 ```
