@@ -51,7 +51,6 @@ a[aria-label="Change Layout"]{
 }
 .api-method-code {
   color: #EEE;
-  background-color: #272B2D !important;
   min-height: 100vh;
   padding: 0px 30px 15px !important;
 }
@@ -81,6 +80,9 @@ a[aria-label="Change Layout"]{
   background-color: #186469;
   background-color: #2D3134;
   color: #fff;
+}
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+  padding: 5px 15px;
 }
 .book-summary ul.summary li.header {
   padding: 15px 15px 0px 15px;
