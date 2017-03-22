@@ -228,12 +228,6 @@ After the text to speech completes, you can simply [hangup](http://dev.bandwidth
 200 OK
 ```
 
-{% sample lang="ruby" %}
-
-```ruby
-## coming soon
-```
-
 {% endextendmethod %}
 
 ## Step 4 - Receive an incoming call from your SIP endpoint
