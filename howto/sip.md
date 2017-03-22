@@ -23,6 +23,7 @@ In this tutorial, you will learn how to:
  4. Receive an incoming call from your SIP endpoint. You'll then bridge the call to the Public Switched Telephone Network (PSTN)
  5.Receive incoming phone calls from the PSTN. You'll then bridge the call to a SIP endpoint
 
+{% extendmethod %}
 
 ## Step 1 - Create a unique domain for your service to use
 
@@ -30,6 +31,10 @@ A domain is a way to logically group endpoints.  The name of the domain will be
 
 
 <code class="post">POST</code>`/v1/users/{user-id}/domains`
+{% common %}
+### Create Domain
+
+{% sample lang="http" %}
 
 ```json
 {
@@ -43,6 +48,10 @@ HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}
 ```
 
+{% endextendmethod %}
+
+
+{% extendmethod %}
 
 ## Step 2 - Create an endpoint/user
 An endpoint represents an entity that can register with the Bandwidth App Platform Registrar and place and receive calls.  An endpoint is addressable using a unique SIP URI which is constructed using the endpoint's user name and the domain in which the endpoint exists.
@@ -56,6 +65,13 @@ If you don't want all your SIP clients to ring simultaneously, create an endpoin
 > NOTE: You must associate an “application-id” with your endpoint to receive events from your endpoint. See the [`/applications`](http://dev.bandwidth.com/ap-docs/extendmethods/applications/applications.html) resource for how to create an application id.
 
 <code class="post">POST</code>`/v1/users/{user-id}/domains/{domain-id}/endpoints`
+
+{% common %}
+
+### Create endpoint/user
+
+{% sample lang="http" %}
+
 
 ```json
 {
@@ -72,11 +88,23 @@ HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
 ```
 
-## Step 3 - Make a phone call to your endpoint/user
+{% endextendmethod %}
+
+
+{% extendmethod %}
+
+## Step 3 - Register SIP Client / Softphone
 
 For testing purposes, download a SIP client like [yate](http://yateclient.yate.ro) and setup your username, password and realm, you can retrieve your endpoints as follows.
 
 <code class="get">GET</code>`/v1/users/{user-id}/domains/{domain-id}/endpoints`
+
+{% common %}
+
+### Fetch Registration information
+
+{% sample lang="http" %}
+
 
 ```json
 200 OK
@@ -97,15 +125,23 @@ Content-Type: application/json
 ]
 ```
 
+{% endextendmethod %}
+
+
 Be sure your SIP client is registered on the network, in Yate Client for example, you will see an “online” status.
 
 ![Yate](images/sip/YateClient.png)
+
+<hr>
+
+## Step 4: Create a New Outbound Call
 
 Next, make a call to your SIP client using the App Platform APIs. The flow for this is shown here:
 
 ![SIP-Clients-2.png](images/sip/SIP-Clients-2.png)
 
 The API calls for each sequence in this flow is described below:
+
 
 {% extendmethod %}
 ### 1: Create a New Outbound Call
@@ -230,7 +266,7 @@ After the text to speech completes, you can simply [hangup](http://dev.bandwidth
 
 {% endextendmethod %}
 
-## Step 4 - Receive an incoming call from your SIP endpoint
+## Step 5 - Receive an incoming call from your SIP endpoint
 
 When a SIP client makes a call, you will receive an “<a title="Incoming Call Event" href="http://ap.bandwidth.com/docs/callback-events/voice-calls/incoming-call-event/">incomingcall</a>” event from that SIP client, you can choose what to do. In most basic use case, you will simply want to start an outbound call to the PSTN and bridge the calls together. The flow for this is shown here:
 
@@ -346,7 +382,7 @@ Location: /v1/users/{userId}/calls/{bridgeId}
 ```
 {% endextendmethod %}
 
-## Step 5 - Receive incoming phone calls from the PSTN
+## Step 6 - Receive incoming phone calls from the PSTN
 
 In this step you'll receive the incoming call from the PSTN and bridge it to your SIP endpoint. The flow for this is shown here:
 
