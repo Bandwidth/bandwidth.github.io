@@ -536,17 +536,21 @@
 <li>Receive an incoming call from your SIP endpoint. You&apos;ll then bridge the call to the Public Switched Telephone Network (PSTN)
 5.Receive incoming phone calls from the PSTN. You&apos;ll then bridge the call to a SIP endpoint</li>
 </ol>
-<h2 id="step-1---create-a-unique-domain-for-your-service-to-use">Step 1 - Create a unique domain for your service to use</h2>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="step-1---create-a-unique-domain-for-your-service-to-use">Step 1 - Create a unique domain for your service to use</h2>
 <p>A domain is a way to logically group endpoints.  The name of the domain will be part of a public DNS record.  For that reason, we let the customer choose their domain names.  Once a domain has been created, endpoints can be created and managed within the context of the domain.  Because endpoints can only exist within the context of a domain, creating a domain is the first step in creating endpoints.</p>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/domains</code></p>
-<pre><code class="lang-json">{
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-domain">Create Domain</h3>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xyz-corp-testing&quot;</span>,
   <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Testing Demo Domain&quot;</span>
 }
 </code></pre>
 <pre><code>HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}
-</code></pre><h2 id="step-2---create-an-endpointuser">Step 2 - Create an endpoint/user</h2>
+</code></pre></div></div></div>
+
+
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="step-2---create-an-endpointuser">Step 2 - Create an endpoint/user</h2>
 <p>An endpoint represents an entity that can register with the Bandwidth App Platform Registrar and place and receive calls.  An endpoint is addressable using a unique SIP URI which is constructed using the endpoint&apos;s user name and the domain in which the endpoint exists.</p>
 <blockquote>
 <p>E.g. <strong>user1234@xyz-corp-testing.bwapp.bwsip.io</strong></p>
@@ -557,7 +561,8 @@ Location: /v1/users/{user-id}/domains/{domain-id}
 <p>NOTE: You must associate an &#x201C;application-id&#x201D; with your endpoint to receive events from your endpoint. See the <a href="http://dev.bandwidth.com/ap-docs/extendmethods/applications/applications.html" target="_blank"><code>/applications</code></a> resource for how to create an application id.</p>
 </blockquote>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/domains/{domain-id}/endpoints</code></p>
-<pre><code class="lang-json">{
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-endpointuser">Create endpoint/user</h3>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
     <span class="hljs-attr">&quot;name&quot;</span> : <span class="hljs-string">&quot;jsmith_mobile&quot;</span>,
     <span class="hljs-attr">&quot;description&quot;</span> : <span class="hljs-string">&quot;John Smiths mobile client&quot;</span>,
     <span class="hljs-attr">&quot;domainId&quot;</span> : <span class="hljs-string">&quot;{domain-id}&quot;</span>,
@@ -568,10 +573,14 @@ Location: /v1/users/{user-id}/domains/{domain-id}
 </code></pre>
 <pre><code>HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
-</code></pre><h2 id="step-3---make-a-phone-call-to-your-endpointuser">Step 3 - Make a phone call to your endpoint/user</h2>
+</code></pre></div></div></div>
+
+
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="step-3---register-sip-client--softphone">Step 3 - Register SIP Client / Softphone</h2>
 <p>For testing purposes, download a SIP client like <a href="http://yateclient.yate.ro" target="_blank">yate</a> and setup your username, password and realm, you can retrieve your endpoints as follows.</p>
 <p><code class="get">GET</code><code>/v1/users/{user-id}/domains/{domain-id}/endpoints</code></p>
-<pre><code class="lang-json">200 OK
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="fetch-registration-information">Fetch Registration information</h3>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">200 OK
 Content-Type: application/json
 [
   {
@@ -588,8 +597,14 @@ Content-Type: application/json
   }
 ]
 </code></pre>
+</div></div></div>
+
+
 <p>Be sure your SIP client is registered on the network, in Yate Client for example, you will see an &#x201C;online&#x201D; status.</p>
 <p><img src="images/sip/YateClient.png" alt="Yate"></p>
+<hr>
+
+<h2 id="step-4-create-a-new-outbound-call">Step 4: Create a New Outbound Call</h2>
 <p>Next, make a call to your SIP client using the App Platform APIs. The flow for this is shown here:</p>
 <p><img src="images/sip/SIP-Clients-2.png" alt="SIP-Clients-2.png"></p>
 <p>The API calls for each sequence in this flow is described below:</p>
@@ -663,7 +678,7 @@ Location: /v1/users/{userId}/calls/{callId}
 <pre><code>200 OK
 </code></pre></div></div></div>
 
-<h2 id="step-4---receive-an-incoming-call-from-your-sip-endpoint">Step 4 - Receive an incoming call from your SIP endpoint</h2>
+<h2 id="step-5---receive-an-incoming-call-from-your-sip-endpoint">Step 5 - Receive an incoming call from your SIP endpoint</h2>
 <p>When a SIP client makes a call, you will receive an &#x201C;<a title="Incoming Call Event" href="http://ap.bandwidth.com/docs/callback-events/voice-calls/incoming-call-event/" target="_blank">incomingcall</a>&#x201D; event from that SIP client, you can choose what to do. In most basic use case, you will simply want to start an outbound call to the PSTN and bridge the calls together. The flow for this is shown here:</p>
 <p><img src="images/sip/SIP-Clients-Endpoints-Incoming1.png" alt="SIP-Clients-Endpoints-Incoming1.png"></p>
 <p>The API calls for each sequence in this flow is described below:</p>
@@ -728,7 +743,7 @@ Location: /v1/users/{userId}/calls/{callId}
 Location: /v1/users/{userId}/calls/{bridgeId}
 </code></pre></div></div></div>
 
-<h2 id="step-5---receive-incoming-phone-calls-from-the-pstn">Step 5 - Receive incoming phone calls from the PSTN</h2>
+<h2 id="step-6---receive-incoming-phone-calls-from-the-pstn">Step 6 - Receive incoming phone calls from the PSTN</h2>
 <p>In this step you&apos;ll receive the incoming call from the PSTN and bridge it to your SIP endpoint. The flow for this is shown here:</p>
 <p><img src="images/sip/SIP-Clients-Endpoints-Incoming.png" alt="SIP-Clients-Endpoints-Incoming.png"></p>
 <p>The API calls for each sequence in this flow is described below:</p>
@@ -824,7 +839,7 @@ Location: /v1/users/{userId}/calls/{bridgeId}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configure SIP","level":"2.9","depth":1,"next":{"title":"WebRTC","level":"2.10","depth":1,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},"previous":{"title":"For Mobile Apps","level":"2.8","depth":1,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sip.md","mtime":"2017-03-22T13:18:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-22T13:18:29.632Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configure SIP","level":"2.9","depth":1,"next":{"title":"WebRTC","level":"2.10","depth":1,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},"previous":{"title":"For Mobile Apps","level":"2.8","depth":1,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sip.md","mtime":"2017-03-22T13:35:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-22T13:35:58.828Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
