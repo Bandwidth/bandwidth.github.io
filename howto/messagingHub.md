@@ -62,7 +62,7 @@ Using the the `<OrderId>` returned in step fetch the `<ProcessingStatus>` of the
 
 The `<ProcessingStatus>` has multiple values:
 
-<aside class="alert general small"> Only numbers that are COMPLETED without ERROR can be used.</aside>
+<aside class="alert general small"><p>Only numbers that are COMPLETED without ERROR can be used.</p></aside>
 
 | Status     | Description                                                                                     |
 |:-----------|:------------------------------------------------------------------------------------------------|
