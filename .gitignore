@@ -66,5 +66,7 @@ runTestsDebug.sh
 .mimosa/require/*
 logfile
 _book
-dashboard.md
+tmp
 .nvmrc
+deploy_key
+deploy_key.pub
