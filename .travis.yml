@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- stable
+before_script:
+  - npm install -g gitbook-cli
+script: bash ./deploy.sh
+env:
+  global:
+  - ENCRYPTION_LABEL: "8bc14ba12e77"
+  - COMMIT_AUTHOR_EMAIL: "dtolbert@bandwidth.com"

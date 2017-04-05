@@ -68,3 +68,5 @@ logfile
 _book
 tmp
 .nvmrc
+deploy_key
+deploy_key.pub
