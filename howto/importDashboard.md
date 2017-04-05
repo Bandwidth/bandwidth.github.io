@@ -16,7 +16,7 @@
 
 ## Step 1 *Import Number* - Using the Bandwidth Communication API
 
-Import numbers with the `applicationId` from Step 3
+Import numbers with the `applicationId`
 
 | Parameter       | DESCRIPTION                                                                                                                                                 | Mandatory |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
