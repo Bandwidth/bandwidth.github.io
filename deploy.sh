@@ -7,7 +7,7 @@ TARGET_BRANCH="master"
 function doCompile {
   make
   sleep 1
-  rm .travis.yml
+  rm _book/.travis.yml
   cp -a _book/. out/
 }
 
