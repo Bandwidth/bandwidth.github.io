@@ -1,4 +1,6 @@
-## How to Import Bandwidth Numbers to your account
+# How to Get Started with Messaging Hub
+
+<aside class="alert warning small"><p>You must have a messaging hub account.</p></aside>
 
 ![Description Image](../images/how-to-import-numbers.png)
 
