@@ -11,7 +11,7 @@ function doCompile {
   cp -a _book/. out/
 }
 
-if ["$TRAVIS_BRANCH" == "$TARGET_BRANCH"]; then
+if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ]; then
 	exit 0
 fi
 
