@@ -29,7 +29,7 @@ Import numbers with the `applicationId` from Step 3
 
 ### Example: Import Numbers (One at a time)
 
-You'll need to repeat this process for _EVERY_ number imported in Step 1.
+You'll need to repeat this process for _EVERY_ number that will be imported to the application platform from the Bandwidth Dashboard.
 
 <code class="post">POST</code> to `https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers`
 
