@@ -1,13 +1,24 @@
 language: node_js
 branches:
   except:
-    - master
+  - master
 node_js:
 - stable
+before_install:
+- sudo pip install virtualenv
+- virtualenv my_project
+- source my_project/bin/activate
 before_script:
-  - npm install -g gitbook-cli
+- npm install -g gitbook-cli
 script: bash ./deploy.sh
+after_success:
+- rm -rf _book/my_project
+- pip install git+https://github.com/dtolb/s3-deploy-website.git
+- s3-deploy-website "bw-dev"
 env:
   global:
-  - ENCRYPTION_LABEL: "8bc14ba12e77"
-  - COMMIT_AUTHOR_EMAIL: "dtolbert@bandwidth.com"
+  - ENCRYPTION_LABEL: 8bc14ba12e77
+  - COMMIT_AUTHOR_EMAIL: dtolbert@bandwidth.com
+  - secure: Q97M1E+RsLn/nj5UmCZC+79MFTYqVq6//TVmvUchzzl50v82NDZ/i2sugVBjEAvQ37kZ7XnQOTGZeES8+PaxQIYcx6tjhhbgcgDmHtk/QZUsmL6ANlPVhdeV78mBEKHEziA5bGI0ulSazz0f5Hm3zclkQUY+3L/R3WKq3kIlH/M2bbGzHQ8AT7HbjlSYkBSTpJF6D4KkY+RSQ4DR9qnPyl9XwL0X+b4f+y6fCS3CgXdLsTLnMbOOUuG7JimAVRuR/xUPJ67LaL5YIFpS3qprWpJhfbw+jtNsJ49RG5pIqO9XX+9l0gdyR1XwtZTHAAA2VRSVZ5dgRbk/mpMTOSmgSOwqlAOmF3LXhK8IUy43sQblhkRBvWTAdEW1/dWfStoHC43oBGfl7YvL31VoQL6Hejc5xx5WGMl93OxpBJJvEY0ZYauzbOXwjjR1+PixpK/+sWijEhX0P6hFZG+Q7YWdIaYAD1maEbIy29B3jX0HWqEqACqje+lD5qgk28qltiLUY5Lm0Mq3J+C7YQ1EGkh62l1y83/us4d86mpq6QtzPeVcO8XoZoQ+jw1kHR6R8oaoGt4SYuXkYK4kzMHvurcZwMbNa8CIZ/HDcRURzS3+BjJsSak7lVQ711hbxiaZCyYmW/UAeYuiVE+tbbXiBHX1pz4TGSmf9izkIdgudAPPvUo=
+  - secure: h8Ai4EbIFo0fUJnZHPwEQ1jPh/K/q3A9stF5qfEJjy2CPS36Je1a6lC1IOkn6/Hpwreo4zKkOebgpT0KWKX3qBpKY/kvdTX57GRj1g5d8/l1xWJWYYF8mjwhv1g9Kpgzy0jqaiN5N6+eFOPnjtrOzSQq0qvqz1R/4trFphVsJp6blvYudgzZ90HkJieZtLHJ/f3FrS6/1yZOyUHMUxlPAzFD+Xa4sG72MnAn1XTIuvLhFB2BWuKayLtjJfcshkbqqmX04Ju9KJBcrrUFGnp4+TEqecYnajhJr2swwjAazt9Pyg1lcRjegGqQDW64KHI3cDXLHZ9+2TYB+dK6qE5vaF9tr0YgPsjtJzFUcuDZpiXwCTdi+x4Iu3GIqitLPwVb5+91R/W8GailBe2pvDd8kYcJFvkLjdZKQoc4H1vAsqX0xrMe/PYLhsoQMI0l4qRLQb7kqn/8A+tUfgdofdXm/XvUbBJXBbWxwqHB8B+3RAhvUvmgxkvN9lrz7j5q+7WX7WcoRMF+MvbXU/i5QJtTTaI7WCLhR/6Z2ywN3GU6IPMfW8VQOiEbVeZmk+VUasSsoMl7IbfetPpRoSHB1CpWzHtYO3E9piOyIbJKkFCckMl9yxCduqchGDXgc2Gggjv8H5UIZfAgM5R5pGf/wh/c7TG24IsH4y76lJnoDC2tiOw=
+  - secure: RpEKBRLzjZKhKGyJmkInD7883aRtdwdAu5tYwTymp+1DFfTpZ7Tr7zK0kpMpZVNGhXUWh2wvpwxzw6eLQ56KBRyBsQk7zZmtXSFKW5CBa53EtDC03JgLebr9Y6eJHsmCxoVVsnxMYMChn2NnWB+L+1mePWSeZmYkLtYg5kMgU7ihZTRuldNbA9wNEI2j+y0DHxi3ljQZcNr/1f7efB7/HH5JTUUT6DEsCaBQxMRy2S2ZXqcmef6XWbrskAuxQy3J6O09mQ4TKGxAA0pDYbhS1nt490HgkbmkMLmDyD+oKUj+VhQUmNblnLr966aVukEbqWfWWKPjAQXleFRQJuMThfiKCmeh/ZjGmhsl6+fWj50oOyK7F3kcVQ1HJShf14Mm/bo65DZ5hJxDyoIIbKzHkxmxV+uUOLu1M+LEAiapPvHBaaLFBQkjZqIRDvOKIF//eBc6QZpBm65zweGbj/7OK+CQiif+TI0s34CVuyE+zIXEvBfBKgSsdwUJ8Buzq4DpIt6SppgWqe9W9si+caxCGPSuRsNgRPvidPFbdg5vS5L/0K3wE7MnL+fvoFa2IndEXkat5nciKWXfvv4lF55UEiICn0nwwgGF6jUB/T+0VdKyGdlKi2AiCwC8Yg+NH81cFlgkRrdkicNPaFxKJGq/j65HavgAdvhl/BfGX2YYPWk=
