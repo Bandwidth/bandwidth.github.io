@@ -23,7 +23,8 @@
 * [Secure your callbacks](callbackSecurity.md)
 
 ## API Reference
-* [Full API reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
+* [Full API Reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
+* [BXML Reference](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 
 ## Deployable Demos
 * [All Languages](howto/deployableDemos.md)
