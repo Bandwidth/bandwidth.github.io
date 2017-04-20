@@ -13,7 +13,7 @@
 * [Send SMS with Delivery Receipt](howto/smsDLR.md)
 * [Create outbound call](howto/outboundCall.md)
 * [Import Dashboard Numbers](howto/importDashboard.md)
-* [Messaging Hub Getting Started](howto/messagingHub.md)
+* [Hosted Messaging Getting Started](howto/hostedMessaging.md)
 * [For Mobile Apps](howto/acrobits.md)
 * [Configure SIP](howto/sip.md)
 * [WebRTC](howto/webrtc.md)
