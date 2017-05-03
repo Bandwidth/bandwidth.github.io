@@ -82,14 +82,14 @@ a[aria-label="Change Layout"]{
   color: #fff;
 }
 .book-summary ul.summary li a, .book-summary ul.summary li span {
-  padding: 5px 15px;
+  padding: 1px 15px;
 }
 .book-summary ul.summary li.header {
   padding: 15px 15px 0px 15px;
   font-size: .85em;
   text-transform: uppercase;
   color: #5f5f5f;
-  font-weight: 700;
+  font-weight: 900;
 }
 .book-summary ul.summary li.header:first-child {
   padding-top: 5px;
