@@ -546,181 +546,40 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Register for a Bandwidth Voice API account <a href="https://catapult.inetwork.com" target="_blank">here</a></li>
-<li>Register a SIP domain (domain name should be in low case !!!)</li>
-<li>Create an endpoint/user</li>
-<li>If you want to make calls to the PSTN (normal phones) you will need a server to handler events from Catapult</li>
+<li>Follow the <a href="sip.html">SIP Guide</a> to create a server to handle SIP incoming calls and PSTN Calls</li>
+<li>If you want to make calls to the PSTN (normal phones) you will need a server to handle events from Bandwidth</li>
 <li>Make phone calls</li>
 </ul>
 <p>For a more in depth guide, view <a href="sip.html">this article</a></p>
 <h2 id="quick-start-with-jssip">Quick Start with JsSip</h2>
-<p>Full Documentation is located at <a href="http://jssip.net/documentation/3.0.x/" target="_blank">JsSip&apos;s site</a></p>
-<p>CDN hosted library:</p>
-<ul>
-<li><a href="https://cdnjs.cloudflare.com/ajax/libs/jssip/3.0.0/jssip.min.js" target="_blank">minified</a></li>
-<li><a href="https://cdnjs.cloudflare.com/ajax/libs/jssip/3.0.0/jssip.js" target="_blank">not-minified</a></li>
-</ul>
-<h2 id="live-demo-once-server-has-been-configured">Live Demo (once server has been configured)</h2>
-<p><a href="https://jsfiddle.net/msqenm70/35/" target="_blank">JSFIDDLE Demo Client</a></p>
-<h3 id="supported-browsers">Supported Browsers</h3>
-<ul>
-<li>Firefox</li>
-<li>Chrome</li>
-<li>Other Chromium-based browsers</li>
-</ul>
-<h3 id="outbound-call">Outbound Call</h3>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> callOptions = {
-  <span class="hljs-attr">mediaConstraints</span>: {
-    <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// only audio calls</span>
-    video: <span class="hljs-literal">false</span>
-  }
-};
-
-<span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> JsSIP.WebSocketInterface(<span class="hljs-string">&apos;wss://webrtc.registration.bandwidth.com:10443&apos;</span>);
-
-<span class="hljs-keyword">var</span> bwPhone = <span class="hljs-keyword">new</span> JsSIP.UA({
-  <span class="hljs-string">&apos;uri&apos;</span>: <span class="hljs-string">&apos;sip:sip-user@your-domain.bwapp.bwsip.io&apos;</span>,
-  <span class="hljs-string">&apos;password&apos;</span>: <span class="hljs-string">&apos;password&apos;</span>,
-  <span class="hljs-string">&apos;sockets&apos;</span>: [socket]
-});
-
-bwPhone.start();
-
-bwPhone.on(<span class="hljs-string">&quot;registered&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    bwPhone.call(<span class="hljs-string">&quot;222-333-4444&quot;</span>, callOptions);
-});
-
-bwPhone.on(<span class="hljs-string">&quot;newRTCSession&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
-    <span class="hljs-keyword">var</span> session = data.session; <span class="hljs-comment">// outgoing call session here</span>
-    session.on(<span class="hljs-string">&quot;confirmed&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-comment">//the call has connected, and audio is playing</span>
-    });
-    session.on(<span class="hljs-string">&quot;ended&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-comment">//the call has ended</span>
-    });
-    session.on(<span class="hljs-string">&quot;failed&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-comment">// unable to establish the call</span>
-    });
-
-    session.on(<span class="hljs-string">&apos;peerconnection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
-      data.peerconnection.addEventListener(<span class="hljs-string">&apos;addstream&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
-        <span class="hljs-comment">// handle remote audio stream here like</span>
-        <span class="hljs-comment">// remoteAudio.src = window.URL.createObjectURL(e.stream);</span>
-      });
-    });
-
-    <span class="hljs-comment">//play a DTMF tone</span>
-    session.sendDTMF(<span class="hljs-string">&quot;1&quot;</span>);
-    session.sendDTMF(<span class="hljs-string">&quot;#&quot;</span>);
-
-    <span class="hljs-comment">//mute call</span>
-    session.mute({<span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>});
-
-    <span class="hljs-comment">//unmute call</span>
-    session.unmute({<span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>});
-
-    <span class="hljs-comment">//to hangup the call</span>
-    session.terminate();
-
-});
-</code></pre>
-<h3 id="inbound-call">Inbound Call</h3>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> JsSIP.WebSocketInterface(<span class="hljs-string">&apos;wss://webrtc.registration.bandwidth.com:10443&apos;</span>);
-
-<span class="hljs-keyword">var</span> callOptions = {
-  <span class="hljs-attr">mediaConstraints</span>: {
-    <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// only audio calls</span>
-    video: <span class="hljs-literal">false</span>
-  }
-};
-
-<span class="hljs-keyword">var</span> bwPhone = <span class="hljs-keyword">new</span> JsSIP.UA({
-  <span class="hljs-string">&apos;uri&apos;</span>: <span class="hljs-string">&apos;sip:sip-user@your-domain.bwapp.bwsip.io&apos;</span>,
-  <span class="hljs-string">&apos;password&apos;</span>: <span class="hljs-string">&apos;password&apos;</span>,
-  <span class="hljs-string">&apos;sockets&apos;</span>: [socket]
-});
-bwPhone.start();
-
-bwPhone.on(<span class="hljs-string">&quot;newRTCSession&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
-    <span class="hljs-keyword">var</span> session = data.session;
-    session.on(<span class="hljs-string">&apos;peerconnection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
-      data.peerconnection.addEventListener(<span class="hljs-string">&apos;addstream&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
-        <span class="hljs-comment">// handle remote audio stream here like</span>
-        <span class="hljs-comment">// remoteAudio.src = window.URL.createObjectURL(e.stream);</span>
-      });
-    });
-
-    <span class="hljs-keyword">if</span> (session.direction === <span class="hljs-string">&quot;incoming&quot;</span>) {
-        <span class="hljs-comment">// incoming call here</span>
-        session.on(<span class="hljs-string">&quot;accepted&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-comment">//the call has answered</span>
-        });
-        session.on(<span class="hljs-string">&quot;ended&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-comment">//the call has ended</span>
-        });
-        session.on(<span class="hljs-string">&quot;failed&quot;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-comment">// unable to establish the call</span>
-        });
-
-        <span class="hljs-comment">// Answer call</span>
-        session.answer(callOptions);
-
-        <span class="hljs-comment">// Reject call (or hang up it)</span>
-        session.terminate();
-    }
-});
-</code></pre>
-<h3 id="passwordless-connection-via-auth-token">Passwordless connection (via auth token)</h3>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> JsSIP.WebSocketInterface(<span class="hljs-string">&apos;wss://webrtc.registration.bandwidth.com:10443&apos;</span>);
-
-<span class="hljs-keyword">var</span> authToken = <span class="hljs-string">&quot;1234567890&quot;</span>; <span class="hljs-comment">// you can get this token by POST /v1/users/&lt;userId&gt;/domains/&lt;domainId&gt;/endpoints/&lt;endpointId&gt;/tokens</span>
-
-<span class="hljs-keyword">var</span> authHeader = <span class="hljs-string">&quot;X-Callsign-Token: &quot;</span> + authToken;
-
-<span class="hljs-keyword">var</span> callOptions = {
-  <span class="hljs-attr">extraHeaders</span>: [authHeader], <span class="hljs-comment">// set auth token here (it will be passed on making calls and answering incoming call)</span>
-  mediaConstraints: {
-    <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// only audio calls</span>
-    video: <span class="hljs-literal">false</span>
-  }
-};
-
-<span class="hljs-keyword">var</span> bwPhone = <span class="hljs-keyword">new</span> JsSIP.UA({
-  <span class="hljs-string">&apos;uri&apos;</span>: <span class="hljs-string">&apos;sip:sip-user@your-domain.bwapp.bwsip.io&apos;</span>,
-  <span class="hljs-string">&apos;sockets&apos;</span>: [socket],
-   <span class="hljs-string">&apos;register&apos;</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// don&apos;t register automatically on start()</span>
-});
-bwPhone.registrator().setExtraHeaders([authHeader]); <span class="hljs-comment">// set auth header on register</span>
-bwPhone.start();
-bwPhone.on(<span class="hljs-string">&apos;connected&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-comment">// connected to websocket</span>
-    bwPhone.register(); <span class="hljs-comment">// connect to SIP server</span>
-});
-
-bwPhone.on(<span class="hljs-string">&apos;registered&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-     <span class="hljs-comment">// ready to make calls and receive incoming calls</span>
-     <span class="hljs-comment">// making a call</span>
-     bwPhone.call(<span class="hljs-string">&quot;222-333-4444&quot;</span>, callOptions);
-});
-
-bwPhone.on(<span class="hljs-string">&quot;newRTCSession&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
-    <span class="hljs-keyword">var</span> session = data.session;
-
-    <span class="hljs-keyword">if</span> (session.direction === <span class="hljs-string">&quot;incoming&quot;</span>) {
-        <span class="hljs-comment">// answer incoming call</span>
-        session.answer(callOptions);
-    }
-});
-</code></pre>
-<p>Warning: <code>JSIP.RTCSession.sendDTMF</code> doesn&apos;t work with Catapult server right. A solution to avoid that is using own function</p>
-<pre><code class="lang-js">session.on(<span class="hljs-string">&apos;confirmed&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-keyword">var</span> localStream = session.connection.getLocalStreams()[<span class="hljs-number">0</span>];
-    <span class="hljs-keyword">var</span> dtmfSender = session.connection.createDTMFSender(localStream.getAudioTracks()[<span class="hljs-number">0</span>])
-    <span class="hljs-comment">// redefine sendDTMF with own one (which will work with Catapult right)</span>
-    session.sendDTMF = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tone</span>)</span>{
-      dtmfSender.insertDTMF(tone);
-    };
-  });
-</code></pre>
+<p>Once you have stood up a server to handle callbacks from Bandwidth <strong>AND</strong> <a href="http://dev.bandwidth.com/ap-docs/methods/domains/postDomains.html" target="_blank">created a domain</a> with at least one <a href="http://dev.bandwidth.com/ap-docs/methods/endpoints/postEndpoints.html" target="_blank">endpoint</a> that is associated with an application; you&apos;re ready to get started with SIP</p>
+<h3 id="httpstryitjssipnet"><a href="https://tryit.jssip.net/" target="_blank">https://tryit.jssip.net/</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SIP URI</td>
+<td style="text-align:left"><code>sip:{endpoint_name}@{domain_name}.bwapp.bwsip.io</code></td>
+</tr>
+<tr>
+<td style="text-align:left">SIP password</td>
+<td style="text-align:left">value used when <a href="http://dev.bandwidth.com/ap-docs/methods/endpoints/postEndpoints.html" target="_blank">creating the endpoint</a></td>
+</tr>
+<tr>
+<td style="text-align:left">WebSocket URI</td>
+<td style="text-align:left"><code>wss://webrtc.registration.bandwidth.com:10443</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/tryit_filledout.png" alt="complete setup"></p>
+<p>Once <em>everything</em> is filled out click the <code>OK</code> button and set your name. Click the <code>-&gt;</code> arrow to load the WebRTC Demo</p>
+<h3 id="demo-gif">Demo GIF</h3>
+<p><img src="images/web_rtc.gif" alt="Demo"></p>
 
                                 
                                 </section>
@@ -754,7 +613,7 @@ bwPhone.on(<span class="hljs-string">&quot;newRTCSession&quot;</span>, <span cla
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"WebRTC","level":"2.11","depth":1,"next":{"title":"Access Bandwidth App Platform API","level":"3.1","depth":1,"path":"security.md","ref":"security.md","articles":[]},"previous":{"title":"Configure SIP","level":"2.10","depth":1,"path":"howto/sip.md","ref":"howto/sip.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/webrtc.md","mtime":"2017-04-20T17:44:56.338Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-20T17:46:20.653Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"WebRTC","level":"2.11","depth":1,"next":{"title":"Access Bandwidth App Platform API","level":"3.1","depth":1,"path":"security.md","ref":"security.md","articles":[]},"previous":{"title":"Configure SIP","level":"2.10","depth":1,"path":"howto/sip.md","ref":"howto/sip.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/webrtc.md","mtime":"2017-05-08T19:28:43.199Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T19:30:04.177Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
