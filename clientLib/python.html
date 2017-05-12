@@ -553,12 +553,21 @@
 <li><a href="https://www.python.org/downloads/" target="_blank">At least Python 2.7</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
-<pre><code class="lang-bash">pip install bandwidth-sdk==2.1.0b0
+<pre><code class="lang-bash">pip install bandwidth-sdk==3.0.0b0
 </code></pre>
 <h2 id="usage">Usage</h2>
 <h3 id="client-initialization">Client Initialization</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth
-api = bandwidth.client(<span class="hljs-string">&apos;catapult&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+voice_api = bandwidth.client(<span class="hljs-string">&apos;voice&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+messaging_api = bandwidth.client(<span class="hljs-string">&apos;messaging&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+account_api = bandwidth.client(<span class="hljs-string">&apos;account&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+
+<span class="hljs-comment">## Or import each individually for better IDE integration::</span>
+
+<span class="hljs-keyword">from</span> bandwidth <span class="hljs-keyword">import</span> messaging, voice, account
+messaging_api = messaging.Client(<span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+voice_api = voice.Client(<span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+account_api = account.Client(<span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
 </code></pre>
 <blockquote>
 <p>Each of these code sample assumes that you have already initialized a client</p>
@@ -573,14 +582,14 @@ my_number = api.create_phone_number(numbers[<span class="hljs-number">0</span>][
 print(my_number)
 <span class="hljs-comment">#+19104440230</span>
 </code></pre>
-<h3 id="send-text-message">Send Text Message::</h3>
+<h3 id="send-text-message">Send Text Message</h3>
 <pre><code class="lang-python">message_id = api.send_message(from_ = <span class="hljs-string">&apos;+1234567980&apos;</span>,
                               to = <span class="hljs-string">&apos;+1234567981&apos;</span>,
                               text = <span class="hljs-string">&apos;SMS message&apos;</span>)
 print(message_id)
 <span class="hljs-comment"># m-messageId</span>
 </code></pre>
-<h3 id="send-picture-message">Send Picture Message::</h3>
+<h3 id="send-picture-message">Send Picture Message</h3>
 <pre><code class="lang-python">message_id = api.send_message(from_ = <span class="hljs-string">&apos;+1234567980&apos;</span>,
                               to = <span class="hljs-string">&apos;+1234567981&apos;</span>,
                               text = <span class="hljs-string">&apos;MMS message&apos;</span>,
@@ -588,7 +597,7 @@ print(message_id)
 print(message_id)
 <span class="hljs-comment"># m-messageId</span>
 </code></pre>
-<h3 id="fetch-information-about-single-message">Fetch information about single message::</h3>
+<h3 id="fetch-information-about-single-message">Fetch information about single message</h3>
 <pre><code class="lang-python">my_message = api.get_message(<span class="hljs-string">&apos;m-messageId&apos;</span>)
 print(my_message[state])
 <span class="hljs-comment">## received</span>
@@ -654,7 +663,7 @@ print(list(call_list))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Python","level":"6.4","depth":1,"next":{"title":"Java","level":"6.5","depth":1,"path":"clientLib/java.md","ref":"clientLib/java.md","articles":[]},"previous":{"title":"Ruby","level":"6.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/python.md","mtime":"2017-05-08T19:45:53.444Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T19:47:19.863Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"6.4","depth":1,"next":{"title":"Java","level":"6.5","depth":1,"path":"clientLib/java.md","ref":"clientLib/java.md","articles":[]},"previous":{"title":"Ruby","level":"6.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/python.md","mtime":"2017-05-12T15:07:30.849Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-12T15:08:53.099Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
