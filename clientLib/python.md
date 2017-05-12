@@ -18,7 +18,7 @@
 ## Installation
 
 ```bash
-pip install bandwidth-sdk==2.1.0b0
+pip install bandwidth-sdk==3.0.0b0
 ```
 
 ## Usage
@@ -26,7 +26,16 @@ pip install bandwidth-sdk==2.1.0b0
 ### Client Initialization
 ```python
 import bandwidth
-api = bandwidth.client('catapult', 'u-user', 't-token', 's-secret')
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+messaging_api = bandwidth.client('messaging', 'u-user', 't-token', 's-secret')
+account_api = bandwidth.client('account', 'u-user', 't-token', 's-secret')
+
+## Or import each individually for better IDE integration::
+
+from bandwidth import messaging, voice, account
+messaging_api = messaging.Client('u-user', 't-token', 's-secret')
+voice_api = voice.Client('u-user', 't-token', 's-secret')
+account_api = account.Client('u-user', 't-token', 's-secret')
 ```
 
 > Each of these code sample assumes that you have already initialized a client
@@ -44,7 +53,7 @@ print(my_number)
 #+19104440230
 ```
 
-### Send Text Message::
+### Send Text Message
 ```python
 message_id = api.send_message(from_ = '+1234567980',
                               to = '+1234567981',
@@ -53,7 +62,7 @@ print(message_id)
 # m-messageId
 ```
 
-### Send Picture Message::
+### Send Picture Message
 
 ```python
 message_id = api.send_message(from_ = '+1234567980',
@@ -65,7 +74,7 @@ print(message_id)
 ```
 
 
-### Fetch information about single message::
+### Fetch information about single message
 ```python
 my_message = api.get_message('m-messageId')
 print(my_message[state])
@@ -76,8 +85,8 @@ print(my_message[state])
 
 ```python
 call_id = api.create_call(from_ = '+1234567890',
-	                      to = '+1234567891',
-	                      callback_url = "http://yoursite.com/calls")
+                          to = '+1234567891',
+                          callback_url = "http://yoursite.com/calls")
 print(call_id)
 ## c-abc123
  ```
