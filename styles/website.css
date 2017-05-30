@@ -108,3 +108,8 @@ a[aria-label="Change Layout"]{
   color: #939da3 !important;
   padding-top: 20px !important;
 }
+.product--icon{
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
