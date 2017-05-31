@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600,600i,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Overpass:100,300,700,800,900');
 /*
  * Theme 1
  */
@@ -78,7 +78,7 @@
   font-family: Georgia, serif;
 }
 .book.font-family-1 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
   color: #704214;

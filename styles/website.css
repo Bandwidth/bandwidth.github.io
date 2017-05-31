@@ -8,14 +8,15 @@
 a[aria-label="Change Layout"]{
   display: none !important;
 }
-.book-summary{
-  background-color: #f3f3f3;
-}
 .book-body, .book-summary{
   height: calc(100% - 70px);
   position: fixed;
   bottom: 0;
   top: inherit;
+  background-color: #fffff2;
+}
+.book-summary{
+  background-color: #f3f3e9;
 }
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
@@ -25,12 +26,12 @@ a[aria-label="Change Layout"]{
   border-bottom: none;
 }
 .book-header .btn.lang-switcher.active {
-  background-color: #272B2D;
+  background-color: #1c0a14;
   color: #00bcec;
 }
 .book-header .btn.lang-switcher {
   text-transform: uppercase;
-  background-color: #272B2D;
+  background-color: #1c0a14;
   color: #8e8e8e;
   float: left;
   line-height: 70px;
@@ -56,7 +57,7 @@ a[aria-label="Change Layout"]{
 }
 .api-method-code pre {
   color: #EEE;
-  background-color: #272B2D;
+  background-color: #1c0a14;
   border-radius: 3px;
 }
 .book-summary ul.summary li.active>a {
@@ -82,14 +83,14 @@ a[aria-label="Change Layout"]{
   color: #fff;
 }
 .book-summary ul.summary li a, .book-summary ul.summary li span {
-  padding: 5px 15px;
+  padding: 1px 15px;
 }
 .book-summary ul.summary li.header {
   padding: 15px 15px 0px 15px;
   font-size: .85em;
   text-transform: uppercase;
   color: #5f5f5f;
-  font-weight: 700;
+  font-weight: 900;
 }
 .book-summary ul.summary li.header:first-child {
   padding-top: 5px;
@@ -107,4 +108,9 @@ a[aria-label="Change Layout"]{
   text-transform: uppercase;
   color: #939da3 !important;
   padding-top: 20px !important;
+}
+.product--icon{
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
 }
