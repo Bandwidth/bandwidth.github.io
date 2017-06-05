@@ -6,7 +6,7 @@ The current version is v3.0, released ## August, 2016. Version 2.14 is available
 
 [![github](../images/github_logo.png)](https://github.com/bandwidthcom/csharp-bandwidth/tree/v3-preview)
 
-[Full API Reference](http://bwdemos.com/csharp-bandwidth/html/R_Project_API.htm)
+[Full API Reference](http://dev.bandwidth.com/csharp-bandwidth/html/R_Project_API.htm)
 
 ### Installing the SDK
 
