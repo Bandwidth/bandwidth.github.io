@@ -1,20 +1,20 @@
 <div id="hero">
   <div class="heroImage"></div>
-  <h1 class="remove4mobile">Add text messages, phone calls, and phone number management to your software.</h1>
-  <h2 class="mobileShow">Add phone calls, text messages, and phone number management to your app.</h2>
-  <p>Whether you’re looking to create a one-of-a-kind text messaging experience in your app, or simply make a reliable phone call from one phone to another, Bandwidth can get you there – quickly and easily. We’re built to scale, and trusted by everyone from exciting new application start-ups and traditional telecom companies, to some of the most demanding Internet giants in the business. <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/">Learn more</a> or checkout our example code below.</p><br>
+  <h1 class="remove4mobile">TRY BEFORE YOU BUY: HOW WELL DOES YOUR SOFTWARE COMMUNICATE?</h1>
+  <h2 class="mobileShow">TRY BEFORE YOU BUY: HOW WELL DOES YOUR SOFTWARE COMMUNICATE?</h2>
+  <p>Just like a salsa bar or a food truck, we’re thrilled when developers line up for our free samples. In our case, it’s APIs, and you can help yourself to our code below. If your app would benefit from a side order of text messaging or dependable phone call capability, look no further. We can solve your problem just like we’ve done for everyone from application start-ups and traditional telecom companies to some of the most demanding Internet giants in the business. Have a look around and <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/">Learn more.</a> You can’t survive on samples alone.</p><br>
   <div class="cardsContainer">
     <div id="smscard" class="devCards sms active">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-messaging.svg" alt="Messaging icon" class="product--icon"> <span class="remove4mobile">Messaging</span></h2>
-      <span class="remove4mobile">Send a text. It is really simple! SMS or MMS, send it now.
+      <span class="remove4mobile">Communication at its most basic. Adding SMS or MMS is a snap.
       <br><br></span><button class="iconic-button iconic-small" id="smsexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/sendSMSMMS.html" class="aimg"><button class="fulltut medium" id="smsfulltut" disabled>Full Tutorial</button></a>
     </div><div id="voicecard" class="devCards voice">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-voice.svg" alt="Voice icon" class="product--icon"> <span class="remove4mobile">Voice</span></h2>
-      <span class="remove4mobile">Wondering how to make a call? Put that number to use!
+      <span class="remove4mobile">“Watson, come here—I need Bandwidth!” You can say stuff like that once you add calling.
       <br><br></span><button class="iconic-button iconic-small" id="voiceexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/outboundCall.html" class="aimg"><button class="fulltut medium" id="voicefulltut" disabled>Full Tutorial</button></a>
     </div><div id="pncard"class="devCards pn">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-phonenumbers.svg" alt="Phone Numbers icon" class="product--icon"> <span class="remove4mobile">Numbers</span></h2>
-      <span class="remove4mobile">Learn how to get a telephone number. You will need to do this first. Go for it!
+      <span class="remove4mobile">We’ve got your number. In fact, we have as many of them as you want.
       <br><br></span><button class="iconic-button iconic-small" id="pnexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/buytn.html" class="aimg"><button class="fulltut medium" id="pnfulltut" disabled>Full Tutorial</button></a>
     </div>
   </div>
