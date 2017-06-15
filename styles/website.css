@@ -13,10 +13,10 @@ a[aria-label="Change Layout"]{
   position: fixed;
   bottom: 0;
   top: inherit;
-  background-color: #fffff2;
+  background-color: #fff;
 }
 .book-summary{
-  background-color: #f3f3e9;
+  background-color: #f3f3f3;
 }
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
