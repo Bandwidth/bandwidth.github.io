@@ -7,15 +7,15 @@
     <div id="smscard" class="devCards sms active">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-messaging.svg" alt="Messaging icon" class="product--icon"> <span class="remove4mobile">Messaging</span></h2>
       <span class="remove4mobile">Communication at its most basic. Adding SMS or MMS is a snap.
-      <br><br></span><button class="iconic-button iconic-small" id="smsexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/sendSMSMMS.html" class="aimg"><button class="fulltut medium" id="smsfulltut" disabled>Full Tutorial</button></a>
+      <br><br></span><button class="iconic-button iconic-small" id="smsexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/sendSMSMMS.html" class="aimg"><button class="fulltut" id="smsfulltut" disabled>Full Tutorial</button></a>
     </div><div id="voicecard" class="devCards voice">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-voice.svg" alt="Voice icon" class="product--icon"> <span class="remove4mobile">Voice</span></h2>
       <span class="remove4mobile">“Watson, come here—I need Bandwidth!” You can say stuff like that once you add calling.
-      <br><br></span><button class="iconic-button iconic-small" id="voiceexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/outboundCall.html" class="aimg"><button class="fulltut medium" id="voicefulltut" disabled>Full Tutorial</button></a>
+      <br><br></span><button class="iconic-button iconic-small" id="voiceexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/outboundCall.html" class="aimg"><button class="fulltut" id="voicefulltut" disabled>Full Tutorial</button></a>
     </div><div id="pncard"class="devCards pn">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-phonenumbers.svg" alt="Phone Numbers icon" class="product--icon"> <span class="remove4mobile">Numbers</span></h2>
       <span class="remove4mobile">We’ve got your number. In fact, we have as many of them as you want.
-      <br><br></span><button class="iconic-button iconic-small" id="pnexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/buytn.html" class="aimg"><button class="fulltut medium" id="pnfulltut" disabled>Full Tutorial</button></a>
+      <br><br></span><button class="iconic-button iconic-small" id="pnexpand"><i class="icons8-expand-arrow"></i></button><a href="/howto/buytn.html" class="aimg"><button class="fulltut" id="pnfulltut" disabled>Full Tutorial</button></a>
     </div>
   </div>
 </div>
