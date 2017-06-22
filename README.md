@@ -2,7 +2,7 @@
   <div class="heroImage"></div>
   <h1 class="remove4mobile">TRY BEFORE YOU BUY: HOW WELL DOES YOUR SOFTWARE COMMUNICATE?</h1>
   <h2 class="mobileShow">TRY BEFORE YOU BUY: HOW WELL DOES YOUR SOFTWARE COMMUNICATE?</h2>
-  <p>Just like a salsa bar or a food truck, we’re thrilled when developers line up for our free samples. In our case, it’s APIs, and you can help yourself to our code below. If your app would benefit from a side order of text messaging or dependable phone call capability, look no further. We can solve your problem just like we’ve done for everyone from application start-ups and traditional telecom companies to some of the most demanding Internet giants in the business. Have a look around and <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/">Learn more.</a> You can’t survive on samples alone.</p><br>
+  <p>Take a look at our code samples below. If your app would benefit from text messaging or dependable phone call capability, look no further. We can solve your problem just like we’ve done for everyone from application start-ups and traditional telecom companies to some of the most demanding Internet giants in the business. Have a look around or <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/">Learn more.</a></p><br>
   <div class="cardsContainer">
     <div id="smscard" class="devCards sms active">
       <h2><img src="https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/icon-messaging.svg" alt="Messaging icon" class="product--icon"> <span class="remove4mobile">Messaging</span></h2>
