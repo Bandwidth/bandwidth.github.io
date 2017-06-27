@@ -158,7 +158,84 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/"><button class="medium hover-go right">Learn more</button></a>
   <a href="/pricing.html"><button class="medium hover-go right light secondary">Pricing</button></a>
 </div> -->
-
+{% raw %}
+<div id="tutorial">
+  <h1>tutorial</h1>
+  <p class="copy">Create a voice and messaging enabled application using our API. No coding experience required.</p>
+  <div class="tutorial-summary"></div>
+  <div id="language-picker"></div>
+  <div class="group-label">
+    <div class="group-label-tab">
+      <h2 class="active">Setup environment</h2>
+    </div>
+    <div class="group-label-tab">
+      <h2>Create application</h2>
+    </div>
+    <div class="group-label-tab">
+      <h2>Communicate</h2>
+    </div>
+  </div>
+  <div class="step-label">
+    <div class="step-group-label">
+      <p class="active">Install Homebrew</p>
+      <p>Install Node.js</p>
+      <p>Install a text editor</p>
+      <p>Install ngrok</p>
+      <p>Install Postgres</p>
+      <p>Configure the ZSH file</p>
+    </div>
+    <div class="step-group-label">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="step-group-label">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>   
+  </div>
+  <div id="setup-environment-group" class="top-level-group">
+    <div class="tutorial-step step1 nodejs">
+      <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
+      <ol>
+        <li>First open your terminal</li>
+        <li>Copy and paste this line of code into your terminal. Learn more about homebrew here.</li>
+      </ol>
+      <pre>
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      </pre>
+    </div>
+    <div class="tutorial-step step2 nodejs"></div>
+    <div class="tutorial-step step3 nodejs"></div>
+    <div class="tutorial-step step4 nodejs"></div>
+    <div class="tutorial-step step5 nodejs"></div>
+    <div class="tutorial-step step6 nodejs"></div>
+    <div class="tutorial-step step7 nodejs"></div>
+  </div>
+  <div id="create-app-group" class="top-level-group">
+    <div class="tutorial-step step8 nodejs"></div>
+    <div class="tutorial-step step9 nodejs"></div>
+    <div class="tutorial-step step10 nodejs"></div>
+    <div class="tutorial-step step11 nodejs"></div>
+    <div class="tutorial-step step12 nodejs"></div>
+    <div class="tutorial-step step13 nodejs"></div>
+  </div>
+  <div id="communicate-group" class="top-level-group">
+    <div class="tutorial-step step14 nodejs"></div>
+    <div class="tutorial-step step15 nodejs"></div>
+    <div class="tutorial-step step16 nodejs"></div>
+    <div class="tutorial-step step17 nodejs"></div>
+    <div class="tutorial-step step18 nodejs"></div>
+    <div class="tutorial-step step19 nodejs"></div>
+    <div class="tutorial-step step20 nodejs"></div>
+  </div>
+</div>
+{% endraw %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 $(document).ready(function landing(){

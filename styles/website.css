@@ -114,3 +114,60 @@ a[aria-label="Change Layout"]{
   width: 30px;
   vertical-align: middle;
 }
+#tutorial h1,
+#tutorial h2 :not(.group-label > h2),
+#tutorial h3,
+#tutorial h4,
+#tutorial h5,
+#tutorial p.copy{
+  padding: 0px 30px;
+}
+.group-label, .step-group-label{
+  display: flex;
+}
+.group-label{
+  margin-left: 30px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+  width: 80%;
+}
+.group-label-tab{
+  flex-grow: 1;
+}
+.group-label h2{
+  padding: 0px 30px;
+  opacity: 0.5;
+}
+.group-label h2.active{
+  opacity: 1;
+  color: #00bcec;
+}
+.step-group-label{
+  padding: 0px 30px;
+}
+.step-group-label p{
+  flex-grow: 1;
+  opacity: 0.5;
+  padding-right: 15px;
+}
+.step-group-label p.active{
+  opacity: 1;
+  font-weight: 500;
+}
+.top-level-group{
+  width: 100%;
+  height: auto;
+}
+.top-level-group p,
+.top-level-group h1,
+.top-level-group h2,
+.top-level-group h3,
+.top-level-group h4,
+.top-level-group h5{
+  margin: 15px 30px 0px 30px;
+  padding: 0;
+}
+.top-level-group ol,
+.top-level-group ul{
+  margin: 15px 30px 0px 60px;
+}
