@@ -165,50 +165,49 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   <div class="tutorial-summary"></div>
   <div id="language-picker"></div>
   <div class="group-label">
-    <div class="group-label-tab">
-      <h2 class="active">Setup environment</h2>
+    <div class="group-label-tab active" data-rel="group1">
+      <h2 class="active">1. Setup environment</h2>
     </div>
-    <div class="group-label-tab">
-      <h2>Create application</h2>
+    <div class="group-label-tab" data-rel="group2">
+      <h2>2. Create application</h2>
     </div>
-    <div class="group-label-tab">
-      <h2>Communicate</h2>
+    <div class="group-label-tab" data-rel="group3">
+      <h2>3. Communicate</h2>
     </div>
   </div>
   <div class="step-label">
-    <div class="step-group-label">
-      <p class="active">Install Homebrew</p>
+    <div id="group1" class="step-group-label active">
+      <p class="step1 active">Install Homebrew</p>
       <p>Install Node.js</p>
       <p>Install a text editor</p>
       <p>Install ngrok</p>
       <p>Install Postgres</p>
       <p>Configure the ZSH file</p>
     </div>
-    <div class="step-group-label">
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
+    <div id="group2" class="step-group-label">
+      <p>Make a Bandwidth account</p>
+      <p>Setup environment variables</p>
+      <p>Get a phone number</p>
     </div>
-    <div class="step-group-label">
-      <p></p>
-      <p></p>
+    <div id="group3" class="step-group-label">
+      <p>Test</p>
+      <p>Test</p>
       <p></p>
       <p></p>
       <p></p>
     </div>   
   </div>
   <div id="setup-environment-group" class="top-level-group">
-    <div class="tutorial-step step1 nodejs">
+    <div class="tutorial-step step1 nodejs active">
       <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
       <ol>
         <li>First open your terminal</li>
         <li>Copy and paste this line of code into your terminal. Learn more about homebrew here.</li>
       </ol>
-      <pre>
+      <code>
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      </pre>
+      </code>
+      <button class="button button--medium button--hover-go button--right">Next</button>
     </div>
     <div class="tutorial-step step2 nodejs"></div>
     <div class="tutorial-step step3 nodejs"></div>
@@ -238,6 +237,12 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 {% endraw %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
+$('.group-label-tab').click(function(){
+  $('.group-label-tab').removeClass('active');
+  $(this).addClass('active');
+  $('.step-group-label').hide();
+  $('#' + $(this).data('rel')).css('display','flex');
+  })
 $(document).ready(function landing(){
 
   if ($(window).width() >= 980) {
