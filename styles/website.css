@@ -60,9 +60,6 @@ a[aria-label="Change Layout"]{
   background-color: #1c0a14;
   border-radius: 3px;
 }
-.markdown-section code, .markdown-section pre {
-    font-family: 'Overpass Mono',monospace;
-}
 .book-summary ul.summary li.active>a {
   color: #00bcec;
 }
