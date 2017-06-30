@@ -166,83 +166,160 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   <div id="language-picker"></div>
   <div class="group-label">
     <div class="group-label-tab active" data-rel="group1">
-      <h2 class="active">1. Setup environment</h2>
+      <h2 class="active">1. Get Ready</h2>
     </div>
     <div class="group-label-tab" data-rel="group2">
-      <h2>2. Create application</h2>
+      <h2>2. Get Bandwidth</h2>
     </div>
     <div class="group-label-tab" data-rel="group3">
       <h2>3. Communicate</h2>
     </div>
   </div>
-  <div class="step-label">
-    <div id="group1" class="step-group-label active">
-      <p class="step1 active">Install Homebrew</p>
-      <p>Install Node.js</p>
-      <p>Install a text editor</p>
-      <p>Install ngrok</p>
-      <p>Install Postgres</p>
-      <p>Configure the ZSH file</p>
+  <div id="group1" class="group">
+    <div class="step-group-label">
+      <p class="step-tab active" data-rel="step1" data-topic="1">Install Homebrew</p>
+      <p class="step-tab" data-rel="step2" data-topic="2">Install Node.js</p>
+      <p class="step-tab" data-rel="step3" data-topic="3">Install a text editor</p>
+      <p class="step-tab" data-rel="step4" data-topic="4">Install ngrok</p>
+      <p class="step-tab" data-rel="step5" data-topic="5">Install Postgres</p>
+      <p class="step-tab" data-rel="step6" data-topic="6">Configure the ZSH file</p>
     </div>
-    <div id="group2" class="step-group-label">
-      <p>Make a Bandwidth account</p>
-      <p>Setup environment variables</p>
-      <p>Get a phone number</p>
+    <div class="top-level-group">
+      <div class="tutorial-step step1 nodejs">
+        <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
+        <ol>
+          <li>First open your terminal</li>
+          <li>Copy and paste this line of code into your terminal. Learn more about homebrew here.</li>
+        </ol>
+      </div>
+      <div class="tutorial-step step2 nodejs">
+        <p>This is the second step</p>
+        <ol>
+          <li>First open your terminal</li>
+          <li>Copy and paste this line of code into your terminal. Learn more about homebrew here.</li>
+          <li>Copy and paste this line of code into your terminal. Learn more about homebrew here.</li>
+        </ol>
+      </div>
+      <div class="tutorial-step step3 nodejs">
+        <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
+      </div>
+      <div class="tutorial-step step4 nodejs">
+        <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
+      </div>
+      <div class="tutorial-step step5 nodejs">
+        <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
+      </div>
+      <div class="tutorial-step step6 nodejs">
+        <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
+      </div>
     </div>
-    <div id="group3" class="step-group-label">
-      <p>Test</p>
-      <p>Test</p>
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>   
   </div>
-  <div id="setup-environment-group" class="top-level-group">
-    <div class="tutorial-step step1 nodejs active">
-      <p>This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal.</p>
-      <ol>
-        <li>First open your terminal</li>
-        <li>Copy and paste this line of code into your terminal. Learn more about homebrew here.</li>
-      </ol>
-      <code>
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      </code>
-      <button class="button button--medium button--hover-go button--right">Next</button>
+  <div id="group2" class="group">
+    <div class="step-group-label">
+      <p class="step-tab" data-rel="step7" data-topic="7">Make a Bandwidth account</p>
+      <p class="step-tab" data-rel="step8" data-topic="8">Setup environment variables</p>
+      <p class="step-tab" data-rel="step9" data-topic="9">Get a phone number</p>
+      <p class="step-tab" data-rel="step10" data-topic="10">Make a Bandwidth account</p>
+      <p class="step-tab" data-rel="step11" data-topic="11">Setup environment variables</p>
+      <p class="step-tab" data-rel="step12" data-topic="12">Get a phone number</p>
     </div>
-    <div class="tutorial-step step2 nodejs"></div>
-    <div class="tutorial-step step3 nodejs"></div>
-    <div class="tutorial-step step4 nodejs"></div>
-    <div class="tutorial-step step5 nodejs"></div>
-    <div class="tutorial-step step6 nodejs"></div>
-    <div class="tutorial-step step7 nodejs"></div>
+    <div id="create-app-group" class="top-level-group">
+      <div class="tutorial-step step7 nodejs"></div>
+      <div class="tutorial-step step8 nodejs"></div>
+      <div class="tutorial-step step9 nodejs"></div>
+      <div class="tutorial-step step10 nodejs"></div>
+      <div class="tutorial-step step11 nodejs"></div>
+      <div class="tutorial-step step12 nodejs"></div>
+    </div>
   </div>
-  <div id="create-app-group" class="top-level-group">
-    <div class="tutorial-step step8 nodejs"></div>
-    <div class="tutorial-step step9 nodejs"></div>
-    <div class="tutorial-step step10 nodejs"></div>
-    <div class="tutorial-step step11 nodejs"></div>
-    <div class="tutorial-step step12 nodejs"></div>
-    <div class="tutorial-step step13 nodejs"></div>
-  </div>
-  <div id="communicate-group" class="top-level-group">
-    <div class="tutorial-step step14 nodejs"></div>
-    <div class="tutorial-step step15 nodejs"></div>
-    <div class="tutorial-step step16 nodejs"></div>
-    <div class="tutorial-step step17 nodejs"></div>
-    <div class="tutorial-step step18 nodejs"></div>
-    <div class="tutorial-step step19 nodejs"></div>
-    <div class="tutorial-step step20 nodejs"></div>
-  </div>
+  <div id="group3" class="group">
+    <div class="step-group-label">
+      <p class="step-tab" data-rel="step13" data-topic="13">Test</p>
+      <p class="step-tab" data-rel="step14" data-topic="14">Test</p>
+      <p class="step-tab" data-rel="step15" data-topic="15">Test</p>
+      <p class="step-tab" data-rel="step16" data-topic="16">Test</p>
+      <p class="step-tab" data-rel="step17" data-topic="17">Test</p>
+    </div>
+    <div id="communicate-group" class="top-level-group">
+      <div class="tutorial-step step13 nodejs"></div>
+      <div class="tutorial-step step14 nodejs"></div>
+      <div class="tutorial-step step15 nodejs"></div>
+      <div class="tutorial-step step16 nodejs"></div>
+      <div class="tutorial-step step17 nodejs"></div>
+    </div>
+  </div>  
+  <button id="tutorial-prev" class="medium secondary light hover-back left">Back</button>
+  <button id="tutorial-next" class="medium hover-go right">Next</button>
 </div>
 {% endraw %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
+$('#group1').show();
+$('.tutorial-step').not('.step1').hide();
 $('.group-label-tab').click(function(){
-  $('.group-label-tab').removeClass('active');
+  tabs(this);
+  startGroup();
+  console.log(startGroup);
+});
+$('.step-tab').click(function(){
+  $('.step-tab').removeClass('active');
   $(this).addClass('active');
-  $('.step-group-label').hide();
-  $('#' + $(this).data('rel')).css('display','flex');
-  })
+  $('.tutorial-step').hide();
+  $('.' + $(this).data('rel')).show();
+});
+$('#tutorial-next').click(function(){
+  var current = $('.step-tab.active').data('topic');
+  nextTut(current);
+  properTab(current);
+});
+$('#tutorial-prev').click(function(){
+  var current = $('.step-tab.active').data('topic');
+  prevTut(current);
+  properTab((current - 2));
+});
+function tabs(a){
+  $('.group-label-tab').removeClass('active');
+  $(a).addClass('active');
+  $('.group').hide();
+  $('#' + $(a).data('rel')).show();
+};
+function startGroup(){
+  $('.step-tab').removeClass('active');
+  $('#' + $('.group-label-tab.active').data('rel')).children('.step-group-label').children('p:first-child').addClass('active');
+  $('.tutorial-step').hide();
+  $('#' + $('.group-label-tab.active').data('rel')).children('.top-level-group').children('div:first-child').show();
+};
+function properTab(a){
+  if (a > 5 && a < 12){
+    tabs($('.group-label-tab[data-rel="group2"]'));
+  } else if (a >= 12){
+    tabs($('.group-label-tab[data-rel="group3"]'));
+  } else {
+    tabs($('.group-label-tab[data-rel="group1"]'));
+  }
+};
+function nextTut(a){
+  var next = a + 1;
+  if (next !== ($('.step-tab').length + 1)){
+    $('.step-tab').removeClass('active');
+    $('.step-tab[data-topic="'+next+'"]').addClass('active');
+    $('.tutorial-step').hide();
+    $('.step' + next).show();
+  } else {
+    return false;
+  }
+};
+function prevTut(a){
+  var prev = a - 1;
+  if (prev !== 0){
+    $('.step-tab').removeClass('active');
+    $('.step-tab[data-topic="'+prev+'"]').addClass('active');
+    $('.tutorial-step').hide();
+    $('.step' + prev).show();
+  } else {
+    return false;
+  }
+};
 $(document).ready(function landing(){
 
   if ($(window).width() >= 980) {
