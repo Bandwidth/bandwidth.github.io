@@ -14,6 +14,7 @@
 * [Create outbound call](howto/outboundCall.md)
 * [Import Dashboard Numbers](howto/importDashboard.md)
 * [Hosted Messaging Getting Started](howto/hostedMessaging.md)
+* [Setup Dashboard for Network Bridge](howto/networkBridge.md)
 * [For Mobile Apps](howto/acrobits.md)
 * [Configure SIP](howto/sip.md)
 * [WebRTC](howto/webrtc.md)
