@@ -178,6 +178,9 @@ a[aria-label="Change Layout"]{
   font-weight: 700;
   cursor: pointer;
 }
+.step-group-label p:hover{
+  opacity: 1;
+}
 .step-group-label p.active{
   opacity: 1;
   color: #00bcec;
@@ -205,4 +208,27 @@ a[aria-label="Change Layout"]{
 #tutorial-prev{
   margin-left: 60px;
   margin-right: 15px;
+}
+p.tutorial-code{
+  background-color: #1c0a14;
+  color: #fff;
+  padding: 5px 15px;
+  margin-top: 5px;
+  word-wrap: initial;
+  display: inline-block;
+  border-radius: 5px;
+  font-family: 'Overpass Mono',monospace;
+  font-size: .85em;
+}
+li pre{
+  display: block;
+  padding: 0px;
+  border-radius: 5px;
+}
+li pre code{
+  display: inline-block;
+  margin-left: -170px;
+}
+.moreInstruction{
+  display: none;
 }
