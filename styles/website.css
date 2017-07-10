@@ -177,6 +177,7 @@ a[aria-label="Change Layout"]{
   text-transform: uppercase;
   font-weight: 700;
   cursor: pointer;
+  max-width: 200px;
 }
 .step-group-label p:hover{
   opacity: 1;
