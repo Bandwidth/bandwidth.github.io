@@ -3,7 +3,7 @@ branches:
   except:
   - master
 node_js:
-- stable
+- v6.11.1
 before_install:
 - sudo pip install virtualenv
 - virtualenv my_project
