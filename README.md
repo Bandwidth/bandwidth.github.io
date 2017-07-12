@@ -579,6 +579,7 @@ $(document).ready(function landing(){
 
   // Toggle between languages
   $('code').not('.lang-bash').parent().hide();
+  $('li pre').show();
   $('.trigger').click(function() {
       $('code').parent().removeClass('active');
       $('.' + $(this).data('rel')).parent().addClass('active');
@@ -650,6 +651,7 @@ $(document).ready(function landing(){
 
     // Toggle between languages
     $('code').not('.lang-bash').parent().hide();
+    $('li pre').show();
     $('.trigger').click(function() {
         $('code').parent().removeClass('active');
         $('.' + $(this).data('rel')).parent().addClass('active');
