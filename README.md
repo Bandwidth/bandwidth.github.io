@@ -164,7 +164,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
   <p class="copy">Create a voice and messaging enabled application using our API. No coding experience required.</p>
   <div class="tutorial-summary"></div>
   <div id="language-picker"></div>
-  <div class="group-label">
+  <div id="tutorial-tabs" class="group-label">
     <div class="group-label-tab active" data-rel="group1">
       <h2 class="active">1. Get Ready</h2>
     </div>
@@ -579,20 +579,19 @@ $(document).ready(function landing(){
 
   // Toggle between languages
   $('code').not('.lang-bash').parent().hide();
-  $('li pre').show();
   $('.trigger').click(function() {
       $('code').parent().removeClass('active');
       $('.' + $(this).data('rel')).parent().addClass('active');
 
       if ($('#voicecard').hasClass('active')){
-        $('pre').hide();
+        tuts.hide();
         $('.voicetut.active').show();
       }
       if ($('#smscard').hasClass('active')){
-        $('pre').hide();
+        tuts.hide();
         $('.smstut.active').show();
       } else if ($('#pncard').hasClass('active')){
-        $('pre').hide();
+        tuts.hide();
         $('.pntut.active').show();
       }
   });
@@ -606,7 +605,7 @@ $(document).ready(function landing(){
   $('.devCards.active').find('.fulltut').prop("disabled",false);
 
   $('#smsexpand').click(function(){
-      $('pre').hide();
+      tuts.hide();
       $('.smstut.active').show();
       $('.devCards').removeClass('active');
       $(this).parent().addClass('active');
@@ -614,7 +613,7 @@ $(document).ready(function landing(){
       $('.devCards.active').find('.fulltut').prop("disabled",false);
   });
   $('#voiceexpand').click(function(){
-      $('pre').hide();
+      tuts.hide();
       $('.voicetut.active').show();
       $('.devCards').removeClass('active');
       $(this).parent().addClass('active');
@@ -623,7 +622,7 @@ $(document).ready(function landing(){
   });
 
   $('#pnexpand').click(function(){
-      $('pre').hide();
+      tuts.hide();
       $('.pntut.active').show();
       $('.devCards').removeClass('active');
       $(this).parent().addClass('active');
@@ -631,6 +630,8 @@ $(document).ready(function landing(){
       $('.devCards.active').find('.fulltut').prop("disabled",false);
   });
   $('.smstut.active').show();
+
+  // Desktop
   } else {
     // Adding classes for sms, voice and pns
     <!-- $('.book-summary, .book-body').addClass('mobile'); -->
@@ -654,14 +655,14 @@ $(document).ready(function landing(){
         $('.' + $(this).data('rel')).parent().addClass('active');
 
         if ($('#voicecard').hasClass('active')){
-          $('pre').hide();
+          tuts.hide();
           $('.voicetut.active').show();
         }
         if ($('#smscard').hasClass('active')){
-          $('pre').hide();
+          tuts.hide();
           $('.smstut.active').show();
         } else if ($('#pncard').hasClass('active')){
-          $('pre').hide();
+          tuts.hide();
           $('.pntut.active').show();
         }
     });
@@ -675,7 +676,7 @@ $(document).ready(function landing(){
     $('.devCards.active').find('.fulltut').prop("disabled",false);
 
     $('#smscard').click(function(){
-        $('pre').hide();
+        tuts.hide();
         $('.smstut.active').show();
         $('.devCards').removeClass('active');
         $(this).addClass('active');
@@ -683,7 +684,7 @@ $(document).ready(function landing(){
         $('.devCards.active').find('.fulltut').prop("disabled",false);
     });
     $('#voicecard').click(function(){
-        $('pre').hide();
+        tuts.hide();
         $('.voicetut.active').show();
         $('.devCards').removeClass('active');
         $(this).addClass('active');
@@ -692,7 +693,7 @@ $(document).ready(function landing(){
     });
 
     $('#pncard').click(function(){
-        $('pre').hide();
+        tuts.hide();
         $('.pntut.active').show();
         $('.devCards').removeClass('active');
         $(this).addClass('active');
@@ -702,7 +703,7 @@ $(document).ready(function landing(){
     $('.smstut.active').show();
   }
 });
-$('li pre').css({"margin-top":"5px", "padding":"0", "border-radius":"5px"});
+$('li pre').css({"display":"block", "margin-top":"5px", "padding":"0", "border-radius":"5px"});
 $('li pre code').css({"display":"inline-block", "margin-left":"-170px"});
 $('.moreAnchor').click(function(){
       $(this).next('.moreInstruction').show();
