@@ -160,7 +160,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 </div> -->
 {% raw %}
 <div id="tutorial">
-  <h1>tutorial</h1>
+  <h1>tutorial <span class="beta">BETA</span></h1>
   <p class="copy">Create a voice and messaging enabled application using our API. No coding experience required.</p>
   <div class="tutorial-summary"></div>
   <div id="language-picker"></div>
@@ -484,12 +484,17 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
       </div>
     </div>
   </div>  
-  <button id="tutorial-prev" class="medium secondary light hover-back left">Back</button>
-  <button id="tutorial-next" class="medium hover-go right">Next</button>
+  <button id="tutorial-prev" class="tutorial-controls medium secondary light hover-back left">Back</button>
+  <button id="tutorial-next" class="tutorial-controls medium hover-go right">Next</button>
 </div>
 {% endraw %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
+function positionTut() {
+    $('html, body').animate({
+        scrollTop: $("#tutorial-beta").offset().top
+    }, 2000);
+};
 $('#group1').show();
 $('.tutorial-step').not('.step1').hide();
 var one = $('#group1 .step-group-label .step-tab:last').data('topic');
@@ -509,11 +514,13 @@ $('#tutorial-next').click(function(){
   var current = $('.step-tab.active').data('topic');
   nextTut(current);
   properTab(current);
+  positionTut();
 });
 $('#tutorial-prev').click(function(){
   var current = $('.step-tab.active').data('topic');
   prevTut(current);
   properTab((current - 2));
+  positionTut();
 });
 function tabs(a){
   $('.group-label-tab').removeClass('active');
@@ -631,9 +638,19 @@ $(document).ready(function landing(){
       $('.devCards.active').find('.fulltut').prop("disabled",false);
   });
   $('.smstut.active').show();
+  $("#tutorial-next").click(function() {
+      $('html, body').animate({
+          scrollTop: $("#tutorial-tabs").offset().top
+      }, 2000);
+  });
 
-  // Desktop
+  // Mobile
   } else {
+    $("#tutorial-next").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#tutorial-tabs").offset().top
+        }, 2000);
+    });
     // Adding classes for sms, voice and pns
     <!-- $('.book-summary, .book-body').addClass('mobile'); -->
     $('#send-a-message').nextUntil('h3').addClass('smstut');
