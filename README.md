@@ -269,10 +269,7 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
           <li>Open your ZSHRC file by typing the following code. The zshrc file holds credentials and your computer preferences.<br>
             <p class="tutorial-code">st ~/.zshrc</p></li>
           <li>Add the following to the bottom of the zshrc file and fill in each with the appropriate credentials from above. The Catapult and Bandwidth credentials are the same.<br>
-<pre><code class="lang-js">export CATAPULT_USER_ID=<br>
-export CATAPULT_API_TOKEN=<br>
-export CATAPULT_API_SECRET=<br>
-export BANDWIDTH_USER_ID=<br>
+<pre><code class="lang-js">export BANDWIDTH_USER_ID=<br>
 export BANDWIDTH_API_TOKEN=<br>
 export BANDWIDTH_API_SECRET=<br>
 </code></pre>
