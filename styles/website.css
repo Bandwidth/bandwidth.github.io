@@ -213,7 +213,7 @@ a[aria-label="Change Layout"]{
 p.tutorial-code{
   background-color: #1c0a14;
   color: #fff;
-  padding: 5px 15px;
+  padding: 7px 15px;
   margin-top: 5px;
   word-wrap: initial;
   display: inline-block;
@@ -228,7 +228,7 @@ li pre{
 }
 li pre code{
   display: inline-block;
-  margin-left: -170px;
+
 }
 .moreInstruction{
   display: none;

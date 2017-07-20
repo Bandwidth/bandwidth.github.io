@@ -269,16 +269,13 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
           <li>Open your ZSHRC file by typing the following code. The zshrc file holds credentials and your computer preferences.<br>
             <p class="tutorial-code">st ~/.zshrc</p></li>
           <li>Add the following to the bottom of the zshrc file and fill in each with the appropriate credentials from above. The Catapult and Bandwidth credentials are the same.<br>
-          <pre>
-          <code class="lang-js">
-              export CATAPULT_USER_ID=<br>
-              export CATAPULT_API_TOKEN=<br>
-              export CATAPULT_API_SECRET=<br>
-              export BANDWIDTH_USER_ID=<br>
-              export BANDWIDTH_API_TOKEN=<br>
-              export BANDWIDTH_API_SECRET=<br>
-          </code>
-          </pre>
+<pre><code class="lang-js">export CATAPULT_USER_ID=<br>
+export CATAPULT_API_TOKEN=<br>
+export CATAPULT_API_SECRET=<br>
+export BANDWIDTH_USER_ID=<br>
+export BANDWIDTH_API_TOKEN=<br>
+export BANDWIDTH_API_SECRET=<br>
+</code></pre>
           </li>
         </ol>
       </div>
@@ -318,15 +315,12 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
             <p class="tutorial-code">npm install --save body-parser</p>
           </li>
           <li><strong>Add the dependencies to index.js.</strong> In your index.js file, copy the below code and paste it at the top of the index file. These are dependencies. Dependencies are programs that our code will use to run. It allows us to write less code and run more efficiently.<br>
-          <pre>
-          <code class="lang-js">
-              var Bandwidth = require("node-bandwidth");<br>
-              var express = require("express");<br>
-              var app = express();<br>
-              var bodyParser = require("body-parser");<br>
-              var http = require("http").Server(app);
-            </code>
-          </pre>
+<pre><code class="lang-js">var Bandwidth = require("node-bandwidth");<br>
+var express = require("express");<br>
+var app = express();<br>
+var bodyParser = require("body-parser");<br>
+var http = require("http").Server(app);
+</code></pre>
           </li>
         </ol>
       </div>
@@ -352,23 +346,17 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
           <p class="tutorial-code">stt</p>
           </li>
           <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies. See step 8 if you need to retrieve your token, client, and secret again.<br>
-            <pre>
-            <code class="lang-js">
-            var client = new Bandwidth({
-              userId    : "u-",  // note, this is not the same as the username you used to login to the portal
-              apiToken  : "t-",
-              apiSecret : "u"
-            });
-            </code>
-            </pre>
+<pre><code class="lang-js">var client = new Bandwidth({
+  userId    : "u-",  // note, this is not the same as the username you used to login to the portal
+  apiToken  : "t-",
+  apiSecret : "u"
+});
+</code></pre>
           </li>
           <li><strong>Add necessary apps.</strong> Paste the following 2 lines of code under the client. These are apps that our program will use.<br>
-          <pre>
-          <code class="lang-js">
-              app.use(bodyParser.json());
-              app.set('port', (process.env.PORT || 3000));
-          </code>
-          </pre>
+<pre><code class="lang-js">app.use(bodyParser.json());
+app.set('port', (process.env.PORT || 3000));
+</code></pre>
           </li>
         </ol>
       </div>
@@ -385,98 +373,80 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
           <li><strong>Create methods.</strong> Copy and paste the below code into your index.js file.<br>
             <ol>
               <li><strong>Method 1:</strong> sendMessage sends a message:
-                <pre>
-                <code class="lang-js">
-      var sendMessage = function(params){
-        client.Message.send({
-          //returns a promise
-          from : params.from, //your bandwidth number
-          to   : params.to, //number to send to
-          text : "",
-          media: "https://img.memesuper.com/ce20eb4f1da26e98771cd1c17a2a5641_who-me-who-me-memes_632-651.png"
-          })
-          //calls back the message id number and catches any errors
-          //is this important?
-          .then(function(message){
-            messagePrinter(message);
-            return client.Message.get(message.id)
-            //access ID from json can also get to and from
-            })
-            // prints message to console
-            .then(messagePrinter)
-
-            // catches any errors     
-            .catch(function(err){
-              console.log(err)
-              });
-            }
-                </code>
-                </pre>
+<pre><code class="lang-js">var sendMessage = function(params){
+  client.Message.send({
+    //returns a promise
+    from : params.from, //your bandwidth number
+    to   : params.to, //number to send to
+    text : "",
+    media: "https://s3.amazonaws.com/bwdemos/logo.png"
+  })
+  //calls back the message id number and catches any errors
+  //is this important?
+  .then(function(message){
+    messagePrinter(message);
+    return client.Message.get(message.id)
+    //access ID from json can also get to and from
+  })
+  // prints message to console
+  .then(function(){
+    console.log(message);
+  });
+  // catches any errors     
+  .catch(function(err){
+    console.log(err)
+  });
+}
+</code></pre>
             </li>
             <li><strong>Method 2:</strong>  messagePrinter prints the message to console in order to see what was sent (helper method):
-              <pre>
-              <code class="lang-js">
-          var messagePrinter= function (message){
-            console.log('Using the message printer');
-            console.log(message);
-          }
-              </code>
-              </pre>
+<pre><code class="lang-js">var messagePrinter= function (message){
+  console.log('Using the message printer');
+  console.log(message);
+}
+</code></pre>
           </li>
             </ol>
           </li>
           <li><strong>Create a number variable with the to and from numbers.</strong> Sending a message takes at 3 parameters: 1. The to number, 2. The from number, and 3. The message. By setting the numbers in the number method, we can send multiple messages to the same number more easily. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the from number is the Bandwidth number associated with this application and the to number is the number you would like to text.<br>
-          <pre>
-          <code class="lang-js">
-              var numbers = {
-                to: "+1#######",	        //number to send to
-                from: "+1##########" //Bandwidth number
-              };
-          </code>
-          </pre>
+<pre><code class="lang-js">var numbers = {
+  to: "+1##########",	//number to send to
+  from: "+1##########" //Bandwidth number
+};
+</code></pre>
           </li>
-          <li><strong>Send message using the numbers:<strong><br>
-          <pre>
-          <code class="lang-js">
-              sendMessage(numbers);
-          </code>
-          </pre>
+          <li><strong>Send message using the numbers:</strong><br>
+<pre><code class="lang-js">sendMessage(numbers);
+</code></pre>
           </li>
         </ol>
       </div>
       <div class="tutorial-step step13 nodejs">
         <ol>
           <li>Follow the setup instructions</li>
-          <li><strong>Create a call method.</strong> The following code is the basis for making an outbound call. Copy and paste it into the index file.<br>
-            <pre>
-              <code class="lang-js">
-          var createCall = function(params){
-            console.log("to: " + params.to);
-            console.log("from: " + params.from);
-            return client.Call.create({
-              from: params.from,
-              to  : params.to
-            })
-          };
-              </code>
-            </pre>
+          <li><strong>Create a call method.</strong> The following code is the basis for making an outbound call. Copy and paste it into the index file. The callbackHttpMethod and callbackUrl is used to speak a sentence into the call. The sentence is in an xml file created by Bandwidth. Feel free to create your own xml file.<br>
+<pre><code class="lang-js">var createCall = function(params){
+  console.log("to: " + params.to);
+  console.log("from: " + params.from);
+  return client.Call.create({
+    from: params.from,
+    to  : params.to,
+    callbackHttpMethod: "GET",
+    callbackUrl: "https://s3.amazonaws.com/bwdemos/helloFromBandwidth.xml"
+  })
+};
+</code></pre>
           </li>
           <li><strong>Create a number variable with the to and from numbers.</strong> Sending a message takes at 3 parameters: 1. The to number, 2. The from number, and 3. The message. By setting the numbers in the number method, we can send multiple messages to the same number more easily. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the from number is the Bandwidth number associated with this application and the to number is the number you would like to text.<br>
-          <pre>
-          <code class="lang-js">
-              var numbers = {
-                  to: "+1#######", //number to send to
-                  from: "+1##########" //Bandwidth number
-              };
-          </code>
-          </pre>
+<pre><code class="lang-js">var numbers = {
+  to: "+1##########", //number to send to
+  from: "+1##########" //Bandwidth number
+};
+</code></pre>
           </li>
           <li><strong>Create the call:</strong> <br>
-          <pre>
-          <code class="lang-js">
-              createCall(numbers)
-          </code>
-          </pre>
+<pre><code class="lang-js">createCall(numbers)
+</code></pre>
           </li>
           <li><strong>Run the code.</strong> This will begin the code and start the call:<br>
           <p class="tutorial-code">npm start</p></li>
@@ -723,7 +693,7 @@ $(document).ready(function landing(){
   }
 });
 $('li pre').css({"display":"block", "margin-top":"5px", "padding":"0", "border-radius":"5px"});
-$('li pre code').css({"display":"inline-block", "margin-left":"-170px"});
+$('li pre code').css({"display":"inline-block", "padding":"7px 15px"});
 $('.moreAnchor').click(function(){
       $(this).next('.moreInstruction').show();
 })
