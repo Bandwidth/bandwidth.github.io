@@ -4,6 +4,7 @@
 
 * [Home](README.md)
 * [Pricing](pricing.md)
+* [Tutorial](tutorial.md)
 
 ## How To
 * [Get Started](getStarted.md)

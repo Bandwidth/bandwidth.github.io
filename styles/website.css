@@ -115,21 +115,24 @@ a[aria-label="Change Layout"]{
   vertical-align: middle;
 }
 #tutorial{
-  margin: 60px 0px;
+  margin: 30px 0px;
+  min-height: 1300px;
 }
 #tutorial h1,
 #tutorial h2,
 #tutorial h3,
 #tutorial h4,
-#tutorial h5,
+#tutorial h5{
+  padding: 30px 30px 0px 30px;
+}
 #tutorial p.copy{
-  padding: 0px 60px;
+  padding: 0px 30px;
 }
 .group-label, .step-group-label{
   display: flex;
 }
 .group-label{
-  margin-left: 60px;
+  margin-left: 30px;
   border: 1px solid #e1e1e1;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
   width: 80%;
@@ -164,7 +167,7 @@ a[aria-label="Change Layout"]{
   color: #00bcec;
 }*/
 .step-group-label{
-  margin: 0px 60px;
+  margin: 0px 30px;
   border-bottom: 1px solid #e1e1e1;
 }
 /*.step-group-label.active{
@@ -204,10 +207,10 @@ a[aria-label="Change Layout"]{
   margin: 15px 0px;
 }
 .tutorial-step{
-  padding: 0px 60px;
+  padding: 0px 30px;
 }
 #tutorial-prev{
-  margin-left: 60px;
+  margin-left: 30px;
   margin-right: 15px;
 }
 p.tutorial-code{
@@ -242,4 +245,16 @@ li pre code{
   margin-top: 8px;
   display: inline-block;
   vertical-align: top;
+}
+.smstut, .voicetut, .pntut{
+  min-height: 350px;
+}
+.noAnchor:after{
+  content: none;
+}
+.disabled{
+  opacity: 0.3;
+  background-color: #CCC;
+  color: #000;
+  pointer-events: none;
 }
