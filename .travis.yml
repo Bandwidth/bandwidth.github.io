@@ -3,13 +3,13 @@ branches:
   except:
   - master
 node_js:
-- stable
+- v6.11.1
 before_install:
 - sudo pip install virtualenv
 - virtualenv my_project
 - source my_project/bin/activate
 before_script:
-- npm install -g gitbook-cli
+- npm install -g gitbook-cli@2.3.0
 script: bash ./deploy.sh
 after_success:
 - rm -rf _book/my_project
