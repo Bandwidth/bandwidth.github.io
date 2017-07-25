@@ -261,3 +261,8 @@ li pre code{
   color: #000;
   pointer-events: none;
 }
+.tabSubText{
+  font-size: .75em;
+  font-weight: 300;
+  text-transform: none;
+}

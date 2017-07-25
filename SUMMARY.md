@@ -7,7 +7,6 @@
 * [Tutorial](tutorial.md)
 
 ## How To
-* [Get Started](getStarted.md)
 * [Get a Number](howto/buytn.md)
 * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
 * [Send SMS/MMS](howto/sendSMSMMS.md)

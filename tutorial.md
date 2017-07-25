@@ -6,13 +6,13 @@
   <div id="language-picker"></div>
   <div id="tutorial-tabs" class="group-label">
     <div class="group-label-tab active" data-rel="group1">
-      <h2 class="active">1. Get Ready</h2>
+      <h2 class="active">Ready<br><span class="tabSubText">Set up your environment</span></h2>
     </div>
     <div class="group-label-tab" data-rel="group2">
-      <h2>2. Create an app</h2>
+      <h2>Set<br><span class="tabSubText">Create an application</span></h2>
     </div>
     <div class="group-label-tab" data-rel="group3">
-      <h2>3. Communicate</h2>
+      <h2>Communicate<br><span class="tabSubText">Send a message, make a call</span></h2>
     </div>
   </div>
   <div id="group1" class="group">
@@ -26,7 +26,7 @@
     <div class="top-level-group">
       <div class="tutorial-step step1 nodejs">
         <ol>
-          <li><strong>Open your terminal.</strong> See how <a class="moreAnchor">here.</a><span class="moreInstruction"><br>On the top of your computer click the magnifying glass and type terminal in the search bar. Press enter. This will open your terminal. Your terminal allows you to directly execute commands such as creating a file or starting an application on your mac.</span></li>
+          <li><strong>Open your terminal.</strong> See how <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a></li>
           <li><strong>Install Homebrew.</strong> This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal. Copy and paste this line of code into your terminal and press ENTER. The program will begin installation and may take a few minutes. Learn more about homebrew <a href="https://brew.sh/">here.</a><br>
             <p class="tutorial-code">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</p>
           </li>
@@ -108,11 +108,8 @@
           <li>Choose the credentials button to retrieve the Token and Secret.</li>
           <li>Open your ZSHRC file by typing the following code. The zshrc file holds credentials and your computer preferences.<br>
             <p class="tutorial-code">st ~/.zshrc</p></li>
-          <li>Add the following to the bottom of the zshrc file and fill in each with the appropriate credentials from above. The Catapult and Bandwidth credentials are the same.<br>
-<pre><code class="lang-js">export CATAPULT_USER_ID=<br>
-export CATAPULT_API_TOKEN=<br>
-export CATAPULT_API_SECRET=<br>
-export BANDWIDTH_USER_ID=<br>
+          <li>Add the following to the bottom of the zshrc file and fill in each with the appropriate credentials from above.<br>
+<pre><code class="lang-js">export BANDWIDTH_USER_ID=<br>
 export BANDWIDTH_API_TOKEN=<br>
 export BANDWIDTH_API_SECRET=<br>
 </code></pre>
@@ -121,7 +118,7 @@ export BANDWIDTH_API_SECRET=<br>
       </div>
       <div class="tutorial-step step7 nodejs">
         <ol>
-          <li><strong>Make a directory.</strong> This will make a directory to store all your files and code. A directory is a folder created by the terminal.<br>
+          <li><strong>Make a directory.</strong> This will make a directory to store all your files and code. A directory is a folder created by the terminal.To learn more about command lines and creating directories, click <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a><br>
             <p class="tutorial-code">mkdir name</p></li>
           <li><strong>Change into that directory.</strong> Your terminal does not automatically open to the new directory once it is made so you must manually open it using the cd name command.<br>
             <p class="tutorial-code">cd name</p><br></li>
@@ -142,9 +139,28 @@ export BANDWIDTH_API_SECRET=<br>
       <div class="tutorial-step step8 nodejs">
         <ol>
           <li><strong>Open the text editor:</strong><br>
-          <p class="tutorial-code">stt</p><br> Stt is a command specific to our sublime plugin installed in step 7 of the prerequisite guide that allows you to open the project. You may also use st to open a single file rather than the entire project. If you are not using Sublime, open your text editor with its specific commands.</li>
+          <p class="tutorial-code">stt</p><br> Stt is a command specific to our sublime plugin installed in GET READY -> CONFIGURE ZSH FILE -> step 2 of the prerequisite guide that allows you to open the project. You may also use st to open a single file rather than the entire project. If you are not using Sublime, open your text editor with its specific commands.</li>
           <li><strong>Create an index page.</strong> Sublime will open to a blank project. To create the index page, choose file -> save as-> then name the file index.js -> choose save. </li>
-          <li>In package.json add start to script: "start": "node index.js". You will see all the files associated with this project on the left hand side in Sublime. Open the package.json file. In the “scripts” section, add a comma after the test command then type "start": "node index.js". This step is not necessary but will make running the application easier. If you choose not to complete this step, you will run your application by typing node index.js in the terminal. If you add the script, your .json file should look like this:</li>
+          <li><strong>In package.json add start to script: "start": "node index.js".</strong> You will see all the files associated with this project on the left hand side in Sublime. Open the package.json file. In the “scripts” section, add a comma after the test command then type "start": "node index.js". This step is not necessary but will make running the application easier. If you choose not to complete this step, you will run your application by typing node index.js in the terminal. If you add the script, your .json file should look like this:<br>
+<pre><code class="lang-js">{
+  "name": "helloworldmaster",
+  "version": "1.0.0",
+  "description": "Learn to send a text and make a call using Bandwidth's API",
+  "main": "index.js",
+  "scripts": {
+    "test": " echo 'no test yet' "
+    "start": "node index.js"
+  },
+  "keywords": {
+    "Bandwidth",
+    "call",
+    "text"
+  },
+  "author": "Jillian Troftgruben",
+  "license": "MIT"
+}
+</code></pre>
+          </li>
         </ol>
       </div>
       <div class="tutorial-step step9 nodejs">
@@ -185,7 +201,7 @@ var http = require("http").Server(app);
           <li><strong>Open index.js file</strong> in your text editor:<br>
           <p class="tutorial-code">stt</p>
           </li>
-          <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies. See step 8 if you need to retrieve your token, client, and secret again.<br>
+          <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies. See GET READY -> MAKE A BANDWIDTH ACCOUNT -> step 2 if you need to retrieve your token, client, and secret again.<br>
 <pre><code class="lang-js">var client = new Bandwidth({
   userId    : "u-",  // note, this is not the same as the username you used to login to the portal
   apiToken  : "t-",
@@ -211,8 +227,6 @@ app.set('port', (process.env.PORT || 3000));
       <div class="tutorial-step step12 nodejs">
         <ol>
           <li><strong>Create methods.</strong> Copy and paste the below code into your index.js file.<br>
-            <ol>
-              <li><strong>Method 1:</strong> sendMessage sends a message:
 <pre><code class="lang-js">var sendMessage = function(params){
   client.Message.send({
     //returns a promise
@@ -238,17 +252,8 @@ app.set('port', (process.env.PORT || 3000));
   });
 }
 </code></pre>
-            </li>
-            <li><strong>Method 2:</strong>  messagePrinter prints the message to console in order to see what was sent (helper method):
-<pre><code class="lang-js">var messagePrinter= function (message){
-  console.log('Using the message printer');
-  console.log(message);
-}
-</code></pre>
           </li>
-            </ol>
-          </li>
-          <li><strong>Create a number variable with the to and from numbers.</strong> Sending a message takes at 3 parameters: 1. The to number, 2. The from number, and 3. The message. By setting the numbers in the number method, we can send multiple messages to the same number more easily. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the from number is the Bandwidth number associated with this application and the to number is the number you would like to text.<br>
+          <li><strong>Create a number variable with the to and from numbers.</strong> Creating a call takes in two parameters: 1. The ‘to’ number and 2. The ‘from’ number. By setting the numbers in the number method, we can make multiple calls without having to set the number each time. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the ‘from’ number is the Bandwidth number associated with this application and the ‘to’ number is the number you would like to text.<br>
 <pre><code class="lang-js">var numbers = {
   to: "+1##########",	//number to send to
   from: "+1##########" //Bandwidth number
