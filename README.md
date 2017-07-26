@@ -30,6 +30,8 @@
           <label for="radio-two"><span>c#</span></label>
           <input type="radio" name="basic-options" value="three" id="radio-three" class="lang-ruby trigger" data-rel="lang-ruby"/>
           <label for="radio-three"><span>ruby</span></label>
+          <input type="radio" name="basic-options" value="five" id="radio-five" class="lang-python trigger" data-rel="lang-python"/>
+          <label for="radio-five"><span>python</span></label>
       </div>
    </div>
 
@@ -77,6 +79,14 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
     }'
 ```
 
+```python
+message_id = messaging_api.send_message(from_ = '+1234567980',
+                              to = '+1234567981',
+                              text = 'SMS message')
+print(message_id)
+# m-messageId
+```
+
 ### Make a call
 
 ```js
@@ -111,7 +121,30 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
         "to": "{toNumber}"
     }'
 ```
+```python
+import bandwidth
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+call_id = voice_api.create_call(from_ = '+1234567890', to = '+1234567891', callback_url = "http://yoursite.com/calls")
+print(call_id)
+## c-abc123
 
+my_call = api.get_call(call_id)
+print(my_call)
+## {   'callback_url'         : 'http://yoursite.com/calls',
+##     'direction'           : 'out',
+##     'events'              : 'https://api.catapult.inetwork.com/v1/users/u-abc/calls/c-abc123/events',
+##     'from'                : '+1234567890',
+##     'id'                  : 'c-abc123',
+##     'recording_enabled'    : False,
+##     'recording_file_format' : 'wav',
+##     'recordings'          : 'https://api.catapult.inetwork.com/v1/users/u-abc/calls/c-abc123/recordings',
+##     'start_time'           : '2017-01-26T16:10:11Z',
+##     'state'               : 'started',
+##     'to'                  : '+1234567891',
+##     'transcription_enabled': False,
+##     'transcriptions'      : 'https://api.catapult.inetwork.com/v1/users/u-abc/calls/c-abc123/transcriptions'}
+
+```
 ### Buy a telephone number
 
 ```bash
@@ -149,6 +182,37 @@ numbers = AvailableNumber.search_local(client, {:area_code => "910", :quantity =
 puts("Found numbers: #{(numbers.map {|n| n[:number]}).join(', ')}")
 number = PhoneNumber.create(client, {:number => numbers[0][:number]})
 puts("Now you are owner of number #{number.number} (id #{number.id})")
+```
+
+```python
+import bandwidth
+account_api = bandwidth.client('account', 'u-user', 't-token', 's-secret')
+numbers = account_api.search_available_local_numbers(area_code = '910', quantity = 3)
+print(numbers)
+## [   {   'city'          : 'WILMINGTON',
+##         'national_number': '(910) 444-0230',
+##         'number'        : '+19104440230',
+##         'price'         : '0.35',
+##         'rate_center'    : 'WILMINGTON',
+##         'state'         : 'NC'},
+##     {   'city'          : 'WILMINGTON',
+##         'national_number': '(910) 444-0263',
+##         'number'        : '+19104440263',
+##         'price'         : '0.35',
+##         'rate_center'    : 'WILMINGTON',
+##         'state'         : 'NC'},
+##     {   'city'          : 'WILMINGTON',
+##         'national_number': '(910) 444-0268',
+##         'number'        : '+19104440268',
+##         'price'         : '0.35',
+##         'rate_center'    : 'WILMINGTON',
+##         'state'         : 'NC'}
+## ]
+
+my_number = api.create_phone_number(numbers[0]['number'])
+
+print(my_number)
+#+19104440230
 ```
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

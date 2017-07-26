@@ -25,15 +25,28 @@
     </div>
     <div class="top-level-group">
       <div class="tutorial-step step1 nodejs">
-        <ol>
-          <li><strong>Open your terminal.</strong> See how <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a></li>
-          <li><strong>Install Homebrew.</strong> This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal. Copy and paste this line of code into your terminal and press ENTER. The program will begin installation and may take a few minutes. Learn more about homebrew <a href="https://brew.sh/">here.</a><br>
-            <p class="tutorial-code">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</p>
+        <ul>
+          <li><strong>On a mac:</strong>
+            <ol>
+              <li>Open your terminal. See how <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a></li>
+              <li>Install Homebrew. This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal. Copy and paste this line of code into your terminal and press ENTER. The program will begin installation and may take a few minutes. Learn more about homebrew <a href="https://brew.sh/">here.</a><br>
+                <pre><code class="lang-js">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+              </li>
+              <li>Install node using the homebrew program you installed in the previous step. Copy and paste the below line of code and press enter.<br>
+                <pre><code class="lang-js">brew install node</code></pre>
+              </li>
+            </ol>
           </li>
-          <li><strong>Install node</strong> using the homebrew program you installed in the previous step. Copy and paste the below line of code and press enter.<br>
-            <p class="tutorial-code">brew install node</p>
+          <li><strong>On a PC:</strong>
+            <ol>
+              <li>Go here: <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a></li>
+              <li>Open the file and follow the download instructions. On the Custom Setup page, choose npm package manager.<br><img style="max-width:400px;margin-top: 15px;" src="../images/nodePC.png" /></li>
+              <li>Restart your computer. Node will not be available until after your computer is restarted. </li>
+              <li>If node was properly installed, you should be able to open your command prompt (see how <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089" target="_blank">here</a>) and type:<br>
+              <pre><code class="lang-js">node -v</code></pre> This will give you the current version of node running on the computer.</li>
+            </ol>
           </li>
-        </ol>
+        </ul>
       </div>
       <div class="tutorial-step step2 nodejs">
         <p>There are many to chose from but we will use sublime for this tutorial. Download here: <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a>.
@@ -45,16 +58,16 @@
           <li>On ngrok.com, choose download and download the specific file for your computer.</li>
           <li>Open the file by double clicking on it.</li>
           <li>In the terminal copy and paste the following code:<br>
-          <p class="tutorial-code">mv ngrok ~/Downloads ~</p><br> This will put ngrok in your home folder for future use.</li>
-          <li>Run it by typing<br><p class="tutorial-code">./ngrok http 3000.</p></li>
+          <pre><code class="lang-js">mv ngrok ~/Downloads ~</code></pre> This will put ngrok in your home folder for future use.</li>
+          <li>Run it by typing<br><pre><code class="lang-js">./ngrok http 3000.</code></pre></li>
         </ol>
         <p>You can also follow the instructions on the website download page. To stop ngrok at any time hold down (ctrl+C). You can also open a new tab on the terminal by holding down (command+T).</p>
       </div>
       <div class="tutorial-step step4 nodejs">
-        <p>Oh My Zsh is a great link for managing the zsh file. <a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</p>
+        <p>If you are using a PC, skip this step and continue to 'Make a Bandwidth Account'. <br>Oh My Zsh is a great link for managing the zsh file. <a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</p>
         <ol>
           <li>To download Oh My ZSH, copy the following text and paste in the terminal then press enter:<br>
-          <p class="tutorial-code">h -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</p></li>
+          <pre><code class="lang-js">h -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></pre></li>
           <li>Add the sublime plugin. This is optional but will make working with sublime easier.
             <ol>
               <li>Open your text editor by opening your finder. Go to the applications tab on the left hand side. If you are using sublime, open sublime. </li>
@@ -64,8 +77,8 @@
               <li>Choose file -> save</li>
               <li>Restart your terminal</li>
               <li>This will allow you to use shortcuts. Here are important shortcuts we use throughout this guide:<br>
-                <p class="tutorial-code">stt</p> = opens a folder in sublime<br>
-                <p class="tutorial-code">st</p> = opens a a single file in sublime
+                <pre><code class="lang-js">stt</code></pre> = opens a folder in sublime<br>
+                <pre><code class="lang-js">st</code></pre> = opens a a single file in sublime
               </li>
             </ol>
           </li>
@@ -107,11 +120,11 @@
           <li>The user ID is displayed in the User ID box. </li>
           <li>Choose the credentials button to retrieve the Token and Secret.</li>
           <li>Open your ZSHRC file by typing the following code. The zshrc file holds credentials and your computer preferences.<br>
-            <p class="tutorial-code">st ~/.zshrc</p></li>
+            <pre><code class="lang-js">st ~/.zshrc</code></pre></li>
           <li>Add the following to the bottom of the zshrc file and fill in each with the appropriate credentials from above.<br>
-<pre><code class="lang-js">export BANDWIDTH_USER_ID=<br>
-export BANDWIDTH_API_TOKEN=<br>
-export BANDWIDTH_API_SECRET=<br>
+<pre><code class="lang-js">export BANDWIDTH_USER_ID=
+export BANDWIDTH_API_TOKEN=
+export BANDWIDTH_API_SECRET=
 </code></pre>
           </li>
         </ol>
@@ -119,10 +132,10 @@ export BANDWIDTH_API_SECRET=<br>
       <div class="tutorial-step step7 nodejs">
         <ol>
           <li><strong>Make a directory.</strong> This will make a directory to store all your files and code. A directory is a folder created by the terminal.To learn more about command lines and creating directories, click <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a><br>
-            <p class="tutorial-code">mkdir name</p></li>
+            <pre><code class="lang-js">mkdir name</code></pre></li>
           <li><strong>Change into that directory.</strong> Your terminal does not automatically open to the new directory once it is made so you must manually open it using the cd name command.<br>
-            <p class="tutorial-code">cd name</p><br></li>
-          <li><strong>Use npm to create a .json file and follow the instructions:</strong><br><p class="tutorial-code">npm init</p><br>NPM is a package manager for JavaScript. It allows you to easily install, update, and use other programs. Because we are using Bandwidth’s API, this will be extremely helpful. NPM will prompt you with the following questions that will help setup your program:
+            <pre><code class="lang-js">cd name</code></pre></li>
+          <li><strong>Use npm to create a .json file and follow the instructions:</strong><br><pre><code class="lang-js">npm init</code></pre>NPM is a package manager for JavaScript. It allows you to easily install, update, and use other programs. Because we are using Bandwidth’s API, this will be extremely helpful. NPM will prompt you with the following questions that will help setup your program:
             <ol>
               <li>Name: name of project </li>
               <li>Version: version (you will usually start with version 1.0)</li>
@@ -139,7 +152,7 @@ export BANDWIDTH_API_SECRET=<br>
       <div class="tutorial-step step8 nodejs">
         <ol>
           <li><strong>Open the text editor:</strong><br>
-          <p class="tutorial-code">stt</p><br> Stt is a command specific to our sublime plugin installed in GET READY -> CONFIGURE ZSH FILE -> step 2 of the prerequisite guide that allows you to open the project. You may also use st to open a single file rather than the entire project. If you are not using Sublime, open your text editor with its specific commands.</li>
+          <pre><code class="lang-js">stt</code></pre> Stt is a command specific to our sublime plugin installed in GET READY -> CONFIGURE ZSH FILE -> step 2 of the prerequisite guide that allows you to open the project. You may also use st to open a single file rather than the entire project. If you are not using Sublime, open your text editor with its specific commands.</li>
           <li><strong>Create an index page.</strong> Sublime will open to a blank project. To create the index page, choose file -> save as-> then name the file index.js -> choose save. </li>
           <li><strong>In package.json add start to script: "start": "node index.js".</strong> You will see all the files associated with this project on the left hand side in Sublime. Open the package.json file. In the “scripts” section, add a comma after the test command then type "start": "node index.js". This step is not necessary but will make running the application easier. If you choose not to complete this step, you will run your application by typing node index.js in the terminal. If you add the script, your .json file should look like this:<br>
 <pre><code class="lang-js">{
@@ -166,15 +179,15 @@ export BANDWIDTH_API_SECRET=<br>
       <div class="tutorial-step step9 nodejs">
         <ol>
           <li><strong>Install the dependencies.</strong> Type each of the below lines into the terminal. This step installs all the necessary software for the program to run.<br>
-            <p class="tutorial-code">npm install --save node-bandwidth</p><br>
-            <p class="tutorial-code">npm install --save express</p><br>
-            <p class="tutorial-code">npm install --save body-parser</p>
+            <pre><code class="lang-js">npm install --save node-bandwidth</code></pre>
+            <pre><code class="lang-js">npm install --save express</code></pre>
+            <pre><code class="lang-js">npm install --save body-parser</code></pre>
           </li>
           <li><strong>Add the dependencies to index.js.</strong> In your index.js file, copy the below code and paste it at the top of the index file. These are dependencies. Dependencies are programs that our code will use to run. It allows us to write less code and run more efficiently.<br>
-<pre><code class="lang-js">var Bandwidth = require("node-bandwidth");<br>
-var express = require("express");<br>
-var app = express();<br>
-var bodyParser = require("body-parser");<br>
+<pre><code class="lang-js">var Bandwidth = require("node-bandwidth");
+var express = require("express");
+var app = express();
+var bodyParser = require("body-parser");
 var http = require("http").Server(app);
 </code></pre>
           </li>
@@ -183,23 +196,23 @@ var http = require("http").Server(app);
       <div class="tutorial-step step10 nodejs">
         <ol>
           <li><strong>Run the index page.</strong> Your computer may need to download some programs, but the programs will download automatically when you run your code for the first time. This will not happen when you run your code in the future.<br>
-          <p class="tutorial-code">npm start</p>
+          <pre><code class="lang-js">npm start</code></pre>
           </li>
           <li><strong>Open back to home directory.</strong> Any time you would like to return to your home directory, you can just use cd without a name afterwards. If you have nested folders and want to go back just one folder, you can also use ../ which will take you back one directory.<br>
-          <p class="tutorial-code">cd</p>
+          <pre><code class="lang-js">cd</code></pre>
           </li>
           <li><strong>Open ngrok.</strong> You must have ngrok running every time you start your program. At any time if the ngrok terminal does not say “connected”, return to your home directory and start the program using the ./ngrok http 3000 command. Note: we are using port 3000. A port is a connection point between a computer and another device. In this case, it is our connection point between our program and the internet. Port 3000 is a common port to run programs from. You can use a different port if it is available. A list of available ports is online and depends on your specific computer.<br>
-          <p class="tutorial-code">./ngrok http 3000</p></li>
+          <pre><code class="lang-js">./ngrok http 3000</code></pre></li>
         </ol>
       </div>
       <div class="tutorial-step step11 nodejs">
         <ol>
           <li><strong>Create a new tab in terminal.</strong> If you are using a standard Mac, you can hold down (command+T) buttons together to open a new tab. Now you will have 2 tabs. One is used to ensure that ngrok is working correctly and the other is to program on. Your applications web address is always available on the ngrok tab under the forwarding line.</li>
           <li><strong>Return to project folder.</strong> This command will return you to the directory, name. You can also type cd - to return to your last used directory. If you followed the above steps, it will return you to the project directory.<br>
-          <p class="tutorial-code">cd name</p>
+          <pre><code class="lang-js">cd name</code></pre>
           </li>
           <li><strong>Open index.js file</strong> in your text editor:<br>
-          <p class="tutorial-code">stt</p>
+          <pre><code class="lang-js">stt</code></pre>
           </li>
           <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies. See GET READY -> MAKE A BANDWIDTH ACCOUNT -> step 2 if you need to retrieve your token, client, and secret again.<br>
 <pre><code class="lang-js">var client = new Bandwidth({
@@ -264,6 +277,7 @@ app.set('port', (process.env.PORT || 3000));
 <pre><code class="lang-js">sendMessage(numbers);
 </code></pre>
           </li>
+          <li>You can download the complete files <a href="https://github.com/troft/SendMessage/archive/master.zip" download>here</a></li></li>
         </ol>
       </div>
       <div class="tutorial-step step13 nodejs">
@@ -294,7 +308,8 @@ app.set('port', (process.env.PORT || 3000));
 </code></pre>
           </li>
           <li><strong>Run the code.</strong> This will begin the code and start the call:<br>
-          <p class="tutorial-code">npm start</p></li>
+          <pre><code class="lang-js">npm start</code></pre></li>
+          <li>You can download the complete files <a href="https://github.com/troft/OutboundCall/archive/master.zip" download>here</a></li>
         </ol>
       </div>
     </div>
@@ -305,6 +320,26 @@ app.set('port', (process.env.PORT || 3000));
 {% endraw %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
+$('.tutorial-step pre').prepend('<button class="copy-button">Copy</button>');
+$('.tutorial-step pre').mouseenter(function() {
+    $(this).children('.copy-button').show();
+  })
+  .mouseleave(function() {
+    $(this).children('.copy-button').hide();
+    $(this).children('.copy-button').html('copy');
+});
+$('.copy-button').click(function(){
+  copyToClipboard($(this).next('code'));
+  $(this).html('Copied');
+  $(this).css("opacity","1");
+});
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+};
 $('#group1').show();
 $('.tutorial-step').not('.step1').hide();
 var one = $('#group1 .step-group-label .step-tab:last').data('topic');
@@ -327,7 +362,7 @@ $('.step-tab').click(function(){
   $('.step-tab').removeClass('active');
   $(this).addClass('active');
   $('.tutorial-step').hide();
-  $('.' + $(this).data('rel')).show();
+  $('.' + $(this).data('rel')).fadeIn( "slow" );
   $('#tutorial-prev').removeClass('disabled');
   $('#tutorial-next').removeClass('disabled');
 });
@@ -374,7 +409,7 @@ function startGroup(){
   $('.step-tab').removeClass('active');
   $('#' + $('.group-label-tab.active').data('rel')).children('.step-group-label').children('p:first-child').addClass('active');
   $('.tutorial-step').hide();
-  $('#' + $('.group-label-tab.active').data('rel')).children('.top-level-group').children('div:first-child').show();
+  $('#' + $('.group-label-tab.active').data('rel')).children('.top-level-group').children('div:first-child').fadeIn( "slow" );
 };
 function properTab(a){
   if (a >= one && a < two){
@@ -391,7 +426,7 @@ function nextTut(a){
     $('.step-tab').removeClass('active');
     $('.step-tab[data-topic="'+next+'"]').addClass('active');
     $('.tutorial-step').hide();
-    $('.step' + next).show();
+    $('.step' + next).fadeIn( "slow" );
   } else {
     return false;
   }
@@ -402,14 +437,11 @@ function prevTut(a){
     $('.step-tab').removeClass('active');
     $('.step-tab[data-topic="'+prev+'"]').addClass('active');
     $('.tutorial-step').hide();
-    $('.step' + prev).show();
+    $('.step' + prev).fadeIn( "slow" );
   } else {
     return false;
   }
 };
 $('li pre').css({"display":"block", "margin-top":"5px", "padding":"0", "border-radius":"5px"});
 $('li pre code').css({"display":"inline-block", "padding":"7px 15px"});
-$('.moreAnchor').click(function(){
-      $(this).next('.moreInstruction').show();
-});
 </script>

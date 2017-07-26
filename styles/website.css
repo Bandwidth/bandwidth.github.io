@@ -152,7 +152,7 @@ a[aria-label="Change Layout"]{
   border-bottom: 1px solid #00bcec;
 }
 .group-label h2{
-  padding: 30px !important;
+  padding: 20px 30px !important;
   margin: 0px !important;
   border-right: 1px solid rgba(0,0,0,.15);
 }
@@ -177,13 +177,11 @@ a[aria-label="Change Layout"]{
   display: flex;
 }*/
 .step-group-label p{
-  flex-grow: 1;
   opacity: 0.5;
-  padding-right: 15px;
+  padding-right: 30px;
   text-transform: uppercase;
   font-weight: 700;
   cursor: pointer;
-  max-width: 200px;
 }
 .step-group-label p:hover{
   opacity: 1;
@@ -262,7 +260,27 @@ li pre code{
   pointer-events: none;
 }
 .tabSubText{
+  display: block;
+  margin-top: -5px;
   font-size: .75em;
   font-weight: 300;
   text-transform: none;
+}
+.copy-button{
+  display: none;
+  height: 30px;
+  padding: 0px 7px;
+  background-color: #00bcec;
+  border-radius: 3px;
+  color: #fff;
+  margin: 2px;
+  font-size: .75em;
+  float: right;
+}
+.copy-button:hover{
+  background-color: #008db1;
+  top: inherit;
+}
+.copy-button:active{
+  top: inherit;
 }
