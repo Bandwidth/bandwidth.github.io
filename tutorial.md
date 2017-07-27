@@ -25,28 +25,22 @@
     </div>
     <div class="top-level-group">
       <div class="tutorial-step step1 nodejs">
-        <ul>
-          <li><strong>On a mac:</strong>
-            <ol>
-              <li>Open your terminal. See how <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a></li>
-              <li>Install Homebrew. This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal. Copy and paste this line of code into your terminal and press ENTER. The program will begin installation and may take a few minutes. Learn more about homebrew <a href="https://brew.sh/">here.</a><br>
-                <pre><code class="lang-js">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
-              </li>
-              <li>Install node using the homebrew program you installed in the previous step. Copy and paste the below line of code and press enter.<br>
-                <pre><code class="lang-js">brew install node</code></pre>
-              </li>
-            </ol>
+        <ol class="mac">
+          <li>Open your terminal. See how <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a></li>
+          <li>Install Homebrew. This is a great tool for quickly installing programs on a Mac. Most programs can be installed by writing one line of code in the terminal. Copy and paste this line of code into your terminal and press ENTER. The program will begin installation and may take a few minutes. Learn more about homebrew <a href="https://brew.sh/">here.</a><br>
+            <pre><code class="lang-js">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
           </li>
-          <li><strong>On a PC:</strong>
-            <ol>
-              <li>Go here: <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a></li>
-              <li>Open the file and follow the download instructions. On the Custom Setup page, choose npm package manager.<br><img style="max-width:400px;margin-top: 15px;" src="../images/nodePC.png" /></li>
-              <li>Restart your computer. Node will not be available until after your computer is restarted. </li>
-              <li>If node was properly installed, you should be able to open your command prompt (see how <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089" target="_blank">here</a>) and type:<br>
-              <pre><code class="lang-js">node -v</code></pre> This will give you the current version of node running on the computer.</li>
-            </ol>
+          <li>Install node using the homebrew program you installed in the previous step. Copy and paste the below line of code and press enter.<br>
+            <pre><code class="lang-js">brew install node</code></pre>
           </li>
-        </ul>
+        </ol>
+        <ol class="pc">
+          <li>Go here: <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a></li>
+          <li>Open the file and follow the download instructions. On the Custom Setup page, choose npm package manager.<br><img style="max-width:400px;margin-top: 15px;" src="../images/nodePC.png" /></li>
+          <li>Restart your computer. Node will not be available until after your computer is restarted. </li>
+          <li>If node was properly installed, you should be able to open your command prompt (see how <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089" target="_blank">here</a>) and type:<br>
+          <pre><code class="lang-js">node -v</code></pre> This will give you the current version of node running on the computer.</li>
+        </ol>
       </div>
       <div class="tutorial-step step2 nodejs">
         <p>There are many to chose from but we will use sublime for this tutorial. Download here: <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a>.
@@ -320,6 +314,13 @@ app.set('port', (process.env.PORT || 3000));
 {% endraw %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
+if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+  $('.pc').hide();
+  $('.mac').show();
+} else {
+  $('.pc').show();
+  $('.mac').hide();
+};
 $('.tutorial-step pre').prepend('<button class="copy-button">Copy</button>');
 $('.tutorial-step pre').mouseenter(function() {
     $(this).children('.copy-button').show();

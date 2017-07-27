@@ -284,3 +284,6 @@ li pre code{
 .copy-button:active{
   top: inherit;
 }
+.mac .pc{
+  display: none;
+}
