@@ -330,7 +330,7 @@ $('.tutorial-step pre').mouseenter(function() {
     $(this).children('.copy-button').html('copy');
 });
 $('.copy-button').click(function(){
-  copyToClipboard($(this).closest('pre'));
+  copyToClipboard($(this).next('code'));
   $(this).html('Copied');
   $(this).css("opacity","1");
 });
