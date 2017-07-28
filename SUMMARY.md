@@ -4,7 +4,7 @@
 
 * [Home](README.md)
 * [Pricing](pricing.md)
-* [Tutorial](tutorial.md)
+* [Get Started](tutorial.md)
 
 ## How To
 * [Get a Number](howto/buytn.md)

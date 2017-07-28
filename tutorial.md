@@ -1,6 +1,6 @@
 {% raw %}
 <div id="tutorial">
-  <h1>tutorial <span class="beta">BETA</span></h1>
+  <h1>Get Started <span class="beta">BETA</span></h1>
   <p class="copy">Create a voice and messaging enabled application using our API. No coding experience required.</p>
   <div class="tutorial-summary"></div>
   <div id="language-picker"></div>
@@ -330,12 +330,12 @@ $('.tutorial-step pre').mouseenter(function() {
     $(this).children('.copy-button').html('copy');
 });
 $('.copy-button').click(function(){
-  copyToClipboard($(this).next('code'));
+  copyToClipboard($(this).closest('pre'));
   $(this).html('Copied');
   $(this).css("opacity","1");
 });
 function copyToClipboard(element) {
-  var $temp = $("<input>");
+  var $temp = $("<textarea>");
   $("body").append($temp);
   $temp.val($(element).text()).select();
   document.execCommand("copy");
