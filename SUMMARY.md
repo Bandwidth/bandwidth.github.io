@@ -4,9 +4,9 @@
 
 * [Home](README.md)
 * [Pricing](pricing.md)
+* [Get Started](tutorial.md)
 
 ## How To
-* [Get Started](getStarted.md)
 * [Get a Number](howto/buytn.md)
 * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
 * [Send SMS/MMS](howto/sendSMSMMS.md)

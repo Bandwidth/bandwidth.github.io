@@ -38,6 +38,10 @@
                 {
                     "lang": "bash",
                     "name": "cURL"
+                },
+                {
+                    "lang": "python",
+                    "name": "python"
                 }
             ]
         },
@@ -70,8 +74,8 @@
         },
         "fontsettings": {
             "theme": "white",
-            "family": "sans", 
-            "size": 2         
+            "family": "sans",
+            "size": 2
         }
     }
 }
