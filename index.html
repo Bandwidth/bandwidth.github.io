@@ -596,7 +596,7 @@
 <pre><code class="lang-js">client.Message.send({
     <span class="hljs-attr">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
     <span class="hljs-attr">to</span>   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
-    <span class="hljs-attr">text</span> : <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>
+    <span class="hljs-attr">text</span> : <span class="hljs-string">&quot;What is cooler than a unicorn that can shoot lasers? This test message, thats what!&quot;</span>
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>)</span>{
     <span class="hljs-built_in">console</span>.log(message.id);
@@ -605,12 +605,12 @@
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
     From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
     To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
-    Text = <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>
+    Text = <span class="hljs-string">&quot;What is cooler than a unicorn that can shoot lasers? This test message, thats what!&quot;</span>
 });
 </code></pre>
 <pre><code class="lang-ruby">message = Message.create(client, {
     <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
-    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:to</span>   =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
     <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>
 })
 </code></pre>
@@ -620,32 +620,36 @@
     <span class="hljs-_">-d</span> \
     <span class="hljs-string">&apos;
     {
-        &quot;from&quot;: &quot;{fromNumber}&quot;,
-        &quot;to&quot;: &quot;{toNumber}&quot;,
-        &quot;text&quot;: &quot;Good morning, this is a test message&quot;
+        &quot;from&quot; : &quot;+19195551212&quot;,
+        &quot;to&quot;   : &quot;+19195551213&quot;,
+        &quot;text&quot; : &quot;What is cooler than a unicorn that can shoot lasers? This test message, thats what!&quot;
     }&apos;</span>
 </code></pre>
-<pre><code class="lang-python">message_id = messaging_api.send_message(from_ = <span class="hljs-string">&apos;+1234567980&apos;</span>,
-                                        to    = <span class="hljs-string">&apos;+1234567981&apos;</span>,
-                                        text  = <span class="hljs-string">&apos;SMS message&apos;</span>)
+<pre><code class="lang-python">message_id = messaging_api.send_message(
+  from_ = <span class="hljs-string">&apos;+19195551212&apos;</span>,
+  to    = <span class="hljs-string">&apos;+19195551213&apos;</span>,
+  text  = <span class="hljs-string">&apos;What is cooler than a unicorn that can shoot lasers? This test message, thats what!&apos;</span>)
 print(message_id)
 <span class="hljs-comment"># m-messageId</span>
 </code></pre>
 <h3 id="make-a-call">Make a call</h3>
 <pre><code class="lang-js">client.Call.create({
-    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
-    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>
+    <span class="hljs-attr">from</span> : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-attr">to</span>   : <span class="hljs-string">&quot;+19195551212&quot;</span>
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">call</span>) </span>{
     <span class="hljs-built_in">console</span>.log(call.id);
 })
 </code></pre>
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData{
-    From = <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
-    To = <span class="hljs-string">&quot;{toNumber}&quot;</span>
+    From = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    To   = <span class="hljs-string">&quot;+19195551212&quot;</span>
 });
 </code></pre>
-<pre><code class="lang-ruby">call = Call.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;{fromNumber}&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;{toNumber}&quot;</span>})
+<pre><code class="lang-ruby">call = Call.create(client, {
+  <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+  <span class="hljs-symbol">:to</span>   =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>
+})
 </code></pre>
 <pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
     -u {token}:{secret} \
@@ -653,15 +657,13 @@ print(message_id)
     <span class="hljs-_">-d</span> \
     <span class="hljs-string">&apos;
     {
-        &quot;from&quot;: &quot;{fromNumber}&quot;,
-        &quot;to&quot;: &quot;{toNumber}&quot;
+        &quot;from&quot; : &quot;+19195551213&quot;,
+        &quot;to&quot;   : &quot;+19195551212&quot;
     }&apos;</span>
 </code></pre>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth
-voice_api = bandwidth.client(<span class="hljs-string">&apos;voice&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
-call_id = voice_api.create_call(from_        = <span class="hljs-string">&apos;+1234567890&apos;</span>,
-                                to           = <span class="hljs-string">&apos;+1234567891&apos;</span>,
-                                callback_url = <span class="hljs-string">&quot;http://yoursite.com/calls&quot;</span>
+<pre><code class="lang-python">call_id = voice_api.create_call(
+  from_        = <span class="hljs-string">&apos;+1234567890&apos;</span>,
+  to           = <span class="hljs-string">&apos;+1234567891&apos;</span>
 )
 print(call_id)
 <span class="hljs-comment">## c-abc123</span>
@@ -696,9 +698,7 @@ puts(<span class="hljs-string">&quot;Found numbers: <span class="hljs-subst">#{(
 number = PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; numbers[<span class="hljs-number">0</span>][<span class="hljs-symbol">:number</span>]})
 puts(<span class="hljs-string">&quot;Now you are owner of number <span class="hljs-subst">#{number.number}</span> (id <span class="hljs-subst">#{number.id}</span>)&quot;</span>)
 </code></pre>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth
-account_api = bandwidth.client(<span class="hljs-string">&apos;account&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
-numbers     = account_api.search_available_local_numbers(area_code = <span class="hljs-string">&apos;910&apos;</span>, quantity = <span class="hljs-number">3</span>)
+<pre><code class="lang-python">numbers     = account_api.search_available_local_numbers(area_code = <span class="hljs-string">&apos;910&apos;</span>, quantity = <span class="hljs-number">3</span>)
 my_number   = api.create_phone_number(numbers[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;number&apos;</span>])
 
 print(my_number)
@@ -885,7 +885,7 @@ $(document).ready(function landing(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Home","level":"1.1","depth":1,"next":{"title":"Pricing","level":"1.2","depth":1,"path":"pricing.md","ref":"pricing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-07-31T17:51:16.082Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-31T17:52:44.211Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Home","level":"1.1","depth":1,"next":{"title":"Pricing","level":"1.2","depth":1,"path":"pricing.md","ref":"pricing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-08-01T20:10:22.168Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-01T20:11:51.824Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
