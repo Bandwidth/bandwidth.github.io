@@ -43,7 +43,7 @@
 client.Message.send({
     from : "+19195551212",
     to   : "+19195551213",
-    text : "Thank you for subscribing to Unicorn Enterprises!"
+    text : "What is cooler than a unicorn that can shoot lasers? This test message, thats what!"
 })
 .then(function(message){
     console.log(message.id);
@@ -54,14 +54,14 @@ client.Message.send({
 var message = await client.Message.SendAsync(new MessageData {
     From = "+19195551212",
     To = "+19195551213",
-    Text = "Thank you for subscribing to Unicorn Enterprises!"
+    Text = "What is cooler than a unicorn that can shoot lasers? This test message, thats what!"
 });
 ```
 
 ```ruby
 message = Message.create(client, {
     :from => "+19195551212",
-    :to => "+19195551213",
+    :to   => "+19195551213",
     :text => "Thank you for subscribing to Unicorn Enterprises!"
 })
 ```
@@ -73,16 +73,17 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
     -d \
     '
     {
-        "from": "{fromNumber}",
-        "to": "{toNumber}",
-        "text": "Good morning, this is a test message"
+        "from" : "+19195551212",
+        "to"   : "+19195551213",
+        "text" : "What is cooler than a unicorn that can shoot lasers? This test message, thats what!"
     }'
 ```
 
 ```python
-message_id = messaging_api.send_message(from_ = '+1234567980',
-                                        to    = '+1234567981',
-                                        text  = 'SMS message')
+message_id = messaging_api.send_message(
+  from_ = '+19195551212',
+  to    = '+19195551213',
+  text  = 'What is cooler than a unicorn that can shoot lasers? This test message, thats what!')
 print(message_id)
 # m-messageId
 ```
@@ -91,8 +92,8 @@ print(message_id)
 
 ```js
 client.Call.create({
-    from: "{fromNumber}",
-    to: "{toNumber}"
+    from : "+19195551213",
+    to   : "+19195551212"
 })
 .then(function (call) {
     console.log(call.id);
@@ -101,13 +102,16 @@ client.Call.create({
 
 ```csharp
 var call = await client.Call.CreateAsync(new CreateCallData{
-    From = "{fromNumber}",
-    To = "{toNumber}"
+    From = "+19195551213",
+    To   = "+19195551212"
 });
 ```
 
 ```ruby
-call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
+call = Call.create(client, {
+  :from => "+19195551213",
+  :to   => "+19195551212"
+})
 ```
 
 ```bash
@@ -117,16 +121,14 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
     -d \
     '
     {
-        "from": "{fromNumber}",
-        "to": "{toNumber}"
+        "from" : "+19195551213",
+        "to"   : "+19195551212"
     }'
 ```
 ```python
-import bandwidth
-voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
-call_id = voice_api.create_call(from_        = '+1234567890',
-                                to           = '+1234567891',
-                                callback_url = "http://yoursite.com/calls"
+call_id = voice_api.create_call(
+  from_        = '+1234567890',
+  to           = '+1234567891'
 )
 print(call_id)
 ## c-abc123
@@ -172,8 +174,6 @@ puts("Now you are owner of number #{number.number} (id #{number.id})")
 ```
 
 ```python
-import bandwidth
-account_api = bandwidth.client('account', 'u-user', 't-token', 's-secret')
 numbers     = account_api.search_available_local_numbers(area_code = '910', quantity = 3)
 my_number   = api.create_phone_number(numbers[0]['number'])
 
