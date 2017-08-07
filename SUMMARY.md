@@ -4,7 +4,8 @@
 
 * [Home](README.md)
 * [Pricing](pricing.md)
-* [Get Started](tutorial.md)
+* [Get Started](get-started.md)
+* [GitHub](http://github.com/Bandwidth)
 
 ## How To
 * [Get a Number](howto/buytn.md)
