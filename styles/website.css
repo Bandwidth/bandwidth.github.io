@@ -288,3 +288,24 @@ li pre code{
 .mac .pc{
   display: none;
 }
+#banner{
+  background-image: url('../images/cluecon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #4d2b64;
+  height: 70px;
+}
+#banner p{
+  margin: 0;
+  line-height: 66px;
+  text-align: left;
+  padding-left: 170px;
+  font-size: 1.3em;
+}
+#banner a{
+  color: #00bcec;
+  cursor: pointer;
+}
+#bannerClose{
+  cursor: pointer;
+}
