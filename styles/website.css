@@ -225,7 +225,7 @@ p.tutorial-code{
   display: inline-block;
   border-radius: 5px;
   font-family: 'Overpass Mono',monospace;
-  font-size: .85em;
+  font-size: 1em;
 }
 li pre{
   display: block;
@@ -308,4 +308,7 @@ li pre code{
 }
 #bannerClose{
   cursor: pointer;
+}
+pre code{
+  font-size: 1em !important;
 }
