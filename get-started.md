@@ -35,8 +35,8 @@
           </li>
         </ol>
         <ol class="pc">
-          <li>Go here: <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a></li>
-          <li>Open the file and follow the download instructions. On the Custom Setup page, choose npm package manager.<br><img style="max-width:400px;margin-top: 15px;" src="../images/nodePC.png" /></li>
+          <li>Go here: <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a> and download the “Recommended Version for Most Users” version.</li>
+          <li>Open the file and follow the download instructions. On the Custom Setup page, choose npm package manager. If the download prompts you with “Are you willing to make changes to this computer?” choose yes.<br><img style="max-width:400px;margin-top: 15px;" src="../images/nodePC.png" /></li>
           <li>Restart your computer. Node will not be available until after your computer is restarted. </li>
           <li>If node was properly installed, you should be able to open your command prompt (see how <a href="https://www.lifewire.com/how-to-open-command-prompt-2618089" target="_blank">here</a>) and type:<br>
           <pre><code class="lang-js">node -v</code></pre> This will give you the current version of node running on the computer.</li>
@@ -47,21 +47,29 @@
         </p>
       </div>
       <div class="tutorial-step step3 nodejs">
-        <p>This will allow the program to be live on the internet. Bandwidth uses URL’s to make API calls. If your program is not live on the internet, you will not be able to send or receive calls and texts. <a href="https://ngrok.com/">https://ngrok.com/</a></p>
-        <ol>
+        <p>Ngrok will allow the program to be live on the internet. Bandwidth uses URL’s to make API calls. If your program is not live on the internet, you will not be able to send or receive calls and texts. <a href="https://ngrok.com/">https://ngrok.com/</a></p>
+        <ol class="mac">
           <li>On ngrok.com, choose download and download the specific file for your computer.</li>
           <li>Open the file by double clicking on it.</li>
           <li>In the terminal copy and paste the following code:<br>
           <pre><code class="lang-js">mv ngrok ~/Downloads ~</code></pre> This will put ngrok in your home folder for future use.</li>
-          <li>Run it by typing<br><pre><code class="lang-js">./ngrok http 3000.</code></pre></li>
+          <li>Run it by typing<br><pre><code class="lang-js">./ngrok http 3000</code></pre></li>
         </ol>
-        <p>You can also follow the instructions on the website download page. To stop ngrok at any time hold down (ctrl+C). You can also open a new tab on the terminal by holding down (command+T).</p>
+        <ol class="pc">
+          <li>Open your downloads folder and search for ngrok-stable-windows-amd64.zip -> right click and extract the file.</li>
+          <li>After unzipping the file, open the ngrok-stable-windows-amd64 folder. Copy the file in the folder. </li>
+          <li>Navigate to your home folder by choosing This PC -> Local Disk(C:) -> Users -> yourusername and paste the file in this folder. <br>
+          <pre><code class="lang-js">mv ngrok ~/Downloads ~</code></pre> This will put ngrok in your home folder for future use.</li>
+          <li>To open ngrok, type the following in the command prompt:
+<br><pre><code class="lang-js">ngrok http 3000</code></pre></li>
+        </ol>
+        <p>You can also follow the instructions on the website download page. To stop ngrok at any time hold down (ctrl+C). If you are using a Mac, you can also open a new tab on the terminal by holding down (command+T). If you are on a PC, you must open a new window the same way you would launch command prompt. </p>
       </div>
       <div class="tutorial-step step4 nodejs">
         <p>If you are using a PC, skip this step and continue to 'Make a Bandwidth Account'. <br>Oh My Zsh is a great link for managing the zsh file. <a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</p>
         <ol>
           <li>To download Oh My ZSH, copy the following text and paste in the terminal then press enter:<br>
-          <pre><code class="lang-js">h -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></pre></li>
+          <pre><code class="lang-js">sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></pre></li>
           <li>Add the sublime plugin. This is optional but will make working with sublime easier.
             <ol>
               <li>Open your text editor by opening your finder. Go to the applications tab on the left hand side. If you are using sublime, open sublime. </li>
@@ -82,11 +90,11 @@
         <ol>
           <li><strong>Sign up</strong> for a <a href="http://catapult.inetwork.com/portal/signup">free trial account</a>.
           </li>
-          <li><strong>Get a phone number.</strong> It is important you have a phone number to send and receive calls and messages through Bandwidth’s server. The bandwidth dashboard makes this very easy to get a number but you can also use code to order phone numbers. Today we will use the dashboard.
+          <li><strong>Get a phone number.</strong> It is important you have a phone number to send and receive calls and messages through Bandwidth’s server. The Bandwidth dashboard makes this very easy to get a number but you can also use code to order phone numbers. Today we will use the dashboard.
             <ol>
               <li>First, login to dev.bandwidth.com</li>
               <li>Select the Numbers tab</li>
-              <li>You can fill search by: City and state, zipcode OR area code. But you may only choose one of the three options.</li>
+              <li>You can fill search by: City and state, zipcode OR area code. But you may only choose one of the three options. If you choose to search by zipcode or area code, make sure you blank out the state field as it automatically fills with California.</li>
               <li>Press search. You will see a list of numbers appear. If no list appears, search a different region. Some area codes are almost impossible to get due to the limited availability of numbers.</li>
               <li>Choose a number by checking the box next to it.</li>
               <li>Select the blue Get Numbers button.</li>
@@ -125,30 +133,36 @@ export BANDWIDTH_API_SECRET=
       </div>
       <div class="tutorial-step step7 nodejs">
         <ol>
-          <li><strong>Make a directory.</strong> This will make a directory to store all your files and code. A directory is a folder created by the terminal.To learn more about command lines and creating directories, click <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a><br>
+          <li class="mac"><strong>Make a directory.</strong> This will make a directory to store all your files and code for a new project. A directory is a folder created by the terminal. To learn more about command lines and creating directories, click<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a> Any time you see name throughout this tutorial, replace the name field with what you would like to name the folder or file.<br>
+            <pre><code class="lang-js">mkdir name</code></pre></li>
+          <li class="pc"><strong>Make a directory.</strong> This will make a directory to store all your files and code for a new project. A directory is a folder created by the terminal. To learn more about command lines and creating directories, click<a href="http://www.digitalcitizen.life/command-prompt-how-use-basic-commands" target="_blank">here.</a> Any time you see name throughout this tutorial, replace the name field with what you would like to name the folder or file.<br>
             <pre><code class="lang-js">mkdir name</code></pre></li>
           <li><strong>Change into that directory.</strong> Your terminal does not automatically open to the new directory once it is made so you must manually open it using the cd name command.<br>
             <pre><code class="lang-js">cd name</code></pre></li>
-          <li><strong>Use npm to create a .json file and follow the instructions:</strong><br><pre><code class="lang-js">npm init</code></pre>NPM is a package manager for JavaScript. It allows you to easily install, update, and use other programs. Because we are using Bandwidth’s API, this will be extremely helpful. NPM will prompt you with the following questions that will help setup your program:
+          <li><strong>Use npm to create a .json file and follow the instructions:</strong><br><pre><code class="lang-js">npm init</code></pre>NPM is a package manager for JavaScript. It allows you to easily install, update, and use other programs. Because we are using Bandwidth’s API, this will be extremely helpful. NPM will prompt you with the following questions that will help set up your program. Replace the highlighted text with the correct responses (ex. Name of project should be replaced by HelloWorld or SendAMessage). If npm autofills the field (ex. Entry point will have index.js in parentheses) press enter, otherwise, type the correct response and press enter.
             <ol>
-              <li>Name: name of project </li>
-              <li>Version: version (you will usually start with version 1.0)</li>
-              <li>Description: description of the app </li>
+              <li>Name: <i>name of project</i></li>
+              <li>Version: <i>version (you will usually start with version 1.0)</i></li>
+              <li>Description: <i>description of the app</i></li>
               <li>Entry point (fills out as index.js) </li>
               <li>Test command : echo ‘no test yet’ </li>
-              <li>Keywords: helps npm find your package when people search for the keywords </li>
-              <li>Author: your name</li>
+              <li>Git repository: <i>if you have a git repository, you can fill it in, otherwise, press enter</i></li>
+              <li>Keywords: <i>helps npm find your package when people search for the keywords</i></li>
+              <li>Author: <i>your name</i></li>
               <li>License: MIT</li>
             </ol>
+            It will prompt you with “is this ok?”. If all the information is correct, press enter. If it is not correct, type no, enter, and change what you need to.
           </li>
         </ol>
       </div>
       <div class="tutorial-step step8 nodejs">
         <ol>
-          <li><strong>Open the text editor:</strong><br>
+          <li class="mac"><strong>Open the text editor:</strong><br>
           <pre><code class="lang-js">stt</code></pre> Stt is a command specific to our sublime plugin installed in GET READY -> CONFIGURE ZSH FILE -> step 2 of the prerequisite guide that allows you to open the project. You may also use st to open a single file rather than the entire project. If you are not using Sublime, open your text editor with its specific commands.</li>
-          <li><strong>Create an index page.</strong> Sublime will open to a blank project. To create the index page, choose file -> save as-> then name the file index.js -> choose save. </li>
-          <li><strong>In package.json add start to script: "start": "node index.js".</strong> You will see all the files associated with this project on the left hand side in Sublime. Open the package.json file. In the “scripts” section, add a comma after the test command then type "start": "node index.js". This step is not necessary but will make running the application easier. If you choose not to complete this step, you will run your application by typing node index.js in the terminal. If you add the script, your .json file should look like this:<br>
+          <li class="pc">To open sublime, click the start button and search for sublime in the search field. Click “Sublime Text 3” to open.
+</li>
+          <li><strong>Create an index page.</strong> Sublime will open to a blank project. To create the index page, choose file -> save as->  make sure you are in in your newly created project folder (This is the folder we made when we typed mkdir name. Your folder will be named whatever you switched the name field to. Your new folder will most likely be located in your home folder.)-> name the file index.js -> choose save. Any time you make changes to a file, save your work. </li>
+          <li class="mac"><strong>In package.json add start under scripts: "start": "node index.js".</strong> You will see all the files associated with this project on the left hand side in Sublime. Open the package.json file. In the “scripts” section, add a comma after the test command then type "start": "node index.js". This step is not necessary but will make running the application easier. If you choose not to complete this step, you will run your application by typing node index.js in the terminal. If you add the script, your .json file should look like this:<br>
 <pre><code class="lang-js">{
   "name": "helloworldmaster",
   "version": "1.0.0",
@@ -167,12 +181,34 @@ export BANDWIDTH_API_SECRET=
   "license": "MIT"
 }
 </code></pre>
+Save your changes
+          </li>
+          <li class="pc"><strong>In package.json add start under scripts: "start": "node index.js".</strong> To open the .json file, choose file -> open file -> package.json in your new folder. Open the package.json file. In the “scripts” section, add a comma after the test command then type "start": "node index.js". This step is not necessary but will make running the application easier. If you choose not to complete this step, you will run your application by typing node index.js in the terminal. If you add the script, your .json file should look like this:<br>
+<pre><code class="lang-js">{
+  "name": "helloworldmaster",
+  "version": "1.0.0",
+  "description": "Learn to send a text and make a call using Bandwidth's API",
+  "main": "index.js",
+  "scripts": {
+    "test": " echo 'no test yet' "
+    "start": "node index.js"
+  },
+  "keywords": {
+    "Bandwidth",
+    "call",
+    "text"
+  },
+  "author": "Jillian Troftgruben",
+  "license": "MIT"
+}
+</code></pre>
+Save your changes
           </li>
         </ol>
       </div>
       <div class="tutorial-step step9 nodejs">
         <ol>
-          <li><strong>Install the dependencies.</strong> Type each of the below lines into the terminal. This step installs all the necessary software for the program to run.<br>
+          <li><strong>Install the dependencies.</strong> Type each of the below lines into the terminal or command prompt. This step installs all the necessary software for the program to run.<br>
             <pre><code class="lang-js">npm install --save node-bandwidth</code></pre>
             <pre><code class="lang-js">npm install --save express</code></pre>
             <pre><code class="lang-js">npm install --save body-parser</code></pre>
@@ -185,30 +221,52 @@ var bodyParser = require("body-parser");
 var http = require("http").Server(app);
 </code></pre>
           </li>
+          <li>Save both your .json and index.js files.</li>
         </ol>
       </div>
       <div class="tutorial-step step10 nodejs">
         <ol>
-          <li><strong>Run the index page.</strong> Your computer may need to download some programs, but the programs will download automatically when you run your code for the first time. This will not happen when you run your code in the future.<br>
+          <li><strong>Run the index page.</strong> Type the following in your terminal/command prompt. Your computer may need to download some programs, but the programs will download automatically when you run your code for the first time. This will not happen when you run your code in the future.<br>
           <pre><code class="lang-js">npm start</code></pre>
           </li>
-          <li><strong>Open back to home directory.</strong> Any time you would like to return to your home directory, you can just use cd without a name afterwards. If you have nested folders and want to go back just one folder, you can also use ../ which will take you back one directory.<br>
+          <li><strong>Open back to home directory.</strong>  To return to your home directory, you can just use cd in the terminal/command prompt without a name afterwards. If you have nested folders and want to go back just one folder, you can also use cd ../ which will take you back one directory.<br>
           <pre><code class="lang-js">cd</code></pre>
           </li>
-          <li><strong>Open ngrok.</strong> You must have ngrok running every time you start your program. At any time if the ngrok terminal does not say “connected”, return to your home directory and start the program using the ./ngrok http 3000 command. Note: we are using port 3000. A port is a connection point between a computer and another device. In this case, it is our connection point between our program and the internet. Port 3000 is a common port to run programs from. You can use a different port if it is available. A list of available ports is online and depends on your specific computer.<br>
+          <li class="mac"><strong>Open ngrok.</strong> You must have ngrok running every time you start your program. At any time if the ngrok terminal does not say “connected”, return to your home directory and start the program using the ./ngrok http 3000 command. Note: we are using port 3000. A port is a connection point between a computer and another device. In this case, it is our connection point between our program and the internet. Port 3000 is a common port to run programs from. You can use a different port if it is available. A list of available ports is online and depends on your specific computer.<br>
           <pre><code class="lang-js">./ngrok http 3000</code></pre></li>
+          <li class="pc"><strong>Open ngrok.</strong> You must have ngrok running every time you start your program. At any time if the ngrok terminal does not say “connected”, return to your home directory and start the program using the ./ngrok http 3000 command. Note: we are using port 3000. A port is a connection point between a computer and another device. In this case, it is our connection point between our program and the internet. Port 3000 is a common port to run programs from. You can use a different port if it is available. A list of available ports is online and depends on your specific computer.<br>
+          <pre><code class="lang-js">ngrok http 3000</code></pre></li>
         </ol>
       </div>
       <div class="tutorial-step step11 nodejs">
-        <ol>
-          <li><strong>Create a new tab in terminal.</strong> If you are using a standard Mac, you can hold down (command+T) buttons together to open a new tab. Now you will have 2 tabs. One is used to ensure that ngrok is working correctly and the other is to program on. Your applications web address is always available on the ngrok tab under the forwarding line.</li>
-          <li><strong>Return to project folder.</strong> This command will return you to the directory, name. You can also type cd - to return to your last used directory. If you followed the above steps, it will return you to the project directory.<br>
+        <ol class="mac">
+          <li><strong>Create a new tab in terminal.</strong> If you are using a standard Mac, you can hold down (command+T) buttons together to open a new tab. Now you will have 2 tabs. One is used to ensure that ngrok is working correctly and the other is to program on. Your application’s web address is always available on the ngrok tab under the forwarding line.</li>
+          <li><strong>Return to project folder.</strong> This command will return you to the directory, name. You can also type cd - to return to your last used directory. <br>
           <pre><code class="lang-js">cd name</code></pre>
           </li>
           <li><strong>Open index.js file</strong> in your text editor:<br>
           <pre><code class="lang-js">stt</code></pre>
           </li>
-          <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies. See GET READY -> MAKE A BANDWIDTH ACCOUNT -> step 2 if you need to retrieve your token, client, and secret again.<br>
+          <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies in your index.js file. See GET READY -> MAKE A BANDWIDTH ACCOUNT -> step 2 if you need to retrieve your token, client, and secret again.<br>
+<pre><code class="lang-js">var client = new Bandwidth({
+  userId    : "u-",  // note, this is not the same as the username you used to login to the portal
+  apiToken  : "t-",
+  apiSecret : "u"
+});
+</code></pre>
+          </li>
+          <li><strong>Add necessary apps.</strong> Paste the following 2 lines of code under the client. These are apps that our program will use.<br>
+<pre><code class="lang-js">app.use(bodyParser.json());
+app.set('port', (process.env.PORT || 3000));
+</code></pre>
+          </li>
+        </ol>
+        <ol class="pc">
+          <li><strong>Create a new tab in terminal.</strong> You can open a new window the same way you originally launch command prompt. Now you will have 2 windows. One is used to ensure that ngrok is working correctly and the other is to program on. Your application’s web address is always available on the ngrok tab under the forwarding line.</li>
+          <li><strong>Return to project folder.</strong> This command will return you to the directory, name. You can also type cd - to return to your last used directory.<br>
+          <pre><code class="lang-js">cd name</code></pre>
+          </li>
+          <li><strong>Create a new client using Bandwidth interface.</strong> Paste the following code under your dependencies in your index.js file. See GET READY -> MAKE A BANDWIDTH ACCOUNT -> step 2 if you need to retrieve your token, client, and secret again.<br>
 <pre><code class="lang-js">var client = new Bandwidth({
   userId    : "u-",  // note, this is not the same as the username you used to login to the portal
   apiToken  : "t-",
@@ -260,23 +318,25 @@ app.set('port', (process.env.PORT || 3000));
 }
 </code></pre>
           </li>
-          <li><strong>Create a number variable with the to and from numbers.</strong> Creating a call takes in two parameters: 1. The ‘to’ number and 2. The ‘from’ number. By setting the numbers in the number method, we can make multiple calls without having to set the number each time. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the ‘from’ number is the Bandwidth number associated with this application and the ‘to’ number is the number you would like to text.<br>
+          <li><strong>Create a number variable with the to and from numbers.</strong> Create a number variable with the to and from numbers. Sending a message takes 3 parameters: 1. The to number, 2. The from number, and 3. The message. By setting the numbers in the number method, we can send multiple messages to the same number more easily. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the from number is the Bandwidth number associated with this application and the to number is the number you would like to text. The message text should be set in the client.Message.send method under text.<br>
 <pre><code class="lang-js">var numbers = {
   to: "+1##########",	//number to send to
   from: "+1##########" //Bandwidth number
 };
 </code></pre>
           </li>
-          <li><strong>Send message using the numbers:</strong><br>
+          <li><strong>Send message using the numbers:</strong> Paste the following code at the bottom of your index.js file.<br>
 <pre><code class="lang-js">sendMessage(numbers);
 </code></pre>
           </li>
+          <li><strong>Save both the index.js file and the .json file.</strong></li>
+          <li><strong>Run the code.</strong> This will begin the code and you should receive a text:<br>
+          <pre><code class="lang-js">npm start</code></pre></li>
           <li>You can download the complete files <a href="https://github.com/troft/SendMessage/archive/master.zip" download>here</a></li></li>
         </ol>
       </div>
       <div class="tutorial-step step13 nodejs">
         <ol>
-          <li>Follow the setup instructions</li>
           <li><strong>Create a call method.</strong> The following code is the basis for making an outbound call. Copy and paste it into the index file. The callbackHttpMethod and callbackUrl is used to speak a sentence into the call. The sentence is in an xml file created by Bandwidth. Feel free to create your own xml file.<br>
 <pre><code class="lang-js">var createCall = function(params){
   console.log("to: " + params.to);
@@ -290,7 +350,7 @@ app.set('port', (process.env.PORT || 3000));
 };
 </code></pre>
           </li>
-          <li><strong>Create a number variable with the to and from numbers.</strong> Sending a message takes at 3 parameters: 1. The to number, 2. The from number, and 3. The message. By setting the numbers in the number method, we can send multiple messages to the same number more easily. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the from number is the Bandwidth number associated with this application and the to number is the number you would like to text.<br>
+          <li><strong>Create a number variable with the to and from numbers.</strong> If you already created the numbers method in the index file from sending a message, you do not need to complete this step again. Creating a call takes in two parameters: 1. The ‘to’ number and 2. The ‘from’ number. By setting the numbers in the number method, we can make multiple calls without having to set the number each time. It will also allow us to store numbers in a database to create a contact list. Change the numbers below so the ‘from’ number is the Bandwidth number associated with this application and the ‘to’ number is the number you would like to text. To find your Bandwidth number, login to your Bandwidth dashboard -> choose the My Numbers tab -> open Manage My Numbers on the left hand side of the webpage -> you will then see a list of all your Bandwidth numbers. <br>
 <pre><code class="lang-js">var numbers = {
   to: "+1##########", //number to send to
   from: "+1##########" //Bandwidth number
@@ -301,6 +361,7 @@ app.set('port', (process.env.PORT || 3000));
 <pre><code class="lang-js">createCall(numbers)
 </code></pre>
           </li>
+          <li><strong>Save both the index.js file and the .json file</strong></li>
           <li><strong>Run the code.</strong> This will begin the code and start the call:<br>
           <pre><code class="lang-js">npm start</code></pre></li>
           <li>You can download the complete files <a href="https://github.com/troft/OutboundCall/archive/master.zip" download>here</a></li>
