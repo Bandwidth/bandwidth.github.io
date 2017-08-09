@@ -276,7 +276,9 @@ li pre code{
   color: #fff;
   margin: 2px;
   font-size: .75em;
-  float: right;
+  position: absolute;
+  right: 61px;
+  margin-top: 8px;
 }
 .copy-button:hover{
   background-color: #008db1;
