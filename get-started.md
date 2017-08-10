@@ -382,16 +382,22 @@ if (navigator.userAgent.indexOf('Mac OS X') != -1) {
   $('.pc').show();
   $('.mac').hide();
 };
-$('.tutorial-step pre').prepend('<button class="copy-button">Copy</button>');
+$('.tutorial-step pre').before('<button class="copy-button">Copy</button>');
 $('.tutorial-step pre').mouseenter(function() {
-    $(this).children('.copy-button').show();
+    $(this).prev('.copy-button').show();
   })
   .mouseleave(function() {
-    $(this).children('.copy-button').hide();
-    $(this).children('.copy-button').html('copy');
+    $(this).prev('.copy-button').hide();
+    $(this).prev('.copy-button').html('copy');
 });
+$('.copy-button').mouseenter(function(){
+  $(this).show();
+})
+  .mouseleave(function(){
+    $(this).hide();
+  });
 $('.copy-button').click(function(){
-  copyToClipboard($(this).next('code'));
+  copyToClipboard($(this).next('pre').find('code'));
   $(this).html('Copied');
   $(this).css("opacity","1");
 });
