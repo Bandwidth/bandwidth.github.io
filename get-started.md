@@ -1,6 +1,6 @@
 {% raw %}
 <div id="tutorial">
-  <h1>Get Started <span class="beta">BETA</span></h1>
+  <h1>Get Started</h1>
   <p class="copy">Create a voice and messaging enabled application using our API. No coding experience required.</p>
   <div class="tutorial-summary"></div>
   <div id="language-picker"></div>
