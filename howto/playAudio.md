@@ -83,12 +83,12 @@ client.Conference.stopAudioFilePlayback("conferenceID", "memberId").then(functio
 
 ### Play Audio to [call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
 ```csharp
-await client.Call.PlayAudioFileAsync("{callId1}", "http://myurl.com/file.wav");
+await client.Call.PlayAudioFileAsync("{callId1}", "http://myurl.com/file.mp3");
 ```
 
 ### Play Audio to [bridge](http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html)
 ```csharp
-await client.Bridge.PlayAudioFileAsync("bridgeID", "http://myurl.com/file.wav");
+await client.Bridge.PlayAudioFileAsync("bridgeID", "http://myurl.com/file.mp3");
 ```
 
 ### Play Audio to [entire conference](http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html)
@@ -125,17 +125,17 @@ await client.Conference.PlayAudioFileToMemberAsync("{conferenceId1}", "{memberId
 
 ### Play Audio to [call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
 ```ruby
-call.play_audio({:file_url => "http://myurl.com/file.wav"})
+call.play_audio({:file_url => "http://myurl.com/file.mp3"})
 ```
 
 ### Play Audio to [bridge](http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html)
 ```ruby
-bridge.play_audio({:file_url => "http://myurl.com/file.wav"})
+bridge.play_audio({:file_url => "http://myurl.com/file.mp3"})
 ```
 
 ### Play Audio to [entire conference](http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html)
 ```ruby
-conference.play_audio({:file_url => "http://myurl.com/file.wav"})
+conference.play_audio({:file_url => "http://myurl.com/file.mp3"})
 ```
 
 ### Stop Playing Audio on [call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
@@ -153,11 +153,47 @@ bridge.play_audio({:file_url => ""})
 conference.play_audio({:file_url => ""})
 ```
 
+{% sample lang="python" %}
 
+### Play Audio to [call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
+```python
+api.play_audio_file_to_call('callId', 'http://myurl.com/file.mp3')
+```
 
+### Play Audio to [bridge](http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html)
+```python
+api.play_audio_file_to_bridge('bridgeId', 'http://myurl.com/file.mp3')
+```
 
+### Play Audio to [entire conference](http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html)
+```python
+api.play_audio_file_to_conference('conferenceId', 'http://myurl.com/file.mp3')
+```
 
+### Play Audio to [specific conference member](http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html)
+```python
+api.play_audio_file_to_conference_member('conferenceId', 'memberId', 'http://myurl.com/file.mp3')
+```
 
+### Stop Playing Audio on [call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
+```python
+api.play_audio_file_to_call('callId', '')
+```
+
+### Stop Playing Audio to [bridge](http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html)
+```python
+api.play_audio_file_to_bridge('bridgeId', '')
+```
+
+### Stop Playing Audio to [entire conference](http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html)
+```python
+api.play_audio_file_to_conference('conferenceId', '')
+```
+
+### Stop Playing Audio to [specific conference member](http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html)
+```python
+api.play_audio_file_to_conference_member('conferenceId', 'memberId', '')
+```
 
 {% endmethod %}
 
