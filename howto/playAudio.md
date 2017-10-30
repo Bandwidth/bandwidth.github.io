@@ -2,6 +2,13 @@
 
 # How to play audio on a call
 
+### Before playing audio file
+1. [Create call with callback URL](http://dev.bandwidth.com/howto/outboundCall.html)
+2. [Make sure call is answered and active](http://dev.bandwidth.com/howto/sip.html)
+
+### Play audio options
+The fileURL is the location of the audio file. Bandwidth currently supports WAV and MP3 files. [Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)for more information about play audio options.
+
 ### Play audio file to the resource
 
 ```http
