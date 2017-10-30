@@ -19,6 +19,7 @@
 * [For Mobile Apps](howto/acrobits.md)
 * [Configure SIP](howto/sip.md)
 * [WebRTC](howto/webrtc.md)
+* [Speak Sentece](howto/speakSentence.md)
 
 ## Security
 * [Access Bandwidth App Platform API](security.md)
