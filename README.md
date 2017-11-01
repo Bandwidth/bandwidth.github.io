@@ -1,3 +1,5 @@
+{% raw %}
+
 <div id="hero">
   <div class="heroImage"></div>
   <h1 class="remove4mobile">Try before you buy: How well does your software communicate?</h1>
@@ -36,6 +38,8 @@
    </div>
 
 <div class="divider"></div>
+
+{% endraw %}
 
 ### Send a message
 
@@ -180,6 +184,8 @@ my_number   = api.create_phone_number(numbers[0]['number'])
 print(my_number)
 #+19104440230
 ```
+
+{% raw %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
@@ -329,3 +335,5 @@ $(document).ready(function landing(){
   }
 });
 </script>
+
+{% endraw %}
