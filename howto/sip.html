@@ -412,7 +412,7 @@
     
         <li class="chapter " data-level="4.3">
             
-                <a target="_blank" href="http://dev.bandwidth.com/ap-docs/messaging-2/getStarted.html">
+                <a href="http://dev.bandwidth.com/ap-docs/messaging-2/getStarted.html">
             
                     
                     Messaging 2.0 Reference
@@ -604,14 +604,22 @@
 <p>A domain is a way to logically group endpoints.  The name of the domain will be part of a public DNS record.  For that reason, we let the customer choose their domain names.  Once a domain has been created, endpoints can be created and managed within the context of the domain.  Because endpoints can only exist within the context of a domain, creating a domain is the first step in creating endpoints.</p>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/domains</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-domain">Create Domain</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xyz-corp-testing&quot;</span>,
-  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Testing Demo Domain&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/domains</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;name&quot;</span>        : <span class="hljs-string">&quot;xyz-corp-testing&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span> : <span class="hljs-string">&quot;Testing Demo Domain&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{user-id}/domains/{domain-id}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{user-id}/domains/{domain-id}
-</code></pre></div></div></div>
+</div></div></div>
 
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="step-2---create-an-endpointuser">Step 2 - Create an endpoint/user</h2>
@@ -626,41 +634,55 @@ Location: /v1/users/{user-id}/domains/{domain-id}
 </blockquote>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/domains/{domain-id}/endpoints</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-endpointuser">Create endpoint/user</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-    <span class="hljs-attr">&quot;name&quot;</span> : <span class="hljs-string">&quot;jsmith_mobile&quot;</span>,
-    <span class="hljs-attr">&quot;description&quot;</span> : <span class="hljs-string">&quot;John Smiths mobile client&quot;</span>,
-    <span class="hljs-attr">&quot;domainId&quot;</span> : <span class="hljs-string">&quot;{domain-id}&quot;</span>,
-    <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{application-id}&quot;</span>,
-    <span class="hljs-attr">&quot;enabled&quot;</span> : <span class="hljs-string">&quot;true&quot;</span>,
-    <span class="hljs-attr">&quot;credentials&quot;</span> : { <span class="hljs-attr">&quot;password&quot;</span> : <span class="hljs-string">&quot;abc123&quot;</span> }
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/domains/{domain-id}/endpoints</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;name&quot;</span>          : <span class="hljs-string">&quot;jsmith_mobile&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span>   : <span class="hljs-string">&quot;John Smiths mobile client&quot;</span>,
+  <span class="hljs-attr">&quot;domainId&quot;</span>      : <span class="hljs-string">&quot;{domain-id}&quot;</span>,
+  <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{application-id}&quot;</span>,
+  <span class="hljs-attr">&quot;enabled&quot;</span>       : <span class="hljs-string">&quot;true&quot;</span>,
+  <span class="hljs-attr">&quot;credentials&quot;</span>   : { <span class="hljs-attr">&quot;password&quot;</span> : <span class="hljs-string">&quot;abc123&quot;</span> }
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
-</code></pre></div></div></div>
+</div></div></div>
 
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="step-3---register-sip-client--softphone">Step 3 - Register SIP Client / Softphone</h2>
 <p>For testing purposes, download a SIP client like <a href="http://yateclient.yate.ro" target="_blank">yate</a> and setup your username, password and realm, you can retrieve your endpoints as follows.</p>
 <p><code class="get">GET</code><code>/v1/users/{user-id}/domains/{domain-id}/endpoints</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="fetch-registration-information">Fetch Registration information</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">200 OK
-Content-Type: application/json
-[
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/v1/users/{user-id}/domains/{domain-id}/endpoints</span> HTTP/1.1
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">[
   {
-    &quot;id&quot;: &quot;re-6dd6kudwpxo3672peoycsgq&quot;,
-    &quot;name&quot;: &quot;jsmith_mobile&quot;,
-    &quot;domainId&quot;: &quot;rd-3kfl2yi4ja6npquwxpnpqji&quot;,
-    &quot;enabled&quot;: true,
-    &quot;applicationId&quot;: &quot;a-qjbpfmrr46qf2lklgc72tvy&quot;,
-    &quot;sipUri&quot;: &quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;,
-    &quot;credentials&quot;: {
-      &quot;realm&quot;: &quot;xyz-corp-testing.bwapp.bwsip.io&quot;,
-      &quot;username&quot;: &quot;jsmith_mobile &quot;
+    <span class="hljs-attr">&quot;id&quot;</span>            : <span class="hljs-string">&quot;re-6dd6kudwpxo3672peoycsgq&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>          : <span class="hljs-string">&quot;jsmith_mobile&quot;</span>,
+    <span class="hljs-attr">&quot;domainId&quot;</span>      : <span class="hljs-string">&quot;rd-3kfl2yi4ja6npquwxpnpqji&quot;</span>,
+    <span class="hljs-attr">&quot;enabled&quot;</span>       : <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;a-qjbpfmrr46qf2lklgc72tvy&quot;</span>,
+    <span class="hljs-attr">&quot;sipUri&quot;</span>        : <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+    <span class="hljs-attr">&quot;credentials&quot;</span>   : {
+      <span class="hljs-attr">&quot;realm&quot;</span>    : <span class="hljs-string">&quot;xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+      <span class="hljs-attr">&quot;username&quot;</span> : <span class="hljs-string">&quot;jsmith_mobile &quot;</span>
     }
   }
 ]
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
 
@@ -676,71 +698,103 @@ Content-Type: application/json
 <p>Create a New Outbound Call to Your SIP Endpoint. You can start a new outbound call to your SIP endpoint, <strong>be sure to set the callbackUrl so you can detect the &#x2018;answer&#x2019; event for the next step.</strong></p>
 <p><code class="post">POST</code><code>v1/users/{user-id}/calls</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-a-new-outbound-call">Create a New Outbound Call</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-&#x2002; <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+1555444333&quot;</span>,
-&#x2002; <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;from&quot;</span>        : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+  <span class="hljs-attr">&quot;to&quot;</span>          : <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
   <span class="hljs-attr">&quot;callbackUrl&quot;</span> : <span class="hljs-string">&quot;http://yourserver.com&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/calls/{callId}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{callId}
-</code></pre></div></div></div>
+</div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="2-receive-answer-event">2: Receive Answer event</h3>
 <p>Outbound call - receive an <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html" target="_blank"><code>answer</code></a> event from Bandwidth. When the SIP client answers the call, Bandwidth will POST to your callback URL the <code>answer</code> event that you will use to say something to the caller.</p>
 <p><code class="post">POST</code><code>http://yourwebserver.com</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="receive-answer-event">Receive Answer event</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-   <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+1555444333&quot;</span>,
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
-   <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;answer&quot;</span>,
-   <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
-   <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://yourwebserver.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="3-speak-sentence">3: Speak Sentence</h3>
-<p>Use the <a href="http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallIdAudio.html" target="_blank">speak sentence</a> to speak &#x201C;Hello SIP Client&#x201D;. 
-<code class="post">POST</code><code>v1/users/{user-id}/calls/{call-id}/audio</code></p>
+<p>Use the <a href="http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallIdAudio.html" target="_blank">speak sentence</a> to speak &#x201C;Hello SIP Client&#x201D;. </p>
+<p><code class="post">POST</code><code>/v1/users/{user-id}/calls/{call-id}/audio</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="speak-sentence">Speak Sentence</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-  <span class="hljs-attr">&quot;gender&quot;</span>: <span class="hljs-string">&quot;female&quot;</span>,
-  <span class="hljs-attr">&quot;voice&quot;</span>: <span class="hljs-string">&quot;kate&quot;</span>,
-  <span class="hljs-attr">&quot;sentence&quot;</span>: <span class="hljs-string">&quot;Hello sip client&quot;</span>,
-  <span class="hljs-attr">&quot;locale&quot;</span>: <span class="hljs-string">&quot;en_US&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls/{call-id}/audio</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;gender&quot;</span>   : <span class="hljs-string">&quot;female&quot;</span>,
+  <span class="hljs-attr">&quot;voice&quot;</span>    : <span class="hljs-string">&quot;kate&quot;</span>,
+  <span class="hljs-attr">&quot;sentence&quot;</span> : <span class="hljs-string">&quot;Hello sip client&quot;</span>,
+  <span class="hljs-attr">&quot;locale&quot;</span>   : <span class="hljs-string">&quot;en_US&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
 </code></pre>
-<pre><code>200 OK
-</code></pre></div></div></div>
+</div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="4-receive-speak-event">4: Receive Speak Event</h3>
 <p>Detect when &#x201C;speaking&#x201D; is done. To know when speaking completes, you will receive a <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">callback</a> <code>{&quot;eventType&quot;: &quot;speak&quot;, &quot;status&quot;: &quot;done&quot;}</code>.</p>
 <p><code class="post">POST</code><code>http://yourwebserver.com</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="receive-speak-event">Receive Speak Event</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2014-06-17T01:14:30Z&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;speak&quot;</span>,
-   <span class="hljs-attr">&quot;status&quot;</span>:<span class="hljs-string">&quot;done&quot;</span>,
-   <span class="hljs-attr">&quot;state&quot;</span>:<span class="hljs-string">&quot;PLAYBACK_STOP&quot;</span>,
-   <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
-   <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id{/calls/{call-id}&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://yourwebserver.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-06-17T01:14:30Z&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;speak&quot;</span>,
+   <span class="hljs-attr">&quot;status&quot;</span>    : <span class="hljs-string">&quot;done&quot;</span>,
+   <span class="hljs-attr">&quot;state&quot;</span>     : <span class="hljs-string">&quot;PLAYBACK_STOP&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id{/calls/{call-id}&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="5-hang-up-the-call">5: Hang-up the call</h3>
 <p>After the text to speech completes, you can simply <a href="http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallId.html" target="_blank">hangup</a>.  </p>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/calls/{call-id}</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="hang-up-the-call">Hang-up the call</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls/{call-id}</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
    <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
 </code></pre>
-<pre><code>200 OK
-</code></pre></div></div></div>
+</div></div></div>
 
 <h2 id="step-5---receive-an-incoming-call-from-your-sip-endpoint">Step 5 - Receive an incoming call from your SIP endpoint</h2>
 <p>When a SIP client makes a call, you will receive an &#x201C;<a title="Incoming Call Event" href="http://ap.bandwidth.com/docs/callback-events/voice-calls/incoming-call-event/" target="_blank">incomingcall</a>&#x201D; event from that SIP client, you can choose what to do. In most basic use case, you will simply want to start an outbound call to the PSTN and bridge the calls together. The flow for this is shown here:</p>
@@ -750,62 +804,94 @@ Location: /v1/users/{userId}/calls/{callId}
 <p><strong>Receive an Incoming Call Event from your SIP Endpoint</strong>. Note that your application is set for autoAnswer = false so the call will ring until you answer it in sequence 4 below.</p>
 <p><code class="post">POST</code><code>http://yourwebserver.com</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="receive-an-incoming-call-event">Receive an Incoming Call Event</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-   <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+15552223333&quot;</span>,
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
-   <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;incomingcall&quot;</span>,
-   <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
-   <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://yourwebserver.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;+15552223333&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;incomingcall&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="step-2-create-a-new-outbound-call-to-the-pstn">Step 2: Create a New Outbound Call to the PSTN.</h3>
 <p><strong>Create a New Outbound Call to the PSTN.</strong> You can start a new outbound call to your SIP endpoint, <strong>be sure to set the callbackUrl so you can detect the &#x2018;answer&#x2019; event for the next step.</strong></p>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/calls</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-a-new-outbound-call-to-the-pstn">Create a New Outbound Call to the PSTN.</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-&#x2002; <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+1555444333&quot;</span>,
-&#x2002; <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;+15552223333&quot;</span>,
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls/{call-id}</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;from&quot;</span>        : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+  <span class="hljs-attr">&quot;to&quot;</span>          : <span class="hljs-string">&quot;+15552223333&quot;</span>,
   <span class="hljs-attr">&quot;callbackUrl&quot;</span> : <span class="hljs-string">&quot;http://yourserver.com&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/calls/{callId}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{callId}
-</code></pre></div></div></div>
+</div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="step-3-receive-an-answer-event-from-bandwidth">Step 3: Receive an &#x2018;answer&#x2019; event from Bandwidth</h3>
 <p><strong>Outbound call - receive an &#x2018;answer&#x2019; event from Bandwidth.</strong> When the PSTN call answers the call, Bandwidth will POST to your callback URL the <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html" target="_blank"><code>answer</code></a> event that you will use to trigger answering the SIP client call leg and bridging the calls together.</p>
 <p><code class="post">POST</code><code>http://yourwebserver.com</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="receive-an-answer-event-from-bandwidth">Receive an &#x2018;answer&#x2019; event from Bandwidth</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-&#x2002;  <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+1555444333&quot;</span>,
-&#x2002;  <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;+15552223333&quot;</span>,
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;answer&quot;</span>,
-   <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
-   <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://yourwebserver.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;+15552223333&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div><div class="api-method-example"><p><strong>Answer the call.</strong></p>
 </div><div class="api-method-sample" data-lang="http" data-name="HTTP"><p><code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}</p>
-<pre><code class="lang-json">{
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls/{call-id}</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
    <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
 </code></pre>
-<pre><code>200 OK
-</code></pre></div><div class="api-method-example"><p><strong>Bridge calls together.</strong></p>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><p><code class="post">POST</code>/v1/users/{userId}/bridges</p>
-<pre><code class="lang-json">{
+</div><div class="api-method-example"><p><strong>Bridge calls together.</strong></p>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><p><code class="post">POST</code>/v1/users/{user-id}/bridges</p>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/bridges</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
   <span class="hljs-attr">&quot;callIds&quot;</span>:  [<span class="hljs-string">&quot;{callId1}&quot;</span>,<span class="hljs-string">&quot;{callId2}&quot;</span>]
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/calls/{bridgeId}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{bridgeId}
-</code></pre></div></div></div>
+</div></div></div>
 
 <h2 id="step-6---receive-incoming-phone-calls-from-the-pstn">Step 6 - Receive incoming phone calls from the PSTN</h2>
 <p>In this step you&apos;ll receive the incoming call from the PSTN and bridge it to your SIP endpoint. The flow for this is shown here:</p>
@@ -815,62 +901,96 @@ Location: /v1/users/{userId}/calls/{bridgeId}
 <p><strong>Receive an Incoming Call Event from PSTN</strong>. Note that your application is set for autoAnswer = false so the call will ring until you answer it in sequence 4 below.</p>
 <p><code class="post">POST</code><code>http://yourwebserver.com</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="receive-an-incoming-call-event-from-pstn">Receive an Incoming Call Event from PSTN</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-   <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+12223334444&quot;</span>,
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
-   <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+1555444333&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;incomingcall&quot;</span>,
-   <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
-   <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://yourwebserver.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+12223334444&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;incomingcall&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="step-2-create-a-new-outbound-call-to-the-pstn">Step 2: Create a New Outbound Call to the PSTN</h3>
 <p><strong>Create a New Outbound Call to the PSTN</strong>. You can start a new outbound call to your SIP endpoint, <strong>be sure to set the callbackUrl so you can detect the &#x2018;answer&#x2019; event for the next step.</strong></p>
 <p><code class="post">POST</code><code>/v1/users/{user-id}/calls</code></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="create-a-new-outbound-call-to-the-pstn">Create a New Outbound Call to the PSTN</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-&#x2002; <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+1555444333&quot;</span>,
-&#x2002; <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls/{call-id}</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;from&quot;</span>        : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+  <span class="hljs-attr">&quot;to&quot;</span>          : <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
   <span class="hljs-attr">&quot;callbackUrl&quot;</span> : <span class="hljs-string">&quot;http://yourserver.com&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/calls/{callId}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{callId}
-</code></pre></div></div></div>
+</div></div></div>
 
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="step-3-receive-an-answer-event-from-bandwidth">Step 3: Receive an &#x2018;answer&#x2019; event from Bandwidth</h3>
 <p><strong>Outbound SIP call - receive an &#x2018;answer&#x2019; event from Bandwidth</strong>. When the call answers the call, Bandwidth will POST to your callback URL the <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html" target="_blank"><code>answer</code></a> event that you will use to trigger answering the PSTN call leg and bridging the calls together.</p>
-<p><code class="post">POST</code> <a href="http://yourwebserver.com" target="_blank">http://yourwebserver.com</a></p>
+<p><code class="post">POST</code><a href="http://yourwebserver.com" target="_blank">http://yourwebserver.com</a></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="receive-an-answer-event-from-bandwidth">Receive an &#x2018;answer&#x2019; event from Bandwidth</h3>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-&#x2002;  <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+1555444333&quot;</span>,
-&#x2002;  <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;answer&quot;</span>,
-   <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
-   <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}&quot;</span>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://yourwebserver.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+1555444333&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-06-13T22:37:05Z&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;c-m6dz5lqurhhxnn7is6v3w4y&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div><div class="api-method-example"><p><strong>Answer the call.</strong></p>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><p><code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}</p>
-<pre><code class="lang-json">{
+<p><code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}</p>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/calls/{call-id}</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
    <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
 </code></pre>
-<pre><code>200 OK
-</code></pre></div><div class="api-method-example"><p><strong>Bridge calls together.</strong></p>
-</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><p><code class="post">POST</code>/v1/users/{userId}/bridges</p>
-<pre><code class="lang-json">{
+</div><div class="api-method-example"><p><strong>Bridge calls together.</strong></p>
+<p><code class="post">POST</code>/v1/users/{user-id}/bridges</p>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/v1/users/{user-id}/bridges</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json;
+<span class="hljs-attribute">Authorization</span>: {token:secret}
+
+<span class="json">{
   <span class="hljs-attr">&quot;callIds&quot;</span>:  [<span class="hljs-string">&quot;{callId1}&quot;</span>,<span class="hljs-string">&quot;{callId2}&quot;</span>]
 }
+</span></code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>returns</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> Created
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/calls/{bridgeId}
 </code></pre>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{bridgeId}
-</code></pre></div></div></div>
+</div><div class="api-method-example"></div></div></div>
+
+
                                 
                                 </section>
                             
@@ -893,7 +1013,23 @@ Location: /v1/users/{userId}/calls/{bridgeId}
                         </div>
                     </div>
                 
-            </div>
+            <p><div id="page-footer" class="localized-footer"><ul class="footerUnorderedList">
+<span class="footerLabel">LEARN MORE</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/voice">Voice</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/messaging">Messaging</a></li><span class="remove4mobile"><span class="remove4mobile">&#x2022;</span></span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/9-1-1">9-1-1 Access</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/phone-numbers">Phone Numbers</a></li>
+</ul>
+<ul class="footerUnorderedList">
+<span class="footerLabel">QUICK LINKS</span>
+  <li class="footerListItem"><a href="http://status.bandwidth.com">Service Status</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/glossary">Glossary</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/news">News</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/contact">Contact</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/resources">Resources</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://blog.bandwidth.com">Blog</a></li>
+</ul>
+</div></p></div>
 
             
 
@@ -903,7 +1039,7 @@ Location: /v1/users/{userId}/calls/{bridgeId}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configure SIP","level":"2.10","depth":1,"next":{"title":"WebRTC","level":"2.11","depth":1,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},"previous":{"title":"For Mobile Apps","level":"2.9","depth":1,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.11","header","sharing","custom-favicon","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sip.md","mtime":"2017-10-26T15:46:27.458Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-26T15:47:49.526Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configure SIP","level":"2.10","depth":1,"next":{"title":"WebRTC","level":"2.11","depth":1,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},"previous":{"title":"For Mobile Apps","level":"2.9","depth":1,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.13","header","sharing","custom-favicon","toggle-chapters","custom-jquery-postprocessing","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/sip.md","mtime":"2017-11-01T19:52:40.705Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-01T19:54:07.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
