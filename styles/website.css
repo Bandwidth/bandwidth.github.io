@@ -316,6 +316,8 @@ pre code{
 }
 #page-footer{
   font-size: .9em;
+  margin-top: 50px;
+  margin-bottom: -30px;
 }
 .footerLabel{
   color: #651f45;
@@ -341,6 +343,9 @@ pre code{
   content: none;
 }
 @media (max-width:980px){
+  #page-footer{
+    margin-top: 70px;
+  }
   .footerListItem{
     display: block;
     margin-left: 0px;
