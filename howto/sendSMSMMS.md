@@ -1,4 +1,5 @@
 {% method %}
+
 ## Send SMS/MMS
 *_This example shows you how to send an outbound SMS or MMS message to a mobile phone._*
 
@@ -127,6 +128,7 @@ message = Message.create(client, {
 ```
 
 {% common %}
+
 ### Example 2 of 2: Send a MMS (Picture Messaging)
 
 {% sample lang="shell" %}
@@ -229,6 +231,5 @@ message = Message.create(client, {
 })
 ```
 
-
-
+{% common %}
 {% endmethod %}
