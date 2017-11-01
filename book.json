@@ -53,7 +53,7 @@
             "headerPath" : "layouts/header.html"
         },
         "localized-footer" : {
-            "hline": true,
+            "hline": false,
             "filename": "./FOOTER.md"
         },
         "gtm": {
