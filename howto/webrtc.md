@@ -1,5 +1,8 @@
 # JSSIP with Bandwidth Voice API
 
+# ⚠️ Bandwidth no longer supports WebRTC per [`rtcpMuxPolicy`](https://www.chromestatus.com/features/5654810086866944)
+Older versions of chrome _may_ still work. Please check back later for more information or [contact sales](mailto:letstalk@bandwidth.com) to check out status.
+
 ## Prerequisites
 
 - Register for a Bandwidth Voice API account [here](https://catapult.inetwork.com)
