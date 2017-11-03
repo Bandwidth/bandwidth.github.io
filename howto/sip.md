@@ -36,14 +36,25 @@ A domain is a way to logically group endpoints.  The name of the domain will be
 
 {% sample lang="http" %}
 
-```json
+
+```http
+POST /v1/users/{user-id}/domains HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
-  "name": "xyz-corp-testing",
-  "description": "Testing Demo Domain"
+  "name"        : "xyz-corp-testing",
+  "description" : "Testing Demo Domain"
 }
 ```
 
-```
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}
 ```
@@ -73,17 +84,28 @@ If you don't want all your SIP clients to ring simultaneously, create an endpoin
 {% sample lang="http" %}
 
 
-```json
+```http
+POST /v1/users/{user-id}/domains/{domain-id}/endpoints HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
-	"name" : "jsmith_mobile",
-	"description" : "John Smiths mobile client",
-	"domainId" : "{domain-id}",
-	"applicationId" : "{application-id}",
-	"enabled" : "true",
-	"credentials" : { "password" : "abc123" }
+  "name"          : "jsmith_mobile",
+  "description"   : "John Smiths mobile client",
+  "domainId"      : "{domain-id}",
+  "applicationId" : "{application-id}",
+  "enabled"       : "true",
+  "credentials"   : { "password" : "abc123" }
 }
 ```
-```
+
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
 ```
@@ -105,21 +127,31 @@ For testing purposes, download a SIP client like [yate](http://yateclient.yate.r
 
 {% sample lang="http" %}
 
+```http
+GET /v1/users/{user-id}/domains/{domain-id}/endpoints HTTP/1.1
+```
 
-```json
-200 OK
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
+HTTP/1.1 200 OK
 Content-Type: application/json
+
 [
   {
-    "id": "re-6dd6kudwpxo3672peoycsgq",
-    "name": "jsmith_mobile",
-    "domainId": "rd-3kfl2yi4ja6npquwxpnpqji",
-    "enabled": true,
-    "applicationId": "a-qjbpfmrr46qf2lklgc72tvy",
-    "sipUri": "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
-    "credentials": {
-      "realm": "xyz-corp-testing.bwapp.bwsip.io",
-      "username": "jsmith_mobile "
+    "id"            : "re-6dd6kudwpxo3672peoycsgq",
+    "name"          : "jsmith_mobile",
+    "domainId"      : "rd-3kfl2yi4ja6npquwxpnpqji",
+    "enabled"       : true,
+    "applicationId" : "a-qjbpfmrr46qf2lklgc72tvy",
+    "sipUri"        : "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
+    "credentials"   : {
+      "realm"    : "xyz-corp-testing.bwapp.bwsip.io",
+      "username" : "jsmith_mobile "
     }
   }
 ]
@@ -155,18 +187,29 @@ Create a New Outbound Call to Your SIP Endpoint. You can start a new outbound ca
 {% sample lang="http" %}
 
 
-```json
+```http
+POST /v1/users/{user-id}/calls HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
-  "from": "+1555444333",
-  "to": "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
+  "from"        : "+1555444333",
+  "to"          : "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
   "callbackUrl" : "http://yourserver.com"
 }
 ```
 
-```
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{callId}
 ```
+
 {% endextendmethod %}
 
 {% extendmethod %}
@@ -181,15 +224,19 @@ Outbound call - receive an [`answer`](http://dev.bandwidth.com/ap-docs/apiCallba
 
 {% sample lang="http" %}
 
-```json
+```http
+POST http://yourwebserver.com HTTP/1.1
+Content-Type: application/json;
+User-Agent: BandwidthAPI/v1
+
 {
-   "callState":"active",
-   "from":"+1555444333",
-   "time":"2014-06-13T22:37:05Z",
-   "to":"sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
-   "eventType":"answer",
-   "callId":"c-m6dz5lqurhhxnn7is6v3w4y",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
+   "callState" : "active",
+   "from"      : "+1555444333",
+   "time"      : "2014-06-13T22:37:05Z",
+   "to"        : "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
+   "eventType" : "answer",
+   "callId"    : "c-m6dz5lqurhhxnn7is6v3w4y",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
 }
 ```
 {% endextendmethod %}
@@ -198,25 +245,37 @@ Outbound call - receive an [`answer`](http://dev.bandwidth.com/ap-docs/apiCallba
 ### 3: Speak Sentence
 
 Use the [speak sentence](http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallIdAudio.html) to speak “Hello SIP Client”. 
-<code class="post">POST</code>`v1/users/{user-id}/calls/{call-id}/audio`
+
+<code class="post">POST</code>`/v1/users/{user-id}/calls/{call-id}/audio`
 
 {% common %}
 ### Speak Sentence
 
 {% sample lang="http" %}
 
-```json
+```http
+POST /v1/users/{user-id}/calls/{call-id}/audio HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
-  "gender": "female",
-  "voice": "kate",
-  "sentence": "Hello sip client",
-  "locale": "en_US"
+  "gender"   : "female",
+  "voice"    : "kate",
+  "sentence" : "Hello sip client",
+  "locale"   : "en_US"
 }
 ```
 
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
+HTTP/1.1 200 OK
 ```
-200 OK
-```
+
 {% endextendmethod %}
 
 {% extendmethod %}
@@ -230,14 +289,18 @@ Detect when “speaking” is done. To know when speaking completes, you will r
 ### Receive Speak Event
 {% sample lang="http" %}
 
-```json
+```http
+POST http://yourwebserver.com HTTP/1.1
+Content-Type: application/json;
+User-Agent: BandwidthAPI/v1
+
 {
-   "time":"2014-06-17T01:14:30Z",
-   "eventType":"speak",
-   "status":"done",
-   "state":"PLAYBACK_STOP",
-   "callId":"c-m6dz5lqurhhxnn7is6v3w4y",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{user-id{/calls/{call-id}"
+   "time"      : "2014-06-17T01:14:30Z",
+   "eventType" : "speak",
+   "status"    : "done",
+   "state"     : "PLAYBACK_STOP",
+   "callId"    : "c-m6dz5lqurhhxnn7is6v3w4y",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id{/calls/{call-id}"
 }
 ```
 {% endextendmethod %}
@@ -254,14 +317,24 @@ After the text to speech completes, you can simply [hangup](http://dev.bandwidth
 
 {% sample lang="http" %}
 
-```json
+```http
+POST /v1/users/{user-id}/calls/{call-id} HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
    "state": "completed"
 }
 ```
 
-```
-200 OK
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
+HTTP/1.1 200 OK
 ```
 
 {% endextendmethod %}
@@ -286,15 +359,19 @@ The API calls for each sequence in this flow is described below:
 
 {% sample lang="http" %}
 
-```json
+```http
+POST http://yourwebserver.com HTTP/1.1
+Content-Type: application/json;
+User-Agent: BandwidthAPI/v1
+
 {
-   "callState":"active",
-   "to":"+15552223333",
-   "time":"2014-06-13T22:37:05Z",
-   "from":"sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
-   "eventType":"incomingcall",
-   "callId":"c-m6dz5lqurhhxnn7is6v3w4y",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
+   "callState" : "active",
+   "to"        : "+15552223333",
+   "time"      : "2014-06-13T22:37:05Z",
+   "from"      : "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
+   "eventType" : "incomingcall",
+   "callId"    : "c-m6dz5lqurhhxnn7is6v3w4y",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
 }
 ```
 {% endextendmethod %}
@@ -311,21 +388,33 @@ The API calls for each sequence in this flow is described below:
 
 {% sample lang="http" %}
 
-```json
+```http
+POST /v1/users/{user-id}/calls/{call-id} HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
-  "from": "+1555444333",
-  "to": "+15552223333",
+  "from"        : "+1555444333",
+  "to"          : "+15552223333",
   "callbackUrl" : "http://yourserver.com"
 }
 ```
 
-```
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{callId}
 ```
+
 {% endextendmethod %}
 
 {% extendmethod %}
+
 ### Step 3: Receive an ‘answer’ event from Bandwidth
 **Outbound call - receive an ‘answer’ event from Bandwidth.** When the PSTN call answers the call, Bandwidth will POST to your callback URL the [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the SIP client call leg and bridging the calls together.
 
@@ -336,15 +425,19 @@ Location: /v1/users/{userId}/calls/{callId}
 
 {% sample lang="http" %}
 
-```json
+```http
+POST http://yourwebserver.com HTTP/1.1
+Content-Type: application/json;
+User-Agent: BandwidthAPI/v1
+
 {
-   "callState":"active",
-   "from": "+1555444333",
-   "to": "+15552223333",
-   "time":"2014-06-13T22:37:05Z",
-   "eventType":"answer",
-   "callId":"c-m6dz5lqurhhxnn7is6v3w4y",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
+   "callState" : "active",
+   "from"      : "+1555444333",
+   "to"        : "+15552223333",
+   "time"      : "2014-06-13T22:37:05Z",
+   "eventType" : "answer",
+   "callId"    : "c-m6dz5lqurhhxnn7is6v3w4y",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
 }
 ```
 
@@ -354,29 +447,49 @@ Location: /v1/users/{userId}/calls/{callId}
 {% sample lang="http" %}
 <code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}
 
-```json
+```http
+POST /v1/users/{user-id}/calls/{call-id} HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
    "state": "active"
 }
 ```
 
-```
-200 OK
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
+HTTP/1.1 200 OK
 ```
 
 {% common %}
 **Bridge calls together.**
 
 {% sample lang="http" %}
-<code class="post">POST</code>/v1/users/{userId}/bridges
+<code class="post">POST</code>/v1/users/{user-id}/bridges
 
-```json
+```http
+POST /v1/users/{user-id}/bridges HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
   "callIds":  ["{callId1}","{callId2}"]
 }
 ```
 
-```
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{bridgeId}
 ```
@@ -402,96 +515,150 @@ The API calls for each sequence in this flow is described below:
 
 {% sample lang="http" %}
 
-```json
+```http
+POST http://yourwebserver.com HTTP/1.1
+Content-Type: application/json;
+User-Agent: BandwidthAPI/v1
+
 {
-   "callState":"active",
-   "from":"+12223334444",
-   "time":"2014-06-13T22:37:05Z",
-   "to":"+1555444333",
-   "eventType":"incomingcall",
-   "callId":"c-m6dz5lqurhhxnn7is6v3w4y",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
+   "callState" : "active",
+   "from"      : "+12223334444",
+   "time"      : "2014-06-13T22:37:05Z",
+   "to"        : "+1555444333",
+   "eventType" : "incomingcall",
+   "callId"    : "c-m6dz5lqurhhxnn7is6v3w4y",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
 }
 ```
+
 {% endextendmethod %}
 
 {% extendmethod %}
+
 ### Step 2: Create a New Outbound Call to the PSTN
 **Create a New Outbound Call to the PSTN**. You can start a new outbound call to your SIP endpoint, **be sure to set the callbackUrl so you can detect the ‘answer’ event for the next step.**
 
 <code class="post">POST</code>`/v1/users/{user-id}/calls`
 
 {% common %}
+
 ### Create a New Outbound Call to the PSTN
 
 {% sample lang="http" %}
 
-```json
+```http
+POST /v1/users/{user-id}/calls/{call-id} HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
-  "from": "+1555444333",
-  "to": "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
+  "from"        : "+1555444333",
+  "to"          : "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
   "callbackUrl" : "http://yourserver.com"
 }
 ```
 
-```
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{callId}
 ```
+
 {% endextendmethod %}
 
 {% extendmethod %}
+
 ### Step 3: Receive an ‘answer’ event from Bandwidth
+
 **Outbound SIP call - receive an ‘answer’ event from Bandwidth**. When the call answers the call, Bandwidth will POST to your callback URL the [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the PSTN call leg and bridging the calls together.
 
-<code class="post">POST</code> http://yourwebserver.com
+<code class="post">POST</code>http://yourwebserver.com
 
 {% common %}
+
 ### Receive an ‘answer’ event from Bandwidth
+
 {% sample lang="http" %}
 
-```json
+```http
+POST http://yourwebserver.com HTTP/1.1
+Content-Type: application/json;
+User-Agent: BandwidthAPI/v1
+
 {
-   "callState":"active",
-   "from": "+1555444333",
-   "to": "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
-   "time":"2014-06-13T22:37:05Z",
-   "eventType":"answer",
-   "callId":"c-m6dz5lqurhhxnn7is6v3w4y",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{user-id} /calls/{call-id}"
+   "callState" : "active",
+   "from"      : "+1555444333",
+   "to"        : "sip:jsmith_mobile@xyz-corp-testing.bwapp.bwsip.io",
+   "time"      : "2014-06-13T22:37:05Z",
+   "eventType" : "answer",
+   "callId"    : "c-m6dz5lqurhhxnn7is6v3w4y",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}"
 }
 ```
 
 {% common %}
+
 **Answer the call.**
-{% sample lang="http" %}
 
 <code class="post">POST</code>/v1/users/{user-id}/calls/{call-id}
 
-```json
+{% sample lang="http" %}
+
+```http
+POST /v1/users/{user-id}/calls/{call-id} HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
    "state": "active"
 }
 ```
 
-```
-200 OK
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
+HTTP/1.1 200 OK
 ```
 
 {% common %}
-**Bridge calls together.**
-{% sample lang="http" %}
-<code class="post">POST</code>/v1/users/{userId}/bridges
 
-```json
+**Bridge calls together.**
+
+<code class="post">POST</code>/v1/users/{user-id}/bridges
+
+{% sample lang="http" %}
+
+```http
+POST /v1/users/{user-id}/bridges HTTP/1.1
+Content-Type: application/json;
+Authorization: {token:secret}
+
 {
   "callIds":  ["{callId1}","{callId2}"]
 }
 ```
 
-```
+{% common %}
+
+> returns
+
+{% sample lang="http" %}
+
+```http
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{bridgeId}
 ```
 
+{% common %}
+
 {% endextendmethod %}
+
