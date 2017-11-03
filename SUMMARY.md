@@ -20,6 +20,7 @@
     * [Setup Dashboard for Network Bridge](howto/networkBridge.md)
     * [Play Audio](howto/playAudio.md)
     * [Conference Call](howto/conferenceCall.md)
+    * [Speak Sentece](howto/speakSentence.md)
   * [/Messaging](howto/messaging.md)
     * [Send SMS/MMS](howto/sendSMSMMS.md)
     * [Send SMS with Delivery Receipt](howto/smsDLR.md)
