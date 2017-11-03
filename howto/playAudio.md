@@ -9,7 +9,7 @@
 ### Play audio options
 The fileURL is the location of the audio file. Bandwidth currently supports WAV and MP3 files. [Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)for more information about play audio options.
 
-### Play audio file to the resource
+### Play audio file to the resource (ie. ...`/{userId}/calls/{callId}/`)
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio HTTP/1.1
@@ -28,7 +28,7 @@ HTTP/1.1 200 OK
 
 ### This sends these call backs
 
-* Full callbacks http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html
+* [Full callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html)
 
 ```http
 POST your_server.com HTTP/1.1
