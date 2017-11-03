@@ -2,7 +2,7 @@
 
 # How to play audio on a call
 
-### Play audio file to the resource
+### Play audio file to the resource (ie. .../{userId}/calls/{callId}/..)
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio HTTP/1.1
