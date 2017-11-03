@@ -1,7 +1,9 @@
+{% raw %}
+
 <div id="hero">
   <div class="heroImage"></div>
-  <h1 class="remove4mobile">TRY BEFORE YOU BUY: HOW WELL DOES YOUR SOFTWARE COMMUNICATE?</h1>
-  <h2 class="mobileShow">TRY BEFORE YOU BUY: HOW WELL DOES YOUR SOFTWARE COMMUNICATE?</h2>
+  <h1 class="remove4mobile">Try before you buy: How well does your software communicate?</h1>
+  <h2 class="mobileShow">Try before you buy: How well does your software communicate?</h2>
   <p>Take a look at our code samples below. If your app would benefit from text messaging or dependable phone call capability, look no further. We can solve your problem just like we’ve done for everyone from application start-ups and traditional telecom companies to some of the most demanding Internet giants in the business. Have a look around or <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/">Learn more.</a></p><br>
   <div class="cardsContainer">
     <div id="smscard" class="devCards sms active">
@@ -36,6 +38,8 @@
    </div>
 
 <div class="divider"></div>
+
+{% endraw %}
 
 ### Send a message
 
@@ -180,6 +184,8 @@ my_number   = api.create_phone_number(numbers[0]['number'])
 print(my_number)
 #+19104440230
 ```
+
+{% raw %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
@@ -329,3 +335,5 @@ $(document).ready(function landing(){
   }
 });
 </script>
+
+{% endraw %}
