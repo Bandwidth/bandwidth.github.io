@@ -9,7 +9,7 @@
 ### Speak Sentence options
 Bandwidth supports many voice options. You may specify the gender, accent, and voice. [Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)for a full list of the speaker options.
 
-### Speak Sentence to the resource
+### Speak Sentence to the resource (ie..../{userId}/calls/{callId}/...)
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio HTTP/1.1
