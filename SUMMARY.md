@@ -9,25 +9,25 @@
 ## Building Blocks
 * [Building Blocks](howto/howto.md)
   * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
-  * [For Mobile Apps](howto/acrobits.md)
-  * [Configure SIP](howto/sip.md)
-  * [WebRTC](howto/webrtc.md)
-  * [/Numbers](howto/numbers.md)
+  * [Phone Numbers](howto/phonenumbers.md)
     * [Get a Number](howto/buytn.md)
     * [Import Dashboard Numbers](howto/importDashboard.md)
-  * [/Voice](howto/voice.md)
+  * [Voice](howto/voice.md)
     * [Create outbound call](howto/outboundCall.md)
     * [Setup Dashboard for Network Bridge](howto/networkBridge.md)
     * [Play Audio](howto/playAudio.md)
     * [Conference Call](howto/conferenceCall.md)
     * [Speak Sentece](howto/speakSentence.md)
-  * [/Messaging](howto/messaging.md)
+    * [For Mobile Apps](howto/acrobits.md)
+    * [Configure SIP & Softphone](howto/sip.md)
+    * [WebRTC](howto/webrtc.md)
+  * [Messaging](howto/messaging.md)
     * [Send SMS/MMS](howto/sendSMSMMS.md)
     * [Send SMS with Delivery Receipt](howto/smsDLR.md)
     * [Hosted Messaging Getting Started](howto/hostedMessaging.md)
 
 ## Security
-* [Secrity](security.md)
+* [Security](security.md)
   * [Secure your callbacks](callbackSecurity.md)
 
 ## API Reference
