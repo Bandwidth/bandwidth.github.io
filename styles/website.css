@@ -314,3 +314,43 @@ li pre code{
 pre code{
   font-size: 1em !important;
 }
+#page-footer{
+  font-size: .9em;
+  margin-top: 50px;
+  margin-bottom: -30px;
+}
+.footerLabel{
+  color: #651f45;
+  font-weight: 900;
+  letter-spacing: .2em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+.footerUnorderedList{
+  display: inline-block;
+}
+.footerListItem{
+  display: inline-block;
+  margin: 0px 7px 0px 4px;
+}
+.footerListItem a{
+  color: inherit;
+}
+.footerListItem a:hover{
+  text-decoration: underline;
+}
+.footerListItem a::after{
+  content: none;
+}
+@media (max-width:980px){
+  #page-footer{
+    margin-top: 70px;
+  }
+  .footerListItem{
+    display: block;
+    margin-left: 0px;
+  }
+  .footerUnorderedList{
+    display: block;
+  }
+}
