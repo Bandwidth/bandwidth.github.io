@@ -1,4 +1,3 @@
-
 {% method %}
 
 {% sample lang="js" %}
