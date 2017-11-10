@@ -6,7 +6,7 @@
 ### Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
 
 ```http
-https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather HTTP/1.1
+POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather HTTP/1.1
 Content-Type: application/json; charset=utf-8
 User-Agent: BandwidthAPI/v1
 {
