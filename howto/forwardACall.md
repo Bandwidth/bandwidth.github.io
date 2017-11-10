@@ -14,7 +14,7 @@ These two calls then get bridged to connect the callers on the other side of the
 |:------------------------------------|:----------------------|
 | Callback HTTP Method                | `POST`                |
 | Application Type                    | `Voice`               |
-| Voice Callback                      | `{Your callback URL}` |
+| Voice Callback                      | `{Your callback URL}/in-call` |
 | Automatically answer incoming calls | `True`                |
 
 

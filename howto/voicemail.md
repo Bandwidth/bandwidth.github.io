@@ -13,7 +13,7 @@ Logic: Your personal number creates an inbound call to Bandwidth(BW), which will
 |:------------------------------------|:----------------------|
 | Callback HTTP Method                | `POST`                |
 | Application Type                    | `Voice`               |
-| Voice Callback                      | `{Your callback URL}` |
+| Voice Callback                      | `{Your callback URL}/in-call` |
 | Automatically answer incoming calls | `True`                |
 
 
