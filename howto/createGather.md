@@ -1,20 +1,21 @@
 {% method %}
 
-# How to create a gather on an active call. 
-## This gather collects a series of DTMF digits from a phone call with an optional prompt. This request returns immediately. When the gather finishes, an event with the results will be posted to the callback URL.
+# How to create a gather on an active call.
+
+This gather collects a series of DTMF digits from a phone call with an optional prompt. This request returns immediately. When the gather finishes, an event with the results will be posted to the callback URL.
 
 ### Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+
 {
-    "maxDigits":"5",
-    "terminatingDigits":"*",
-    "interDigitTimeout":"7",
-    "prompt": {
-        "sentence": "Please enter your 5 digit code"
+    "maxDigits"         : "5",
+    "terminatingDigits" : "*",
+    "interDigitTimeout" : "7",
+    "prompt"            : {
+        "sentence" : "Please enter your 5 digit code"
     }
 }
 ```
@@ -31,6 +32,7 @@ HTTP/1.1 201 CREATED
 ```http
 POST your_server.com HTTP/1.1
 Content-Type: application/json; charset=utf-8
+
 {
     "eventType" : "gather",
     "reason"    : "max-digits",
@@ -43,16 +45,19 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-{% sample lang="js" %}
+{% common %}
 
 ### Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
+
+{% sample lang="js" %}
+
 ```js
 var options =     {
-    "maxDigits":"5",
-    "terminatingDigits":"*",
-    "interDigitTimeout":"7",
-    "prompt": {
-        "sentence": "Please enter your 5 digit code"
+    "maxDigits"         : "5",
+    "terminatingDigits" : "*",
+    "interDigitTimeout" : "7",
+    "prompt"            : {
+        "sentence" : "Please enter your 5 digit code"
     }
 };
 client.Call.createGather("callId", options).then(function(res) {});
@@ -60,7 +65,6 @@ client.Call.createGather("callId", options).then(function(res) {});
 
 {% sample lang="csharp" %}
 
-### Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
 ```csharp
 var gather = await client.Call.CreateGatherAsync("{callId1}", new CreateGatherData {
     MaxDigits = "5",
@@ -74,7 +78,6 @@ var gather = await client.Call.CreateGatherAsync("{callId1}", new CreateGatherDa
 
 {% sample lang="ruby" %}
 
-### Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
 ```ruby
 gather = call.create_gather({
     :max_digits => "5",
