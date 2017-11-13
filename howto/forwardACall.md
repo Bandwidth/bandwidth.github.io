@@ -1,7 +1,8 @@
+{% method %}
 # How to Forward a Call
 
 Logic: Forwards a call by bridging together an incoming phone call to an outgoing phone call.
-When an incoming call is initiated, meaning someone calls the BW phone number, 
+When an incoming call is initiated, meaning someone calls the BW phone number,
 the BW number makes an outgoing call to another number.
 These two calls then get bridged to connect the callers on the other side of the BW number.
 
@@ -62,7 +63,7 @@ const getBaseUrlFromReq = (req) => {
     return 'http://' + req.hostname;
 };
 app.get("/", function (req, res) {
-    console.log(req); 
+    console.log(req);
     res.send("Bandwdith_Forward_A_Call");
 });
 ```
@@ -86,7 +87,7 @@ let toNumber = "+12345678901";
 
 ```js
 //OUTBOUND CALLS
-app.post('/out-call', function (req, res) {         
+app.post('/out-call', function (req, res) {
     var this_url2 = getBaseUrlFromReq(req);
     if (req.body.eventType === 'answer') {					//Upon the to-caller answering, bridge the two calls
         console.log("Incoming CallId: " + req.body.tag);
@@ -105,7 +106,7 @@ app.post('/out-call', function (req, res) {
             console.log("----Could not bridge the call----");
         });
     }
-    else if (req.body.eventType === "hangup"){                  
+    else if (req.body.eventType === "hangup"){
         console.log(req.body);
         console.log("----Your call has hungup----");
     }
@@ -123,9 +124,9 @@ app.post('/out-call', function (req, res) {
 
 ```js
 //INBOUND CALLS
-app.post('/in-call', function (req, res) {     		//When someone calls the BW number, create call to the to-caller      
+app.post('/in-call', function (req, res) {     		//When someone calls the BW number, create call to the to-caller
     if (req.body.eventType === "incomingcall"){
-        console.log("Incoming callId: " + req.body.callId);  
+        console.log("Incoming callId: " + req.body.callId);
         var this_url1 = getBaseUrlFromReq(req);
         createCallWithCallback(req.body.to, this_url1, req.body.callId);
     }
@@ -143,7 +144,7 @@ app.post('/in-call', function (req, res) {     		//When someone calls the BW num
 
 ```js
 //Method to create outbound call with '/out-call' callback url, tag used to store inbound callId
-var createCallWithCallback = function(FromBWnumber, this_url, inbound_callid){ 
+var createCallWithCallback = function(FromBWnumber, this_url, inbound_callid){
     return client.Call.create({
         from: FromBWnumber,
         to: toNumber,
