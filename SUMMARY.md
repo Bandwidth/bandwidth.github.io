@@ -3,10 +3,10 @@
 ## Overview
 * [Home](README.md)
 * [Pricing](pricing.md)
-* [Get Started](get-started.md)
 * [GitHub](http://github.com/Bandwidth)
 
-## Building Blocks
+## Guides
+* [Get Started](get-started.md)
 * [Building Blocks](howto/howto.md)
   * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
   * [Phone Numbers](howto/phonenumbers.md)
@@ -29,6 +29,7 @@
     * [Send SMS/MMS](howto/sendSMSMMS.md)
     * [Send SMS with Delivery Receipt](howto/smsDLR.md)
     * [Hosted Messaging Getting Started](howto/hostedMessaging.md)
+* [Deployable Demos](howto/deployableDemos.md)
 
 ## Security
 * [Security](security.md)
@@ -39,9 +40,6 @@
 * [BXML Reference](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 * [Messaging 2.0 Reference](http://dev.bandwidth.com/ap-docs/messaging-2/getStarted.html)
 
-## Deployable Demos
-* [Deployable Demos](howto/deployableDemos.md)
-
 ## SDKs
  * [Node JS SDK](clientLib/node.md)
  * [C-Sharp SDK](clientLib/csharp.md)
@@ -51,3 +49,4 @@
 
 ## Help
 * [FAQ](http://dev.bandwidth.com/faq)
+* [Support](http://support.bandwidth.com)
