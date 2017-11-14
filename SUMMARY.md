@@ -41,11 +41,11 @@
 * [Messaging 2.0 Reference](http://dev.bandwidth.com/ap-docs/messaging-2/getStarted.html)
 
 ## SDKs
- * [Node JS SDK](clientLib/node.md)
- * [C-Sharp SDK](clientLib/csharp.md)
- * [Ruby SDK](clientLib/ruby.md)
- * [Python SDK](clientLib/python.md)
- * [Java SDK](clientLib/java.md)
+ * [Node JS](clientLib/node.md)
+ * [C-Sharp](clientLib/csharp.md)
+ * [Ruby](clientLib/ruby.md)
+ * [Python](clientLib/python.md)
+ * [Java](clientLib/java.md)
 
 ## Help
 * [FAQ](http://dev.bandwidth.com/faq)
