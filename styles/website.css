@@ -352,7 +352,7 @@ pre code{
 li.chapter{
    display: block;
    width: 100%;
-   height: 27px;
+   /*height: 27px;*/
    clear:both;
    border-left: 3px solid #f3f3f3;
 }

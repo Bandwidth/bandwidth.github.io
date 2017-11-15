@@ -14,12 +14,12 @@ Bandwidth supports many voice options. You may specify the gender, accent, and v
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+
 {
-    "gender": "female",
-    "sentence": "Hello from Bandwidth.",
-    "locale": "en_US",
-    "voice": "julie"
+    "gender"   : "female",
+    "sentence" : "Hello from Bandwidth.",
+    "locale"   : "en_US",
+    "voice"    : "julie"
 }
 ```
 
@@ -35,13 +35,15 @@ HTTP/1.1 200 OK
 ```http
 POST your_server.com HTTP/1.1
 Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-  "eventType": "string",
-  "callId": "string",
-  "callUri": "string",
-  "status": "string",
-  "time": "date",
-  "tag": "string"
+  "eventType" : "string",
+  "callId"    : "string",
+  "callUri"   : "string",
+  "status"    : "string",
+  "time"      : "date",
+  "tag"       : "string"
 }
 ```
 

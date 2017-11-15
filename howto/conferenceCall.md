@@ -7,12 +7,12 @@
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+
 {
-  "from": "{number}",
-  "callbackUrl":"http://my.callback.url",
-  "callbackTimeout":"2000",
-  "fallbackUrl":"http://my.fallback.url"
+  "from"            : "{number}",
+  "callbackUrl"     : "http://my.callback.url",
+  "callbackTimeout" : "2000",
+  "fallbackUrl"     : "http://my.fallback.url"
 }
 ```
 

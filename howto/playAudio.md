@@ -14,7 +14,7 @@ The fileURL is the location of the audio file. Bandwidth currently supports WAV 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+
 {
     "fileUrl": "MP3"
 }
@@ -33,13 +33,15 @@ HTTP/1.1 200 OK
 ```http
 POST your_server.com HTTP/1.1
 Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-  "eventType": "string",
-  "callId": "string",
-  "callUri": "string",
-  "status": "string",
-  "time": "date",
-  "tag": "string"
+  "eventType" : "string",
+  "callId"    : "string",
+  "callUri"   : "string",
+  "status"    : "string",
+  "time"      : "date",
+  "tag"       : "string"
 }
 ```
 
