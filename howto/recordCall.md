@@ -10,7 +10,7 @@ This guide covers:
 
 ### Before playing audio file
 
-1. [Create call with callback URL](./outboundCall.md)
+1. [Create call with callback URL](./outboundCall.md) -or- [Recieve Incoming Call](./incomingCallandMessaging.md)
 2. Make sure call is answered and active
 
 
