@@ -4,7 +4,7 @@
         "header",
         "sharing",
         "custom-favicon",
-        "toggle-chapters",
+        "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
         "custom-jquery-postprocessing",
         "gtm",
         "crazyegg",
