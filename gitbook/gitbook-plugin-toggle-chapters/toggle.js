@@ -11,13 +11,26 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
   }
 
   gitbook.events.bind("page.change", function() {
-    $('li.chapter').children('ul.articles').hide();
     $chapter = $('li.chapter.active');
     $children = $chapter.children('ul.articles');
     $parent = $chapter.parent();
     $siblings = $chapter.siblings().children('ul.articles');
-
+    $('li.chapter').children('ul.articles').hide();
+    $('li.chapter').hover(function(){
+      $(this).children('.expand').css('visibility','visible')
+    }, function(){
+      $(this).children('.expand').css('visibility','');
+    });
+    $('.expand').click(function(){
+      $(this).toggleClass('fa-eye-slash');
+      if ($(this).hasClass('fa-eye-slash')){
+        $(this).next('.articles').show();
+      } else {
+        $(this).next('.articles').hide();
+      };
+    });
     expand($chapter);
+    $('li.chapter.active').children('.expand').addClass('fa-eye-slash');
 
     if ($children.length > 0) {
       $children.show();

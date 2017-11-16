@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Get a Number</title>
+        <title>Voicemail</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -74,10 +74,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="importDashboard.html">
+    <link rel="next" href="sip.html">
     
     
-    <link rel="prev" href="phonenumbers.html">
+    <link rel="prev" href="conferenceCall.html">
     
 
 
@@ -235,14 +235,14 @@
                     
                     Phone Numbers
             
-                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.2.2.1" data-path="buytn.html">
+        <li class="chapter " data-level="2.2.2.1" data-path="buytn.html">
             
                 <a href="buytn.html">
             
@@ -280,7 +280,7 @@
                     
                     Voice
             
-                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
             
 
             
@@ -378,7 +378,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.3.8" data-path="voicemail.html">
+        <li class="chapter active" data-level="2.2.3.8" data-path="voicemail.html">
             
                 <a href="voicemail.html">
             
@@ -744,7 +744,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="..">Get a Number</a>
+        <a href="..">Voicemail</a>
     </h1>
 </div>
 
@@ -759,66 +759,179 @@
     
                                 <section class="normal markdown-section" style="padding-top: 0px;">
                                 
-                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="buy-phone-number">Buy Phone Number</h2>
-<p>There are 2 ways to buy a phone number:</p>
+                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h1 id="simple-voicemail-system">Simple Voicemail System</h1>
+<p>Logic: Your personal number creates an inbound call to Bandwidth(BW), which will automatically answer the call. Upon answering, a call is immediately created from the BWnumber to the toNumber. After a set call timeout (ie. 10sec) is reached, meaning there is no answer from the toNumber, a sentence is spoken.  After the sentence is spoken, recording is enabled and then disabled when the call is hung up. After the call is hung up, a transcription of the recording is rendered.</p>
+<h2 id="setup-your-application">Setup your <a href="http://dev.bandwidth.com/ap-docs/methods/applications/applications.html" target="_blank">application</a></h2>
 <ol>
-<li><code class="get">GET</code> on the <a href="http://dev.bandwidth.com/ap-docs/methods/availableNumbers/getAvailableNumbersLocal.html" target="_blank"><code>availableNumbers</code></a> resource, followed by a <code class="post">POST</code> to the <a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html" target="_blank"><code>phoneNumbers</code></a> resource</li>
-<li><code class="post">POST</code> on the <a href="http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html" target="_blank"><code>availableNumbers</code></a> resource</li>
+<li>Log in to your <a href="https://app.bandwidth.com" target="_blank">Bandwidth Voice and Messaging API Dashboard</a> --&gt; My Apps --&gt; Create New.</li>
+<li>Then add a Bandwidth phone number to the application</li>
 </ol>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="search-then-order">Search then Order</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&amp;state=NC&amp;pattern=*2%3F9*&amp;quantity=2 \
-  -u {token}:{secret} \
-  -H &quot;Content-type: application/json&quot; \
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// Search available local phone numbers with area code 910</span>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Callback HTTP Method</td>
+<td style="text-align:left"><code>POST</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Application Type</td>
+<td style="text-align:left"><code>Voice</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Voice Callback</td>
+<td style="text-align:left"><code>{Your callback URL}/in-call</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Automatically answer incoming calls</td>
+<td style="text-align:left"><code>True</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-sample" data-lang="js" data-name="Js"><h2 id="javascript-walkthrough">Javascript Walkthrough</h2>
+</div><div class="api-method-example"><h3 id="set-the-necessary-dependencies-and-client-credentials">Set the necessary dependencies and client credentials</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+<span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;body-parser&quot;</span>);
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;http&quot;</span>).Server(app);
 
-<span class="hljs-comment">// Promise</span>
-client.AvailableNumber.search(<span class="hljs-string">&quot;local&quot;</span>, { <span class="hljs-attr">areaCode</span> : <span class="hljs-string">&quot;910&quot;</span>, <span class="hljs-attr">quantity</span> : <span class="hljs-number">1</span> })
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{
-    <span class="hljs-keyword">return</span> client.PhoneNumber.create({
-        <span class="hljs-attr">number</span>: numbers[<span class="hljs-number">0</span>].number,
-        <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;My 910 Number&quot;</span>,
-        <span class="hljs-attr">applicationId</span>: <span class="hljs-string">&quot;a-1234&quot;</span>
-    });
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(number.id);
+
+<span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    <span class="hljs-comment">// uses my environment variables. Go to dev.bandwidth.com, look under Account -&gt; API Information -&gt; Credentials OR .zsrh file</span>
+    userId    : {BANDWIDTH_USER_ID}, <span class="hljs-comment">// &lt;-- note, this is not the same as the username you used to login to the portal</span>
+    apiToken  : {BANDWIDTH_API_TOKEN},
+    <span class="hljs-attr">apiSecret</span> : {BANDWIDTH_API_SECRET}
 });
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchLocalAsync(<span class="hljs-keyword">new</span> LocalNumberQuery{ AreaCode = <span class="hljs-string">&quot;910&quot;</span>, Quantity = <span class="hljs-number">1</span>});
-<span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.CreateAsync(<span class="hljs-keyword">new</span> CreatePhoneNumberData {
-    Number = results[<span class="hljs-number">0</span>].number,
-    Name = <span class="hljs-string">&quot;My 910 Number&quot;</span>,
-    ApplicationId = <span class="hljs-string">&quot;a-1234&quot;</span>
+</div><div class="api-method-example"><h3 id="include-required-json-parser-port-url-base-and-port-listener">Include required JSON parser, port, URL base, and port listener</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">
+app.use(bodyParser.json());
+<span class="hljs-comment">//use a json body parser</span>
+app.set(<span class="hljs-string">&apos;port&apos;</span>, (process.env.PORT || <span class="hljs-number">4000</span>));
+<span class="hljs-comment">//set port to an environment variable port or 4000</span>
+
+<span class="hljs-keyword">const</span> getBaseUrlFromReq = <span class="hljs-function">(<span class="hljs-params">req</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;http://&apos;</span> + req.hostname;
+};
+
+app.get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(req);
+    res.send(<span class="hljs-string">&quot;Simple_Voicemail_System&quot;</span>);
+});
+
+http.listen(app.get(<span class="hljs-string">&apos;port&apos;</span>), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;listening on *: &apos;</span> + app.get(<span class="hljs-string">&apos;port&apos;</span>));
 });
 </code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">numbers = AvailableNumber.search_local(client, {<span class="hljs-symbol">:area_code</span> =&gt; <span class="hljs-string">&quot;910&quot;</span>, <span class="hljs-symbol">:quantity</span> =&gt; <span class="hljs-number">1</span>})
-puts(<span class="hljs-string">&quot;Found numbers: <span class="hljs-subst">#{(numbers.map {<span class="hljs-params">|n|</span> n[<span class="hljs-symbol">:number</span>]}</span>).join(&apos;, &apos;)}&quot;</span>)
-number = PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; numbers[<span class="hljs-number">0</span>][<span class="hljs-symbol">:number</span>]})
-puts(<span class="hljs-string">&quot;Now you are owner of number <span class="hljs-subst">#{number.number}</span> (id <span class="hljs-subst">#{number.id}</span>)&quot;</span>)
-</code></pre>
-</div><div class="api-method-example"><h3 id="search-and-order">Search and Order</h3>
-</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">#coming soon
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// Search 2 available local phone numbers with area code 910 and order them</span>
+</div><div class="api-method-example"><h3 id="choose-intermediary-bwnumber-and-the-tonumber-to-call">Choose intermediary &apos;BWNumber&apos; and the &apos;toNumber&apos; to call</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">let</span> toNumber = <span class="hljs-string">&quot;+12345678901&quot;</span>;
 
-<span class="hljs-comment">// Promise</span>
-client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot;</span>, { <span class="hljs-attr">areaCode</span> : <span class="hljs-string">&quot;910&quot;</span>, <span class="hljs-attr">quantity</span> : <span class="hljs-number">2</span> })
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{
-    numbers.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(number.id);
+<span class="hljs-comment">//----Bandwidth Number to call: {SELECTED BW NUMBER from App Set-Up}-----</span>
+</code></pre>
+</div><div class="api-method-example"><h3 id="logic-if-else-statements-for-the-outbound-call-from-the-bw-number-to-the-tonumber">Logic if-else statements for the Outbound call from the BW number to the toNumber</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">app.post(<span class="hljs-string">&apos;/out-call&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{     <span class="hljs-comment">//OUTBOUND CALLS</span>
+    <span class="hljs-keyword">var</span> this_url2 = getBaseUrlFromReq(req);
+    <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&apos;answer&apos;</span>) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Incoming CallId: &quot;</span> + req.body.tag);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Outgoing CallId: &quot;</span> + req.body.callId);
+        <span class="hljs-built_in">console</span>.log(req);
+        client.Bridge.create({
+          <span class="hljs-attr">bridgeAudio</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">callIds</span> : [req.body.tag, req.body.callId]
+        })
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">bridge</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;BridgeId: &quot;</span> + bridge.id);
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;---Call has been bridged----&quot;</span>);
+        })
+        .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+          <span class="hljs-built_in">console</span>.log(err);
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;----Could not bridge the call----&quot;</span>);
+        });
+    }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&quot;timeout&quot;</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Tag: &quot;</span> + req.body.tag)
+    client.Call.speakSentence(req.body.tag, <span class="hljs-string">&quot;You have reached {NAME/COMPANY}. Sorry we can&apos;t get to the phone right now, please leave your message after the beep.&quot;</span>)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;---Voicemail message spoken---&quot;</span>);
     })
+    .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(err);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Could not speak the voicemail intro sentence&quot;</span>);
+    })
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&quot;hangup&quot;</span>){          <span class="hljs-comment">//will automatically stop recording here</span>
+    <span class="hljs-built_in">console</span>.log(req.body);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;----Your call has hungup----&quot;</span>);
+  }
+    <span class="hljs-keyword">else</span>{
+      <span class="hljs-built_in">console</span>.log(req.body);
+    }
 });
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchAndOrderLocalAsync(
-  <span class="hljs-keyword">new</span> LocalNumberQueryForOrder{ AreaCode = <span class="hljs-string">&quot;910&quot;</span>, Quantity = <span class="hljs-number">2</span>});
+</div><div class="api-method-example"><h3 id="logic-if-else-statements-for-the-inbound-call-from-your-personal-phone-number-to-the-bw-number">Logic if-else statements for the Inbound call from your personal phone number to the BW number</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">app.post(<span class="hljs-string">&apos;/in-call&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{        <span class="hljs-comment">//INBOUND CALLS</span>
+  <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&quot;incomingcall&quot;</span>){
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Incoming callId: &quot;</span> + req.body.callId);
+    <span class="hljs-keyword">var</span> this_url1 = getBaseUrlFromReq(req);
+    createCallWithCallback(req.body.to, this_url1, req.body.callId);
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&quot;speak&quot;</span> &amp;&amp; req.body.state === <span class="hljs-string">&quot;PLAYBACK_STOP&quot;</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;CallId for the recording: &quot;</span> + req.body.callId);
+    client.Call.enableRecording(req.body.callId)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;---Recording has started----&quot;</span>);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(err);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Could not record&quot;</span>);
+    });
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&quot;recording&quot;</span> &amp;&amp; req.body.state === <span class="hljs-string">&quot;complete&quot;</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;---The original inbound call has been hungup---&quot;</span>);
+    client.Recording.createTranscription(req.body.recordingId)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">transcription</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;-----Transcribing-----&quot;</span>);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(err);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Sorry, something went wrong with the transcription&quot;</span>);
+    });
+  }
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.body.eventType === <span class="hljs-string">&quot;transcription&quot;</span> &amp;&amp; req.body.state === <span class="hljs-string">&quot;completed&quot;</span>){
+    <span class="hljs-built_in">console</span>.log(req.body);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Transcribed&quot;</span>);
+  }
+  <span class="hljs-keyword">else</span>{
+    <span class="hljs-built_in">console</span>.log(req.body);
+  }
+});
 </code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment">##</span>
-<span class="hljs-comment"># coming soon</span>
-<span class="hljs-comment">##</span>
+</div><div class="api-method-example"><h3 id="create-call-from-bw-number-to-tonumber">Create call from BW number to toNumber</h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> createCallWithCallback = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">FromBWnumber, this_url, tag</span>)</span>{
+    <span class="hljs-keyword">return</span> client.Call.create({
+    <span class="hljs-attr">from</span>: FromBWnumber,
+        <span class="hljs-attr">to</span>: toNumber,
+        <span class="hljs-attr">callTimeout</span>: <span class="hljs-number">10</span>,
+        <span class="hljs-attr">callbackUrl</span>: this_url + <span class="hljs-string">&apos;/out-call&apos;</span>,
+        <span class="hljs-attr">tag</span>: tag
+    })
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">call</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Outgoing call Id: &quot;</span> + call.callId);
+        <span class="hljs-built_in">console</span>.log(call);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;----Outbound call has been created----&quot;</span>);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(err);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;---Outbound call could not be created---&quot;</span>);
+    })
+};
 </code></pre>
 </div></div></div>
-
                                 
                                 </section>
                             
@@ -867,7 +980,7 @@ client.AvailableNumber.searchAndOrder(<span class="hljs-string">&quot;local&quot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Get a Number","level":"2.2.2.1","depth":3,"next":{"title":"Import Dashboard Numbers","level":"2.2.2.2","depth":3,"path":"howto/importDashboard.md","ref":"howto/importDashboard.md","articles":[]},"previous":{"title":"Phone Numbers","level":"2.2.2","depth":2,"path":"howto/phonenumbers.md","ref":"howto/phonenumbers.md","articles":[{"title":"Get a Number","level":"2.2.2.1","depth":3,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},{"title":"Import Dashboard Numbers","level":"2.2.2.2","depth":3,"path":"howto/importDashboard.md","ref":"howto/importDashboard.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.13","header","sharing","custom-favicon","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-jquery-postprocessing","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/buytn.md","mtime":"2017-11-16T13:34:04.832Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-16T13:35:39.068Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Voicemail","level":"2.2.3.8","depth":3,"next":{"title":"Configure SIP & Softphone","level":"2.2.3.9","depth":3,"path":"howto/sip.md","ref":"howto/sip.md","articles":[]},"previous":{"title":"Conference Call","level":"2.2.3.7","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.13","header","sharing","custom-favicon","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-jquery-postprocessing","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/voicemail.md","mtime":"2017-11-16T13:34:04.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-16T13:35:39.068Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
