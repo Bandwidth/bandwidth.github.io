@@ -354,11 +354,11 @@ li.chapter{
    width: 100%;
    /*height: 27px;*/
    clear:both;
-   border-left: 3px solid #f3f3f3;
+   /*border-left: 3px solid #f3f3f3;*/
 }
-li.chapter:hover{
+/*li.chapter:hover{
    border-left: 3px solid #00bcec;
-}
+}*/
 li.chapter a{
    /*width: calc(100% - 27px);*/
    float: left;
