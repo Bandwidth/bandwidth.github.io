@@ -56,7 +56,7 @@ Once md5 is insalled, run the command like: `md5 -s {composite-username}:{Realm}
 
 ###### Generate md5 Hash1 _without_ domain
 
-| composite-username | `:` | realm                       | `:` | password   |
+| composite-username | : | realm                       | : | password   |
 |:-------------------|:----|:----------------------------|:----|:-----------|
 | `sipauthtest`      | `:` | `custxx.auth.bandwidth.com` | `:` | `password` |
 
@@ -67,7 +67,7 @@ MD5 ("sipauthtest:custxx.auth.bandwidth.com:password") = fe438bddfc087dda89d29e6
 
 ###### Generate md5 Hash1b _without_ domain
 
-| composite-username | `:` | realm                       | `:` | realm                       | `:` | password   |
+| composite-username | : | realm                       | : | realm                       | : | password   |
 |:-------------------|:----|:----------------------------|:----|:----------------------------|:----|:-----------|
 | `sipauthtest`      | `:` | `custxx.auth.bandwidth.com` | `:` | `custxx.auth.bandwidth.com` | `:` | `password` |
 
@@ -91,7 +91,7 @@ MD5 ("bob@somewhere.com:custxx.auth.bandwidth.com:password") = 817d76e91aad032a8
 
 ###### Generate md5 Hash1b _with_ domain `somewhere.com`
 
-| composite-username  | `:` | realm                       | `:` | realm                       | `:` | password   |
+| composite-username  | : | realm                       | : | realm                       | : | password   |
 |:--------------------|:----|:----------------------------|:----|:----------------------------|:----|:-----------|
 | `bob@somewhere.com` | `:` | `custxx.auth.bandwidth.com` | `:` | `custxx.auth.bandwidth.com` | `:` | `password` |
 

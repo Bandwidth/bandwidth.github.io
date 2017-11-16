@@ -3,8 +3,8 @@
 # How to speak a sentence on a call
 
 ### Before Speaking
-1. [Create call with callback URL](http://dev.bandwidth.com/howto/outboundCall.html)
-2. [Make sure call is answered and active](http://dev.bandwidth.com/howto/sip.html)
+1. [Create call with callback URL](./outboundCall.md) -or- [Recieve Incoming Call](./incomingCallandMessaging.md)
+2. Make sure call is answered and active
 
 ### Speak Sentence options
 Bandwidth supports many voice options. You may specify the gender, accent, and voice. [Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)for a full list of the speaker options.
