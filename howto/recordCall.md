@@ -10,8 +10,8 @@ This guide covers:
 
 ### Before playing audio file
 
-1. [Create call with callback URL](http://dev.bandwidth.com/howto/outboundCall.html)
-2. [Make sure call is answered and active](http://dev.bandwidth.com/howto/sip.html)
+1. [Create call with callback URL](./outboundCall.md)
+2. Make sure call is answered and active
 
 
 ### How to create a call and start recording it [create call](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html)
