@@ -1,6 +1,6 @@
 # Bandwidth Building Blocks
 
-Here are some common tasks used to build up your full-features Voice & Messaging application.
+Here are some common tasks used to build up your full-featured Voice & Messaging application.
 
 ### Account Setup
 
@@ -22,7 +22,7 @@ Here are some common tasks used to build up your full-features Voice & Messaging
 | [Create outbound call](./outboundCall.md)                | Learn how to create outbound calls and what [callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html) to expect                                                                                                                                                                  | Beginner   |
 | [Play Audio](./playAudio.md)                             | Learn how to play an audio file in a [call](http://dev.bandwidth.com/ap-docs/methods/calls/calls.html), [conference](http://dev.bandwidth.com/ap-docs/methods/conferences/conferences.html), & [bridge](http://dev.bandwidth.com/ap-docs/methods/bridges/bridges.html)                             | Moderate   |
 | [Speak Sentence](./speakSentence.md)                      | Learn how to use 'text-to-speech' (TTS) to speak a sentence in a [call](http://dev.bandwidth.com/ap-docs/methods/calls/calls.html), [conference](http://dev.bandwidth.com/ap-docs/methods/conferences/conferences.html), & [bridge](http://dev.bandwidth.com/ap-docs/methods/bridges/bridges.html) | Moderate   |
-| [Record a Call](./recordCall.md)                         | Learn how to manage recordings                                                                                                                                                                                                                                                                     | Monderate  |
+| [Record a Call](./recordCall.md)                         | Learn how to manage recordings                                                                                                                                                                                                                                                                     | Moderate  |
 | [Create Gather (collect digits/dtmf)](./createGather.md) | Learn how to collect button presses on a phone call                                                                                                                                                                                                                                                | Moderate   |
 | [Forward a call](./forwardACall.md)                      | Learn how to forward an incoming call to another phone number                                                                                                                                                                                                                                      | Moderate   |
 | [Conference Call](./conferenceCall.md)                   | Learn how to create and manage a [conference call](http://dev.bandwidth.com/ap-docs/methods/conferences/conferences.html)                                                                                                                                                                          | Moderate   |
