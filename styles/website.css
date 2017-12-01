@@ -292,7 +292,7 @@ li pre code{
   display: none;
 }
 #banner{
-  background-image: url('../images/cluecon.png');
+  /*background-image: url('../images/cluecon.png');*/
   background-size: contain;
   background-repeat: no-repeat;
   background-color: #4d2b64;
@@ -302,7 +302,7 @@ li pre code{
   margin: 0;
   line-height: 66px;
   text-align: left;
-  padding-left: 170px;
+  padding-left: 30px;
   font-size: 1.3em;
 }
 #banner a{
