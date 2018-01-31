@@ -1,10 +1,10 @@
 {
     "plugins": [
-        "theme-bandwidth@1.7.15",
+        "theme-bandwidth@1.8.1",
         "header",
         "sharing",
         "custom-favicon",
-        "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
+        "bandwidth-toggle-chapters",
         "custom-jquery-postprocessing",
         "gtm",
         "crazyegg",
