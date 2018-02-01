@@ -38,7 +38,7 @@
 ## API Reference
 * [Full API Reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
 * [BXML Reference](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
-* [Messaging 2.0 Reference](http://dev.bandwidth.com/ap-docs/messaging-2/getStarted.html)
+* [Messaging 2.0 Reference (Beta)](http://dev.bandwidth.com/ap-docs/messaging-2/getStarted.html)
 
 ## SDKs
  * [Node JS](clientLib/node.md)
