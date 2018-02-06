@@ -1,8 +1,8 @@
-## Java Library
+# Java Library
 
 [![github](../images/github_logo.png)](https://github.com/bandwidthcom/java-bandwidth)
 
-### [Docs](http://www.javadoc.io/doc/com.bandwidth.sdk/bandwidth-java-sdk)
+### [Full API Reference](http://www.javadoc.io/doc/com.bandwidth.sdk/bandwidth-java-sdk)
 
 
 [Code Examples](https://github.com/bandwidthcom/java-bandwidth-examples)

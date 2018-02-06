@@ -1,8 +1,8 @@
-## NodeJS Library
-
-[![github](../images/github_logo.png)](https://github.com/bandwidthcom/node-bandwidth)
+# NodeJS Library
 
 The current version is v2, released 5 August, 2016. Version 1.3.3 is available  [here](https://github.com/bandwidthcom/node-bandwidth/tree/v1.3.3).
+
+[![github](../images/github_logo.png)](https://github.com/bandwidthcom/node-bandwidth)
 
 ### [Full API Reference](http://dev.bandwidth.com/node-bandwidth/index.html)
 The Full API Reference is available either as an interactive site or as a single Markdown file:

@@ -1,4 +1,4 @@
-# How to Import Bandwidth Numbers to your account
+## How to Import Bandwidth Numbers to your account
 
 ![Description Image](../images/how-to-import-numbers.png)
 

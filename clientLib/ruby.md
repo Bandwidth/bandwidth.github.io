@@ -1,4 +1,4 @@
-## Ruby Library
+# Ruby Library
 
 A ruby client library for the [Bandwidth Application Platform](http://bandwidth.com/products/application-platform?utm_medium=social&utm_source=github&utm_campaign=dtolb&utm_content=_)
 

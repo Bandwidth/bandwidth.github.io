@@ -2,13 +2,9 @@
 
 [![Build Status](https://travis-ci.org/Bandwidth/python-bandwidth.svg?branch=master)](https://travis-ci.org/Bandwidth/python-bandwidth) [![Can I Use Python 3?](https://caniusepython3.com/project/bandwidth-sdk.svg)](https://caniusepython3.com/project/bandwidth-sdk)
 
-## Full Reference
-
-###[dev.bandwidth.com/python-bandwidth](http://dev.bandwidth.com/python-bandwidth)
-
-
 [![github](../images/github_logo.png)](https://github.com/bandwidth/python-bandwidth)
 
+### [Full API Reference](http://dev.bandwidth.com/python-bandwidth)
 
 ## Requirements
 * [Bandwidth Account](http://bandwidth.com/products/application-platform/?utm_medium=social&utm_source=github&utm_campaign=dtolb&utm_content=_)
