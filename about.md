@@ -9,9 +9,9 @@
       <!-- <p>Are you focused on adding voice and messaging capability to your app or product?</p> -->
       <p>Do things like:
       <ul>
-        <li>Send SMS/MMS messages with REST api</li>
+        <li>Send and Receive SMS/MMS messages with REST APIs and webhooks</li>
         <li>Control phone calls with BXML</li>
-        <li>Receive incoming SMS/MMS messages via HTTP webhooks</li>
+        <li>Basic Phone Number Management</li>
         <li>Make phone calls and conference calls with REST API</li>
       </ul>
       <!-- <p>Are you focused on adding voice and messaging capability to your app or product? Like, sending notifications? Or trackable calls and texts?</p> -->
