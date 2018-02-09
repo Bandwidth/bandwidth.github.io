@@ -3,6 +3,7 @@
 ## Overview
 * [Home](README.md)
 * [Pricing](pricing.md)
+* [About](about.md)
 * [GitHub](http://github.com/Bandwidth)
 
 ## Guides
