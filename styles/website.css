@@ -367,6 +367,9 @@ li.chapter .articles li.chapter .articles a{
   width: 230px;
   padding-right: 0px;
 }
+li a.hide{
+  display: none !important;
+}
 .aboutAPIS{
   padding: 30px;
 }

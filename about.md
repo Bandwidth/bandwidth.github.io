@@ -6,12 +6,29 @@
   <div class="apiChoiceContainer">
     <div>
       <h2>Voice and Messaging API</h2>
-      <p>Are you focused on adding voice and messaging capability to your app or product? Like, sending notifications? Or trackable calls and texts?</p>
+      <!-- <p>Are you focused on adding voice and messaging capability to your app or product?</p> -->
+      <p>Do things like:
+      <ul>
+        <li>Send SMS/MMS messages with REST api</li>
+        <li>Control phone calls with BXML</li>
+        <li>Receive incoming SMS/MMS messages via HTTP webhooks</li>
+        <li>Make phone calls and conference calls with REST API</li>
+      </ul>
+      <!-- <p>Are you focused on adding voice and messaging capability to your app or product? Like, sending notifications? Or trackable calls and texts?</p> -->
       <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html" class="button vmd">Start here</a>
     </div>
     <div>
       <h2>Phone Numbers API</h2>
-      <p>Is managing phone numbers most important to you? Do you need location-specific numbers? Does automatic porting sound good to you?</p>
+      <!-- <p>Is managing phone numbers most important to you?</p> -->
+      <p>Do things like:
+        <ul>
+          <li>Manage phone numbers inventory with advanced features</li>
+          <li>Configure SIP Trunks</li>
+          <li>Configure phone numbers for SMPP & MM4 Messaging</li>
+          <li>Configure phone numbers for e911</li>
+        </ul>
+      </p>
+      <!-- <p>Is managing phone numbers most important to you? Do you need location-specific numbers? Does automatic porting sound good to you?</p> -->
       <a href="http://dev.bandwidth.com/docs/"  class="button pnd">Start here</a>
     </div>
   </div>
