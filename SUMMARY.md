@@ -40,6 +40,7 @@
 * [Full API Reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
 * [BXML Reference](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 * [Messaging v2 Reference](http://dev.bandwidth.com/v2-messaging)
+* [Phone Numbers Reference](http://dev.bandwidth.com/docs/phone-numbers/)
 
 ## SDKs
  * [Node JS](clientLib/node.md)
