@@ -4,17 +4,17 @@
 
 ## PreReqs
 
-|             | Description                                                                                                                                                 |
-|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `accountId` | This ID is associated with your Bandwidth Dashboard account. Note: If you don’t know your Provider Account ID, please open a ticket with our support group. |
-| `userName`  | This is your user name used to log into the Bandwidth Dashboard.                                                                                            |
-| `password`  | This is your password used to log into the Bandwidth Dashboard.                                                                                             |
-| `userId`    | This is the user id associated with your [application platform account](../security.md)                                                                     |
-| `token`     | This is the api token associated with your [application platform account](../security.md)                                                                   |
-| `secret`    | This is the api secret associated with your [application platform account](../security.md)                                                                  |
-| `applicationId` | This is the application platform [applicationId](incomingCallandMessaging.md) to assign the imported numbers. |
+|                 | Description                                                                                                                                                 |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `accountId`     | This ID is associated with your Bandwidth Dashboard account. Note: If you don’t know your Provider Account ID, please open a ticket with our support group. |
+| `userName`      | This is your user name used to log into the Bandwidth Dashboard.                                                                                            |
+| `password`      | This is your password used to log into the Bandwidth Dashboard.                                                                                             |
+| `userId`        | This is the user id associated with your [application platform account](../security.md)                                                                     |
+| `token`         | This is the api token associated with your [application platform account](../security.md)                                                                   |
+| `secret`        | This is the api secret associated with your [application platform account](../security.md)                                                                  |
+| `applicationId` | This is the application platform [applicationId](incomingCallandMessaging.md) to assign the imported numbers.                                               |
 
-## Step 1 *Import Number* - Using the Bandwidth Communication API
+## Step 1 **Import Number** - Using the Bandwidth Voice & Messaging API
 
 Import numbers with the `applicationId`
 
@@ -33,17 +33,21 @@ You'll need to repeat this process for _EVERY_ number that will be imported to t
 
 <code class="post">POST</code> to `https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers`
 
-```json
+```http
+POST https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
 {
-  "number": "+14352154439",
-  "applicationId":"{{applicationId}}",
-  "name" : "text messaging TN",
-  "provider": {
-    "providerName": "bandwidth-dashboard",
-    "properties": {
-      "accountId": "9999999",
-      "userName": "wileCoyote",
-      "password": "catchThatBird"
+  "number"        : "+14352154439",
+  "applicationId" : "{{applicationId}}",
+  "name"          : "text messaging TN",
+  "provider"      : {
+    "providerName" : "bandwidth-dashboard",
+    "properties"   : {
+      "accountId" : "9999999",
+      "userName"  : "wileCoyote",
+      "password"  : "catchThatBird"
     }
   }
 }
@@ -53,13 +57,12 @@ You'll need to repeat this process for _EVERY_ number that will be imported to t
 
 The `numberId` is returned in the `Location` Header.
 
-```
-201 Created
-Location:
-https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
+```http
+Status: 201 Created
+Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
 ```
 
-## Step 2 *Send Message* - Using the Bandwidth Communication API
+## Step 2 **Send Message** - Using the Bandwidth Communication API
 
 To send a message with your imported number, use the `/messaging` capabilities as normal.
 
@@ -69,11 +72,15 @@ To send a message with your imported number, use the `/messaging` capabilities a
 
 <code class="post">POST</code> to `https://api.catapult.inetwork.com/v1/users/{userId}/messages`
 
-```json
+```http
+POST https://api.catapult.inetwork.com/v1/users/{userId}/messages HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
 {
-    "from": "14352154439",
-    "to": "{toNumber}",
-    "text": "Good morning, this is a test message"
+    "from" : "14352154439",
+    "to"   : "{toNumber}",
+    "text" : "Good morning, this is a test message"
 }
 ```
 
@@ -81,13 +88,12 @@ To send a message with your imported number, use the `/messaging` capabilities a
 
 The `messageId` is returned in the `Location` Header.
 
-```
-201 Created
-Location:
-https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih2u7zxjdy
+```http
+Status: 201 Created
+Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih2u7zxjdy
 ```
 
-## Step 3 *Incoming Messages* - Using the Bandwidth Communication API
+## Step 3 **Incoming Messages** - Using the Bandwidth Communication API
 
 Bandwith will send you either a <code class="get">GET</code> or <code class="post">POST</code> HTTP Callback based on your `application` configuration in Step 3.
 
@@ -119,17 +125,20 @@ All the relevant fields are passed as query parameters
 
 <code class="post">POST</code> `http://[External server URL]`
 
-```json
+```http
+POST http://your-url-for-callbacks.com HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
 {
-   "eventType":"sms",
-   "direction":"in",
-   "messageId": "{messageId}",
-   "messageUri": "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
-   "from":"+13233326955",
-   "to":"+14352154439",
-   "text":"Example",
-   "applicationId":"{appId}",
-   "time":"2012-11-14T16:13:06.076Z",
-   "state":"received"
+   "eventType"     : "sms",
+   "direction"     : "in",
+   "messageId"     : "{messageId}",
+   "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+   "from"          : "+13233326955",
+   "to"            : "+14352154439",
+   "text"          : "Example",
+   "applicationId" : "{appId}",
+   "time"          : "2012-11-14T16:13:06.076Z",
+   "state"         : "received"
 }
 ```
