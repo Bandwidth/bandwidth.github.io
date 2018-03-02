@@ -629,7 +629,7 @@
     
         <li class="chapter " data-level="4.4">
             
-                <a target="_blank" href="http://dev.bandwidth.com/docs/phone-numbers/">
+                <a href="http://dev.bandwidth.com/docs/phone-numbers/">
             
                     
                     Phone Numbers Reference
@@ -831,7 +831,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="step-1-import-number---using-the-bandwidth-communication-api">Step 1 <em>Import Number</em> - Using the Bandwidth Communication API</h2>
+<h2 id="step-1-import-number---using-the-bandwidth-voice--messaging-api">Step 1 <strong>Import Number</strong> - Using the Bandwidth Voice &amp; Messaging API</h2>
 <p>Import numbers with the <code>applicationId</code></p>
 <table>
 <thead>
@@ -877,44 +877,52 @@
 <h3 id="example-import-numbers-one-at-a-time">Example: Import Numbers (One at a time)</h3>
 <p>You&apos;ll need to repeat this process for <em>EVERY</em> number that will be imported to the application platform from the Bandwidth Dashboard.</p>
 <p><code class="post">POST</code> to <code>https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers</code></p>
-<pre><code class="lang-json">{
-  <span class="hljs-attr">&quot;number&quot;</span>: <span class="hljs-string">&quot;+14352154439&quot;</span>,
-  <span class="hljs-attr">&quot;applicationId&quot;</span>:<span class="hljs-string">&quot;{{applicationId}}&quot;</span>,
-  <span class="hljs-attr">&quot;name&quot;</span> : <span class="hljs-string">&quot;text messaging TN&quot;</span>,
-  <span class="hljs-attr">&quot;provider&quot;</span>: {
-    <span class="hljs-attr">&quot;providerName&quot;</span>: <span class="hljs-string">&quot;bandwidth-dashboard&quot;</span>,
-    <span class="hljs-attr">&quot;properties&quot;</span>: {
-      <span class="hljs-attr">&quot;accountId&quot;</span>: <span class="hljs-string">&quot;9999999&quot;</span>,
-      <span class="hljs-attr">&quot;userName&quot;</span>: <span class="hljs-string">&quot;wileCoyote&quot;</span>,
-      <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;catchThatBird&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;number&quot;</span>        : <span class="hljs-string">&quot;+14352154439&quot;</span>,
+  <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{{applicationId}}&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>          : <span class="hljs-string">&quot;text messaging TN&quot;</span>,
+  <span class="hljs-attr">&quot;provider&quot;</span>      : {
+    <span class="hljs-attr">&quot;providerName&quot;</span> : <span class="hljs-string">&quot;bandwidth-dashboard&quot;</span>,
+    <span class="hljs-attr">&quot;properties&quot;</span>   : {
+      <span class="hljs-attr">&quot;accountId&quot;</span> : <span class="hljs-string">&quot;9999999&quot;</span>,
+      <span class="hljs-attr">&quot;userName&quot;</span>  : <span class="hljs-string">&quot;wileCoyote&quot;</span>,
+      <span class="hljs-attr">&quot;password&quot;</span>  : <span class="hljs-string">&quot;catchThatBird&quot;</span>
     }
   }
 }
-</code></pre>
+</span></code></pre>
 <h4 id="example-respone-201---created">Example Respone: 201 - Created</h4>
 <p>The <code>numberId</code> is returned in the <code>Location</code> Header.</p>
-<pre><code>201 Created
-Location:
-https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
-</code></pre><h2 id="step-2-send-message---using-the-bandwidth-communication-api">Step 2 <em>Send Message</em> - Using the Bandwidth Communication API</h2>
+<pre><code class="lang-http"><span class="hljs-attribute">Status</span>: 201 Created
+<span class="hljs-attribute">Location</span>: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
+</code></pre>
+<h2 id="step-2-send-message---using-the-bandwidth-communication-api">Step 2 <strong>Send Message</strong> - Using the Bandwidth Communication API</h2>
 <p>To send a message with your imported number, use the <code>/messaging</code> capabilities as normal.</p>
 <ul>
 <li><a href="http://dev.bandwidth.com/ap-docs/methods/messages/messages.html" target="_blank">Learn About Sending Messages</a></li>
 </ul>
 <h3 id="example-send-new-message">Example: Send New Message</h3>
 <p><code class="post">POST</code> to <code>https://api.catapult.inetwork.com/v1/users/{userId}/messages</code></p>
-<pre><code class="lang-json">{
-    <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;14352154439&quot;</span>,
-    <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
-    <span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Good morning, this is a test message&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/messages</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+    <span class="hljs-attr">&quot;from&quot;</span> : <span class="hljs-string">&quot;14352154439&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>   : <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">&quot;text&quot;</span> : <span class="hljs-string">&quot;Good morning, this is a test message&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 <h4 id="example-respone-201---created">Example Respone: 201 - Created</h4>
 <p>The <code>messageId</code> is returned in the <code>Location</code> Header.</p>
-<pre><code>201 Created
-Location:
-https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih2u7zxjdy
-</code></pre><h2 id="step-3-incoming-messages---using-the-bandwidth-communication-api">Step 3 <em>Incoming Messages</em> - Using the Bandwidth Communication API</h2>
+<pre><code class="lang-http"><span class="hljs-attribute">Status</span>: 201 Created
+<span class="hljs-attribute">Location</span>: https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih2u7zxjdy
+</code></pre>
+<h2 id="step-3-incoming-messages---using-the-bandwidth-communication-api">Step 3 <strong>Incoming Messages</strong> - Using the Bandwidth Communication API</h2>
 <p>Bandwith will send you either a <code class="get">GET</code> or <code class="post">POST</code> HTTP Callback based on your <code>application</code> configuration in Step 3.</p>
 <ul>
 <li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">Learn About Incoming Messages <em>POST</em></a></li>
@@ -937,19 +945,22 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih
 </code></pre>
 <h3 id="example-post-callback">Example <code>POST</code> Callback</h3>
 <p><code class="post">POST</code> <code>http://[External server URL]</code></p>
-<pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;sms&quot;</span>,
-   <span class="hljs-attr">&quot;direction&quot;</span>:<span class="hljs-string">&quot;in&quot;</span>,
-   <span class="hljs-attr">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId}&quot;</span>,
-   <span class="hljs-attr">&quot;messageUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
-   <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+13233326955&quot;</span>,
-   <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+14352154439&quot;</span>,
-   <span class="hljs-attr">&quot;text&quot;</span>:<span class="hljs-string">&quot;Example&quot;</span>,
-   <span class="hljs-attr">&quot;applicationId&quot;</span>:<span class="hljs-string">&quot;{appId}&quot;</span>,
-   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
-   <span class="hljs-attr">&quot;state&quot;</span>:<span class="hljs-string">&quot;received&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">http://your-url-for-callbacks.com</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+
+<span class="json">{
+   <span class="hljs-attr">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;sms&quot;</span>,
+   <span class="hljs-attr">&quot;direction&quot;</span>     : <span class="hljs-string">&quot;in&quot;</span>,
+   <span class="hljs-attr">&quot;messageId&quot;</span>     : <span class="hljs-string">&quot;{messageId}&quot;</span>,
+   <span class="hljs-attr">&quot;messageUri&quot;</span>    : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+13233326955&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+14352154439&quot;</span>,
+   <span class="hljs-attr">&quot;text&quot;</span>          : <span class="hljs-string">&quot;Example&quot;</span>,
+   <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+   <span class="hljs-attr">&quot;state&quot;</span>         : <span class="hljs-string">&quot;received&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 
                                 
                                 </section>
@@ -999,7 +1010,7 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Import Dashboard Numbers","level":"2.2.2.2","depth":3,"next":{"title":"Voice","level":"2.2.3","depth":2,"path":"howto/voice.md","ref":"howto/voice.md","articles":[{"title":"Create outbound call","level":"2.2.3.1","depth":3,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},{"title":"Play Audio","level":"2.2.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"path":"howto/speakSentence.md","ref":"howto/speakSentence.md","articles":[]},{"title":"Record a call","level":"2.2.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},{"title":"Collect digits (DTMF/Gather)","level":"2.2.3.5","depth":3,"path":"howto/createGather.md","ref":"howto/createGather.md","articles":[]},{"title":"Forward a call","level":"2.2.3.6","depth":3,"path":"howto/forwardACall.md","ref":"howto/forwardACall.md","articles":[]},{"title":"Conference Call","level":"2.2.3.7","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},{"title":"Voicemail","level":"2.2.3.8","depth":3,"path":"howto/voicemail.md","ref":"howto/voicemail.md","articles":[]},{"title":"Configure SIP & Softphone","level":"2.2.3.9","depth":3,"path":"howto/sip.md","ref":"howto/sip.md","articles":[]},{"title":"WebRTC","level":"2.2.3.10","depth":3,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},{"title":"For Mobile Apps","level":"2.2.3.11","depth":3,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},{"title":"Setup Dashboard for Network Bridge","level":"2.2.3.12","depth":3,"path":"howto/networkBridge.md","ref":"howto/networkBridge.md","articles":[]}]},"previous":{"title":"Get a Number","level":"2.2.2.1","depth":3,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/importDashboard.md","mtime":"2018-02-28T20:38:41.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-28T20:40:41.992Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Import Dashboard Numbers","level":"2.2.2.2","depth":3,"next":{"title":"Voice","level":"2.2.3","depth":2,"path":"howto/voice.md","ref":"howto/voice.md","articles":[{"title":"Create outbound call","level":"2.2.3.1","depth":3,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},{"title":"Play Audio","level":"2.2.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"path":"howto/speakSentence.md","ref":"howto/speakSentence.md","articles":[]},{"title":"Record a call","level":"2.2.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},{"title":"Collect digits (DTMF/Gather)","level":"2.2.3.5","depth":3,"path":"howto/createGather.md","ref":"howto/createGather.md","articles":[]},{"title":"Forward a call","level":"2.2.3.6","depth":3,"path":"howto/forwardACall.md","ref":"howto/forwardACall.md","articles":[]},{"title":"Conference Call","level":"2.2.3.7","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},{"title":"Voicemail","level":"2.2.3.8","depth":3,"path":"howto/voicemail.md","ref":"howto/voicemail.md","articles":[]},{"title":"Configure SIP & Softphone","level":"2.2.3.9","depth":3,"path":"howto/sip.md","ref":"howto/sip.md","articles":[]},{"title":"WebRTC","level":"2.2.3.10","depth":3,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},{"title":"For Mobile Apps","level":"2.2.3.11","depth":3,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},{"title":"Setup Dashboard for Network Bridge","level":"2.2.3.12","depth":3,"path":"howto/networkBridge.md","ref":"howto/networkBridge.md","articles":[]}]},"previous":{"title":"Get a Number","level":"2.2.2.1","depth":3,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/importDashboard.md","mtime":"2018-03-02T16:00:29.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-02T16:02:39.340Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
