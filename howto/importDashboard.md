@@ -18,7 +18,7 @@
 
 Import numbers with the `applicationId`
 
-| Parameter       | DESCRIPTION                                                                                                                                                 | Mandatory |
+| Parameter       | Description                                                                                                                                                 | Mandatory |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | `Number`        | Dashboard Phone Number being imported. E.164 format.                                                                                                        | Yes       |
 | `applicationId` | HTTP Application you want the phone number to be registered to for inbound messages.                                                                        | Yes       |
