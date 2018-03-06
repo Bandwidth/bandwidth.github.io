@@ -415,34 +415,37 @@ Once the recording is complete, we'll need to fetch the _real_ location of the m
 
 ### Returned Properties
 
-| Property  | Description                                                                                          |
-|:----------|:-----------------------------------------------------------------------------------------------------|
-| id        | The unique id of the recordings resource.                                                            |
-| startTime | Date/time when the recording started. Timestamp follows the ISO8601 format (UTC).                    |
-| endTime   | Date/time when the recording ended. Timestamp follows the ISO8601 format (UTC).                      |
-| call      | The complete URL to the call resource this recording is associated with.                             |
-| media     | The complete URL to the media resource this recording is associated with.                            |
-| state     | The state of the recording, values are <br> `recording` <br> *`complete`<br> *`saving` <br> *`error` |
+| Property  | Description                                                                                               |
+|:----------|:----------------------------------------------------------------------------------------------------------|
+| id        | The unique id of the recordings resource.                                                                 |
+| startTime | Date/time when the recording started. Timestamp follows the ISO8601 format (UTC).                         |
+| endTime   | Date/time when the recording ended. Timestamp follows the ISO8601 format (UTC).                           |
+| call      | The complete URL to the call resource this recording is associated with.                                  |
+| media     | The complete URL to the media resource this recording is associated with.                                 |
+| state     | The state of the recording, values are <br> - `recording` <br> - `complete`<br> - `saving` <br> - `error` |
 
 For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html).
 
 {% common %}
 
-### Example Transfer Call with Whisper
+### Example Recording Information
 
 ```http
-POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/ HTTP/1.1
-Content-Type: application/json; charset=utf-8
+GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId} HTTP/1.1
 Authorization: {apiToken:apiSecret}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
 
 {
-  "state"            : "transferring",
-  "transferCallerId" : "private"
-  "transferTo"       : "+18382947878",
-  "callbackUrl"      : "{{your-url}}",
-  "whisperAudio"     : {
-    "fileUrl" : "{{mediaUrl-from-above}}"
-  }
+  "endTime"   : "2013-02-08T13:17:12.181Z",
+  "id"        : "{recordingId}",
+  "media"     : "https://.../media/{callId}-1.wav",
+  "call"      : "https://.../calls/{callId}",
+  "startTime" : "2013-02-08T13:15:47.587Z",
+  "state"     : "complete"
 }
 ```
 
