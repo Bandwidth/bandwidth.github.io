@@ -1,0 +1,1537 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Call Screening</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-fonts/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0029/8291.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+    
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="conferenceCall.html">
+    
+    
+    <link rel="prev" href="forwardACall.html">
+    
+
+
+    </head>
+    <body>
+        
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P2JT7Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2JT7Z');
+    </script>
+    
+    
+<div class="book"><link href="../styles/styles.min.css" type="text/css">
+<div class="head">
+     <!-- <div id="banner">
+       <div class="bannerContainer">
+         <p>Due to a change in Github Pages, the API reference requires you to accept an invalid certificate. We are actively working on a fix.</p>
+         <p id="bannerClose">X</p>
+       </div>
+     </div> -->
+   <a href="http://www.bandwidth.com" class="aimg"><div class="headerLogo"></div></a>
+   <h2>Docs for Developers</h2>
+   <!-- <aside class="alert general small" style="margin: 15px 0px 0px 0px !important; position: fixed;left: 440px;">
+   <p>
+   Due to a change in Github Pages, the API reference requires you to accept an invalid certificate.
+   </p>
+   </aside> -->
+   <ul>
+   	<li class="headerButton"><a href="https://catapult.inetwork.com/portal/signup" target="_blank" style="border-bottom: 0px;"><button class="free-trial">Free trial</button></a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" class="headerLink" target="_blank">Login</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" class="headerLink" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../pricing.html">
+            
+                <a href="../pricing.html">
+            
+                    
+                    Pricing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../about.html">
+            
+                <a href="../about.html" class="hide">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4">
+            
+                <a target="_blank" href="http://github.com/Bandwidth">
+            
+                    
+                    GitHub
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../get-started.html">
+            
+                <a href="../get-started.html">
+            
+                    
+                    Get Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="howto.html">
+            
+                <a href="howto.html">
+            
+                    
+                    Building Blocks
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="incomingCallandMessaging.html">
+            
+                <a href="incomingCallandMessaging.html">
+            
+                    
+                    Receive Messages and Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="phonenumbers.html">
+            
+                <a href="phonenumbers.html">
+            
+                    
+                    Phone Numbers
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="buytn.html">
+            
+                <a href="buytn.html">
+            
+                    
+                    Get a Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.2" data-path="importDashboard.html">
+            
+                <a href="importDashboard.html">
+            
+                    
+                    Import Dashboard Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="voice.html">
+            
+                <a href="voice.html">
+            
+                    
+                    Voice
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.3.1" data-path="outboundCall.html">
+            
+                <a href="outboundCall.html">
+            
+                    
+                    Create outbound call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.2" data-path="playAudio.html">
+            
+                <a href="playAudio.html">
+            
+                    
+                    Play Audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.3" data-path="speakSentence.html">
+            
+                <a href="speakSentence.html">
+            
+                    
+                    Speak Sentence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.4" data-path="recordCall.html">
+            
+                <a href="recordCall.html">
+            
+                    
+                    Record a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.5" data-path="createGather.html">
+            
+                <a href="createGather.html">
+            
+                    
+                    Collect digits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.6" data-path="forwardACall.html">
+            
+                <a href="forwardACall.html">
+            
+                    
+                    Forward a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2.3.7" data-path="callScreen.html">
+            
+                <a href="callScreen.html#top">
+            
+                    
+                    Call Screening
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.8" data-path="conferenceCall.html">
+            
+                <a href="conferenceCall.html">
+            
+                    
+                    Conference Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.9" data-path="voicemail.html">
+            
+                <a href="voicemail.html">
+            
+                    
+                    Voicemail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.10" data-path="sip.html">
+            
+                <a href="sip.html">
+            
+                    
+                    Configure SIP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.11" data-path="webrtc.html">
+            
+                <a href="webrtc.html">
+            
+                    
+                    WebRTC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.12" data-path="acrobits.html">
+            
+                <a href="acrobits.html">
+            
+                    
+                    For Mobile Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.13" data-path="networkBridge.html">
+            
+                <a href="networkBridge.html">
+            
+                    
+                    Network Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="messaging.html">
+            
+                <a href="messaging.html">
+            
+                    
+                    Messaging
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.4.1" data-path="sendSMSMMS.html">
+            
+                <a href="sendSMSMMS.html">
+            
+                    
+                    Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4.2" data-path="smsDLR.html">
+            
+                <a href="smsDLR.html">
+            
+                    
+                    Send SMS with Delivery Receipt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4.3" data-path="hostedMessaging.html">
+            
+                <a href="hostedMessaging.html">
+            
+                    
+                    Hosted Messaging Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="deployableDemos.html">
+            
+                <a href="deployableDemos.html">
+            
+                    
+                    Deployable Demos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Security</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../security.html">
+            
+                <a href="../security.html">
+            
+                    
+                    Security
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../callbackSecurity.html">
+            
+                <a href="../callbackSecurity.html">
+            
+                    
+                    Secure your callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1">
+            
+                <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html">
+            
+                    
+                    Full API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2">
+            
+                <a href="http://dev.bandwidth.com/ap-docs/bxml/bxml.html">
+            
+                    
+                    BXML Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3">
+            
+                <a href="http://dev.bandwidth.com/v2-messaging">
+            
+                    
+                    Messaging v2 Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4">
+            
+                <a href="http://dev.bandwidth.com/docs/phone-numbers/">
+            
+                    
+                    Phone Numbers Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SDKs</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../clientLib/node.html">
+            
+                <a href="../clientLib/node.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../clientLib/csharp.html">
+            
+                <a href="../clientLib/csharp.html">
+            
+                    
+                    C-Sharp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../clientLib/ruby.html">
+            
+                <a href="../clientLib/ruby.html">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../clientLib/python.html">
+            
+                <a href="../clientLib/python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../clientLib/java.html">
+            
+                <a href="../clientLib/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1">
+            
+                <a target="_blank" href="http://dev.bandwidth.com/faq">
+            
+                    
+                    FAQ
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2">
+            
+                <a target="_blank" href="http://support.bandwidth.com">
+            
+                    
+                    Support
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="..">Call Screening</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section" style="padding-top: 0px;">
+                                
+                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div></div><div class="api-method-code mm-code-first" style="min-height: 0vh;"><div class="api-code-top mm-code-top"></div></div></div>
+
+<h1 id="top">Call Screening </h1>
+<h2 id="about">About </h2>
+<p>Call screening allows the original caller to record their name before forwarding the call to the final destination. When the forwarded call is answered, the recorded name is played back to the recipeint.</p>
+<h2 id="assumptions">Assumptions</h2>
+<ul>
+<li>You have signed up for the <a href="https://app.bandwidth.com" target="_blank">Bandwidth voice &amp; messaging APIs</a></li>
+<li>You are familiar with:<ul>
+<li><a href="incomingCallandMessaging.html">Receiving incoming calls and messages</a></li>
+<li><a href="playAudio.html">Playing audio on a call</a></li>
+<li><a href="recordCall.html">Recording audio on a call</a></li>
+<li><a href="createGather.html">Creating a gather request</a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html" target="_blank">Forwarding a call</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ol>
+<li><a href="#incomingCall-and-answer">Recieve Incoming Call and Answer event</a></li>
+<li><a href="#speak-sentence">Use the Speak Sentence method to prompt user to record their name</a></li>
+<li><a href="#speak-finished">Receive the Speak Sentence Events</a></li>
+<li><a href="#turn-on-recording">Turn on Audio Recording</a></li>
+<li><a href="#create-gather">Create Gather</a></li>
+<li><a href="#gather-complete">Recieve either gather event or timeout</a></li>
+<li><a href="#turn-off-recording">Turn off audio recording</a></li>
+<li><a href="#recording-finished">Get audio recording location</a></li>
+<li><a href="#media-from-recordingId">Get the media location from the <code>recordingId</code></a></li>
+<li><a href="#transfer-with-whisper">Transfer the call with whisperAudio</a></li>
+</ol>
+<h2 id="incomingCall-and-answer">Recieve Incoming Call and Answer event </h2>
+<p>After setting up your <a href="incomingCallandMessaging.html">application to recieve incoming calls</a> with <code>autoAnswer</code> enabled. You will recieve two events back to back:</p>
+<ol>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html" target="_blank"><code>incomingCall</code></a></li>
+<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html" target="_blank"><code>answer</code></a></li>
+</ol>
+<p>Your server should reply with any <code>HTTP 2xx</code> code to acknowledge that the callback event was delivered.  Any thing returned in the response besides the status code is ignored by Bandwidth.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="incoming-call-event-properties">Incoming Call Event Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">eventType</td>
+<td style="text-align:left">The event type, value is incomingcall.</td>
+</tr>
+<tr>
+<td style="text-align:left">callId</td>
+<td style="text-align:left">The call id associated with the event.</td>
+</tr>
+<tr>
+<td style="text-align:left">callUri</td>
+<td style="text-align:left">The complete URL of the call resource for this event.</td>
+</tr>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">callState</td>
+<td style="text-align:left">The state of the call, value is active.</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The id of the application associated with phone number for this this incoming call.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">Date/time of event. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-incoming-call-event">Example Incoming Call Event</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;incomingcall&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+13233326955&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+13865245000&quot;</span>,
+   <span class="hljs-attr">&quot;callId&quot;</span>        : <span class="hljs-string">&quot;{callId}&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>       : <span class="hljs-string">&quot;https://.../{userId}/calls/{callId}&quot;</span>,
+   <span class="hljs-attr">&quot;callState&quot;</span>     : <span class="hljs-string">&quot;active&quot;</span>,
+   <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:21:59.616Z&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="answer-event-properties">Answer Event Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">eventType</td>
+<td style="text-align:left">The event type, value is <code>answer</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">callState</td>
+<td style="text-align:left">The call state. Value will be <code>active</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">callId</td>
+<td style="text-align:left">The call id associated with the event.</td>
+</tr>
+<tr>
+<td style="text-align:left">callUri</td>
+<td style="text-align:left">The full URL of the call resource for this event.</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">String provided when call created.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">Date when the event occurred. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-answer-event">Example Answer Event</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+  <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+  <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+15753222083&quot;</span>,
+  <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;+13865245000&quot;</span>,
+  <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{call-id}&quot;</span>,
+  <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://.../{user-id}/calls/{call-id}&quot;</span>,
+  <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+  <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2012-11-14T16:28:31.536Z&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="speak-sentence">Use the Speak Sentence method to prompt user to record their name </h2>
+<p>In order to prevent the prompt from being recorded, you need to use the <code>playAudio</code> to speak a sentence before turning on recording.</p>
+<p>For the purposes of this tutorial, we&apos;re using the text-to-speech features of the API. The same flow holds true if you wanted to use a pre-recorded message as well.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio</code></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sentence</td>
+<td style="text-align:left">The sentence to speak. <strong>MAXIMUM LENGTH 1000 CHARACTERS</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">gender</td>
+<td style="text-align:left">The gender of the voice used to synthesize the sentence.</td>
+</tr>
+<tr>
+<td style="text-align:left">locale</td>
+<td style="text-align:left">The locale used to get the accent of the voice used to synthesize the sentence.</td>
+</tr>
+<tr>
+<td style="text-align:left">voice</td>
+<td style="text-align:left">The voice to speak the sentence.</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">A string that will be included in the events delivered when the audio playback starts or finishes.</td>
+</tr>
+</tbody>
+</table>
+<p>For more options and configuration <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">view the full documentation</a></p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-speak-sentence-request">Example Speak Sentence Request</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;sentence&quot;</span>: <span class="hljs-string">&quot;Please state your name then press any key when you&apos;re done&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="speak-finished">Receive the Speak Sentence Events </h2>
+<p>During the speak sentence Bandwidth will send two <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">callbacks</a> with the status of the sentence:</p>
+<ol>
+<li><code>{&quot;eventType&quot;: &quot;speak&quot;, &quot;status&quot;: &quot;started&quot;}</code></li>
+<li><code>{&quot;eventType&quot;: &quot;speak&quot;, &quot;status&quot;: &quot;done&quot;}</code></li>
+</ol>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="speak-sentence-event-properties">Speak Sentence Event Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">eventType</td>
+<td style="text-align:left">The event type, value is <code>speak</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">Values are <code>started</code> or <code>done</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Values are <code>PLAYBACK_START</code> or <code>PLAYBACK_STOP</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">callId</td>
+<td style="text-align:left">The call id associated with the event.</td>
+</tr>
+<tr>
+<td style="text-align:left">callUri</td>
+<td style="text-align:left">The full URL of the call resource for this event.</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">String provided when text-to-speech started.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">Date when the event occurred. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-start-event">Example Start Event</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+  <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://.../{userId}/calls/{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;speak&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>    : <span class="hljs-string">&quot;started&quot;</span>,
+  <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2013-06-26T17:55:45.748Z&quot;</span>
+}
+</span></code></pre>
+<h3 id="example-done-event">Example Done Event</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+  <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://.../{userId}/calls/{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;speak&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>    : <span class="hljs-string">&quot;done&quot;</span>,
+  <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2013-06-26T17:55:46.768Z&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="turn-on-recording">Turn on Audio Recording </h2>
+<p>Once you receive the <code>{ &quot;status&quot;: &quot;done&quot; }</code> event for the sentence, you&apos;ll want to immediately turn on recording and create a gather.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}</code></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">recordingEnabled</td>
+<td style="text-align:left">Indicates if the call should be recorded. Values <code>true</code> or <code>false</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingFileFormat</td>
+<td style="text-align:left">The file format of the recorded call. Supported values are <code>wav</code> (default) and <code>mp3</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-recording-toggle-on">Example Recording Toggle On</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">true</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="create-gather">Create Gather </h2>
+<p>This solution uses the <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html" target="_blank"><code>gather</code></a> method to allow us to specify a <code>interDigitTimeout</code> and <code>maxDigits: 1</code> so that we can stop recording easily after a specified duration has passed, -OR- the caller presses any digit.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather</code></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">maxDigits</td>
+<td style="text-align:left">The maximum number of digits to collect, not including terminating digits (maximum 30).</td>
+</tr>
+<tr>
+<td style="text-align:left">interDigitTimeout</td>
+<td style="text-align:left">Stop gathering if a DTMF digit is not detected in this many seconds (default 5.0; maximum 30.0).</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">A string you choose that will be included with the response and events for this gather operation.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-create-gather">Example Create Gather</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;maxDigits&quot;</span>         : <span class="hljs-string">&quot;1&quot;</span>,
+  <span class="hljs-attr">&quot;interDigitTimeout&quot;</span> : <span class="hljs-string">&quot;6&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="gather-complete">Recieve either gather event or timeout </h2>
+<p>When either the user has pressed a digit or the timeout has passed, you&apos;ll get a callback indicating as such.  Once we recieve the gather event, so long as it&apos;s not a <code>hung-up</code> event we want to now turn off recording.  If the caller hangsup during the gather, the flow should end.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="gather-event-properties">Gather Event Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">eventType</td>
+<td style="text-align:left">The event type, value is <code>gather</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the gather. Value is <code>completed</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">digits</td>
+<td style="text-align:left">The digits collected from user.</td>
+</tr>
+<tr>
+<td style="text-align:left">reason</td>
+<td style="text-align:left"><code>max-digits</code> - The maximum number of digits specified for the gather com.<br> <code>terminating-digit</code> - The digit specified in the gather com was entered.<br> <code>inter-digit-timeout</code> - A timeout occurred indicating the maximum amount of time to wait between digits, or before the first digit was pressed.<br> <code>hung-up</code> - Call was hung up thus terminating the gather.</td>
+</tr>
+<tr>
+<td style="text-align:left">callId</td>
+<td style="text-align:left">The call id associated with the event.</td>
+</tr>
+<tr>
+<td style="text-align:left">gatherId</td>
+<td style="text-align:left">The gather event unique id.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">Date/time of event. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">String used when creating the <a href="#create-gather">gather</a></td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-gather-event">Example Gather Event</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+  <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;gather&quot;</span>,
+  <span class="hljs-attr">&quot;reason&quot;</span>    : <span class="hljs-string">&quot;max-digits&quot;</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>     : <span class="hljs-string">&quot;completed&quot;</span>,
+  <span class="hljs-attr">&quot;digits&quot;</span>    : <span class="hljs-string">&quot;5&quot;</span>,
+  <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2014-07-31T01:01:27Z&quot;</span>,
+  <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;gatherId&quot;</span>  : <span class="hljs-string">&quot;{gatherId}&quot;</span>,
+  <span class="hljs-attr">&quot;tag&quot;</span>       : <span class="hljs-string">&quot;{tag}&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="turn-off-recording">Turn off audio recording </h2>
+<p>Once you receive the <code>{ &quot;eventType&quot; : &quot;gather&quot;, &quot;state&quot;: &quot;completed&quot; }</code> event for the gather, you&apos;ll want to immediately turn <strong>off</strong> recording.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}</code></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">recordingEnabled</td>
+<td style="text-align:left">Indicates if the call should be recorded. Values <code>true</code> or <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-recording-toggle-on">Example Recording Toggle On</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="recording-finished">Get audio recording location </h2>
+<p>When the recording has been finished, Bandwidth will send a callback to your server with the location of the recording.  You can use this URL to playback the recording on any call.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="recording-event-properties">Recording Event Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">eventType</td>
+<td style="text-align:left">The event type, value is <code>recording</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the recording, callback event values are <code>complete</code> or <code>error</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">The state of the recording, callback event values are <code>complete</code> or <code>error</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">callId</td>
+<td style="text-align:left">The call id associated with the event.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingId</td>
+<td style="text-align:left">The unique id of the recording resource.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingUri</td>
+<td style="text-align:left">The full URL of the recording resource.</td>
+</tr>
+<tr>
+<td style="text-align:left">startTime</td>
+<td style="text-align:left">Date/time the recording started. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">endTime</td>
+<td style="text-align:left">Date/time the recording completed. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-record-complete-event">Example Record Complete Event</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+  <span class="hljs-attr">&quot;callId&quot;</span>       : <span class="hljs-string">&quot;{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;eventType&quot;</span>    : <span class="hljs-string">&quot;recording&quot;</span>,
+  <span class="hljs-attr">&quot;recordingId&quot;</span>  : <span class="hljs-string">&quot;{recordingId}&quot;</span>,
+  <span class="hljs-attr">&quot;recordingUri&quot;</span> : <span class="hljs-string">&quot;https://.../{userId}/recordings/{recordingId}&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>       : <span class="hljs-string">&quot;complete&quot;</span>,
+  <span class="hljs-attr">&quot;startTime&quot;</span>    : <span class="hljs-string">&quot;2013-08-19T16:56:57.643Z&quot;</span>,
+  <span class="hljs-attr">&quot;endTime&quot;</span>      : <span class="hljs-string">&quot;2013-08-19T16:57:08.712Z&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="media-from-recordingId">Get the media location from the Recording </h2>
+<p>Once the recording is complete, we&apos;ll need to fetch the <em>real</em> location of the media resource</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
+<p><code class="get">GET</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}</code></p>
+<h3 id="returned-properties">Returned Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of the recordings resource.</td>
+</tr>
+<tr>
+<td style="text-align:left">startTime</td>
+<td style="text-align:left">Date/time when the recording started. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">endTime</td>
+<td style="text-align:left">Date/time when the recording ended. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">call</td>
+<td style="text-align:left">The complete URL to the call resource this recording is associated with.</td>
+</tr>
+<tr>
+<td style="text-align:left">media</td>
+<td style="text-align:left">The complete URL to the media resource this recording is associated with.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the recording, values are <br> - <code>recording</code> <br> - <code>complete</code><br> - <code>saving</code> <br> - <code>error</code></td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-recording-information">Example Recording Information</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}</span> HTTP/1.1
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+</code></pre>
+<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+
+<span class="json">{
+  <span class="hljs-attr">&quot;endTime&quot;</span>   : <span class="hljs-string">&quot;2013-02-08T13:17:12.181Z&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>        : <span class="hljs-string">&quot;{recordingId}&quot;</span>,
+  <span class="hljs-attr">&quot;media&quot;</span>     : <span class="hljs-string">&quot;https://.../media/{callId}-1.wav&quot;</span>,
+  <span class="hljs-attr">&quot;call&quot;</span>      : <span class="hljs-string">&quot;https://.../calls/{callId}&quot;</span>,
+  <span class="hljs-attr">&quot;startTime&quot;</span> : <span class="hljs-string">&quot;2013-02-08T13:15:47.587Z&quot;</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>     : <span class="hljs-string">&quot;complete&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="transfer-with-whisper">Transfer the call with whisperAudio </h2>
+<p>The final step is to transfer the original call to the desired forwarding destination.  Using the <code>{ &quot;state&quot;: &quot;transferring&quot; }</code> update to the call will allow you to specify a <code>whisper</code> to be played to the recipient before the two calls are bridged.</p>
+<p>In this case, you&apos;ll use the <code>media-url</code> from above as the <code>fileUrl</code> within the <code>whisperAudio</code>.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}</code></p>
+<h3 id="basic-parameters">Basic Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left"><code>transferring</code> to transfer the incoming call to another line.</td>
+</tr>
+<tr>
+<td style="text-align:left">transferTo</td>
+<td style="text-align:left">Phone number or SIP address that the call is going to be transferred to.</td>
+</tr>
+<tr>
+<td style="text-align:left">transferCallerId</td>
+<td style="text-align:left">This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state.<br>- transferring an incoming call: allowed values are 1) <code>private</code> 2) the incoming call <code>from</code> number or 3) any Bandwidth number owned by user.<br>- transferring an outgoing call call: allowed values are 1) <code>private</code> or 2) any Bandwidth phone number owned by user.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The server URL where the call events for the new call will be sent upon transferring.</td>
+</tr>
+<tr>
+<td style="text-align:left">whisperAudio</td>
+<td style="text-align:left">Audio to be played to the caller that the call will be transferred to.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html" target="_blank">view the full documentation</a>.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-transfer-call-with-whisper">Example Transfer Call with Whisper</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;state&quot;</span>            : <span class="hljs-string">&quot;transferring&quot;</span>,
+  <span class="hljs-attr">&quot;transferCallerId&quot;</span> : <span class="hljs-string">&quot;private&quot;</span>
+  <span class="hljs-string">&quot;transferTo&quot;</span>       : <span class="hljs-string">&quot;+18382947878&quot;</span>,
+  <span class="hljs-attr">&quot;callbackUrl&quot;</span>      : <span class="hljs-string">&quot;{{your-url}}&quot;</span>,
+  <span class="hljs-attr">&quot;whisperAudio&quot;</span>     : {
+    <span class="hljs-attr">&quot;fileUrl&quot;</span> : <span class="hljs-string">&quot;{{mediaUrl-from-above}}&quot;</span>
+  }
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="wrapping-it-up">Wrapping it up</h2>
+<p>Once the original inbound call has been updated with the <code>{ &quot;state&quot;: &quot;transferring&quot; }</code> to transfer the call, Bandwidth will play a default ringing to the inbound call while the call is transferred. When the final destination answers the call and the whisper is finished, the two will be bridged together.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            <p><div id="page-footer" class="localized-footer"><ul class="footerUnorderedList">
+<span class="footerLabel">LEARN MORE</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/voice">Voice</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/messaging">Messaging</a></li><span class="remove4mobile"><span class="remove4mobile">&#x2022;</span></span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/9-1-1">9-1-1 Access</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/phone-numbers">Phone Numbers</a></li>
+</ul>
+<ul class="footerUnorderedList">
+<span class="footerLabel">QUICK LINKS</span>
+  <li class="footerListItem"><a href="http://status.bandwidth.com">Service Status</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/glossary">Glossary</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/news">News</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/contact">Contact</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://www.bandwidth.com/resources">Resources</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="http://blog.bandwidth.com">Blog</a></li>
+</ul>
+</div></p></div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Call Screening","level":"2.2.3.7","depth":3,"next":{"title":"Conference Call","level":"2.2.3.8","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},"previous":{"title":"Forward a call","level":"2.2.3.6","depth":3,"path":"howto/forwardACall.md","ref":"howto/forwardACall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","gtm","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/callScreen.md","mtime":"2018-03-06T19:44:39.703Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-06T19:46:19.447Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+	<!-- begin usabilla live embed code -->
+	<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+	window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/73009503da29.js");
+	/*]]>{/literal}*/</script>
+	<!-- end usabilla live embed code -->
+
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-gtm/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-bandwidth-fonts/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
