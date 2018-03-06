@@ -24,7 +24,8 @@ Call screening allows the original caller to record their name before forwarding
 6. [Recieve either gather event or timeout](#gather-complete)
 7. [Turn off audio recording](#turn-off-recording)
 8. [Get audio recording location](#recording-finished)
-9. [Transfer the call with whisperAudio](#transfer-with-whisper)
+9. [Get the media location from the `recordingId`](#media-from-recordingId)
+10. [Transfer the call with whisperAudio](#transfer-with-whisper)
 
 ## Recieve Incoming Call and Answer event {#incomingCall-and-answer}
 
@@ -402,12 +403,56 @@ User-Agent: BandwidthAPI/v1
 
 {% endextendmethod %}
 
+## Get the media location from the Recording {#media-from-recordingId}
+
+Once the recording is complete, we'll need to fetch the _real_ location of the media resource
+
+{% extendmethod %}
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}`
+
+### Returned Properties
+
+| Property  | Description                                                                                          |
+|:----------|:-----------------------------------------------------------------------------------------------------|
+| id        | The unique id of the recordings resource.                                                            |
+| startTime | Date/time when the recording started. Timestamp follows the ISO8601 format (UTC).                    |
+| endTime   | Date/time when the recording ended. Timestamp follows the ISO8601 format (UTC).                      |
+| call      | The complete URL to the call resource this recording is associated with.                             |
+| media     | The complete URL to the media resource this recording is associated with.                            |
+| state     | The state of the recording, values are <br> `recording` <br> *`complete`<br> *`saving` <br> *`error` |
+
+For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html).
+
+{% common %}
+
+### Example Transfer Call with Whisper
+
+```http
+POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/ HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
+{
+  "state"            : "transferring",
+  "transferCallerId" : "private"
+  "transferTo"       : "+18382947878",
+  "callbackUrl"      : "{{your-url}}",
+  "whisperAudio"     : {
+    "fileUrl" : "{{mediaUrl-from-above}}"
+  }
+}
+```
+
+{% endextendmethod %}
 
 ## Transfer the call with whisperAudio {#transfer-with-whisper}
 
 The final step is to transfer the original call to the desired forwarding destination.  Using the `{ "state": "transferring" }` update to the call will allow you to specify a `whisper` to be played to the recipient before the two calls are bridged.
 
-In this case, you'll use the `recordingUri` from above as the `fileUrl` within the `whisperAudio`.
+In this case, you'll use the `media-url` from above as the `fileUrl` within the `whisperAudio`.
 
 {% extendmethod %}
 
@@ -442,7 +487,7 @@ Authorization: {apiToken:apiSecret}
   "transferTo"       : "+18382947878",
   "callbackUrl"      : "{{your-url}}",
   "whisperAudio"     : {
-    "fileUrl" : "{{recordingUri-from-above}}"
+    "fileUrl" : "{{mediaUrl-from-above}}"
   }
 }
 ```
