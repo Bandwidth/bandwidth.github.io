@@ -1,16 +1,27 @@
 {% method %}
 
-# How to play audio on a call
+# How To Play Audio On A Call {#top}
 
-### Before playing audio file
+## About {#about}
+
+Play a .mp3 or .wav file on an active phone call. For more information about playing an audio file onto a call, visit the [full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).
+
+## Assumptions
+* You have signed up for the [Bandwidth voice & messaging APIs](https://app.bandwidth.com)
+* You are familiar with [receiving incoming calls](incomingCallandMessaging.md) and [making outbound calls](outboundCall.md)
+
+## Steps
+**Steps 1 and 2 should be completed before using this tutorial**
 1. [Create call with callback URL](./outboundCall.md) -or- [Recieve Incoming Call](./incomingCallandMessaging.md)
-2. Make sure call is answered and active
+2. [Make sure call is answered and active]()
+3. [Play audio on call](#play-audio)
 
-### Play audio options
+## Play audio on call {#play-audio}
+
+#### Play audio options
 The fileURL is the location of the audio file. Bandwidth currently supports WAV and MP3 files. [Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)for more information about play audio options.
 
-### Play audio file to the resource (ie. ...`/{userId}/calls/{callId}/`)
-
+#### Play audio file to the resource (ie. ...`/{userId}/calls/{callId}/`)
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio HTTP/1.1
 Content-Type: application/json; charset=utf-8
@@ -20,13 +31,22 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### Response
+#### Play audio properties
+| Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
+|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| fileUrl     | The location of an audio file to play (WAV and MP3 supported). <br> <br>To **STOP AUDIO FILE PLAYBACK** send an empty string like: `{"fileUrl": ""}`                                                                                                                                                                                                                                            | No        |
+| sentence    | The sentence to speak. **MAXIMUM LENGTH 1000 CHARACTERS**  <br> <br> To **STOP SENTENCE PLAYBACK** send an empty string like: `{"sentence": ""}`                                                                                                                                                                                                                                                | No        |
+| gender      | The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.                                                                                                                                                                                                                                         | No        |
+| locale      | The locale used to get the accent of the voice used to synthesize the sentence. For a full list of options, visit the [full api documantation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).         			                         | No        |
+| voice       | The voice to speak the sentence. For a full list of options, visit the [full api documantation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).   | No        |
+
+#### Response
 
 ```http
 HTTP/1.1 200 OK
 ```
 
-### This sends these call backs
+#### This sends these call backs
 
 * [Full callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html)
 
