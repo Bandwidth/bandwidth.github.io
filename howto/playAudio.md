@@ -1,5 +1,3 @@
-{% method %}
-
 # How To Play Audio On A Call {#top}
 
 ## About {#about}
@@ -30,7 +28,7 @@ Content-Type: application/json; charset=utf-8
     "fileUrl": "MP3"
 }
 ```
-
+{% method %}
 #### Play audio properties
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
 |:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -40,30 +38,6 @@ Content-Type: application/json; charset=utf-8
 | locale      | The locale used to get the accent of the voice used to synthesize the sentence. For a full list of options, visit the [full api documantation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).         			                         | No        |
 | voice       | The voice to speak the sentence. For a full list of options, visit the [full api documantation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).   | No        |
 
-#### Response
-
-```http
-HTTP/1.1 200 OK
-```
-
-#### This sends these call backs
-
-* [Full callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html)
-
-```http
-POST your_server.com HTTP/1.1
-Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
-
-{
-  "eventType" : "string",
-  "callId"    : "string",
-  "callUri"   : "string",
-  "status"    : "string",
-  "time"      : "date",
-  "tag"       : "string"
-}
-```
 
 {% sample lang="js" %}
 
@@ -223,10 +197,32 @@ api.play_audio_file_to_conference('conferenceId', '')
 ```python
 api.play_audio_file_to_conference_member('conferenceId', 'memberId', '')
 ```
-
 {% endmethod %}
 
+#### Response
 
+```http
+HTTP/1.1 200 OK
+```
+
+#### This sends these call backs
+
+* [Full callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html)
+
+```http
+POST your_server.com HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+  "eventType" : "string",
+  "callId"    : "string",
+  "callUri"   : "string",
+  "status"    : "string",
+  "time"      : "date",
+  "tag"       : "string"
+}
+```
 
 
 
