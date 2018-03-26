@@ -307,10 +307,6 @@ app.set('port', (process.env.PORT || 3000));
     return client.Message.get(message.id)
     //access ID from json can also get to and from
   })
-  // prints message to console
-  .then(function(){
-    console.log(message);
-  })
   // catches any errors
   .catch(function(err){
     console.log(err)
