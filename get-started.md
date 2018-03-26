@@ -301,17 +301,16 @@ app.set('port', (process.env.PORT || 3000));
     media: "https://s3.amazonaws.com/bwdemos/logo.png"
   })
   //calls back the message id number and catches any errors
-  //is this important?
   .then(function(message){
-    messagePrinter(message);
+    console.log(message);
     return client.Message.get(message.id)
     //access ID from json can also get to and from
   })
   // prints message to console
   .then(function(){
     console.log(message);
-  });
-  // catches any errors     
+  })
+  // catches any errors
   .catch(function(err){
     console.log(err)
   });
@@ -358,7 +357,7 @@ app.set('port', (process.env.PORT || 3000));
 </code></pre>
           </li>
           <li><strong>Create the call:</strong> <br>
-<pre><code class="lang-js">createCall(numbers)
+<pre><code class="lang-js">createCall(numbers);
 </code></pre>
           </li>
           <li><strong>Save both the index.js file and the .json file</strong></li>
@@ -368,7 +367,7 @@ app.set('port', (process.env.PORT || 3000));
         </ol>
       </div>
     </div>
-  </div>  
+  </div>
   <a href="#tutorial" class="noAnchor"><button id="tutorial-prev" class="disabled tutorial-controls medium secondary light hover-back left">Back</button></a>
   <a href="#tutorial" class="noAnchor"><button id="tutorial-next" class="tutorial-controls medium hover-go right">Next</button></a>
 </div>
