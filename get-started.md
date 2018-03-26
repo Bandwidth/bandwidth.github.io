@@ -94,11 +94,12 @@
             <ol>
               <li>First, login to dev.bandwidth.com</li>
               <li>Select the Numbers tab</li>
-              <li>You can fill search by: City and state, zipcode OR area code. But you may only choose one of the three options. If you choose to search by zipcode or area code, make sure you blank out the state field as it automatically fills with California.</li>
+              <li>You can fill search by: City and state, zipcode OR area code. But you may only choose one of the three options.</li>
               <li>Press search. You will see a list of numbers appear. If no list appears, search a different region. Some area codes are almost impossible to get due to the limited availability of numbers.</li>
-              <li>Choose a number by checking the box next to it.</li>
+              <li>Select a number.</li>
               <li>Select the blue Get Numbers button.</li>
               <li>If it says ‘Success’ then you successfully received your number.</li>
+              <li>Your new number will appear under the Numbers tab.</li>
             </ol>
           </li>
         </ol>
@@ -133,7 +134,7 @@ export BANDWIDTH_API_SECRET=
       </div>
       <div class="tutorial-step step7 nodejs">
         <ol>
-          <li class="mac"><strong>Make a directory.</strong> This will make a directory to store all your files and code for a new project. A directory is a folder created by the terminal. To learn more about command lines and creating directories, click<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a> Any time you see name throughout this tutorial, replace the name field with what you would like to name the folder or file.<br>
+          <li class="mac"><strong>Make a directory.</strong> This will make a directory to store all your files and code for a new project. A directory is a folder created by the terminal. To learn more about command lines and creating directories, click <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a> Any time you see name throughout this tutorial, replace the name field with what you would like to name the folder or file.<br>
             <pre><code class="lang-js">mkdir name</code></pre></li>
           <li class="pc"><strong>Make a directory.</strong> This will make a directory to store all your files and code for a new project. A directory is a folder created by the terminal. To learn more about command lines and creating directories, click<a href="http://www.digitalcitizen.life/command-prompt-how-use-basic-commands" target="_blank">here.</a> Any time you see name throughout this tutorial, replace the name field with what you would like to name the folder or file.<br>
             <pre><code class="lang-js">mkdir name</code></pre></li>
@@ -169,7 +170,7 @@ export BANDWIDTH_API_SECRET=
   "description": "Learn to send a text and make a call using Bandwidth's API",
   "main": "index.js",
   "scripts": {
-    "test": " echo 'no test yet' "
+    "test": " echo 'no test yet' ",
     "start": "node index.js"
   },
   "keywords": {
@@ -190,7 +191,7 @@ Save your changes
   "description": "Learn to send a text and make a call using Bandwidth's API",
   "main": "index.js",
   "scripts": {
-    "test": " echo 'no test yet' "
+    "test": " echo 'no test yet' ",
     "start": "node index.js"
   },
   "keywords": {
@@ -357,7 +358,7 @@ app.set('port', (process.env.PORT || 3000));
 </code></pre>
           </li>
           <li><strong>Create the call:</strong> <br>
-<pre><code class="lang-js">createCall(numbers);
+<pre><code class="lang-js">createCall(numbers)
 </code></pre>
           </li>
           <li><strong>Save both the index.js file and the .json file</strong></li>
