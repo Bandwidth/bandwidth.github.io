@@ -1,6 +1,6 @@
 ## For the Committer
 
-⚠️ Ensure that for this repo (**bandwidth.github.io**) that the pull request change is opened against the branch `gitbook` ⚠️
+⚠️ Ensure that for this repo (**bandwidth.github.io**) that the pull request change is opened against the branch `gitbook` 
 
 - [ ] I made sure that the site looks great and functions perfectly live
 - [ ] I ran splell check
