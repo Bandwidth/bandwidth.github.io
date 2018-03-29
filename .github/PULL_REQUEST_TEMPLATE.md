@@ -4,6 +4,7 @@
 
 - [ ] I made sure that the site looks great and functions perfectly live
 - [ ] I ran splell check
+- [ ] I'm ready for these changes to be made live
 
 ## For the Reviewer
 
@@ -32,6 +33,8 @@
 - [ ] All code samples use the appropriate syntax highlighting.
 - [ ] Any examples re-use same phone numbers, uuids, variable names, etc... throughout (IE don't have something like `{from: '+19191231234', to: '+19191231234'}` unless it's meant to show the same phone number calling/texting itself ).
 
-### TL;DR
+## TL;DR
 
-[ ] I did these things, or it was such a small change that I didn't take the time.
+- [ ] I did these things
+- [ ] I'm ready for these changes to be made live
+
