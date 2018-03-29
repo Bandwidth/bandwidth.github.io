@@ -1,6 +1,11 @@
-As part of this pull request to update the documentation, I have made sure that:
+## For the Committer
 
-⚠️ Ensure that for the repo bandwidth.github.io that the pull request change is opened against the branch `gitbook` ⚠️
+⚠️ Ensure that for this repo (**bandwidth.github.io**) that the pull request change is opened against the branch `gitbook` ⚠️
+
+- [ ] I made sure that the site looks great and functions perfectly live
+- [ ] I ran splell check
+
+## For the Reviewer
 
 ### General Review
 
@@ -27,4 +32,6 @@ As part of this pull request to update the documentation, I have made sure that:
 - [ ] All code samples use the appropriate syntax highlighting.
 - [ ] Any examples re-use same phone numbers, uuids, variable names, etc... throughout (IE don't have something like `{from: '+19191231234', to: '+19191231234'}` unless it's meant to show the same phone number calling/texting itself ).
 
+### TL;DR
 
+[ ] I did these things, or it was such a small change that I didn't take the time.
