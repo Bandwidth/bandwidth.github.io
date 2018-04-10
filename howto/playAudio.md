@@ -1,7 +1,7 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Title {#top}
+# Play Audio File on Call {#top}
 
 ## About {#about}
 
@@ -15,11 +15,12 @@ Play a .mp3 or .wav file on an active phone call. For more information about pla
 
 ## Steps
 1. [Create call with callback URL](./outboundCall.md) -or- [Recieve Incoming Call](./incomingCallandMessaging.md)
-2. [Make sure call is answered and active]()
+2. [Check if call is answered]()
 3. [Play audio on call](#play-audio)
-## Step 1 {#hotlink-to-step1}
 
-Create an outbound call with a callback url.
+## Step 1 {#hotlink-to-step1} - Create outbound call with callback url.
+
+[Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html) to learn more about creating an outbound call.
 
 {% extendmethod %}
 
@@ -31,14 +32,11 @@ Create an outbound call with a callback url.
 | to | The number to call (must be either an E.164 formatted number, like +19195551212, or a valid SIP URI, like sip:someone@somewhere.com).|
 | callbackUrl | The full server URL where the call events related to the Call will be sent to.|
 
-[Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html) to learn more about creating a call.
-
 {% common %}
 
 ### Example of creating a call with callbackUrl
 
 {% sample lang="http" %}
-
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls HTTP/1.1
@@ -90,20 +88,18 @@ puts call.id
 
 {% endextendmethod %}
 
+## Step 2 {#hotlink-to-step2} - Check if call is answered
 
-## Step 2 {#hotlink-to-step2}
+{% extendmethod %}
 
 In order to play an audio file on a call, the call must be answered. When the call is answered, Bandwidth will notify the callbackUrl with an eventType = "answer". Once we recieve this callback, we can procede with playing the audio file.
 
-{% extendmethod %}
 
 {% common %}
 
 ### Example of callback answer event
 
-{% sample lang="http" %}
-
-Snip of json
+json response
 
 ```json
 {
@@ -119,9 +115,10 @@ Snip of json
 
 
 {% endextendmethod %}
-## Step 3 {#hotlink-to-step1}
 
-Play an audio file on the call.
+## Step 3 {#hotlink-to-step3} - Play audio file on call
+
+[Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html) to learn more about playing an audio file in a call.
 
 {% extendmethod %}
 
@@ -129,18 +126,13 @@ Play an audio file on the call.
 
 | Property    | Description                            |
 |:------------|:---------------------------------------|
-| fileUrl | The location of an audio file to play (WAV and MP3 supported).
-
-To STOP AUDIO FILE PLAYBACK send an empty string like: `{"fileUrl": ""}` |
-
-[Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html) to learn more about playing an audio file in a call.
+| fileUrl | The location of an audio file to play (WAV and MP3 supported). To STOP AUDIO FILE PLAYBACK send an empty string like: `{"fileUrl": ""}` |
 
 {% common %}
 
 ### Example of playing an audio file
 
 {% sample lang="http" %}
-
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio HTTP/1.1
