@@ -41,10 +41,12 @@ Speak a sentence on an active phone call. For more information about speak sente
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls HTTP/1.1
 Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
 {
-    "to": "{toNumber}",
-    "from": "{fromNumber}",
-    "callbackUrl": "{callbackUrl}"
+    "to"          : "{toNumber}",
+    "from"        : "{fromNumber}",
+    "callbackUrl" : "{callbackUrl}"
 }
 ```
 
@@ -77,7 +79,7 @@ Console.WriteLine($"Created call with id {call.Id}");
 {% sample lang="ruby" %}
 
 ```ruby
-//This assumes you have already input your credentials.
+## This assumes you have already input your credentials.
 call = Bandwidth::Call.create({
    :from => "{fromNumber}",
    :to => "{toNumber}",
@@ -101,7 +103,11 @@ In order to speak a sentence on a call, the call must be answered. When the call
 
 json response
 
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
     "eventType" : "answer",
     "from"      : "{toNumber}",
@@ -112,7 +118,6 @@ json response
     "time"      : "date"
 }
 ```
-
 
 {% endextendmethod %}
 
@@ -151,6 +156,8 @@ Bandwidth supports many voice options. You may specify the gender, accent, and v
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio HTTP/1.1
 Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
 {
     "sentence" : "hola de Bandwidth",
     "gender"   : "male",
