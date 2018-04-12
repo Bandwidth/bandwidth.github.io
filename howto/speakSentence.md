@@ -133,19 +133,8 @@ Bandwidth supports many voice options. You may specify the gender, accent, and v
 |:------------|:---------------------------------------|
 | sentence | The sentence to speak. MAXIMUM LENGTH 1000 CHARACTERS. To STOP SENTENCE PLAYBACK send an empty string like: `{"sentence": ""}`|
 | gender | The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.|
-| locale | The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports:
-- en_US or en_UK (English)
-- es or es_MX (Spanish)
-- fr or fr_FR (French)
-- de or de_DE (German)
-- t or it_IT (Italian) It will be considered only if sentence is not null/empty. The en_US will be used by default.|
-| voice | The voice to speak the sentence. Audio currently supports the following voices:
-- English US: Kate, Susan, Julie, Dave, Paul
-- English UK: Bridget
-- Spanish: Esperanza, Violeta, Jorge
-- French: Jolie, Bernard
-- German: Katrin, Stefan
-- Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan’s voice will be used by default. |
+| locale | The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: en_US or en_UK (English), es or es_MX (Spanish), fr or fr_FR (French), de or de_DE (German), and t or it_IT (Italian) It will be considered only if sentence is not null/empty. The en_US will be used by default.|
+| voice | The voice to speak the sentence. Audio currently supports these voices: English US: Kate, Susan, Julie, Dave, Paul; English UK: Bridget; Spanish: Esperanza, Violeta, Jorge; French: Jolie, Bernard; German: Katrin, Stefan; Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan’s voice will be used by default. |
 
 {% common %}
 
