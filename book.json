@@ -13,8 +13,7 @@
         "bandwidth-fonts",
         "-highlight",
         "bandwidth-highlight",
-        "custom-footer",
-        "mouseflow"
+        "custom-footer" 
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
