@@ -1,166 +1,275 @@
-{% method %}
-# How to Forward a Call
+{% multimethod %}
+{% endmultimethod %}
 
-Logic: Forwards a call by bridging together an incoming phone call to an outgoing phone call.
-When an incoming call is initiated, meaning someone calls the BW phone number,
-the BW number makes an outgoing call to another number.
-These two calls then get bridged to connect the callers on the other side of the BW number.
+# How to Forward a Call {#top}
 
-## Setup your [application](http://dev.bandwidth.com/ap-docs/methods/applications/applications.html)
+## About {#about}
 
-1. Log in to your [Bandwidth Voice and Messaging API Dashboard](https://app.bandwidth.com) --> My Apps --> Create New.
-2. Then add a Bandwidth phone number to the application
+Forward a call by bridging together an incoming phone call to an outgoing phone call. When an incoming call is initiated, meaning someone calls the Bandwidth phone number, the Bandwidth number makes an outgoing call to another number. These two calls are then bridged.
 
-| Parameter                           | Value                 |
-|:------------------------------------|:----------------------|
-| Callback HTTP Method                | `POST`                |
-| Application Type                    | `Voice`               |
-| Voice Callback                      | `{Your callback URL}/in-call` |
-| Automatically answer incoming calls | `True`                |
+## Assumptions
+* You have signed up for the [Bandwidth voice & messaging APIs](https://app.bandwidth.com)
+* You are familiar with:
+  * [Receiving incoming calls and messages](incomingCallandMessaging.md)
+  * [Making outbound calls](playAudio.md)
 
+## Steps
+1. [Recieve Incoming Call](#incomingCall-and-answer)
+2. [Make Outgoing Call](#outbound-call)
+3. [Check Call is Active](#active)
+4. [Bridge Calls](#bridge)
 
-{% sample lang="js" %}
+## Step 1 - Recieve Incoming Call {#incomingCall-and-answer}
 
-## Javascript Walkthrough
+There are two ways to setup your program to answer incoming calls. The first is by using the [Voice & Messaging Dashboard](https://app.bandwidth.com/login). In the Voice & Messaging Dashboard, create a new application with a callbackURL. Turn "automatically answer incoming calls" to on. Finally, add a Bandwidth number to the application. The second way is by setting up your [application to recieve incoming calls to a Bandwidth number](incomingCallandMessaging.md) with "autoAnswer" enabled. You will recieve two events back to back:
+
+1. [`incomingCall`](http://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html)
+2. [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html)
+
+Your server should reply with any `HTTP 2xx` code to acknowledge that the callback event was delivered.  Anything returned in the response besides the status code is ignored by Bandwidth.
+
+{% extendmethod %}
+
+### Incoming Call Event Properties
+
+| Property      | Description                                                                                                                                                  |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| eventType     | The event type, value is incomingcall.                                                                                                                       |
+| callId        | The call id associated with the event.                                                                                                                       |
+| callUri       | The complete URL of the call resource for this event.                                                                                                        |
+| from          | The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).     |
+| to            | The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com). |
+| callState     | The state of the call, value is active.                                                                                                                      |
+| applicationId | The id of the application associated with phone number for this this incoming call.                                                                          |
+| time          | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
 
 {% common %}
-### Set the necessary dependencies and client credentials
+
+### Example Incoming Call Event
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+   "eventType"     : "incomingcall",
+   "from"          : "+13233326955",
+   "to"            : "+13865245000",
+   "callId"        : "{callId}",
+   "callUri"       : "https://.../{userId}/calls/{callId}",
+   "callState"     : "active",
+   "applicationId" : "{appId}",
+   "time"          : "2012-11-14T16:21:59.616Z"
+}
+```
+
+{% endextendmethod %}
+
+{% extendmethod %}
+
+### Answer Event Properties
+
+| Property  | Description                                                                                                                                                  |
+|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| eventType | The event type, value is `answer`.                                                                                                                           |
+| to        | The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com). |
+| from      | The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).     |
+| callState | The call state. Value will be `active`.                                                                                                                      |
+| callId    | The call id associated with the event.                                                                                                                       |
+| callUri   | The full URL of the call resource for this event.                                                                                                            |
+| tag       | String provided when call created.                                                                                                                           |
+| time      | Date when the event occurred. Timestamp follows the ISO8601 format (UTC).                                                                                    |
+
+{% common %}
+
+### Example Answer Event
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+  "eventType" : "answer",
+  "from"      : "+15753222083",
+  "to"        : "+13865245000",
+  "callId"    : "{call-id}",
+  "callUri"   : "https://.../{user-id}/calls/{call-id}",
+  "callState" : "active",
+  "time"      : "2012-11-14T16:28:31.536Z"
+}
+```
+
+{% endextendmethod %}
+
+## Step 2 - Make an outgoing call {#outbound-call}
+
+Create an outbound call from your Bandwidth number to the number you would like to connect with. [Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html) to learn more about creating an outbound call.
+
+{% extendmethod %}
+
+### Create Call Parameters
+
+| Property    | Description                            |
+|:------------|:---------------------------------------|
+| from | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like +19195551212). |
+| to | The number to call (must be either an E.164 formatted number, like +19195551212, or a valid SIP URI, like sip:someone@somewhere.com).|
+| callbackUrl | The full server URL where the call events related to the Call will be sent to.|
+
+{% common %}
+
+### Example of creating a call with callbackUrl
+
+{% sample lang="http" %}
+
+```http
+POST https://api.catapult.inetwork.com/v1/users/{userId}/calls HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
+{
+    "to"          : "{toNumber}",
+    "from"        : "{fromNumber}",
+    "callbackUrl" : "{callbackUrl}"
+}
+```
 
 {% sample lang="js" %}
 
 ```js
-var Bandwidth = require("node-bandwidth");
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var http = require("http").Server(app);
+//This assumes you have already input your credentials.
+client.Call.create({
+    from: "{toNumber}",
+    to: "{fromNumber}",
+    callbackUrl: "{callbackUrl}"
+})
+.then(function (id) {
+    console.log(id);
+})
+```
 
+{% sample lang="csharp" %}
 
-// Go to dev.bandwidth.com, look under Account -> API Information -> Credentials OR .zsrh file
-var client = new Bandwidth({
-    userId    : process.env.BANDWIDTH_USER_ID,
-    apiToken  : process.env.BANDWIDTH_API_TOKEN,
-    apiSecret : process.env.BANDWIDTH_API_SECRET
+```csharp
+//This assumes you have already input your credentials.
+var call = await client.Call.CreateAsync(new CreateCallData{
+    From = "{fromNumber}",
+    To = "{toNumber}"
+    CallbackUrl = "{callbackUrl}"
+});
+Console.WriteLine($"Created call with id {call.Id}");
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+## This assumes you have already input your credentials.
+call = Bandwidth::Call.create({
+   :from => "{fromNumber}",
+   :to => "{toNumber}",
+   :callbackUrl => "{requestUrl}"})
+
+puts call.id
+```
+
+{% endextendmethod %}
+
+## Step 3 - Check Call is Active {#active}
+{% extendmethod %}
+
+First, make sure both calls are active by getting their call information. The call state must be "active" in order to bridge the calls. To check the current state, use the `callInfo` method. The only parameter this method needs is the callId that was given in the Json response when the incoming call was answered and when the outbound call was created.
+
+{% common %}
+### Get Call Information
+
+{% sample lang="http" %}
+
+```http
+Get https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}  HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+```
+
+{% sample lang="js" %}
+
+```js
+client.Call.get("{callId}")
+.then(function (response) {
+    console.log(respone);
 });
 ```
 
-{% common %}
+{% sample lang="csharp" %}
 
-### Include required JSON parser, port, URL base, and port listener
-
-{% sample lang="js" %}
-
-```js
-//REQUIRED CODE
-app.use(bodyParser.json());
-
-app.set('port', (process.env.PORT || 3000));
-http.listen(app.get('port'), function(){
-    console.log('listening on *: ' + app.get('port'));
-});
-
-const getBaseUrlFromReq = (req) => {
-    return 'http://' + req.hostname;
-};
-app.get("/", function (req, res) {
-    console.log(req);
-    res.send("Bandwdith_Forward_A_Call");
-});
+```csharp
+var call = await client.Call.GetAsync("{callId1}");
+Console.WriteLine($"{call.From} - {call.To}");
 ```
 
-{% common %}
+{% sample lang="ruby" %}
 
-### Choose intermediary 'BWNumber' and the 'toNumber' to call
-
-{% sample lang="js" %}
-
-```js
-let toNumber = "+12345678901";
-//----Bandwidth Number to call: {SELECTED BW NUMBER from App Set-Up}-----
+```ruby
+call = Call.get(client, "{callId1}")
+to = call[:to]
 ```
 
+{% endextendmethod %}
+
+## Step 3 - Bridge Calls {#bridge}
+{% extendmethod %}
+
+Finally, use the bridge method to bridge together the two calls. To ensure two way communication, make sure bridge audio is true.
+
+### Bridge Parameters
+
+| Property    | Description                            |
+|:------------|:---------------------------------------|
+| bridgeAudio  | Enable/Disable two way audio path (default = true).|
+| callIds |The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later.|
+
 {% common %}
 
-### Logic if-else statements for the Outbound call from the BW number to the toNumber
+### Bridge Calls
+
+{% sample lang="http" %}
+
+```http
+Get https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/bridges/  HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {apiToken:apiSecret}
+
+{
+"bridgeAudio": "true",
+"callIds": ["{callId1}","{callId2}"]
+}
+```
 
 {% sample lang="js" %}
 
 ```js
-//OUTBOUND CALLS
-app.post('/out-call', function (req, res) {
-    var this_url2 = getBaseUrlFromReq(req);
-    if (req.body.eventType === 'answer') {					//Upon the to-caller answering, bridge the two calls
-        console.log("Incoming CallId: " + req.body.tag);
-        console.log("Outgoing CallId: " + req.body.callId);
-        console.log(req);
-        client.Bridge.create({
-            bridgeAudio: true,
-            callIds : [req.body.tag, req.body.callId]
-        })
-        .then(function (bridge) {
-            console.log("BridgeId: " + bridge.id);
-            console.log("---Call has been bridged----");
-        })
-        .catch(function(err){
-            console.log(err);
-            console.log("----Could not bridge the call----");
-        });
-    }
-    else if (req.body.eventType === "hangup"){
-        console.log(req.body);
-        console.log("----Your call has hungup----");
-    }
-    else{
-        console.log(req.body);
-    }
+client.Bridge.create({
+    bridgeAudio: true,
+    callIds: ['c-qbs5kwrsyx6wsdi', 'c-zan4g74pprsq']
 });
 ```
 
-{% common %}
+{% sample lang="csharp" %}
 
-### Logic if-else statements for the Inbound call from your personal phone number to the BW number
-
-{% sample lang="js" %}
-
-```js
-//INBOUND CALLS
-app.post('/in-call', function (req, res) {     		//When someone calls the BW number, create call to the to-caller
-    if (req.body.eventType === "incomingcall"){
-        console.log("Incoming callId: " + req.body.callId);
-        var this_url1 = getBaseUrlFromReq(req);
-        createCallWithCallback(req.body.to, this_url1, req.body.callId);
-    }
-    else{
-        console.log(req.body);
-    }
+```csharp
+var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
+    BridgeAudio = true,
+    CallIds = new[]{"c-qbsx6wsdi", "c-zan4g7prsq"}
 });
 ```
 
-{% common %}
+{% sample lang="ruby" %}
 
-### Create call from BW number to toNumber
-
-{% sample lang="js" %}
-
-```js
-//Method to create outbound call with '/out-call' callback url, tag used to store inbound callId
-var createCallWithCallback = function(FromBWnumber, this_url, inbound_callid){
-    return client.Call.create({
-        from: FromBWnumber,
-        to: toNumber,
-        callbackUrl: this_url + '/out-call',
-        tag: inbound_callid
-    })
-    .then(function (call) {
-        console.log("Outgoing call Id: " + call.callId);
-        console.log(call);
-        console.log("----Outbound call has been created----");
-    })
-    .catch(function(err){
-        console.log(err);
-        console.log("---Outbound call could not be created---");
-    })
-};
+```ruby
+bridge = Bridge.create(client, {
+    :bridge_audio => true,
+    :call_ids => ["c-qbsx6wsdi", "c-zan4g7prsq"]
+})
 ```
-{% endmethod %}
 
+{% endextendmethod %}
