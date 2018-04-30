@@ -1,20 +1,18 @@
 {
     "plugins": [
-        "theme-bandwidth@1.9.3",
+        "theme-bandwidth@1.9.8",
         "header",
         "sharing",
         "custom-favicon",
         "bandwidth-toggle-chapters",
         "custom-jquery-postprocessing",
-        "gtm",
         "crazyegg",
         "usabilla",
         "-fontsettings",
         "bandwidth-fonts",
         "-highlight",
         "bandwidth-highlight",
-        "custom-footer",
-        "mouseflow"
+        "custom-footer" 
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
