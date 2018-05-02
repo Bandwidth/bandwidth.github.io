@@ -1,4 +1,4 @@
-i# ruby-bandwidth
+# ruby-bandwidth
 
 [![Build](https://travis-ci.org/Bandwidth/ruby-bandwidth.png)](https://travis-ci.org/Bandwidth/ruby-bandwidth)
 
