@@ -4,7 +4,7 @@
 * [Home](README.md)
 * [Pricing](pricing.md)
 * [About](about.md)
-* [GitHub](http://github.com/Bandwidth)
+* [GitHub](https://github.com/Bandwidth)
 
 ## Guides
 * [Get Started](get-started.md)
@@ -38,10 +38,10 @@
   * [Secure your callbacks](callbackSecurity.md)
 
 ## API Reference
-* [Full API Reference](http://dev.bandwidth.com/ap-docs/methods/restApi.html)
-* [BXML Reference](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
-* [Messaging v2 Reference](http://dev.bandwidth.com/v2-messaging)
-* [Phone Numbers Reference](http://dev.bandwidth.com/docs/phone-numbers/)
+* [Full API Reference](https://dev.bandwidth.com/ap-docs/methods/restApi.html)
+* [BXML Reference](https://dev.bandwidth.com/ap-docs/bxml/bxml.html)
+* [Messaging v2 Reference](https://dev.bandwidth.com/v2-messaging)
+* [Phone Numbers Reference](https://dev.bandwidth.com/docs/phone-numbers/)
 
 ## SDKs
  * [Node JS](clientLib/node.md)
@@ -51,5 +51,5 @@
  * [Java](clientLib/java.md)
 
 ## Help
-* [FAQ](http://dev.bandwidth.com/faq)
-* [Support](http://support.bandwidth.com)
+* [FAQ](https://dev.bandwidth.com/faq)
+* [Support](https://support.bandwidth.com)
