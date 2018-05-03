@@ -810,103 +810,189 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ruby-library">Ruby Library</h1>
-<p>A ruby client library for the <a href="http://bandwidth.com/products/application-platform?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=_" target="_blank">Bandwidth Application Platform</a></p>
-<p>The current version is v1.0.14, released 4 May, 2016.</p>
-<p><a href="https://github.com/bandwidthcom/ruby-bandwidth/tree/v1.0.14" target="_blank"><img src="../images/github_logo.png" alt="github"></a></p>
-<h3 id="installing-the-sdk">Installing the SDK</h3>
-<p><code>ruby-bandwidth</code> is available on rubygem:</p>
+                                <h1 id="ruby-bandwidth">ruby-bandwidth</h1>
+<p><a href="https://travis-ci.org/Bandwidth/ruby-bandwidth" target="_blank"><img src="https://travis-ci.org/Bandwidth/ruby-bandwidth.png" alt="Build"></a></p>
+<p>Bandwidth <a href="http://ap.bandwidth.com/?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=" target="_blank">Bandwidth&apos;s App Platform</a> Ruby SDK</p>
+<p>With ruby-bandwidth  you have access to the entire set of API methods including:</p>
+<ul>
+<li><strong>Account</strong> - get user&apos;s account data and transactions,</li>
+<li><strong>Application</strong> - manage user&apos;s applications,</li>
+<li><strong>AvailableNumber</strong> - search free local or toll-free phone numbers,</li>
+<li><strong>Bridge</strong> - control bridges between calls,</li>
+<li><strong>Call</strong> - get access to user&apos;s calls,</li>
+<li><strong>Conference</strong> - manage user&apos;s conferences,</li>
+<li><strong>ConferenceMember</strong> - make actions with conference members,</li>
+<li><strong>Domain</strong> - get access to user&apos;s domains,</li>
+<li><strong>EntryPoint</strong> - control of endpoints of domains,</li>
+<li><strong>Error</strong> - list of errors,</li>
+<li><strong>Media</strong> - list, upload and download files to Bandwidth API server,</li>
+<li><strong>Message</strong> - send SMS/MMS, list messages,</li>
+<li><strong>NumberInfo</strong> - receive CNUM info by phone number,</li>
+<li><strong>PhoneNumber</strong> - get access to user&apos;s phone numbers,</li>
+<li><strong>Recording</strong> - mamange user&apos;s recordings.</li>
+</ul>
+<p>Also you can work with Bandwidth XML using special types (in namespace <code>Bandwidth::Xml</code>). </p>
+<h2 id="install">Install</h2>
+<p>Via rubygems:</p>
 <pre><code>gem install ruby-bandwidth
-</code></pre><h3 id="supported-versions">Supported Versions</h3>
-<p>`ruby-bandwidth should work on Ruby 1.9+.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Version</th>
-<th style="text-align:left">Support Level</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">&lt;1.9</td>
-<td style="text-align:left">Unsupported</td>
-</tr>
-<tr>
-<td style="text-align:left">1.9</td>
-<td style="text-align:left">Supported</td>
-</tr>
-<tr>
-<td style="text-align:left">2.0</td>
-<td style="text-align:left">Supported</td>
-</tr>
-<tr>
-<td style="text-align:left">2.1</td>
-<td style="text-align:left">Supported</td>
-</tr>
-<tr>
-<td style="text-align:left">2.2</td>
-<td style="text-align:left">Supported</td>
-</tr>
-<tr>
-<td style="text-align:left">2.3</td>
-<td style="text-align:left">Supported</td>
-</tr>
-</tbody>
-</table>
-<h3 id="client-initialization">Client initialization</h3>
-<p>All interaction with the API is done through a class <code>Client</code>. The <code>Client</code> constructor takes as parameter hash with next keys:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Argument</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Default value</th>
-<th style="text-align:left">Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>user_id</code></td>
-<td style="text-align:left">Your user ID</td>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>api_token</code></td>
-<td style="text-align:left">Your API token</td>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>api_secret</code></td>
-<td style="text-align:left">Your API secret</td>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>base_url</code></td>
-<td style="text-align:left">The Bandwidth API URL</td>
-<td style="text-align:left"><code>https://api.catapult.inetwork.com</code></td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<p>To initialize the <code>Client</code> instance, provide your API credentials which can be found on your account page in <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank">the portal</a>.</p>
-<pre><code class="lang-ruby">client = Bandwidth::Client.new(
-    <span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>, <span class="hljs-regexp">//</span> &lt;-- note, this is <span class="hljs-keyword">not</span> the same as the username you used to login to the portal
-    <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
-    <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
-)
+</code></pre><p>or add to your Gemfile:</p>
+<pre><code>gem &quot;ruby-bandwidth&quot;
+</code></pre><h2 id="getting-started">Getting Started</h2>
+<ul>
+<li>Install <code>ruby-bandwidth</code>,</li>
+<li><strong>Get user id, api token and secret</strong> - to use the Catapult API you need these data.  You can get them <a href="https://catapult.inetwork.com/pages/catapult.jsf" target="_blank">here</a> on the tab &quot;Account&quot;,</li>
+<li><strong>Set user id, api token and secret</strong> - you can do that with 2 ways:</li>
+</ul>
+<pre><code class="lang-ruby">  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+
+<span class="hljs-comment"># Or you can use default client instance</span>
+<span class="hljs-comment"># Do that only once</span>
+  Client.global_options = {<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>}
 </code></pre>
-<p>Your <code>client</code> object is now ready to use the API.</p>
-<h3 id="send-a-sms">Send a SMS</h3>
-<pre><code class="lang-ruby">message = Bandwidth::Message.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>})
+<h2 id="usage">Usage</h2>
+<p>All &quot;static&quot; (classs) functions support 2 ways to be called: with client instance as first arg or without client instance (default client instance will be used then)</p>
+<pre><code class="lang-ruby">  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  calls = Bandwidth::Call.list(client, {<span class="hljs-symbol">:page</span> =&gt; <span class="hljs-number">1</span>})
+
+<span class="hljs-comment"># Or you can use default client instance</span>
+<span class="hljs-comment"># You should set up its global options before using of api functions</span>
+  calls = Bandwidth::Call.list(<span class="hljs-symbol">:page=&gt;</span><span class="hljs-number">1</span>)
 </code></pre>
-<h3 id="make-a-call">Make a call</h3>
-<pre><code class="lang-ruby">call = Bandwidth::Call.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>})
+<p>Read <a href="https://catapult.inetwork.com/docs/api-docs/" target="_blank">Catapult Api documentation</a> for more details</p>
+<h2 id="examples">Examples</h2>
+<p><em>All examples assume you have already setup your auth data!</em></p>
+<p>List all calls from special number</p>
+<pre><code class="lang-ruby">  calls = Bandwidth::Call.list({<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  calls = Bandwidth::Call.list(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
 </code></pre>
-<h3 id="providing-feedback">Providing feedback</h3>
-<p>For current discussions on 1.0 please see the <a href="https://github.com/bandwidthcom/ruby-bandwidth/labels/1.0" target="_blank">1.0 issues section on GitHub</a>. To start a new topic on 1.0, please open an issue and use the <code>1.0</code> tag. Your feedback is greatly appreciated!</p>
+<p>List all received messages</p>
+<pre><code class="lang-ruby">  messages = Bandwidth::Message.list({<span class="hljs-symbol">:state</span> =&gt; <span class="hljs-string">&quot;received&quot;</span>})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  messages = Bandwidth::Message.list(client, {<span class="hljs-symbol">:state</span> =&gt; <span class="hljs-string">&quot;received&quot;</span>})
+</code></pre>
+<p>Send SMS</p>
+<pre><code class="lang-ruby">  message = Bandwidth::Message.create({<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  message = Bandwidth::Message.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>})
+</code></pre>
+<p>Send some SMSes</p>
+<pre><code class="lang-ruby">  statuses = Bandwidth::Message.create([{<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>}, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512143&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test2&quot;</span>}])
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  statuses = Bandwidth::Message.create(client, [{<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>}, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512143&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test2&quot;</span>}])
+</code></pre>
+<p>Upload file </p>
+<pre><code class="lang-ruby">  Bandwidth::Media.upload(<span class="hljs-string">&quot;avatar.png&quot;</span>, File.open(<span class="hljs-string">&quot;/local/path/to/file.png&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>), <span class="hljs-string">&quot;image/png&quot;</span>)
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  Bandwidth::Media.upload(client, <span class="hljs-string">&quot;avatar.png&quot;</span>, File.open(<span class="hljs-string">&quot;/local/path/to/file.png&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>), <span class="hljs-string">&quot;image/png&quot;</span>)
+</code></pre>
+<p>Make a call</p>
+<pre><code class="lang-ruby">  call = Bandwidth::Call.create({<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;&quot;</span>+<span class="hljs-number">191955512142</span><span class="hljs-string">&quot;})
+  #or
+  client = Bandwidth::Client.new(:user_id =&gt; &quot;</span>userId<span class="hljs-string">&quot;, :api_token =&gt; &quot;</span>token<span class="hljs-string">&quot;, :api_secret =&gt; &quot;</span>secret<span class="hljs-string">&quot;)
+  call = Bandwidth::Call.create(client, {:from =&gt; &quot;</span>+<span class="hljs-number">19195551212</span><span class="hljs-string">&quot;, :to =&gt; &quot;</span><span class="hljs-string">&quot;+191955512142&quot;</span>})
+</code></pre>
+<p>Reject incoming call</p>
+<pre><code class="lang-ruby">  call.reject_incoming()
+</code></pre>
+<p>Create a gather</p>
+<pre><code class="lang-ruby">  gather = call.create_gather({<span class="hljs-symbol">:max_digits</span> =&gt; <span class="hljs-number">3</span>, <span class="hljs-symbol">:inter_digit_timeout</span> =&gt; <span class="hljs-number">5</span>, <span class="hljs-symbol">:prompt</span> =&gt; {<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Please enter 3 digits&quot;</span>}})
+</code></pre>
+<p>Start a conference</p>
+<pre><code class="lang-ruby">  conference = Bandwidth::Conference.create({<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  conference = Bandwidth::Conference.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
+</code></pre>
+<p>Connect 2 calls to a bridge</p>
+<pre><code class="lang-ruby">  bridge = Bandwidth::Bridge.create({<span class="hljs-symbol">:call_ids</span> =&gt; [call_id1, call_id2]})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  bridge = Bandwidth::Bridge.create(client, {<span class="hljs-symbol">:call_ids</span> =&gt; [call_id1, call_id2]})
+</code></pre>
+<p>Search available local numbers to buy</p>
+<pre><code class="lang-ruby">  numbers = Bandwidth::AvailableNumber.search_local({<span class="hljs-symbol">:state</span> =&gt;<span class="hljs-string">&quot;NC&quot;</span>, <span class="hljs-symbol">:city</span> =&gt; <span class="hljs-string">&quot;Cary&quot;</span>})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  numbers = Bandwidth::AvailableNumber.search_local(client, {<span class="hljs-symbol">:state</span> =&gt;<span class="hljs-string">&quot;NC&quot;</span>, <span class="hljs-symbol">:city</span> =&gt; <span class="hljs-string">&quot;Cary&quot;</span>})
+</code></pre>
+<p>Get CNAM info for a number</p>
+<pre><code class="lang-ruby">  info = Bandwidth::NumberInfo.get(<span class="hljs-string">&quot;+19195551212&quot;</span>)
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  info = Bandwidth::NumberInfo.get(client, <span class="hljs-string">&quot;+19195551212&quot;</span>)
+</code></pre>
+<p>Buy a phone number</p>
+<pre><code class="lang-ruby">  number = Bandwidth::PhoneNumber.create({<span class="hljs-symbol">:number</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  number = Bandwidth::PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
+</code></pre>
+<p>List recordings</p>
+<pre><code class="lang-ruby">  list = Bandwidth::Recording.list()
+  <span class="hljs-comment">#or</span>
+  client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+  list = Bandwidth::Recording.list(client)
+</code></pre>
+<p>Generate Bandwidth XML</p>
+<pre><code class="lang-ruby">  response = Bandwidth::Xml::Response.new()
+  speak_sentence = Bandwidth::Xml::Verbs::SpeakSentence.new({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Transferring your call, please wait.&quot;</span>, <span class="hljs-symbol">:voice</span> =&gt; <span class="hljs-string">&quot;paul&quot;</span>, <span class="hljs-symbol">:gender</span> =&gt; <span class="hljs-string">&quot;male&quot;</span>, <span class="hljs-symbol">:locale</span> =&gt; <span class="hljs-string">&quot;en_US&quot;</span>})
+  transfer = Bandwidth::Xml::Verbs::Transfer.new({
+            <span class="hljs-symbol">:transfer_to</span> =&gt; <span class="hljs-string">&quot;+13032288849&quot;</span>,
+            <span class="hljs-symbol">:transfer_caller_id</span> =&gt; <span class="hljs-string">&quot;private&quot;</span>,
+            <span class="hljs-symbol">:speak_sentence</span> =&gt; {
+                <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Inner speak sentence.&quot;</span>,
+                <span class="hljs-symbol">:voice</span> =&gt; <span class="hljs-string">&quot;paul&quot;</span>,
+                <span class="hljs-symbol">:gender</span> =&gt; <span class="hljs-string">&quot;male&quot;</span>,
+                <span class="hljs-symbol">:locale</span> =&gt; <span class="hljs-string">&quot;en_US&quot;</span>
+            }
+        })
+
+  hangup = Bandwidth::Xml::Verbs::Hangup.new()
+  response &lt;&lt; speak_sentence &lt;&lt; transfer &lt;&lt; hangup 
+
+  <span class="hljs-comment"># as alternative way we can pass list of verbs to constructor of Response</span>
+  <span class="hljs-comment"># response = Bandwidth::Xml::Response.new([speak_sentence, transfer, hangup])</span>
+
+  puts response.to_xml()
+</code></pre>
+<p>See directory <code>samples</code> for more examples.
+See <a href="https://github.com/bandwidthcom/ruby-bandwidth-example" target="_blank">ruby-bandwidth-example</a> for more complex examples of using this module.</p>
+<h3 id="messaging-20">Messaging 2.0</h3>
+<p>Send SMS (v2)</p>
+<pre><code class="lang-ruby">  auth_data = {<span class="hljs-symbol">user_name:</span> <span class="hljs-string">&apos;user&apos;</span>, <span class="hljs-symbol">password:</span> <span class="hljs-string">&apos;password&apos;</span>, <span class="hljs-symbol">account_id:</span> <span class="hljs-string">&apos;accountId&apos;</span>, <span class="hljs-symbol">subaccount_id:</span> <span class="hljs-string">&apos;subaccountId&apos;</span>}
+
+  <span class="hljs-comment"># Before sending sms you should have nessagin application on Bandwidth dashboard. You should create it by next call</span>
+  application = Bandwidth::V2::Message.create_messaging_application(auth_data, {
+      <span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&apos;My messaging application&apos;</span>,
+      <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&apos;http://server/to/handle/messages/events&apos;</span>,
+      <span class="hljs-symbol">:location_name</span> =&gt; <span class="hljs-string">&apos;current&apos;</span>,
+      <span class="hljs-symbol">:is_default_location</span> =&gt; <span class="hljs-literal">false</span>,
+      <span class="hljs-symbol">:sms_options</span> =&gt; {<span class="hljs-symbol">:toll_free_enabled</span> =&gt; <span class="hljs-literal">true</span>},
+      <span class="hljs-symbol">:mms_options</span> =&gt; {<span class="hljs-symbol">:enabled</span> =&gt; <span class="hljs-literal">true</span>}
+  })
+
+  <span class="hljs-comment"># After that you should reserve 1 or some phone nubmers on Bandwidth Dashboard</span>
+  numbers = Message.search_and_order_numbers(auth_data, application) <span class="hljs-keyword">do</span> <span class="hljs-params">|query|</span>
+      query.AreaCodeSearchAndOrderType <span class="hljs-keyword">do</span> <span class="hljs-params">|b|</span>
+         b.AreaCode(<span class="hljs-string">&quot;910&quot;</span>)
+         b.Quantity(<span class="hljs-number">1</span>)
+      <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-comment"># Now you can send messages from reserved numbers. Don&apos;t forget to pass :application_id</span>
+  message = Bandwidth::V2::Message.create({<span class="hljs-symbol">:from</span> =&gt; numbers[<span class="hljs-number">0</span>], <span class="hljs-symbol">:to</span> =&gt; [<span class="hljs-string">&quot;+191955512142&quot;</span>], <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Test&quot;</span>, <span class="hljs-symbol">:application_id</span> =&gt; application[<span class="hljs-symbol">:application_id</span>]})
+</code></pre>
+<h1 id="documentation-generation">Documentation generation</h1>
+<p>Generates documentation:</p>
+<pre><code>yard doc
+</code></pre><h1 id="samples">Samples</h1>
+<p><a href="https://github.com/bandwidthcom/ruby-bandwidth-example" target="_blank">More sample applications</a></p>
 
                                 
                                 </section>
@@ -956,7 +1042,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ruby","level":"5.3","depth":1,"next":{"title":"Python","level":"5.4","depth":1,"path":"clientLib/python.md","ref":"clientLib/python.md","articles":[]},"previous":{"title":"C-Sharp","level":"5.2","depth":1,"path":"clientLib/csharp.md","ref":"clientLib/csharp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/ruby.md","mtime":"2018-04-30T15:37:36.966Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-30T15:39:05.158Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ruby","level":"5.3","depth":1,"next":{"title":"Python","level":"5.4","depth":1,"path":"clientLib/python.md","ref":"clientLib/python.md","articles":[]},"previous":{"title":"C-Sharp","level":"5.2","depth":1,"path":"clientLib/csharp.md","ref":"clientLib/csharp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/ruby.md","mtime":"2018-05-03T13:57:57.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-03T13:59:39.551Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

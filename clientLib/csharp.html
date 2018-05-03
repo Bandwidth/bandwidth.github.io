@@ -810,85 +810,79 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="c-library">C# Library</h1>
+                                <h1 id="bandwidthnet">Bandwidth.Net</h1>
 <p>A .Net client library for the <a href="http://bandwidth.com/products/application-platform?utm_medium=social&amp;utm_source=github&amp;utm_campaign=dtolb&amp;utm_content=_" target="_blank">Bandwidth Application Platform</a></p>
-<p>The current version is v3.0, released ## August, 2016. Version 2.14 is available  <a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v2.14" target="_blank">here</a>.</p>
-<p><a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v3-preview" target="_blank"><img src="../images/github_logo.png" alt="github"></a></p>
-<h3 id="full-api-reference"><a href="http://dev.bandwidth.com/csharp-bandwidth/html/R_Project_API.htm" target="_blank">Full API Reference</a></h3>
-<h3 id="installing-the-sdk">Installing the SDK</h3>
+<p>The current version is v3.0, released 1 February, 2017. Version 2.15 is available  <a href="https://github.com/bandwidthcom/csharp-bandwidth/tree/v2.15" target="_blank">here</a>.</p>
+<p><a href="https://ci.appveyor.com/project/Bandwidth/csharp-bandwidth" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/bhv8hs3fx9k6c33i?svg=true" alt="Build on .Net 4.5 (Windows)"></a>
+<a href="https://travis-ci.org/Bandwidth/csharp-bandwidth" target="_blank"><img src="https://travis-ci.org/Bandwidth/csharp-bandwidth.svg" alt="Build on .Net Core (Linux)"></a>
+<a href="https://coveralls.io/github/Bandwidth/csharp-bandwidth" target="_blank"><img src="https://coveralls.io/repos/github/Bandwidth/csharp-bandwidth/badge.svg" alt="Coverage Status"></a></p>
+<p><a href="src/Bandwidth.Net/Help/Home.md">Full API Reference</a></p>
+<h2 id="installing-the-sdk">Installing the SDK</h2>
 <p><code>Bandwidth.Net</code> is available on Nuget (Nuget 3.0+ is required):</p>
-<pre><code>Install-Package Bandwidth.Net
-</code></pre><h3 id="supported-versions">Supported Versions</h3>
+<pre><code>Install-Package Bandwidth.Net -Pre
+</code></pre><h2 id="supported-versions">Supported Versions</h2>
 <p><code>Bandwidth.Net</code> should work on all levels of .Net Framework 4.5+.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Version</th>
-<th style="text-align:left">Support Level</th>
+<th>Version</th>
+<th>Support Level</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">&lt;4.5</td>
-<td style="text-align:left">Unsupported</td>
+<td>&lt;4.5</td>
+<td>Unsupported</td>
 </tr>
 <tr>
-<td style="text-align:left">4.5</td>
-<td style="text-align:left">Supported</td>
+<td>4.5</td>
+<td>Supported</td>
 </tr>
 <tr>
-<td style="text-align:left">4.6</td>
-<td style="text-align:left">Supported</td>
+<td>netstandard1.6 (.net 4.6+, .net core 1.0+, etc)</td>
+<td>Supported</td>
 </tr>
 <tr>
-<td style="text-align:left">.Net Core (netstandard1.6)</td>
-<td style="text-align:left">Supported</td>
-</tr>
-<tr>
-<td style="text-align:left">PCL (Profile111)</td>
-<td style="text-align:left">Supported</td>
-</tr>
-<tr>
-<td style="text-align:left">Xamarin (IOS, Android, MonoTouch)</td>
-<td style="text-align:left">Supported</td>
+<td>netstandard2.0 (.net core 2.0+, etc)</td>
+<td>Supported</td>
 </tr>
 </tbody>
 </table>
-<h3 id="client-initialization">Client initialization</h3>
+<h2 id="client-initialization">Client initialization</h2>
 <p>All interaction with the API is done through a class <code>Client</code>. The <code>Client</code> constructor takes an next options:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Argument</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Default value</th>
-<th style="text-align:left">Required</th>
+<th>Argument</th>
+<th>Description</th>
+<th>Default value</th>
+<th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>userId</code></td>
-<td style="text-align:left">Your user ID</td>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Yes</td>
+<td><code>userId</code></td>
+<td>Your user ID</td>
+<td>none</td>
+<td>Yes</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>apiToken</code></td>
-<td style="text-align:left">Your API token</td>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Yes</td>
+<td><code>apiToken</code></td>
+<td>Your API token</td>
+<td>none</td>
+<td>Yes</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>apiSecret</code></td>
-<td style="text-align:left">Your API secret</td>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Yes</td>
+<td><code>apiSecret</code></td>
+<td>Your API secret</td>
+<td>none</td>
+<td>Yes</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>baseUrl</code></td>
-<td style="text-align:left">The Bandwidth API URL</td>
-<td style="text-align:left"><code>https://api.catapult.inetwork.com</code></td>
-<td style="text-align:left">No</td>
+<td><code>baseUrl</code></td>
+<td>The Bandwidth API URL</td>
+<td><code>https://api.catapult.inetwork.com</code></td>
+<td>No</td>
 </tr>
 </tbody>
 </table>
@@ -902,11 +896,15 @@
 );
 </code></pre>
 <p>Your <code>client</code> object is now ready to use the API.</p>
-<h4 id="lazy-evalutions">Lazy evalutions</h4>
+<h3 id="lazy-evalutions">Lazy evalutions</h3>
 <p>This library uses lazy evalutions in next cases:</p>
-<pre><code>- Object creation,
-- Get list of objects
-</code></pre><h4 id="object-creation">Object Creation</h4>
+<ul>
+<li><p>Object creation,</p>
+</li>
+<li><p>Get list of objects</p>
+</li>
+</ul>
+<h4 id="object-creation">Object Creation</h4>
 <p>When you create a bridge, call, message, etc. you will receive instance of <code>ILazyInstance&lt;&gt;</code> as result. It allow you to get <code>Id</code> of created object and created object on demand via property <code>Instance</code>.</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> application = <span class="hljs-keyword">await</span> client.Application.CreateAsync(<span class="hljs-keyword">new</span> CreateApplicationData {Name = <span class="hljs-string">&quot;MyFirstApp&quot;</span>});
 
@@ -929,7 +927,9 @@ Console.WriteLine(application.Instance.Name); <span class="hljs-comment">//will 
 
 <span class="hljs-keyword">var</span> list = calls.ToList(); <span class="hljs-comment">// a request to Catapult API will be executed here</span>
 </code></pre>
-<h3 id="send-a-sms">Send a SMS</h3>
+<h3 id="">#</h3>
+<h3 id="examples">Examples</h3>
+<p>Send a SMS</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
     From = <span class="hljs-string">&quot;+12345678901&quot;</span>, <span class="hljs-comment">// This must be a Bandwidth number on your account</span>
     To   = <span class="hljs-string">&quot;+12345678902&quot;</span>,
@@ -937,15 +937,79 @@ Console.WriteLine(application.Instance.Name); <span class="hljs-comment">//will 
 });
 Console.WriteLine(<span class="hljs-string">$&quot;Message Id is <span class="hljs-subst">{message.Id}</span>&quot;</span>);
 </code></pre>
-<h3 id="make-a-call">Make a call</h3>
+<h4 id="messaging-20">Messaging 2.0</h4>
+<pre><code class="lang-csharp"><span class="hljs-comment">// Using Message API v2</span>
+
+<span class="hljs-comment">// Create a messaging application</span>
+<span class="hljs-keyword">var</span> dashboardAuthData = <span class="hljs-keyword">new</span> IrisAuthData
+{
+    AccountId = <span class="hljs-string">&quot;AccountId&quot;</span>,
+    UserName = <span class="hljs-string">&quot;UserName&quot;</span>,
+    Password = <span class="hljs-string">&quot;Password&quot;</span>,
+    SubaccountId = <span class="hljs-string">&quot;SubaccountId&quot;</span>
+};
+<span class="hljs-keyword">var</span> messagingApplication = <span class="hljs-keyword">await</span> api.CreateMessagingApplicationAsync(dashboardAuthData, <span class="hljs-keyword">new</span> CreateMessagingApplicationData
+{
+    Name = <span class="hljs-string">&quot;My Messaging App&quot;</span>,
+    CallbackUrl = <span class="hljs-string">&quot;http://my-callback&quot;</span>,
+    LocationName = <span class="hljs-string">&quot;My Location&quot;</span>,
+    SmsOptions = <span class="hljs-keyword">new</span> SmsOptions
+    {
+        TollFreeEnabled = <span class="hljs-literal">true</span>
+    },
+    MmsOptions = <span class="hljs-keyword">new</span> MmsOptions
+    {
+        Enabled = <span class="hljs-literal">true</span>
+    }
+});
+
+<span class="hljs-comment">// Reserve a phone number for messaging</span>
+<span class="hljs-keyword">var</span> numbers = <span class="hljs-keyword">await</span> api.SearchAndOrderNumbersAsync(dashboardAuthData, messagingApplication, <span class="hljs-keyword">new</span> AreaCodeSearchAndOrderNumbersQuery
+{
+    AreaCode = <span class="hljs-string">&quot;910&quot;</span>,
+    Quantity = <span class="hljs-number">1</span>
+});
+
+<span class="hljs-comment">// Now you can send meessages via API v2</span>
+<span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.V2.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData{ 
+    From = numbers[<span class="hljs-number">0</span>],  <span class="hljs-comment">//use only numbers reserved by SearchAndOrderNumbersAsync()</span>
+    To = <span class="hljs-keyword">new</span>[] {<span class="hljs-string">&quot;+12345678902&quot;</span>},
+    Text = <span class="hljs-string">&quot;Hello world&quot;</span>,
+    ApplicationId = messagingApplication.ApplicationId
+});
+</code></pre>
+<p>Make a call</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData {
     From = <span class="hljs-string">&quot;+12345678901&quot;</span>, <span class="hljs-comment">// This must be a Bandwidth number on your account</span>
     To   = <span class="hljs-string">&quot;+12345678902&quot;</span>
 });
 Console.WriteLine(<span class="hljs-string">$&quot;Call Id is <span class="hljs-subst">{call.Id}</span>&quot;</span>);
 </code></pre>
-<h3 id="providing-feedback">Providing feedback</h3>
-<p>For current discussions on 3.0 please see the <a href="https://github.com/bandwidthcom/csharp-bandwidth/labels/3.0" target="_blank">3.0 issues section on GitHub</a>. To start a new topic on 3.0, please open an issue and use the <code>3.0</code> tag. Your feedback is greatly appreciated!</p>
+<p>Extracting callback event data from string</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> callbackEvent = CallbackEvent.CreateFromJson(<span class="hljs-string">&quot;{\&quot;eventType\&quot;: \&quot;sms\&quot;}&quot;</span>);
+</code></pre>
+<p>Extracting callback event data from http content (useful for ASP.Net and other web applications)</p>
+<pre><code class="lang-csharp"><span class="hljs-comment">// In ASP.Net action</span>
+<span class="hljs-keyword">var</span> callbackEvent = <span class="hljs-keyword">await</span> Request.Content.ReadAsCallbackEventAsync();
+
+<span class="hljs-comment">// anywhere</span>
+<span class="hljs-keyword">var</span> callbackEvent = <span class="hljs-keyword">await</span> content.ReadAsCallbackEventAsync(); <span class="hljs-comment">// content is instance of HttpContent</span>
+</code></pre>
+<p>Using BXMLv2</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Bandwidth.Net.XmlV2.Verbs;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Xml;
+
+<span class="hljs-keyword">var</span> response = <span class="hljs-keyword">new</span> Response(<span class="hljs-keyword">new</span> SpeakSentence{
+    Gender = <span class="hljs-string">&quot;female&quot;</span>,
+    Locale = <span class="hljs-string">&quot;en_UK&quot;</span>,
+    Sentence = <span class="hljs-string">&quot;Hello&quot;</span>,
+    Voice = <span class="hljs-string">&quot;kate&quot;</span>
+});
+
+<span class="hljs-keyword">var</span> xml = response.ToXml(); <span class="hljs-comment">// will build string &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Response&gt;&lt;SpeakSentence gender=&quot;female&quot; locale=&quot;en_UK&quot; voice=&quot;kate&quot;&gt;Hello&lt;/SpeakSentence&gt;&lt;/Response&gt;</span>
+</code></pre>
+<h2 id="providing-feedback">Providing feedback</h2>
+<p>For current discussions on 3.0 please see the <a href="https://github.com/Bandwidth/csharp-bandwidth/labels/3.0" target="_blank">3.0 issues section on GitHub</a>. To start a new topic on 3.0, please open an issue and use the <code>3.0</code> tag. Your feedback is greatly appreciated!</p>
 
                                 
                                 </section>
@@ -995,7 +1059,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Call Id is <span class="hljs-
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C-Sharp","level":"5.2","depth":1,"next":{"title":"Ruby","level":"5.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"previous":{"title":"Node JS","level":"5.1","depth":1,"path":"clientLib/node.md","ref":"clientLib/node.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/csharp.md","mtime":"2018-04-30T15:37:36.966Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-30T15:39:05.158Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"C-Sharp","level":"5.2","depth":1,"next":{"title":"Ruby","level":"5.3","depth":1,"path":"clientLib/ruby.md","ref":"clientLib/ruby.md","articles":[]},"previous":{"title":"Node JS","level":"5.1","depth":1,"path":"clientLib/node.md","ref":"clientLib/node.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"clientLib/csharp.md","mtime":"2018-05-03T13:57:57.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-03T13:59:39.551Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
