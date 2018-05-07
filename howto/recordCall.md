@@ -14,7 +14,7 @@ This guide covers:
 2. Make sure call is answered and active
 
 
-### How to create a call and start recording it [create call](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html)
+### How to create a call and start recording it [create call](https://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html)
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls HTTP/1.1
@@ -27,7 +27,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### How to start recording on an active call [active call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
+### How to start recording on an active call [active call](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} HTTP/1.1
@@ -38,7 +38,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### How to stop recording on an active call [active call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
+### How to stop recording on an active call [active call](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
 
 ```http
 POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} HTTP/1.1
@@ -57,7 +57,7 @@ HTTP/1.1 200 OK
 
 ### This sends these call backs when the recording has been completed
 
-* [Full callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html)
+* [Full callbacks](https://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html)
 
 ```http
 POST your_server.com HTTP/1.1
@@ -76,7 +76,7 @@ Content-Type: application/json; charset=utf-8
 
 {% common %}
 
-### How to create a call and start recording it [create call](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html)
+### How to create a call and start recording it [create call](https://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html)
 
 {% sample lang="js" %}
 
@@ -114,7 +114,7 @@ call = Call.create(client, {
 
 {% common %}
 
-### How to start recording on an active call [active call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
+### How to start recording on an active call [active call](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
 
 {% sample lang="js" %}
 
@@ -136,7 +136,7 @@ call.recording_on()
 
 {% common %}
 
-### How to stop recording on an active call [active call](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
+### How to stop recording on an active call [active call](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html)
 
 {% sample lang="js" %}
 

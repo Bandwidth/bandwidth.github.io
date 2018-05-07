@@ -6,7 +6,7 @@
 Client library for the [Bandwidth App Platform](http://ap.bandwidth.com/docs/rest-api/)
 
 ## Full Reference
-### [dev.bandwidth.com/python-bandwidth](http://dev.bandwidth.com/python-bandwidth)
+### [dev.bandwidth.com/python-bandwidth](https://dev.bandwidth.com/python-bandwidth)
 
 
 ## Requirements

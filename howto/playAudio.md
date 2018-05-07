@@ -5,7 +5,7 @@
 
 ## About {#about}
 
-Play a .mp3 or .wav file on an active phone call. For more information about playing an audio file onto a call, visit the [full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).
+Play a .mp3 or .wav file on an active phone call. For more information about playing an audio file onto a call, visit the [full documentation](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html).
 
 ## Assumptions
 * You have signed up for the [Bandwidth voice & messaging APIs](https://app.bandwidth.com)
@@ -20,7 +20,7 @@ Play a .mp3 or .wav file on an active phone call. For more information about pla
 
 ## Step 1 {#hotlink-to-step1} - Create outbound call with callback url.
 
-[Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html) to learn more about creating an outbound call.
+[Click here](https://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html) to learn more about creating an outbound call.
 
 {% extendmethod %}
 
@@ -124,7 +124,7 @@ User-Agent: BandwidthAPI/v1
 
 ## Step 3 {#hotlink-to-step3} - Play audio file on call
 
-[Click here](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html) to learn more about playing an audio file in a call.
+[Click here](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html) to learn more about playing an audio file in a call.
 
 {% extendmethod %}
 

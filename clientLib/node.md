@@ -8,12 +8,12 @@ A Node.js client library for [Bandwidth's Communications Platform](https://app.b
 
 ## API Documentation
 
-The API documentation is located at [dev.bandwidth.com/ap-docs/](http://dev.bandwidth.com/ap-docs/)
+The API documentation is located at [dev.bandwidth.com/ap-docs/](https://dev.bandwidth.com/ap-docs/)
 
-## [Full SDK Reference](http://dev.bandwidth.com/node-bandwidth/index.html)
+## [Full SDK Reference](https://dev.bandwidth.com/node-bandwidth/index.html)
 The Full SDK Reference is available either as an interactive site or as a single Markdown file:
 
-* [Site](http://dev.bandwidth.com/node-bandwidth/index.html).
+* [Site](https://dev.bandwidth.com/node-bandwidth/index.html).
 * [Single MD file](https://github.com/bandwidth/node-bandwidth/blob/master/docs/api.md)
 
 ## Installing the SDK
