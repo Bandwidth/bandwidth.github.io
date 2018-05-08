@@ -823,7 +823,7 @@
 <li><a href="playAudio.html">Playing audio on a call</a></li>
 <li><a href="recordCall.html">Recording audio on a call</a></li>
 <li><a href="createGather.html">Creating a gather request</a></li>
-<li><a href="http://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html" target="_blank">Forwarding a call</a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html" target="_blank">Forwarding a call</a></li>
 </ul>
 </li>
 </ul>
@@ -843,8 +843,8 @@
 <h2 id="incomingCall-and-answer">Recieve Incoming Call and Answer event </h2>
 <p>After setting up your <a href="incomingCallandMessaging.html">application to recieve incoming calls</a> with <code>autoAnswer</code> enabled. You will recieve two events back to back:</p>
 <ol>
-<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html" target="_blank"><code>incomingCall</code></a></li>
-<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html" target="_blank"><code>answer</code></a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html" target="_blank"><code>incomingCall</code></a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html" target="_blank"><code>answer</code></a></li>
 </ol>
 <p>Your server should reply with any <code>HTTP 2xx</code> code to acknowledge that the callback event was delivered.  Any thing returned in the response besides the status code is ignored by Bandwidth.</p>
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="incoming-call-event-properties">Incoming Call Event Properties</h3>
@@ -1004,7 +1004,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more options and configuration <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">view the full documentation</a></p>
+<p>For more options and configuration <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">view the full documentation</a></p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-speak-sentence-request">Example Speak Sentence Request</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1017,7 +1017,7 @@
 </div></div></div>
 
 <h2 id="speak-finished">Receive the Speak Sentence Events </h2>
-<p>During the speak sentence Bandwidth will send two <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">callbacks</a> with the status of the sentence:</p>
+<p>During the speak sentence Bandwidth will send two <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">callbacks</a> with the status of the sentence:</p>
 <ol>
 <li><code>{&quot;eventType&quot;: &quot;speak&quot;, &quot;status&quot;: &quot;started&quot;}</code></li>
 <li><code>{&quot;eventType&quot;: &quot;speak&quot;, &quot;status&quot;: &quot;done&quot;}</code></li>
@@ -1061,7 +1061,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-start-event">Example Start Event</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1113,7 +1113,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-recording-toggle-on">Example Recording Toggle On</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1126,7 +1126,7 @@
 </div></div></div>
 
 <h2 id="create-gather">Create Gather </h2>
-<p>This solution uses the <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html" target="_blank"><code>gather</code></a> method to allow us to specify a <code>interDigitTimeout</code> and <code>maxDigits: 1</code> so that we can stop recording easily after a specified duration has passed, -OR- the caller presses any digit.</p>
+<p>This solution uses the <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html" target="_blank"><code>gather</code></a> method to allow us to specify a <code>interDigitTimeout</code> and <code>maxDigits: 1</code> so that we can stop recording easily after a specified duration has passed, -OR- the caller presses any digit.</p>
 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="request-url">Request URL</h3>
 <p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather</code></p>
 <h3 id="basic-parameters">Basic Parameters</h3>
@@ -1152,7 +1152,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-create-gather">Example Create Gather</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1210,7 +1210,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-gather-event">Example Gather Event</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1248,7 +1248,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-recording-toggle-on">Example Recording Toggle On</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1305,7 +1305,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-record-complete-event">Example Record Complete Event</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1362,7 +1362,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-recording-information">Example Recording Information</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}</span> HTTP/1.1
 <span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
@@ -1417,7 +1417,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html" target="_blank">view the full documentation</a>.</p>
+<p>For more details <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html" target="_blank">view the full documentation</a>.</p>
 </div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-transfer-call-with-whisper">Example Transfer Call with Whisper</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -1486,7 +1486,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Call Screening","level":"2.2.3.7","depth":3,"next":{"title":"Conference Call","level":"2.2.3.8","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},"previous":{"title":"Forward a call","level":"2.2.3.6","depth":3,"path":"howto/forwardACall.md","ref":"howto/forwardACall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/callScreen.md","mtime":"2018-05-04T14:32:49.140Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-04T14:34:16.448Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Call Screening","level":"2.2.3.7","depth":3,"next":{"title":"Conference Call","level":"2.2.3.8","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},"previous":{"title":"Forward a call","level":"2.2.3.6","depth":3,"path":"howto/forwardACall.md","ref":"howto/forwardACall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/callScreen.md","mtime":"2018-05-08T13:39:07.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T13:40:43.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

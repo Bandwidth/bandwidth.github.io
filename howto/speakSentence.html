@@ -817,7 +817,7 @@
 <li>Make sure call is answered and active</li>
 </ol>
 <h3 id="speak-sentence-options">Speak Sentence options</h3>
-<p>Bandwidth supports many voice options. You may specify the gender, accent, and voice. <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">Click here</a>for a full list of the speaker options.</p>
+<p>Bandwidth supports many voice options. You may specify the gender, accent, and voice. <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">Click here</a>for a full list of the speaker options.</p>
 <h3 id="speak-sentence-to-the-resource-ieuseridcallscallid">Speak Sentence to the resource (ie..../{userId}/calls/{callId}/...)</h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -834,7 +834,7 @@
 </code></pre>
 <h3 id="this-sends-these-call-backs">This sends these call backs</h3>
 <ul>
-<li>Full callbacks <a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html" target="_blank">http://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html</a></li>
+<li>Full callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html" target="_blank">https://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html</a></li>
 </ul>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">your_server.com</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -849,95 +849,95 @@
   <span class="hljs-attr">&quot;tag&quot;</span>       : <span class="hljs-string">&quot;string&quot;</span>
 }
 </span></code></pre>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-sample" data-lang="js" data-name="Js"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-sample" data-lang="js" data-name="Js"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-js">client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
-<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-js">client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
-<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-js">client.Conference.speakSentence(<span class="hljs-string">&quot;conferenceID&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
 </code></pre>
-<h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
+<h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-js">client.Conference.speakSentenceToMember(<span class="hljs-string">&quot;conferenceID&quot;</span>, <span class="hljs-string">&quot;memberID&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>)
  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
-<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-js">client.Call.stopSpeaking(<span class="hljs-string">&quot;callId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
-<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-js">client.Bridge.stopSpeaking(<span class="hljs-string">&quot;bridgeID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
-<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-js">client.Conference.stopSpeaking(<span class="hljs-string">&quot;conferenceID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
-<h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
+<h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-js">client.Conference.speakSentenceToMember(<span class="hljs-string">&quot;conferenceID&quot;</span>, <span class="hljs-string">&quot;memberID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
 </code></pre>
-<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.SpeakSentenceAsync(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
 </code></pre>
-<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
 </code></pre>
-<h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
+<h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceToMemberAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;{memberId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
 </code></pre>
-<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
-<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.SpeakSentenceAsync(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
-<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
-<h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
+<h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceToMemberAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;{memberId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-ruby">call.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>})
 </code></pre>
-<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>})
 </code></pre>
-<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-ruby">conference.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>})
 </code></pre>
-<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-ruby">call.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
 </code></pre>
-<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
 </code></pre>
-<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-ruby">conference.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
 </code></pre>
-</div><div class="api-method-sample" data-lang="python" data-name="python"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+</div><div class="api-method-sample" data-lang="python" data-name="python"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_call(<span class="hljs-string">&apos;callId&apos;</span>, <span class="hljs-string">&apos;Hello from Bandwidth&apos;</span>)
 </code></pre>
-<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_bridge(<span class="hljs-string">&apos;bridgeId&apos;</span>, <span class="hljs-string">&apos;Hello from Bandwidth&apos;</span>)
 </code></pre>
-<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_conference(<span class="hljs-string">&apos;conferenceId&apos;</span>, <span class="hljs-string">&apos;Hello from Bandwidth&apos;</span>)
 </code></pre>
-<h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
+<h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_conference_member(<span class="hljs-string">&apos;conferenceId&apos;</span>, <span class="hljs-string">&apos;memberId&apos;</span>, <span class="hljs-string">&apos;Hello from Bandwidth&apos;</span>)
 </code></pre>
-<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+<h3 id="stop-speaking-sentence-to-call">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_call(<span class="hljs-string">&apos;callId&apos;</span>, <span class="hljs-string">&apos;&apos;</span>)
 </code></pre>
-<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
+<h3 id="stop-speaking-sentence-to-bridge">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_bridge(<span class="hljs-string">&apos;bridgeId&apos;</span>, <span class="hljs-string">&apos;&apos;</span>)
 </code></pre>
-<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
+<h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_conference(<span class="hljs-string">&apos;conferenceId&apos;</span>, <span class="hljs-string">&apos;&apos;</span>)
 </code></pre>
-<h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="http://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
+<h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_conference_member(<span class="hljs-string">&apos;conferenceId&apos;</span>, <span class="hljs-string">&apos;memberId&apos;</span>, <span class="hljs-string">&apos;&apos;</span>)
 </code></pre>
 </div></div></div>
@@ -995,7 +995,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"next":{"title":"Record a call","level":"2.2.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},"previous":{"title":"Play Audio","level":"2.2.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/speakSentence.md","mtime":"2018-05-04T14:32:49.156Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-04T14:34:16.448Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"next":{"title":"Record a call","level":"2.2.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},"previous":{"title":"Play Audio","level":"2.2.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/speakSentence.md","mtime":"2018-05-08T13:39:07.677Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T13:40:43.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

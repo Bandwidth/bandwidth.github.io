@@ -822,7 +822,7 @@
 <li><a href="outboundCall.html">Create call with callback URL</a> -or- <a href="incomingCallandMessaging.html">Recieve Incoming Call</a></li>
 <li>Make sure call is answered and active</li>
 </ol>
-<h3 id="how-to-create-a-call-and-start-recording-it-create-call">How to create a call and start recording it <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html" target="_blank">create call</a></h3>
+<h3 id="how-to-create-a-call-and-start-recording-it-create-call">How to create a call and start recording it <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html" target="_blank">create call</a></h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
 
@@ -832,7 +832,7 @@
     <span class="hljs-attr">&quot;recordingEnabled&quot;</span> : <span class="hljs-string">&quot;true&quot;</span>
 }
 </span></code></pre>
-<h3 id="how-to-start-recording-on-an-active-call-active-call">How to start recording on an active call <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
+<h3 id="how-to-start-recording-on-an-active-call-active-call">How to start recording on an active call <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
 
@@ -840,7 +840,7 @@
     <span class="hljs-attr">&quot;recordingEnabled&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>
 }
 </span></code></pre>
-<h3 id="how-to-stop-recording-on-an-active-call-active-call">How to stop recording on an active call <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
+<h3 id="how-to-stop-recording-on-an-active-call-active-call">How to stop recording on an active call <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
 
@@ -853,7 +853,7 @@
 </code></pre>
 <h3 id="this-sends-these-call-backs-when-the-recording-has-been-completed">This sends these call backs when the recording has been completed</h3>
 <ul>
-<li><a href="http://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html" target="_blank">Full callbacks</a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html" target="_blank">Full callbacks</a></li>
 </ul>
 <pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">your_server.com</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
@@ -868,7 +868,7 @@
    <span class="hljs-attr">&quot;endTime&quot;</span>      : <span class="hljs-string">&quot;2013-08-19T16:57:08.712Z&quot;</span>
 }
 </span></code></pre>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="how-to-create-a-call-and-start-recording-it-create-call">How to create a call and start recording it <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html" target="_blank">create call</a></h3>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="how-to-create-a-call-and-start-recording-it-create-call">How to create a call and start recording it <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html" target="_blank">create call</a></h3>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Call.create({
     <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
     <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
@@ -891,14 +891,14 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
     <span class="hljs-symbol">:recording_enabled</span> =&gt; <span class="hljs-literal">true</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="how-to-start-recording-on-an-active-call-active-call">How to start recording on an active call <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
+</div><div class="api-method-example"><h3 id="how-to-start-recording-on-an-active-call-active-call">How to start recording on an active call <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Call.enableRecording(<span class="hljs-string">&quot;callId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.TurnCallRecordingAsync(<span class="hljs-string">&quot;callID&quot;</span>, <span class="hljs-literal">true</span>);
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.recording_on()
 </code></pre>
-</div><div class="api-method-example"><h3 id="how-to-stop-recording-on-an-active-call-active-call">How to stop recording on an active call <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
+</div><div class="api-method-example"><h3 id="how-to-stop-recording-on-an-active-call-active-call">How to stop recording on an active call <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html" target="_blank">active call</a></h3>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Call.disableRecording(<span class="hljs-string">&quot;callId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.TurnCallRecordingAsync(<span class="hljs-string">&quot;callID&quot;</span>, <span class="hljs-literal">false</span>);
@@ -960,7 +960,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Record a call","level":"2.2.3.4","depth":3,"next":{"title":"Collect digits","level":"2.2.3.5","depth":3,"path":"howto/createGather.md","ref":"howto/createGather.md","articles":[]},"previous":{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"path":"howto/speakSentence.md","ref":"howto/speakSentence.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/recordCall.md","mtime":"2018-05-04T14:32:49.156Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-04T14:34:16.448Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Record a call","level":"2.2.3.4","depth":3,"next":{"title":"Collect digits","level":"2.2.3.5","depth":3,"path":"howto/createGather.md","ref":"howto/createGather.md","articles":[]},"previous":{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"path":"howto/speakSentence.md","ref":"howto/speakSentence.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"howto/recordCall.md","mtime":"2018-05-08T13:39:07.677Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T13:40:43.282Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
