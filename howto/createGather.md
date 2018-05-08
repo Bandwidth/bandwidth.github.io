@@ -27,7 +27,7 @@ HTTP/1.1 201 CREATED
 ```
 
 ### This sends these call backs
-* [Full callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html)
+* [Full callbacks](https://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html)
 
 ```http
 POST your_server.com HTTP/1.1

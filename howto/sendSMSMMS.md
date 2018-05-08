@@ -179,7 +179,7 @@ client.Message.send(message)
 {% sample lang="csharp" %}
 
 ```csharp
-//Download the .net sdk from http://dev.bandwidth.com/clientLib/csharp.html
+//Download the .net sdk from https://dev.bandwidth.com/clientLib/csharp.html
 
 using System;
 using System.Threading.Tasks;
