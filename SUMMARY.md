@@ -49,6 +49,7 @@
  * [Ruby](clientLib/ruby.md)
  * [Python](clientLib/python.md)
  * [Java](clientLib/java.md)
+ * [PHP](clientLib/php.md)
 
 ## Help
 * [FAQ](https://dev.bandwidth.com/faq)
