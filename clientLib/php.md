@@ -32,7 +32,7 @@ function extractId($response){
   return end($location_header);
 };
 
-//Message contentes
+//Message contents
 $message_body = [
   'to'   => 'to-phone-number',
   'from' => 'your-bandwidth-number',
