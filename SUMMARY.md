@@ -32,6 +32,15 @@
     * [Send SMS with Delivery Receipt](howto/smsDLR.md)
     * [Hosted Messaging Getting Started](howto/hostedMessaging.md)
 * [Deployable Demos](howto/deployableDemos.md)
+* [Understanding Rate Limits](howto/understandingRateLimits.md#top)
+  * [Why are SMS Messages rate limited](howto/understandingRateLimits.md#why-rate-limit)
+  * [How Bandwidth Helps](howto/understandingRateLimits.md#how-bandwidth-helps)
+  * [A2P Best Practices](howto/understandingRateLimits.md#a2p-best-practices)
+  * [Default Messaging Rate Limits and Queues](howto/understandingRateLimits.md#default-rate-limit)
+  * [Back-off and Retry](howto/understandingRateLimits.md#backoff-and-retry)
+  * [Throttling](howto/understandingRateLimits.md#throttle)
+  * [Queue Management](howto/understandingRateLimits.md#queue-management)
+
 
 ## Security
 * [Security](security.md)

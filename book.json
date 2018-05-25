@@ -12,7 +12,8 @@
         "bandwidth-fonts",
         "-highlight",
         "bandwidth-highlight",
-        "custom-footer" 
+        "custom-footer",
+        "mathjax"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
