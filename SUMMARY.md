@@ -2,8 +2,8 @@
 
 ## Overview
 * [Home](README.md)
-* [Pricing](pricing.md)
 * [About](about.md)
+* [Pricing](https://www.bandwidth.com/pricing)
 * [GitHub](https://github.com/Bandwidth)
 
 ## Guides
