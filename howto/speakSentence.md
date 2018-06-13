@@ -3,7 +3,7 @@
 # How to speak a sentence on a call
 
 ### Before Speaking
-1. [Create call with callback URL](./outboundCall.md) -or- [Recieve Incoming Call](./incomingCallandMessaging.md)
+1. [Create call with callback URL](./outboundCall.md) -or- [Receive Incoming Call](./incomingCallandMessaging.md)
 2. Make sure call is answered and active
 
 ### Speak Sentence options
