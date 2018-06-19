@@ -1,4 +1,5 @@
 {
+    "title": "Bandwidth API Developer Docs",
     "plugins": [
         "theme-bandwidth@1.9.8",
         "header",
@@ -12,7 +13,8 @@
         "bandwidth-fonts",
         "-highlight",
         "bandwidth-highlight",
-        "custom-footer" 
+        "custom-footer",
+        "meta" 
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -80,6 +82,18 @@
         },
         "mouseflow": {
             "projectId": "e48d3324-5985-479f-a9fc-7283fb266917"
+        },
+        "meta": {
+            "data": [
+                {
+                    "name": "title",
+                    "content": "Bandwidth API Developer Docs" 
+                },
+                {
+                    "name": "description",
+                    "content": "See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"
+                }
+            ]
         }
-    }
+   } 
 }
