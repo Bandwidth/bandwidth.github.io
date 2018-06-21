@@ -73,7 +73,7 @@ There are no restrictions on the number of SIP clients that can be associated wi
 
 If you don't want all your SIP clients to ring simultaneously, create an endpoint for each client.  You can still associate a single phone number with a group of clients, but the application has more control over which client will ring when that number is called.
 
-> NOTE: You must associate an “application-id” with your endpoint to receive events from your endpoint. See the [`/applications`](http://dev.bandwidth.com/ap-docs/extendmethods/applications/applications.html) resource for how to create an application id.
+> NOTE: You must associate an “application-id” with your endpoint to receive events from your endpoint. See the [`/applications`](https://dev.bandwidth.com/ap-docs/extendmethods/applications/applications.html) resource for how to create an application id.
 
 <code class="post">POST</code>`/v1/users/{user-id}/domains/{domain-id}/endpoints`
 
@@ -215,7 +215,7 @@ Location: /v1/users/{userId}/calls/{callId}
 {% extendmethod %}
 ### 2: Receive Answer event
 
-Outbound call - receive an [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event from Bandwidth. When the SIP client answers the call, Bandwidth will POST to your callback URL the `answer` event that you will use to say something to the caller.
+Outbound call - receive an [`answer`](https://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event from Bandwidth. When the SIP client answers the call, Bandwidth will POST to your callback URL the `answer` event that you will use to say something to the caller.
 
 <code class="post">POST</code>`http://yourwebserver.com`
 
@@ -244,7 +244,7 @@ User-Agent: BandwidthAPI/v1
 {% extendmethod %}
 ### 3: Speak Sentence
 
-Use the [speak sentence](http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallIdAudio.html) to speak “Hello SIP Client”. 
+Use the [speak sentence](https://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallIdAudio.html) to speak “Hello SIP Client”. 
 
 <code class="post">POST</code>`/v1/users/{user-id}/calls/{call-id}/audio`
 
@@ -281,7 +281,7 @@ HTTP/1.1 200 OK
 {% extendmethod %}
 ### 4: Receive Speak Event
 
-Detect when “speaking” is done. To know when speaking completes, you will receive a [callback](http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html) `{"eventType": "speak", "status": "done"}`.
+Detect when “speaking” is done. To know when speaking completes, you will receive a [callback](https://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html) `{"eventType": "speak", "status": "done"}`.
 
 <code class="post">POST</code>`http://yourwebserver.com`
 
@@ -308,7 +308,7 @@ User-Agent: BandwidthAPI/v1
 {% extendmethod %}
 ### 5: Hang-up the call
 
-After the text to speech completes, you can simply [hangup](http://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallId.html).  
+After the text to speech completes, you can simply [hangup](https://dev.bandwidth.com/ap-docs/extendmethods/calls/postCallsCallId.html).  
 
 <code class="post">POST</code>`/v1/users/{user-id}/calls/{call-id}`
 
@@ -416,7 +416,7 @@ Location: /v1/users/{userId}/calls/{callId}
 {% extendmethod %}
 
 ### Step 3: Receive an ‘answer’ event from Bandwidth
-**Outbound call - receive an ‘answer’ event from Bandwidth.** When the PSTN call answers the call, Bandwidth will POST to your callback URL the [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the SIP client call leg and bridging the calls together.
+**Outbound call - receive an ‘answer’ event from Bandwidth.** When the PSTN call answers the call, Bandwidth will POST to your callback URL the [`answer`](https://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the SIP client call leg and bridging the calls together.
 
 <code class="post">POST</code>`http://yourwebserver.com`
 
@@ -575,7 +575,7 @@ Location: /v1/users/{userId}/calls/{callId}
 
 ### Step 3: Receive an ‘answer’ event from Bandwidth
 
-**Outbound SIP call - receive an ‘answer’ event from Bandwidth**. When the call answers the call, Bandwidth will POST to your callback URL the [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the PSTN call leg and bridging the calls together.
+**Outbound SIP call - receive an ‘answer’ event from Bandwidth**. When the call answers the call, Bandwidth will POST to your callback URL the [`answer`](https://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html) event that you will use to trigger answering the PSTN call leg and bridging the calls together.
 
 <code class="post">POST</code>http://yourwebserver.com
 

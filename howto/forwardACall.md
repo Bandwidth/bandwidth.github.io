@@ -6,7 +6,7 @@ When an incoming call is initiated, meaning someone calls the BW phone number,
 the BW number makes an outgoing call to another number.
 These two calls then get bridged to connect the callers on the other side of the BW number.
 
-## Setup your [application](http://dev.bandwidth.com/ap-docs/methods/applications/applications.html)
+## Setup your [application](https://dev.bandwidth.com/ap-docs/methods/applications/applications.html)
 
 1. Log in to your [Bandwidth Voice and Messaging API Dashboard](https://app.bandwidth.com) --> My Apps --> Create New.
 2. Then add a Bandwidth phone number to the application

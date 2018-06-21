@@ -3,13 +3,13 @@
 ## Buy Phone Number
 <aside class="alert general">
 <p>
-If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="http://dev.bandwidth.com/docs/phone-numbers/">here.</a>
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="https://dev.bandwidth.com/docs/phone-numbers/">here.</a>
 </p>
 </aside>
 
 There are 2 ways to buy a phone number:
-1. <code class="get">GET</code> on the [`availableNumbers`](http://dev.bandwidth.com/ap-docs/methods/availableNumbers/getAvailableNumbersLocal.html) resource, followed by a <code class="post">POST</code> to the [`phoneNumbers`](http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html) resource
-2. <code class="post">POST</code> on the [`availableNumbers`](http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html) resource
+1. <code class="get">GET</code> on the [`availableNumbers`](https://dev.bandwidth.com/ap-docs/methods/availableNumbers/getAvailableNumbersLocal.html) resource, followed by a <code class="post">POST</code> to the [`phoneNumbers`](https://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html) resource
+2. <code class="post">POST</code> on the [`availableNumbers`](https://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbers.html) resource
 
 {% common %}
 ### Search then Order

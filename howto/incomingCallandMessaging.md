@@ -1,20 +1,20 @@
 {% method %}
 ## Receive messages and calls (REST)
 
-Incoming calls and messages are sent to a web address configured in [`applications`](http://dev.bandwidth.com/ap-docs/methods/applications/applications.html).
+Incoming calls and messages are sent to a web address configured in [`applications`](https://dev.bandwidth.com/ap-docs/methods/applications/applications.html).
 
 ![WhyCallBack](../images/app-welcome.png)
 
 In order to recieve incoming call and messaging events, you'll need to:
 
-1. [Create an application](http://dev.bandwidth.com/ap-docs/methods/applications/postApplications.html)
-2. [Order a phone number](http://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html)
-3. [Assign the phone number to the application](http://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html)
+1. [Create an application](https://dev.bandwidth.com/ap-docs/methods/applications/postApplications.html)
+2. [Order a phone number](https://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html)
+3. [Assign the phone number to the application](https://dev.bandwidth.com/ap-docs/methods/phoneNumbers/postPhoneNumbersNumberId.html)
 
 ### Sample Payloads
-For detailed information on _all_ [callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html), refer to the full API reference:
-* [Messaging Callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
-* [Voice Callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html)
+For detailed information on _all_ [callbacks](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html), refer to the full API reference:
+* [Messaging Callbacks](https://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
+* [Voice Callbacks](https://dev.bandwidth.com/ap-docs/apiCallbacks/voiceEvents.html)
 
 #### Incoming Messages
 ```http

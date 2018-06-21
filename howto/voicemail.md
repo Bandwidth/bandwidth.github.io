@@ -4,7 +4,7 @@
 
 Logic: Your personal number creates an inbound call to Bandwidth(BW), which will automatically answer the call. Upon answering, a call is immediately created from the BWnumber to the toNumber. After a set call timeout (ie. 10sec) is reached, meaning there is no answer from the toNumber, a sentence is spoken.  After the sentence is spoken, recording is enabled and then disabled when the call is hung up. After the call is hung up, a transcription of the recording is rendered.
 
-## Setup your [application](http://dev.bandwidth.com/ap-docs/methods/applications/applications.html)
+## Setup your [application](https://dev.bandwidth.com/ap-docs/methods/applications/applications.html)
 
 1. Log in to your [Bandwidth Voice and Messaging API Dashboard](https://app.bandwidth.com) --> My Apps --> Create New.
 2. Then add a Bandwidth phone number to the application
