@@ -40,7 +40,7 @@
 ## API Reference
 * [Full Voice & Messaging API Reference](https://dev.bandwidth.com/ap-docs/methods/restApi.html)
 * [BXML Reference](https://dev.bandwidth.com/ap-docs/bxml/bxml.html)
-* [Messaging v2 Reference](https://dev.bandwidth.com/v2-messaging)
+* [Messaging v2 Reference (beta)](https://dev.bandwidth.com/v2-messaging)
 * [Phone Numbers Reference](https://dev.bandwidth.com/docs/phone-numbers/)
 
 ## SDKs
