@@ -11,7 +11,7 @@ module.exports = function ($) {
 	$('a').has('button, span').css('border-bottom','0px')
 	$('.markdown-section').has('.api-method-code').css('padding-top','0px');
 	$('.page-inner').has('iframe').contents().find('div, section').css({'height':'100vh','padding':'0px'});
-	$('ul.summary a:contains(Full API Reference),ul.summary a:contains(BXML Reference),ul.summary a:contains(Messaging v2 Reference),ul.summary a:contains(Phone Numbers Reference) ').removeAttr('target');
+	$('ul.summary a:contains(Voice & Messaging API Reference),ul.summary a:contains(BXML Reference),ul.summary a:contains(Messaging v2 Reference),ul.summary a:contains(Phone Numbers Reference) ').removeAttr('target');
 	$('.footerListItem a, a[href*="docs/phone-numbers"]').removeAttr('target');
   var helperPages = [
     'callScreen.html'
