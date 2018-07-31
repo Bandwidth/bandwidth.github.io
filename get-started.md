@@ -19,9 +19,8 @@
     <div class="step-group-label">
       <p class="step-tab active" data-rel="step1" data-topic="1">Install Node.js</p>
       <p class="step-tab" data-rel="step2" data-topic="2">Install a text editor</p>
-      <p class="step-tab" data-rel="step3" data-topic="3">Install ngrok</p>
-      <p class="step-tab" data-rel="step4" data-topic="4">Configure ZSH file</p>
-      <p class="step-tab" data-rel="step5" data-topic="5">Make a Bandwidth account</p>
+      <p class="step-tab" data-rel="step3" data-topic="3">Configure ZSH file</p>
+      <p class="step-tab" data-rel="step4" data-topic="4">Make a Bandwidth account</p>
     </div>
     <div class="top-level-group">
       <div class="tutorial-step step1 nodejs">
@@ -47,25 +46,6 @@
         </p>
       </div>
       <div class="tutorial-step step3 nodejs">
-        <p>Ngrok will allow the program to be live on the internet. Bandwidth uses URL’s to make API calls. If your program is not live on the internet, you will not be able to send or receive calls and texts. <a href="https://ngrok.com/">https://ngrok.com/</a></p>
-        <ol class="mac">
-          <li>On ngrok.com, choose download and download the specific file for your computer.</li>
-          <li>Open the file by double clicking on it.</li>
-          <li>In the terminal copy and paste the following code:<br>
-          <pre><code class="lang-js">mv ngrok ~/Downloads ~</code></pre> This will put ngrok in your home folder for future use.</li>
-          <li>Run it by typing<br><pre><code class="lang-js">./ngrok http 3000</code></pre></li>
-        </ol>
-        <ol class="pc">
-          <li>Open your downloads folder and search for ngrok-stable-windows-amd64.zip -> right click and extract the file.</li>
-          <li>After unzipping the file, open the ngrok-stable-windows-amd64 folder. Copy the file in the folder. </li>
-          <li>Navigate to your home folder by choosing This PC -> Local Disk(C:) -> Users -> yourusername and paste the file in this folder. <br>
-          <pre><code class="lang-js">mv ngrok ~/Downloads ~</code></pre> This will put ngrok in your home folder for future use.</li>
-          <li>To open ngrok, type the following in the command prompt:
-<br><pre><code class="lang-js">ngrok http 3000</code></pre></li>
-        </ol>
-        <p>You can also follow the instructions on the website download page. To stop ngrok at any time hold down (ctrl+C). If you are using a Mac, you can also open a new tab on the terminal by holding down (command+T). If you are on a PC, you must open a new window the same way you would launch command prompt. </p>
-      </div>
-      <div class="tutorial-step step4 nodejs">
         <p>If you are using a PC, skip this step and continue to 'Make a Bandwidth Account'. <br>Oh My Zsh is a great link for managing the zsh file. <a href="https://github.com/robbyrussell/oh-my-zsh">https://github.com/robbyrussell/oh-my-zsh</p>
         <ol>
           <li>To download Oh My ZSH, copy the following text and paste in the terminal then press enter:<br>
@@ -86,7 +66,7 @@
           </li>
         </ol>
       </div>
-      <div class="tutorial-step step5 nodejs">
+      <div class="tutorial-step step4 nodejs">
         <ol>
           <li><strong>Sign up</strong> for a <a href="http://catapult.inetwork.com/portal/signup">free trial account</a>.
           </li>
@@ -108,15 +88,15 @@
   </div>
   <div id="group2" class="group">
     <div class="step-group-label">
-      <p class="step-tab" data-rel="step6" data-topic="6">Setup environment variables</p>
-      <p class="step-tab" data-rel="step7" data-topic="7">Create JSON file</p>
-      <p class="step-tab" data-rel="step8" data-topic="8">Create index page</p>
-      <p class="step-tab" data-rel="step9" data-topic="9">Install dependencies</p>
-      <p class="step-tab" data-rel="step10" data-topic="10">Start your program</p>
-      <p class="step-tab" data-rel="step11" data-topic="11">Create new client</p>
+      <p class="step-tab" data-rel="step5" data-topic="5">Setup environment variables</p>
+      <p class="step-tab" data-rel="step6" data-topic="6">Create JSON file</p>
+      <p class="step-tab" data-rel="step7" data-topic="7">Create index page</p>
+      <p class="step-tab" data-rel="step8" data-topic="8">Install dependencies</p>
+      <p class="step-tab" data-rel="step9" data-topic="9">Start your program</p>
+      <p class="step-tab" data-rel="step10" data-topic="10">Create new client</p>
     </div>
     <div id="create-app-group" class="top-level-group">
-      <div class="tutorial-step step6 nodejs">
+      <div class="tutorial-step step5 nodejs">
         <ol>
           <li>To find the ID, Token, and Secret, login to API Platform <a href="http://catapult.inetwork.com/pages/login.jsf">here</a>. If you are already logged in, go to step 2.</li>
           <li>Select the Account tab and scroll down until API information appears.</li>
@@ -132,7 +112,7 @@ export BANDWIDTH_API_SECRET=
           </li>
         </ol>
       </div>
-      <div class="tutorial-step step7 nodejs">
+      <div class="tutorial-step step6 nodejs">
         <ol>
           <li class="mac"><strong>Make a directory.</strong> This will make a directory to store all your files and code for a new project. A directory is a folder created by the terminal. To learn more about command lines and creating directories, click <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank">here.</a> Any time you see name throughout this tutorial, replace the name field with what you would like to name the folder or file.<br>
             <pre><code class="lang-js">mkdir name</code></pre></li>
@@ -156,7 +136,7 @@ export BANDWIDTH_API_SECRET=
           </li>
         </ol>
       </div>
-      <div class="tutorial-step step8 nodejs">
+      <div class="tutorial-step step7 nodejs">
         <ol>
           <li class="mac"><strong>Open the text editor:</strong><br>
           <pre><code class="lang-js">stt</code></pre> Stt is a command specific to our sublime plugin installed in GET READY -> CONFIGURE ZSH FILE -> step 2 of the prerequisite guide that allows you to open the project. You may also use st to open a single file rather than the entire project. If you are not using Sublime, open your text editor with its specific commands.</li>
@@ -207,7 +187,7 @@ Save your changes
           </li>
         </ol>
       </div>
-      <div class="tutorial-step step9 nodejs">
+      <div class="tutorial-step step8 nodejs">
         <ol>
           <li><strong>Install the dependencies.</strong> Type each of the below lines into the terminal or command prompt. This step installs all the necessary software for the program to run.<br>
             <pre><code class="lang-js">npm install --save node-bandwidth</code></pre>
@@ -225,7 +205,7 @@ var http = require("http").Server(app);
           <li>Save both your .json and index.js files.</li>
         </ol>
       </div>
-      <div class="tutorial-step step10 nodejs">
+      <div class="tutorial-step step9 nodejs">
         <ol>
           <li><strong>Run the index page.</strong> Type the following in your terminal/command prompt. Your computer may need to download some programs, but the programs will download automatically when you run your code for the first time. This will not happen when you run your code in the future.<br>
           <pre><code class="lang-js">npm start</code></pre>
@@ -233,15 +213,11 @@ var http = require("http").Server(app);
           <li><strong>Open back to home directory.</strong>  To return to your home directory, you can just use cd in the terminal/command prompt without a name afterwards. If you have nested folders and want to go back just one folder, you can also use cd ../ which will take you back one directory.<br>
           <pre><code class="lang-js">cd</code></pre>
           </li>
-          <li class="mac"><strong>Open ngrok.</strong> You must have ngrok running every time you start your program. At any time if the ngrok terminal does not say “connected”, return to your home directory and start the program using the ./ngrok http 3000 command. Note: we are using port 3000. A port is a connection point between a computer and another device. In this case, it is our connection point between our program and the internet. Port 3000 is a common port to run programs from. You can use a different port if it is available. A list of available ports is online and depends on your specific computer.<br>
-          <pre><code class="lang-js">./ngrok http 3000</code></pre></li>
-          <li class="pc"><strong>Open ngrok.</strong> You must have ngrok running every time you start your program. At any time if the ngrok terminal does not say “connected”, return to your home directory and start the program using the ./ngrok http 3000 command. Note: we are using port 3000. A port is a connection point between a computer and another device. In this case, it is our connection point between our program and the internet. Port 3000 is a common port to run programs from. You can use a different port if it is available. A list of available ports is online and depends on your specific computer.<br>
-          <pre><code class="lang-js">ngrok http 3000</code></pre></li>
         </ol>
       </div>
-      <div class="tutorial-step step11 nodejs">
+      <div class="tutorial-step step10 nodejs">
         <ol class="mac">
-          <li><strong>Create a new tab in terminal.</strong> If you are using a standard Mac, you can hold down (command+T) buttons together to open a new tab. Now you will have 2 tabs. One is used to ensure that ngrok is working correctly and the other is to program on. Your application’s web address is always available on the ngrok tab under the forwarding line.</li>
+          <li><strong>Create a new tab in terminal.</strong> If you are using a standard Mac, you can hold down (command+T) buttons together to open a new tab. </li>
           <li><strong>Return to project folder.</strong> This command will return you to the directory, name. You can also type cd - to return to your last used directory. <br>
           <pre><code class="lang-js">cd name</code></pre>
           </li>
@@ -263,7 +239,7 @@ app.set('port', (process.env.PORT || 3000));
           </li>
         </ol>
         <ol class="pc">
-          <li><strong>Create a new tab in terminal.</strong> You can open a new window the same way you originally launch command prompt. Now you will have 2 windows. One is used to ensure that ngrok is working correctly and the other is to program on. Your application’s web address is always available on the ngrok tab under the forwarding line.</li>
+          <li><strong>Create a new tab in terminal.</strong> You can open a new window the same way you originally launch command prompt. </li>
           <li><strong>Return to project folder.</strong> This command will return you to the directory, name. You can also type cd - to return to your last used directory.<br>
           <pre><code class="lang-js">cd name</code></pre>
           </li>
@@ -286,11 +262,11 @@ app.set('port', (process.env.PORT || 3000));
   </div>
   <div id="group3" class="group">
     <div class="step-group-label">
-      <p class="step-tab" data-rel="step12" data-topic="12">Send a message</p>
-      <p class="step-tab" data-rel="step13" data-topic="13">Create outbound call</p>
+      <p class="step-tab" data-rel="step11" data-topic="11">Send a message</p>
+      <p class="step-tab" data-rel="step12" data-topic="12">Create outbound call</p>
     </div>
     <div id="communicate-group" class="top-level-group">
-      <div class="tutorial-step step12 nodejs">
+      <div class="tutorial-step step11 nodejs">
         <ol>
           <li><strong>Create methods.</strong> Copy and paste the below code into your index.js file.<br>
 <pre><code class="lang-js">var sendMessage = function(params){
@@ -331,7 +307,7 @@ app.set('port', (process.env.PORT || 3000));
           <li>You can download the complete files <a href="https://github.com/troft/SendMessage/archive/master.zip" download>here</a></li></li>
         </ol>
       </div>
-      <div class="tutorial-step step13 nodejs">
+      <div class="tutorial-step step12 nodejs">
         <ol>
           <li><strong>Create a call method.</strong> The following code is the basis for making an outbound call. Copy and paste it into the index file. The callbackHttpMethod and callbackUrl is used to speak a sentence into the call. The sentence is in an xml file created by Bandwidth. Feel free to create your own xml file.<br>
 <pre><code class="lang-js">var createCall = function(params){
