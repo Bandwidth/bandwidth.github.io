@@ -7,7 +7,9 @@
 * [GitHub](https://github.com/Bandwidth)
 
 ## Guides
-* [Get Started](get-started.md)
+* [Get Started](getStarted.md)
+  * [Setup Guide](getStartedSetupGuide.md)
+  * [Programming Guide](getStartedProgGuide.md)
 * [Building Blocks](howto/howto.md)
   * [Receive Messages and Calls](howto/incomingCallandMessaging.md)
   * [Phone Numbers](howto/phonenumbers.md)
