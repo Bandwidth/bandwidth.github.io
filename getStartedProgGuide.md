@@ -1,5 +1,5 @@
-# Programming Guide
-[.Net](../getStarted.md),[PHP](../getStarted.md),[Java](../getStarted.md),[Python](../getStarted.md),[Node-JS](../getStarted.md),[Ruby](../getStarted.md),[Go](../getStarted.md)
+# Voice & Messaging Developer Guide
+[.Net](../getStarted.md) | [PHP](../getStarted.md) | [Java](../getStarted.md) | [Python](../getStarted.md) | [Node-JS](../getStarted.md) | [Ruby](../getStarted.md) | [Go](../getStarted.md)
 ### Send and Receive Text Messages using .Net 
 
 *_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any language.  The example pane to the right contains code snippets in various languages and the menu to the left conatins links to SDKs.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any language or tool capable of making HTTPS requests._*
