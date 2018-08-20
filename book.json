@@ -99,7 +99,7 @@
         "parseUrls" : {
             "urls": [
               {
-                "url": "https://api.github.com/orgs/BandwidthExamples/repos",
+                "url": "https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100",
                 "dest": "howto/deployableDemos.md"
               }
            ]
