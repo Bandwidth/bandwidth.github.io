@@ -1,6 +1,31 @@
 # Voice & Messaging Developer Guide
 [.Net](../getStarted.md) | [PHP](../getStarted.md) | [Java](../getStarted.md) | [Python](../getStarted.md) | [Node-JS](../getStarted.md) | [Ruby](../getStarted.md) | [Go](../getStarted.md)
-### Send and Receive Text Messages using .Net 
+
+
+### Core Concepts
+#### REST Calls and Callbacks
+Bandwidth's Voice & Messaging APIs use callbacks to communicate with the developer's servers hosting applications.  Callbacks are triggered by things like incoming calls, incoming messages, or other API calls that have a callback defined.  Understadning callbacks and how they work is a prerequisite to developing complex communications applications with Bandwidth's APIs.
+
+![Callback Flow](https://dev.bandwidth.com/ap-docs/apiCallbacks/images/callback-events1.png)
+
+*Guides*
+* [Send SMS & MMS Guide](https://dev.bandwidth.com/howto/sendSMSMMS.html)
+* [Receive Messages or Calls](https://dev.bandwidth.com/howto/incomingCallandMessaging.html) 
+* [Building Blocks](https://dev.bandwidth.com/howto/howto.html) 
+* [Rate Limits](https://dev.bandwidth.com/ap-docs/rateLimits.html) 
+
+#### BXML for Voice Applications
+Voice applications can be built using BXML (Bandwidth Extensible Markup Language).  BXML is incredibly powerful and easy to use.  For incoming calls, your application can form and serve BXML documents on the URL setup for voice callbacks.  For outgoing voice calls, a REST API is used to establish the call, then the callback will fetch the BXML from your application server.
+
+![BXML Flow](https://dev.bandwidth.com/ap-docs/bxml/BXMLCallFlow.png)
+
+*Guides*
+* [BXML Overview](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+* [BXML Guide](https://dev.bandwidth.com/ap-docs/bxml/bxmlConcepts.html)
+* [BXML Reference](https://dev.bandwidth.com/ap-docs/bxml/bxml.html)
+
+### Step-by-Step Voice & Messaging Development
+#### Development Environment and Authentication Setup 
 
 *_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any language.  The example pane to the right contains code snippets in various languages and the menu to the left conatins links to SDKs.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any language or tool capable of making HTTPS requests._*
 
@@ -25,6 +50,8 @@ public class Program
     private const string Secret = "secret"; // secret 
 }
 ```
+
+### Send and Receive Text Messages using .Net
 
 * Create a method that instatiates a new Client object and uses the SendAsync method to send a message.
 
