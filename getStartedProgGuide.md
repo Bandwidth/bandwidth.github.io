@@ -27,7 +27,7 @@ Voice applications can be built using BXML (Bandwidth Extensible Markup Language
 ### Step-by-Step Voice & Messaging Development
 #### Development Environment and Authentication Setup 
 
-*_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any language.  The example pane to the right contains code snippets in various languages and the menu to the left conatins links to SDKs.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any language or tool capable of making HTTPS requests._*
+*_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
 
 * Open your favorite .Net/C# IDE.  You can find a free one [here](https://visualstudio.microsoft.com/vs/community/).   
 * Get the Bandwidth C# SDK (Available via NuGet or [here](https://dev.bandwidth.com/clientLib/csharp.html)) 
