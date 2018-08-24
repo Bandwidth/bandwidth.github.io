@@ -1,5 +1,5 @@
 # Voice & Messaging Developer Guide
-[.Net](../getStarted.md) | [PHP](../getStarted.md) | [Java](../getStarted.md) | [Python](../getStarted.md) | [Node-JS](../getStarted.md) | [Ruby](../getStarted.md) | [Go](../getStarted.md)
+[.Net](../getStartedProgGuide.html) | [PHP](../getStartedProgGuide-php.html) | [Java](../getStartedProgGuide-java.html) | [Python](../getStartedProgGuide-python.html) | [Node-JS](../getStartedProgGuide-nodejs.html) | [Ruby](../getStartedProgGuide-ruby.html) 
 
 
 ### Core Concepts
