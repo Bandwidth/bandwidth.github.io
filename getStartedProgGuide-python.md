@@ -27,186 +27,90 @@ Voice applications can be built using BXML (Bandwidth Extensible Markup Language
 ### Step-by-Step Voice & Messaging Development
 #### Development Environment and Authentication Setup 
 
-*_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+*_The examples below use Python and Bandwidth's [Python SDK](https://dev.bandwidth.com/clientLib/python.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
 
-* Open your favorite .Net/C# IDE.  You can find a free one [here](https://visualstudio.microsoft.com/vs/community/).   
-* Get the Bandwidth C# SDK (Available via NuGet or [here](https://dev.bandwidth.com/clientLib/csharp.html)) 
-* Include necessary libraries.
+* Install the Bandwidth Python SDK with the following command
 
-```csharp
-using System;
-using System.Threading.Tasks;
-using Bandwidth.Net;
-using Bandwidth.Net.Api;
+```
+pip install bandwidth-sdk
 ```
 
-* Create a class and setup authentication constants.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  
+* Import the client in your code
 
-```csharp
-public class Program
-{
-    private const string UserId = "u-userID"; // user_id 
-    private const string Token = "t-token"; // token 
-    private const string Secret = "secret"; // secret 
-}
+```python
+import bandwidth # Import the entire client
+
+from bandwidth import messaging, voice, account # Import each client individually
 ```
 
-### Send and Receive Text Messages using .Net
+* Initialize your desired API clients.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  
 
-* Create a method that instatiates a new Client object and uses the SendAsync method to send a message.
+```python
+# Importing the entire client
+import bandwidth
 
-```csharp
-    private static async Task RunAsync()
-    {
-        var client = new Client(UserId, Token, Secret);
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+messaging_api = bandwidth.client('messaging', 'u-user', 't-token', 's-secret')
+account_api = bandwidth.client('account', 'u-user', 't-token', 's-secret')
 
-        var sms = await client.Message.SendAsync(new MessageData
-        {
-            From = "+19195551212", // Your Bandwidth number
-            To = "+19195551234",
-            Text = "Hello World"
-        });
-    }
+# Importing each client individually
+from bandwidth import messaging, voice, account
+
+messaging_api = messaging.Client('u-user', 't-token', 's-secret')
+voice_api = voice.Client('u-user', 't-token', 's-secret')
+account_api = account.Client('u-user', 't-token', 's-secret')
 ```
 
-* Create a Main method that calls the RunAsync method and waits for a response.
+* This guide uses the method of importing the entire client, but both methods are equivalent and can be interchanged.
 
-```csharp
-    public static void Main()
-    {
-        try
-        {
-            RunAsync().Wait();
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine(ex.Message);
-            Environment.ExitCode = 1;
-        }
-    }
+### Send and Receive Text Messages using Python
+
+* Create a method that instatiates a messaging api client object and uses the send_message method to send a message.
+
+```python
+import bandwidth
+
+messaging_api = bandwidth.client('messaging', 'u-user', 't-token', 's-secret')
+messaging_api.send_message(from_ = "+19195551212", # Your Bandwidth number
+                           to = "+19195551234",
+                           text = "Hello World")
 ```
 
-* Run the program and it should send the "Hello World" message to the nuber specified.  Complete code:
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using Bandwidth.Net;
-using Bandwidth.Net.Api;
-
-public class Program
-{
-  private const string UserId = "u-userID"; // user_id
-  private const string Token = "t-token"; // token
-  private const string Secret = "secret"; // secret
-
-  public static void Main()
-  {
-    try
-    {
-      RunAsync().Wait();
-    }
-    catch (Exception ex)
-    {
-      Console.Error.WriteLine(ex.Message);
-      Environment.ExitCode = 1;
-    }
-  }
-
-  private static async Task RunAsync()
-  {
-    var client = new Client(UserId, Token, Secret);
-
-    var sms = await client.Message.SendAsync(new MessageData
-    {
-      From = "+19195551212", // Your Bandwidth number
-      To = "+19195551214",
-      Text = "Hello World"
-    });
-  }
-}
-```
+* Run the program and it should send the "Hello World" message to the number specified.
 
 ### Create a Call and Play Some Audio
 
-* To create a voice call, use the code framework we put together for sending a message, but change the RunAsync method to look like this:
+* To create a voice call, use the code framework we put together for sending a message, but instead we use the voice client and the create_call method:
 
-```csharp
-private static async Task RunAsync()
-{
-  var client = new Client(UserId, Token, Secret);
+```python
+import bandwidth
 
-  var callId = await client.Call.CreateAsync(new CreateCallData {
-      From = "+12345678901", // Your Bandwidth number
-      To   = "+12345678902"
-  });
-}
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+voice_api.create_call(from_ = '+1234567890', # Your Bandwidth number
+                      to = '+1234567891')
 ```
 
 * Now add code to play a message then hangup using the call id and status of the voice call.
 
-```csharp
-private static async Task RunAsync()
-{
-    // Instantiate Bandwidth Client Object
-    var client = new Client(UserId, Token, Secret);
-    
-    // Create a call
-    var callId = await client.Call.CreateAsync(new CreateCallData
-    {
-        From = "+11234567890", // Your Bandwidth number
-        To = "+11234567899" // Your mobile number for example
-    });
+```python
+import bandwidth
+import time
 
-    // Now that we have a call, let's check the call state every 
-    // two seconds and play a message when the call is answered
-    Call call;
-
-    do
-    {
-        //Pause execution for 2 seconds
-        System.Threading.Thread.Sleep(2000);
-
-        //Get the call info
-        call = await client.Call.GetAsync(callId);
-
-        //Check call for active state (call answered)
-        if (call.State == CallState.Active)
-        {
-            // Play some text to speech
-            await client.Call.SpeakSentenceAsync(
-                     callId,
-                     "Hello From Bandwidth. Goodbye."
-                  );
-
-            //Pause execution so we don't hang up while speaking
-            System.Threading.Thread.Sleep(3000);
-
-            //Hangup
-            await client.Call.HangupAsync(
-                     callId
-                  );
-        }
-        // Repeat until call state is a hangup or error state 
-    } while (call.State != CallState.Completed &&
-             call.State != CallState.Error     &&
-             call.State != CallState.Rejected
-            );
-}
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+call_id = voice_api.create_call(from_ = '+1234567890', # Your Bandwidth number
+                                to = '+1234567891')
+voice_api.play_audio_to_call(call_id, sentence="Hello From Bandwidth. Goodbye.")
+time.sleep(5) # Necessary to make sure the sentence is spoken before hanging up
+voice_api.hangup_call(call_id)
 ```
 
 ### Receive a Text Message (or any other callback)
 
-* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Flask and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
 
-```csharp
-// In ASP.Net action
-var callbackEvent = await Request.Content.ReadAsCallbackEventAsync();
-
-// anywhere
-var callbackEvent = await content.ReadAsCallbackEventAsync(); 
-
-// SMS callback looks like this:
+```python
+"""
+SMS callback looks like this:
 POST /your_url HTTP/1.1
 Content-Type: application/json; charset=utf-8
 User-Agent: BandwidthAPI/v1
@@ -223,38 +127,11 @@ User-Agent: BandwidthAPI/v1
  "time"          : "2012-11-14T16:13:06.076Z",
  "state"         : "received"
 }
-```
-
-### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
-
-*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
-
-* Using C# SDK
-
-```csharp
-using Bandwidth.Net.XmlV2.Verbs;
-using Bandwidth.Net.Xml;
-
-var response = new Response(new SpeakSentence{
-    Gender = "female",
-    Locale = "en_US",
-    Sentence = "Hello from Bandwidth",
-    Voice = "susan"
-});
-
-var xml = response.ToXml();
-```
-
-* The above code creates a document that looks like:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Response>
-
-<SpeakSentence voice="susan" locale="en_US" gender="female">
-Hello from Bandwidth.
-</SpeakSentence>
-
-</Response>
+"""
+from flask import Flask, request
+app = Flask(__name__)
+@app.route('/your_url', methods=["POST"])
+def callback():
+    data = request.data
+    print(data)
 ```
