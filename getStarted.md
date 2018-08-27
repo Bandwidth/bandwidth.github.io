@@ -1,4 +1,5 @@
-# Get Started with Bandwidth APIs 
+# Get Started with Bandwidth APIs
+
 
 ## Voice & Messaging 
 | Resource                                                     | Description                                                                                                            |
@@ -7,6 +8,7 @@
 |[Developer Guide](/getStartedProgGuide.html)               | Write code using the Bandwidth Voice & Messaging APIs.                                                                 |
 |[Voice & Messaging Dashboard](https://app.bandwidth.com)      | Portal you will use to buy numbers, setup applications, and manage your API credentials.                               |  
 |[C#](clientLib/csharp.md) - [Node JS](clientLib/node.md) - [Ruby](clientLib/ruby.md) - [Python](clientLib/python.md) - [Java](clientLib/java.md) - [PHP](clientLib/php.md)| SDKs for building voice and messaging applications.|
+
 
 
 ## Numbers & e911 
