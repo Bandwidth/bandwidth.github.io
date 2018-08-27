@@ -1,5 +1,4 @@
-
-# Get Started with Bandwidth Voice & Messaging APIs 
+# Get Started with Bandwidth APIs 
 
 ## Voice & Messaging 
 | Resource                                                     | Description                                                                                                            |
@@ -34,70 +33,3 @@
 |[Python](https://github.com/Bandwidth/python-bandwidth-iris)|
 |[Java](https://github.com/Bandwidth/java-bandwidth-iris)|
 |[PHP](https://github.com/Bandwidth/php-bandwidth-iris)|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
