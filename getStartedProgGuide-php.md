@@ -27,184 +27,122 @@ Voice applications can be built using BXML (Bandwidth Extensible Markup Language
 ### Step-by-Step Voice & Messaging Development
 #### Development Environment and Authentication Setup 
 
-*_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+*_The examples below use PHP and Bandwidth's [PHP SDK](https://dev.bandwidth.com/clientLib/php.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left contains links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+  
+* Get the Bandwidth PHP SDK [here](https://dev.bandwidth.com/clientLib/php.html)). 
 
-* Open your favorite .Net/C# IDE.  You can find a free one [here](https://visualstudio.microsoft.com/vs/community/).   
-* Get the Bandwidth C# SDK (Available via NuGet or [here](https://dev.bandwidth.com/clientLib/csharp.html)) 
-* Include necessary libraries.
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using Bandwidth.Net;
-using Bandwidth.Net.Api;
+```php
+<?php
+require_once('../source/Catapult.php');
+?>
 ```
 
-* Create a class and setup authentication constants.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  
+* Setup authentication.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  
 
-```csharp
-public class Program
-{
-    private const string UserId = "u-userID"; // user_id 
-    private const string Token = "t-token"; // token 
-    private const string Secret = "secret"; // secret 
+```php
+$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWITH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+```
+
+### Send and Receive Text Messages using PHP
+
+* Create a Message object and call the create method to send a message.
+
+```php
+<?php
+require_once('../source/Catapult.php');
+// Below is a sample text message
+// using Bandwidth's SMS feature
+// IMPORTANT: edit credentials.json
+// with your information
+// or comment out below /w your keys
+//
+$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWITH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+// $cred = new Catapult\Credentials;
+// dont forget to comment out the implicit version if using assoc array
+
+$client = new Catapult\Client($cred);
+if (!(isset($argv[1]) || isset($argv[2]) || isset($argv[3])))
+    die ("\nPlease provide command line input like: \n php ./sample-message.php 'from' 'to' 'message'\n\n");
+try {
+    $message = new Catapult\Message(array(
+        "from" => new Catapult\PhoneNumber($argv[1]),
+        "to" => new Catapult\PhoneNumber($argv[2]), 
+        "text" => new Catapult\TextMessage($argv[3])
+    ));
+    printf("\nWe've messaged number: %s, said, %s!\n", $argv[2], $argv[3]);
+} catch (\CatapultApiException $e) {
+    echo var_dump($e);  
 }
+?>
 ```
 
-### Send and Receive Text Messages using .Net
+### Create a Call 
 
-* Create a method that instatiates a new Client object and uses the SendAsync method to send a message.
+* Create a Call object and use its create method to make an outbound call:
 
-```csharp
-    private static async Task RunAsync()
-    {
-        var client = new Client(UserId, Token, Secret);
+```php
+<?php
+require_once('../source/Catapult.php');
+// below is a sample phone call
 
-        var sms = await client.Message.SendAsync(new MessageData
-        {
-            From = "+19195551212", // Your Bandwidth number
-            To = "+19195551234",
-            Text = "Hello World"
-        });
-    }
-```
+$cred = new Catapult\Client('BANDWIDTH_USER_ID', 'BANDWIDTH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+// comment out if you have
+// credentials.json
+//$cred = new Catapult\Client;
 
-* Create a Main method that calls the RunAsync method and waits for a response.
-
-```csharp
-    public static void Main()
-    {
-        try
-        {
-            RunAsync().Wait();
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine(ex.Message);
-            Environment.ExitCode = 1;
-        }
-    }
-```
-
-* Run the program and it should send the "Hello World" message to the nuber specified.  Complete code:
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using Bandwidth.Net;
-using Bandwidth.Net.Api;
-
-public class Program
-{
-  private const string UserId = "u-userID"; // user_id
-  private const string Token = "t-token"; // token
-  private const string Secret = "secret"; // secret
-
-  public static void Main()
-  {
-    try
-    {
-      RunAsync().Wait();
-    }
-    catch (Exception ex)
-    {
-      Console.Error.WriteLine(ex.Message);
-      Environment.ExitCode = 1;
-    }
+define("ARGS_NEEDED", 3);
+define("ARGS_DESC", "./sample-call.php '+FROMNUMBER' '+TONUMBER'");
+try {
+  if (sizeof($argv)  == ARGS_NEEDED) { 
+    $call = new Catapult\Call(array(
+      "from" => $argv[1],
+      "to" => $argv[2]
+    ));
+  } else {
+    printf("You must supply at least %s arguments like: %s", ARGS_NEEDED, ARGS_DESC);
   }
-
-  private static async Task RunAsync()
-  {
-    var client = new Client(UserId, Token, Secret);
-
-    var sms = await client.Message.SendAsync(new MessageData
-    {
-      From = "+19195551212", // Your Bandwidth number
-      To = "+19195551214",
-      Text = "Hello World"
-    });
-  }
-}
-```
-
-### Create a Call and Play Some Audio
-
-* To create a voice call, use the code framework we put together for sending a message, but change the RunAsync method to look like this:
-
-```csharp
-private static async Task RunAsync()
-{
-  var client = new Client(UserId, Token, Secret);
-
-  var callId = await client.Call.CreateAsync(new CreateCallData {
-      From = "+12345678901", // Your Bandwidth number
-      To   = "+12345678902"
-  });
-}
-```
-
-* Now add code to play a message then hangup using the call id and status of the voice call.
-
-```csharp
-private static async Task RunAsync()
-{
-    // Instantiate Bandwidth Client Object
-    var client = new Client(UserId, Token, Secret);
-    
-    // Create a call
-    var callId = await client.Call.CreateAsync(new CreateCallData
-    {
-        From = "+11234567890", // Your Bandwidth number
-        To = "+11234567899" // Your mobile number for example
-    });
-
-    // Now that we have a call, let's check the call state every 
-    // two seconds and play a message when the call is answered
-    Call call;
-
-    do
-    {
-        //Pause execution for 2 seconds
-        System.Threading.Thread.Sleep(2000);
-
-        //Get the call info
-        call = await client.Call.GetAsync(callId);
-
-        //Check call for active state (call answered)
-        if (call.State == CallState.Active)
-        {
-            // Play some text to speech
-            await client.Call.SpeakSentenceAsync(
-                     callId,
-                     "Hello From Bandwidth. Goodbye."
-                  );
-
-            //Pause execution so we don't hang up while speaking
-            System.Threading.Thread.Sleep(3000);
-
-            //Hangup
-            await client.Call.HangupAsync(
-                     callId
-                  );
-        }
-        // Repeat until call state is a hangup or error state 
-    } while (call.State != CallState.Completed &&
-             call.State != CallState.Error     &&
-             call.State != CallState.Rejected
-            );
+} catch (CatapultApiException $exception) {
+  $result = $exception->getResult();
+  // do something with the result
 }
 ```
 
 ### Receive a Text Message (or any other callback)
 
-* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in the Setup Guide and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
 
-```csharp
-// In ASP.Net action
-var callbackEvent = await Request.Content.ReadAsCallbackEventAsync();
+```php
+//Incoming callbacks need to be exposed as an incoming request on your server.
 
-// anywhere
-var callbackEvent = await content.ReadAsCallbackEventAsync(); 
+<?php
+require_once('../source/Catapult.php');
+// below is a sample event 
+// this will listen for a call event
+// and when received output to screen
+// IMPORTANT: edit credentials.json
+// with your information
+// or comment out below /w your keys
+// For events, you will need to make sure
+// the callback url is set.
+//
+$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWIDTH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+//$cred = new Catapult\Credentials;
+// dont forget to comment out the implicit version if using assoc array
+$client = new Catapult\Client($cred);
+try {
+  $event = new Catapult\Event($_REQUEST); 
+  /**
+   * Once we have received an event
+   * log the event, in logs (./logs)
+         * Arrange event with time event was received:
+         * event_{time}.log
+   */
+   printf("New event, id: %d", $event->id);
+   file_put_contents("./" . $event->time . ".log", json_encode($event));
+} catch (\CatapultApiException $e) {
+  echo var_dump($e);  
+}
+?>
 
 // SMS callback looks like this:
 POST /your_url HTTP/1.1
@@ -225,36 +163,48 @@ User-Agent: BandwidthAPI/v1
 }
 ```
 
-### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+### Use the PHP SDK to Generate [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
 
-*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth PHP SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
 
-* Using C# SDK
+* Using PHP SDK
 
-```csharp
-using Bandwidth.Net.XmlV2.Verbs;
-using Bandwidth.Net.Xml;
-
-var response = new Response(new SpeakSentence{
-    Gender = "female",
-    Locale = "en_US",
-    Sentence = "Hello from Bandwidth",
-    Voice = "susan"
-});
-
-var xml = response.ToXml();
-```
-
-* The above code creates a document that looks like:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Response>
-
-<SpeakSentence voice="susan" locale="en_US" gender="female">
-Hello from Bandwidth.
-</SpeakSentence>
-
-</Response>
+```php
+<?php
+require_once('../source/Catapult.php');
+// below is a sample of Bandwidth BXML (BaML)
+// it will execute the provided verb 
+// IMPORTANT: edit credentials.json
+// with your information
+// or comment out below /w your keys
+//
+//$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWIDTH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+$cred = new Catapult\Credentials;
+// dont forget to comment out the implicit version if using assoc array
+// this example is cli based
+// use like:
+// php ./sample-baml.php "verb" "attribute" "value"
+// example
+// php ./sample-baml.php "SpeakSentence" "voice" "female"
+$client = new Catapult\Client($cred);
+if (!(isset($argv[1]) || isset($argv[2]) || isset($argv[3])))
+  die ("\nPlease provide command line input like: \n php ./sample-verb.php 'verb' 'attribute' 'value'\n\n");
+try {
+    $verb = $argv[1];
+    $attribute = $argv[2];
+    $value = $argv[3];
+    $baml = new Catapult\BaML;
+    $bverb = Catapult\BaMLVerb::fromString($verb);
+    $bverb->create(array(
+        new Catapult\BaMLAttribute($attribute, $value)
+    ));
+    // here we can add other things
+    // verbs, attributes or text
+    $bverb->addText("example");
+    $baml->set($bverb);
+    printf("The following BaML was generated: \n\n%s\n\n",$baml);
+} catch (\CatapultApiException $e) {
+  echo var_dump($e);  
+}
+?>
 ```
