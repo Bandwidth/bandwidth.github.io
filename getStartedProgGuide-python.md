@@ -135,3 +135,31 @@ def callback():
     data = request.data
     print(data)
 ```
+
+
+### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
+
+* Using Python SDK
+
+```python
+from bandwidth.voice.bxml import Response
+from lxml.builder import E
+
+response = Response(E.Call({
+    "gender":"female",
+    "locale":"en_US",
+    "sentence":"Hello from Bandwidth",
+    "voice":"susan"
+}))
+
+
+print(response.to_xml())
+```
+
+* The above code will print the following statement:
+
+```xml
+b'<xml><Response><Call gender="female" locale="en_US" sentence="Hello from Bandwidth" voice="susan"/></Response></xml>'
+```
