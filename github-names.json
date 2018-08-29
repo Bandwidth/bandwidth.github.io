@@ -53,5 +53,20 @@
     "node-per-number-transactions":"Export Phone Number Transaction Data",
     "simple-text-messenger":"Text Messenger Example App",
     "sip-handler-bxml":"SIP credential generator using BXML",
-    "react-native-phone":"React Phone Example"
+    "react-native-phone":"React Phone Example",
+    "ruby-messaging-reference-app":"Messaging App Example",
+    "ruby-click-to-call":"Click To Call Example",
+    "ruby-assisted-transfer":"Assisted Transfer Flow",
+    "ruby-web-sms-chat":"Web SMS Chat Example",
+    "ruby-appointment-reminder":"Appointment Reminder",
+    "ruby-media-to-s3":"MMS Upload to Amazon S3 Example",
+    "ios-messaging-reference-app":"iOS Catapult Reference App",
+    "masked-number-api":"Simple Masked Numbers Example",
+    "masked-number-api-bxml":"Simple Masked Numbers Example Using BXML",
+    "web-sms-chat-frontend":"Web-based SMS and MMS Chat Application",
+    "web-phone-frontend":"Web-based Phone Application",
+    "message-proxy-mqtt":"Proxy Example Using Messaging V2",
+    "bandwidth-cli":"Bandwidth API Command Line Interface",
+    "bxml-maker":"BXML Editor",
+    "ruby-call-tracking":"Call Tracking Example"
 }
