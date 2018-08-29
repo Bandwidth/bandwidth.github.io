@@ -64,9 +64,3 @@
 ## Help
 * [FAQ](https://dev.bandwidth.com/faq)
 * [Support](https://support.bandwidth.com)
-  * [C Sharp](getStartedProgGuide.md)
-  * [PHP](getStartedProgGuide-php.md)
-  * [Java](getStartedProgGuide-java.md)
-  * [Python](getStartedProgGuide-python.md)
-  * [NodeJS](getStartedProgGuide-nodejs.md)
-  * [Ruby](getStartedProgGuide-ruby.md)

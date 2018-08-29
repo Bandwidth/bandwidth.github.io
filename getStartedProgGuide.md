@@ -1,6 +1,6 @@
-# Voice & Messaging Developer Guide
-[.Net](../getStartedProgGuide.html) | [PHP](../getStartedProgGuide-php.html) | [Java](../getStartedProgGuide-java.html) | [Python](../getStartedProgGuide-python.html) | [Node-JS](../getStartedProgGuide-nodejs.html) | [Ruby](../getStartedProgGuide-ruby.html) 
+{% method %}
 
+# Voice & Messaging Developer Guide
 
 ### Core Concepts
 #### REST Calls and Callbacks
@@ -24,8 +24,7 @@ Voice applications can be built using BXML (Bandwidth Extensible Markup Language
 * [BXML Guide](https://dev.bandwidth.com/ap-docs/bxml/bxmlConcepts.html)
 * [BXML Reference](https://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 
-### Step-by-Step Voice & Messaging Development
-#### Development Environment and Authentication Setup 
+{% sample lang="csharp" %}
 
 *_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
 
@@ -258,3 +257,682 @@ Hello from Bandwidth.
 
 </Response>
 ```
+
+{% sample lang="python" %}
+
+*_The examples below use Python and Bandwidth's [Python SDK](https://dev.bandwidth.com/clientLib/python.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+
+* Install the Bandwidth Python SDK with the following command
+
+```
+pip install bandwidth-sdk
+```
+
+* Import the client in your code
+
+```python
+import bandwidth # Import the entire client
+
+from bandwidth import messaging, voice, account # Import each client individually
+```
+
+* Initialize your desired API clients.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.
+
+```python
+# Importing the entire client
+import bandwidth
+
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+messaging_api = bandwidth.client('messaging', 'u-user', 't-token', 's-secret')
+account_api = bandwidth.client('account', 'u-user', 't-token', 's-secret')
+
+# Importing each client individually
+from bandwidth import messaging, voice, account
+
+messaging_api = messaging.Client('u-user', 't-token', 's-secret')
+voice_api = voice.Client('u-user', 't-token', 's-secret')
+account_api = account.Client('u-user', 't-token', 's-secret')
+```
+
+* This guide uses the method of importing the entire client, but both methods are equivalent and can be interchanged.
+
+### Send and Receive Text Messages using Python
+
+* Create a method that instatiates a messaging api client object and uses the send_message method to send a message.
+
+```python
+import bandwidth
+
+messaging_api = bandwidth.client('messaging', 'u-user', 't-token', 's-secret')
+messaging_api.send_message(from_ = "+19195551212", # Your Bandwidth number
+                           to = "+19195551234",
+                           text = "Hello World")
+```
+
+* Run the program and it should send the "Hello World" message to the number specified.
+
+### Create a Call and Play Some Audio
+
+* To create a voice call, use the code framework we put together for sending a message, but instead we use the voice client and the create_call method:
+
+```python
+import bandwidth
+
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+voice_api.create_call(from_ = '+1234567890', # Your Bandwidth number
+                      to = '+1234567891')
+```
+
+* Now add code to play a message then hangup using the call id and status of the voice call.
+
+```python
+import bandwidth
+import time
+
+voice_api = bandwidth.client('voice', 'u-user', 't-token', 's-secret')
+call_id = voice_api.create_call(from_ = '+1234567890', # Your Bandwidth number
+                                to = '+1234567891')
+voice_api.play_audio_to_call(call_id, sentence="Hello From Bandwidth. Goodbye.")
+time.sleep(5) # Necessary to make sure the sentence is spoken before hanging up
+voice_api.hangup_call(call_id)
+```
+
+### Receive a Text Message (or any other callback)
+
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Flask and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+
+```python
+"""
+SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ "eventType"     : "sms",
+ "direction"     : "in",
+ "messageId"     : "{messageId}",
+ "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+ "from"          : "+19195551214",
+ "to"            : "+19195551212",
+ "text"          : "Hello World",
+ "applicationId" : "{appId}",
+ "time"          : "2012-11-14T16:13:06.076Z",
+ "state"         : "received"
+}
+"""
+from flask import Flask, request
+app = Flask(__name__)
+@app.route('/your_url', methods=["POST"])
+def callback():
+    data = request.data
+    print(data)
+```
+
+### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._*
+
+* Using Python SDK
+
+```python
+from bandwidth.voice.bxml import Response
+from lxml.builder import E
+
+response = Response(E.Call({
+    "gender":"female",
+    "locale":"en_US",
+    "sentence":"Hello from Bandwidth",
+    "voice":"susan"
+}))
+
+print(response.to_xml())
+```
+
+* The above code will print the following statement:
+
+```xml
+b'<xml><Response><Call gender="female" locale="en_US" sentence="Hello from Bandwidth" voice="susan"/></Response></xml>'
+```
+
+{% sample lang="java" %}
+
+*_The examples below use Java and Bandwidth's [Java SDK](https://dev.bandwidth.com/clientLib/java.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left contains links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+
+* Open your favorite Java IDE.  You can find a free one [here](https://eclipse.org).
+* Get the Bandwidth Java SDK (Available via Maven or [here](https://dev.bandwidth.com/clientLib/java.html)).
+* Include necessary packages.
+
+```java
+package com.bandwidth.sdk.examples;
+import com.bandwidth.sdk.model.*;
+import com.bandwidth.sdk.model.events.*;
+```
+
+* Create a class and setup authentication.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.
+
+```java
+public class BandwidthExample {
+  public static void main(final String[]args) {
+
+          // First test if the creds are set via environment args
+          String userId = System.getenv().get("BANDWIDTH_USER_ID");
+          String apiToken = System.getenv().get("BANDWIDTH_API_TOKEN");
+          String apiSecret = System.getenv().get("BANDWIDTH_API_SECRET");
+
+          try {
+              final Account account = Account.get();
+
+              System.out.println("Environment Vars:");
+              System.out.println(account.getAccountInfo());
+          }
+          catch(final Exception e) {
+              e.printStackTrace();
+          }
+  }
+}
+
+```
+
+### Send and Receive Text Messages using Java
+
+* Create a Message object and call the create method to send a message.
+
+```java
+public class TextMessageExample {
+  /**
+   * @param args the args.
+   */
+  public static void main(final String[] args) {
+    // There are two ways to set your creds, e.g. your App Platform userId, api token and api secret
+    // you can set these as environment variables or set them with the
+    // BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret) method.
+    //
+    // Use the setenv.sh script to set the env variables
+    // BANDWIDTH_USER_ID
+    // BANDWIDTH_API_TOKEN
+    // BANDWIDTH_API_SECRET
+    //
+    // or uncomment this line and set them here
+    // BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);
+
+    // put your numbers in here
+    final String toNumber = "+1";// your phone number here
+    final String fromNumber = "+1";// this is a number that is allocated on the AppPlatform. You can do this
+               // via the dev console or with the SDK (see AllocateNumberExample)
+
+    try {
+
+      final Message message = Message.create(toNumber, fromNumber, "Test, test! What up from App Platform");
+
+      System.out.println("message:" + message);
+    }
+    catch(final Exception e) {
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Create a Call and Play Some Audio
+
+* Create a Call object and use its create method to make an outbound call, then play a message using the speakSentence method:
+
+```java
+package com.bandwidth.sdk.examples;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import com.bandwidth.sdk.model.Call;
+
+/**
+ * This example shows how to make an outbound call using the sdk. It dials a number and speaks a sentence.
+ *
+ * Note that this does not implement an event server. See java-bandwidth-examples for a full event server.
+ *
+ * @author smitchell
+ *
+ */
+public class OutboundCallExample {
+
+  /**
+   * @param args the args.
+   * @throws Exception error.
+   */
+  public static void main(final String[] args) throws Exception{
+        // There are two ways to set your creds, e.g. your App Platform userId, api token and api secret
+    // you can set these as environment variables or set them with the
+    // BandwidthClient.getInstance(userId, apiToken, apiSecret) method.
+    //
+    // Use the setenv.sh script to set the env variables
+      // BANDWIDTH_USER_ID
+      // BANDWIDTH_API_TOKEN
+      // BANDWIDTH_API_SECRET
+    //
+    // or uncomment this line and set them here
+    // BandwidthClient.getInstance(userId, apiToken, apiSecret);
+
+    // put your numbers in here
+    final String toNumber = "+1";// your phone number here
+    final String fromNumber = "+1";// this is a number that is allocated on the AppPlatform. You can do this
+               // via the dev console or with the SDK (see AllocateNumberExample)
+
+    final Call call = Call.create(toNumber, fromNumber);
+
+    System.out.println("call:" + call);
+
+    //wait a few seconds here. Note that in a real application you'll handle the answer event
+    // in your event server. See java-bandwidth-examples for how to do this
+    try {
+        Thread.sleep(10000);
+    } catch(final InterruptedException ex) {
+        Thread.currentThread().interrupt();
+    }
+
+    final Map<String, Object>params = new HashMap<String, Object>();
+    params.put("sentence", "Hey there! Welcome to the App Platform!");
+    params.put("voice", "kate"); // she's one of our favorites!
+    call.speakSentence(params);
+
+
+    //wait a few more seconds to let the message play. Again in a real application this would be part
+    // of your event handling. See java-bandwidth-examples for how to do this
+    try {
+        Thread.sleep(4000);
+    } catch(final InterruptedException ex) {
+        Thread.currentThread().interrupt();
+    }
+
+    System.out.println("Updated call:" + call);
+    call.hangUp();
+  }
+
+}
+```
+
+### Receive a Text Message (or any other callback)
+
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in the Setup Guide and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+
+```java
+//Incoming callbacks need to be exposed as an incoming request on your server.
+//Once a request is recieved it can be delegated to a handler based on the EventType.
+//There is a complete example of handling events at: https://github.com/Bandwidth/java-bandwidth-examples/blob/master/src/main/java/com/bandwidth/sdk/examples/HelloFlipperServlet.java
+
+//Example event handler is called upon your server receiving a callback from Bandwidth.
+public void processEvent(SmsEvent event) {
+    //handle the event here.
+}
+
+// SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ "eventType"     : "sms",
+ "direction"     : "in",
+ "messageId"     : "{messageId}",
+ "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+ "from"          : "+19195551214",
+ "to"            : "+19195551212",
+ "text"          : "Hello World",
+ "applicationId" : "{appId}",
+ "time"          : "2012-11-14T16:13:06.076Z",
+ "state"         : "received"
+}
+```
+
+### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth Java SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._*
+
+* Using Java SDK
+
+```java
+import com.bandwidth.sdk.xml.elements.*;
+
+ Response response = new Response();
+        SpeakSentence speakSentence = new SpeakSentence("Hello from Bandwidth.",
+                "paul",
+                "male",
+                "en_US");
+
+        response.add(speakSentence);
+
+        String output = response.toXml();
+```
+
+* The above code creates a document that looks like:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Response>
+
+<SpeakSentence voice="paul" locale="en_US" gender="male">
+Hello from Bandwidth.
+</SpeakSentence>
+
+</Response>
+```
+
+{% sample lang="ruby" %}
+
+*_The examples below use Ruby and Bandwidth's [Ruby SDK](https://dev.bandwidth.com/clientLib/ruby.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+
+* Install the Bandwidth Ruby SDK with the following command
+
+```ruby
+gem install ruby-bandwidth
+```
+
+or add to your Gemfile
+
+```ruby
+gem "ruby-bandwidth"
+```
+
+* Import the client in your code
+
+```ruby
+require 'rubygems'
+require 'ruby-bandwidth'
+```
+
+* Initialize your desired API clients.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  
+
+```ruby
+# Create a single instance of a client object
+client = Bandwidth::Client.new(:user_id => "userId", :api_token => "token", :api_secret => "secret")
+
+# Assign values to the default client instance
+Bandwidth::Client.global_options = {:user_id => "userId", :api_token => "token", :api_secret => "secret"}
+```
+
+### Send and Receive Text Messages using Ruby
+
+* Create a method that instatiates a client object and uses the Bandwidth::Message.create method to send a message.
+
+```ruby
+require 'rubygems'
+require 'ruby-bandwidth'
+
+Bandwidth::Client.global_options = {:user_id => "userId", :api_token => "token", :api_secret => "secret"}
+Bandwidth::Message.create({:from => "+19195551212", :to => "+191955512142", :text => "Hello World"})
+#or
+client = Bandwidth::Client.new(:user_id => "userId", :api_token => "token", :api_secret => "secret")
+Bandwidth::Message.create(client, {:from => "+19195551212", :to => "+191955512142", :text => "Hello World"})
+```
+
+* Both methods are equivalent in functionality. Run the program and it should send the "Hello World" message to the number specified.
+
+### Create a Call and Play Some Audio
+
+* To create a voice call, use the code framework we put together for sending a message, but instead we use Bandwidth::Call.create to create a call:
+
+```ruby
+Bandwidth::Client.global_options = {:user_id => "userId", :api_token => "token", :api_secret => "secret"}
+Bandwidth::Call.create({:from => "+19195551212", :to => "+191955512142"})
+#or
+client = Bandwidth::Client.new(:user_id => "userId", :api_token => "token", :api_secret => "secret")
+Bandwidth::Call.create(client, {:from => "+19195551212", :to => ""+191955512142"})
+```
+
+* Now add code to play a message then hangup using the call id and status of the voice call.
+
+```ruby
+require 'rubygems'
+require 'ruby-bandwidth'
+
+client = Bandwidth::Client.new(:user_id => "userId", :api_token => "token", :api_secret => "secret")
+call = Bandwidth::Call.create(client, {:from => "+19195551212", :to => "+191955512142"})
+call.play_audio(:sentence => "Hello From Bandwidth. Goodbye.")
+sleep(5) # Necessary to make sure the sentence is spoken before hanging up
+call.update(:state => "completed")
+```
+
+### Receive a Text Message (or any other callback)
+
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Flask and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+
+```ruby
+=begin
+SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ "eventType"     : "sms",
+ "direction"     : "in",
+ "messageId"     : "{messageId}",
+ "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+ "from"          : "+19195551214",
+ "to"            : "+19195551212",
+ "text"          : "Hello World",
+ "applicationId" : "{appId}",
+ "time"          : "2012-11-14T16:13:06.076Z",
+ "state"         : "received"
+}
+=end
+require 'sinatra'
+require 'json'
+post '/your_url' do
+    puts JSON.parse(request.body.read)
+end
+```
+
+### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
+
+* Using Ruby SDK
+
+```ruby
+require "rubygems"
+require "ruby-bandwidth"
+
+response = Bandwidth::Xml::Response.new([
+    Bandwidth::Xml::Verbs::SpeakSentence.new(
+        :gender => "female",
+        :locale => "en_US",
+        :sentence => "Hello from Bandwidth",
+        :voice => "susan"
+    )
+])
+
+puts response.to_xml()
+```
+
+* The above code will print the following statement:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?><Response><SpeakSentence voice="susan" locale="en_US" gender="female">Hello from Bandwidth</SpeakSentence></Response>
+```
+
+{% sample lang="php" %}
+*_The examples below use PHP and Bandwidth's [PHP SDK](https://dev.bandwidth.com/clientLib/php.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left contains links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+
+* Get the Bandwidth PHP SDK [here](https://dev.bandwidth.com/clientLib/php.html)).
+
+```php
+<?php
+require_once('../source/Catapult.php');
+?>
+```
+
+* Setup authentication.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.
+
+```php
+$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWITH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+```
+
+### Send and Receive Text Messages using PHP
+
+* Create a Message object and call the create method to send a message.
+
+```php
+<?php
+require_once('../source/Catapult.php');
+// Below is a sample text message
+// using Bandwidth's SMS feature
+// IMPORTANT: edit credentials.json
+// with your information
+// or comment out below /w your keys
+//
+$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWITH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+// $cred = new Catapult\Credentials;
+// dont forget to comment out the implicit version if using assoc array
+
+$client = new Catapult\Client($cred);
+if (!(isset($argv[1]) || isset($argv[2]) || isset($argv[3])))
+    die ("\nPlease provide command line input like: \n php ./sample-message.php 'from' 'to' 'message'\n\n");
+try {
+    $message = new Catapult\Message(array(
+        "from" => new Catapult\PhoneNumber($argv[1]),
+        "to" => new Catapult\PhoneNumber($argv[2]),
+        "text" => new Catapult\TextMessage($argv[3])
+    ));
+    printf("\nWe've messaged number: %s, said, %s!\n", $argv[2], $argv[3]);
+} catch (\CatapultApiException $e) {
+    echo var_dump($e);
+}
+?>
+```
+
+### Create a Call
+
+* Create a Call object and use its create method to make an outbound call:
+
+```php
+<?php
+require_once('../source/Catapult.php');
+// below is a sample phone call
+
+$cred = new Catapult\Client('BANDWIDTH_USER_ID', 'BANDWIDTH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+// comment out if you have
+// credentials.json
+//$cred = new Catapult\Client;
+
+define("ARGS_NEEDED", 3);
+define("ARGS_DESC", "./sample-call.php '+FROMNUMBER' '+TONUMBER'");
+try {
+  if (sizeof($argv)  == ARGS_NEEDED) {
+    $call = new Catapult\Call(array(
+      "from" => $argv[1],
+      "to" => $argv[2]
+    ));
+  } else {
+    printf("You must supply at least %s arguments like: %s", ARGS_NEEDED, ARGS_DESC);
+  }
+} catch (CatapultApiException $exception) {
+  $result = $exception->getResult();
+  // do something with the result
+}
+```
+
+### Receive a Text Message (or any other callback)
+
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in the Setup Guide and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+
+```php
+//Incoming callbacks need to be exposed as an incoming request on your server.
+
+<?php
+require_once('../source/Catapult.php');
+// below is a sample event
+// this will listen for a call event
+// and when received output to screen
+// IMPORTANT: edit credentials.json
+// with your information
+// or comment out below /w your keys
+// For events, you will need to make sure
+// the callback url is set.
+//
+$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWIDTH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+//$cred = new Catapult\Credentials;
+// dont forget to comment out the implicit version if using assoc array
+$client = new Catapult\Client($cred);
+try {
+  $event = new Catapult\Event($_REQUEST);
+  /**
+   * Once we have received an event
+   * log the event, in logs (./logs)
+         * Arrange event with time event was received:
+         * event_{time}.log
+   */
+   printf("New event, id: %d", $event->id);
+   file_put_contents("./" . $event->time . ".log", json_encode($event));
+} catch (\CatapultApiException $e) {
+  echo var_dump($e);
+}
+?>
+
+// SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ "eventType"     : "sms",
+ "direction"     : "in",
+ "messageId"     : "{messageId}",
+ "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+ "from"          : "+19195551214",
+ "to"            : "+19195551212",
+ "text"          : "Hello World",
+ "applicationId" : "{appId}",
+ "time"          : "2012-11-14T16:13:06.076Z",
+ "state"         : "received"
+}
+```
+
+### Use the PHP SDK to Generate [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth PHP SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._*
+
+* Using PHP SDK
+
+```php
+<?php
+require_once('../source/Catapult.php');
+// below is a sample of Bandwidth BXML (BaML)
+// it will execute the provided verb
+// IMPORTANT: edit credentials.json
+// with your information
+// or comment out below /w your keys
+//
+//$cred = new Catapult\Credentials('BANDWIDTH_USER_ID', 'BANDWIDTH_API_TOKEN', 'BANDWIDTH_API_SECRET');
+$cred = new Catapult\Credentials;
+// dont forget to comment out the implicit version if using assoc array
+// this example is cli based
+// use like:
+// php ./sample-baml.php "verb" "attribute" "value"
+// example
+// php ./sample-baml.php "SpeakSentence" "voice" "female"
+$client = new Catapult\Client($cred);
+if (!(isset($argv[1]) || isset($argv[2]) || isset($argv[3])))
+  die ("\nPlease provide command line input like: \n php ./sample-verb.php 'verb' 'attribute' 'value'\n\n");
+try {
+    $verb = $argv[1];
+    $attribute = $argv[2];
+    $value = $argv[3];
+    $baml = new Catapult\BaML;
+    $bverb = Catapult\BaMLVerb::fromString($verb);
+    $bverb->create(array(
+        new Catapult\BaMLAttribute($attribute, $value)
+    ));
+    // here we can add other things
+    // verbs, attributes or text
+    $bverb->addText("example");
+    $baml->set($bverb);
+    printf("The following BaML was generated: \n\n%s\n\n",$baml);
+} catch (\CatapultApiException $e) {
+  echo var_dump($e);
+}
+?>
+```
+
+{% endmethod %}
