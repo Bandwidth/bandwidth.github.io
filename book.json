@@ -14,7 +14,7 @@
         "-highlight",
         "bandwidth-highlight",
         "custom-footer",
-        "parse-from-url@1.0.1",
+        "parse-from-url",
         "meta" 
     ],
     "pluginsConfig": {
