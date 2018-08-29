@@ -935,4 +935,204 @@ try {
 ?>
 ```
 
+{% sample lang="nodejs"%}
+*_The examples below use Node.js and Bandwidth's [Node.js SDK](https://dev.bandwidth.com/clientLib/node.html), but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client: you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
+
+* Install [Node.js](https://nodejs.org/en/download/)
+* Open your favorite code editor.  You can find a free and open-source one for Windows, Mac, and Linux [here](https://code.visualstudio.com/).
+* Be sure to initiate a package.json for your npm packages using the code below. For more info go [here](https://docs.npmjs.com/cli/init).
+
+```bash
+npm init
+```
+
+* Get the Bandwidth Node.js SDK (available via npm or [here](https://dev.bandwidth.com/clientLib/node.html)). Use the npm installation code below or go [here](https://www.npmjs.com/package/node-bandwidth) for more information on the node-bandwidth package.
+
+```bash
+npm install --save node-bandwidth
+```
+
+* Include necessary packages in your Node.js project.
+
+```javascript
+const Bandwidth = require("node-bandwidth");
+```
+
+* Set a constant that initiates a Bandwidth authentication using your User ID and authentication token and secret. Your User ID for this authentication is NOT the same as your username used for portal login.
+* NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.
+
+```javascript
+const client = new Bandwidth({
+    userId      : "YOUR_USER_ID",
+    apiToken    : "YOUR_API_TOKEN",
+    apiSecret   : "YOUR_API_SECRET"
+});
+```
+
+### Send and Receive Text Messages (V1) using Node.js
+
+* Using your client constant, use the Message.send method to send a message.
+* The "from" number must be a Bandwidth number registered to your account and set up to send messages.
+
+```javascript
+client.Message.send({
+    from    : "+9195551212",
+    to      : "+19195551213",
+    text:   : "Hello World"
+}).then(message => console.log(message));
+```
+
+* Run the program and it should send the "Hello World" message to the number specified. Complete code:
+
+```javascript
+const Bandwidth = require("node-bandwidth");
+
+const client = new Bandwidth({
+    userId      : "YOUR_USER_ID",
+    apiToken    : "YOUR_API_TOKEN",
+    apiSecret   : "YOUR_API_SECRET"
+});
+
+client.Message.send({
+    from    : "+19195551212",
+    to      : "+19195551213",
+    text    : "Hello World"
+}).then(message => console.log(message));
+```
+
+### Create a Call and Play Some Audio
+
+* To create a voice call, use the client.Call.create method. The "from" number must be a Bandwidth number registered to your account and set up to use voice services.
+
+```javascript
+client.Call.create({
+    from: "+12345678901",
+    to: "+12345678902"
+}).then(call => console.log(call));
+```
+
+* Now add code to play a message then hang up using the call ID and status of the voice call. The full code will look like this:
+
+```javascript
+//require node-bandwidth library
+const Bandwidth = require("node-bandwidth");
+
+//instantiate Bandwidth client
+const client = new Bandwidth({
+    userId      : "YOUR_USER_ID",
+    apiToken    : "YOUR_API_TOKEN",
+    apiSecret   : "YOUR_API_SECRET"
+});
+
+//create a call
+client.Call.create({
+    from: "+12345678901",
+    to: "+12345678902"
+}).then(call => {
+
+    //check the call state every two seconds
+    //and play a message when the call is answered
+    let interval = setInterval(() => {
+
+        //get the call info
+        client.Call.get(call.id).then(response => {
+
+            //If call is in hangup or error state, end interval
+            if (response.state == "completed" || response.state == "rejected" || response.state == "error") {
+                clearInterval(interval);
+            }
+
+            //Check call for active state (call answered)
+            else if (response.state == "active") {
+
+                //end interval
+                clearInterval(interval);
+
+                //play some text-to-speech
+                client.Call.playAudioAdvanced(call.id, {
+                    sentence: "Hello from Bandwidth. Goodbye."
+                }).then(() => {
+
+                    //Pause execution so we don't hang up while speaking
+                    setTimeout(() => {
+
+                        //hangup
+                        client.Call.hangup(call.id);
+                    }, 3000);
+                });
+            }
+        });
+    }, 2000);
+});
+```
+
+### Receive a Text Message (or any other callback)
+
+* When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Express on a Node.js server and what the SMS callback structure looks like.  You can learn more about handling callbacks [here](https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html).
+
+```javascript
+//requirements
+const express = require("express");
+const bodyParser = require("body-parser");
+
+//initialize app
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
+
+//set up callback route
+app.post("/callback", function(req, res) {
+    //callback details are stored in req
+    //and can be used here
+});
+
+//listen
+app.listen(port, function() {
+    console.log("App listening on PORT " + port);
+});
+```
+
+```javascript
+//SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ "eventType"     : "sms",
+ "direction"     : "in",
+ "messageId"     : "{messageId}",
+ "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+ "from"          : "+19195551214",
+ "to"            : "+19195551212",
+ "text"          : "Hello World",
+ "applicationId" : "{appId}",
+ "time"          : "2012-11-14T16:13:06.076Z",
+ "state"         : "received"
+}
+```
+
+### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  Using Node.js, you must build BXML documents from scratch and serve them via a web server.  More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html).  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._*
+
+* A simple BXML document looks like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Response>
+
+<SpeakSentence voice="susan" locale="en_US" gender="female">
+Hello from Bandwidth.
+</SpeakSentence>
+
+<Hangup></Hangup>
+
+</Response>
+```
+
 {% endmethod %}
