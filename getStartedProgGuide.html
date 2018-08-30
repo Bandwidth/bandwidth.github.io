@@ -1,0 +1,2118 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Voice &amp; Messaging Developer Guide &#xB7; Bandwidth API Developer Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-bandwidth-fonts/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-bandwidth-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0029/8291.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+    
+    
+    
+    <meta name="title" content="Bandwidth API Developer Docs">
+    
+    <meta name="description" content="See the API reference documentation for Bandwidth&apos;s Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="howto/howto.html">
+    
+    
+    <link rel="prev" href="getStartedSetupGuide.html">
+    
+
+    <meta name="google-site-verification" content="zCASWBBoL4U7H-I0oVhlzfdosxVxPEK1dIxD4GqsW9E">
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2JT7Z');
+    </script>
+
+
+
+    </head>
+    <body>
+        
+    
+    
+<div class="book"><link href="../styles/styles.min.css" type="text/css">
+<div class="head">
+     <!-- <div id="banner">
+       <div class="bannerContainer">
+         <p>Due to a change in Github Pages, the API reference requires you to accept an invalid certificate. We are actively working on a fix.</p>
+         <p id="bannerClose">X</p>
+       </div>
+     </div> -->
+   <a href="https://www.bandwidth.com" class="aimg"><div class="headerLogo"></div></a>
+   <h2>Docs for Developers</h2>
+   <!-- <aside class="alert general small" style="margin: 15px 0px 0px 0px !important; position: fixed;left: 440px;">
+   <p>
+   Due to a change in Github Pages, the API reference requires you to accept an invalid certificate.
+   </p>
+   </aside> -->
+   <ul>
+   	<li class="headerButton"><a href="https://catapult.inetwork.com/portal/signup" target="_blank" style="border-bottom: 0px;"><button class="free-trial">Free trial</button></a></li>
+   	<li><a href="https://app.bandwidth.com" class="headerLink" target="_blank" id="loginTab">Login</a></li>
+    <!-- <li><a href="#" class="headerLink hasSecondary" id="loginTab">Login</a></li> -->
+    <!-- <div class="headerDropdown">
+      <ul>
+         <li><a href="https://app.bandwidth.com" class="headerLink" target="_blank">Voice & Messaging Dashboard</a></li>
+         <li><a href="https://dashboard.bandwidth.com" class="headerLink" target="_blank">Phone Number Dashboard</a></li>
+      </ul>
+    </div> -->
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" class="headerLink" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="about.html">
+            
+                <a href="about.html" class="hide">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3">
+            
+                <a target="_blank" href="https://www.bandwidth.com/pricing">
+            
+                    
+                    Pricing
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4">
+            
+                <a target="_blank" href="https://github.com/Bandwidth">
+            
+                    
+                    GitHub
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="getStarted.html">
+            
+                <a href="getStarted.html">
+            
+                    
+                    Get Started
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="getStartedSetupGuide.html">
+            
+                <a href="getStartedSetupGuide.html">
+            
+                    
+                    Voice &amp; Messaging Setup Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.2" data-path="getStartedProgGuide.html">
+            
+                <a href="getStartedProgGuide.html">
+            
+                    
+                    Voice &amp; Messaging Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="howto/howto.html">
+            
+                <a href="howto/howto.html">
+            
+                    
+                    Building Blocks
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="howto/incomingCallandMessaging.html">
+            
+                <a href="howto/incomingCallandMessaging.html">
+            
+                    
+                    Receive Messages and Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="howto/phonenumbers.html">
+            
+                <a href="howto/phonenumbers.html">
+            
+                    
+                    Phone Numbers
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="howto/buytn.html">
+            
+                <a href="howto/buytn.html">
+            
+                    
+                    Get a Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.2" data-path="howto/importDashboard.html">
+            
+                <a href="howto/importDashboard.html">
+            
+                    
+                    Import Dashboard Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="howto/voice.html">
+            
+                <a href="howto/voice.html">
+            
+                    
+                    Voice
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.3.1" data-path="howto/outboundCall.html">
+            
+                <a href="howto/outboundCall.html">
+            
+                    
+                    Create outbound call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.2" data-path="howto/playAudio.html">
+            
+                <a href="howto/playAudio.html">
+            
+                    
+                    Play Audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.3" data-path="howto/speakSentence.html">
+            
+                <a href="howto/speakSentence.html">
+            
+                    
+                    Speak Sentence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.4" data-path="howto/recordCall.html">
+            
+                <a href="howto/recordCall.html">
+            
+                    
+                    Record a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.5" data-path="howto/createGather.html">
+            
+                <a href="howto/createGather.html">
+            
+                    
+                    Collect digits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.6" data-path="howto/forwardACall.html">
+            
+                <a href="howto/forwardACall.html">
+            
+                    
+                    Forward a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.7" data-path="howto/callScreen.html">
+            
+                <a href="howto/callScreen.html#top">
+            
+                    
+                    Call Screening
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.8" data-path="howto/conferenceCall.html">
+            
+                <a href="howto/conferenceCall.html">
+            
+                    
+                    Conference Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.9" data-path="howto/voicemail.html">
+            
+                <a href="howto/voicemail.html">
+            
+                    
+                    Voicemail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.10" data-path="howto/sip.html">
+            
+                <a href="howto/sip.html">
+            
+                    
+                    Configure SIP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.11" data-path="howto/webrtc.html">
+            
+                <a href="howto/webrtc.html">
+            
+                    
+                    WebRTC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.12" data-path="howto/acrobits.html">
+            
+                <a href="howto/acrobits.html">
+            
+                    
+                    For Mobile Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.13" data-path="howto/networkBridge.html">
+            
+                <a href="howto/networkBridge.html">
+            
+                    
+                    Network Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="howto/messaging.html">
+            
+                <a href="howto/messaging.html">
+            
+                    
+                    Messaging
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.4.1" data-path="howto/sendSMSMMS.html">
+            
+                <a href="howto/sendSMSMMS.html">
+            
+                    
+                    Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4.2" data-path="howto/smsDLR.html">
+            
+                <a href="howto/smsDLR.html">
+            
+                    
+                    Send SMS with Delivery Receipt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4.3" data-path="howto/hostedMessaging.html">
+            
+                <a href="howto/hostedMessaging.html">
+            
+                    
+                    Hosted Messaging Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="howto/deployableDemos.html">
+            
+                <a href="howto/deployableDemos.html">
+            
+                    
+                    Deployable Demos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Security</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="security.html">
+            
+                <a href="security.html">
+            
+                    
+                    Security
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="callbackSecurity.html">
+            
+                <a href="callbackSecurity.html">
+            
+                    
+                    Secure your callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1">
+            
+                <a href="https://dev.bandwidth.com/ap-docs/methods/restApi.html">
+            
+                    
+                    Voice &amp; Messaging API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2">
+            
+                <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html">
+            
+                    
+                    BXML Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3">
+            
+                <a href="https://dev.bandwidth.com/v2-messaging">
+            
+                    
+                    Messaging v2 Reference (beta)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4">
+            
+                <a href="https://dev.bandwidth.com/docs/phone-numbers/">
+            
+                    
+                    Phone Numbers Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SDKs</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="getStartedVMDKS.html">
+            
+                <a href="getStartedVMDKS.html">
+            
+                    
+                    Voice &amp; Messaging SDKs
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="clientLib/node.html">
+            
+                <a href="clientLib/node.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="clientLib/csharp.html">
+            
+                <a href="clientLib/csharp.html">
+            
+                    
+                    C#
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="clientLib/ruby.html">
+            
+                <a href="clientLib/ruby.html">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="clientLib/python.html">
+            
+                <a href="clientLib/python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="clientLib/java.html">
+            
+                <a href="clientLib/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="clientLib/php.html">
+            
+                <a href="clientLib/php.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="getStartedPNSDKS.html">
+            
+                <a href="getStartedPNSDKS.html">
+            
+                    
+                    Phone Numbers SDKs
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/node-bandwidth-iris">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/csharp-bandwidth-iris">
+            
+                    
+                    C#
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/ruby-bandwidth-iris">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/python-bandwidth-iris">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.5">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/java-bandwidth-iris">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.6">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/php-bandwidth-iris">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1">
+            
+                <a target="_blank" href="https://dev.bandwidth.com/faq">
+            
+                    
+                    FAQ
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2">
+            
+                <a target="_blank" href="https://support.bandwidth.com">
+            
+                    
+                    Support
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".">Voice &amp; Messaging Developer Guide</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section" style="padding-top: 0px;">
+                                
+                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h1 id="voice--messaging-developer-guide">Voice &amp; Messaging Developer Guide</h1>
+<h3 id="core-concepts">Core Concepts</h3>
+<h4 id="rest-calls-and-callbacks">REST Calls and Callbacks</h4>
+<p>Bandwidth&apos;s Voice &amp; Messaging APIs use callbacks to communicate with the developer&apos;s servers hosting applications.  Callbacks are triggered by things like incoming calls, incoming messages, or other API calls that have a callback defined.  Understadning callbacks and how they work is a prerequisite to developing complex communications applications with Bandwidth&apos;s APIs.</p>
+<p><img src="https://dev.bandwidth.com/ap-docs/apiCallbacks/images/callback-events1.png" alt="Callback Flow"></p>
+<p><em>Guides</em></p>
+<ul>
+<li><a href="https://dev.bandwidth.com/howto/sendSMSMMS.html" target="_blank">Send SMS &amp; MMS Guide</a></li>
+<li><a href="https://dev.bandwidth.com/howto/incomingCallandMessaging.html" target="_blank">Receive Messages or Calls</a> </li>
+<li><a href="https://dev.bandwidth.com/howto/howto.html" target="_blank">Building Blocks</a> </li>
+<li><a href="https://dev.bandwidth.com/ap-docs/rateLimits.html" target="_blank">Rate Limits</a> </li>
+</ul>
+<h4 id="bxml-for-voice-applications">BXML for Voice Applications</h4>
+<p>Voice applications can be built using BXML (Bandwidth Extensible Markup Language).  BXML is incredibly powerful and easy to use.  For incoming calls, your application can form and serve BXML documents on the URL setup for voice callbacks.  For outgoing voice calls, a REST API is used to establish the call, then the callback will fetch the BXML from your application server.</p>
+<p><img src="https://dev.bandwidth.com/ap-docs/bxml/BXMLCallFlow.png" alt="BXML Flow"></p>
+<p><em>Guides</em></p>
+<ul>
+<li><a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML Overview</a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlConcepts.html" target="_blank">BXML Guide</a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">BXML Reference</a></li>
+</ul>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-sample" data-lang="csharp" data-name="C#"><p><em><em>The examples below use C# and Bandwidth&apos;s <a href="https://dev.bandwidth.com/clientLib/csharp.html" target="_blank">.Net SDK</a>, but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth&apos;s APIs directly using any programming language or tool capable of making HTTPS requests.</em></em></p>
+<ul>
+<li>Open your favorite .Net/C# IDE.  You can find a free one <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">here</a>.   </li>
+<li>Get the Bandwidth C# SDK (Available via NuGet or <a href="https://dev.bandwidth.com/clientLib/csharp.html" target="_blank">here</a>) </li>
+<li>Include necessary libraries.</li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Bandwidth.Net;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Api;
+</code></pre>
+<ul>
+<li>Create a class and setup authentication constants.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  </li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> UserId = <span class="hljs-string">&quot;u-userID&quot;</span>; <span class="hljs-comment">// user_id </span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Token = <span class="hljs-string">&quot;t-token&quot;</span>; <span class="hljs-comment">// token </span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Secret = <span class="hljs-string">&quot;secret&quot;</span>; <span class="hljs-comment">// secret </span>
+}
+</code></pre>
+<h3 id="send-and-receive-text-messages-using-net">Send and Receive Text Messages using .Net</h3>
+<ul>
+<li>Create a method that instatiates a new Client object and uses the SendAsync method to send a message.</li>
+</ul>
+<pre><code class="lang-csharp">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+        <span class="hljs-keyword">var</span> sms = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData
+        {
+            From = <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// Your Bandwidth number</span>
+            To = <span class="hljs-string">&quot;+19195551234&quot;</span>,
+            Text = <span class="hljs-string">&quot;Hello World&quot;</span>
+        });
+    }
+</code></pre>
+<ul>
+<li>Create a Main method that calls the RunAsync method and waits for a response.</li>
+</ul>
+<pre><code class="lang-csharp">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-keyword">try</span>
+        {
+            RunAsync().Wait();
+        }
+        <span class="hljs-keyword">catch</span> (Exception ex)
+        {
+            Console.Error.WriteLine(ex.Message);
+            Environment.ExitCode = <span class="hljs-number">1</span>;
+        }
+    }
+</code></pre>
+<ul>
+<li>Run the program and it should send the &quot;Hello World&quot; message to the nuber specified.  Complete code:</li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Bandwidth.Net;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Api;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> UserId = <span class="hljs-string">&quot;u-userID&quot;</span>; <span class="hljs-comment">// user_id</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Token = <span class="hljs-string">&quot;t-token&quot;</span>; <span class="hljs-comment">// token</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Secret = <span class="hljs-string">&quot;secret&quot;</span>; <span class="hljs-comment">// secret</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">try</span>
+    {
+      RunAsync().Wait();
+    }
+    <span class="hljs-keyword">catch</span> (Exception ex)
+    {
+      Console.Error.WriteLine(ex.Message);
+      Environment.ExitCode = <span class="hljs-number">1</span>;
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+  </span>{
+    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+    <span class="hljs-keyword">var</span> sms = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData
+    {
+      From = <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// Your Bandwidth number</span>
+      To = <span class="hljs-string">&quot;+19195551214&quot;</span>,
+      Text = <span class="hljs-string">&quot;Hello World&quot;</span>
+    });
+  }
+}
+</code></pre>
+<h3 id="create-a-call-and-play-some-audio">Create a Call and Play Some Audio</h3>
+<ul>
+<li>To create a voice call, use the code framework we put together for sending a message, but change the RunAsync method to look like this:</li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+</span>{
+  <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+  <span class="hljs-keyword">var</span> callId = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData {
+      From = <span class="hljs-string">&quot;+12345678901&quot;</span>, <span class="hljs-comment">// Your Bandwidth number</span>
+      To   = <span class="hljs-string">&quot;+12345678902&quot;</span>
+  });
+}
+</code></pre>
+<ul>
+<li>Now add code to play a message then hangup using the call id and status of the voice call.</li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">RunAsync</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-comment">// Instantiate Bandwidth Client Object</span>
+    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Client(UserId, Token, Secret);
+
+    <span class="hljs-comment">// Create a call</span>
+    <span class="hljs-keyword">var</span> callId = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData
+    {
+        From = <span class="hljs-string">&quot;+11234567890&quot;</span>, <span class="hljs-comment">// Your Bandwidth number</span>
+        To = <span class="hljs-string">&quot;+11234567899&quot;</span> <span class="hljs-comment">// Your mobile number for example</span>
+    });
+
+    <span class="hljs-comment">// Now that we have a call, let&apos;s check the call state every </span>
+    <span class="hljs-comment">// two seconds and play a message when the call is answered</span>
+    Call call;
+
+    <span class="hljs-keyword">do</span>
+    {
+        <span class="hljs-comment">//Pause execution for 2 seconds</span>
+        System.Threading.Thread.Sleep(<span class="hljs-number">2000</span>);
+
+        <span class="hljs-comment">//Get the call info</span>
+        call = <span class="hljs-keyword">await</span> client.Call.GetAsync(callId);
+
+        <span class="hljs-comment">//Check call for active state (call answered)</span>
+        <span class="hljs-keyword">if</span> (call.State == CallState.Active)
+        {
+            <span class="hljs-comment">// Play some text to speech</span>
+            <span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(
+                     callId,
+                     <span class="hljs-string">&quot;Hello From Bandwidth. Goodbye.&quot;</span>
+                  );
+
+            <span class="hljs-comment">//Pause execution so we don&apos;t hang up while speaking</span>
+            System.Threading.Thread.Sleep(<span class="hljs-number">3000</span>);
+
+            <span class="hljs-comment">//Hangup</span>
+            <span class="hljs-keyword">await</span> client.Call.HangupAsync(
+                     callId
+                  );
+        }
+        <span class="hljs-comment">// Repeat until call state is a hangup or error state </span>
+    } <span class="hljs-keyword">while</span> (call.State != CallState.Completed &amp;&amp;
+             call.State != CallState.Error     &amp;&amp;
+             call.State != CallState.Rejected
+            );
+}
+</code></pre>
+<h3 id="receive-a-text-message-or-any-other-callback">Receive a Text Message (or any other callback)</h3>
+<ul>
+<li>When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-comment">// In ASP.Net action</span>
+<span class="hljs-keyword">var</span> callbackEvent = <span class="hljs-keyword">await</span> Request.Content.ReadAsCallbackEventAsync();
+
+<span class="hljs-comment">// anywhere</span>
+<span class="hljs-keyword">var</span> callbackEvent = <span class="hljs-keyword">await</span> content.ReadAsCallbackEventAsync(); 
+
+<span class="hljs-comment">// SMS callback looks like this:</span>
+POST /your_url HTTP/<span class="hljs-number">1.1</span>
+Content-Type: application/json; charset=utf<span class="hljs-number">-8</span>
+User-Agent: BandwidthAPI/v1
+
+{
+ <span class="hljs-string">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;sms&quot;</span>,
+ <span class="hljs-string">&quot;direction&quot;</span>     : <span class="hljs-string">&quot;in&quot;</span>,
+ <span class="hljs-string">&quot;messageId&quot;</span>     : <span class="hljs-string">&quot;{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;messageUri&quot;</span>    : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+19195551214&quot;</span>,
+ <span class="hljs-string">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+ <span class="hljs-string">&quot;text&quot;</span>          : <span class="hljs-string">&quot;Hello World&quot;</span>,
+ <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+ <span class="hljs-string">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+ <span class="hljs-string">&quot;state&quot;</span>         : <span class="hljs-string">&quot;received&quot;</span>
+}
+</code></pre>
+<h3 id="play-a-message-on-an-incoming-call-using-bxml">Play a Message on an Incoming Call using <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML</a></h3>
+<p><em><em>BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">here</a>.  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">outgoing calls</a>, you must create the call first using a REST call or using an SDK to start the callback process.</em></em> </p>
+<ul>
+<li>Using C# SDK</li>
+</ul>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Bandwidth.Net.XmlV2.Verbs;
+<span class="hljs-keyword">using</span> Bandwidth.Net.Xml;
+
+<span class="hljs-keyword">var</span> response = <span class="hljs-keyword">new</span> Response(<span class="hljs-keyword">new</span> SpeakSentence{
+    Gender = <span class="hljs-string">&quot;female&quot;</span>,
+    Locale = <span class="hljs-string">&quot;en_US&quot;</span>,
+    Sentence = <span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>,
+    Voice = <span class="hljs-string">&quot;susan&quot;</span>
+});
+
+<span class="hljs-keyword">var</span> xml = response.ToXml();
+</code></pre>
+<ul>
+<li>The above code creates a document that looks like:</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">SpeakSentence</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;susan&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span>
+Hello from Bandwidth.
+<span class="hljs-tag">&lt;/<span class="hljs-name">SpeakSentence</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">Response</span>&gt;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="python" data-name="python"><p><em><em>The examples below use Python and Bandwidth&apos;s <a href="https://dev.bandwidth.com/clientLib/python.html" target="_blank">Python SDK</a>, but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth&apos;s APIs directly using any programming language or tool capable of making HTTPS requests.</em></em></p>
+<ul>
+<li>Install the Bandwidth Python SDK with the following command</li>
+</ul>
+<pre><code>pip install bandwidth-sdk
+</code></pre><ul>
+<li>Import the client in your code</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth <span class="hljs-comment"># Import the entire client</span>
+
+<span class="hljs-keyword">from</span> bandwidth <span class="hljs-keyword">import</span> messaging, voice, account <span class="hljs-comment"># Import each client individually</span>
+</code></pre>
+<ul>
+<li>Initialize your desired API clients.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># Importing the entire client</span>
+<span class="hljs-keyword">import</span> bandwidth
+
+voice_api = bandwidth.client(<span class="hljs-string">&apos;voice&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+messaging_api = bandwidth.client(<span class="hljs-string">&apos;messaging&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+account_api = bandwidth.client(<span class="hljs-string">&apos;account&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+
+<span class="hljs-comment"># Importing each client individually</span>
+<span class="hljs-keyword">from</span> bandwidth <span class="hljs-keyword">import</span> messaging, voice, account
+
+messaging_api = messaging.Client(<span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+voice_api = voice.Client(<span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+account_api = account.Client(<span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+</code></pre>
+<ul>
+<li>This guide uses the method of importing the entire client, but both methods are equivalent and can be interchanged.</li>
+</ul>
+<h3 id="send-and-receive-text-messages-using-python">Send and Receive Text Messages using Python</h3>
+<ul>
+<li>Create a method that instatiates a messaging api client object and uses the send_message method to send a message.</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth
+
+messaging_api = bandwidth.client(<span class="hljs-string">&apos;messaging&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+messaging_api.send_message(from_ = <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment"># Your Bandwidth number</span>
+                           to = <span class="hljs-string">&quot;+19195551234&quot;</span>,
+                           text = <span class="hljs-string">&quot;Hello World&quot;</span>)
+</code></pre>
+<ul>
+<li>Run the program and it should send the &quot;Hello World&quot; message to the number specified.</li>
+</ul>
+<h3 id="create-a-call-and-play-some-audio">Create a Call and Play Some Audio</h3>
+<ul>
+<li>To create a voice call, use the code framework we put together for sending a message, but instead we use the voice client and the create_call method:</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth
+
+voice_api = bandwidth.client(<span class="hljs-string">&apos;voice&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+voice_api.create_call(from_ = <span class="hljs-string">&apos;+1234567890&apos;</span>, <span class="hljs-comment"># Your Bandwidth number</span>
+                      to = <span class="hljs-string">&apos;+1234567891&apos;</span>)
+</code></pre>
+<ul>
+<li>Now add code to play a message then hangup using the call id and status of the voice call.</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> bandwidth
+<span class="hljs-keyword">import</span> time
+
+voice_api = bandwidth.client(<span class="hljs-string">&apos;voice&apos;</span>, <span class="hljs-string">&apos;u-user&apos;</span>, <span class="hljs-string">&apos;t-token&apos;</span>, <span class="hljs-string">&apos;s-secret&apos;</span>)
+call_id = voice_api.create_call(from_ = <span class="hljs-string">&apos;+1234567890&apos;</span>, <span class="hljs-comment"># Your Bandwidth number</span>
+                                to = <span class="hljs-string">&apos;+1234567891&apos;</span>)
+voice_api.play_audio_to_call(call_id, sentence=<span class="hljs-string">&quot;Hello From Bandwidth. Goodbye.&quot;</span>)
+time.sleep(<span class="hljs-number">5</span>) <span class="hljs-comment"># Necessary to make sure the sentence is spoken before hanging up</span>
+voice_api.hangup_call(call_id)
+</code></pre>
+<h3 id="receive-a-text-message-or-any-other-callback">Receive a Text Message (or any other callback)</h3>
+<ul>
+<li>When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Flask and what the SMS callback structure looks like.  You can learn more about handling callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot;
+SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ &quot;eventType&quot;     : &quot;sms&quot;,
+ &quot;direction&quot;     : &quot;in&quot;,
+ &quot;messageId&quot;     : &quot;{messageId}&quot;,
+ &quot;messageUri&quot;    : &quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;,
+ &quot;from&quot;          : &quot;+19195551214&quot;,
+ &quot;to&quot;            : &quot;+19195551212&quot;,
+ &quot;text&quot;          : &quot;Hello World&quot;,
+ &quot;applicationId&quot; : &quot;{appId}&quot;,
+ &quot;time&quot;          : &quot;2012-11-14T16:13:06.076Z&quot;,
+ &quot;state&quot;         : &quot;received&quot;
+}
+&quot;&quot;&quot;</span>
+<span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, request
+app = Flask(__name__)
+<span class="hljs-meta">@app.route(&apos;/your_url&apos;, methods=[&quot;POST&quot;])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">callback</span><span class="hljs-params">()</span>:</span>
+    data = request.data
+    print(data)
+</code></pre>
+<h3 id="play-a-message-on-an-incoming-call-using-bxml">Play a Message on an Incoming Call using <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML</a></h3>
+<p><em><em>BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">here</a>.  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">outgoing calls</a>, you must create the call first using a REST call or using an SDK to start the callback process.</em></em></p>
+<ul>
+<li>Using Python SDK</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> bandwidth.voice.bxml <span class="hljs-keyword">import</span> Response
+<span class="hljs-keyword">from</span> lxml.builder <span class="hljs-keyword">import</span> E
+
+response = Response(E.Call({
+    <span class="hljs-string">&quot;gender&quot;</span>:<span class="hljs-string">&quot;female&quot;</span>,
+    <span class="hljs-string">&quot;locale&quot;</span>:<span class="hljs-string">&quot;en_US&quot;</span>,
+    <span class="hljs-string">&quot;sentence&quot;</span>:<span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>,
+    <span class="hljs-string">&quot;voice&quot;</span>:<span class="hljs-string">&quot;susan&quot;</span>
+}))
+
+print(response.to_xml())
+</code></pre>
+<ul>
+<li>The above code will print the following statement:</li>
+</ul>
+<pre><code class="lang-xml">b&apos;<span class="hljs-tag">&lt;<span class="hljs-name">xml</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Call</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;female&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span> <span class="hljs-attr">sentence</span>=<span class="hljs-string">&quot;Hello from Bandwidth&quot;</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;susan&quot;</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Response</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">xml</span>&gt;</span>&apos;
+</code></pre>
+</div><div class="api-method-sample" data-lang="java" data-name="Java"><p><em><em>The examples below use Java and Bandwidth&apos;s <a href="https://dev.bandwidth.com/clientLib/java.html" target="_blank">Java SDK</a>, but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left contains links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth&apos;s APIs directly using any programming language or tool capable of making HTTPS requests.</em></em></p>
+<ul>
+<li>Open your favorite Java IDE.  You can find a free one <a href="https://eclipse.org" target="_blank">here</a>.</li>
+<li>Get the Bandwidth Java SDK (Available via Maven or <a href="https://dev.bandwidth.com/clientLib/java.html" target="_blank">here</a>).</li>
+<li>Include necessary packages.</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.bandwidth.sdk.examples;
+<span class="hljs-keyword">import</span> com.bandwidth.sdk.model.*;
+<span class="hljs-keyword">import</span> com.bandwidth.sdk.model.events.*;
+</code></pre>
+<ul>
+<li>Create a class and setup authentication.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BandwidthExample</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String[]args)</span> </span>{
+
+          <span class="hljs-comment">// First test if the creds are set via environment args</span>
+          String userId = System.getenv().get(<span class="hljs-string">&quot;BANDWIDTH_USER_ID&quot;</span>);
+          String apiToken = System.getenv().get(<span class="hljs-string">&quot;BANDWIDTH_API_TOKEN&quot;</span>);
+          String apiSecret = System.getenv().get(<span class="hljs-string">&quot;BANDWIDTH_API_SECRET&quot;</span>);
+
+          <span class="hljs-keyword">try</span> {
+              <span class="hljs-keyword">final</span> Account account = Account.get();
+
+              System.out.println(<span class="hljs-string">&quot;Environment Vars:&quot;</span>);
+              System.out.println(account.getAccountInfo());
+          }
+          <span class="hljs-keyword">catch</span>(<span class="hljs-keyword">final</span> Exception e) {
+              e.printStackTrace();
+          }
+  }
+}
+</code></pre>
+<h3 id="send-and-receive-text-messages-using-java">Send and Receive Text Messages using Java</h3>
+<ul>
+<li>Create a Message object and call the create method to send a message.</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TextMessageExample</span> </span>{
+  <span class="hljs-comment">/**
+   * <span class="hljs-doctag">@param</span> args the args.
+   */</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String[] args)</span> </span>{
+    <span class="hljs-comment">// There are two ways to set your creds, e.g. your App Platform userId, api token and api secret</span>
+    <span class="hljs-comment">// you can set these as environment variables or set them with the</span>
+    <span class="hljs-comment">// BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret) method.</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// Use the setenv.sh script to set the env variables</span>
+    <span class="hljs-comment">// BANDWIDTH_USER_ID</span>
+    <span class="hljs-comment">// BANDWIDTH_API_TOKEN</span>
+    <span class="hljs-comment">// BANDWIDTH_API_SECRET</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// or uncomment this line and set them here</span>
+    <span class="hljs-comment">// BandwidthClient.getInstance().setCredentials(userId, apiToken, apiSecret);</span>
+
+    <span class="hljs-comment">// put your numbers in here</span>
+    <span class="hljs-keyword">final</span> String toNumber = <span class="hljs-string">&quot;+1&quot;</span>;<span class="hljs-comment">// your phone number here</span>
+    <span class="hljs-keyword">final</span> String fromNumber = <span class="hljs-string">&quot;+1&quot;</span>;<span class="hljs-comment">// this is a number that is allocated on the AppPlatform. You can do this</span>
+               <span class="hljs-comment">// via the dev console or with the SDK (see AllocateNumberExample)</span>
+
+    <span class="hljs-keyword">try</span> {
+
+      <span class="hljs-keyword">final</span> Message message = Message.create(toNumber, fromNumber, <span class="hljs-string">&quot;Test, test! What up from App Platform&quot;</span>);
+
+      System.out.println(<span class="hljs-string">&quot;message:&quot;</span> + message);
+    }
+    <span class="hljs-keyword">catch</span>(<span class="hljs-keyword">final</span> Exception e) {
+      e.printStackTrace();
+    }
+  }
+}
+</code></pre>
+<h3 id="create-a-call-and-play-some-audio">Create a Call and Play Some Audio</h3>
+<ul>
+<li>Create a Call object and use its create method to make an outbound call, then play a message using the speakSentence method:</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.bandwidth.sdk.examples;
+
+<span class="hljs-keyword">import</span> java.util.Map;
+<span class="hljs-keyword">import</span> java.util.HashMap;
+
+<span class="hljs-keyword">import</span> com.bandwidth.sdk.model.Call;
+
+<span class="hljs-comment">/**
+ * This example shows how to make an outbound call using the sdk. It dials a number and speaks a sentence.
+ *
+ * Note that this does not implement an event server. See java-bandwidth-examples for a full event server.
+ *
+ * <span class="hljs-doctag">@author</span> smitchell
+ *
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OutboundCallExample</span> </span>{
+
+  <span class="hljs-comment">/**
+   * <span class="hljs-doctag">@param</span> args the args.
+   * <span class="hljs-doctag">@throws</span> Exception error.
+   */</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String[] args)</span> <span class="hljs-keyword">throws</span> Exception</span>{
+        <span class="hljs-comment">// There are two ways to set your creds, e.g. your App Platform userId, api token and api secret</span>
+    <span class="hljs-comment">// you can set these as environment variables or set them with the</span>
+    <span class="hljs-comment">// BandwidthClient.getInstance(userId, apiToken, apiSecret) method.</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// Use the setenv.sh script to set the env variables</span>
+      <span class="hljs-comment">// BANDWIDTH_USER_ID</span>
+      <span class="hljs-comment">// BANDWIDTH_API_TOKEN</span>
+      <span class="hljs-comment">// BANDWIDTH_API_SECRET</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// or uncomment this line and set them here</span>
+    <span class="hljs-comment">// BandwidthClient.getInstance(userId, apiToken, apiSecret);</span>
+
+    <span class="hljs-comment">// put your numbers in here</span>
+    <span class="hljs-keyword">final</span> String toNumber = <span class="hljs-string">&quot;+1&quot;</span>;<span class="hljs-comment">// your phone number here</span>
+    <span class="hljs-keyword">final</span> String fromNumber = <span class="hljs-string">&quot;+1&quot;</span>;<span class="hljs-comment">// this is a number that is allocated on the AppPlatform. You can do this</span>
+               <span class="hljs-comment">// via the dev console or with the SDK (see AllocateNumberExample)</span>
+
+    <span class="hljs-keyword">final</span> Call call = Call.create(toNumber, fromNumber);
+
+    System.out.println(<span class="hljs-string">&quot;call:&quot;</span> + call);
+
+    <span class="hljs-comment">//wait a few seconds here. Note that in a real application you&apos;ll handle the answer event</span>
+    <span class="hljs-comment">// in your event server. See java-bandwidth-examples for how to do this</span>
+    <span class="hljs-keyword">try</span> {
+        Thread.sleep(<span class="hljs-number">10000</span>);
+    } <span class="hljs-keyword">catch</span>(<span class="hljs-keyword">final</span> InterruptedException ex) {
+        Thread.currentThread().interrupt();
+    }
+
+    <span class="hljs-keyword">final</span> Map&lt;String, Object&gt;params = <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;();
+    params.put(<span class="hljs-string">&quot;sentence&quot;</span>, <span class="hljs-string">&quot;Hey there! Welcome to the App Platform!&quot;</span>);
+    params.put(<span class="hljs-string">&quot;voice&quot;</span>, <span class="hljs-string">&quot;kate&quot;</span>); <span class="hljs-comment">// she&apos;s one of our favorites!</span>
+    call.speakSentence(params);
+
+
+    <span class="hljs-comment">//wait a few more seconds to let the message play. Again in a real application this would be part</span>
+    <span class="hljs-comment">// of your event handling. See java-bandwidth-examples for how to do this</span>
+    <span class="hljs-keyword">try</span> {
+        Thread.sleep(<span class="hljs-number">4000</span>);
+    } <span class="hljs-keyword">catch</span>(<span class="hljs-keyword">final</span> InterruptedException ex) {
+        Thread.currentThread().interrupt();
+    }
+
+    System.out.println(<span class="hljs-string">&quot;Updated call:&quot;</span> + call);
+    call.hangUp();
+  }
+
+}
+</code></pre>
+<h3 id="receive-a-text-message-or-any-other-callback">Receive a Text Message (or any other callback)</h3>
+<ul>
+<li>When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in the Setup Guide and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">//Incoming callbacks need to be exposed as an incoming request on your server.</span>
+<span class="hljs-comment">//Once a request is recieved it can be delegated to a handler based on the EventType.</span>
+<span class="hljs-comment">//There is a complete example of handling events at: https://github.com/Bandwidth/java-bandwidth-examples/blob/master/src/main/java/com/bandwidth/sdk/examples/HelloFlipperServlet.java</span>
+
+<span class="hljs-comment">//Example event handler is called upon your server receiving a callback from Bandwidth.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processEvent</span><span class="hljs-params">(SmsEvent event)</span> </span>{
+    <span class="hljs-comment">//handle the event here.</span>
+}
+
+<span class="hljs-comment">// SMS callback looks like this:</span>
+POST /your_url HTTP/<span class="hljs-number">1.1</span>
+Content-Type: application/json; charset=utf-<span class="hljs-number">8</span>
+User-Agent: BandwidthAPI/v1
+
+{
+ <span class="hljs-string">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;sms&quot;</span>,
+ <span class="hljs-string">&quot;direction&quot;</span>     : <span class="hljs-string">&quot;in&quot;</span>,
+ <span class="hljs-string">&quot;messageId&quot;</span>     : <span class="hljs-string">&quot;{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;messageUri&quot;</span>    : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+19195551214&quot;</span>,
+ <span class="hljs-string">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+ <span class="hljs-string">&quot;text&quot;</span>          : <span class="hljs-string">&quot;Hello World&quot;</span>,
+ <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+ <span class="hljs-string">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+ <span class="hljs-string">&quot;state&quot;</span>         : <span class="hljs-string">&quot;received&quot;</span>
+}
+</code></pre>
+<h3 id="play-a-message-on-an-incoming-call-using-bxml">Play a Message on an Incoming Call using <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML</a></h3>
+<p><em><em>BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth Java SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">here</a>.  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">outgoing calls</a>, you must create the call first using a REST call or using an SDK to start the callback process.</em></em></p>
+<ul>
+<li>Using Java SDK</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> com.bandwidth.sdk.xml.elements.*;
+
+ Response response = <span class="hljs-keyword">new</span> Response();
+        SpeakSentence speakSentence = <span class="hljs-keyword">new</span> SpeakSentence(<span class="hljs-string">&quot;Hello from Bandwidth.&quot;</span>,
+                <span class="hljs-string">&quot;paul&quot;</span>,
+                <span class="hljs-string">&quot;male&quot;</span>,
+                <span class="hljs-string">&quot;en_US&quot;</span>);
+
+        response.add(speakSentence);
+
+        String output = response.toXml();
+</code></pre>
+<ul>
+<li>The above code creates a document that looks like:</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">SpeakSentence</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;paul&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;male&quot;</span>&gt;</span>
+Hello from Bandwidth.
+<span class="hljs-tag">&lt;/<span class="hljs-name">SpeakSentence</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">Response</span>&gt;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><p><em><em>The examples below use Ruby and Bandwidth&apos;s <a href="https://dev.bandwidth.com/clientLib/ruby.html" target="_blank">Ruby SDK</a>, but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth&apos;s APIs directly using any programming language or tool capable of making HTTPS requests.</em></em></p>
+<ul>
+<li>Install the Bandwidth Ruby SDK with the following command</li>
+</ul>
+<pre><code class="lang-ruby">gem install ruby-bandwidth
+</code></pre>
+<p>or add to your Gemfile</p>
+<pre><code class="lang-ruby">gem <span class="hljs-string">&quot;ruby-bandwidth&quot;</span>
+</code></pre>
+<ul>
+<li>Import the client in your code</li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&apos;rubygems&apos;</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&apos;ruby-bandwidth&apos;</span>
+</code></pre>
+<ul>
+<li>Initialize your desired API clients.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.  </li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-comment"># Create a single instance of a client object</span>
+client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+
+<span class="hljs-comment"># Assign values to the default client instance</span>
+Bandwidth::Client.global_options = {<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>}
+</code></pre>
+<h3 id="send-and-receive-text-messages-using-ruby">Send and Receive Text Messages using Ruby</h3>
+<ul>
+<li>Create a method that instatiates a client object and uses the Bandwidth::Message.create method to send a message.</li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&apos;rubygems&apos;</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&apos;ruby-bandwidth&apos;</span>
+
+Bandwidth::Client.global_options = {<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>}
+Bandwidth::Message.create({<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Hello World&quot;</span>})
+<span class="hljs-comment">#or</span>
+client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+Bandwidth::Message.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>, <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Hello World&quot;</span>})
+</code></pre>
+<ul>
+<li>Both methods are equivalent in functionality. Run the program and it should send the &quot;Hello World&quot; message to the number specified.</li>
+</ul>
+<h3 id="create-a-call-and-play-some-audio">Create a Call and Play Some Audio</h3>
+<ul>
+<li>To create a voice call, use the code framework we put together for sending a message, but instead we use Bandwidth::Call.create to create a call:</li>
+</ul>
+<pre><code class="lang-ruby">Bandwidth::Client.global_options = {<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>}
+Bandwidth::Call.create({<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>})
+<span class="hljs-comment">#or</span>
+client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+Bandwidth::Call.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;&quot;</span>+<span class="hljs-number">191955512142</span><span class="hljs-string">&quot;})
+</span></code></pre>
+<ul>
+<li>Now add code to play a message then hangup using the call id and status of the voice call.</li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&apos;rubygems&apos;</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&apos;ruby-bandwidth&apos;</span>
+
+client = Bandwidth::Client.new(<span class="hljs-symbol">:user_id</span> =&gt; <span class="hljs-string">&quot;userId&quot;</span>, <span class="hljs-symbol">:api_token</span> =&gt; <span class="hljs-string">&quot;token&quot;</span>, <span class="hljs-symbol">:api_secret</span> =&gt; <span class="hljs-string">&quot;secret&quot;</span>)
+call = Bandwidth::Call.create(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+191955512142&quot;</span>})
+call.play_audio(<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Hello From Bandwidth. Goodbye.&quot;</span>)
+sleep(<span class="hljs-number">5</span>) <span class="hljs-comment"># Necessary to make sure the sentence is spoken before hanging up</span>
+call.update(<span class="hljs-symbol">:state</span> =&gt; <span class="hljs-string">&quot;completed&quot;</span>)
+</code></pre>
+<h3 id="receive-a-text-message-or-any-other-callback">Receive a Text Message (or any other callback)</h3>
+<ul>
+<li>When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Flask and what the SMS callback structure looks like.  You can learn more about handling callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-comment">=begin
+SMS callback looks like this:
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
+{
+ &quot;eventType&quot;     : &quot;sms&quot;,
+ &quot;direction&quot;     : &quot;in&quot;,
+ &quot;messageId&quot;     : &quot;{messageId}&quot;,
+ &quot;messageUri&quot;    : &quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;,
+ &quot;from&quot;          : &quot;+19195551214&quot;,
+ &quot;to&quot;            : &quot;+19195551212&quot;,
+ &quot;text&quot;          : &quot;Hello World&quot;,
+ &quot;applicationId&quot; : &quot;{appId}&quot;,
+ &quot;time&quot;          : &quot;2012-11-14T16:13:06.076Z&quot;,
+ &quot;state&quot;         : &quot;received&quot;
+}
+=end</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&apos;sinatra&apos;</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&apos;json&apos;</span>
+post <span class="hljs-string">&apos;/your_url&apos;</span> <span class="hljs-keyword">do</span>
+    puts JSON.parse(request.body.read)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="play-a-message-on-an-incoming-call-using-bxml">Play a Message on an Incoming Call using <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML</a></h3>
+<p><em><em>BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">here</a>.  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">outgoing calls</a>, you must create the call first using a REST call or using an SDK to start the callback process.</em></em> </p>
+<ul>
+<li>Using Ruby SDK</li>
+</ul>
+<pre><code class="lang-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&quot;rubygems&quot;</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">&quot;ruby-bandwidth&quot;</span>
+
+response = Bandwidth::Xml::Response.new([
+    Bandwidth::Xml::Verbs::SpeakSentence.new(
+        <span class="hljs-symbol">:gender</span> =&gt; <span class="hljs-string">&quot;female&quot;</span>,
+        <span class="hljs-symbol">:locale</span> =&gt; <span class="hljs-string">&quot;en_US&quot;</span>,
+        <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>,
+        <span class="hljs-symbol">:voice</span> =&gt; <span class="hljs-string">&quot;susan&quot;</span>
+    )
+])
+
+puts response.to_xml()
+</code></pre>
+<ul>
+<li>The above code will print the following statement:</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span><span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">SpeakSentence</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;susan&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span>Hello from Bandwidth<span class="hljs-tag">&lt;/<span class="hljs-name">SpeakSentence</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Response</span>&gt;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="php" data-name="PHP"><p><em><em>The examples below use PHP and Bandwidth&apos;s <a href="https://dev.bandwidth.com/clientLib/php.html" target="_blank">PHP SDK</a>, but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left contains links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client, you can consume Bandwidth&apos;s APIs directly using any programming language or tool capable of making HTTPS requests.</em></em></p>
+<ul>
+<li>Get the Bandwidth PHP SDK <a href="https://dev.bandwidth.com/clientLib/php.html" target="_blank">here</a>).</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require_once</span>(<span class="hljs-string">&apos;../source/Catapult.php&apos;</span>);
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<ul>
+<li>Setup authentication.  NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.</li>
+</ul>
+<pre><code class="lang-php">$cred = <span class="hljs-keyword">new</span> Catapult\Credentials(<span class="hljs-string">&apos;BANDWIDTH_USER_ID&apos;</span>, <span class="hljs-string">&apos;BANDWITH_API_TOKEN&apos;</span>, <span class="hljs-string">&apos;BANDWIDTH_API_SECRET&apos;</span>);
+</code></pre>
+<h3 id="send-and-receive-text-messages-using-php">Send and Receive Text Messages using PHP</h3>
+<ul>
+<li>Create a Message object and call the create method to send a message.</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require_once</span>(<span class="hljs-string">&apos;../source/Catapult.php&apos;</span>);
+<span class="hljs-comment">// Below is a sample text message</span>
+<span class="hljs-comment">// using Bandwidth&apos;s SMS feature</span>
+<span class="hljs-comment">// IMPORTANT: edit credentials.json</span>
+<span class="hljs-comment">// with your information</span>
+<span class="hljs-comment">// or comment out below /w your keys</span>
+<span class="hljs-comment">//</span>
+$cred = <span class="hljs-keyword">new</span> Catapult\Credentials(<span class="hljs-string">&apos;BANDWIDTH_USER_ID&apos;</span>, <span class="hljs-string">&apos;BANDWITH_API_TOKEN&apos;</span>, <span class="hljs-string">&apos;BANDWIDTH_API_SECRET&apos;</span>);
+<span class="hljs-comment">// $cred = new Catapult\Credentials;</span>
+<span class="hljs-comment">// dont forget to comment out the implicit version if using assoc array</span>
+
+$client = <span class="hljs-keyword">new</span> Catapult\Client($cred);
+<span class="hljs-keyword">if</span> (!(<span class="hljs-keyword">isset</span>($argv[<span class="hljs-number">1</span>]) || <span class="hljs-keyword">isset</span>($argv[<span class="hljs-number">2</span>]) || <span class="hljs-keyword">isset</span>($argv[<span class="hljs-number">3</span>])))
+    <span class="hljs-keyword">die</span> (<span class="hljs-string">&quot;\nPlease provide command line input like: \n php ./sample-message.php &apos;from&apos; &apos;to&apos; &apos;message&apos;\n\n&quot;</span>);
+<span class="hljs-keyword">try</span> {
+    $message = <span class="hljs-keyword">new</span> Catapult\Message(<span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&quot;from&quot;</span> =&gt; <span class="hljs-keyword">new</span> Catapult\PhoneNumber($argv[<span class="hljs-number">1</span>]),
+        <span class="hljs-string">&quot;to&quot;</span> =&gt; <span class="hljs-keyword">new</span> Catapult\PhoneNumber($argv[<span class="hljs-number">2</span>]),
+        <span class="hljs-string">&quot;text&quot;</span> =&gt; <span class="hljs-keyword">new</span> Catapult\TextMessage($argv[<span class="hljs-number">3</span>])
+    ));
+    printf(<span class="hljs-string">&quot;\nWe&apos;ve messaged number: %s, said, %s!\n&quot;</span>, $argv[<span class="hljs-number">2</span>], $argv[<span class="hljs-number">3</span>]);
+} <span class="hljs-keyword">catch</span> (\CatapultApiException $e) {
+    <span class="hljs-keyword">echo</span> var_dump($e);
+}
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<h3 id="create-a-call">Create a Call</h3>
+<ul>
+<li>Create a Call object and use its create method to make an outbound call:</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require_once</span>(<span class="hljs-string">&apos;../source/Catapult.php&apos;</span>);
+<span class="hljs-comment">// below is a sample phone call</span>
+
+$cred = <span class="hljs-keyword">new</span> Catapult\Client(<span class="hljs-string">&apos;BANDWIDTH_USER_ID&apos;</span>, <span class="hljs-string">&apos;BANDWIDTH_API_TOKEN&apos;</span>, <span class="hljs-string">&apos;BANDWIDTH_API_SECRET&apos;</span>);
+<span class="hljs-comment">// comment out if you have</span>
+<span class="hljs-comment">// credentials.json</span>
+<span class="hljs-comment">//$cred = new Catapult\Client;</span>
+
+define(<span class="hljs-string">&quot;ARGS_NEEDED&quot;</span>, <span class="hljs-number">3</span>);
+define(<span class="hljs-string">&quot;ARGS_DESC&quot;</span>, <span class="hljs-string">&quot;./sample-call.php &apos;+FROMNUMBER&apos; &apos;+TONUMBER&apos;&quot;</span>);
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">if</span> (sizeof($argv)  == ARGS_NEEDED) {
+    $call = <span class="hljs-keyword">new</span> Catapult\Call(<span class="hljs-keyword">array</span>(
+      <span class="hljs-string">&quot;from&quot;</span> =&gt; $argv[<span class="hljs-number">1</span>],
+      <span class="hljs-string">&quot;to&quot;</span> =&gt; $argv[<span class="hljs-number">2</span>]
+    ));
+  } <span class="hljs-keyword">else</span> {
+    printf(<span class="hljs-string">&quot;You must supply at least %s arguments like: %s&quot;</span>, ARGS_NEEDED, ARGS_DESC);
+  }
+} <span class="hljs-keyword">catch</span> (CatapultApiException $exception) {
+  $result = $exception-&gt;getResult();
+  <span class="hljs-comment">// do something with the result</span>
+}
+</code></pre>
+<h3 id="receive-a-text-message-or-any-other-callback">Receive a Text Message (or any other callback)</h3>
+<ul>
+<li>When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in the Setup Guide and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback and what the SMS callback structure looks like.  You can learn more about handling callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-comment">//Incoming callbacks need to be exposed as an incoming request on your server.</span>
+
+<span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require_once</span>(<span class="hljs-string">&apos;../source/Catapult.php&apos;</span>);
+<span class="hljs-comment">// below is a sample event</span>
+<span class="hljs-comment">// this will listen for a call event</span>
+<span class="hljs-comment">// and when received output to screen</span>
+<span class="hljs-comment">// IMPORTANT: edit credentials.json</span>
+<span class="hljs-comment">// with your information</span>
+<span class="hljs-comment">// or comment out below /w your keys</span>
+<span class="hljs-comment">// For events, you will need to make sure</span>
+<span class="hljs-comment">// the callback url is set.</span>
+<span class="hljs-comment">//</span>
+$cred = <span class="hljs-keyword">new</span> Catapult\Credentials(<span class="hljs-string">&apos;BANDWIDTH_USER_ID&apos;</span>, <span class="hljs-string">&apos;BANDWIDTH_API_TOKEN&apos;</span>, <span class="hljs-string">&apos;BANDWIDTH_API_SECRET&apos;</span>);
+<span class="hljs-comment">//$cred = new Catapult\Credentials;</span>
+<span class="hljs-comment">// dont forget to comment out the implicit version if using assoc array</span>
+$client = <span class="hljs-keyword">new</span> Catapult\Client($cred);
+<span class="hljs-keyword">try</span> {
+  $event = <span class="hljs-keyword">new</span> Catapult\Event($_REQUEST);
+  <span class="hljs-comment">/**
+   * Once we have received an event
+   * log the event, in logs (./logs)
+         * Arrange event with time event was received:
+         * event_{time}.log
+   */</span>
+   printf(<span class="hljs-string">&quot;New event, id: %d&quot;</span>, $event-&gt;id);
+   file_put_contents(<span class="hljs-string">&quot;./&quot;</span> . $event-&gt;time . <span class="hljs-string">&quot;.log&quot;</span>, json_encode($event));
+} <span class="hljs-keyword">catch</span> (\CatapultApiException $e) {
+  <span class="hljs-keyword">echo</span> var_dump($e);
+}
+<span class="hljs-meta">?&gt;</span>
+
+<span class="hljs-comment">// SMS callback looks like this:</span>
+POST /your_url HTTP/<span class="hljs-number">1.1</span>
+Content-Type: application/json; charset=utf<span class="hljs-number">-8</span>
+User-Agent: BandwidthAPI/v1
+
+{
+ <span class="hljs-string">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;sms&quot;</span>,
+ <span class="hljs-string">&quot;direction&quot;</span>     : <span class="hljs-string">&quot;in&quot;</span>,
+ <span class="hljs-string">&quot;messageId&quot;</span>     : <span class="hljs-string">&quot;{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;messageUri&quot;</span>    : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+19195551214&quot;</span>,
+ <span class="hljs-string">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+ <span class="hljs-string">&quot;text&quot;</span>          : <span class="hljs-string">&quot;Hello World&quot;</span>,
+ <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+ <span class="hljs-string">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+ <span class="hljs-string">&quot;state&quot;</span>         : <span class="hljs-string">&quot;received&quot;</span>
+}
+</code></pre>
+<h3 id="use-the-php-sdk-to-generate-bxml">Use the PHP SDK to Generate <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML</a></h3>
+<p><em><em>BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  There are two options for creating and serving BXML to Bandwidth.  The first option is to use an SDK, such as the Bandwidth PHP SDK, to form BXML documents.  The second option is to build BXML documents from scratch and serve them via a web server.  More information on BXML can be found <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">here</a>.  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">outgoing calls</a>, you must create the call first using a REST call or using an SDK to start the callback process.</em></em></p>
+<ul>
+<li>Using PHP SDK</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">require_once</span>(<span class="hljs-string">&apos;../source/Catapult.php&apos;</span>);
+<span class="hljs-comment">// below is a sample of Bandwidth BXML (BaML)</span>
+<span class="hljs-comment">// it will execute the provided verb</span>
+<span class="hljs-comment">// IMPORTANT: edit credentials.json</span>
+<span class="hljs-comment">// with your information</span>
+<span class="hljs-comment">// or comment out below /w your keys</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//$cred = new Catapult\Credentials(&apos;BANDWIDTH_USER_ID&apos;, &apos;BANDWIDTH_API_TOKEN&apos;, &apos;BANDWIDTH_API_SECRET&apos;);</span>
+$cred = <span class="hljs-keyword">new</span> Catapult\Credentials;
+<span class="hljs-comment">// dont forget to comment out the implicit version if using assoc array</span>
+<span class="hljs-comment">// this example is cli based</span>
+<span class="hljs-comment">// use like:</span>
+<span class="hljs-comment">// php ./sample-baml.php &quot;verb&quot; &quot;attribute&quot; &quot;value&quot;</span>
+<span class="hljs-comment">// example</span>
+<span class="hljs-comment">// php ./sample-baml.php &quot;SpeakSentence&quot; &quot;voice&quot; &quot;female&quot;</span>
+$client = <span class="hljs-keyword">new</span> Catapult\Client($cred);
+<span class="hljs-keyword">if</span> (!(<span class="hljs-keyword">isset</span>($argv[<span class="hljs-number">1</span>]) || <span class="hljs-keyword">isset</span>($argv[<span class="hljs-number">2</span>]) || <span class="hljs-keyword">isset</span>($argv[<span class="hljs-number">3</span>])))
+  <span class="hljs-keyword">die</span> (<span class="hljs-string">&quot;\nPlease provide command line input like: \n php ./sample-verb.php &apos;verb&apos; &apos;attribute&apos; &apos;value&apos;\n\n&quot;</span>);
+<span class="hljs-keyword">try</span> {
+    $verb = $argv[<span class="hljs-number">1</span>];
+    $attribute = $argv[<span class="hljs-number">2</span>];
+    $value = $argv[<span class="hljs-number">3</span>];
+    $baml = <span class="hljs-keyword">new</span> Catapult\BaML;
+    $bverb = Catapult\BaMLVerb::fromString($verb);
+    $bverb-&gt;create(<span class="hljs-keyword">array</span>(
+        <span class="hljs-keyword">new</span> Catapult\BaMLAttribute($attribute, $value)
+    ));
+    <span class="hljs-comment">// here we can add other things</span>
+    <span class="hljs-comment">// verbs, attributes or text</span>
+    $bverb-&gt;addText(<span class="hljs-string">&quot;example&quot;</span>);
+    $baml-&gt;set($bverb);
+    printf(<span class="hljs-string">&quot;The following BaML was generated: \n\n%s\n\n&quot;</span>,$baml);
+} <span class="hljs-keyword">catch</span> (\CatapultApiException $e) {
+  <span class="hljs-keyword">echo</span> var_dump($e);
+}
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="nodejs" data-name="NODEJS"><p><em><em>The examples below use Node.js and Bandwidth&apos;s <a href="https://dev.bandwidth.com/clientLib/node.html" target="_blank">Node.js SDK</a>, but the basic steps are constistent in most any programming language.  The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages.  You are not required to use an SDK or specific HTTP client: you can consume Bandwidth&apos;s APIs directly using any programming language or tool capable of making HTTPS requests.</em></em></p>
+<ul>
+<li>Install <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a></li>
+<li>Open your favorite code editor.  You can find a free and open-source one for Windows, Mac, and Linux <a href="https://code.visualstudio.com/" target="_blank">here</a>.</li>
+<li>Be sure to initiate a package.json for your npm packages using the code below. For more info go <a href="https://docs.npmjs.com/cli/init" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-bash">npm init
+</code></pre>
+<ul>
+<li>Get the Bandwidth Node.js SDK (available via npm or <a href="https://dev.bandwidth.com/clientLib/node.html" target="_blank">here</a>). Use the npm installation code below or go <a href="https://www.npmjs.com/package/node-bandwidth" target="_blank">here</a> for more information on the node-bandwidth package.</li>
+</ul>
+<pre><code class="lang-bash">npm install --save node-bandwidth
+</code></pre>
+<ul>
+<li>Include necessary packages in your Node.js project.</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+</code></pre>
+<ul>
+<li>Set a constant that initiates a Bandwidth authentication using your User ID and authentication token and secret. Your User ID for this authentication is NOT the same as your username used for portal login.</li>
+<li>NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    <span class="hljs-attr">userId</span>      : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>,
+    <span class="hljs-attr">apiToken</span>    : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-attr">apiSecret</span>   : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
+});
+</code></pre>
+<h3 id="send-and-receive-text-messages-v1-using-nodejs">Send and Receive Text Messages (V1) using Node.js</h3>
+<ul>
+<li>Using your client constant, use the Message.send method to send a message.</li>
+<li>The &quot;from&quot; number must be a Bandwidth number registered to your account and set up to send messages.</li>
+</ul>
+<pre><code class="lang-javascript">client.Message.send({
+    <span class="hljs-attr">from</span>    : <span class="hljs-string">&quot;+9195551212&quot;</span>,
+    <span class="hljs-attr">to</span>      : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-attr">text</span>:   : <span class="hljs-string">&quot;Hello World&quot;</span>
+}).then(<span class="hljs-function"><span class="hljs-params">message</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(message));
+</code></pre>
+<ul>
+<li>Run the program and it should send the &quot;Hello World&quot; message to the number specified. Complete code:</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    <span class="hljs-attr">userId</span>      : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>,
+    <span class="hljs-attr">apiToken</span>    : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-attr">apiSecret</span>   : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
+});
+
+client.Message.send({
+    <span class="hljs-attr">from</span>    : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-attr">to</span>      : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-attr">text</span>    : <span class="hljs-string">&quot;Hello World&quot;</span>
+}).then(<span class="hljs-function"><span class="hljs-params">message</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(message));
+</code></pre>
+<h3 id="create-a-call-and-play-some-audio">Create a Call and Play Some Audio</h3>
+<ul>
+<li>To create a voice call, use the client.Call.create method. The &quot;from&quot; number must be a Bandwidth number registered to your account and set up to use voice services.</li>
+</ul>
+<pre><code class="lang-javascript">client.Call.create({
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+12345678901&quot;</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;+12345678902&quot;</span>
+}).then(<span class="hljs-function"><span class="hljs-params">call</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(call));
+</code></pre>
+<ul>
+<li>Now add code to play a message then hang up using the call ID and status of the voice call. The full code will look like this:</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//require node-bandwidth library</span>
+<span class="hljs-keyword">const</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+
+<span class="hljs-comment">//instantiate Bandwidth client</span>
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    <span class="hljs-attr">userId</span>      : <span class="hljs-string">&quot;YOUR_USER_ID&quot;</span>,
+    <span class="hljs-attr">apiToken</span>    : <span class="hljs-string">&quot;YOUR_API_TOKEN&quot;</span>,
+    <span class="hljs-attr">apiSecret</span>   : <span class="hljs-string">&quot;YOUR_API_SECRET&quot;</span>
+});
+
+<span class="hljs-comment">//create a call</span>
+client.Call.create({
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+12345678901&quot;</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;+12345678902&quot;</span>
+}).then(<span class="hljs-function"><span class="hljs-params">call</span> =&gt;</span> {
+
+    <span class="hljs-comment">//check the call state every two seconds</span>
+    <span class="hljs-comment">//and play a message when the call is answered</span>
+    <span class="hljs-keyword">let</span> interval = setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+
+        <span class="hljs-comment">//get the call info</span>
+        client.Call.get(call.id).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
+
+            <span class="hljs-comment">//If call is in hangup or error state, end interval</span>
+            <span class="hljs-keyword">if</span> (response.state == <span class="hljs-string">&quot;completed&quot;</span> || response.state == <span class="hljs-string">&quot;rejected&quot;</span> || response.state == <span class="hljs-string">&quot;error&quot;</span>) {
+                clearInterval(interval);
+            }
+
+            <span class="hljs-comment">//Check call for active state (call answered)</span>
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (response.state == <span class="hljs-string">&quot;active&quot;</span>) {
+
+                <span class="hljs-comment">//end interval</span>
+                clearInterval(interval);
+
+                <span class="hljs-comment">//play some text-to-speech</span>
+                client.Call.playAudioAdvanced(call.id, {
+                    <span class="hljs-attr">sentence</span>: <span class="hljs-string">&quot;Hello from Bandwidth. Goodbye.&quot;</span>
+                }).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+
+                    <span class="hljs-comment">//Pause execution so we don&apos;t hang up while speaking</span>
+                    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+
+                        <span class="hljs-comment">//hangup</span>
+                        client.Call.hangup(call.id);
+                    }, <span class="hljs-number">3000</span>);
+                });
+            }
+        });
+    }, <span class="hljs-number">2000</span>);
+});
+</code></pre>
+<h3 id="receive-a-text-message-or-any-other-callback">Receive a Text Message (or any other callback)</h3>
+<ul>
+<li>When your number receives a text message, Bandwidth will send a callback to the URL specified.  Make sure your messages callback URL is set as described in Step 2 above and make sure your server is listening for incoming HTTP requests.  The code snippet below shows how to fetch a callback using Express on a Node.js server and what the SMS callback structure looks like.  You can learn more about handling callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/callbacks.html" target="_blank">here</a>.</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//requirements</span>
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);
+<span class="hljs-keyword">const</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;body-parser&quot;</span>);
+
+<span class="hljs-comment">//initialize app</span>
+<span class="hljs-keyword">const</span> app = express();
+<span class="hljs-keyword">const</span> port = process.env.PORT || <span class="hljs-number">3000</span>;
+
+app.use(bodyParser.urlencoded({ <span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span> }));
+
+app.use(bodyParser.json());
+
+<span class="hljs-comment">//set up callback route</span>
+app.post(<span class="hljs-string">&quot;/callback&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    <span class="hljs-comment">//callback details are stored in req</span>
+    <span class="hljs-comment">//and can be used here</span>
+});
+
+<span class="hljs-comment">//listen</span>
+app.listen(port, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;App listening on PORT &quot;</span> + port);
+});
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-comment">//SMS callback looks like this:</span>
+POST /your_url HTTP/<span class="hljs-number">1.1</span>
+Content-Type: application/json; charset=utf<span class="hljs-number">-8</span>
+User-Agent: BandwidthAPI/v1
+
+{
+ <span class="hljs-string">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;sms&quot;</span>,
+ <span class="hljs-string">&quot;direction&quot;</span>     : <span class="hljs-string">&quot;in&quot;</span>,
+ <span class="hljs-string">&quot;messageId&quot;</span>     : <span class="hljs-string">&quot;{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;messageUri&quot;</span>    : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+ <span class="hljs-string">&quot;from&quot;</span>          : <span class="hljs-string">&quot;+19195551214&quot;</span>,
+ <span class="hljs-string">&quot;to&quot;</span>            : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+ <span class="hljs-string">&quot;text&quot;</span>          : <span class="hljs-string">&quot;Hello World&quot;</span>,
+ <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{appId}&quot;</span>,
+ <span class="hljs-string">&quot;time&quot;</span>          : <span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+ <span class="hljs-string">&quot;state&quot;</span>         : <span class="hljs-string">&quot;received&quot;</span>
+}
+</code></pre>
+<h3 id="play-a-message-on-an-incoming-call-using-bxml">Play a Message on an Incoming Call using <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">BXML</a></h3>
+<p><em><em>BXML is a powerful and easy-to-use markup language that allows you to control voice applications.  Using Node.js, you must build BXML documents from scratch and serve them via a web server.  More information on BXML can be found <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html" target="_blank">here</a>.  NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself.  For example, upon an incoming call to a number associated to an application with the autoanswer feature set.  To use BMXL on <a href="https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html" target="_blank">outgoing calls</a>, you must create the call first using a REST call or using an SDK to start the callback process.</em></em></p>
+<ul>
+<li>A simple BXML document looks like this:</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">SpeakSentence</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;susan&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span>
+Hello from Bandwidth.
+<span class="hljs-tag">&lt;/<span class="hljs-name">SpeakSentence</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">Hangup</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Hangup</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">Response</span>&gt;</span>
+</code></pre>
+</div></div></div>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            <p><div id="page-footer" class="localized-footer"><ul class="footerUnorderedList">
+<span class="footerLabel">LEARN MORE</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/voice/">Voice</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/messaging/">Messaging</a></li><span class="remove4mobile"><span class="remove4mobile">&#x2022;</span></span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/9-1-1/">9-1-1 Access</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/phone-numbers/">Phone Numbers</a></li>
+</ul>
+<ul class="footerUnorderedList">
+<span class="footerLabel">QUICK LINKS</span>
+  <li class="footerListItem"><a href="https://status.bandwidth.com">Service Status</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/glossary/">Glossary</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/news/">News</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/contact/">Contact</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/resources/">Resources</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/blog/">Blog</a></li>
+</ul>
+</div></p>
+</div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Voice & Messaging Developer Guide","level":"2.1.2","depth":2,"next":{"title":"Building Blocks","level":"2.2","depth":1,"path":"howto/howto.md","ref":"howto/howto.md","articles":[{"title":"Receive Messages and Calls","level":"2.2.1","depth":2,"path":"howto/incomingCallandMessaging.md","ref":"howto/incomingCallandMessaging.md","articles":[]},{"title":"Phone Numbers","level":"2.2.2","depth":2,"path":"howto/phonenumbers.md","ref":"howto/phonenumbers.md","articles":[{"title":"Get a Number","level":"2.2.2.1","depth":3,"path":"howto/buytn.md","ref":"howto/buytn.md","articles":[]},{"title":"Import Dashboard Numbers","level":"2.2.2.2","depth":3,"path":"howto/importDashboard.md","ref":"howto/importDashboard.md","articles":[]}]},{"title":"Voice","level":"2.2.3","depth":2,"path":"howto/voice.md","ref":"howto/voice.md","articles":[{"title":"Create outbound call","level":"2.2.3.1","depth":3,"path":"howto/outboundCall.md","ref":"howto/outboundCall.md","articles":[]},{"title":"Play Audio","level":"2.2.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},{"title":"Speak Sentence","level":"2.2.3.3","depth":3,"path":"howto/speakSentence.md","ref":"howto/speakSentence.md","articles":[]},{"title":"Record a call","level":"2.2.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},{"title":"Collect digits","level":"2.2.3.5","depth":3,"path":"howto/createGather.md","ref":"howto/createGather.md","articles":[]},{"title":"Forward a call","level":"2.2.3.6","depth":3,"path":"howto/forwardACall.md","ref":"howto/forwardACall.md","articles":[]},{"title":"Call Screening","level":"2.2.3.7","depth":3,"path":"howto/callScreen.md","ref":"howto/callScreen.md","articles":[]},{"title":"Conference Call","level":"2.2.3.8","depth":3,"path":"howto/conferenceCall.md","ref":"howto/conferenceCall.md","articles":[]},{"title":"Voicemail","level":"2.2.3.9","depth":3,"path":"howto/voicemail.md","ref":"howto/voicemail.md","articles":[]},{"title":"Configure SIP","level":"2.2.3.10","depth":3,"path":"howto/sip.md","ref":"howto/sip.md","articles":[]},{"title":"WebRTC","level":"2.2.3.11","depth":3,"path":"howto/webrtc.md","ref":"howto/webrtc.md","articles":[]},{"title":"For Mobile Apps","level":"2.2.3.12","depth":3,"path":"howto/acrobits.md","ref":"howto/acrobits.md","articles":[]},{"title":"Network Bridge","level":"2.2.3.13","depth":3,"path":"howto/networkBridge.md","ref":"howto/networkBridge.md","articles":[]}]},{"title":"Messaging","level":"2.2.4","depth":2,"path":"howto/messaging.md","ref":"howto/messaging.md","articles":[{"title":"Send SMS/MMS","level":"2.2.4.1","depth":3,"path":"howto/sendSMSMMS.md","ref":"howto/sendSMSMMS.md","articles":[]},{"title":"Send SMS with Delivery Receipt","level":"2.2.4.2","depth":3,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},{"title":"Hosted Messaging Getting Started","level":"2.2.4.3","depth":3,"path":"howto/hostedMessaging.md","ref":"howto/hostedMessaging.md","articles":[]}]}]},"previous":{"title":"Voice & Messaging Setup Guide","level":"2.1.1","depth":2,"path":"getStartedSetupGuide.md","ref":"getStartedSetupGuide.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"getStartedProgGuide.md","mtime":"2018-08-30T20:19:24.207Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-30T20:20:54.769Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P2JT7Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+	<!-- begin usabilla live embed code -->
+	<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+	window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/73009503da29.js");
+	/*]]>{/literal}*/</script>
+	<!-- end usabilla live embed code -->
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-bandwidth-fonts/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
