@@ -14,6 +14,7 @@
         "-highlight",
         "bandwidth-highlight",
         "custom-footer",
+        "parse-from-url",
         "meta" 
     ],
     "pluginsConfig": {
@@ -94,6 +95,15 @@
                     "content": "See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"
                 }
             ]
+        },
+        "parseUrls" : {
+            "urls": [
+              {
+                "url": "https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100",
+                "dest": "howto/deployableDemos.md",
+                "mapping": "github-names.json" 
+              }
+           ]
         }
-   } 
+   }
 }
