@@ -33,7 +33,7 @@
     * [Send SMS/MMS](howto/sendSMSMMS.md)
     * [Send SMS with Delivery Receipt](howto/smsDLR.md)
     * [Hosted Messaging Getting Started](howto/hostedMessaging.md)
-* [Deployable Demos](howto/deployableDemos.md)
+* [Bandwidth Code Examples](howto/deployableDemos.md)
 
 ## Security
 * [Security](security.md)
