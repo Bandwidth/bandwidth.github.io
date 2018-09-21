@@ -2,25 +2,74 @@
 
 # How to create a conference call
 
-### Create conference call
+In order to establish a conference call between three or more calls, a sequence of API calls needs to be made in a specific order.  Calls with less than three callers should be [bridged](https://dev.bandwidth.com/ap-docs/methods/bridges/bridges.html). 
 
-```http
-POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences HTTP/1.1
-Content-Type: application/json; charset=utf-8
+Note: 20 caller maximum on conference calls.
 
-{
-  "from"            : "{number}",
-  "callbackUrl"     : "http://my.callback.url",
-  "callbackTimeout" : "2000",
-  "fallbackUrl"     : "http://my.fallback.url"
-}
+### Step 1. Create A Conference Call
+
+```curl
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+    -d \
+    '
+    {
+        "from": "{number}"
+    }'
 ```
 
-### Response
+### Callback Response
 
 ```http
 HTTP/1.1 201 CREATED
+Location: /v1/users/{userId}/conferences/{conferenceId}
 ```
+
+### Step 2. Create A Call With the Conference ID
+
+```curl
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+    -d \
+    '
+    {
+        "from": "{fromNumber}",
+        "to": "{toNumber}",
+        "conferenceId: "{conferenceId}"
+    }'
+```
+
+### Callback Response
+
+```http
+HTTP/1.1 201 CREATED
+Location: /v1/users/{userId}/calls/{callId}
+```
+
+### Step 3. Add Call to Conference as a Member Using the Call ID
+
+```curl
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+    -d \
+    '
+    {
+        "callId": "{callId}"
+    }'
+```
+
+### Callback Response
+
+```http
+HTTP/1.1 201 CREATED
+Location: /v1/users/{userId}/conferences/members/{memberId}
+```
+
+Repeat steps 2-3 to add additional calls.
+
 
 {% sample lang="js" %}
 
