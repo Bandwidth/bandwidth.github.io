@@ -980,20 +980,53 @@
                                 <section class="normal markdown-section" style="padding-top: 0px;">
                                 
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h1 id="how-to-create-a-conference-call">How to create a conference call</h1>
-<h3 id="create-conference-call">Create conference call</h3>
-<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/conferences</span> HTTP/1.1
-<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
-
-<span class="json">{
-  <span class="hljs-attr">&quot;from&quot;</span>            : <span class="hljs-string">&quot;{number}&quot;</span>,
-  <span class="hljs-attr">&quot;callbackUrl&quot;</span>     : <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
-  <span class="hljs-attr">&quot;callbackTimeout&quot;</span> : <span class="hljs-string">&quot;2000&quot;</span>,
-  <span class="hljs-attr">&quot;fallbackUrl&quot;</span>     : <span class="hljs-string">&quot;http://my.fallback.url&quot;</span>
-}
-</span></code></pre>
-<h3 id="response">Response</h3>
-<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<p>In order to establish a conference call between three or more calls, a sequence of API calls needs to be made in a specific order. Calls with less than three callers should be <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/bridges.html" target="_blank">bridged</a>. </p>
+<p>Note: 20 caller maximum on conference calls.</p>
+<h3 id="step-1-create-a-conference-call">Step 1. Create A Conference Call</h3>
+<pre><code class="lang-curl">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+    -d \
+    &apos;
+    {
+        &quot;from&quot;: &quot;{number}&quot;
+    }&apos;
 </code></pre>
+<h3 id="callback-response">Callback Response</h3>
+<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/conferences/{conferenceId}
+</code></pre>
+<h3 id="step-2-create-a-call-with-the-conference-id">Step 2. Create A Call With the Conference ID</h3>
+<pre><code class="lang-curl">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+    -d \
+    &apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;conferenceId: &quot;{conferenceId}&quot;
+    }&apos;
+</code></pre>
+<h3 id="callback-response">Callback Response</h3>
+<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/calls/{callId}
+</code></pre>
+<h3 id="step-3-add-call-to-conference-as-a-member-using-the-call-id">Step 3. Add Call to Conference as a Member Using the Call ID</h3>
+<pre><code class="lang-curl">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+    -d \
+    &apos;
+    {
+        &quot;callId&quot;: &quot;{callId}&quot;
+    }&apos;
+</code></pre>
+<h3 id="callback-response">Callback Response</h3>
+<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Location</span>: /v1/users/{userId}/conferences/members/{memberId}
+</code></pre>
+<p>Repeat steps 2-3 to add additional calls.</p>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-sample" data-lang="js" data-name="Js"><h3 id="create-a-conference-call">Create a conference call</h3>
 <pre><code class="lang-js">client.Conference.create({<span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+1234567890&quot;</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">conference</span>)</span>{});
 </code></pre>
@@ -1060,7 +1093,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Conference Call","level":"2.2.3.8","depth":3,"next":{"title":"Voicemail","level":"2.2.3.9","depth":3,"path":"howto/voicemail.md","ref":"howto/voicemail.md","articles":[]},"previous":{"title":"Call Screening","level":"2.2.3.7","depth":3,"path":"howto/callScreen.md","ref":"howto/callScreen.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","parse-from-url","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"parse-from-url":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"parseUrls":{"urls":[{"url":"https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100","dest":"howto/deployableDemos.md","mapping":"github-names.json"}]},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"howto/conferenceCall.md","mtime":"2018-10-01T15:20:21.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T15:22:01.586Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Conference Call","level":"2.2.3.8","depth":3,"next":{"title":"Voicemail","level":"2.2.3.9","depth":3,"path":"howto/voicemail.md","ref":"howto/voicemail.md","articles":[]},"previous":{"title":"Call Screening","level":"2.2.3.7","depth":3,"path":"howto/callScreen.md","ref":"howto/callScreen.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","parse-from-url","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"parse-from-url":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"parseUrls":{"urls":[{"url":"https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100","dest":"howto/deployableDemos.md","mapping":"github-names.json"}]},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"howto/conferenceCall.md","mtime":"2018-10-01T18:22:19.485Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:24:05.521Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
