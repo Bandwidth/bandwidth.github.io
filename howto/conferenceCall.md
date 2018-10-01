@@ -2,7 +2,7 @@
 
 # How to create a conference call
 
-In order to establish a conference call between three or more calls, a sequence of API calls needs to be made in a specific order.  Calls with less than three callers should be [bridged](https://dev.bandwidth.com/ap-docs/methods/bridges/bridges.html). 
+In order to establish a conference call between three or more calls, a sequence of API calls needs to be made in a specific order. Calls with less than three callers should be [bridged](https://dev.bandwidth.com/ap-docs/methods/bridges/bridges.html). 
 
 Note: 20 caller maximum on conference calls.
 
