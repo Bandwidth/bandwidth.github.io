@@ -21,7 +21,7 @@
 * Set the Application's Callback Request Method to "POST" and set the Application Type to "Both".
 * Set the Messaging Callback URL to the URL where your messaging scripts will be hosted.
 * Set the Voice Callback URL to the URL where your BXML will be hosted.
-* Turn the Automatically Answer Incomming switch on.
+* Turn the Automatically Answer Incoming switch on.
 * Click the Create button.
 * Click the "+" in the Associated Numbers box (below the Application info).
 * Select your Bandwidth number.  
