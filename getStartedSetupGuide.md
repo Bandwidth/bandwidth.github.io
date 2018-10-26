@@ -2,7 +2,8 @@
 ### Prerequisites
 
 * A Bandwidth Voice & Messaging account.  Sign up or sign in [here](https://app.bandwidth.com).
-* A web server or tunnel service like [Ngrok](https://ngrok.com) where Bandwidth can send callbacks or find BXML documents online.
+* A web server where Bandwidth can send callbacks or request BXML documents.
+    * A tunnel service like [Ngrok](https://ngrok.com) can be used as well.
 
 ### Step 1. Get a Bandwidth Telephone Number 
 
@@ -18,10 +19,11 @@
 
 * Select Applications from the main menu.
 * Click the "Create New" button and give your application a name.
-* Set the Application's Callback Request Method to "POST" and set the Application Type to "Both".
+* Set the Application's Callback Request Method to "GET or "POST" and set the Application Type to "Both".
+    * If you are using BXML, you will need to use "GET" as the Callback Request Method.
 * Set the Messaging Callback URL to the URL where your messaging scripts will be hosted.
-* Set the Voice Callback URL to the URL where your BXML will be hosted.
-* Turn the Automatically Answer Incoming switch on.
+* Set the Voice Callback URL to the URL where your voice scripts or BXML will be hosted.
+* If you are using BXML for voice callbacks, turn the Automatically Answer Incoming switch on. If you are not using BXML for voice callbacks, you can set this switch to whichever setting is appropriate for your application.
 * Click the Create button.
 * Click the "+" in the Associated Numbers box (below the Application info).
 * Select your Bandwidth number.  
