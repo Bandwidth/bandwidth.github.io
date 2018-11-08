@@ -15,7 +15,7 @@
 | Resource                                                     | Description                                                                                                            |
 |:-------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|
 |[Complete Documentation](https://dev.bandwidth.com/docs/phone-numbers/)| Comprehensive numbers management using Bandwidth APIs documentation.                                                  |
-|[Account Configuration Guide](https://dev.bandwidth.com/docs/phone-numbers/concepts/accountConfig.html)               | Flowchart illistrating account configuration.                                                                  |
+|[Account Configuration Guide](https://dev.bandwidth.com/docs/phone-numbers/concepts/accountConfig.html)               | Flowchart illustrating account configuration.                                                                  |
 |[Search & Order Phone Numbers](https://dev.bandwidth.com/docs/phone-numbers/guides/onDemandNumberSearchAndOrder.html)| Guides for searching and ordering phone numbers.                   |
 |[Porting Phone Numbers](https://dev.bandwidth.com/docs/phone-numbers/guides/portingPhoneNumbers.html#top)| Guides for porting phone numbers.                   |
 |[Numbers Dashboard](https://dashboard.bandwidth.com)| Bandwidth Dashboard for Number Management                  |
