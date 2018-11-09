@@ -109,51 +109,6 @@ var message = await client.Message.SendAsync(new MessageData {
 Console.WriteLine($"Message Id is {message.Id}");
 ```
 
-#### Messaging 2.0
-
-```csharp
-// Using Message API v2
-
-// Create a messaging application
-var dashboardAuthData = new IrisAuthData
-{
-    AccountId = "AccountId",
-    UserName = "UserName",
-    Password = "Password",
-    SubaccountId = "SubaccountId"
-};
-var messagingApplication = await api.CreateMessagingApplicationAsync(dashboardAuthData, new CreateMessagingApplicationData
-{
-    Name = "My Messaging App",
-    CallbackUrl = "http://my-callback",
-    LocationName = "My Location",
-    SmsOptions = new SmsOptions
-    {
-        TollFreeEnabled = true
-    },
-    MmsOptions = new MmsOptions
-    {
-        Enabled = true
-    }
-});
-
-// Reserve a phone number for messaging
-var numbers = await api.SearchAndOrderNumbersAsync(dashboardAuthData, messagingApplication, new AreaCodeSearchAndOrderNumbersQuery
-{
-    AreaCode = "910",
-    Quantity = 1
-});
-
-// Now you can send meessages via API v2
-var message = await client.V2.Message.SendAsync(new MessageData{ 
-    From = numbers[0],  //use only numbers reserved by SearchAndOrderNumbersAsync()
-    To = new[] {"+12345678902"},
-    Text = "Hello world",
-    ApplicationId = messagingApplication.ApplicationId
-});
-
-```
-
 Make a call
 
 ```csharp
