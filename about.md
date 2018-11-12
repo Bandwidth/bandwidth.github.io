@@ -15,7 +15,7 @@
         <li>Make phone calls and conference calls with REST API</li>
       </ul>
       <!-- <p>Are you focused on adding voice and messaging capability to your app or product? Like, sending notifications? Or trackable calls and texts?</p> -->
-      <a href="http://dev.bandwidth.com/ap-docs/methods/restApi.html" class="button vmd">Start here</a>
+      <a href="https://dev.bandwidth.com/ap-docs/methods/restApi.html" class="button vmd">Start here</a>
     </div>
     <div>
       <h2>Phone Numbers API</h2>
@@ -29,7 +29,7 @@
         </ul>
       </p>
       <!-- <p>Is managing phone numbers most important to you? Do you need location-specific numbers? Does automatic porting sound good to you?</p> -->
-      <a href="http://dev.bandwidth.com/docs/"  class="button pnd">Start here</a>
+      <a href="https://dev.bandwidth.com/docs/"  class="button pnd">Start here</a>
     </div>
   </div>
 </div>

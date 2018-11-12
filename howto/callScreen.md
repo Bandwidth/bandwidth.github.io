@@ -13,7 +13,7 @@ Call screening allows the original caller to record their name before forwarding
   * [Playing audio on a call](playAudio.md)
   * [Recording audio on a call](recordCall.md)
   * [Creating a gather request](createGather.md)
-  * [Forwarding a call](http://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html)
+  * [Forwarding a call](https://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html)
 
 ## Steps
 1. [Recieve Incoming Call and Answer event](#incomingCall-and-answer)
@@ -31,8 +31,8 @@ Call screening allows the original caller to record their name before forwarding
 
 After setting up your [application to recieve incoming calls](incomingCallandMessaging.md) with `autoAnswer` enabled. You will recieve two events back to back:
 
-1. [`incomingCall`](http://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html)
-2. [`answer`](http://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html)
+1. [`incomingCall`](https://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html)
+2. [`answer`](https://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html)
 
 Your server should reply with any `HTTP 2xx` code to acknowledge that the callback event was delivered.  Any thing returned in the response besides the status code is ignored by Bandwidth.
 
@@ -133,7 +133,7 @@ For the purposes of this tutorial, we're using the text-to-speech features of th
 | voice     | The voice to speak the sentence.                                                                   |
 | tag       | A string that will be included in the events delivered when the audio playback starts or finishes. |
 
-For more options and configuration [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
+For more options and configuration [view the full documentation](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html)
 
 {% common %}
 
@@ -153,7 +153,7 @@ Authorization: {apiToken:apiSecret}
 
 ## Receive the Speak Sentence Events {#speak-finished}
 
-During the speak sentence Bandwidth will send two [callbacks](http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html) with the status of the sentence:
+During the speak sentence Bandwidth will send two [callbacks](https://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html) with the status of the sentence:
 
 1. `{"eventType": "speak", "status": "started"}`
 2. `{"eventType": "speak", "status": "done"}`
@@ -172,7 +172,7 @@ During the speak sentence Bandwidth will send two [callbacks](http://dev.bandwid
 | tag       | String provided when text-to-speech started.                              |
 | time      | Date when the event occurred. Timestamp follows the ISO8601 format (UTC). |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/apiCallbacks/speak.html).
 
 {% common %}
 
@@ -227,7 +227,7 @@ Once you receive the `{ "status": "done" }` event for the sentence, you'll want 
 | recordingEnabled    | Indicates if the call should be recorded. Values `true` or `false`.                   |
 | recordingFileFormat | The file format of the recorded call. Supported values are `wav` (default) and `mp3`. |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html).
 
 {% common %}
 
@@ -247,7 +247,7 @@ Authorization: {apiToken:apiSecret}
 
 ## Create Gather {#create-gather}
 
-This solution uses the [`gather`](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html) method to allow us to specify a `interDigitTimeout` and `maxDigits: 1` so that we can stop recording easily after a specified duration has passed, -OR- the caller presses any digit.
+This solution uses the [`gather`](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html) method to allow us to specify a `interDigitTimeout` and `maxDigits: 1` so that we can stop recording easily after a specified duration has passed, -OR- the caller presses any digit.
 
 {% extendmethod %}
 
@@ -263,7 +263,7 @@ This solution uses the [`gather`](http://dev.bandwidth.com/ap-docs/methods/calls
 | interDigitTimeout | Stop gathering if a DTMF digit is not detected in this many seconds (default 5.0; maximum 30.0).  |
 | tag               | A string you choose that will be included with the response and events for this gather operation. |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdGather.html).
 
 {% common %}
 
@@ -301,7 +301,7 @@ When either the user has pressed a digit or the timeout has passed, you'll get a
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                                                                                                                                                                                                                                          |
 | tag       | String used when creating the [gather](#create-gather)                                                                                                                                                                                                                                                                                                                   |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/apiCallbacks/gather.html).
 
 {% common %}
 
@@ -342,7 +342,7 @@ Once you receive the `{ "eventType" : "gather", "state": "completed" }` event fo
 |:-----------------|:--------------------------------------------------------------------|
 | recordingEnabled | Indicates if the call should be recorded. Values `true` or `false`. |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallId.html).
 
 {% common %}
 
@@ -379,7 +379,7 @@ When the recording has been finished, Bandwidth will send a callback to your ser
 | startTime    | Date/time the recording started. Timestamp follows the ISO8601 format (UTC).   |
 | endTime      | Date/time the recording completed. Timestamp follows the ISO8601 format (UTC). |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/apiCallbacks/recording.html).
 
 {% common %}
 
@@ -424,7 +424,7 @@ Once the recording is complete, we'll need to fetch the _real_ location of the m
 | media     | The complete URL to the media resource this recording is associated with.                                 |
 | state     | The state of the recording, values are <br> - `recording` <br> - `complete`<br> - `saving` <br> - `error` |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/methods/recordings/getRecordingsRecordingId.html).
 
 {% common %}
 
@@ -473,7 +473,7 @@ In this case, you'll use the `media-url` from above as the `fileUrl` within the 
 | callbackUrl      | The server URL where the call events for the new call will be sent upon transferring.                                                                                                                                                                                                                                                                                                                |
 | whisperAudio     | Audio to be played to the caller that the call will be transferred to.                                                                                                                                                                                                                                                                                                                               |
 
-For more details [view the full documentation](http://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html).
+For more details [view the full documentation](https://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html).
 
 {% common %}
 
@@ -486,7 +486,7 @@ Authorization: {apiToken:apiSecret}
 
 {
   "state"            : "transferring",
-  "transferCallerId" : "private"
+  "transferCallerId" : "private",
   "transferTo"       : "+18382947878",
   "callbackUrl"      : "{{your-url}}",
   "whisperAudio"     : {

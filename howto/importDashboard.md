@@ -66,7 +66,7 @@ Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-i
 
 To send a message with your imported number, use the `/messaging` capabilities as normal.
 
-* [Learn About Sending Messages](http://dev.bandwidth.com/ap-docs/methods/messages/messages.html)
+* [Learn About Sending Messages](https://dev.bandwidth.com/ap-docs/methods/messages/messages.html)
 
 ### Example: Send New Message
 
@@ -97,8 +97,8 @@ Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6
 
 Bandwith will send you either a <code class="get">GET</code> or <code class="post">POST</code> HTTP Callback based on your `application` configuration in Step 3.
 
-* [Learn About Incoming Messages *POST*](http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
-* [Learn About Incoming Messages *GET*](http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html)
+* [Learn About Incoming Messages *POST*](https://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
+* [Learn About Incoming Messages *GET*](https://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html)
 
 
 ### Example `GET` Callback

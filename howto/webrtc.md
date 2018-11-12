@@ -14,14 +14,14 @@ For a more in depth guide, view [this article](sip.md)
 
 ## Quick Start with JsSip
 
-Once you have stood up a server to handle callbacks from Bandwidth **AND** [created a domain](http://dev.bandwidth.com/ap-docs/methods/domains/postDomains.html) with at least one [endpoint](http://dev.bandwidth.com/ap-docs/methods/endpoints/postEndpoints.html) that is associated with an application; you're ready to get started with SIP
+Once you have stood up a server to handle callbacks from Bandwidth **AND** [created a domain](https://dev.bandwidth.com/ap-docs/methods/domains/postDomains.html) with at least one [endpoint](https://dev.bandwidth.com/ap-docs/methods/endpoints/postEndpoints.html) that is associated with an application; you're ready to get started with SIP
 
 ### [https://tryit.jssip.net/](https://tryit.jssip.net/)
 
 | Name          | Value                                                                                                          |
 |:--------------|:---------------------------------------------------------------------------------------------------------------|
 | SIP URI       | `sip:{endpoint_name}@{domain_name}.bwapp.bwsip.io`                                                             |
-| SIP password  | value used when [creating the endpoint](http://dev.bandwidth.com/ap-docs/methods/endpoints/postEndpoints.html) |
+| SIP password  | value used when [creating the endpoint](https://dev.bandwidth.com/ap-docs/methods/endpoints/postEndpoints.html) |
 | WebSocket URI | `wss://webrtc.registration.bandwidth.com:10443`                                                                |
 
 ![complete setup](images/tryit_filledout.png)

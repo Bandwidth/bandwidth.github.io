@@ -1,12 +1,12 @@
 {
+    "title": "Bandwidth API Developer Docs",
     "plugins": [
-        "theme-bandwidth@1.9.3",
+        "theme-bandwidth@1.9.11",
         "header",
         "sharing",
         "custom-favicon",
         "bandwidth-toggle-chapters",
         "custom-jquery-postprocessing",
-        "gtm",
         "crazyegg",
         "usabilla",
         "-fontsettings",
@@ -14,7 +14,8 @@
         "-highlight",
         "bandwidth-highlight",
         "custom-footer",
-        "mouseflow"
+        "parse-from-url@1.0.4",
+        "meta" 
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -82,6 +83,27 @@
         },
         "mouseflow": {
             "projectId": "e48d3324-5985-479f-a9fc-7283fb266917"
+        },
+        "meta": {
+            "data": [
+                {
+                    "name": "title",
+                    "content": "Bandwidth API Developer Docs" 
+                },
+                {
+                    "name": "description",
+                    "content": "See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"
+                }
+            ]
+        },
+        "parseUrls" : {
+            "urls": [
+              {
+                "url": "https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100",
+                "dest": "howto/deployableDemos.md",
+                "mapping": "github-names.json" 
+              }
+           ]
         }
-    }
+   }
 }

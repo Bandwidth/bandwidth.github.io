@@ -8,7 +8,7 @@
 ### Running Examples
 
 * Find your credentials for all examples in your [account tab](../security.md)
-* Replace the <code class="delete">from</code> number with a Bandwidth Number](howto/buytn.md)
+* Replace the <code class="delete">from</code> number with a [Bandwidth Number](buytn.md)
 * Replace the <code class="delete">to</code> number with your cell phone number.
 
 ### Using PostMan
@@ -179,7 +179,7 @@ client.Message.send(message)
 {% sample lang="csharp" %}
 
 ```csharp
-//Download the .net sdk from http://dev.bandwidth.com/clientLib/csharp.html
+//Download the .net sdk from https://dev.bandwidth.com/clientLib/csharp.html
 
 using System;
 using System.Threading.Tasks;

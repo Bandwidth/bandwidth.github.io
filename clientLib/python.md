@@ -1,10 +1,13 @@
 # Bandwidth Python API
 
-[![Build Status](https://travis-ci.org/Bandwidth/python-bandwidth.svg?branch=master)](https://travis-ci.org/Bandwidth/python-bandwidth) [![Can I Use Python 3?](https://caniusepython3.com/project/bandwidth-sdk.svg)](https://caniusepython3.com/project/bandwidth-sdk)
+[![Build Status](https://travis-ci.org/Bandwidth/python-bandwidth.svg?branch=master)](https://travis-ci.org/Bandwidth/python-bandwidth)[![Documentation Status](https://readthedocs.org/projects/bandwidth-sdk/badge/?version=latest)](http://bandwidth-sdk.readthedocs.io/en/latest/?badge=latest)
 
-[![github](../images/github_logo.png)](https://github.com/bandwidth/python-bandwidth)
 
-### [Full API Reference](http://dev.bandwidth.com/python-bandwidth)
+Client library for the [Bandwidth App Platform](http://ap.bandwidth.com/docs/rest-api/)
+
+## Full Reference
+### [dev.bandwidth.com/python-bandwidth](https://dev.bandwidth.com/python-bandwidth)
+
 
 ## Requirements
 * [Bandwidth Account](http://bandwidth.com/products/application-platform/?utm_medium=social&utm_source=github&utm_campaign=dtolb&utm_content=_)
@@ -39,14 +42,14 @@ account_api = account.Client('u-user', 't-token', 's-secret')
 ### Search and order phone number
 
 ```python
-numbers = api.search_available_local_numbers(area_code = '910', quantity = 3)
+numbers = account_api.search_available_local_numbers(area_code = '910', quantity = 3)
 print(numbers[0]['number'])
 ## +19104440230
 
-my_number = api.create_phone_number(numbers[0]['number'])
+my_number = account_api.order_phone_number(numbers[0]['number'])
 
 print(my_number)
-#+19104440230
+#n-rnd5eag33safchqmrj3q
 ```
 
 ### Send Text Message

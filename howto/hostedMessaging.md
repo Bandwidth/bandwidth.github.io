@@ -135,7 +135,7 @@ The `<ProcessingStatus>` has multiple values:
 
 ## Step 3 *Create Application* - Using the Bandwidth Communication API
 
-You'll need to configure an [`application`](http://dev.bandwidth.com/ap-docs/methods/applications/applications.html) in the Bandwidth Communication API. You may already have an application configured; if so, take note of the `applicationId`. Otherwise you'll need to create an application.
+You'll need to configure an [`application`](https://dev.bandwidth.com/ap-docs/methods/applications/applications.html) in the Bandwidth Communication API. You may already have an application configured; if so, take note of the `applicationId`. Otherwise you'll need to create an application.
 
 | Parameter                         | Description                                                                                                      | Mandatory |
 |:----------------------------------|:-----------------------------------------------------------------------------------------------------------------|:----------|
@@ -143,7 +143,7 @@ You'll need to configure an [`application`](http://dev.bandwidth.com/ap-docs/met
 | `incomingMessageUrl`                | A URL where message events will be sent for an inbound SMS message                                               | Yes        |
 | `incomingMessageUrlCallbackTimeout` | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. | No        |
 | `incomingMessageFallbackUrl`        | The URL used to send the callback event if the request to incomingMessageUrl fails.                              | No        |
-| `callbackHttpMethod`                | Set to <code class="post">POST</code> to use [REST API Control](http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)<br> Set to <code class="get">GET</code> to use [BXML Control](http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html)  | No        |
+| `callbackHttpMethod`                | Set to <code class="post">POST</code> to use [REST API Control](https://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)<br> Set to <code class="get">GET</code> to use [BXML Control](https://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html)  | No        |
 
 ### Example: Create an application
 
@@ -215,7 +215,7 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4j
 
 To send a message with your imported number, use the `/messaging` capabilities as normal.
 
-* [Learn About Sending Messages](http://dev.bandwidth.com/ap-docs/methods/messages/messages.html)
+* [Learn About Sending Messages](https://dev.bandwidth.com/ap-docs/methods/messages/messages.html)
 
 ### Example: Send New Message
 
@@ -243,8 +243,8 @@ https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih
 
 Bandwith will send you either a <code class="get">GET</code> or <code class="post">POST</code> HTTP Callback based on your `application` configuration in Step 3.
 
-* [Learn About Incoming Messages *POST*](http://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
-* [Learn About Incoming Messages *GET*](http://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html)
+* [Learn About Incoming Messages *POST*](https://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html)
+* [Learn About Incoming Messages *GET*](https://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html)
 
 
 ### Example `GET` Callback
