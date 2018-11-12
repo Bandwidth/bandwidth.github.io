@@ -2,7 +2,7 @@
 ## Create outbound call
 ![Graphic](images/how-to-outbound-call.png)
 
-There is a single HTTP POST required using the `/calls` resource.  See the [`/calls`](https://bandwidth.github.io/docs/?shell#post-calls) resource for a complete reference.
+There is a single HTTP POST required using the `/calls` resource.  See the [`/calls`](https://dev.bandwidth.com/ap-docs/methods/calls/calls.html) resource for a complete reference.
 
 ### Using Postman
 <a href="https://app.getpostman.com/run-collection/8aec904a67e85cbbede2" class="aimg">![Postman](images/postman.svg)</a>

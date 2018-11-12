@@ -486,7 +486,7 @@ Authorization: {apiToken:apiSecret}
 
 {
   "state"            : "transferring",
-  "transferCallerId" : "private"
+  "transferCallerId" : "private",
   "transferTo"       : "+18382947878",
   "callbackUrl"      : "{{your-url}}",
   "whisperAudio"     : {
