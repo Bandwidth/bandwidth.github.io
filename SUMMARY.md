@@ -7,6 +7,7 @@
 * [GitHub](https://github.com/Bandwidth)
 
 ## Guides
+* [About the Docs](guideToGuides.md)
 * [Get Started](getStarted.md)
   * [Voice & Messaging Setup Guide](getStartedSetupGuide.md)
   * [Voice & Messaging Developer Guide](getStartedProgGuide.md)
