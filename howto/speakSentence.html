@@ -1005,7 +1005,27 @@
     
                                 <section class="normal markdown-section" style="padding-top: 0px;">
                                 
-                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h1 id="how-to-speak-a-sentence-on-a-call">How to speak a sentence on a call</h1>
+                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div></div><div class="api-method-code mm-code-first" style="min-height: 0vh;"><div class="api-code-top mm-code-top"></div></div></div>
+
+<h1 id="top">How to Speak Sentence on a Call </h1>
+<h2 id="about">About </h2>
+<p>Speak a sentence on an active phone call. For more information about speak sentence, visit the <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">full documentation</a>.</p>
+<h2 id="assumptions">Assumptions</h2>
+<ul>
+<li>You have signed up for the <a href="https://app.bandwidth.com" target="_blank">Bandwidth voice &amp; messaging APIs</a></li>
+<li>You are familiar with:<ul>
+<li><a href="incomingCallandMessaging.html">receiving incoming calls</a></li>
+<li><a href="outboundCall.html">making outbound calls</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<ol>
+<li><a href="outboundCall.html">Create call with callback URL</a> -or- <a href="incomingCallandMessaging.html">Recieve Incoming Call</a></li>
+<li><a href="#hotlink-to-step2">Check if call is answered</a></li>
+<li><a href="#hotlink-to-step3">Speak sentence on call</a></li>
+</ol>
+<h2 id="hotlink-to-step1">Step 1  - Create outbound call with callback url.</h2>
 <h3 id="before-speaking">Before Speaking</h3>
 <ol>
 <li><a href="outboundCall.html">Create call with callback URL</a> -or- <a href="incomingCallandMessaging.html">Receive Incoming Call</a></li>
@@ -1013,38 +1033,46 @@
 </ol>
 <h3 id="speak-sentence-options">Speak Sentence options</h3>
 <p>Bandwidth supports many voice options. You may specify the gender, accent, and voice. <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">Click here</a>for a full list of the speaker options.</p>
-<h3 id="speak-sentence-to-the-resource-ieuseridcallscallid">Speak Sentence to the resource (ie..../{userId}/calls/{callId}/...)</h3>
-<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/.../{Resrouce_Id}/audio</span> HTTP/1.1
-<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
-
-<span class="json">{
-    <span class="hljs-attr">&quot;gender&quot;</span>   : <span class="hljs-string">&quot;female&quot;</span>,
-    <span class="hljs-attr">&quot;sentence&quot;</span> : <span class="hljs-string">&quot;Hello from Bandwidth.&quot;</span>,
-    <span class="hljs-attr">&quot;locale&quot;</span>   : <span class="hljs-string">&quot;en_US&quot;</span>,
-    <span class="hljs-attr">&quot;voice&quot;</span>    : <span class="hljs-string">&quot;julie&quot;</span>
-}
-</span></code></pre>
-<h3 id="response">Response</h3>
-<pre><code class="lang-http">HTTP/1.1 <span class="hljs-number">200</span> OK
-</code></pre>
-<h3 id="this-sends-these-call-backs">This sends these call backs</h3>
+<p><a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCalls.html" target="_blank">Click here</a> to learn more about creating an outbound call.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="create-call-parameters">Create Call Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">A Bandwidth phone number on your account the call should come from (must be in E.164 format, like +19195551212).</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The number to call (must be either an E.164 formatted number, like +19195551212, or a valid SIP URI, like sip:someone@somewhere.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The full server URL where the call events related to the Call will be sent to.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-of-creating-a-call-with-callbackurl">Example of creating a call with callbackUrl</h3>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><h3 id="this-sends-these-call-backs">This sends these call backs</h3>
 <ul>
 <li>Full callbacks <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html" target="_blank">https://dev.bandwidth.com/ap-docs/apiCallbacks/audio.html</a></li>
 </ul>
-<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">your_server.com</span> HTTP/1.1
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls</span> HTTP/1.1
 <span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
-<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
 
 <span class="json">{
-  <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>    : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;date&quot;</span>,
-  <span class="hljs-attr">&quot;tag&quot;</span>       : <span class="hljs-string">&quot;string&quot;</span>
+    <span class="hljs-attr">&quot;to&quot;</span>          : <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">&quot;from&quot;</span>        : <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-attr">&quot;callbackUrl&quot;</span> : <span class="hljs-string">&quot;{callbackUrl}&quot;</span>
 }
 </span></code></pre>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-sample" data-lang="js" data-name="Js"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-js">client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
 <h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
@@ -1067,7 +1095,15 @@
 <pre><code class="lang-js">client.Conference.stopSpeaking(<span class="hljs-string">&quot;conferenceID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 </code></pre>
 <h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
-<pre><code class="lang-js">client.Conference.speakSentenceToMember(<span class="hljs-string">&quot;conferenceID&quot;</span>, <span class="hljs-string">&quot;memberID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)
+<pre><code class="lang-js"><span class="hljs-comment">//This assumes you have already input your credentials.</span>
+client.Call.create({
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-attr">callbackUrl</span>: <span class="hljs-string">&quot;{callbackUrl}&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(id);
+})
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
@@ -1076,8 +1112,25 @@
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.SpeakSentenceAsync(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
 </code></pre>
 <h3 id="speak-sentence-to-entire-conference">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
-<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
+<pre><code class="lang-csharp"><span class="hljs-comment">//This assumes you have already input your credentials.</span>
+<span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.CreateAsync(<span class="hljs-keyword">new</span> CreateCallData{
+    From = <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    To = <span class="hljs-string">&quot;{toNumber}&quot;</span>
+    CallbackUrl = <span class="hljs-string">&quot;{callbackUrl}&quot;</span>
+});
+Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span class="hljs-subst">{call.Id}</span>&quot;</span>);
 </code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment">## This assumes you have already input your credentials.</span>
+call = Bandwidth::Call.create({
+   <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+   <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+   <span class="hljs-symbol">:callbackUrl</span> =&gt; <span class="hljs-string">&quot;{requestUrl}&quot;</span>})
+
+puts call.id
+</code></pre>
+</div></div></div>
+
+<h2 id="hotlink-to-step2">Step 2  - Check if call is answered</h2>
 <h3 id="speak-sentence-to-specific-conference-member">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceToMemberAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;{memberId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
 </code></pre>
@@ -1093,7 +1146,29 @@
 <h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Conference.SpeakSentenceToMemberAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;{memberId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><p>In order to speak a sentence on a call, the call must be answered. When the call is answered, Bandwidth will notify the callbackUrl with an eventType = &quot;answer&quot;. Once we recieve this callback, we can procede with speak sentence.</p>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-of-callback-answer-event">Example of callback answer event</h3>
+<p>json response</p>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+    <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+    <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{callId}&quot;</span>,
+    <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;{callUri}&quot;</span>,
+    <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+    <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;date&quot;</span>
+}
+</span></code></pre>
+</div></div></div>
+
+<h2 id="hotlink-to-step3">Step 3  - Speak sentence on call</h2>
+<p>Bandwidth supports many voice options. You may specify the gender, accent, and voice. <a href="http://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">Click here</a>for a full list of the speaker options.</p>
+<div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h3 id="speak-sentence-options">Speak sentence options</h3>
+<h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-ruby">call.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Hello from Bandwidth&quot;</span>})
 </code></pre>
 <h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
@@ -1111,7 +1186,54 @@
 <h3 id="stop-speaking-sentence-to-entire-conference">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdAudio.html" target="_blank">entire conference</a></h3>
 <pre><code class="lang-ruby">conference.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
 </code></pre>
-</div><div class="api-method-sample" data-lang="python" data-name="python"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sentence</td>
+<td style="text-align:left">The sentence to speak. MAXIMUM LENGTH 1000 CHARACTERS. To STOP SENTENCE PLAYBACK send an empty string like: <code>{&quot;sentence&quot;: &quot;&quot;}</code></td>
+</tr>
+<tr>
+<td style="text-align:left">gender</td>
+<td style="text-align:left">The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.</td>
+</tr>
+<tr>
+<td style="text-align:left">locale</td>
+<td style="text-align:left">The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: en_US or en_UK (English), es or es_MX (Spanish), fr or fr_FR (French), de or de_DE (German), and t or it_IT (Italian) It will be considered only if sentence is not null/empty. The en_US will be used by default.</td>
+</tr>
+<tr>
+<td style="text-align:left">voice</td>
+<td style="text-align:left">The voice to speak the sentence. Audio currently supports these voices: English US: Kate, Susan, Julie, Dave, Paul; English UK: Bridget; Spanish: Esperanza, Violeta, Jorge; French: Jolie, Bernard; German: Katrin, Stefan; Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan&#x2019;s voice will be used by default.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code mm-method-code"><div class="api-method-example"><h3 id="example-of-speak-sentence">Example of speak sentence</h3>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+    <span class="hljs-attr">&quot;sentence&quot;</span> : <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
+    <span class="hljs-attr">&quot;gender&quot;</span>   : <span class="hljs-string">&quot;male&quot;</span>,
+    <span class="hljs-attr">&quot;locale&quot;</span>   : <span class="hljs-string">&quot;es&quot;</span>,
+    <span class="hljs-attr">&quot;voice&quot;</span>    : <span class="hljs-string">&quot;Jorge&quot;</span>
+}
+</span></code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> options = {
+    <span class="hljs-attr">sentence</span> : <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
+    <span class="hljs-attr">gender</span>   : <span class="hljs-string">&quot;male&quot;</span>,
+    <span class="hljs-attr">locale</span>   : <span class="hljs-string">&quot;es&quot;</span>,
+    <span class="hljs-attr">voice</span>    : <span class="hljs-string">&quot;Jorge&quot;</span>
+}
+<span class="hljs-comment">//Promise</span>
+client.Call.playAudioAdvanced(<span class="hljs-string">&quot;callId&quot;</span>, options).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><h3 id="speak-sentence-to-call">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/calls/postCallsCallIdAudio.html" target="_blank">call</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_call(<span class="hljs-string">&apos;callId&apos;</span>, <span class="hljs-string">&apos;Hello from Bandwidth&apos;</span>)
 </code></pre>
 <h3 id="speak-sentence-to-bridge">Speak Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/bridges/postBridgesBridgeIdAudio.html" target="_blank">bridge</a></h3>
@@ -1135,11 +1257,22 @@
 <h3 id="stop-speaking-sentence-to-specific-conference-member">Stop Speaking Sentence to <a href="https://dev.bandwidth.com/ap-docs/methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html" target="_blank">specific conference member</a></h3>
 <pre><code class="lang-python">api.speak_sentence_to_conference_member(<span class="hljs-string">&apos;conferenceId&apos;</span>, <span class="hljs-string">&apos;memberId&apos;</span>, <span class="hljs-string">&apos;&apos;</span>)
 </code></pre>
+<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.PlayAudioAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> PlayAudioData
+{
+    Sentence = <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
+    Gender = Gender.Male,
+    Voice = <span class="hljs-string">&quot;Jorge&quot;</span>,
+    Locale = <span class="hljs-string">&quot;es&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.play_audio({
+    <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
+    <span class="hljs-symbol">:gender</span> =&gt; <span class="hljs-string">&quot;male&quot;</span>,
+    <span class="hljs-symbol">:voice</span> =&gt; <span class="hljs-string">&quot;Jorge&quot;</span>,
+    <span class="hljs-symbol">:locale</span> =&gt; <span class="hljs-string">&quot;es&quot;</span>
+})
+</code></pre>
 </div></div></div>
-
-
-
-
 
 
                                 
@@ -1191,7 +1324,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Speak Sentence","level":"2.3.3.3","depth":3,"next":{"title":"Record a call","level":"2.3.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},"previous":{"title":"Play Audio","level":"2.3.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","parse-from-url@1.0.4","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"parse-from-url":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"parseUrls":{"urls":[{"url":"https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100","dest":"howto/deployableDemos.md","mapping":"github-names.json"}]},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"howto/speakSentence.md","mtime":"2018-11-13T16:35:19.969Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-13T16:37:06.991Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Speak Sentence","level":"2.3.3.3","depth":3,"next":{"title":"Record a call","level":"2.3.3.4","depth":3,"path":"howto/recordCall.md","ref":"howto/recordCall.md","articles":[]},"previous":{"title":"Play Audio","level":"2.3.3.2","depth":3,"path":"howto/playAudio.md","ref":"howto/playAudio.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","parse-from-url@1.0.4","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"parse-from-url":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"parseUrls":{"urls":[{"url":"https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100","dest":"howto/deployableDemos.md","mapping":"github-names.json"}]},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"howto/speakSentence.md","mtime":"2018-11-13T17:03:29.255Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-13T17:05:09.155Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
