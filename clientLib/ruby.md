@@ -213,34 +213,6 @@ Generate Bandwidth XML
 See directory `samples` for more examples.
 See [ruby-bandwidth-example](https://github.com/bandwidthcom/ruby-bandwidth-example) for more complex examples of using this module.
 
-### Messaging 2.0
-Send SMS (v2)
-
-```ruby
-  auth_data = {user_name: 'user', password: 'password', account_id: 'accountId', subaccount_id: 'subaccountId'}
-
-  # Before sending sms you should have nessagin application on Bandwidth dashboard. You should create it by next call
-  application = Bandwidth::V2::Message.create_messaging_application(auth_data, {
-      :name => 'My messaging application',
-      :callback_url => 'http://server/to/handle/messages/events',
-      :location_name => 'current',
-      :is_default_location => false,
-      :sms_options => {:toll_free_enabled => true},
-      :mms_options => {:enabled => true}
-  })
-
-  # After that you should reserve 1 or some phone nubmers on Bandwidth Dashboard
-  numbers = Message.search_and_order_numbers(auth_data, application) do |query|
-      query.AreaCodeSearchAndOrderType do |b|
-         b.AreaCode("910")
-         b.Quantity(1)
-      end
-  end
-
-  # Now you can send messages from reserved numbers. Don't forget to pass :application_id
-  message = Bandwidth::V2::Message.create({:from => numbers[0], :to => ["+191955512142"], :text => "Test", :application_id => application[:application_id]})
-```
-
 # Documentation generation
 
 Generates documentation:
