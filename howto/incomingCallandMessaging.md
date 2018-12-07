@@ -5,7 +5,7 @@ Incoming calls and messages are sent to a web address configured in [`applicatio
 
 ![WhyCallBack](../images/app-welcome.png)
 
-In order to recieve incoming call and messaging events, you'll need to:
+In order to receive incoming call and messaging events, you'll need to:
 
 1. [Create an application](https://dev.bandwidth.com/ap-docs/methods/applications/postApplications.html)
 2. [Order a phone number](https://dev.bandwidth.com/ap-docs/methods/availableNumbers/postAvailableNumbersLocal.html)

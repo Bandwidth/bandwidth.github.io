@@ -16,20 +16,20 @@ Call screening allows the original caller to record their name before forwarding
   * [Forwarding a call](https://dev.bandwidth.com/ap-docs/methods/calls/postTransferCall.html)
 
 ## Steps
-1. [Recieve Incoming Call and Answer event](#incomingCall-and-answer)
+1. [Receive Incoming Call and Answer event](#incomingCall-and-answer)
 2. [Use the Speak Sentence method to prompt user to record their name](#speak-sentence)
 3. [Receive the Speak Sentence Events](#speak-finished)
 4. [Turn on Audio Recording](#turn-on-recording)
 5. [Create Gather](#create-gather)
-6. [Recieve either gather event or timeout](#gather-complete)
+6. [Receive either gather event or timeout](#gather-complete)
 7. [Turn off audio recording](#turn-off-recording)
 8. [Get audio recording location](#recording-finished)
 9. [Get the media location from the `recordingId`](#media-from-recordingId)
 10. [Transfer the call with whisperAudio](#transfer-with-whisper)
 
-## Recieve Incoming Call and Answer event {#incomingCall-and-answer}
+## Receive Incoming Call and Answer event {#incomingCall-and-answer}
 
-After setting up your [application to recieve incoming calls](incomingCallandMessaging.md) with `autoAnswer` enabled. You will recieve two events back to back:
+After setting up your [application to receive incoming calls](incomingCallandMessaging.md) with `autoAnswer` enabled. You will receive two events back to back:
 
 1. [`incomingCall`](https://dev.bandwidth.com/ap-docs/apiCallbacks/incomingCall.html)
 2. [`answer`](https://dev.bandwidth.com/ap-docs/apiCallbacks/answer.html)
@@ -282,9 +282,9 @@ Authorization: {apiToken:apiSecret}
 
 {% endextendmethod %}
 
-## Recieve either gather event or timeout {#gather-complete}
+## Receive either gather event or timeout {#gather-complete}
 
-When either the user has pressed a digit or the timeout has passed, you'll get a callback indicating as such.  Once we recieve the gather event, so long as it's not a `hung-up` event we want to now turn off recording.  If the caller hangsup during the gather, the flow should end.
+When either the user has pressed a digit or the timeout has passed, you'll get a callback indicating as such.  Once we receive the gather event, so long as it's not a `hung-up` event we want to now turn off recording.  If the caller hangsup during the gather, the flow should end.
 
 {% extendmethod %}
 
