@@ -34,7 +34,7 @@
     * [Send SMS/MMS](howto/sendSMSMMS.md)
     * [Send SMS with Delivery Receipt](howto/smsDLR.md)
     * [Hosted Messaging Getting Started](howto/hostedMessaging.md)
-* [Bandwidth Code Examples](howto/deployableDemos.md)
+* [Bandwidth Code Examples](howto/BandwidthCodeExamples.md)
 * [Termination Network Bridge Provisioning](tnbp.md)
 
 ## Security
