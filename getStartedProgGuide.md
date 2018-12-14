@@ -557,7 +557,7 @@ public class OutboundCallExample {
 
 ```java
 //Incoming callbacks need to be exposed as an incoming request on your server.
-//Once a request is recieved it can be delegated to a handler based on the EventType.
+//Once a request is received it can be delegated to a handler based on the EventType.
 //There is a complete example of handling events at: https://github.com/Bandwidth/java-bandwidth-examples/blob/master/src/main/java/com/bandwidth/sdk/examples/HelloFlipperServlet.java
 
 //Example event handler is called upon your server receiving a callback from Bandwidth.

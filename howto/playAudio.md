@@ -14,7 +14,7 @@ Play a .mp3 or .wav file on an active phone call. For more information about pla
 	* [making outbound calls](outboundCall.md)
 
 ## Steps
-1. [Create call with callback URL](./outboundCall.md) -or- [Recieve Incoming Call](./incomingCallandMessaging.md)
+1. [Create call with callback URL](./outboundCall.md) -or- [Receive Incoming Call](./incomingCallandMessaging.md)
 2. [Check if call is answered]()
 3. [Play audio on call](#play-audio)
 
@@ -94,7 +94,7 @@ puts call.id
 
 {% extendmethod %}
 
-In order to play an audio file on a call, the call must be answered. When the call is answered, Bandwidth will notify the callbackUrl with an eventType = "answer". Once we recieve this callback, we can procede with playing the audio file.
+In order to play an audio file on a call, the call must be answered. When the call is answered, Bandwidth will notify the callbackUrl with an eventType = "answer". Once we receive this callback, we can procede with playing the audio file.
 
 
 {% common %}

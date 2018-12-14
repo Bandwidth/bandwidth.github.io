@@ -26,7 +26,7 @@
 
 ### Receive Incoming Messages
 
-To recieve incoming text messages and multimedia messages. You must have the `phonenumber` assigned to an `application` with a valid `messagingCallbackUrl`.
+To receive incoming text messages and multimedia messages. You must have the `phonenumber` assigned to an `application` with a valid `messagingCallbackUrl`.
 
 Learn how to configure incoming messages in [this guide](incomingCallandMessaging.md).
 
