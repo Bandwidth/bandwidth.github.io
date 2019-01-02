@@ -5,7 +5,7 @@
 * [About](about.md)
 * [Pricing](https://www.bandwidth.com/pricing)
 * [GitHub](https://github.com/Bandwidth)
-* [Bandwidth Simulator](https://d5r3cn87l9ubs.cloudfront.net/)
+* [Bandwidth Simulator](https://simulator.bandwidth.com/)
 
 ## Guides
 * [About the Docs](guideToGuides.md)
