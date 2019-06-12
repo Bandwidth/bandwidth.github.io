@@ -1,0 +1,13 @@
+## Account Management guides
+* [Administrative Functions](numbers/adminFunctions.md)
+* [Managing Sub-accounts/Sites](../concepts/manageSites.md)
+* [Managing SIP Peers (locations)](../concepts/manageLocations.md)
+  * [About](../concepts/manageLocations.md#about)
+  * [Voice/Data Traffic](../concepts/manageLocations.md#voice-data-traffic)
+  * [Origination service](../concepts/manageLocations.md#orig-config)
+  * [Origination and SMS services](../concepts/manageLocations.md#orig-config-sms)
+  * [Termination service](../concepts/manageLocations.md#term-config)
+  * [Origination, Termination and SMS services](../concepts/manageLocations.md#term-orig-sms)
+  * [CNAM](../concepts/manageLocations.md#cnam-config)
+  * [Delete SIP Peer](../concepts/manageLocations.md#delete-sippeer)
+  * [Moving TNs between SIP Peers](../concepts/manageLocations.md#move-tn)
