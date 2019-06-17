@@ -2,23 +2,30 @@
 
 ## Overview
 * [About](README.md)
+* [Pricing](https://www.bandwidth.com/pricing/)
 * [Account Credentials](accountCredentials.md)
+* [Free Trial](https://www.bandwidth.com/free-trial/)
+* [API Simulator](https://simulator.bandwidth.com/)
+* [Github](https://github.com/Bandwidth)
+
 
 ## Guides
+* [Get Started](guides/getStarted.md)
+* [Code Blocks](guides/codeBlocks.md)
 * [User Management](guides/users.md)
 	* [Administrative Functions](guides/numbers/adminFunctions.md)
-	* [Managing Sub-accounts/Sites](concepts/manageSites.md)
-	* [Managing SIP Peers (locations)](concepts/manageLocations.md)
-	  * [About](concepts/manageLocations.md#about)
-	  * [Voice/Data Traffic](concepts/manageLocations.md#voice-data-traffic)
-	  * [Origination service](concepts/manageLocations.md#orig-config)
-	  * [Origination and SMS services](concepts/manageLocations.md#orig-config-sms)
-	  * [Termination service](concepts/manageLocations.md#term-config)
-	  * [Origination, Termination and SMS services](concepts/manageLocations.md#term-orig-sms)
-	  * [CNAM](concepts/manageLocations.md#cnam-config)
-	  * [Delete SIP Peer](concepts/manageLocations.md#delete-sippeer)
-	  * [Moving TNs between SIP Peers](concepts/manageLocations.md#move-tn)
-* [Numbers Guides](guides/numbers.md)
+* [Sub-accounts (Sites)](concepts/manageSites.md)
+* [Locations (SIP peers)](concepts/manageLocations.md)
+  * [About](concepts/manageLocations.md#about)
+  * [Voice/Data Traffic](concepts/manageLocations.md#voice-data-traffic)
+  * [Origination service](concepts/manageLocations.md#orig-config)
+  * [Origination and SMS services](concepts/manageLocations.md#orig-config-sms)
+  * [Termination service](concepts/manageLocations.md#term-config)
+  * [Origination, Termination and SMS services](concepts/manageLocations.md#term-orig-sms)
+  * [CNAM](concepts/manageLocations.md#cnam-config)
+  * [Delete SIP Peer](concepts/manageLocations.md#delete-sippeer)
+  * [Moving TNs between SIP Peers](concepts/manageLocations.md#move-tn)
+* [Numbers](guides/numbers.md)
 	* [Ordering Number guides](guides/numbers/orderNumbers.md)
 		* [Ondemand Search and Ordering](guides/numbers/onDemandNumberSearchAndOrder.md)
 		  * [Create Subscription](guides/numbers/onDemandNumberSearchAndOrder.md#create-subscription)
@@ -94,8 +101,20 @@
 		  * [Setup](guides/numbers/testingPortOutValidation.md#setup)
 		  * [Testing](guides/numbers/testingPortOutValidation.md#testing)
 
+## SDKs
+* [C#](sdks/csharp.md)
+* [Java](sdks/java.md)
+* [Node](sdks/node.md)
+* [PHP](sdks/php.md)
+* [Python](sdks/python.md)
+* [Ruby](sdks/ruby.md)
+
+## Help
+* [FAQ](https://support.bandwidth.com/hc/en-us)
+* [Support](https://support.bandwidth.com/hc/en-us)
+
 ## Numbers
-* [Ordering Phone Numbers Overview](concepts/numberOrderingSummary.md)
+* [Overview](concepts/numberOrderingSummary.md)
 	* [GET Search For Phone Numbers](concepts/numberOrderingSummary.md#search-for-phone-numbers)
 	* [POST Order Phone Numbers](concepts/numberOrderingSummary.md#order-phone-numbers)
 	* [GET Fetch Order Info](concepts/numberOrderingSummary.md#get-order-info)
@@ -123,14 +142,13 @@
  * [StartRecording](voice/bxml/verbs/startRecording.md)
  * [StopRecording](voice/bxml/verbs/stopRecording.md)
  * [Transfer](voice/bxml/verbs/transfer.md)
-* [BXML Callbacks](voice/bxml/bxmlCallbacks.md)
+* [Callbacks](voice/bxml/bxmlCallbacks.md)
  * [Answer](voice/bxml/callBacks/answer.md)
  * [Gather](voice/bxml/callBacks/gather.md)
  * [RecordComplete](voice/bxml/callBacks/recordComplete.md)
  * [Redirect](voice/bxml/callBacks/redirect.md)
  * [Transfer Answer](voice/bxml/callBacks/transferAnswer.md)
  * [Transfer Complete](voice/bxml/callBacks/transferComplete.md)
-* [Async Callbacks](voice/bxml/asyncCallbacks.md)
  * [CallComplete](voice/bxml/callBacks/callComplete.md)
  * [RecordingAvailable](voice/bxml/callBacks/recordingAvailable.md)
 
@@ -145,11 +163,11 @@
 	* [POST Send Message](messaging/methods/createMessage.md)
 	* [GET List Messages](messaging/methods/listMessages.md)
 	* [GET Get Message Details](messaging/methods/getMessage.md)
-* [Media Management API Methods](messaging/media/about.md)
-	* [PUT Upload Media](messaging/media/uploadMedia.md)
-	* [GET Get Media](messaging/media/getMedia.md)
-	* [GET List Media](messaging/media/listMedia.md)
-	* [DELETE Delete Media](messaging/media/deleteMedia.md)
+	* [Media Management API Methods](messaging/media/about.md)
+		* [PUT Upload Media](messaging/media/uploadMedia.md)
+		* [GET Get Media](messaging/media/getMedia.md)
+		* [GET List Media](messaging/media/listMedia.md)
+		* [DELETE Delete Media](messaging/media/deleteMedia.md)
 * [Callbacks](messaging/events/messageEvents.md)
 	* [Incoming SMS/MMS Message](messaging/events/incomingSingle.md)
 	* [Incoming Group Message](messaging/events/incomingGroup.md)
@@ -171,7 +189,8 @@
 	* [429 - Too Many Requests](messaging/errors/tooManyReq.md)
 
 ## Applications
-* [Applications Overview](applications/about.md)
+* [Overview](applications/about.md)
+* [API Methods](applications/apiMethods.md)
 	* [POST Create Application](applications/postApplications.md)
 	* [GET List Applications](applications/getApplications.md)
 	* [GET Fetch Application info](applications/getApplicationsApplicationId.md)
@@ -180,3 +199,5 @@
 	* [DELETE Remove Application](applications/deleteApplicationsApplicationId.md)
 	* [GET List Associated Sippeers](applications/getApplicationsApplicationIdSippeers.md)
 
+## Security
+* [Security](security.md)
