@@ -121,7 +121,7 @@
 	* [POST Disconnect a Phone Number](concepts/numberOrderingSummary.md#disconnect-phone-number)
 	* [GET Fetch Disconnect Info](concepts/numberOrderingSummary.md#get-disconnect-info)
 * [API Methods](numbers/apiReference.md)
-* [API Errors](numbers/error.md)
+* [Errors](numbers/error.md)
 
 ## Voice
 * [Overview](voice/concepts.md)
@@ -151,6 +151,7 @@
  * [Transfer Complete](voice/bxml/callBacks/transferComplete.md)
  * [CallComplete](voice/bxml/callBacks/callComplete.md)
  * [RecordingAvailable](voice/bxml/callBacks/recordingAvailable.md)
+* [Errors](voice/errors.md)
 
 ## Messaging
 * [Overview](messaging/concepts.md)
@@ -173,7 +174,7 @@
 	* [Incoming Group Message](messaging/events/incomingGroup.md)
 	* [Message Delivered](messaging/events/msgDelivered.md)
 	* [Message Failed](messaging/events/messageFailed.md)
-* [Error Codes](messaging/errors/codes.md)
+* [Errors](messaging/errors/codes.md)
 	* [Error Reporting](messaging/errors/codes.md#error-reporting)
 	* [Error Code Schema](messaging/errors/codes.md#error-code-schema)
 	* [Error Code Table](messaging/errors/codes.md#error-codes)
