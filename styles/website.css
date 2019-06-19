@@ -292,11 +292,13 @@ li pre code{
   display: none;
 }
 #banner{
-  /*background-image: url('../images/cluecon.png');*/
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #4d2b64;
-  height: 70px;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a252db+0,7e2eca+100;Pink+3D+%233 */
+background: #a252db; /* Old browsers */
+background: -moz-linear-gradient(top,  #a252db 0%, #7e2eca 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #a252db 0%,#7e2eca 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #a252db 0%,#7e2eca 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a252db', endColorstr='#7e2eca',GradientType=0 ); /* IE6-9 */
+
 }
 #banner p{
   margin: 0;
