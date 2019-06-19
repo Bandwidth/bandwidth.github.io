@@ -2,7 +2,11 @@
 
 This guide will cover the different credentials for interacting with Bandwidth's APIs, and how to authenticate on each API.
 
-## Credential overview
+## Guides for finding and creating credentials
+* [Token and Secret](https://support.bandwidth.com/hc/en-us/articles/360014110974)
+* [Application ID](https://support.bandwidth.com/hc/en-us/articles/360013007654)
+
+## Credentials overview
 
 | Credential Name                        | Description                                                                                                                                                                                                                                                                                          | Example                              |
 |:---------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|
@@ -40,9 +44,5 @@ This guide will cover the different credentials for interacting with Bandwidth's
 | `accountId`  | Used as a URL parameter for the API endpoint `https://dashboard.bandwidth.com/api/accounts/{accountId}`   |
 | `username` | Used as the username for HTTP basic auth  | 
 | `password`  | Used as the password for HTTP basic auth  | 
-
-## Guides for finding and creating credentials
-* [Token and Secret](https://support.bandwidth.com/hc/en-us/articles/360014110974)
-* [Application ID](https://support.bandwidth.com/hc/en-us/articles/360013007654)
 
 <br>
