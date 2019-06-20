@@ -107,6 +107,7 @@
 		  * [About](guides/numbers/testingPortOutValidation.md#about)
 		  * [Setup](guides/numbers/testingPortOutValidation.md#setup)
 		  * [Testing](guides/numbers/testingPortOutValidation.md#testing)
+* [Callbacks Guide](guides/callbacks/callbacks.md)
 
 ## Numbers
 * [Overview](concepts/numberOrderingSummary.md)
