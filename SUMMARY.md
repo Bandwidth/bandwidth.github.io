@@ -31,6 +31,7 @@
 
 ## Guides
 * [Get Started](guides/getStarted.md)
+	* [Callbacks](guides/callbacks/callbacks.md)
 * [Code Blocks](guides/codeBlocks.md)
 * [Numbers](guides/numbers.md)
 	* [Ordering Number guides](guides/numbers/orderNumbers.md)
@@ -107,7 +108,7 @@
 		  * [About](guides/numbers/testingPortOutValidation.md#about)
 		  * [Setup](guides/numbers/testingPortOutValidation.md#setup)
 		  * [Testing](guides/numbers/testingPortOutValidation.md#testing)
-* [Callbacks Guide](guides/callbacks/callbacks.md)
+
 
 ## Numbers
 * [Overview](concepts/numberOrderingSummary.md)
@@ -128,7 +129,7 @@
 	* [/calls/recordings](voice/methods/recordings/recordings.md)
    * [GET Recording](voice/methods/recordings/getRecording.md)
    * [GET Recording Media](voice/methods/recordings/getRecordingMedia.md)
-	* [BXML (Call Control Verbs)](voice/bxml/bxml.md)
+	* [Call Control (BXML)](voice/bxml/bxml.md)
 	 * [Gather](voice/bxml/verbs/gather.md)
 	 * [Hangup](voice/bxml/verbs/hangup.md)
 	 * [PlayAudio](voice/bxml/verbs/playAudio.md)
