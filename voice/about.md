@@ -1,13 +1,13 @@
 # Bandwidth HTTP Voice
 
 ## Base API URL
-`https://voice.bandwidth.com/api/v2/users/{accountId}`
+`https://voice.bandwidth.com/api/v2/accounts/{accountId}`
 
 ## REST API Reference Index
 
 | Resource                           | Description                                                               |
 |:-----------------------------------|:--------------------------------------------------------------------------|
-| [`/calls`](methods/calls/calls.md) | The Calls resource lets you make and phone calls and modify active calls. |
+| [`/calls`](methods/calls/about.md) | The Calls resource lets you make and phone calls and modify active calls. |
 
 
 ## BXML verbs
