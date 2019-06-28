@@ -1,15 +1,13 @@
-# Bandwidth Voice APIs
+# Bandwidth Voice & Messaging APIs
 
 ## Base URL
-`https://api.us-east-1.preview.slingshot.dev.app.bandwidth.com/v2/accounts/{accountId}`
+`https://voice.bandwidth.com/v2/accounts/{accountId}`
 
 ## Conventions
-Some of the URLs in this documentation contain placeholders for values that your API client program must provide. These placeholders are shown in curly braces, like {this}. When you construct the URL to access these resources, replace those placeholders with the values you want to use.
-
-<a href="https://app.getpostman.com/run-collection/7747d00c5a40d09f2894" class="aimg">![Postman](https://run.pstmn.io/button.svg?4e64d02c88d9c6d9043275f34b71c4a5)</a>
+Some of the URLs in this documentation contain placeholders for values that your API client program must provide. These placeholders are shown in curly braces, like `{this}`. When you construct the URL to access these resources, replace those placeholders with the values you want to use.
 
 ## REST API Reference Index
 
 | Resource                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |:----------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/calls`](calls/calls.md)                                            | The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [`/calls`](calls/calls.md)                                            | The Calls resource lets you place phone calls and redirect active calls. |

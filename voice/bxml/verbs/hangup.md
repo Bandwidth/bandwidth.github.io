@@ -4,12 +4,16 @@ The Hangup verb is used to hang up the current call.
 
 
 ### Attributes
-This verb does not support attributes.
+
+| ATTRIBUTE | Description |
+|:----------|:------------|
+| None      | None        |
 
 ### Callbacks Received
+
 | Callback                         | Can reply with more BXML |
 |:---------------------------------|:-------------------------|
-| [CallComplete](../callBacks/callComplete.md) | No                      |
+| [CallComplete](../callBacks/disconnect.md) | No                      |
 
 {% common %}
 #### Example: Hangup Verb
