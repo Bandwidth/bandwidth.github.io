@@ -4,7 +4,6 @@
 * [About](README.md)
 * [API Simulator](https://simulator.bandwidth.com/)
 * [Security & Credentials](guides/accountCredentials.md)
-* [Github](https://github.com/Bandwidth)
 
 ## Guides
 * [Get Started](guides/getStarted.md)
@@ -118,7 +117,7 @@
 		* [Default Rate Limits](messaging/ratelimits.md#default-rate-limit)
 		* [Managing Messages](messaging/ratelimits.md#managing-messages)
 * [API Methods](messaging/methods/about.md)
-	* [POST /messages](messaging/methods/messages/createMessage.md)
+	* [POST messages](messaging/methods/messages/createMessage.md)
 	* [/media](messaging/methods/media/about.md)
 		* [PUT Upload Media](messaging/methods/media/uploadMedia.md)
 		* [GET Get Media](messaging/methods/media/getMedia.md)
