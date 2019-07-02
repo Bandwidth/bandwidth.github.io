@@ -12,12 +12,12 @@ In order to successfully use the Messaging 2.0 APIs, you need to configure an `A
 
 ### Capabilities
 
-| Verb                               | Path                                                                                                                       | about                                                               |
-|:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
-| <code class="get">GET</code>       | [`/api/accounts/{accountId}/applications`](getApplications.md)                                                           | List all Applications                                               |
-| <code class="post">POST</code>     | [`/api/accounts/{accountId}/applications`](postApplications.md)                                                          | Create an application                                               |
+| Verb                               | Path                                                                                                                   | about                                                               |
+|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
+| <code class="get">GET</code>       | [`/api/accounts/{accountId}/applications`](getApplications.md)                                                         | List all Applications                                               |
+| <code class="post">POST</code>     | [`/api/accounts/{accountId}/applications`](postApplications.md)                                                        | Create an application                                               |
 | <code class="get">GET</code>       | [`/api/accounts/{accountId}/applications/{applicationId}`](getApplicationsApplicationId.md)                            | Get information about a specific application                        |
-| <code class="patch">PATCH</code>    | [`/api/accounts/{accountId}/applications/{applicationId}`](patchApplicationsApplicationId.md)                          | Patch changes to an application                                     |
-| <code class="put">PUT</code>      | [`/api/accounts/{accountId}/applications/{applicationId}`](putApplicationsApplicationId.md)                            | Make changes to an application                                      |
-| <code class="delete">DELETE</code> | [`/api/accounts/{accountId}/applications/{applicationId}`](deleteApplicationsApplicationId.md)                          | Delete an application                                               |
+| <code class="patch">PATCH</code>   | [`/api/accounts/{accountId}/applications/{applicationId}`](patchApplicationsApplicationId.md)                          | Patch changes to an application                                     |
+| <code class="put">PUT</code>       | [`/api/accounts/{accountId}/applications/{applicationId}`](putApplicationsApplicationId.md)                            | Make changes to an application                                      |
+| <code class="delete">DELETE</code> | [`/api/accounts/{accountId}/applications/{applicationId}`](deleteApplicationsApplicationId.md)                         | Delete an application                                               |
 | <code class="get">GET</code>       | [`/api/accounts/{accountId}/applications/{applicationId}/associatedsippeers`](getApplicationsApplicationIdSippeers.md) | Retrieve a list of sippeers (location), associated with application |
