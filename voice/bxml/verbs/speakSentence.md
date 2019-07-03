@@ -117,22 +117,23 @@ More information at: https://www.w3.org/TR/2005/NOTE-ssml-sayas-20050526/
 
 Attributes:
  * `interpret-as`: accepted values:
-   * `date`: the contained text is a Gregorian calendar date, the format of the date must be specified in the `format` attribute with one of:
-     * `mdy`: Month-day-year
-     * `dmy`: Day-month-year
-     * `ymd`: Year-month-day
-     * `md`: Month-day
-     * `dm`: Day-month
-     * `ym`: Year-month
-     * `my`: Month-year
-     * `d`: Day
-     * `m`: Month
-     * `y`: Year
+   * `date`: the contained text is a Gregorian calendar date, must specify the `format` attribute, see below
    * `time`: the contained text is a time in minutes and seconds (e.g. `1'20"`)
    * `telephone`: the contained text is a 7-digit or 10-digit telephone number (e.g. `2025551212`)
    * `characters`: enclosed text should be spoken as a series of alpha-numeric characters
    * `cardinal`: the enclosed text is an integral or decimal number and should be spoken as a cardinal number
    * `ordinal`: the enclosed text is an integral number and should be spoken as an ordinal number
+ * `format`: used with `interpret-as:"date"` to specify the date format, accepted values:
+   * `mdy`: Month-day-year
+   * `dmy`: Day-month-year
+   * `ymd`: Year-month-day
+   * `md`: Month-day
+   * `dm`: Day-month
+   * `ym`: Year-month
+   * `my`: Month-year
+   * `d`: Day
+   * `m`: Month
+   * `y`: Year
 
 #### `<sub>`
 The text in the `alias` attribute replaces the contained text for pronunciation.
