@@ -123,7 +123,7 @@ Attributes:
    * `characters`: enclosed text should be spoken as a series of alpha-numeric characters
    * `cardinal`: the enclosed text is an integral or decimal number and should be spoken as a cardinal number
    * `ordinal`: the enclosed text is an integral number and should be spoken as an ordinal number
- * `format`: used with `interpret-as:"date"` to specify the date format, accepted values:
+ * `format`: used with `interpret-as="date"` to specify the date format, accepted values:
    * `mdy`: Month-day-year
    * `dmy`: Day-month-year
    * `ymd`: Year-month-day
