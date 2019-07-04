@@ -97,16 +97,16 @@ Adds a pause between paragraphs.
 Use phonetic pronunciation for specific text.
 
 Attributes:
- * `alphabet`: `ipa` - the International Phonetic Alphabet will be used
- * `ph`: phonetic symbols, see https://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm#alfa
+ * `alphabet`: (optional) specifies the phonemic/phonetic pronunciation alphabet, accepted values: `ipa` (International Phonetic Alphabet, see http://www.internationalphoneticalphabet.org)
+ * `ph`: phonetic symbols
 
 #### `<prosody>`
 Controls the volume, rate and pitch of the speech.
 
 Attributes:
- * `volume`: one of `default`, `silent`, `x-soft`, `soft`, `medium`, `loud`, `x-loud` or the volume in dB (e.g. `+1dB` or `-6dB`)
- * `rate`: changes the speaking rate, accepted values are: `x-slow`, `slow`, `medium`, `fast`, `x-fast` or any positive percentage (e.g. `50%` for a speaking rate of half the default rate or `200%` for a speaking rate twice the default rate)
- * `pitch`: one of `x-low`, `low`, `medium`, `high`, `x-high`, `default` or a relative change in `%` (e.g. `-15%` or `20%`)
+ * `pitch`: changes the pitch, accepted values: `x-low`, `low`, `medium`, `high`, `x-high`, `default` or a relative change in `%` (e.g. `-15%` or `20%`)
+ * `rate`: changes the speaking rate, accepted values: `x-slow`, `slow`, `medium`, `fast`, `x-fast` or any positive percentage (e.g. `50%` for a speaking rate of half the default rate or `200%` for a speaking rate twice the default rate)
+ * `volume`: changes the volume, accepted values: `silent`, `x-soft`, `soft`, `medium`, `loud`, `x-loud`, `default` or the volume in dB (e.g. `+1dB` or `-6dB`)
  
 #### `<s>`
 Adds a pause between lines or sentences.
