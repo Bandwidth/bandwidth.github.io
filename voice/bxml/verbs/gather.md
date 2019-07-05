@@ -15,11 +15,12 @@ The Gather verb is used to collect digits for some period of time.
 | maxDigits         | (optional) Max number of digits to collect. Default value is 128.                                                                                                                                                      |
 | interDigitTimeout | (optional) Time (in seconds) allowed between digit presses before automatically terminating the Gather. Default value is 5. Range: decimal values between 1 - 60.                                                      |
 | firstDigitTimeout | (optional) Time (in seconds) to pause after any audio from nested `<SpeakSentence>` or `<PlayAudio>` verb is played (in seconds) before terminating the Gather. Can use decimal values.                                |
+| repeatCount       | (optional) The number of times the audio prompt should be repeated if no digits are pressed. The delay between repetitions will be equal to `firstDigitTimeout`. Default value is 1. Range: 1-30.                      |
 
 The gather is terminated when one of these conditions is met:
  1. The user presses a terminating digit (if specified)
  1. The user has pressed at least one key and more than `interDigitTimeout` seconds have elapsed
- 1. Any nested audio has ended and `timeout` seconds have elapsed without the user pressing any digits
+ 1. Any nested audio has ended and `firstDigitTimeout` seconds have elapsed without the user pressing any digits
  1. The user presses `maxDigits` digits
 
 If the `gatherUrl` attribute is specified, the [Gather event](../callBacks/gather.md) is sent to the `gatherUrl` upon
