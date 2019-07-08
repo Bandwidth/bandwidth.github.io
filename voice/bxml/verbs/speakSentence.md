@@ -50,7 +50,7 @@ Adds a pause to the speech. You can specify the duration of the pause by using e
 
 Attributes:
  * `strength`: (optional) accepted values are: `none`, `x-weak`, `weak`, `medium` (default), `strong` or `x-strong`
- * `time`: (optional) the duration of the pause in second or milliseconds (e.g. `1s` or `1000ms`) with a maximum value of 10 seconds
+ * `time`: (optional) the duration of the pause in seconds or milliseconds (e.g. `1s` or `1000ms`) with a maximum value of 10 seconds
 
 #### `<emphasis>`
 The contained text is spoken with emphasis.
@@ -104,9 +104,9 @@ Attributes:
 Controls the volume, rate and pitch of the speech.
 
 Attributes:
- * `pitch`: changes the pitch, accepted values: `x-low`, `low`, `medium`, `high`, `x-high`, `default` or a relative change in `%` (e.g. `-15%` or `20%`)
- * `rate`: changes the speaking rate, accepted values: `x-slow`, `slow`, `medium`, `fast`, `x-fast` or any positive percentage (e.g. `50%` for a speaking rate of half the default rate or `200%` for a speaking rate twice the default rate)
- * `volume`: changes the volume, accepted values: `silent`, `x-soft`, `soft`, `medium`, `loud`, `x-loud`, `default` or the volume in dB (e.g. `+1dB` or `-6dB`)
+ * `pitch`: (optional) changes the pitch, accepted values: `x-low`, `low`, `medium`, `high`, `x-high`, `default` or a relative change in `%` (e.g. `-15%` or `20%`)
+ * `rate`: (optional) changes the speaking rate, accepted values: `x-slow`, `slow`, `medium`, `fast`, `x-fast` or any positive percentage (e.g. `50%` for a speaking rate of half the default rate or `200%` for a speaking rate twice the default rate)
+ * `volume`: (optional) changes the volume, accepted values: `silent`, `x-soft`, `soft`, `medium`, `loud`, `x-loud`, `default` or the volume in dB (e.g. `+1dB` or `-6dB`)
  
 #### `<s>`
 Adds a pause between lines or sentences.
@@ -123,7 +123,7 @@ Attributes:
    * `characters`: enclosed text should be spoken as a series of alpha-numeric characters
    * `cardinal`: the enclosed text is an integral or decimal number and should be spoken as a cardinal number
    * `ordinal`: the enclosed text is an integral number and should be spoken as an ordinal number
- * `format`: used with `interpret-as="date"` to specify the date format, accepted values:
+ * `format`: (optional) used with `interpret-as="date"` to specify the date format, accepted values:
    * `mdy`: Month-day-year
    * `dmy`: Day-month-year
    * `ymd`: Year-month-day
