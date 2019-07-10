@@ -97,8 +97,7 @@ Adds a pause between paragraphs.
 Use phonetic pronunciation for specific text.
 
 Attributes:
- * `alphabet`: (optional) specifies the phonemic/phonetic pronunciation alphabet, accepted values: `ipa` (International Phonetic Alphabet, see http://www.internationalphoneticalphabet.org)
- * `ph`: phonetic symbols
+ * `ph`: International Phonetic Alphabet (IPA) symbols, for more information see: http://www.internationalphoneticalphabet.org
 
 #### `<prosody>`
 Controls the volume, rate and pitch of the speech.
