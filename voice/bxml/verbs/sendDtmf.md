@@ -17,7 +17,7 @@ None
 
 {% common %}
 #### Example:  PlayAudio Verb
-This shows how to use Bandwidth XML to play `1`, `2`, pause, `3`, `4` on a call.
+This shows how to use Bandwidth XML to play 1, 2, pause, 3, 4 on a call.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
