@@ -45,7 +45,7 @@ The following verbs may be nested inside of a `<Gather>` tag.  A maximum of one 
 {% common %}
 #### Example: Gather Verb
 This example shows how to use the Gather verb to speak a sentence, collect digits input from the phone, and send the
-results to `https://gather.url/nextBXML`
+results to https://gather.url/nextBXML
 
 
 ```XML
