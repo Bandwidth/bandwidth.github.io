@@ -2,7 +2,6 @@
 
 ## Overview
 * [About](README.md)
-* [API Simulator](https://simulator.bandwidth.com/)
 * [Security & Credentials](guides/accountCredentials.md)
 
 ## Guides
@@ -150,3 +149,6 @@
 * [PHP](sdks/php.md)
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
+
+## V1 Documentation
+* [v1 Voice & Messaging](https://dev.bandwidth.com/ap-docs)
