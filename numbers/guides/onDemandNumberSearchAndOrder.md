@@ -13,15 +13,6 @@ This guide is best suited for use-cases where an end-user is assigned a **new** 
 
 In the case where a user would like to keep their existing phone number, follow the [porting guide](./portingPhoneNumbers.md).
 
-## Assumptions
-* You have signed up for the [Bandwidth Phone Number API](https://www.bandwidth.com/contact/)
-* You are familiar with:
-  * [Your API Credentials](../concepts/security.md)
-  * [Async Nature of ordering phone numbers](../concepts/asyncOrder.md)
-  * [Managing Locations](../concepts/manageLocations.md)
-  * [Managing Sites](../concepts/manageSites.md)
-  * Receiving HTTP Callbacks/Webhooks
-
 ## Steps
 
 1. [Create Subscription](#create-subscription)

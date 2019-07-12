@@ -42,7 +42,6 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 |------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | [Answer](callBacks/answer.md)                  | Bandwidth API sends this to the application when the call is answered.                                                    |
 | [Gather](callBacks/gather.md)                  | Bandwidth API sends this when the gather command completes in a call.                                                     |
-| [Recording](callBacks/recording.md)            | Bandwidth API sends this to the application when an the recording media file is saved or an error occurs while saving it. |
 | [Redirect](callBacks/redirect.md)              | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCalls.md) endpoint requesting a redirect                                              |
 | [Transfer Answer](callBacks/transferAnswer.md) | Bandwidth API sends this to the application when a `<Transfer>` is answered                                              |
 | [Transfer Complete](callBacks/transferComplete.md)     | Bandwidth API sends this to the application when a `<Transfer>` has ended complete                                              |

@@ -4,15 +4,6 @@
 
 This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (**A2P**) sent over standard local telephone numbers IE: (919)-430-5555. The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters. This process is called "snowshoeing" and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a "fresh" phone number.
 
-## Assumptions
-* You have signed up for the [Bandwidth Messaging API](https://app.bandwidth.com/)
-* You are familiar with:
-  * [2017 CTIA Best Practices](https://api.ctia.org/docs/default-source/default-document-library/170119-ctia-messaging-principles-and-best-practices.pdf)
-  * [The TCPA _Telephone Consumer Protection Act_](https://transition.fcc.gov/cgb/policy/TCPA-Rules.pdf)
-  * [Your API Credentials](accountCredentials.md)
-  * [Sending SMS & MMS](./methods/sendMessages.md)
-  * [Receiving HTTP Callbacks/Webhooks](./events/messageEvents.md)
-
 ## Overview
 
 * [Billing information](#billing)
