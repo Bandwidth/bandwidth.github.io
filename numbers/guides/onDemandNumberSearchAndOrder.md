@@ -47,8 +47,6 @@ This guide _only_ covers creating a `<CallbackSubscription>`.  For more informat
 | `<Password>`             | No       | Password for Basic Authentication scheme. <br> Encrypted at rest and never returned by the API <br><br> Part of the `<BasicAuthentication>` element.        |
 | `<PublicKey>`            | No       | A BASE64 encoded public key that matches the server specified in the `URL`  <br><br> Part of the `<BasicAuthentication>` element.                           |
 
-The Basic authentication scheme is straightforward, but the requires a little more explanation. Please read more on [securing HTTP Callbacks](../concepts/secureCallbacks.md)
-
 {% common %}
 
 ### Example XML to Create Subscription

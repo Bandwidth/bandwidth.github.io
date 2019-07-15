@@ -25,7 +25,6 @@
   * [New Number Order Response Format](advancedOrdering.md#new-number-res)
   * [Backordering Numbers](advancedOrdering.md#backorder-number)
   * [Updating a new-number order](advancedOrdering.md#update-new-number-order)
-  * [Reserving Phone Numbers](reservingNumbers.md)
 * [Disconnect a Phone Number](disconnectSummary.md)
   * [Disconnect a Phone Number](disconnectSummary.md#disconnect-phone-number)
   * [Fetch Disconnect Info](disconnectSummary.md#get-disconnect-info)

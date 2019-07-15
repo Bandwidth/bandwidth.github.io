@@ -36,7 +36,7 @@ We have broken up our messaging classifications into two categories:
 
 ### Look-ahead Spam filtering
 
-Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network protection technology as the mobile telco operators. This allows us to screen messages before they're sent to the downstream carrier. By checking before Bandwidth passes the message along, we're able to work with you to understand and fix any potential issues with the message. This maintains your telephone number deliverability reputation and helps build predictable traffic patterns. If the message is marked as Spam we will send a notification to the `application` specified in the [create message](./methods/sendMessages.md) request.
+Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network protection technology as the mobile telco operators. This allows us to screen messages before they're sent to the downstream carrier. By checking before Bandwidth passes the message along, we're able to work with you to understand and fix any potential issues with the message. This maintains your telephone number deliverability reputation and helps build predictable traffic patterns. If the message is marked as Spam we will send a notification to the `application` specified in the [create message](./methods/messages/createMessage.md) request.
 
 ### Toll-Free A2P Best Practices {#a2p-best-practices}
 
