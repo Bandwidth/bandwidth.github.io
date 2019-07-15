@@ -2,6 +2,8 @@
 ## XML: `<Hangup>`
 The Hangup verb is used to hang up the current call.
 
+The Hangup verb is also used to reject incoming calls either explicitly or implicitly.
+
 
 ### Attributes
 
