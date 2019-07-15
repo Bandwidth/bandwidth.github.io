@@ -2,6 +2,8 @@
 ## XML: `<Hangup>`
 The Hangup verb is used to hang up the current call.
 
+The Hangup verb is also used to reject incoming calls either explicitly or implicitly.
+
 
 ### Attributes
 
@@ -26,5 +28,6 @@ This shows how to use Bandwidth XML to hang up an existing call.
    <Hangup/>
 </Response>
 ```
+
 
 {% endmethod %}
