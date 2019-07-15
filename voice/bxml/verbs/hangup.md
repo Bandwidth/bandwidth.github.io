@@ -29,5 +29,4 @@ This shows how to use Bandwidth XML to hang up an existing call.
 </Response>
 ```
 
-
 {% endmethod %}
