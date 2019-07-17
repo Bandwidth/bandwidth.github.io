@@ -4,8 +4,6 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 
 In order to successfully use the Messaging 2.0 APIs, you need to configure an `Application` which contains the `CallbackUrl`.  Each application can be assigned to as many `Locations` as needed.  However, each `Location` can only have a single `Application`
 
-![Application Diagram](../images/messaging-2/applications-flow-messaging.png)
-
 ### Base Url
 `https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications`
 
