@@ -142,10 +142,11 @@
 	* [403 - Forbidden](messaging/errors/forbidden.md)
 	* [415 - Unsupported Content Type](messaging/errors/unsupportedContentType.md)
 	* [429 - Too Many Requests](messaging/errors/tooManyReq.md)
+
 ## SDKs
-    * [C#](sdks/csharp.md)
-    * [Java](sdks/java.md)
-    * [Node](sdks/node.md)
-    * [PHP](sdks/php.md)
-    * [Python](sdks/python.md)
-    * [Ruby](sdks/ruby.md)
+* [C#](sdks/csharp.md)
+* [Java](sdks/java.md)
+* [Node](sdks/node.md)
+* [PHP](sdks/php.md)
+* [Python](sdks/python.md)
+* [Ruby](sdks/ruby.md)
