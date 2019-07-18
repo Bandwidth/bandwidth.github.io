@@ -15,6 +15,11 @@ This guide will walk through the recommended approach to managing queues and rat
     * [Throttling](#throttle)
     * [Queue Management](#queue-management)
 
+## Assumptions
+* You are familiar with:
+  * [2017 CTIA Best Practices](https://api.ctia.org/docs/default-source/default-document-library/170119-ctia-messaging-principles-and-best-practices.pdf)
+  * [The TCPA _Telephone Consumer Protection Act_](https://transition.fcc.gov/cgb/policy/TCPA-Rules.pdf)
+
 
 ## Billing {#billing}
 Sending SMS and single recipient MMS are billed and added to your MPS (message per second) limit. Sending group MMS is billed and added to your MPS limit **per recipient of the group MMS**.

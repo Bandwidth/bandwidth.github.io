@@ -25,13 +25,13 @@ There are a few concepts that are important to understand how Bandwidth's new me
 
 ## Message Storage IE `GET /messages` {#manage-storage}
 
-Messaging 2.0 does not keep _any_ records to fetch later.  If you need to keep track of delivered, error-ed, received messages after you receive the corresponding callback event, you **MUST** store the events in the data-store of your choice.
+Bandwidth Messaging does not keep _any_ records to fetch later.  If you need to keep track of delivered, error-ed, received messages after you receive the corresponding callback event, you **MUST** store the events in the data-store of your choice.
 
 Once we have successfully delivered the callback event and receive an `HTTP 2xx` response, Bandwidth can no longer provide any detail about that message.
 
 ## Message Callbacks {#message-callbacks}
 
-As the messaging 2.0 API **does not** offer message storage or detailed messaging records, Bandwidth will attempt to deliver _every_ callback until your server replies with a `HTTP 2xx` status code.  If the callback request times out, or your server returns a code less than `HTTP 2xx` or greater than `HTTP 3xx` Bandwidth will try to deliver the callback multiple times over the next 24 hours.
+As the messaging API **does not** offer message storage or detailed messaging records, Bandwidth will attempt to deliver _every_ callback until your server replies with a `HTTP 2xx` status code.  If the callback request times out, or your server returns a code less than `HTTP 2xx` or greater than `HTTP 3xx` Bandwidth will try to deliver the callback multiple times over the next 24 hours.
 
 After 24 hours, if your server has not returned a `HTTP 2xx` code, Bandwidth will no longer try to send the callback.
 
