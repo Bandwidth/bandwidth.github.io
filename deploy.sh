@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
-TARGET_BRANCH="master"
+TARGET_BRANCH="stop-gap-v2"
 
 function doCompile {
   make
