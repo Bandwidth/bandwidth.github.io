@@ -17,13 +17,13 @@ Forwards an unanswered incoming call to another number.
 None
 
 {% common %}
-#### Example:  Pause Verb
-This shows how to use Bandwidth XML to pause for 2 seconds.
+#### Example:  Forward Verb
+This shows how to use Bandwidth XML to forward a call from +11234567890 to +10987654321.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-   <Pause duration="2" />
+   <Forward from='+11234567890' to='+10987654321'/>
 </Response>
 ```
 
