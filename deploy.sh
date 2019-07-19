@@ -12,7 +12,8 @@ function doCompile {
 # Build the site
 doCompile
 
-if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ] then
+if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ]
+then
   # deploy the site to s3
   aws sts get-caller-identity
   printf "%s\n" "master branch"

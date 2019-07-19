@@ -1886,7 +1886,7 @@ securitySchemes:
                         example: 2014-08-05
                     modifiedDateTo:
                         description: |
-                            The latest date that the order was last modified. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo
+                            The latest date that the order was last modified. If modified date is not earlier than today - response poyload will contain it's subtending portins. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo
                         type: date
                         example: 2014-08-05
                     orderDetails:
@@ -1914,6 +1914,10 @@ securitySchemes:
                                             <RequestedFocDate>2016-03-25T21:15:00.000Z</RequestedFocDate>
                                             <CustomerOrderId>SJM00002</CustomerOrderId>
                                             <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
+                                            <PortinList>
+                                                <PortinOrderId>10f48fec-9db0-4f68-8bcb-c8a6a230a2d9</PortinOrderId>
+                                                <PortinOrderId>059cf2d9-a004-4a88-866c-082c97fb7d5f</PortinOrderId>
+                                            </PortinList>
                                             <Subscriber>
                                                 <SubscriberType>[RESIDENTIAL|BUSINESS]</SubscriberType>
                                                 <FirstName>First</FirstName>
