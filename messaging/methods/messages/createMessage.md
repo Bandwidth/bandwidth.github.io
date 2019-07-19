@@ -12,7 +12,7 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 ### Invalid Phone Number handing
 
-When sending a group message to an invalid phone number, you may receive extraneous [callback events](../events/messageEvents.md).  You can read more on the [Messaging API concepts page](../concepts.md#group-message-invalid).
+When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks//messageEvents.md).  You can read more on the [Messaging API concepts page](../concepts.md#group-message-invalid).
 
 ### Tags
 * If there is a need to identify individual outbound messages, or correlate them with an ID in your own application, the `tag` field can be set to any string (max 1024 chars). The custom `tag` will be included in all callbacks for an outbound message.
