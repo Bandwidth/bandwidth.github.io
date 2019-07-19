@@ -18,7 +18,7 @@ then
   aws sts get-caller-identity
   printf "%s\n" "master branch"
 else
-  aws sts get-caller-identity
+  aws s3 sync ./out/ s3://stop-gap --delete
   printf "%s\n" "another branch"
 fi
 

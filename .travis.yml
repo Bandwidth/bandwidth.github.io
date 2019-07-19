@@ -4,6 +4,7 @@ branches:
   - master
 node_js:
 - v6.11.1
+cache: npm
 before_install:
 - sudo pip install virtualenv
 - virtualenv my_project
