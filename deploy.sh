@@ -15,10 +15,10 @@ doCompile
 if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ]
 then
   # deploy the site to s3
-  aws sts get-caller-identity
+  aws s3 sync ./out/ s3://stop-gap --delete
   printf "%s\n" "master branch"
 else
-  aws s3 sync ./out/ s3://stop-gap --delete
+  # do nothing, and leave s3-deploy post script handle deployment.
   printf "%s\n" "another branch"
 fi
 
