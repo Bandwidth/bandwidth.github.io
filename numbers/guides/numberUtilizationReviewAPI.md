@@ -1,6 +1,6 @@
 # Step By Step Guide To Number Assignment Using the Bandwidth Dashboard REST API (Limited Availability)
 
-This guide is for using the Bandwidth Dashboard API to assign numbers. If you want to use the UI, click [here](numberUtilizationReviewDashboard.md).
+This guide is for using the Bandwidth Dashboard API to assign numbers.
 
 ### Bulk assigning up to 5000 TNs with an active end-user
 
@@ -46,7 +46,7 @@ If successful, the Number Utilization Review endpoint returns an xml response wi
 * FailedQauntity: Number of phone numbers in the request that failed the requested Action
 * TelephoneNumbersAssignmentOrder: The XML from the request
 * Errors: List of Error objects from the request
-    * Error.Code: The error code. A list of all error codes can be found [here](../errors.md)
+    * Error.Code: The error code. A list of all error codes can be found [here](../error.md)
     * Error.Description: The error's description
     * Error.TelephoneNumbers: List of TelephoneNumber fields that caused this error
 

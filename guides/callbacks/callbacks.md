@@ -15,14 +15,12 @@ If you need static IPs for your callbacks, feel free to open up a ticket on our 
 
 ### Voice Callbacks
 
-Voice callbacks come in 2 ways. Information on these callback methods can be found by clicking the links below
-* [Async callbacks](../../voice/bxml/asyncCallbacks.md)
-* [BXML callbacks](../../voice/bxml/bxmlCallbacks.md)
+Specifics for voice callbacks can be found on our [voice callbacks page](../../voice/bxml/callBacks/about.md)
 
-Bandwidth expects to receive valid [BXML](../../voice/bxml/bxml.md) as a response for BXML callbacks. Bandwidth does not expect a response for async callbacks.
+Bandwidth expects to receive valid [BXML](../../voice/bxml/about.md) as a response for BXML callbacks
 
 ### Messaging Callbacks
 
-Specifics for messaging callbacks can be found on our [messaging callbacks page](../../messaging/events/messageEvents.md)
+Specifics for messaging callbacks can be found on our [messaging callbacks page](../../messaging/callbacks/messageEvents.md)
 
 <br>
