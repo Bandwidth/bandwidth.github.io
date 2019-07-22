@@ -77,7 +77,7 @@ By default Bandwidth queues messages internally to be sent out. Once contracted,
 
 An account has an **Outbound _dequeue_ rate** of 5MPS.
 
-![Queue Math](./images/queuemath.png)
+![Queue Math](../images/queuemath.png)
 
 ### 429 – Too Many Requests
 

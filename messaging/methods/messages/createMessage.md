@@ -6,28 +6,28 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 ### Request URL
 
-<code class="post">POST</code>`https://messaging.bandwidth.com/api/v2/users/{userId}/messages`
-
-** Notice: The old URL `https://api.catapult.inetwork.com/v2/users/{userId}/messages` has been deprecated, and will be taken offline June 13th, 2019. Please update your system to use the new URL. **
+<code class="post">POST</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/messages`
 
 ### Invalid Phone Number handing
 
-When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks//messageEvents.md).  You can read more on the [Messaging API concepts page](../concepts.md#group-message-invalid).
+When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks/messageEvents.md).  You can read more on the [Messaging API concepts page](../../about.md#group-message-invalid).
 
 ### Tags
+
 * If there is a need to identify individual outbound messages, or correlate them with an ID in your own application, the `tag` field can be set to any string (max 1024 chars). The custom `tag` will be included in all callbacks for an outbound message.
 
 ### Supported Parameters
-| Parameter     | Type                                                                  | Description                                                                                                                                                                                                                              | Mandatory |
-|:--------------|:----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| from          | `string`                                                              | One of your telephone numbers the message should come from (must be in E.164 format, like `+19195551212`).                                                                                                                                 | Yes       |
-| to            | `string`<br>**-OR-**<br>`array` of `1` (one) or more `strings`                 | The phone number(s) the message should be sent to (must be in E.164 format, like `+19195551212`). <br><br> Example: <br> `"+19195551212"` <br> **-OR-**<br> `["+19195551212"]` <br> **-OR-**<br> `["+19195551212", "+19195554444", "+19192227777"]` <br><br> **If you supply more than one number, it will be sent as a group message.** | Yes       |
-| text          | `string`                                                              | The contents of the text message (must be 2048 characters or less).                                                                                                                                                                      | Yes       |
-| applicationId | `string`                                                              | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                 | Yes       |
-| media*         | `array`                                                               | A list of URLs to include as media attachments as part of the message. If this field is included, the message will be sent as MMS no matter the number of recipients. Media sent in messages is limited to 3.75MB.                                                                                                                                                                   | No        |
-| tag           | `string`                                                              | Any string which will be included in the callback events of the message. (max 1024 Chars)                                                                                                                                                                 | No        |
 
-*Please check the [FAQ](https://dev.bandwidth.com/faq) for information on media size limits
+| Parameter     | Type                                                           | Description                                                                                                                                                                                                                                                                                                                              | Mandatory |
+|:--------------|:---------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| from          | `string`                                                       | One of your telephone numbers the message should come from (must be in E.164 format, like `+19195551212`).                                                                                                                                                                                                                               | Yes       |
+| to            | `string`<br>**-OR-**<br>`array` of `1` (one) or more `strings` | The phone number(s) the message should be sent to (must be in E.164 format, like `+19195551212`). <br><br> Example: <br> `"+19195551212"` <br> **-OR-**<br> `["+19195551212"]` <br> **-OR-**<br> `["+19195551212", "+19195554444", "+19192227777"]` <br><br> **If you supply more than one number, it will be sent as a group message.** | Yes       |
+| text          | `string`                                                       | The contents of the text message (must be 2048 characters or less).                                                                                                                                                                                                                                                                      | Yes       |
+| applicationId | `string`                                                       | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                                                                                                                 | Yes       |
+| media*        | `array`                                                        | A list of URLs to include as media attachments as part of the message. If this field is included, the message will be sent as MMS no matter the number of recipients. Media sent in messages is limited to 3.75MB.                                                                                                                       | No        |
+| tag           | `string`                                                       | Any string which will be included in the callback events of the message. (max 1024 Chars)                                                                                                                                                                                                                                                | No        |
+
+*Please check the [FAQ](https://support.bandwidth.com) for information on media size limits
 
 {% common %}
 
@@ -36,7 +36,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -54,7 +54,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -74,7 +74,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -124,7 +124,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -145,7 +145,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -168,7 +168,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -223,7 +223,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -245,7 +245,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -269,7 +269,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -325,7 +325,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -346,7 +346,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -369,7 +369,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -419,7 +419,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -443,7 +443,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -469,7 +469,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',

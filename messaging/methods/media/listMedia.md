@@ -7,7 +7,7 @@ Each request returns a maximum of 1000 media files. Retrieving more than 1000 me
 
 ### Request URL
 
-<code class="get">GET</code>`https://messaging.bandwidth.com/api/v2/users/{userId}/media`
+<code class="get">GET</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media`
 
 ---
 
@@ -32,7 +32,7 @@ Each request returns a maximum of 1000 media files. Retrieving more than 1000 me
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{userId}/media \
+curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
   -u {token}:{secret} \
 ```
 
@@ -66,7 +66,7 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{userId}/media \
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{userId}/media \
+curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
   -u {token}:{secret} \
   -H "Continuation-Token: 12345"
 ```

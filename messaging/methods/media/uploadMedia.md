@@ -6,7 +6,7 @@ Uploads a file the normal HTTP way. You may add headers to the request in order 
 Bandwidth retains uploaded media for up to 48 hours.
 
 ### Request URL
-<code class="put">PUT</code>`https://messaging.bandwidth.com/api/v2/users/{userId}/media/{mediaName}`
+<code class="put">PUT</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}`
 
 ---
 
@@ -30,6 +30,6 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X PUT https://messaging.bandwidth.com/api/v2/users/{your_user_id}/media/{file.mp3} -H "Content-Type: audio/mpeg" -u {{token}}:{{secret}} --data-binary "@{/filepath/file.mp3}"
+curl -v -X PUT https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{file.mp3} -H "Content-Type: audio/mpeg" -u {{token}}:{{secret}} --data-binary "@{/filepath/file.mp3}"
 ```
 {% endmethod %}

@@ -1,4 +1,4 @@
-# Bandwidth Messaging Concepts
+# Bandwidth Messaging API
 
 ## Messaging Overview
 
