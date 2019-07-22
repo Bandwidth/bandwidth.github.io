@@ -16,6 +16,8 @@ if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ]
 then
   # deploy the site to s3
   aws s3 sync ./out/ s3://stop-gap --delete
+  # Clear the cloudfront cache
+  aws cloudfront create-invalidation --distribution-id E2DJMH5LKMGQA6 --paths "/*"
   printf "%s\n" "master branch"
 else
   # do nothing, and leave s3-deploy post script handle deployment.
