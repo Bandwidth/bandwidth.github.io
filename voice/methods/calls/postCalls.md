@@ -5,7 +5,7 @@ Creates a new outbound phone call.
 
 ### Request URL
 
-<code class="post">POST</code>`https://voice.bandwidth.com/accounts/{accountId}/calls/`
+<code class="post">POST</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/`
 
 ---
 
@@ -38,7 +38,7 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="bash" %}
 
 ```bash
-curl -u username:password -v -X POST https://voice.bandwidth.com/accounts/1234/calls \
+curl -u username:password -v -X POST https://voice.bandwidth.com/api/v2/accounts/1234/calls \
 	-H "Content-type: application/json" \
 	-d \
 	'
@@ -54,7 +54,7 @@ curl -u username:password -v -X POST https://voice.bandwidth.com/accounts/1234/c
 
 ```
 HTTP/1.1 201 Created
-Location: https://voice.bandwidth.com/accounts/{accountId}/calls/{callId}
+Location: https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}
 ```
 
 {% endmethod %}

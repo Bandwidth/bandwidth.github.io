@@ -38,7 +38,7 @@ Contact the Bandwidth Customer Experience Team for new credentials, password res
 
 | Credential Name | How it is used                                                                                    |
 |:----------------|:--------------------------------------------------------------------------------------------------|
-| `accountId`     | Used as a URL parameter for the API endpoint `https://voice.bandwidth.com/accounts/{accountId}` |
+| `accountId`     | Used as a URL parameter for the API endpoint `https://voice.bandwidth.com/api/v2/accounts/{accountId}` |
 | `username`      | Used as the username for HTTP basic auth                                                          |
 | `password`     | Used as the password for HTTP basic auth                                                          |
 

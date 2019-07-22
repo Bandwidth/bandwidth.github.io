@@ -1,7 +1,7 @@
 # Bandwidth HTTP Voice
 
 ## Base API URL
-`https://voice.bandwidth.com/accounts/{accountId}`
+`https://voice.bandwidth.com/api/v2/accounts/{accountId}`
 
 ## REST API Reference Index
 
