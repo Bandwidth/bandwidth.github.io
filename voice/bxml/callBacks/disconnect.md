@@ -37,7 +37,7 @@ POST http://[External server URL]
 	"to":"+15553334444",
 	"direction":"outbound",
 	"callId":"3C5F8A8B-CDA2-443A-B797-B3ADA2197E05",
-    "callUrl": "https://voice.bandwidth.com/api/v2/users/55555555/calls/3C5F8A8B-CDA2-443A-B797-B3ADA2197E05",
+    "callUrl": "https://voice.bandwidth.com/accounts/55555555/calls/3C5F8A8B-CDA2-443A-B797-B3ADA2197E05",
 	"answerTime":"2019-06-20T15:54:22.234Z",
 	"endTime":"2019-06-20T15:55:54.123Z",
 	"cause":"busy"

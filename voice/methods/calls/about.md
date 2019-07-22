@@ -9,7 +9,7 @@ Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#vo
 
 ### Base URL
 
-`https://voice.bandwidth.com/v2/accounts/{accountId}`
+`https://voice.bandwidth.com/accounts/{accountId}`
 
 ### Capabilities
 
