@@ -20,6 +20,8 @@ The first BXML callback is made when the call is created with [POST /calls](../m
 the `answerUrl` field.  Subsequent callbacks are made by specifying event-specific `*Url` attributes on the appropriate verbs.  If a
 relative URL is provided in BXML, it is resolved relative to the request that retrieved that BXML.
 
+If BXML execution ends without performing a callback, there is an implicit `<Hangup>` at the end of the document.
+
 ### Verbs
 
 | Verb                                        | Description                                                                                                                                                                         |
