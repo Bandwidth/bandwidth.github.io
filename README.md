@@ -57,7 +57,7 @@
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{accountId}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -66,9 +66,6 @@ curl --request POST \
       "from"          : "+12345678901",
       "text"          : "Hey, check this out!",
       "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-      "media"         : [
-        "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
-        ],
       "tag"           : "test message"
     }
   '
@@ -95,14 +92,14 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-    --url https://voice.bandwidth.com/accounts/{{accountId}}/calls/ \
+    --url https://voice.bandwidth.com/accounts/{accountId}/calls/ \
     --user {username}:{password} \
     --header 'content-type: application/json' \
     --data '
     {
       "from"          : "+19195551212",
       "to"            : "+19195551313",
-      "answerUrl"     : "http://www.myapp.com/hello"
+      "answerUrl"     : "http://www.myapp.com/hello",
       "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
     }
   '
@@ -116,7 +113,7 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-    --url https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders \
+    --url https://dashboard.bandwidth.com/api/accounts/{accountId}/orders \
     --user {username}:{password} \
     --header 'content-type: application/xml; charset=utf-8' \
     --data '
@@ -125,7 +122,7 @@ curl --request POST \
             <AreaCode>910</AreaCode>
             <Quantity>1</Quantity>
         </AreaCodeSearchAndOrderType>
-        <SiteId>461</SiteId>
+        <SiteId>{Site-ID}</SiteId>
     </Order>
   '
 ```
