@@ -5,7 +5,7 @@ Downloads a media file you previously uploaded.
 
 ### Request URL
 
-<code class="get">GET</code>`https://messaging.bandwidth.com/api/v2/users/{userId}/media/{mediaName}`
+<code class="get">GET</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}`
 
 ## ⚠️ Caution on fetching Media ⚠️
 
@@ -20,7 +20,7 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{userId}/media/{mediaName} \
+curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
   -u {token}:{secret} \
 ```
 

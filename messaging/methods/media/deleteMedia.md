@@ -5,7 +5,7 @@ Deletes a media file from Bandwidth API server. Make sure you don't have any app
 
 ### Request URL
 
-<code class="delete">DELETE</code>`https://messaging.bandwidth.com/api/v2/users/{userId}/media/{mediaName}`
+<code class="delete">DELETE</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}`
 
 {% common %}
 
@@ -14,7 +14,7 @@ Deletes a media file from Bandwidth API server. Make sure you don't have any app
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://messaging.bandwidth.com/api/v2/users/{userId}/media/{mediaName} \
+curl -v -X DELETE https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
 	-u {token}:{secret} \
 ```
 {% endmethod %}

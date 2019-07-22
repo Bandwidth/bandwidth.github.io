@@ -21,7 +21,7 @@ For sending and receiving Group Messages, there is a maximum of 10 participants 
 | message.from          | `string` | The phone number the message was sent from                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | message.text          | `string` | The text content of the message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | message.applicationId | `string` | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| message.media         | `array`  | A list of URLs to include as media attachments as part of the message. <br> Using the [v2 media api](../methods/media/about.md) You can download the media **WITHIN 2 DAYS** <br><br> The URL will look something like: <br> `https://messaging.bandwidth.com/api/v2/users/{userId}/media/{uploaded-file-name}` <br><br> Where `uploaded-file-name` is the original filename of your uploaded media. |
+| message.media         | `array`  | A list of URLs to include as media attachments as part of the message. <br> Using the [v2 media api](../methods/media/about.md) You can download the media **WITHIN 2 DAYS** <br><br> The URL will look something like: <br> `https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{uploaded-file-name}` <br><br> Where `uploaded-file-name` is the original filename of your uploaded media. |
 | message.segmentCount  | `int`    | This indicates the number of segments the original message from the user is broken into before sending over to carrier networks. Segmentation of messages depends on the size and encoding. Bandwidth will segment the message if the character count is over the below limits: <br><br> - 160 for GSM-7 <br> - 70 for UCS-2 <br> <br> For MMS messages the segment count will always be set to 1                                                                                                                                                                       |
 
 {% common %}
@@ -51,7 +51,7 @@ User-Agent: BandwidthAPI/v2
       "text"          : "Hey, check this out!",
       "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
       "media"         : [
-        "https://messaging.bandwidth.com/api/v2/users/{userId}/media/14762070468292kw2fuqty55yp2b2/0/bw.png"
+        "https://messaging.bandwidth.com/api/v2/users/{accountId}/media/14762070468292kw2fuqty55yp2b2/0/bw.png"
         ],
       "owner"         : "+12345678902",
       "direction"     : "in",
@@ -89,9 +89,9 @@ User-Agent: BandwidthAPI/v2
       "text"          : "Hey, check this out!",
       "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
       "media"         : [
-        "https://messaging.bandwidth.com/api/v2/users/{userId}/media/14762070468292kw2fuqty55yp2b2/0/bw.png",
-        "https://messaging.bandwidth.com/api/v2/users/{userId}/media/14762070468292kw2fuqty55yp2b2/1/bandwidth_logo.png",
-        "https://messaging.bandwidth.com/api/v2/users/{userId}/media/14762070468292kw2fuqty55yp2b2/2/Bandwidth_Contact.png"
+        "https://messaging.bandwidth.com/api/v2/users/{accountId}/media/14762070468292kw2fuqty55yp2b2/0/bw.png",
+        "https://messaging.bandwidth.com/api/v2/users/{accountId}/media/14762070468292kw2fuqty55yp2b2/1/bandwidth_logo.png",
+        "https://messaging.bandwidth.com/api/v2/users/{accountId}/media/14762070468292kw2fuqty55yp2b2/2/Bandwidth_Contact.png"
         ],
       "owner"         : "+12345678902",
       "direction"     : "in",

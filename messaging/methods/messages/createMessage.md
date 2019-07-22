@@ -6,11 +6,11 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 ### Request URL
 
-<code class="post">POST</code>`https://messaging.bandwidth.com/api/v2/users/{userId}/messages`
+<code class="post">POST</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/messages`
 
 ### Invalid Phone Number handing
 
-When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks/messageEvents.md).  You can read more on the [Messaging API concepts page](../concepts.md#group-message-invalid).
+When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks/messageEvents.md).  You can read more on the [Messaging API concepts page](../../about.md#group-message-invalid).
 
 ### Tags
 
@@ -36,7 +36,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -54,7 +54,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -74,7 +74,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -124,7 +124,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -145,7 +145,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -168,7 +168,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -223,7 +223,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -245,7 +245,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -269,7 +269,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -325,7 +325,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -346,7 +346,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -369,7 +369,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
@@ -419,7 +419,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='http' %}
 
 ```http
-POST https://messaging.bandwidth.com/api/v2/users/{userId}/messages HTTP/1.1
+POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
 Authorization: {apiToken:apiSecret}
 
@@ -443,7 +443,7 @@ Authorization: {apiToken:apiSecret}
 
 ```bash
 curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
     --user {apiToken}:{apiSecret} \
     --header 'content-type: application/json' \
     --data '
@@ -469,7 +469,7 @@ curl --request POST \
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{userId}}/messages',
+  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
   headers: { 'content-type': 'application/json' },
   auth: {
     user: '{{apiToken}}',
