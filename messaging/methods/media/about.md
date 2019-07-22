@@ -15,9 +15,9 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 
 ### Capabilities
 
-| Verb                               | Path                                                              | about                                         |
-|:-----------------------------------|:------------------------------------------------------------------|:----------------------------------------------|
-| <code class="get">GET</code>       | [`/api/v2/users/{userId}/media`](listMedia.md)                         | Get a list of your media files                |
-| <code class="put">PUT</code>       | [`/api/v2/users/{userId}/media/{mediaName}`](uploadMedia.md)    | Uploads a media file                          |
-| <code class="get">GET</code>       | [`/api/v2/users/{userId}/media/{mediaName}`](getMedia.md)    | Downloads a media file you uploaded           |
-| <code class="delete">DELETE</code> | [`/api/v2/users/{userId}/media/{mediaName}`](deleteMedia.md) | Permanently deletes a media file you uploaded |
+| Verb                               | Path                                                         | about                                                                          |
+|:-----------------------------------|:-------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| <code class="get">GET</code>       | [`/api/v2/users/{userId}/media`](listMedia.md)               | Get a list of your media files                                                 |
+| <code class="get">GET</code>       | [`/api/v2/users/{userId}/media/{mediaName}`](getMedia.md)    | Downloads an incoming MMS media attachment or an uploaded media file           |
+| <code class="put">PUT</code>       | [`/api/v2/users/{userId}/media/{mediaName}`](uploadMedia.md) | Uploads a media file                                                           |
+| <code class="delete">DELETE</code> | [`/api/v2/users/{userId}/media/{mediaName}`](deleteMedia.md) | Permanently deletes an incoming MMS media attachment or an uploaded media file |

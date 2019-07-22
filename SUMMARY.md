@@ -2,7 +2,6 @@
 
 ## Overview
 * [About](README.md)
-* [API Simulator](https://simulator.bandwidth.com/)
 * [Security & Credentials](guides/accountCredentials.md)
 
 ## Guides
@@ -111,7 +110,7 @@
 
 ## Messaging
 * [Overview](messaging/about.md)
-	* [Billing and MPS Guidelines](messaging/ratelimits.md)
+	* [Rate Limits](messaging/ratelimits.md)
 		* [Billing information](messaging/ratelimits.md#billing)
 		* [How Bandwidth Helps Messaging](messaging/ratelimits.md#how-bandwidth-helps)
 		* [Default Rate Limits](messaging/ratelimits.md#default-rate-limit)
@@ -119,9 +118,9 @@
 * [API Methods](messaging/methods/about.md)
 	* [POST messages](messaging/methods/messages/createMessage.md)
 	* [/media](messaging/methods/media/about.md)
-		* [PUT Upload Media](messaging/methods/media/uploadMedia.md)
-		* [GET Get Media](messaging/methods/media/getMedia.md)
 		* [GET List Media](messaging/methods/media/listMedia.md)
+		* [GET Get Media](messaging/methods/media/getMedia.md)
+		* [PUT Upload Media](messaging/methods/media/uploadMedia.md)
 		* [DELETE Delete Media](messaging/methods/media/deleteMedia.md)
 * [Callbacks](messaging/callbacks/messageEvents.md)
 	* [Incoming SMS/MMS Message](messaging/callbacks/incomingSingle.md)
@@ -150,3 +149,8 @@
 * [PHP](sdks/php.md)
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
+
+## v1 Docs
+* [Home Page](https://dev.bandwidth.com)
+* [Voice](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+* [Messaging](https://dev.bandwidth.com/ap-docs/methods/messages/messages.html)

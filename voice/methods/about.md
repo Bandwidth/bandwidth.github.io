@@ -1,4 +1,4 @@
-# Bandwidth Voice & Messaging APIs
+# Bandwidth Voice API
 
 ## Base URL
 `https://voice.bandwidth.com/v2/accounts/{accountId}`
