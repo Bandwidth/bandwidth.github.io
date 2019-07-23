@@ -92,17 +92,16 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-    --url https://voice.bandwidth.com/accounts/{accountId}/calls/ \
+    --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
     --user {username}:{password} \
-    --header 'content-type: application/json' \
+    --header "Content-type: application/json" \
     --data '
     {
       "from"          : "+19195551212",
       "to"            : "+19195551313",
       "answerUrl"     : "http://www.myapp.com/hello",
       "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
-    }
-  '
+    }'
 ```
 
 ```python
