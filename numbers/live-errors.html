@@ -817,6 +817,10 @@
     <td>13585</td>
     <td>Messaging routes are not configured for for account %s</td>
   </tr>
+    <tr>
+    <td>13586</td>
+    <td>Telephone number hasn't been previously imported.</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -1931,6 +1935,34 @@
   <tr><td>7485</td><td>E9999</td><td>The losing carrier requires us to break your order into multiple submissions. Our processing team is working on this request and will flow status to your order within 1-2 business days</td></tr>
 </table>
 
+<h2>Level3 errors</h2>
+<table class="fixed">
+  <tr>
+    <th>Error Code</th>
+    <th>Error Description</th>
+  </tr>
+    <tr>
+    <td>7400</td>
+    <td>Error: serviceOrderHeader is required</td>
+  </tr>
+    <tr>
+    <td>7401</td>
+    <td>Error: Could not find valid externalOrderID</td>
+  </tr>
+    <tr>
+    <td>7402</td>
+    <td>Error: Unrecognized product ID</td>
+  </tr>
+    <tr>
+    <td>7403</td>
+    <td>Error: requestMessageHeader is required</td>
+  </tr>
+    <tr>
+    <td>7404</td>
+    <td>Error: Message ID is required</td>
+  </tr>
+  </table>
+
 <h2>LOA File Upload </h2>
 <table class="fixed">
   <tr>
@@ -1942,7 +1974,6 @@
     <td>Document name too long, max 50 characters</td>
   </tr>
   </table>
-
 
 <h1>Porting Numbers Out</h1>
 
@@ -2226,6 +2257,10 @@
     <tr>
     <td>19009</td>
     <td>No messaging route found</td>
+  </tr>
+    <tr>
+    <td>19012</td>
+    <td>Account is not migrated to new messaging</td>
   </tr>
   </table>
 
@@ -3919,7 +3954,7 @@
   </tr>
     <tr>
     <td>12134</td>
-    <td>Duplicate host in %s</td>
+    <td>Hosts conflict %s %s</td>
   </tr>
     <tr>
     <td>12136</td>
@@ -5238,7 +5273,7 @@
   </tr>
     <tr>
     <td>12939</td>
-    <td>Host '%s' should have the same mask as '%s' that was already provisioned for this account.</td>
+    <td>Host '%s' intersects with '%s' by subnet.</td>
   </tr>
     <tr>
     <td>12940</td>
@@ -5318,7 +5353,7 @@
   </tr>
     <tr>
     <td>12958</td>
-    <td>Invalid property name, valid values are: TPA, VENDORS, BWSPIDS, SBC_NODE_GROUPS, A2P_CLASSES, A2P_CAMPAIGN_IDS, BLOCKED_ACCOUNT, SYSTEM_EVENT_SUBSCRIPTIONS, PROXY_PEERS, NN_ROUTES, SETTINGS, MIGRATION_CONTROLS, SLINGSHOTENV</td>
+    <td>Invalid property name, valid values are: tpa, vendors, bwspids, sbcNodeGroups, a2pClasses, a2pCampaignIds, blockedaccount, messagingBlockedAccountIds, systemEventSubscriptions, proxypeers, nnroutes, slingshotEnv, breakOutCountries</td>
   </tr>
     <tr>
     <td>12960</td>
@@ -5422,7 +5457,23 @@
   </tr>
     <tr>
     <td>12985</td>
+    <td>Account %s is not a Blacklisted account</td>
+  </tr>
+    <tr>
+    <td>12986</td>
     <td>HTTP V2 Messaging requires a valid Http Messaging Associated Identifier to be entered in the 'Associated Catapult ID' field</td>
+  </tr>
+    <tr>
+    <td>12987</td>
+    <td>The 3 letter country code %s is not recognized as a valid country</td>
+  </tr>
+    <tr>
+    <td>12988</td>
+    <td>The Country Name is informational and will not be retained</td>
+  </tr>
+    <tr>
+    <td>12989</td>
+    <td>The Country in the URL is different than the 3 letter country code in the payload</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -5828,7 +5879,7 @@
   </tr>
     <tr>
     <td>13593</td>
-    <td>'%s' has invalid mask. Valid mask values: 20-32</td>
+    <td>'%s' has invalid mask. Valid mask values: 14-32</td>
   </tr>
     <tr>
     <td>13594</td>
@@ -6077,6 +6128,22 @@
     <tr>
     <td>13653</td>
     <td>Can not delete last voice app as sippeer(s) %s has enabled HTTP protocol</td>
+  </tr>
+    <tr>
+    <td>13654</td>
+    <td>Conflicting host/subnet found</td>
+  </tr>
+    <tr>
+    <td>13655</td>
+    <td>Found conflicting host/subnet(s): %s</td>
+  </tr>
+    <tr>
+    <td>13656</td>
+    <td>The country values '%s' do not match a 3-character country code that has been approved for this account.</td>
+  </tr>
+    <tr>
+    <td>13657</td>
+    <td>There are duplicate countries in the payload.</td>
   </tr>
   </table>
 <h2>PotValidationError</h2>

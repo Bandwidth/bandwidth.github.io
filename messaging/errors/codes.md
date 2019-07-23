@@ -11,7 +11,7 @@
   * [Carrier Errors with Ambiguous Cause](#carrier-ambiguous-errors)
 
 ## Error Reporting {#error-reporting}
-The Bandwidth V2 messaging API presents errors on the [callback URL](events/messageEvents.md) using the [`message-failed`](events/messageFailed.md) type in the payload body along with an errorCode and description.   An example is as follows:
+The Bandwidth V2 messaging API presents errors on the [callback URL](../callbacks/messageEvents.md) using the [`message-failed`](../callbacks/messageFailed.md) type in the payload body along with an errorCode and description.   An example is as follows:
 
 ```json
 [

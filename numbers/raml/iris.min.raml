@@ -1886,7 +1886,7 @@ securitySchemes:
                         example: 2014-08-05
                     modifiedDateTo:
                         description: |
-                            The latest date that the order was last modified. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo
+                            The latest date that the order was last modified. If modified date is not earlier than today - response poyload will contain it's subtending portins. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo
                         type: date
                         example: 2014-08-05
                     orderDetails:
@@ -1914,6 +1914,10 @@ securitySchemes:
                                             <RequestedFocDate>2016-03-25T21:15:00.000Z</RequestedFocDate>
                                             <CustomerOrderId>SJM00002</CustomerOrderId>
                                             <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
+                                            <PortinList>
+                                                <PortinOrderId>10f48fec-9db0-4f68-8bcb-c8a6a230a2d9</PortinOrderId>
+                                                <PortinOrderId>059cf2d9-a004-4a88-866c-082c97fb7d5f</PortinOrderId>
+                                            </PortinList>
                                             <Subscriber>
                                                 <SubscriberType>[RESIDENTIAL|BUSINESS]</SubscriberType>
                                                 <FirstName>First</FirstName>
@@ -5720,12 +5724,26 @@ securitySchemes:
                                   <Tn>4103431313</Tn>
                                   <Tn>4103154313</Tn>
                                   <Tn>4103431561</Tn>
+                                  <Tn>2174101103</Tn>
                                </TnList>
                             </NumberPortabilityRequest>
                 responses:
                     200:
-                        description: 'A successful check has been performed. Note: For users of Enterprise Telephony accounts SupportedLosingCarriers and UnsupportedLosingCarriers will be omitted from the success output even when query parameter fullCheck has values of true, onnetportability, or offnetportability.'
-                        body: 
+                        description: |
+                             A successful check has been performed. Note: For users of Enterprise Telephony accounts SupportedLosingCarriers
+                             and UnsupportedLosingCarriers will be omitted from the success output even when query parameter
+                             fullCheck has values of true, onnetportability, or offnetportability.
+                             <table>
+                                 <tr>
+                                     <th>Tag</th>
+                                     <th>Values</th>
+                                 </tr>
+                                 <tr>
+                                     <td>PortType</td>
+                                     <td> AUTOMATED, AUTOMATEDOFFNET, INTERNAL, MANUAL_ON_NET, MANUALOFFNET, MANUAL_TOLLFREE, MIXED</td>
+                                 </tr>
+                             </table>
+                        body:
                             application/xml:
                                 example: |
                                         <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -5767,6 +5785,20 @@ securitySchemes:
                                                         <Tn>4109235436</Tn>
                                                     </TnList>
                                                 </RateCenterGroup>
+                                                <RateCenterGroup>
+                                                    <Vendor>Level 3</Vendor>
+                                                    <AutomatedPort>true</AutomatedPort> <!-- Only available when 'Automated Level 3 port-ins' is enabled -->
+                                                    <RateCenter>BEASON</RateCenter>
+                                                    <City>BEASON</City>
+                                                    <State>IL</State>
+                                                    <LATA>366</LATA>
+                                                    <Tiers>
+                                                        <Tier>3</Tier>
+                                                    </Tiers>
+                                                    <TnList>
+                                                        <Tn>2174101103</Tn>
+                                                    </TnList>
+                                                </RateCenterGroup>
                                             </PartnerSupportedRateCenters>
                                             <SupportedLosingCarriers>
                                                 <LosingCarrierTnList>
@@ -5780,6 +5812,16 @@ securitySchemes:
                                                         <Tn>4104685864</Tn>
                                                         <Tn>4103431313</Tn>
                                                         <Tn>4103431561</Tn>
+                                                    </TnList>
+                                                </LosingCarrierTnList>
+                                                <LosingCarrierTnList>
+                                                    <LosingCarrierSPID>7482</LosingCarrierSPID>
+                                                    <LosingCarrierName>IntegraTelecom</LosingCarrierName>
+                                                    <LosingCarrierIsWireless>false</LosingCarrierIsWireless>
+                                                    <LosingCarrierAccountNumberRequired>false</LosingCarrierAccountNumberRequired>
+                                                    <LosingCarrierMinimumPortingInterval>1</LosingCarrierMinimumPortingInterval>
+                                                    <TnList>
+                                                        <Tn>2174101103</Tn>
                                                     </TnList>
                                                 </LosingCarrierTnList>
                                             </SupportedLosingCarriers>

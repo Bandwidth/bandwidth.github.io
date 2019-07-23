@@ -5,7 +5,7 @@ Creates a new outbound phone call.
 
 ### Request URL
 
-<code class="post">POST</code>`https://voice.bandwidth.com/v2/accounts/{accountId}/calls/`
+<code class="post">POST</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/`
 
 ---
 
@@ -16,7 +16,7 @@ Creates a new outbound phone call.
 | from               | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+19195551212`).                                                                                                      | Yes       |
 | to                 | The number to call (must be an E.164 formatted number, like `+19195551212`                                                                                                                                              | Yes       |
 | applicationId      | The id of the application to associate this call with, for billing purposes.                                                                                                                                            | Yes       |
-| answerUrl          | The full URL to send the [Answer](../../bxml/callBacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/bxml.md) to be executed in the call.         | Yes       |
+| answerUrl          | The full URL to send the [Answer](../../bxml/callBacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/about.md) to be executed in the call.         | Yes       |
 | answerMethod       | (optional) The HTTP method to use for the request to `answerUrl`. GET or POST. Default value is POST.                                                                                                                   | No        |
 | disconnectUrl      | (optional) The URL to send the [Disconnect](../../bxml/callBacks/disconnect.md) event to when the call ends. This event does not expect a BXML as response.                                                             | No        |
 | disconnectMethod   | (optional) The HTTP method to use for the request to `disconnectUrl`. GET or POST. Default value is POST.                                                                                                               | No        |
@@ -38,14 +38,15 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="bash" %}
 
 ```bash
-curl -u username:password -v -X POST https://voice.bandwidth.com/v2/accounts/1234/calls \
+curl -u username:password -v -X POST https://voice.bandwidth.com/api/v2/accounts/1234/calls \
 	-H "Content-type: application/json" \
 	-d \
 	'
 	{
 		"from": "+19195551212",
 		"to": "+19195551313",
-		"answerUrl": "http://www.myapp.com/hello"
+		"answerUrl": "http://www.myapp.com/hello",
+		"applicationId":"testApp"
 	}'
 ```
 
@@ -53,7 +54,7 @@ curl -u username:password -v -X POST https://voice.bandwidth.com/v2/accounts/123
 
 ```
 HTTP/1.1 201 Created
-Location: /v2/accounts/{accountId}/calls/{callId}
+Location: https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}
 ```
 
 {% endmethod %}

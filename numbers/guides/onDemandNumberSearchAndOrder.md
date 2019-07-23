@@ -13,15 +13,6 @@ This guide is best suited for use-cases where an end-user is assigned a **new** 
 
 In the case where a user would like to keep their existing phone number, follow the [porting guide](./portingPhoneNumbers.md).
 
-## Assumptions
-* You have signed up for the [Bandwidth Phone Number API](https://www.bandwidth.com/contact/)
-* You are familiar with:
-  * [Your API Credentials](../concepts/security.md)
-  * [Async Nature of ordering phone numbers](../concepts/asyncOrder.md)
-  * [Managing Locations](../concepts/manageLocations.md)
-  * [Managing Sites](../concepts/manageSites.md)
-  * Receiving HTTP Callbacks/Webhooks
-
 ## Steps
 
 1. [Create Subscription](#create-subscription)
@@ -55,8 +46,6 @@ This guide _only_ covers creating a `<CallbackSubscription>`.  For more informat
 | `<UserName>`             | No       | Username for Basic Authentication scheme. <br> Max 100 characters  <br><br> Part of the `<BasicAuthentication>` element.                                    |
 | `<Password>`             | No       | Password for Basic Authentication scheme. <br> Encrypted at rest and never returned by the API <br><br> Part of the `<BasicAuthentication>` element.        |
 | `<PublicKey>`            | No       | A BASE64 encoded public key that matches the server specified in the `URL`  <br><br> Part of the `<BasicAuthentication>` element.                           |
-
-The Basic authentication scheme is straightforward, but the requires a little more explanation. Please read more on [securing HTTP Callbacks](../concepts/secureCallbacks.md)
 
 {% common %}
 

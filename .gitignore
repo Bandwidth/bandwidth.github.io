@@ -72,3 +72,5 @@ deploy_key
 deploy_key.pub
 
 my_project
+
+package-lock.json

@@ -4,12 +4,14 @@ branches:
   - master
 node_js:
 - v6.11.1
+cache: npm
 before_install:
 - sudo pip install virtualenv
 - virtualenv my_project
 - source my_project/bin/activate
 before_script:
 - npm install -g gitbook-cli@2.3.0
+- pip install awscli
 script: bash ./deploy.sh
 after_success:
 - rm -rf _book/my_project

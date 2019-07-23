@@ -6,7 +6,7 @@ is to 1) inform you of events that have happened in the call flow and 2) receive
 application on what to do next.
 
 BXML callbacks are HTTP POST requests by default.  The request will have a JSON body that describes the event.  It
-expects an XML response consisting of [BXML verbs](bxml.md).
+expects an XML response consisting of [BXML verbs](../../about.md).
 
 HTTP GET requests may be used for callbacks by setting the appropriate `*Method` attribute when specifying each
 callback's URL.  If the GET method is used, the properties are passed as query parameters.  This can cause very long

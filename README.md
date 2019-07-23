@@ -2,9 +2,9 @@
 
 <div id="hero">
   <div class="heroImage"></div>
-  <h1 class="remove4mobile">Try before you buy: How well does your software communicate?</h1>
-  <h2 class="mobileShow">Try before you buy: How well does your software communicate?</h2>
-  <p>Take a look at our code samples below. If your app would benefit from text messaging or dependable phone call capability, look no further. We can solve your problem just like we’ve done for everyone from application start-ups and traditional telecom companies to some of the most demanding Internet giants in the business. Have a look around or <a href="http://www.bandwidth.com/resources/tip-sheet-why-bandwidths-apis-are-better/">learn more.</a></p><br>
+  <h1 class="remove4mobile">Welcome to Bandwidth's Developer Docs</h1>
+  <h2 class="mobileShow">Welcome to Bandwidth's Developer Docs</h2>
+  <p>Click and play around to learn more about Bandwidth's APIs</p><br>
   <div class="cardsContainer">
     <div id="smscard" class="devCards sms active">
       <h2><img src="images/icon-messaging.svg" alt="Messaging icon" class="product--icon"> <span class="remove4mobile">Messaging</span></h2>
@@ -44,145 +44,103 @@
 ### Send a message
 
 ```js
-client.Message.send({
-    from : "+19195551212",
-    to   : "+19195551213",
-    text : "What is cooler than a unicorn that can shoot lasers? This test message, thats what!"
-})
-.then(function(message){
-    console.log(message.id);
-});
+// Coming Soon
 ```
 
 ```csharp
-var message = await client.Message.SendAsync(new MessageData {
-    From = "+19195551212",
-    To = "+19195551213",
-    Text = "What is cooler than a unicorn that can shoot lasers? This test message, thats what!"
-});
+// Coming Soon
 ```
 
 ```ruby
-message = Message.create(client, {
-    :from => "+19195551212",
-    :to   => "+19195551213",
-    :text => "Thank you for subscribing to Unicorn Enterprises!"
-})
+## Coming Soon
 ```
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
-    -u {token}:{secret} \
-    -H "Content-type: application/json" \
-    -d \
-    '
+curl --request POST \
+    --url https://messaging.bandwidth.com/api/v2/users/{accountId}/messages \
+    --user {apiToken}:{apiSecret} \
+    --header 'content-type: application/json' \
+    --data '
     {
-        "from" : "+19195551212",
-        "to"   : "+19195551213",
-        "text" : "What is cooler than a unicorn that can shoot lasers? This test message, thats what!"
-    }'
+      "to"            : ["+12345678902"],
+      "from"          : "+12345678901",
+      "text"          : "Hey, check this out!",
+      "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+      "tag"           : "test message"
+    }
+  '
 ```
 
 ```python
-message_id = messaging_api.send_message(
-  from_ = '+19195551212',
-  to    = '+19195551213',
-  text  = 'What is cooler than a unicorn that can shoot lasers? This test message, thats what!')
-print(message_id)
-# m-messageId
+## Coming Soon
 ```
 
 ### Make a call
 
 ```js
-client.Call.create({
-    from : "+19195551213",
-    to   : "+19195551212"
-})
-.then(function (call) {
-    console.log(call.id);
-})
+// Coming Soon
 ```
 
 ```csharp
-var call = await client.Call.CreateAsync(new CreateCallData{
-    From = "+19195551213",
-    To   = "+19195551212"
-});
+// Coming Soon
 ```
 
 ```ruby
-call = Call.create(client, {
-  :from => "+19195551213",
-  :to   => "+19195551212"
-})
+## Coming Soon
 ```
+
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H "Content-type: application/json" \
-    -d \
-    '
+curl --request POST \
+    --url https://voice.bandwidth.com/accounts/{accountId}/calls/ \
+    --user {username}:{password} \
+    --header 'content-type: application/json' \
+    --data '
     {
-        "from" : "+19195551213",
-        "to"   : "+19195551212"
-    }'
+      "from"          : "+19195551212",
+      "to"            : "+19195551313",
+      "answerUrl"     : "http://www.myapp.com/hello",
+      "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
+    }
+  '
 ```
-```python
-call_id = voice_api.create_call(
-  from_        = '+1234567890',
-  to           = '+1234567891'
-)
-print(call_id)
-## c-abc123
 
+```python
+## Coming Soon
 ```
+
 ### Buy a telephone number
 
 ```bash
-curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json"
+curl --request POST \
+    --url https://dashboard.bandwidth.com/api/accounts/{accountId}/orders \
+    --user {username}:{password} \
+    --header 'content-type: application/xml; charset=utf-8' \
+    --data '
+    <Order>
+        <AreaCodeSearchAndOrderType>
+            <AreaCode>910</AreaCode>
+            <Quantity>1</Quantity>
+        </AreaCodeSearchAndOrderType>
+        <SiteId>{Site-ID}</SiteId>
+    </Order>
+  '
 ```
 
 ```js
-// Search available local phone numbers with area code 910
-client.AvailableNumber.search("local", { areaCode : "910", quantity : 1 })
-.then(function (numbers) {
-    return client.PhoneNumber.create({
-        number        : numbers[0].number,
-        name          : "My 910 Number",
-        applicationId : "a-1234"
-    });
-})
-.then(function (number) {
-    console.log(number.id);
-});
+// Coming Soon
 ```
 
 ```csharp
-var results = await client.AvailableNumber.SearchLocalAsync(new LocalNumberQuery{ AreaCode = "910", Quantity = 1});
-var number = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData {
-    Number        = results[0].number,
-    Name          = "My 910 Number",
-    ApplicationId = "a-1234"
-});
+// Coming Soon
 ```
 
 ```ruby
-numbers = AvailableNumber.search_local(client, {:area_code => "910", :quantity => 1})
-puts("Found numbers: #{(numbers.map {|n| n[:number]}).join(', ')}")
-number = PhoneNumber.create(client, {:number => numbers[0][:number]})
-puts("Now you are owner of number #{number.number} (id #{number.id})")
+## Coming Soon
 ```
 
 ```python
-numbers     = account_api.search_available_local_numbers(area_code = '910', quantity = 3)
-my_number   = api.create_phone_number(numbers[0]['number'])
-
-print(my_number)
-#+19104440230
+## Coming Soon
 ```
 
 {% raw %}

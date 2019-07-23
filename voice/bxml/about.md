@@ -20,6 +20,8 @@ The first BXML callback is made when the call is created with [POST /calls](../m
 the `answerUrl` field.  Subsequent callbacks are made by specifying event-specific `*Url` attributes on the appropriate verbs.  If a
 relative URL is provided in BXML, it is resolved relative to the request that retrieved that BXML.
 
+If BXML execution ends without performing a callback, there is an implicit `<Hangup>` at the end of the document.
+
 ### Verbs
 
 | Verb                                        | Description                                                                                                                                                                         |
@@ -42,7 +44,6 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 |------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | [Answer](callBacks/answer.md)                  | Bandwidth API sends this to the application when the call is answered.                                                    |
 | [Gather](callBacks/gather.md)                  | Bandwidth API sends this when the gather command completes in a call.                                                     |
-| [Recording](callBacks/recording.md)            | Bandwidth API sends this to the application when an the recording media file is saved or an error occurs while saving it. |
 | [Redirect](callBacks/redirect.md)              | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCalls.md) endpoint requesting a redirect                                              |
 | [Transfer Answer](callBacks/transferAnswer.md) | Bandwidth API sends this to the application when a `<Transfer>` is answered                                              |
 | [Transfer Complete](callBacks/transferComplete.md)     | Bandwidth API sends this to the application when a `<Transfer>` has ended complete                                              |
