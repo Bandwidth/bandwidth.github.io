@@ -47,10 +47,10 @@ module.exports = function ($) {
 	});
 
 	// Add external link icon to all links in summary
-   $('ul.summary a[target=_blank]').each(function () {
-        var href = $(this); // retrive href foreach a
-        $(this).append('&nbsp;<i class="icons8-open-in-window"></i>');
-    });
+	$('ul.summary a[target=_blank]').each(function () {
+		var href = $(this); // retrive href foreach a
+		$(this).append('&nbsp;<i class="icons8-open-in-window"></i>');
+	});
 
 	// Remove gitbook branding
 	$('.gitbook-link').remove()
