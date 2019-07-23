@@ -2,8 +2,6 @@
 
 Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks.com/w/page/13385124/FrontPage)) to send these events to any publicly addressable url.
 
-![about callbacks](../../images/messaging_applications.png)
-
 ## Message Callbacks Concepts
 
 * All Message callbacks are sent as a list/array `[ {} ]` to the webhook url in the application.
