@@ -6,10 +6,10 @@ of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative t
 **NOTE:** `.wav` files encoded as `PCM` or `G711` are supported.
 
 ### Attributes
-| Attribute | Description                                                        |
-|:----------|:-------------------------------------------------------------------|
-| username  | (optional) The username to send in the HTTP request to `audioUri`. |
-| password  | (optional) The password to send in the HTTP request to `audioUri`. |
+| Attribute | Description                                          |
+|:----------|:-----------------------------------------------------|
+| username  | (optional) The username to send in the HTTP request. |
+| password  | (optional) The password to send in the HTTP request. |
 
 ### Callbacks Received
 

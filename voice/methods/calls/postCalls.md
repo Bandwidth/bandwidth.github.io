@@ -41,7 +41,7 @@ The call resource returned in the "Location" header can be modified to change th
 curl -v --request POST \
     --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
     --user {username}:{password} \
-    --header "Content-type: application/json" \
+    --header 'Content-type: application/json' \
     --data '
     {
       "from"          : "+19195551212", 

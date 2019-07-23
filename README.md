@@ -94,7 +94,7 @@ curl --request POST \
 curl --request POST \
     --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
     --user {username}:{password} \
-    --header "Content-type: application/json" \
+    --header 'Content-type: application/json' \
     --data '
     {
       "from"          : "+19195551212",
