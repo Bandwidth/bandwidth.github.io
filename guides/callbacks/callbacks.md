@@ -10,7 +10,7 @@ In order to utilize callbacks, you must run a server with a URL that is expectin
 
 Callback URLs can (and ideally should) be password protected. To allow Bandwidth to access these URLs, applications in the Bandwidth Dashboard can be configured with a username and password used to authenticate on your callback URL.
 
-Only default HTTP and HTTPS ports are supported for callbacks (80 and 443, respectively).
+Only ports 80 and 443 are supported for callbacks.
 
 If you need static IPs for your callbacks, feel free to open up a ticket on our [support site](https://support.bandwidth.com/hc/en-us/requests/new).
 
