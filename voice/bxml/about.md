@@ -49,7 +49,7 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | [Transfer Answer](callBacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                            |
 | [Transfer Complete](callBacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                            |
 
-## Asynchronous Callbacks
+### Asynchronous Callbacks
 | Callback                              | Description                                                   |
 |:--------------------------------------|:--------------------------------------------------------------|
 | [Disconnect](callBacks/disconnect.md) | Bandwidth API sends this to the application when a call ends. |

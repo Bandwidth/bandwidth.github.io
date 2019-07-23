@@ -23,8 +23,8 @@ URLs, so POST is the preferred method.
 
 ## Asynchronous Callbacks
 
-###  Understanding Async Callback Events
-Async callbacks are HTTP requests made by the Bandwidth platform to endpoints specified by you in your HTTP requests and
+###  Understanding Asynchronous Callback Events
+Asynchronous callbacks are HTTP requests made by the Bandwidth platform to endpoints specified by you in your HTTP requests and
 BXML.  The HTTP POST method is used by default.  The request will have a JSON body that describes the event.  An
 HTTP 201 response with no content is expected.  HTTP 200 is also acceptable.
 
