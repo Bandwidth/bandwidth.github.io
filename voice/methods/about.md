@@ -1,5 +1,7 @@
 # Bandwidth Voice API
 
+![creating call](../../images/create_call.png)
+
 ## Base URL
 `https://voice.bandwidth.com/api/v2/accounts/{accountId}`
 

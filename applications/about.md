@@ -2,7 +2,9 @@
 
 Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks.com/w/page/13385124/FrontPage)) to send [message events](../messaging/callbacks/messageEvents.md) to any publicly addressable url.
 
-In order to successfully use the Messaging 2.0 APIs, you need to configure an `Application` which contains the `CallbackUrl`.  Each application can be assigned to as many `Locations` as needed.  However, each `Location` can only have a single `Application`
+In order to successfully use the Voice & Messaging APIs, you need to configure an `Application` for each service which contains the `CallbackUrl`.  Each application can be assigned to as many `Locations` as needed.  However, each `Location` can only have a single `Application`
+
+![about callbacks](../../images/applications.png)
 
 ### Base Url
 `https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications`
