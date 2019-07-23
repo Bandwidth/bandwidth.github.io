@@ -4,7 +4,7 @@ Update properties of an active phone call.
 
 ### Request URL
 
-<code class="post">POST</code>`https://voice.bandwidth.com/v2/accounts/{accountId}/calls/{callId}`
+<code class="post">POST</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}`
 
 ---
 
@@ -24,7 +24,7 @@ Update properties of an active phone call.
 {% sample lang="bash" %}
 
 ```bash
-curl -u username:password -v -X POST https://voice.bandwidth.com/v2/accounts/{accountId}/calls/{callId}\
+curl -u username:password -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}\
 	-H "Content-type: application/json" \
 	-d \
 	'
@@ -40,7 +40,7 @@ curl -u username:password -v -X POST https://voice.bandwidth.com/v2/accounts/{ac
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://voice.bandwidth.com/v2/accounts/{accountId}/calls/{callId}\
+curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}\
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 	-d \
