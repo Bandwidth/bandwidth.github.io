@@ -5724,12 +5724,26 @@ securitySchemes:
                                   <Tn>4103431313</Tn>
                                   <Tn>4103154313</Tn>
                                   <Tn>4103431561</Tn>
+                                  <Tn>2174101103</Tn>
                                </TnList>
                             </NumberPortabilityRequest>
                 responses:
                     200:
-                        description: 'A successful check has been performed. Note: For users of Enterprise Telephony accounts SupportedLosingCarriers and UnsupportedLosingCarriers will be omitted from the success output even when query parameter fullCheck has values of true, onnetportability, or offnetportability.'
-                        body: 
+                        description: |
+                             A successful check has been performed. Note: For users of Enterprise Telephony accounts SupportedLosingCarriers
+                             and UnsupportedLosingCarriers will be omitted from the success output even when query parameter
+                             fullCheck has values of true, onnetportability, or offnetportability.
+                             <table>
+                                 <tr>
+                                     <th>Tag</th>
+                                     <th>Values</th>
+                                 </tr>
+                                 <tr>
+                                     <td>PortType</td>
+                                     <td> AUTOMATED, AUTOMATEDOFFNET, INTERNAL, MANUAL_ON_NET, MANUALOFFNET, MANUAL_TOLLFREE, MIXED</td>
+                                 </tr>
+                             </table>
+                        body:
                             application/xml:
                                 example: |
                                         <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -5771,6 +5785,20 @@ securitySchemes:
                                                         <Tn>4109235436</Tn>
                                                     </TnList>
                                                 </RateCenterGroup>
+                                                <RateCenterGroup>
+                                                    <Vendor>Level 3</Vendor>
+                                                    <AutomatedPort>true</AutomatedPort> <!-- Only available when 'Automated Level 3 port-ins' is enabled -->
+                                                    <RateCenter>BEASON</RateCenter>
+                                                    <City>BEASON</City>
+                                                    <State>IL</State>
+                                                    <LATA>366</LATA>
+                                                    <Tiers>
+                                                        <Tier>3</Tier>
+                                                    </Tiers>
+                                                    <TnList>
+                                                        <Tn>2174101103</Tn>
+                                                    </TnList>
+                                                </RateCenterGroup>
                                             </PartnerSupportedRateCenters>
                                             <SupportedLosingCarriers>
                                                 <LosingCarrierTnList>
@@ -5784,6 +5812,16 @@ securitySchemes:
                                                         <Tn>4104685864</Tn>
                                                         <Tn>4103431313</Tn>
                                                         <Tn>4103431561</Tn>
+                                                    </TnList>
+                                                </LosingCarrierTnList>
+                                                <LosingCarrierTnList>
+                                                    <LosingCarrierSPID>7482</LosingCarrierSPID>
+                                                    <LosingCarrierName>IntegraTelecom</LosingCarrierName>
+                                                    <LosingCarrierIsWireless>false</LosingCarrierIsWireless>
+                                                    <LosingCarrierAccountNumberRequired>false</LosingCarrierAccountNumberRequired>
+                                                    <LosingCarrierMinimumPortingInterval>1</LosingCarrierMinimumPortingInterval>
+                                                    <TnList>
+                                                        <Tn>2174101103</Tn>
                                                     </TnList>
                                                 </LosingCarrierTnList>
                                             </SupportedLosingCarriers>

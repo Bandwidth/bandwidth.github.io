@@ -22,7 +22,7 @@ Creates a new outbound phone call.
 | disconnectMethod   | (optional) The HTTP method to use for the request to `disconnectUrl`. GET or POST. Default value is POST.                                                                                                               | No        |
 | username           | (optional) The username to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                 | No        |
 | password           | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                 | No        |
-| callTimeout        | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 120.  Default: 30                                                           | No        |
+| callTimeout        | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30                                                           | No        |
 | tag                | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.  | No        |
 
 {% common %}
