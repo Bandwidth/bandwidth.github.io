@@ -14,7 +14,7 @@
         "mouseflow",
         "usabilla",
         "save-url-to-file",
-        "bandwidth-toggle-chapters"
+        "bandwidth-toggle-chapters-stopgap"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
