@@ -7,7 +7,7 @@ The Pause verb is used to delay for a set period of time.  Silence will be heard
 
 | ATTRIBUTE | Description                                                                                            |
 |:----------|:-------------------------------------------------------------------------------------------------------|
-| duration  | (optional) The 'duration' attribute specifies how many seconds Bandwidth will wait silently before continuing on. Default value is 1. |
+| duration  | (optional) The 'duration' attribute specifies how many seconds Bandwidth will wait silently before continuing on. Default value is 1. Range: decimal values between 0.1 - 86400. |
 
 
 ### Callbacks Received
