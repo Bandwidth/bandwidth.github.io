@@ -6,7 +6,7 @@
 This guide will take you through the _basics_ of searching and ordering phone numbers with the Bandwidth Phone Number API.
 
 ## Assumptions
-* You have a [Phone Number Dashboard](https://dashboard.bandwidth.com) account
+* You have a [Bandwidth](https://dashboard.bandwidth.com) account
 
 ## Overview
 * [Searching for new Phone Numbers](#search-for-phone-numbers)
@@ -20,7 +20,7 @@ Finding numbers can be achieved by searching the Bandwidth inventory.
 
 This step is optional – the telephone numbers can be ordered directly using search criteria, but if there is need to examine the numbers before activating them on the account, the search can be used to return a list of available numbers.
 
-There are a number of search approaches that can be used; the NPA NXX search is used for this example.  Please see the [API documentation](https://test.dashboard.bandwidth.com/apidocs/) for the other applicable search types.
+There are a number of search approaches that can be used; the NPA NXX search is used for this example.  Please see the [API documentation](../apiReference.md) for the other applicable search types.
 
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers`

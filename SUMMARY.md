@@ -83,7 +83,6 @@
 ## Voice
 * [Overview](voice/about.md)
 	* [Rate Limits](voice/rateLimits.md)
-	* [Release Notes](voice/relnotes.md)
 * [API Methods](voice/methods/about.md)
 	* [/calls](voice/methods/calls/about.md)
 		* [POST Create Call](voice/methods/calls/postCalls.md)

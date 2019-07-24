@@ -3,12 +3,10 @@
 
 # Phone Number Disconnect Summary {#top}
 
-[PDF](https://test.dashboard.bandwidth.com/apidocs/navsidebar/NumberOrderingSummary.pdf)
-
 Disconnecting a phone number leaves it in all applicable inventories, but makes it available for activation with a new subscriber.
 
 ## Assumptions
-* You have a [Phone Number Dashboard](https://dashboard.bandwidth.com) account
+* You have a [Bandwidth](https://dashboard.bandwidth.com) account
 * You have at least one Phone Number to disconnect.
 
 ## Overview

@@ -19,7 +19,7 @@ There are a number of different resource paths for querying available telephone 
 
 ## Search HTTP GET Request Format
 
-Bandwidth dashboard allows the overall Bandwidth number inventory to be searched using a variety of approaches.  Our customers can use these searches to guide attempts to order numbers.  The various types of available searches are:
+The Bandwidth Phone Number API allows the overall Bandwidth number inventory to be searched using a variety of approaches.  Our customers can use these searches to guide attempts to order numbers.  The various types of available searches are:
 
 * Area Code / NPA searches
 * NPA-XXX, and NPA-NXX-X searches

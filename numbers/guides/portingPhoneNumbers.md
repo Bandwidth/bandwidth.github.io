@@ -17,10 +17,10 @@
 
 ## About Porting {#about-porting}
 
-The Bandwidth Phone Number Dashboard provides an API that can be used to submit Port-In requests.  These requests to move phone numbers from a "losing carrier" to Bandwidth are part of the Local Number Portability (LNP) process.  These LNP requests are automatically validated and processed.  If the order fails during processing, it will be held for exception processing.  Customers can catch and fix exceptions 2 different ways:
+The Bandwidth Phone Number API can be used to submit Port-In requests.  These requests to move phone numbers from a "losing carrier" to Bandwidth are part of the Local Number Portability (LNP) process.  These LNP requests are automatically validated and processed.  If the order fails during processing, it will be held for exception processing.  Customers can catch and fix exceptions 2 different ways:
 
 * The customer's application can check the status of port-in orders, and re-submit or cancel them through the API.
-* The customer's LNP team can check the status of port-in orders, and re-submit or cancel them through the Bandwidth Dashboard UI
+* The customer's LNP team can check the status of port-in orders, and re-submit or cancel them through the Bandwidth Dashboard.
 
 
 ## Overview of the Port-in Process {#overview-of-porting}
@@ -29,7 +29,7 @@ The external events in the porting process are documented in the diagram below.
 
 NOTE: Exceptions are outlined as synchronous and asynchronous in the Appendix A: LNP Exception Codes.
 
-The Orders that are managed by the Bandwidth Phone Number Dashboard to implement the above workflow are reported in the order records that are reported through the API calls below.  These “order states” comply with the state transitions captured in the following diagram:
+The Orders that are managed by the Bandwidth Phone Number API to implement the above workflow are reported in the order records that are reported through the API calls below.  These “order states” comply with the state transitions captured in the following diagram:
 
 ![Porting Diagram](../images/portingDiagram.png)
 
@@ -112,11 +112,11 @@ The API allows a user to cancel an existing LNP order. The order number that was
 
 ## Activating Ported Numbers {#activate-ported-numbers}
 
-The by default the Bandwidth Phone Number Dashboard will activate ported wireline numbers shortly after 11:30 am on the FOC date.
+The by default the Bandwidth Phone Number API will activate ported wireline numbers shortly after 11:30 am on the FOC date.
 
-The Bandwidth Phone Number Dashboard will also support customer “on demand” activation of numbers on the FOC date, if the intent to use the “on demand” activation is declared when the Port Order is created.  This declaration is done by including a `<Triggered>` element in the `/portin` order request.
+The Bandwidth Phone Number API will also support customer “on demand” activation of numbers on the FOC date, if the intent to use the “on demand” activation is declared when the Port Order is created.  This declaration is done by including a `<Triggered>` element in the `/portin` order request.
 
-If on demand activation is indicated, then the customer will specify a default activation time in the initial port request, and can request activation of the port at any time up until that default activation time.   If a port has not been activated by the default activation time, the Bandwidth Phone Number Dashboard will activate the port.
+If on demand activation is indicated, then the customer will specify a default activation time in the initial port request, and can request activation of the port at any time up until that default activation time.   If a port has not been activated by the default activation time, the Bandwidth Phone Number API will activate the port.
 
 If activation by the default activation time on the FOC date is not achievable it is possible to delay activation for up to the third day after the FOC date, acknowledging that the losing carrier may have removed service from TN on the FOC date.
 

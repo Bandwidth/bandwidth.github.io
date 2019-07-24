@@ -14,7 +14,7 @@
 
 
 ## About {#about}
-The Bandwidth Phone Number Dashboard allows the association of a number of “Option” or “Feature” characteristics with a Telephone Number.
+The Bandwidth Phone Number Phone Number API allows the association of a number of “Option” or “Feature” characteristics with a Telephone Number.
 
 Initially this capability is restricted to the management of Calling Name Display and Call Forwarding for the TN, but will be expanded to additional “Line Features” with subsequent releases.
 
@@ -33,7 +33,7 @@ The path for managing these options is: `/accounts/{accountId>/sites/{siteId}/si
 
 ## Calling Name Display {#calling-name-display}
 
-In addition to setting Calling Name Display information on a per-TN basis as described above, the Bandwidth Phone Number Dashboard API allows the establishment of Calling Name Display settings for a collection of TNs at a time.  Bandwidth provides this API as a convenience to enable provisioning collections of TNs.  It can support the configuration of up to 1000 TNs in a single call.
+In addition to setting Calling Name Display information on a per-TN basis as described above, the Bandwidth Phone Number Phone Number API allows the establishment of Calling Name Display settings for a collection of TNs at a time.  Bandwidth provides this API as a convenience to enable provisioning collections of TNs.  It can support the configuration of up to 1000 TNs in a single call.
 
 The Calling Line Display is associated with TNs using a <code class="post">POST</code> to the `lineOptionOrders` resource with a payload that describes the option and its disposition.
 
@@ -50,7 +50,7 @@ The Request to add LIDB information to the TNs in an account is made by a <code 
 
 ## Directory Listing and Directory Assistance (DLDA) {#dlda}
 
-The DLDA service allows the association of a name and address listing with a Telephone Number or Telephone Numbers in the Bandwidth Phone Number Dashboard system.  The DLDA API follows the asynchronous order processing request model described elsewhere in this document, where a request is submitted, an order ID is returned as an ID of that request or order, and then the request is fulfilled in the background.  The status of the request is reflected in the status of the order, and can be queried at any time.
+The DLDA service allows the association of a name and address listing with a Telephone Number or Telephone Numbers in the Bandwidth Phone Number Phone Number system.  The DLDA API follows the asynchronous order processing request model described elsewhere in this document, where a request is submitted, an order ID is returned as an ID of that request or order, and then the request is fulfilled in the background.  The status of the request is reflected in the status of the order, and can be queried at any time.
 
 ### DLDA Fields {#dlda-fields}
 

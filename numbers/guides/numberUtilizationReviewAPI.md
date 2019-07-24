@@ -1,10 +1,10 @@
-# Step By Step Guide To Number Assignment Using the Bandwidth Dashboard REST API (Limited Availability)
+# Step By Step Guide To Number Assignment Using the Bandwidth Phone Number API
 
-This guide is for using the Bandwidth Dashboard API to assign numbers.
+This guide is for using the Bandwidth Phone Number API  to assign numbers.
 
 ### Bulk assigning up to 5000 TNs with an active end-user
 
-The Bandwidth Dashboard REST API Documentation can be found [here](../apiReference.md). The API endpoint for using the Number Utilization Review is ```/accounts /{accountId} /numbersAssignment```.
+The Bandwidth Phone Number API Documentation can be found [here](../apiReference.md). The API endpoint for using the Number Utilization Review is ```/accounts /{accountId} /numbersAssignment```.
 
 The POST method on this endpoint is used to bulk assign and unassign your owned phone numbers. After retrieving and auditing your phone numbers, you can use this endpoint to bulk assign and unassign your phone numbers.
 

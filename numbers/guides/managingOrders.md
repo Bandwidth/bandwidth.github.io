@@ -10,7 +10,7 @@
 
 ## About {#about}
 
-The Bandwidth Phone Number Dashboard uses an “order” model for tracking the changes requested to the provisioned information that controls our customer and end-user experiences.   Major changes to the configuration of the network such as Ordering numbers, Porting in numbers, Porting numbers out, Disconnecting numbers are tracked with work-orders that record the changes and track them through the related work-flow.
+The Bandwidth Phone Number API uses an “order” model for tracking the changes requested to the provisioned information that controls our customer and end-user experiences.   Major changes to the configuration of the network such as Ordering numbers, Porting in numbers, Porting numbers out, Disconnecting numbers are tracked with work-orders that record the changes and track them through the related work-flow.
 
 ## Associating Notes with Work Orders {#notes-with-orders}
 
@@ -18,7 +18,7 @@ The following API calls are used to add notes to various types of work-orders, a
 
 ## Order Change Notifications {#change}
 
-The Bandwidth Phone Number Dashboard has the capability to monitor portins and other work-order types for meaningful events and status changes, and notify one or more email addresses of those events.  The events that cause notification emails are state changes for all viable states for the applicable order-types, as well as for all events that add a Note to the order in question.
+The Bandwidth Phone Number API has the capability to monitor portins and other work-order types for meaningful events and status changes, and notify one or more email addresses of those events.  The events that cause notification emails are state changes for all viable states for the applicable order-types, as well as for all events that add a Note to the order in question.
 
 | Order Type          | State Change                                                                                                                                                                                                                                                                                                                                            |
 |:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,7 +41,7 @@ Deletion of subscriptions is supported on a one-by-one basis.  Deleting all subs
 
 ## Callback URL Notifications {#callback-notifications}
 
-The Bandwidth dashboard API also allows the establishment of a “callback” URL that can be used to monitor work-orders or changes.   Rather than receiving an email, the callback URL is invoked, allowing the monitoring system to be notified about the order changes in a machine-to-machine manner.
+The Bandwidth Phone Number API also allows the establishment of a “callback” URL that can be used to monitor work-orders or changes.   Rather than receiving an email, the callback URL is invoked, allowing the monitoring system to be notified about the order changes in a machine-to-machine manner.
 
 To create a Notifications Callback Subscription the customer creates a <code class="post">POST</code> request to the item being monitored (typically an Order or Port-in ) the user creates a <code class="post">POST</code> request to the subscriptions resource associated with the account.
 
@@ -49,7 +49,7 @@ If the `OrderId` field is omitted, then the subscription will apply to all order
 
 The `<Expiry>` value can be very large (100 years in seconds).  Note that even in the case of a long expiry, the subscription will be removed once the order (if specified) reaches a final state.
 
-Updating a subscription is done via a <code class="put">PUT</code> request to the subscription. This can be used to update the expiry request.   Requests to update the expiry are at the whim of the Bandwidth Dashboard.
+Updating a subscription is done via a <code class="put">PUT</code> request to the subscription. This can be used to update the expiry request.   Requests to update the expiry are at the whim of the Bandwidth Phone Number API.
 
 Note that the initial state changes for an order may happen very quickly, so subscribing to an order once the system creates it needs to account for the fact that the initial state may be different based on timing factors.  It is recommended that the application creating the subscription check the order status after the subscription is created to ensure the correct initial condition.
 
