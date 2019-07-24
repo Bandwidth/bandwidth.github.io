@@ -147,8 +147,19 @@ curl --request POST \
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-$(document).ready(function landing(){
-  if ($(window).width() >= 980) {
+$(document).ready(function setup() {
+
+	if(gitbook){
+		gitbook.events.bind('page.change', function() { landing(); } );
+	}
+
+	landing();
+});
+
+
+	
+function landing(){
+  if (window.innerWidth >= 980) {
 
   // Adding classes for sms, voice and pns
   $('#send-a-message').nextUntil('h3').addClass('smstut');
@@ -291,7 +302,7 @@ $(document).ready(function landing(){
     });
     $('.smstut.active').show();
   }
-});
+}
 </script>
 
 {% endraw %}
