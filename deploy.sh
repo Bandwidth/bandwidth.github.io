@@ -12,7 +12,9 @@ function doCompile {
 # Build the site
 doCompile
 
-if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ]
+
+#If it is the target branch and NOT a pull request, then deploy 
+if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
   # deploy the site to s3
   aws s3 sync ./out/ s3://stop-gap --delete

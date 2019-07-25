@@ -10,6 +10,10 @@ The SendDtmf verb is used to play DTMF digits in the call.
 |:----------|:------------|
 | None      | None        |
 
+### Text Content
+| Name        | Description |
+|:------------|:------------|
+| digits        |  String containing the DTMF characters to be sent in a call. Allows a maximum of 50 characters. The digits will be sent one-by-one with a marginal delay.
 
 ### Callbacks Received
 
