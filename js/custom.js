@@ -24,14 +24,17 @@ module.exports = function ($) {
 	});
 
 	var helperPages = [
-		'uisetup.html',
-		'apisetup.html',
+		'onDemandNumberSearchAndOrder.html',
 		'numberOrderingSummary.html',
-		'codes.html',
-		'billingAndMpsGuidelines.html'
+		'advancedOrdering.html',
+		'disconnectSummary.html',
+		'managingLineFeatures.html',
+		'managingOrders.html',
+		'reporting.html',
+		'portingPhoneNumbers.html',
+		'ratelimits.html',
+		'codes.html'
 	];
-
-
 
 	$('li.chapter a').each(function(i, elem) {
 		var a = $(elem);
@@ -42,8 +45,16 @@ module.exports = function ($) {
 			}
 		});
 	});
-	var title = $('title').text();
 
+	// Add external link icon to all links in summary
+	$('ul.summary a[target=_blank]').each(function () {
+		var href = $(this); // retrive href foreach a
+		$(this).append('&nbsp;<i class="icons8-open-in-window"></i>');
+	});
+
+	// Remove gitbook branding
+	$('.gitbook-link').remove()
+	var title = $('title').text();
 
 	if(title.indexOf(' · GitBook')  > 0) {
 		var newTitle = title.replace(' · GitBook', '');
