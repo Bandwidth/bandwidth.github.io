@@ -8,7 +8,14 @@ of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative t
 ### Attributes
 | ATTRIBUTE | Description |
 |:----------|:------------|
-| None      | None        |
+| username      | (optional) The username to send in the HTTP request to `audioUri`.         |
+| password      | (optional) The password to send in the HTTP request to `audioUri`.         |
+
+
+### Text Content
+| Name        | Description |
+|:------------|:------------|
+| audioUri        |  The URL of the audio file realative to the endpoint that returned the BXML
 
 
 ### Callbacks Received
