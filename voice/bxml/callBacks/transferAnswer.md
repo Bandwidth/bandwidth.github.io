@@ -43,9 +43,9 @@ POST http://[External server URL]
 	"to":"+15553334444",
 	"direction":"outbound",
 	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl": "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"transferTo":"+15556667777",
-	"transferCallerId": "+15551112222"
+	"transferCallerId":"+15551112222"
 }
 ```
 
