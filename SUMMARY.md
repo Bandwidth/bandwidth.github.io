@@ -7,7 +7,6 @@
 ## Guides
 * [Get Started](guides/getStarted.md)
 	* [Callbacks](guides/callbacks/callbacks.md)
-* [Code Blocks](guides/codeBlocks.md)
 * [Numbers](numbers/guides/index.md)
 	* [Searching Phone Numbers](numbers/guides/searchForNumbers.md)
 	* [Ondemand Search and Ordering](numbers/guides/onDemandNumberSearchAndOrder.md)
