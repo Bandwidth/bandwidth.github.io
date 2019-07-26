@@ -17,7 +17,7 @@ This guide will walk through the recommended approach to managing queues and rat
 
 ## Assumptions
 * You are familiar with:
-  * [CTIA Best Practices (PDF)](http://v2-messaging-update-2019-ctia-link.s3-website-us-east-1.amazonaws.com/billingAndMpsGuidelines.html#top)
+  * [CTIA Best Practices (PDF)](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf)
   * [The TCPA _Telephone Consumer Protection Act_](https://transition.fcc.gov/cgb/policy/TCPA-Rules.pdf)
 
 ## Billing {#billing}
