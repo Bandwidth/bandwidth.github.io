@@ -12,19 +12,19 @@ HTTP GET requests may be used for callbacks by setting the appropriate `*Method`
 callback's URL.  If the GET method is used, the properties are passed as query parameters.  This can cause very long
 URLs, so POST is the preferred method.
 
-| Callback                                            | Description                                                                                                                     |
-|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [Answer](answer.md)                       | Bandwidth API sends this to the application when the call is answered.                                                  |
-| [Gather](gather.md)                       | Bandwidth API sends this when the `<Gather>` verb completes in a call.                                             |
-| [Initiate](initiate.md)                   | Bandwidth API sends this when an inbound call is received for an application.                                             |
-| [Redirect](redirect.md)                   | Bandwidth API sends this to the application when a `<Redirect>` is requested                                              |
-| [Transfer Answer](transferAnswer.md)      | Bandwidth API sends this to the application when the `<Transfer>`is answered                                              |
-| [Transfer Complete](transferComplete.md)  | Bandwidth API sends this to the application when the `<Transfer>`is complete                                              |
+| Callback                                 | Description                                                                                                                                                                                                  |
+|:-----------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Answer](answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
+| [Gather](gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                     |
+| [Initiate](initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                    |
+| [Redirect](redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
+| [Transfer Answer](transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                               |
+| [Transfer Complete](transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                               |
 
-## Async Callbacks
+## Asynchronous Callbacks
 
-###  Understanding Async Callback Events
-Async callbacks are HTTP requests made by the Bandwidth platform to endpoints specified by you in your HTTP requests and
+###  Understanding Asynchronous Callback Events
+Asynchronous callbacks are HTTP requests made by the Bandwidth platform to endpoints specified by you in your HTTP requests and
 BXML.  The HTTP POST method is used by default.  The request will have a JSON body that describes the event.  An
 HTTP 201 response with no content is expected.  HTTP 200 is also acceptable.
 
@@ -32,7 +32,6 @@ HTTP GET requests may be used for callbacks by setting the appropriate `*Method`
 callback's URL.  If the GET method is used, the properties are passed as query parameters.  This can cause very long
 URLs, so POST is the preferred method.
 
-| Callback                                            | Description                                                                                                                     |
-|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [Disconnect](disconnect.md)      | Bandwidth API sends this to the application when a call ends. |
-
+| Callback                    | Description                                                   |
+|-----------------------------|---------------------------------------------------------------|
+| [Disconnect](disconnect.md) | Bandwidth API sends this to the application when a call ends. |

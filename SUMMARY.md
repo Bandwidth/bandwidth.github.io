@@ -99,7 +99,7 @@
 	* [Transfer](voice/bxml/verbs/transfer.md)
 * [Callbacks](voice/bxml/callBacks/about.md)
 	 * [Answer](voice/bxml/callBacks/answer.md)
-	 * [CallComplete](voice/bxml/callBacks/disconnect.md)
+	 * [Disconnect](voice/bxml/callBacks/disconnect.md)
 	 * [Gather](voice/bxml/callBacks/gather.md)
 	 * [Initiate](voice/bxml/callBacks/initiate.md)
 	 * [Redirect](voice/bxml/callBacks/redirect.md)

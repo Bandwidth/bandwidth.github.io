@@ -91,17 +91,16 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-    --url https://voice.bandwidth.com/accounts/{accountId}/calls/ \
+    --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
     --user {username}:{password} \
-    --header 'content-type: application/json' \
+    --header 'Content-type: application/json' \
     --data '
     {
       "from"          : "+19195551212",
       "to"            : "+19195551313",
       "answerUrl"     : "http://www.myapp.com/hello",
       "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
-    }
-  '
+    }'
 ```
 
 ```python
@@ -146,8 +145,19 @@ curl --request POST \
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-$(document).ready(function landing(){
-  if ($(window).width() >= 980) {
+$(document).ready(function setup() {
+
+	if(gitbook){
+		gitbook.events.bind('page.change', function() { landing(); } );
+	}
+
+	landing();
+});
+
+
+	
+function landing(){
+  if (window.innerWidth >= 980) {
 
   // Adding classes for sms, voice and pns
   $('#send-a-message').nextUntil('h3').addClass('smstut');
@@ -290,7 +300,7 @@ $(document).ready(function landing(){
     });
     $('.smstut.active').show();
   }
-});
+}
 </script>
 
 {% endraw %}
