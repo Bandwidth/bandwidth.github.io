@@ -7,7 +7,6 @@
 ## Guides
 * [Get Started](guides/getStarted.md)
 	* [Callbacks](guides/callbacks/callbacks.md)
-* [Code Blocks](guides/codeBlocks.md)
 * [Numbers](numbers/guides/index.md)
 	* [Searching Phone Numbers](numbers/guides/searchForNumbers.md)
 	* [Ondemand Search and Ordering](numbers/guides/onDemandNumberSearchAndOrder.md)
@@ -83,7 +82,6 @@
 ## Voice
 * [Overview](voice/about.md)
 	* [Rate Limits](voice/rateLimits.md)
-	* [Release Notes](voice/relnotes.md)
 * [API Methods](voice/methods/about.md)
 	* [/calls](voice/methods/calls/about.md)
 		* [POST Create Call](voice/methods/calls/postCalls.md)

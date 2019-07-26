@@ -13,7 +13,7 @@
 
 ## Fetching Information {#fetch-info}
 
-Retrieving information from the Bandwidth Phone Number Dashboard is typically achieved by issuing an HTTP <code class="get">GET</code>  against an identifiable resource.  Rather than repeat all of the resource names in this section, simply suffice it to say that with a few exceptions, a <code class="get">GET</code>  on a resource will yield the available information about that resource.
+Retrieving information from the Bandwidth Phone Number API is achieved by issuing an HTTP <code class="get">GET</code>  against an identifiable resource.  Rather than repeat all of the resource names in this section, simply suffice it to say that with a few exceptions, a <code class="get">GET</code>  on a resource will yield the available information about that resource.
 
 Query parameters are used to filter or restrict the information returned to the caller.
 

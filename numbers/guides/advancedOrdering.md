@@ -14,7 +14,7 @@
 
 ## Overview of Ordering {#ordering-overview}
 
-Orders placed with the Bandwidth Dashboard API are processed as a single-step activity when inventory is available to fulfill the request.  The numbers will be searched for according to the indicated criteria, and, if found, will be activated in the network without intermediate confirmation with the requestor.  Under most conditions, the time between the request for numbers, and the selection and activation of those numbers in the bandwidth network, happens in les than a second.   There are cases in the ordering of numbers where the completion and activation of the telephone numbers in the network is not near-real-time, such as in the case where the numbers are backordered for later completion.  These facts, coupled with the need to persist an order record beyond the activation period of the telephone numbers has motivated the use of an asynchronous model, where the response to the request is an interim response, and the final completion of the order happens at some later time.
+Orders placed with the Bandwidth Phone Number API are processed as a single-step activity when inventory is available to fulfill the request.  The numbers will be searched for according to the indicated criteria, and, if found, will be activated in the network without intermediate confirmation with the requestor.  Under most conditions, the time between the request for numbers, and the selection and activation of those numbers in the bandwidth network, happens in les than a second.   There are cases in the ordering of numbers where the completion and activation of the telephone numbers in the network is not near-real-time, such as in the case where the numbers are backordered for later completion.  These facts, coupled with the need to persist an order record beyond the activation period of the telephone numbers has motivated the use of an asynchronous model, where the response to the request is an interim response, and the final completion of the order happens at some later time.
 
 In light of the fact that these interactions are handled in a machine-to-machine manner, coupled with the considerations of our asynchronous model, has motivated us to ensure that an order always has a state, and that state is always available via the API.   The State Transition Diagram describing these states is below.  Any attempt to query an order will indicate one of these states.
 
@@ -29,7 +29,7 @@ The meaning of the states is provided in the following table.
 | `Complete`    | All numbers in the request have been activated in the network. This is a final state.                                                                                                                                              |
 | `Partial`     | Some of the numbers needed to fulfill the request have been activated in the network, and no more numbers will be activated as part of this order.  This is a final state. See the `<PartialAllowed>` element described below.     |
 | `Failed`      | **None** of the numbers needed to fulfill the request have been activated in the network, and no more numbers will be activated as part of this order.  This is a final state. See the `<PartialAllowed>` element described below. |
-| `Backordered` | The Bandwidth Phone Number Dashboard may have activated some of the requested numbers in the network, but it is continuing to find and activate more numbers.  An order may remain in this state for a number of days.             |
+| `Backordered` | The Bandwidth Phone Number API may have activated some of the requested numbers in the network, but it is continuing to find and activate more numbers.  An order may remain in this state for a number of days.             |
 
 
 ## Creating an Order {#creating-order}
@@ -43,9 +43,9 @@ If the request is valid the Bandwidth Phone Number API will create an order reso
 
 ## New Number Order Request Format {#new-number-req}
 
-All New Number orders are sent to the Bandwidth Dashboard as requests to create a new number order record.  That new number order record is used to report the results of the order, as well as to track the status of the order if it remains open as a back-order for the numbers.
+All New Number orders are sent to the Bandwidth Phone Number API as requests to create a new number order record.  That new number order record is used to report the results of the order, as well as to track the status of the order if it remains open as a back-order for the numbers.
 
-There are a number of different ways of ordering numbers using the Bandwidth Dashboard APIs, reflecting various approaches that can be used to search the available number inventory.  In summary, the various types are:
+There are a number of different ways of ordering numbers using the Bandwidth Phone Number APIs, reflecting various approaches that can be used to search the available number inventory.  In summary, the various types are:
 
 Existing Number orders, used if the numbers are known to be available based on a prior search.
 
@@ -94,7 +94,7 @@ If a new number order has been tagged to indicate that telephone numbers are to 
 
 ### Requesting a backorder via the API {#backorder-api}.
 
-If the API call has the `<BackOrderRequested>` element set to true, then the order will be retained by the Bandwidth Phone Number Dashboard until it can be filled or until it is closed via an API call or GUI status update.
+If the API call has the `<BackOrderRequested>` element set to true, then the order will be retained by the Bandwidth Phone Number Phone Number API until it can be filled or until it is closed via an API call or GUI status update.
 
 The `<BackOrderRequested>` element and the `< PartialAllowed>` element interact in the completion of the order.  The interaction is described in the following table:
 
