@@ -4,7 +4,7 @@ Bandwidth XML allows you to create a voice application as easily as you create a
 
 Before we begin creating a new BXML application you’ll need two things initially setup:
 
-1. A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. For instructions on setting up your application, read the [applications](https://dev.bandwidth.com/v2-messaging/applications/about.html) page
+1. A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. For instructions on setting up your application, read the [applications](../../applications/about.md) page
 
 2. A public Web site that you can create content on and will handle the requests for BXML. Note that the endpoint for this site should be used to create the application in you setup above.
 
@@ -24,27 +24,32 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 
 ### Verbs
 
-| Verb                                        | Description                                                                                                                                                                         |
-|:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`<Forward>`](verbs/forward.md)             | The Forward verb is used to forward an unanswered incoming call to another number.                                                                                                  |
-| [`<Gather>`](verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                                                                  |
-| [`<Hangup>`](verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                                                     |
-| [`<Pause>`](verbs/pause.md)                 | The Pause verb is used to delay for a period of time in the call.                                                                                                                   |
-| [`<PlayAudio>`](verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                                                       |
-| [`<Redirect>`](verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                                                     |
-| [`<SendDtmf>`](verbs/sendDtmf.md)           | The SendDtmf verb is used to play DTMF digits in the call.                                                                                                                          |
-| [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                       |
-| [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                   |
+| Verb                                        | Description                                                                        |
+|:--------------------------------------------|:-----------------------------------------------------------------------------------|
+| [`<Forward>`](verbs/forward.md)             | The Forward verb is used to forward an unanswered incoming call to another number. |
+| [`<Gather>`](verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                 |
+| [`<Hangup>`](verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                    |
+| [`<Pause>`](verbs/pause.md)                 | The Pause verb is used to delay for a period of time in the call.                  |
+| [`<PlayAudio>`](verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                      |
+| [`<Redirect>`](verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.    |
+| [`<SendDtmf>`](verbs/sendDtmf.md)           | The SendDtmf verb is used to play DTMF digits in the call.                         |
+| [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.      |
+| [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                  |
 
 ### BXML Callbacks
 
 BXML callbacks are HTTP messages that are sent to your application server to notify you of activity related to your Bandwidth resources during a BXML usage.
 
-| Callback                                       | Description                                                                                                               |
-|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| [Answer](callBacks/answer.md)                  | Bandwidth API sends this to the application when the call is answered.                                                    |
-| [Gather](callBacks/gather.md)                  | Bandwidth API sends this when the gather command completes in a call.                                                     |
-| [Redirect](callBacks/redirect.md)              | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCalls.md) endpoint requesting a redirect                                              |
-| [Transfer Answer](callBacks/transferAnswer.md) | Bandwidth API sends this to the application when a `<Transfer>` is answered                                              |
-| [Transfer Complete](callBacks/transferComplete.md)     | Bandwidth API sends this to the application when a `<Transfer>` has ended complete                                              |
+| Callback                                           | Description                                                                                                                                                                                               |
+|:---------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Answer](callBacks/answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                    |
+| [Gather](callBacks/gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                  |
+| [Initiate](callBacks/initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                 |
+| [Redirect](callBacks/redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
+| [Transfer Answer](callBacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                            |
+| [Transfer Complete](callBacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                            |
 
+### Asynchronous Callbacks
+| Callback                              | Description                                                   |
+|:--------------------------------------|:--------------------------------------------------------------|
+| [Disconnect](callBacks/disconnect.md) | Bandwidth API sends this to the application when a call ends. |

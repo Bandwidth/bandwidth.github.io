@@ -26,14 +26,14 @@
 
 ## BXML Callbacks
 
-| Callback                                                | Description                                                                  |
-|:--------------------------------------------------------|:-----------------------------------------------------------------------------|
-| [Answer](bxml/callBacks/answer.md)                      | Bandwidth API sends this to the application when the call is answered.       |
-| [Gather](bxml/callBacks/gather.md)                      | Bandwidth API sends this when the gather command completes in a call.        |
-| [Initiate](bxml/callBacks/initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.    |
-| [Redirect](bxml/callBacks/redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested |
-| [Transfer Answer](bxml/callBacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>`is answered |
-| [Transfer Complete](bxml/callBacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>`is complete |
+| Callback                                                | Description                                                                    |
+|:--------------------------------------------------------|:-------------------------------------------------------------------------------|
+| [Answer](bxml/callBacks/answer.md)                      | Bandwidth API sends this to the application when the call is answered.         |
+| [Gather](bxml/callBacks/gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                       |
+| [Initiate](bxml/callBacks/initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.      |
+| [Redirect](bxml/callBacks/redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
+| [Transfer Answer](bxml/callBacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered. |
+| [Transfer Complete](bxml/callBacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete. |
 
 ## Asynchronous Callbacks
 | Callback                                   | Description                                                   |
