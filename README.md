@@ -147,9 +147,11 @@ curl --request POST \
 <script>
 $(document).ready(function setup() {
 
+	/* Removed 
 	if(gitbook){
 		gitbook.events.bind('page.change', function() { landing(); } );
 	}
+	*/
 
 	landing();
 });
