@@ -156,7 +156,7 @@ Content-Type: application/json;charset=UTF-8
 
 {
   "type"        : "validation",
-  "description" : "Invalid to: must be an E164 telephone number",
+  "description" : "Access is denied",
   "id"          : null
 }
 
