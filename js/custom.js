@@ -33,7 +33,8 @@ module.exports = function ($) {
 		'reporting.html',
 		'portingPhoneNumbers.html',
 		'ratelimits.html',
-		'codes.html'
+		'codes.html',
+		"errors.html"
 	];
 
 	$('li.chapter a').each(function(i, elem) {
