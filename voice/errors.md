@@ -382,7 +382,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## 503 – UNAVAILABLE {#http-503}
 
-Bandwidth will return a `HTTP-503` Error if the service is unavailable for some reason, such as when there are no servers available to serve the request or if the system is at capacity. If you receive a `HTTP-503` error from the Bandwidth Voice API, please open a [support ticket](https://support.bandwidth.com) with the original request and the response returned. Please be sure to remove any passwords or sensitive information from the support ticket.
+Bandwidth will return a `HTTP-503` Error if the service is unavailable for some reason, such as when there are no servers available to serve the request or if the system is at capacity. If you receive a `HTTP-503` error from the Bandwidth Voice API, please try the request again.  If you **continue to receive** `HTTP-503` errors, please open a [support ticket](https://support.bandwidth.com) with the original request and the response returned. Please be sure to remove any passwords or sensitive information from the support ticket.
 
 {% extendmethod %}
 
