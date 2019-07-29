@@ -388,6 +388,10 @@ Bandwidth will return a `HTTP-503` Error if the service is unavailable for some 
 
 ### Unavailable Errors
 
+| Type              | Message                            |
+|:------------------|:-----------------------------------|
+| system-overloaded | Handling too many requests         |
+| system-overloaded | Managing too many concurrent calls |
 
 {% common %}
 
