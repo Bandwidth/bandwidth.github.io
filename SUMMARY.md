@@ -105,6 +105,14 @@
 	 * [Transfer Answer](voice/bxml/callBacks/transferAnswer.md)
 	 * [Transfer Complete](voice/bxml/callBacks/transferComplete.md)
 * [Errors](voice/errors.md)
+	* [400 - Bad Request](voice/errors.md#http-400)
+	* [401 - Unauthorized](voice/errors.md#http-401)
+	* [403 - Forbidden](voice/errors.md#http-403)
+	* [404 - Not Found](voice/errors.md#http-404)
+	* [409 - Conflict](voice/errors.md#http-409)
+	* [415 - Invalid Media-Type](voice/errors.md#http-415)
+	* [500 - Internal Server Error](voice/errors.md#http-500)
+	* [503 - Unavailable](voice/errors.md#http-503)
 
 ## Messaging
 * [Overview](messaging/about.md)
