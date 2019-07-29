@@ -1,5 +1,9 @@
 # Bandwidth Voice API
 
+The Voice resource lets you create complex call flows for in and outbound phone calls.
+
+<img src="../../images/create_call.png" style="max-width:95%">
+
 ## Base URL
 `https://voice.bandwidth.com/api/v2/accounts/{accountId}`
 

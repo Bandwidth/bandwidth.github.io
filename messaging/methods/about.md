@@ -2,6 +2,8 @@
 
 The Messages resource lets you send both single SMS/MMS messages as well as Group SMS/MMS Messages.
 
+<img src="../../images/send_sms.png" style="max-width:95%">
+
 #### Receive Incoming Messages
 To receive [events/callbacks](../callbacks/messageEvents.md) for incoming and outgoing text messages (both SMS and MMS), you need to have a [Bandwidth Application](../../applications/about.md) configured to send callbacks to your server.
 
