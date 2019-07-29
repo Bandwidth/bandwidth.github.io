@@ -414,7 +414,11 @@ Authorization: {user:password}
 HTTP/1.1 503 UNAVAILABLE
 Content-Type: application/json;charset=UTF-8
 
-{}
+{
+  "type"        : "system-overloaded",
+  "description" : "Managing too many concurrent calls",
+  "id"          : null
+}
 
 ```
 
