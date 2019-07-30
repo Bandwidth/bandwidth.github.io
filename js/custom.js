@@ -56,7 +56,7 @@ module.exports = function ($) {
 
 	sdkPages.forEach(page => {
 		$(`li.chapter a[href*="${page}.html"]`).replaceWith(function(){ return $(this).text() });
-		$(`li[data-path="sdks/${page}.html"]`).css({padding: '1px 15px'});
+		$(`li[data-path*="sdks/${page}.html"]`).css({padding: '1px 15px'});
 	});
 
 	// Add external link icon to all links in summary
