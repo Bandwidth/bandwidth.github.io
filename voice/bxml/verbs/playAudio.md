@@ -3,19 +3,19 @@
 The PlayAudio verb is used to play an audio file in the call.  The URL of an audio file should be included in the body
 of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative to the endpoint that returned the BXML.
 
-**NOTE:** `.wav` files encoded as `PCM` or `G711` are supported.
+**NOTE:** .wav files encoded as PCM or G711 are supported.
 
 ### Attributes
-| ATTRIBUTE | Description |
-|:----------|:------------|
-| username      | (optional) The username to send in the HTTP request to `audioUri`.         |
-| password      | (optional) The password to send in the HTTP request to `audioUri`.         |
+| ATTRIBUTE | Description                                                        |
+|:----------|:-------------------------------------------------------------------|
+| username  | (optional) The username to send in the HTTP request to `audioUri`. |
+| password  | (optional) The password to send in the HTTP request to `audioUri`. |
 
 
 ### Text Content
-| Name        | Description |
-|:------------|:------------|
-| audioUri        |  The URL of the audio file realative to the endpoint that returned the BXML
+| Name     | Description                                                                |
+|:---------|:---------------------------------------------------------------------------|
+| audioUri | The URL of the audio file realative to the endpoint that returned the BXML |
 
 
 ### Callbacks Received
