@@ -47,6 +47,18 @@ module.exports = function ($) {
 		});
 	});
 
+	var sdkPages = [
+		'csharp',
+		'java',
+		'node',
+		'php'
+	];
+
+	sdkPages.forEach(page => {
+		$(`li.chapter a[href*="${page}.html"]`).replaceWith(function(){ return $(this).text() });
+		$(`li[data-path="sdks/${page}.html"]`).css({padding: '1px 15px'});
+	});
+
 	// Add external link icon to all links in summary
 	$('ul.summary a[target=_blank]').each(function () {
 		var href = $(this); // retrive href foreach a
