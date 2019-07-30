@@ -149,12 +149,12 @@
 	* [429 - Too Many Requests](messaging/errors/tooManyReq.md)
 
 ## SDKs
-* [C#](sdks/csharp.md)
-* [Java](sdks/java.md)
-* [Node](sdks/node.md)
-* [PHP](sdks/php.md)
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
+* [C# - _coming soon_](sdks/csharp.md)
+* [Java - _coming soon_](sdks/java.md)
+* [Node - _coming soon_](sdks/node.md)
+* [PHP - _coming soon_](sdks/php.md)
 
 ## v1 Docs
 * [Home Page](https://dev.bandwidth.com)
