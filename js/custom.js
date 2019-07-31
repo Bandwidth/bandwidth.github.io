@@ -65,7 +65,7 @@ module.exports = function ($) {
 			//Removes the ability to click the chapter
 			$(`li.chapter a[href*="${page}.html"]`).replaceWith(function(){ return $(this).text() });
 			//Fix the CSS
-			$(`li[data-path*="sdks/${page}.html"]`).css({padding: '1px 15px'});
+			$(`li[data-path*="${page}.html"]`).css({padding: '1px 15px'});
 		});
 	}
 

@@ -111,6 +111,7 @@
 	* [404 - Not Found](voice/errors.md#http-404)
 	* [409 - Conflict](voice/errors.md#http-409)
 	* [415 - Invalid Media-Type](voice/errors.md#http-415)
+	* [429 - Too Many Requests](voice/errors.md#http-429)
 	* [500 - Internal Server Error](voice/errors.md#http-500)
 	* [503 - Unavailable](voice/errors.md#http-503)
 
