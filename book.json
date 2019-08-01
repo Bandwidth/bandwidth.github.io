@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "theme-bandwidth@1.9.13",
+        "theme-bandwidth@1.9.14",
         "header",
         "sharing",
         "custom-favicon",
