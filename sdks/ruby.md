@@ -17,6 +17,8 @@ include Bandwidth::Voice
 client = Bandwidth::Client.new(
     voice_basic_auth_user_name: 'username',
     voice_basic_auth_password: 'password',
+    bandwidth_messaging_basic_auth_user_name: 'token',
+    bandwidth_messaging_basic_auth_password: 'secret',
 )
 ```
 
@@ -47,7 +49,16 @@ puts response.to_xml()
 
 ### Send Text Message
 
-Coming soon
+```ruby
+message_controller = client.bandwidth_messaging_client.client
+
+body = MessageRequest.new
+body.application_id = "1-2-3"
+body.to = ["+17777777777"]
+body.from = "+18888888888"
+body.text = "Hello from Bandwidth"
+message_controller.create_message("123", body)
+```
 
 ### Order Phone Number
 
