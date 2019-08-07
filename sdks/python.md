@@ -12,12 +12,20 @@ pip install bandwidth-sdk==4.0.0.dev1
 from bandwidth.bandwidth_client import BandwidthClient
 from bandwidth.voice.voice_client import VoiceClient
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
+from bandwidthsdk.bandwidth_messaging.bandwidth_messaging_client import BandwidthMessagingClient
+from bandwidthsdk.bandwidth_messaging.models.message_request import MessageRequest
 
 ##Initialize client
 voice_basic_auth_user_name = 'username'
 voice_basic_auth_password = 'password'
+bandwidth_messaging_basic_auth_user_name = 'token'
+bandwidth_messaging_basic_auth_password = 'secret'
 
-client = BandwidthClient(voice_basic_auth_user_name=voice_basic_auth_user_name, voice_basic_auth_password=voice_basic_auth_password)
+client = BandwidthClient(
+    voice_basic_auth_user_name=voice_basic_auth_user_name,
+    voice_basic_auth_password=voice_basic_auth_password,
+    bandwidth_messaging_basic_auth_user_name=bandwidth_messaging_basic_auth_user_name,
+    bandwidth_messaging_basic_auth_password=bandwidth_messaging_basic_auth_password)
 ```
 
 ### Create Phone Call
@@ -56,7 +64,16 @@ print(response.to_xml())
 
 ### Send Text Message
 
-Coming soon
+```python
+message_controller = client.bandwidth_messaging_client.client
+
+body = MessageRequest()
+body.application_id = "1-d-b" 
+body.to = ["+17777777777"]
+body.mfrom = "+18888888888"
+body.text = "Greetings!"
+message_controller.create_message("123", body)
+```
 
 ### Order Phone Number
 
