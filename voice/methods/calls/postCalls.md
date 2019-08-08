@@ -25,7 +25,7 @@ Creates a new outbound phone call.
 | callTimeout        | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30                                                           | No        |
 | tag                | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.  | No        |
 
-**NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` in the [Disconnect](../../bxml/callBacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
+**NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callBacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
 
 {% common %} 
 
