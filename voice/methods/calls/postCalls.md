@@ -27,6 +27,8 @@ Creates a new outbound phone call.
 
 {% common %}
 
+**NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` in the [Disconnect](../../bxml/callBacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered. 
+
 ### Example: Create an outbound phone call
 
 <aside class="alert general small">
