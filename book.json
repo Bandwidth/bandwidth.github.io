@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "theme-bandwidth@1.9.11",
+        "theme-bandwidth@1.9.14",
         "header",
         "sharing",
         "custom-favicon",
@@ -11,7 +11,6 @@
         "bandwidth-highlight",
         "codetabs",
         "include-html@0.2.0",
-        "mouseflow",
         "usabilla",
         "save-url-to-file",
         "bandwidth-toggle-chapters-stopgap"
@@ -63,9 +62,6 @@
             "theme": "white",
             "family": "sans",
             "size": 2
-        },
-        "mouseflow": {
-            "projectId": "e48d3324-5985-479f-a9fc-7283fb266917"
         },
         "usabilla" : {
             "usabillaId" : "73009503da29"
