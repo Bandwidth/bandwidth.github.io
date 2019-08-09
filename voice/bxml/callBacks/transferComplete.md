@@ -26,7 +26,9 @@ Content-Type: application/xml; charset=utf-8
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                     |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                       |
-| cause            | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `error`, or `unknown`. `hangup` indicates the call has ended normally. |
+| cause            | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit-call-creation-rate`,  `account-limit-concurrent-calls`, `node-capacity-exceeded`, `error`, or `unknown`. `hangup` indicates the call has ended normally. |
+| errorMessage     | Text explaining the reason that caused the call to be ended in case of errors.                                                        |
+| errorId          | Bandwidth internal id that references the error event.                                                                                |
 
 {% common %}
 
@@ -46,7 +48,10 @@ POST http://[External server URL]
 	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"transferCallerId":"+15551115555",
 	"transferTo":"+15556667777",
-	"callState":"completed"
+	"startTime": "2019-07-31T13:13:34.859318Z",
+	"cause":"completed",
+	"errorMessage": "",
+	"errorId": ""
 }
 ```
 
@@ -66,7 +71,10 @@ POST http://[External server URL]
 	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"transferCallerId":"+15551115555",
 	"transferTo":"+15556667777",
-	"callState":"busy"
+	"startTime": "2019-07-31T13:13:34.859318Z",
+	"cause":"busy",
+	"errorMessage":"Callee is busy",
+	"errorId":"4642074b-7b58-478b-96e4-3a60955c6765"
 }
 ```
 
