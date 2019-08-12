@@ -12,7 +12,7 @@ using BandwidthSdk.Standard.BandwidthVoice.Models;
 
 
 
-//create Configuration with credintials
+//create Configuration with credentials
 Configuration voiceConfig = new Configuration.Builder()
 			.WithBandwidthVoiceBasicAuthPassword("voice.password")
 			.WithBandwidthVoiceBasicAuthUserName("voice.username")
