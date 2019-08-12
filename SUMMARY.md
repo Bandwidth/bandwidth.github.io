@@ -153,7 +153,7 @@
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
 * [C# - _coming soon_](sdks/csharp.md)
-* [Java - _coming soon_](sdks/java.md)
+* [Java](sdks/java.md)
 * [Node - _coming soon_](sdks/node.md)
 * [PHP - _coming soon_](sdks/php.md)
 
