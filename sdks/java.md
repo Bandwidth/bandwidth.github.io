@@ -54,7 +54,7 @@ try {
 ```java
 import com.bandwidth.sdk.voice.models.verbs.*;
 
-//Create a Bandwidth XML (BXML) SpeakSentence Verb.  Supply the senetence to be spoken.
+//Create a Bandwidth XML (BXML) SpeakSentence Verb.  Supply the sentence to be spoken.
 SpeakSentence speakSentence = SpeakSentence.builder()
 	.text("Hello World")
 	.build();
