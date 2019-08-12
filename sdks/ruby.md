@@ -9,16 +9,17 @@ gem install bandwidth-sdk
 ### Initialize Bandwidth Client
 
 ```ruby
-require 'bandwidth'
+require 'bandwidth_sdk'
 
-include Bandwidth
-include Bandwidth::Voice
+include BandwidthSdk
+include BandwidthSdk::Voice
+include BandwidthSdk::Messaging
 
 client = Bandwidth::Client.new(
     voice_basic_auth_user_name: 'username',
     voice_basic_auth_password: 'password',
-    bandwidth_messaging_basic_auth_user_name: 'token',
-    bandwidth_messaging_basic_auth_password: 'secret',
+    messaging_basic_auth_user_name: 'token',
+    messaging_basic_auth_password: 'secret',
 )
 ```
 
@@ -50,7 +51,7 @@ puts response.to_xml()
 ### Send Text Message
 
 ```ruby
-message_controller = client.bandwidth_messaging_client.client
+message_controller = client.messaging_client.client
 
 body = MessageRequest.new
 body.application_id = "1-2-3"
