@@ -13,14 +13,14 @@ import com.bandwidth.voice.Environments;
 
 
 //Set the voice client configuration with credentials
-Configuration voiceConfig = new Configuration().newBuilder()
+Configuration config = new Configuration().newBuilder()
             .basicAuthPassword( "voice.password" )
             .basicAuthUserName( "voice.username" )
             .environment(Environments.PRODUCTION)
             .build();
 
 //create the voice client with the configuration
-APIController voiceClient = new BandwidthV2VoiceClient(voiceConfig).getClient();
+APIController voiceClient = new BandwidthV2VoiceClient(config).getClient();
 
 
 ```
