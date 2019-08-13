@@ -13,14 +13,14 @@ using BandwidthSdk.Standard.BandwidthVoice.Models;
 
 
 //create Configuration with credentials
-Configuration voiceConfig = new Configuration.Builder()
+Configuration config = new Configuration.Builder()
 			.WithBandwidthVoiceBasicAuthPassword("voice.password")
 			.WithBandwidthVoiceBasicAuthUserName("voice.username")
 			.WithEnvironment(Configuration.Environments.PRODUCTION)
 			.Build();
 
 //Activate the Client with the Configuration
-APIController voiceClient = new BandwidthVoiceClient(voiceConfig).Client;
+APIController voiceClient = new BandwidthVoiceClient(config).Client;
 
 ```
 
