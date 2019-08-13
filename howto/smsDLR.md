@@ -2,27 +2,27 @@
 ## Send SMS/MMS with Delivery Receipts
 Delivery Receipts (DLR) add two new states to the messaging lifecyle – delivered and not delivered. When a message is sent, it is sent by the SMPP gateway to the SMSC with the delivery receipt value set. The SMSC will return the final disposition of the message as determined by the carrier. Values returned include the following:
 
-| **Error Code** | **SMSC Description**                   | **Bandwidth API Description**                 | **Expose the error** |
-|:---------------|:---------------------------------------|:----------------------------------------------|:---------------------|
-| 0              | Message Delivered to Carrier           | Message delivered to carrier                  | Yes                  |
-| 187            | Spam Detected – Statistical            | Statistical spam detected                     | Yes                  |
-| 188            | Spam Detected -Keyword                 | Keyword spam detected                         | Yes                  |
-| 189            | Spam Detected                          | Spam detected                                 | Yes                  |
-| 482            | Loop Detected                          | Loop detected                                 | Yes                  |
-| 600            | Destination Carrier Queue Full         | Destination carrier could not accept messages | Yes                  |
-| 610            | submit\_sm or submit\_multi failed     | Message submission failed                     | Yes                  |
-| 620            | Destination App Error                  | Destination application error                 | Yes                  |
-| 630            | NACK                                   | Message not acknowledge                       | Yes                  |
-| 650            | Destination Failure                    | Destination Failure                           |                      |
-| 700            | Invalid Service Type                   | Invalid service type                          | No                   |
-| 720            | Invalid Destination Address            | Invalid destination number                    | Yes                  |
-| 740            | Invalid Source Address                 | Invalid source number                         | Yes                  |
-| 750            | Destination Rejected Message           | Destination Rejected Message                  |                      |
-| 751            | Destination Rejected Message too large | Destination Rejected Message too large        |                      |
-| 770            | Destination Rejected due to spam       | Destination Rejected due to spam              |                      |
-| 775            | Rejected due to user opt out           | Rejected due to user opt out                  |                      |
-| 902            | Message Expired                        | Message Expired                               |                      |
-| 999            | Unknown Error                          | Unknown error                                 | Yes                  |
+| **Error Code** | **SMSC Description**                   | **Bandwidth API Description**                 |
+|:---------------|:---------------------------------------|:----------------------------------------------|
+| 0              | Message Delivered to Carrier           | Message delivered to carrier                  |
+| 187            | Spam Detected – Statistical            | Statistical spam detected                     |
+| 188            | Spam Detected -Keyword                 | Keyword spam detected                         |
+| 189            | Spam Detected                          | Spam detected                                 |
+| 482            | Loop Detected                          | Loop detected                                 |
+| 600            | Destination Carrier Queue Full         | Destination carrier could not accept messages |
+| 610            | submit\_sm or submit\_multi failed     | Message submission failed                     |
+| 620            | Destination App Error                  | Destination application error                 |
+| 630            | NACK                                   | Message not acknowledge                       |
+| 650            | Destination Failure                    | Destination Failure                           |
+| 700            | Invalid Service Type                   | Invalid service type                          |
+| 720            | Invalid Destination Address            | Invalid destination number                    |
+| 740            | Invalid Source Address                 | Invalid source number                         |
+| 750            | Destination Rejected Message           | Destination Rejected Message                  |
+| 751            | Destination Rejected Message too large | Destination Rejected Message too large        |
+| 770            | Destination Rejected due to spam       | Destination Rejected due to spam              |
+| 775            | Rejected due to user opt out           | Rejected due to user opt out                  |
+| 902            | Message Expired                        | Message Expired                               |
+| 999            | Unknown Error                          | Unknown error                                 |
 
 The app platform will send a new event on delivery receipt based on the value of the new messages parameter, receiptRequested. The event will initially only be delivered on failure, but will, eventually allow an event for every receipt on every message.
 
