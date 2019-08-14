@@ -20,7 +20,7 @@ If you need static IPs for your callbacks, feel free to open up a ticket on our 
 
 ### Voice Callbacks
 
-Specifics for voice callbacks can be found on our [voice callbacks page](../../voice/bxml/callBacks/about.md)
+Specifics for voice callbacks can be found on our [voice callbacks page](../../voice/bxml/callbacks/about.md)
 
 Bandwidth expects to receive valid [BXML](../../voice/bxml/about.md) as a response for BXML callbacks
 
