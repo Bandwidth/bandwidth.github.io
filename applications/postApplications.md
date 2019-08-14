@@ -10,14 +10,14 @@ Create a new [application](about.md)
 
 ### Supported Parameters
 
-| Parameters               | Mandatory | Description                                                                                                                                                                                              |
-|:-------------------------|:----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ServiceType`            | Yes       | The type of service the application will be used for. <br><br> * `Messaging-V2` for [message events](../messaging/callbacks/messageEvents.md) <br><br> * `Voice-V2` for [voice events](../voice/bxml/callbacks/about.md) |
-| `AppName`                | Yes       | Plain text name of the application                                                                                                                                                                       |
-| `CallbackUrl`            | Yes       | Url to receive either [message events](../messaging/callbacks/messageEvents.md) or [voice events](../voice/bxml/callbacks/about.md)                                                                      |
-| `CallbackCreds`          | No        | Basic auth credentials to apply to your message events                                                                                                                                                   |
-| `CallbackCreds.UserId`   | No        | Basic auth `UserId`                                                                                                                                                                                      |
-| `CallbackCreds.Password` | No        | Basic auth `Password`                                                                                                                                                                                    |
+| Parameters               | Mandatory | Description                                                                                                                                                                                                              |
+|:-------------------------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ServiceType`            | Yes       | The type of service the application will be used for. <br><br> * `Messaging-V2` for [message events](../messaging/callbacks/messageEvents.md) <br><br> * `Voice-V2` for [voice events](../voice/bxml/callBacks/about.md) |
+| `AppName`                | Yes       | Plain text name of the application                                                                                                                                                                                       |
+| `CallbackUrl`            | Yes       | Url to receive either [message events](../messaging/callbacks/messageEvents.md) or [voice events](../voice/bxml/callBacks/about.md)                                                                                      |
+| `CallbackCreds`          | No        | Basic auth credentials to apply to your message events                                                                                                                                                                   |
+| `CallbackCreds.UserId`   | No        | Basic auth `UserId`                                                                                                                                                                                                      |
+| `CallbackCreds.Password` | No        | Basic auth `Password`                                                                                                                                                                                                    |
 
 
 {% common %}
