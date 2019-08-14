@@ -11,7 +11,7 @@ Get information about an existing Application
 
 {% common %}
 
-### Example 1 of 1: Create a new application
+### Example 1 of 1: Fetch an application
 
 {% sample lang="http" %}
 

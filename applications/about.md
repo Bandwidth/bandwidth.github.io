@@ -1,12 +1,17 @@
 # Applications
 
-Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks.com/w/page/13385124/FrontPage)) to send [message events](../messaging/callbacks/messageEvents.md) to any publicly addressable url.
+Bandwidth uses HTTP Callbacks (also known as [webhooks](../guides/callbacks/callbacks.md)) to send [message events](../messaging/callbacks/messageEvents.md) & [voice events](../voice/bxml/callbacks/about.md) to any publicly addressable url.
 
-In order to successfully use the Voice & Messaging APIs, you need to configure an `Application` for each service which contains the `CallbackUrl`.  Each application can be assigned to as many `Locations` as needed.  However, each `Location` can only have a single `Application`
+In order to successfully use the Voice & Messaging APIs, you need to configure an `Application` for **both** the [Voice API](../voice/about.md) & the [Messaging API](../messaging/about.md).
+
+Applications contain the `CallbackUrl` & `CallbackCreds` to authenticate and send either [message events](../messaging/callbacks/messageEvents.md) or [voice events](../voice/bxml/callbacks/about.md) to your service.
+
+Each application can be assigned to as many `Locations` as needed.  However, each `Location` can only have a single `Application` per service type.
 
 <img src="../../images/applications.png" style="max-width:95%">
 
 ### Base Url
+
 `https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications`
 
 
