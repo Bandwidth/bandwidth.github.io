@@ -6,7 +6,7 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 
 | Attribute      | Description                                                                                                                                                                                                            |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| redirectUrl    | (required) URL to request new BXML from. A [Redirect](../callBacks/redirect.md) event will be sent to this endpoint.                                                                                                   |
+| redirectUrl    | (required) URL to request new BXML from. A [Redirect](../callbacks/redirect.md) event will be sent to this endpoint.                                                                                                   |
 | redirectMethod | (optional) The HTTP method to use for the request to `redirectUrl`. GET or POST. Default Value is POST.                                                                                                                |
 | username       | (optional) The username to send in the HTTP request to `redirectUrl`.                                                                                                                                                  |
 | password       | (optional) The password to send in the HTTP request to `redirectUrl`.                                                                                                                                                  |
@@ -22,7 +22,7 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 
 | Callbacks                            | Can reply with more BXML |
 |:-------------------------------------|:-------------------------|
-| [Redirect](../callBacks/redirect.md) | Yes                      |
+| [Redirect](../callbacks/redirect.md) | Yes                      |
 
 
 {% common %}

@@ -6,7 +6,7 @@ The Gather verb is used to collect digits for some period of time.
 
 | Attribute         | Description                                                                                                                                                                                                                                                                                        |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gatherUrl         | (optional) URL to send [Gather event](../callBacks/gather.md) to and request new BXML.                                                                                                                                                                                                             |
+| gatherUrl         | (optional) URL to send [Gather event](../callbacks/gather.md) to and request new BXML.                                                                                                                                                                                                             |
 | gatherMethod      | (optional) The HTTP method to use for the request to `gatherUrl`. GET or POST. Default value is POST.                                                                                                                                                                                              |
 | username          | (optional) The username to send in the HTTP request to `gatherUrl`.                                                                                                                                                                                                                                |
 | password          | (optional) The password to send in the HTTP request to `gatherUrl`.                                                                                                                                                                                                                                |
@@ -23,7 +23,7 @@ The gather is terminated when one of these conditions is met:
  1. Any nested audio has ended and `firstDigitTimeout` seconds have elapsed without the user pressing any digits
  1. The user presses `maxDigits` digits
 
-If the `gatherUrl` attribute is specified, the [Gather event](../callBacks/gather.md) is sent to the `gatherUrl` upon
+If the `gatherUrl` attribute is specified, the [Gather event](../callbacks/gather.md) is sent to the `gatherUrl` upon
 completion of the gather. BXML returned by that callback are then executed. If `gatherUrl` is specified, verbs following the `<Gather>` will be ignored.
 
 If no `gatherUrl` attribute is specified, the gathered digits are discarded and execution of verbs following the `<Gather>` continues.
@@ -40,7 +40,7 @@ The following verbs may be nested inside of a `<Gather>` tag.  A maximum of one 
 
 | Callback                         | Can reply with more BXML |
 |:---------------------------------|:-------------------------|
-| [Gather](../callBacks/gather.md) | Yes                      |
+| [Gather](../callbacks/gather.md) | Yes                      |
 
 {% common %}
 #### Example: Gather Verb

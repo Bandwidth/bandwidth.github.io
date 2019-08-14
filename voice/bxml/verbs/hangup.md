@@ -15,7 +15,7 @@ The Hangup verb is also used to reject incoming calls either explicitly or impli
 
 | Callback                         | Can reply with more BXML |
 |:---------------------------------|:-------------------------|
-| [CallComplete](../callBacks/disconnect.md) | No                      |
+| [CallComplete](../callbacks/disconnect.md) | No                      |
 
 {% common %}
 #### Example: Hangup Verb

@@ -2,7 +2,7 @@
 {% endmultimethod %}
 
 # Errors during an active call {#top}
-Errors that occur during an active call will be delivered to the `disconnectUrl` for outbound calls and `Call status callback URL` for inbound calls in the form of a [Disconnect](bxml/callBacks/disconnect.md) event.  Example errors:
+Errors that occur during an active call will be delivered to the `disconnectUrl` for outbound calls and `Call status callback URL` for inbound calls in the form of a [Disconnect](bxml/callbacks/disconnect.md) event.  Example errors:
 * Invalid BXML returned by a callback
 * Unable to reach the callback url
 * Callback URL returns a 4XX or 5XX response code

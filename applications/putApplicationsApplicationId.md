@@ -9,13 +9,13 @@
 <code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{{account}}/applications/{{applicationId}}`
 
 ### Supported Parameters
-| Parameters               | Mandatory | Description                                                                          |
-|:-------------------------|:----------|:-------------------------------------------------------------------------------------|
-| `AppName`                | Yes        | Plain text name of the application                                                   |
-| `CallbackUrl`            | Yes        | Url to receive _all_ [message events](../messaging/callbacks/messageEvents.md)                    |
-| `CallbackCreds`          | No        | Basic auth credentials to apply to your [message events](../messaging/callbacks/messageEvents.md) |
-| `CallbackCreds.UserId`   | No        | Basic auth `UserId`                                                                  |
-| `CallbackCreds.Password` | No        | Basic auth `Password`                                                                |
+| Parameters               | Mandatory | Description                                                                                                                         |
+|:-------------------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------|
+| `AppName`                | Yes       | Plain text name of the application                                                                                                  |
+| `CallbackUrl`            | Yes       | Url to receive either [message events](../messaging/callbacks/messageEvents.md) or [voice events](../voice/bxml/callbacks/about.md) |
+| `CallbackCreds`          | No        | Basic auth credentials                                                                                                              |
+| `CallbackCreds.UserId`   | No        | Basic auth `UserId`                                                                                                                 |
+| `CallbackCreds.Password` | No        | Basic auth `Password`                                                                                                               |
 
 
 {% common %}

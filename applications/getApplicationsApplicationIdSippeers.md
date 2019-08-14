@@ -11,7 +11,7 @@ List all associated Sippeers (_locations_) for an Application
 
 {% common %}
 
-### Example 1 of 1: Create a new application
+### Example 1 of 1: List associated SIPPEERS
 
 {% sample lang="http" %}
 

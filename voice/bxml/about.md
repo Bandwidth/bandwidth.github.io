@@ -44,14 +44,14 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 
 | Callback                                           | Description                                                                                                                                                                                               |
 |:---------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Answer](callBacks/answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                    |
-| [Gather](callBacks/gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                  |
-| [Initiate](callBacks/initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                 |
-| [Redirect](callBacks/redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
-| [Transfer Answer](callBacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                            |
-| [Transfer Complete](callBacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                            |
+| [Answer](callbacks/answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                    |
+| [Gather](callbacks/gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                  |
+| [Initiate](callbacks/initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                 |
+| [Redirect](callbacks/redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
+| [Transfer Answer](callbacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                            |
+| [Transfer Complete](callbacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                            |
 
 ### Asynchronous Callbacks
 | Callback                              | Description                                                   |
 |:--------------------------------------|:--------------------------------------------------------------|
-| [Disconnect](callBacks/disconnect.md) | Bandwidth API sends this to the application when a call ends. |
+| [Disconnect](callbacks/disconnect.md) | Bandwidth API sends this to the application when a call ends. |
