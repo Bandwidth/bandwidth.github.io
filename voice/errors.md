@@ -349,9 +349,9 @@ Bandwidth returns a `HTTP-429` error when the rate limit has been reached.
 {% extendmethod %}
 
 
-| Type  | Message                                       |
-|:------|:----------------------------------------------|
-| error | User rate limit or concurrency limit exceeded |
+| Type  | Message                                   |
+|:------|:------------------------------------------|
+| error | Rate limited due to concurrent call count |
 
 {% common %}
 
