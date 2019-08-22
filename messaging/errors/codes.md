@@ -166,34 +166,36 @@ Bandwidth’s error code schema for messaging V2 is comprised of a 4 digit code.
 
 A 4xx code indicates that Bandwidth or the downstream carrier has identified some element of the message request unacceptable.  Repeating the request will produce the same result.
 
-| Code | Description                                                                   | Billable                              |
-|:-----|:------------------------------------------------------------------------------|:--------------------------------------|
-| 4001 | Message was rejected for reasons other than those covered by other 4xxx codes | NO                                    |
-| 4121 | Rejected as SPAM                                                              | YES                                   |
-| 4301 | Malformed message encoding                                                    | NO                                    |
-| 4302 | Malformed From number                                                         | NO                                    |
-| 4303 | Malformed To Number                                                           | NO                                    |
-| 4350 | Malformed message encoding                                                    | NO                                    |
-| 4401 | Message is looping from carrier back to BW                                    | NO                                    |
-| 4403 | Messaging forbidden on From number                                            | NO                                    |
-| 4404 | Messaging forbidden on To number                                              | NO                                    |
-| 4405 | Unallocated from number                                                       | NO                                    |
-| 4406 | Unallocated to number                                                         | NO                                    |
-| 4410 | Could not download media                                                      | NO                                    |
-| 4411 | Combined size of media too large                                              | NO                                    |
-| 4420 | No Route to Destination Carrier                                               | NO                                    |
-| 4421 | No Route to Destination Carrier                                               | NO                                    |
-| 4431 | Messaging on shortcode forbidden                                              | NO                                    |
-| 4432 | Messaging to country forbidden                                                | NO                                    |
-| 4433 | Messaging on Toll Free Number Forbidden                                       | NO                                    |
-| 4434 | Messaging to Toll Free Number Forbidden                                       | NO                                    |
-| 4451 | Invalid User Id                                                               | NO                                    |
-| 4452 | Invalid Application Id                                                        | NO                                    |
-| 4470 | Rejected as SPAM (future)                                                     | YES                                   |
-| 4481 | From Number in black list                                                     | NO                                    |
-| 4482 | To Number in black list                                                       | NO                                    |
-| 4492 | Message to emergency number forbidden                                         | NO                                    |
-| 4493 | Unauthorized                                                                  | NO                                    |
+| Code | Description                                                                   | Billable |
+|:-----|:------------------------------------------------------------------------------|:---------|
+| 4001 | Message was rejected for reasons other than those covered by other 4xxx codes | NO       |
+| 4121 | Rejected as SPAM                                                              | YES      |
+| 4301 | Malformed message encoding                                                    | NO       |
+| 4302 | Malformed From number                                                         | NO       |
+| 4303 | Malformed To Number                                                           | NO       |
+| 4350 | Malformed message encoding                                                    | NO       |
+| 4401 | Message is looping from carrier back to BW                                    | NO       |
+| 4403 | Messaging forbidden on From number                                            | NO       |
+| 4404 | Messaging forbidden on To number                                              | NO       |
+| 4405 | Unallocated from number                                                       | NO       |
+| 4406 | Unallocated to number                                                         | NO       |
+| 4410 | Could not download media                                                      | NO       |
+| 4411 | Combined size of media too large                                              | NO       |
+| 4420 | No Route to Destination Carrier                                               | NO       |
+| 4421 | No Route to Destination Carrier                                               | NO       |
+| 4431 | Messaging on shortcode forbidden                                              | NO       |
+| 4432 | Messaging to country forbidden                                                | NO       |
+| 4433 | Messaging on Toll Free Number Forbidden                                       | NO       |
+| 4434 | Messaging to Toll Free Number Forbidden                                       | NO       |
+| 4435 | Too Many Recipients                                                           | NO       |
+| 4451 | Invalid User Id                                                               | NO       |
+| 4452 | Invalid Application Id                                                        | NO       |
+| 4470 | Rejected as SPAM (future)                                                     | YES      |
+| 4481 | From Number in black list                                                     | NO       |
+| 4482 | To Number in black list                                                       | NO       |
+| 4492 | Message to emergency number forbidden                                         | NO       |
+| 4493 | Unauthorized                                                                  | NO       |
+
 
 ### Carrier Reported Client Errors {#carrier-client}
 
