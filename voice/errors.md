@@ -36,6 +36,7 @@ Bandwidth will return a `HTTP-400` Error when the request is malformed or invali
 
 | Type       | Message                                                                                         |
 |:-----------|:------------------------------------------------------------------------------------------------|
+| validation | Bad Request                                                                                     |
 | validation | Invalid to: must be an E164 telephone number                                                    |
 | validation | Invalid from: must be an E164 telephone number                                                  |
 | validation | Missing at least one required field. Required fields are \[from, to, answerUrl, applicationId\] |
@@ -91,6 +92,7 @@ Bandwidth returns a `HTTP-401` Error when the specified user does not have acces
 
 | Type                 | Message                                     |
 |:---------------------|:--------------------------------------------|
+| authentication-error | Unauthorized                                |
 | authentication-error | The credentials provided were invalid       |
 | authentication-error | Invalid basic authentication token          |
 | authentication-error | Failed to decode basic authentication token |
@@ -139,6 +141,7 @@ Bandwidth returns a `HTTP-403` error when the user does not have access to the v
 
 | Type                | Message          |
 |:--------------------|:-----------------|
+| authorization-error | Forbidden        |
 | authorization-error | Access is denied |
 
 {% common %}
@@ -190,7 +193,7 @@ Bandwidth returns a `HTTP-404` when the call-id is no longer active, or the path
 
 | Type       | Message                 |
 |:-----------|:------------------------|
-| validation | Resource not found      |
+| validation | Not Found      |
 
 {% common %}
 
@@ -246,7 +249,7 @@ Content-Type: application/json;charset=UTF-8
 
 {
   "type"        : "validation",
-  "description" : "Resource not found",
+  "description" : "Not Found",
   "id"          : null
 }
 
@@ -264,7 +267,7 @@ Bandwidth will return a `HTTP-405` Error when the HTTP method used in the reques
 
 | Type       | Message                                                                                         |
 |:-----------|:------------------------------------------------------------------------------------------------|
-| validation | Request HTTP method not supported                                                               |
+| validation | Method Not Allowed                                                                              |
 
 {% common %}
 
@@ -291,7 +294,7 @@ Content-Type: application/json;charset=UTF-8
 
 {
   "type"        : "validation",
-  "description" : "Request HTTP method not supported",
+  "description" : "Method Not Allowed",
   "id"          : null
 }
 
@@ -349,6 +352,7 @@ Bandwidth returns a `HTTP-415` error when the content-type of the request is inc
 
 | Type       | Message                           |
 |:-----------|:----------------------------------|
+| validation | Unsupported Media Type            |
 | validation | Content type `${0}` not supported |
 
 {% common %}
@@ -437,6 +441,7 @@ Bandwidth will return a `HTTP-500` Error when an unknown error occurs. If you re
 
 | Type           | Message                            |
 |:---------------|:-----------------------------------|
+| internal-error | Internal Server Error              |
 | internal-error | An unknown internal error occurred |
 
 
