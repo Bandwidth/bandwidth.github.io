@@ -55,6 +55,7 @@ module.exports = function ($) {
 
 	function makeSummaryLinksUnClickable () {
 		var sdkPages = [
+			'csharp',
 			'java',
 			'node',
 			'php'
