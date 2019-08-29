@@ -25,7 +25,7 @@ fi
 
 
 #If it is the target branch and NOT a pull request, then deploy 
-if [ "$TRAVIS_BRANCH" == "$SOURCE_BRANCH" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]
+if [ "$TRAVIS_BRANCH" == "$SOURCE_BRANCH" ] && [ "$TRAVIS_PULL_REQUEST" == "true" ]
 then
   # deploy the site to s3
   aws s3 sync ./out/ s3://old.dev.bandwidth.com --delete
