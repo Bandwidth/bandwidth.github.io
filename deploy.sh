@@ -18,7 +18,7 @@ fi
 doCompile
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
+if [ "$TRAVIS_PULL_REQUEST" != "true" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
     echo "Skipping deploy; just doing a build."
     exit 0
 fi
@@ -40,6 +40,7 @@ then
   SHA=`git rev-parse --verify HEAD`
 
   rm -rf out/**/*
+  ls ./out
 
   # Clone the existing gh-pages for this repo into out/
   # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
