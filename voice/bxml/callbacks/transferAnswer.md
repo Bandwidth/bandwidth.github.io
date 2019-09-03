@@ -11,7 +11,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- <PlayAudio> or <SpeakSentence> BXML verbs to announce to called party -->
+    <!-- <PlayAudio> or <SpeakSentence> BXML verbs to announce to the called party -->
 </Response>
 ```
 
