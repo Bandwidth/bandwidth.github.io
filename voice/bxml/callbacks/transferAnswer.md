@@ -1,8 +1,8 @@
 {% method %}
 ##  Transfer Answer Event – <Transfer> verb
 When processing a `<Transfer>` verb, this event is sent when a called party (B-leg) answers.  The event is sent to
-  the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered.  BXML returned by this callback will be
-  executed for the called party only.  At the conclusion of the BXML, the called party will be bridged to the original
+  the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered.  `<PlayAudio>` and/or `<SpeakSentence>` verbs returned by this callback will be
+  executed for the called party only.  No other BXML verbs may be specified.  At the conclusion of the BXML, the called party will be bridged to the original
   call.
 
 ### Expected response
@@ -11,7 +11,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- BXML verbs to announce to called party -->
+    <!-- <PlayAudio> or <SpeakSentence> BXML verbs to announce to called party -->
 </Response>
 ```
 
