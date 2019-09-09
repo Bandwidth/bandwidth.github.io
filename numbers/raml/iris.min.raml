@@ -1343,7 +1343,7 @@ securitySchemes:
                     <tbody>
                         <tr>
                             <td valign="top">
-                                <p>git st
+                                <p>
                                     <strong>Parameter</strong>
                                 </p>
                             </td>
@@ -1857,7 +1857,7 @@ securitySchemes:
                     </tbody>
                 </table>
             get:
-                description: Retrieves the Bulk Port-in requests for the given account ID.
+                description: Retrieves the Bulk Port-in requests for the given account ID. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     page:
                         description: The Bulk port-in ID of the first order of the page. "1" is used as a convention for the first port-in in the account ID.
@@ -3127,10 +3127,10 @@ securitySchemes:
                 This API call supports <b>GET</b> to retrieve information about outstanding DLDAs orders.
             get:
                 description: |
-                    Retrieve a list of the DLDA orders that are associated with the account.
+                    Retrieve a list of the DLDA orders that are associated with the account. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     lastModifiedAfter:
@@ -3138,11 +3138,11 @@ securitySchemes:
                         type: string
                         example: 2013-10-25
                     modifiedDateFrom:
-                        description: For Date-based searches, the starting date of a date range that will be used to find DLDA Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find DLDA Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-22
                     modifiedDateTo:
-                        description: For Date-based searches, the ending date of a date range that will be used to find DLDA Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find DLDA Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
                 responses:
@@ -3728,7 +3728,7 @@ securitySchemes:
                 As with other order types, PARTIAL indicates that there were some errors detected, but that all elements of the order that could be processed were processed.
                 In this case, the order record will need to be examined to determine the items that failed.
             get:
-                description: Retrieve a list of the E911 orders that are associated with the account.
+                description: Retrieve a list of the E911 orders that are associated with the account. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the E911 order being searched for.
@@ -3737,27 +3737,27 @@ securitySchemes:
                         enum: [RECEIVED, PROCESSING, COMPLETE, PARTIAL, FAILED, ADJUSTED_COMPLETE, ADJUSTED_PARTIAL]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order.
                         type: string
                         example: 9199918388
                     callBack:
-                        description: A callback Telephone Number (TN) used for 911 purposes.
+                        description: <b class="required">*</b> A callback Telephone Number (TN) used for 911 purposes.
                         type: string
                         example: 9199918388
                     aeui:
-                        description: Alternate End-user Identifier used to identify the calling party for 911 purposes.
+                        description: <b class="required">*</b> Alternate End-user Identifier used to identify the calling party for 911 purposes.
                         type: string
                         example: Alter12345
                     customerOrderId:
-                        description: The Customer Order ID is an ID assigned by the account owner to provide a reference number for the E911 order.
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the E911 order.
                         type: string
                         example: ABCCorp12345
                     modifiedDateFrom:
-                        description: For Date-based searches, the starting date of a date range that will be used to find E911 Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find E911 Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-22
                     modifiedDateTo:
-                        description: For Date-based searches, the ending date of a date range that will be used to find E911 Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find E911 Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
                     createdDateFrom:
@@ -3777,7 +3777,7 @@ securitySchemes:
                         type: string
                         example: smckinnon
                     orderIdFragment:
-                        description: This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the E911 Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
+                        description: <b class="required">*</b> This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the E911 Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
                         type: string
                         example: ed1c0bed-e2
                     orderDetails:
@@ -4500,7 +4500,7 @@ securitySchemes:
                 This Import/Delete request reflects a customer-executed import or removal of numbers that they own and/or control.  The telephone numbers in question cannot be Bandwidth CLEC numbers, and are not subject to the normal telephone number life-cycle.<br><br>
             get:
                 description: |
-                    Retrieve a list of the externalTns orders that are associated with the account.
+                    Retrieve a list of the externalTns orders that are associated with the account. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the TN Option order being searched for.
@@ -4509,11 +4509,11 @@ securitySchemes:
                         enum: [RECEIVED, PROCESSING, COMPLETE, PARTIAL, FAILED]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     customerOrderId:
-                        description: The Customer Order ID is an ID assigned by the account owner to provide a reference number for the TN Option order.
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the TN Option order.
                         type: string
                         example: ABCCorp12345
                     createdDateFrom:
@@ -4525,7 +4525,7 @@ securitySchemes:
                         type: string
                         example: 2013-10-25
                     orderIdFragment:
-                        description: This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the TN Option Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
+                        description: <b class="required">*</b> This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the TN Option Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
                         type: string
                         example: ed1c0bed-e2
                     action:
@@ -4540,6 +4540,14 @@ securitySchemes:
                         example: SUBSCRIBER
                         enum: [CARRIER, SUBSCRIBER, ALL]
                         repeat: false
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find External Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find External Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-25
                 responses:
                     200:
                         description: |
@@ -4948,7 +4956,7 @@ securitySchemes:
             description: |
                 The importtnorders endpoint is used to manage requests to import a number into the Bandwidth Dashboard API.  The importtnorders endpoint causes the creation of an <b>order</b> that is used to manage the import tn event throughout the lifecycle of the request.
             get:
-                description: Retrieves the importtnorders requests for the given account ID.
+                description: Retrieves the importtnorders requests for the given account ID. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the importTnOrder being searched for.
@@ -4957,11 +4965,11 @@ securitySchemes:
                         enum: [RECEIVED, PROCESSING, COMPLETE, PARTIAL, FAILED]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     customerOrderId:
-                        description: The Customer Order ID is an ID assigned by the account owner to provide a reference number for the importTnOrder.
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the importTnOrder.
                         type: string
                         example: ABCCorp12345
                     createdDateFrom:
@@ -4970,6 +4978,14 @@ securitySchemes:
                         example: 2013-10-22
                     createdDateTo:
                         description: Checks the order's creation date against this value. Orders that have a creation date before this date will be included. Format is yyyy-MM-dd
+                        type: string
+                        example: 2013-10-25
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find Import Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find Import Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
                 responses:
@@ -5433,14 +5449,22 @@ securitySchemes:
                 This API call supports <b>GET</b> to retrieve information about outstanding LIDBs orders, and <b>POST</b> to create those orders.
             get:
                 description: |
-                    Retrieve a list of the LIDB orders that are associated with the account.
+                    Retrieve a list of the LIDB orders that are associated with the account. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     lastModifiedAfter:
                         description: Checks the order's last modified date against this value. Orders that have a modification date after this date will be included. Format is yyyy-MM-dd
+                        type: string
+                        example: 2013-10-25
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find Lidb Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find Lidb Orders that were modified within the date range. It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
                 responses:
@@ -5965,7 +5989,7 @@ securitySchemes:
                 <p/> * Error messages can differ from described depending on context of occurrence.
             get:
                 description: | 
-                    Retrieves a list of lsrorders.  Various query parameters can be used to filter the list of LSR Orders as documented below.
+                    Retrieves a list of lsrorders.  Various query parameters can be used to filter the list of LSR Orders as documented below. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the Lsr order being searched for.
@@ -5974,19 +5998,19 @@ securitySchemes:
                         enum: [PENDING, FOC, EXCEPTION, CANCELLED, COMPLETE, FAILED]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order.
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order.
                         type: string
                         example: 9199918388
                     pon:
-                        description: The PON that is referenced in the Lsr order.
+                        description: <b class="required">*</b> The PON that is referenced in the Lsr order.
                         type: string
                         example: Available
                     customerOrderId:
-                        description: The Customer Order ID is an ID assigned by the account owner to provide a reference number for the Port.
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the Port.
                         type: string
                         example: ABCCorp12345
                     orderIdFragment:
-                        description: This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the Lsr Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
+                        description: <b class="required">*</b> This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the Lsr Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
                         type: string
                         example: ed1c0bed-e2
                     createdDateFrom:
@@ -5999,6 +6023,14 @@ securitySchemes:
                         type: date
                         example: |
                           2015-10-25
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find Lsr Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find Lsr Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-25
                 responses:
                     200:
                         description: the lsrorders have been successfully retrieved and displayed in the payload.
@@ -6660,7 +6692,7 @@ securitySchemes:
                 <br>
             get:
                 description: |
-                    Retrieve a list of the TelephoneNumbersAssignment orders that are associated with the account.
+                    Retrieve a list of the TelephoneNumbersAssignment orders that are associated with the account. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the TelephoneNumbersAssignment order being searched for.  COMPLETE, PARTIAL, and FAILED are 'terminal' states indicating that the order has finished all processing.
@@ -6669,11 +6701,11 @@ securitySchemes:
                         enum: [RECEIVED, PROCESSING, COMPLETE, PARTIAL, FAILED]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     customerOrderId:
-                        description: The Customer Order ID is an ID assigned by the account owner to provide a reference number for the TelephoneNumbersAssignment order.
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the TelephoneNumbersAssignment order.
                         type: string
                         example: ABCCorp12345
                     createdDateFrom:
@@ -6685,7 +6717,7 @@ securitySchemes:
                         type: string
                         example: 2013-10-25
                     orderIdFragment:
-                        description: This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the TelephoneNumbersAssignment Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
+                        description: <b class="required">*</b> This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the TelephoneNumbersAssignment Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
                         type: string
                         example: ed1c0bed-e2
                     action:
@@ -6694,6 +6726,14 @@ securitySchemes:
                         example: ASSIGNED
                         enum: [ASSIGNED, UNASSIGNED]
                         repeat: false
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find TelephoneNumbersAssignment Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find TelephoneNumbersAssignment Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-25
                 responses:
                     200:
                         description: |
@@ -6857,7 +6897,7 @@ securitySchemes:
                 </ul>
                 <br>
             get:
-                description: GET is used to retrieve order ids and order details for previously attempted Telephone Number orders.
+                description: GET is used to retrieve order ids and order details for previously attempted Telephone Number orders. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters: 
                     page:
                         description: All Order retrievals must be paginated, using page and size indicators.  The page parameter contains the order-id that is to start the page, or "1" in the case of the first page.
@@ -6872,7 +6912,7 @@ securitySchemes:
                         required: true
                     customerOrderId: 
                         type: string
-                        description: The order ID that the Customer / Account assigned to the Order
+                        description: <b class="required">*</b> The order ID that the Customer / Account assigned to the Order
                         example: ORD12345
                     status:
                         type: string
@@ -8336,7 +8376,7 @@ securitySchemes:
                     </tbody>
                 </table>
             get:
-                description: Retrieves the port-in requests for the given account ID.
+                description: Retrieves the port-in requests for the given account ID. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     page:
                         description: The port-in ID of the first order of the page. Value "1" is used as a convention for the first port-in in the account ID (Use it to get a first page of orders list).
@@ -8369,11 +8409,11 @@ securitySchemes:
                         type: date
                         example: 2014-08-05
                     tn:
-                        description: The billing telephone number associated with the port-ins
+                        description: <b class="required">*</b> The billing telephone number associated with the port-ins
                         type: integer
                         example: 9191234567
                     pon:
-                        description: The port order number
+                        description: <b class="required">*</b> The port order number
                         type: string
                 responses:
                     200:
@@ -9225,7 +9265,7 @@ securitySchemes:
                 This resource deals with the port-out requests of the account ID; this resource can retrieve a port-out request
                 .
             get:
-                description: Retrieves a list of port-out requests for the given account ID.
+                description: Retrieves a list of port-out requests for the given account ID. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     page:
                         description: The port-out ID of the first order of the page. "1" is used as a convention for the first port-out in the account ID.
@@ -9361,7 +9401,7 @@ securitySchemes:
             description: |
                 The removeImportedTnOrders endpoint is used to manage requests to remove an imported number into the Bandwidth Dashboard API.  The removeImportedTnOrders endpoint causes the creation of an <b>order</b> that is used to manage the remove imported tn event throughout the lifecycle of the request.
             get:
-                description: Retrieves the removeImportedTnOrders requests for the given account ID.
+                description: Retrieves the removeImportedTnOrders requests for the given account ID. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the removeImportedTnOrders being searched for.
@@ -9370,11 +9410,11 @@ securitySchemes:
                         enum: [PROCESSING, COMPLETE, PARTIAL, FAILED]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     customerOrderId:
-                        description: The Customer Order Id is an Id assigned by the account owner to provide a reference number for the removeImportedTnOrder.
+                        description: <b class="required">*</b> The Customer Order Id is an Id assigned by the account owner to provide a reference number for the removeImportedTnOrder.
                         type: string
                         example: ABCCorp12345
                     createdDateFrom:
@@ -9383,6 +9423,14 @@ securitySchemes:
                         example: 2013-10-22
                     createdDateTo:
                         description: Checks the order's creation date against this value. Orders that have a creation date before this date will be included. Format is yyyy-MM-dd
+                        type: string
+                        example: 2013-10-25
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find Remove Imported Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find Remove Imported Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
                 responses:
@@ -10007,9 +10055,9 @@ securitySchemes:
                 There are 4 components to the SIP Credentials payload...
                 <ol>
                 <li>The UserName (required) - a string identifying the user.</li>
-                <li>The Domain (optional) - a string refining the identity of the user.  The Domain will be joined to the UserName with an '@' to create a composite username.  For example, the UserName 'bob' could be combined with the domain 'somewhere.com' to create a composite username 'bob@somewhere.com' </li> 
+                <li>The Domain (optional) - a string refining the identity of the user.  The Domain will be joined to the UserName with an '@' to create a composite username.  For example, the UserName 'bob' could be combined with the domain 'somewhere.com' to create a composite username 'bob@somewhere.com' </li>
                 <li>Hash1 (required) - a string representing a potential Hash values used to authenticate the client.  It is expected that the value will be computed from an MD5 Hash of 'composite-username:Realm:Password'.  The makeup of this hash is however transparent to the network.  It must align with a hash that the client is capable of creating</li>
-                <li>Hash1 (optional)- a string representing a potential Hash value used to authenticate the client.  It is anticipated that the value will be computed from an MD5 Hash of 'composite-username@Realm:Realm:Password'.  The makeup of this hash is however transparent to the network.  It must align with a hash that the client is capable of creating.</li>
+                <li>Hash1b (optional)- a string representing a potential Hash value used to authenticate the client.  It is anticipated that the value will be computed from an MD5 Hash of 'composite-username@Realm:Realm:Password'.  The makeup of this hash is however transparent to the network.  It must align with a hash that the client is capable of creating.</li>
                 </ol>
             get:
                 description: |
@@ -11556,7 +11604,7 @@ securitySchemes:
                                         Retrieve sms feature settings for sippeer
                                     responses:
                                         200:
-                                            description: A successful result that contains the response data
+                                            description: Payload contains sms feature settings for sippeer
                                             body:
                                                 application/xml:
                                                     example: |
@@ -11588,7 +11636,12 @@ securitySchemes:
                                                         </SipPeerSmsFeatureResponse>
                                 post:
                                     description: |
-                                        Set sms feature settings. Warning - settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer
+                                        Create sms feature settings.
+                                        Warning: settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer
+                                        Note: In case of using SMPP protocol, it may be not possible to add or delete hosts with large subnet masks.
+                                        Please refer to the documentation of
+                                        accounts/:accountid/sites/:siteid/sippeers/:sippeerid/products/:messaging/features/sms/smpp/hosts
+                                        endpoint for information about restrictions and other tips regarding smpp hosts.
                                     body:
                                         application/xml:
                                             example: |
@@ -11613,11 +11666,16 @@ securitySchemes:
                                                             <Priority>0</Priority>
                                                             <ConnectionType>RECEIVER_ONLY</ConnectionType>
                                                         </SmppHost>
+                                                        <SmppHost>
+                                                            <HostName>47.123.17.16/30</HostName>
+                                                            <Priority>0</Priority>
+                                                            <ConnectionType>RECEIVER_ONLY</ConnectionType>
+                                                        </SmppHost>
                                                     </SmppHosts>
                                                 </SipPeerSmsFeature>
                                     responses:
                                         201:
-                                            description: setting were successfully added
+                                            description: settings has been successfully created
                                             body:
                                                 application/xml:
                                                     example: |
@@ -11644,6 +11702,12 @@ securitySchemes:
                                                                         <Priority>0</Priority>
                                                                         <ConnectionType>RECEIVER_ONLY</ConnectionType>
                                                                     </SmppHost>
+                                                                    <SmppHost>
+                                                                        <HostName>47.123.17.16/30</HostName>
+                                                                        <HostId>18</HostId>
+                                                                        <Priority>0</Priority>
+                                                                        <ConnectionType>RECEIVER_ONLY</ConnectionType>
+                                                                    </SmppHost>
                                                                 </SmppHosts>
                                                             </SipPeerSmsFeature>
                                                         </SipPeerSmsFeatureResponse>
@@ -11652,12 +11716,23 @@ securitySchemes:
                                                 Bad Request. Possible errors in response:
                                                 <ul>
                                                    <li>Account level settings don`t exist</li>
-                                                   <li>CampaignID shouldn't be present if all of features 'A2pLongCode', 'TollFree' and 'ShortCode' are disabled</li>
-                                                   <li>CampaignID is required if at least one of features 'A2pLongCode', 'TollFree' and 'ShortCode' is enabled</li>
-                                                   <li>A2P Campaign ID '%s' is not valid. Needs to be between 1 and 64 characters. Only alphanumeric characters, whitespaces, dashes, underscores and dots are allowed.</li>
+                                                   <li>CampaignID shouldn't be present if all of features 'A2pLongCode', 'TollFree' and
+                                                   'ShortCode' are disabled</li>
+                                                   <li>CampaignID is required if at least one of features 'A2pLongCode', 'TollFree' and
+                                                   'ShortCode' is enabled</li>
+                                                   <li>A2P Campaign ID '%s' is not valid. Needs to be between 1 and 64 characters. Only alphanumeric
+                                                   characters, whitespaces, dashes, underscores and dots are allowed.</li>
                                                    <li>A2P Message Class '%s' is not valid.</li>
-                                                   <li>A2P Message Class is required if at least one of features 'A2pLongCode', 'TollFree' and 'ShortCode' is enabled</li>
-                                                   <li>A2P Message Class shouldn't be present if all of features 'A2pLongCode', 'TollFree' and 'ShortCode' are disabled</li>
+                                                   <li>A2P Message Class is required if at least one of features 'A2pLongCode', 'TollFree' and
+                                                   'ShortCode' is enabled</li>
+                                                   <li>A2P Message Class shouldn't be present if all of features 'A2pLongCode', 'TollFree' and
+                                                   'ShortCode' are disabled</li>
+                                                   <li>Host ip or mask can't be changed</li>
+                                                   <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
+                                                   <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
+                                                   <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
+                                                   <li>The IP address provided: <47.123.17.17> contains a non zero subnet portion. An equivalent IP
+                                                   address such as <47.123.17.16> with a zero subnet value must be provided</li>
                                                 </ul>
                                             body:
                                                 application/xml:
@@ -11669,8 +11744,30 @@ securitySchemes:
                                                                 <Description>Can't create sip peer http protocol sms feature without account level http settings.</Description>
                                                             </ResponseStatus>
                                                         </SipPeerSmsFeatureResponse>
+                                        403:
+                                            description: |
+                                                Access denied. Possible errors in response:
+                                                <ul>
+                                                   <li>Configuring subnet values larger than /20 requires Bandwidth staff intervention</li>
+                                                </ul>
+                                            body:
+                                                application/xml:
+                                                    example: |
+                                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                        <SipPeerSmsFeatureResponse>
+                                                            <ResponseStatus>
+                                                                <ErrorCode>13674</ErrorCode>
+                                                                <Description>Configuring subnet values larger than /20 requires Bandwidth staff intervention</Description>
+                                                            </ResponseStatus>
+                                                        </SipPeerSmsFeatureResponse>
                                 put:
-                                    description: update sms feature settings. Warning - settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer
+                                    description: |
+                                        Update sms feature settings.
+                                        Warning: settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer
+                                        Note: In case of using SMPP protocol, it may be not possible to add or delete hosts with large subnet masks.
+                                        Please refer to the documentation of
+                                        accounts/:accountid/sites/:siteid/sippeers/:sippeerid/products/:messaging/features/sms/smpp/hosts
+                                        endpoint for information about restrictions and other tips regarding smpp hosts.
                                     body:
                                         application/xml:
                                             example: |
@@ -11696,11 +11793,17 @@ securitySchemes:
                                                             <Priority>0</Priority>
                                                             <ConnectionType>TRANSCEIVER</ConnectionType>
                                                         </SmppHost>
+                                                        <SmppHost>
+                                                            <HostName>47.123.17.16/30</HostName>
+                                                            <HostId>18</HostId>
+                                                            <Priority>0</Priority>
+                                                            <ConnectionType>TRANSCEIVER</ConnectionType>
+                                                        </SmppHost>
                                                     </SmppHosts>
                                                 </SipPeerSmsFeature>
                                     responses:
                                         200:
-                                            description: settings were successfully updated
+                                            description: settings have been successfully updated
                                             body:
                                                 application/xml:
                                                     example: |
@@ -11727,6 +11830,12 @@ securitySchemes:
                                                                         <Priority>0</Priority>
                                                                         <ConnectionType>TRANSCEIVER</ConnectionType>
                                                                     </SmppHost>
+                                                                    <SmppHost>
+                                                                        <HostName>47.123.17.16/30</HostName>
+                                                                        <HostId>18</HostId>
+                                                                        <Priority>0</Priority>
+                                                                        <ConnectionType>TRANSCEIVER</ConnectionType>
+                                                                    </SmppHost>
                                                                 </SmppHosts>
                                                             </SipPeerSmsFeature>
                                                         </SipPeerSmsFeatureResponse>
@@ -11740,6 +11849,11 @@ securitySchemes:
                                                    <li>A2P Message Class '%s' is not valid.</li>
                                                    <li>A2P Message Class is required if at least one of features 'A2pLongCode', 'TollFree' and 'ShortCode' is enabled</li>
                                                    <li>A2P Message Class shouldn't be present if all of features 'A2pLongCode', 'TollFree' and 'ShortCode' are disabled</li>
+                                                   <li>Host ip or mask can't be changed</li>
+                                                   <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
+                                                   <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
+                                                   <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
+                                                   <li>The IP address provided: <47.123.17.17> contains a non zero subnet portion. An equivalent IP address such as <47.123.17.16> with a zero subnet value must be provided</li>
                                                 </ul>
                                             body:
                                                 application/xml:
@@ -11751,13 +11865,29 @@ securitySchemes:
                                                                 <Description>CampaignID shouldn't be present if all of features 'A2pLongCode', 'TollFree' and 'ShortCode' are disabled.</Description>
                                                             </ResponseStatus>
                                                         </SipPeerSmsFeatureResponse>
+                                        403:
+                                            description: |
+                                                Access denied. Possible errors in response:
+                                                <ul>
+                                                   <li>Configuring subnet values larger than /20 requires Bandwidth staff intervention</li>
+                                                </ul>
+                                            body:
+                                                application/xml:
+                                                    example: |
+                                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                        <SipPeerSmsFeatureResponse>
+                                                            <ResponseStatus>
+                                                                <ErrorCode>13674</ErrorCode>
+                                                                <Description>Configuring subnet values larger than /20 requires Bandwidth staff intervention</Description>
+                                                            </ResponseStatus>
+                                                        </SipPeerSmsFeatureResponse>
                                 delete:
                                     description: delete sms settings
                                     responses:
                                         200:
-                                            description: settings were deleted
+                                            description: settings have been deleted
                                         404:
-                                            description: sms settings were not found
+                                            description: sms settings do not exist
                                 /smpp/hosts: 
                                     get:
                                         description: |
@@ -11791,15 +11921,56 @@ securitySchemes:
                                                                 </SmsHost>
                                                               </SmsHosts>
                                                             </SmsSmppHostsResponse>
+                                            400:
+                                                description: |
+                                                    Bad Request. Possible errors in response:
+                                                    <ul>
+                                                       <li>Host ip or mask can't be changed</li>
+                                                       <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
+                                                       <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
+                                                       <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
+                                                       <li>The IP address provided: <47.123.17.17> contains a non zero subnet portion. An equivalent IP address such as <47.123.17.16> with a zero subnet value must be provided</li>
+                                                    </ul>
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SmsSmppHostsResponse>
+                                                                <ResponseStatus>
+                                                                    <ErrorCode>13637</ErrorCode>
+                                                                    <Description>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</Description>
+                                                                </ResponseStatus>
+                                                            </SmsSmppHostsResponse>
+                                            403:
+                                                description: |
+                                                    Access denied. Possible errors in response:
+                                                    <ul>
+                                                       <li>Configuring subnet values larger than /20 requires Bandwidth staff intervention</li>
+                                                    </ul>
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SmsSmppHostsResponse>
+                                                                <ResponseStatus>
+                                                                    <ErrorCode>13674</ErrorCode>
+                                                                    <Description>Configuring subnet values larger than /20 requires Bandwidth staff intervention</Description>
+                                                                </ResponseStatus>
+                                                            </SmsSmppHostsResponse>
                                     post:
                                         description: |
-                                            Add smpp host
+                                          Add smpp host. Host address may or may not include the subnet mask (/32 is assumed if not specified)
+                                          Regular users can only specify subnets not larger then /20. Updating
+                                          subnet values larger than /20 requires Bandwidth staff intervention (Bandwidth staff may define subnets up
+                                          to /14)
+                                          Also, host address should not intersect with addresses used by other services or other accounts,
+                                          otherwise a validation error will occur.
                                         body:
                                             application/xml:
                                                 example: |
                                                     <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
                                                     <SmsHost>
-                                                      <HostName>3.196.122.33</HostName>
+                                                      <HostName>47.123.17.16/30/HostName>
                                                       <Priority>0</Priority>
                                                       <ConnectionType>RECEIVER_ONLY</ConnectionType>
                                                     </SmsHost>
@@ -11812,12 +11983,48 @@ securitySchemes:
                                                             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                                                             <SmsSmppHostResponse>
                                                               <SmsHost>
-                                                                <HostName>3.196.122.33</HostName>
+                                                                <HostName>47.123.17.16/30</HostName>
                                                                 <HostId>9</HostId>
                                                                 <Priority>0</Priority>
                                                                 <ConnectionType>RECEIVER_ONLY</ConnectionType>
                                                               </SmsHost>
                                                             </SmsSmppHostResponse>
+                                            400:
+                                                description: |
+                                                    Bad Request. Possible errors in response:
+                                                    <ul>
+                                                       <li>Host ip or mask can't be changed</li>
+                                                       <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
+                                                       <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
+                                                       <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
+                                                       <li>The IP address provided: <47.123.17.17> contains a non zero subnet portion. An equivalent IP address such as <47.123.17.16> with a zero subnet value must be provided</li>
+                                                    </ul>
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SmsSmppHostsResponse>
+                                                                <ResponseStatus>
+                                                                    <ErrorCode>13637</ErrorCode>
+                                                                    <Description>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</Description>
+                                                                </ResponseStatus>
+                                                            </SmsSmppHostsResponse>
+                                            403:
+                                                description: |
+                                                    Access denied. Possible errors in response:
+                                                    <ul>
+                                                       <li>Configuring subnet values larger than /20 requires Bandwidth staff intervention</li>
+                                                    </ul>
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SmsSmppHostsResponse>
+                                                                <ResponseStatus>
+                                                                    <ErrorCode>13674</ErrorCode>
+                                                                    <Description>Configuring subnet values larger than /20 requires Bandwidth staff intervention</Description>
+                                                                </ResponseStatus>
+                                                            </SmsSmppHostsResponse>
                             /messaging/features/mms: 
                                 get:
                                     description: |
@@ -12701,7 +12908,7 @@ securitySchemes:
                 The tnoptions Resource represents the requests made to the Bandwidth Dashboard API to add or otherwise manage a request to assign line features to the telephone number.This API allows the creation and observation of a <b>"TN Option"</b> work order that causes an update of a address information in a network Database. <br>
             get:
                 description: |
-                    Retrieve a list of the TN Option orders that are associated with the account.
+                    Retrieve a list of the TN Option orders that are associated with the account. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
                 queryParameters:
                     status:
                         description: The status of the TN Option order being searched for.
@@ -12710,19 +12917,19 @@ securitySchemes:
                         enum: [RECEIVED, PROCESSING, COMPLETE, PARTIAL, FAILED]
                         repeat: true
                     tn:
-                        description: A Telephone Number (TN) that is referenced in the order
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
                         type: string
                         example: 9199918388
                     customerOrderId:
-                        description: The Customer Order ID is an ID assigned by the account owner to provide a reference number for the TN Option order.
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the TN Option order.
                         type: string
                         example: ABCCorp12345
                     modifiedDateFrom:
-                        description: For Date-based searches, the starting date of a date range that will be used to find TN Option Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find TN Option Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-22
                     modifiedDateTo:
-                        description: For Date-based searches, the ending date of a date range that will be used to find TN Option Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find TN Option Orders that were modified within the date range.  It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
                     createdDateFrom:
@@ -12742,7 +12949,7 @@ securitySchemes:
                         type: string
                         example: smckinnon
                     orderIdFragment:
-                        description: This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the TN Option Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
+                        description: <b class="required">*</b> This search parameter represents the internal Bandwidth Dashboard API ID that has been assigned to the TN Option Order.  This parameter is the first few characters of the internal ID - the entire ID does not need to be specified.
                         type: string
                         example: ed1c0bed-e2
                     orderDetails:
@@ -13204,6 +13411,43 @@ securitySchemes:
                     responses:
                         200:
                             description: A reservation has been successfully deleted.
+        /tntypes: 
+            description: Controls the type of telephone numbers that can be added to an account.
+            get:
+                description: |
+                    Return all Tn Types assigned to an account.
+                responses:
+                    200:
+                        description: All Tn Types assigned to account.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <AccountTnTypesResponse>
+                                        <ErrorList/>
+                                        <AccountTnTypes>
+                                            <TnTypes>
+                                                <TnType>
+                                                    <Source>libphonenumber</Source>
+                                                    <Type>FIXED_LINE</Type>
+                                                    <IsAllowed>true</IsAllowed>
+                                                    <TnTypeId>1</TnTypeId>
+                                                </TnType>
+                                                <TnType>
+                                                    <Source>libphonenumber</Source>
+                                                    <Type>FIXED_LINE_OR_MOBILE</Type>
+                                                    <IsAllowed>true</IsAllowed>
+                                                    <TnTypeId>2</TnTypeId>
+                                                </TnType>
+                                                <TnType>
+                                                    <Source>libphonenumber</Source>
+                                                    <Type>MOBILE</Type>
+                                                    <IsAllowed>true</IsAllowed>
+                                                    <TnTypeId>3</TnTypeId>
+                                                </TnType>
+                                            </TnTypes>
+                                        </AccountTnTypes>
+                                    </AccountTnTypesResponse>
         /users: 
             get:
                 description: Retrieves a list of users as specified by the account ID.

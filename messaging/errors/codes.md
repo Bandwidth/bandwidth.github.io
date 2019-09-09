@@ -162,6 +162,14 @@ Bandwidth’s error code schema for messaging V2 is comprised of a 4 digit code.
 
 ## Message Delivery Codes Table {#error-codes}
 
+### Error Types
+
+* [Bandwidth Detected Client Errors](#client-errors)
+* [Carrier Reported Client Errors](#carrier-client)
+* [Bandwidth Service Failures](#service-errors)
+* [Carrier Reported Service Failures](#carrier-service-errors)
+* [Carrier Errors with Ambiguous Cause](#carrier-ambiguous-errors)
+
 ### Bandwidth Detected Client Errors {#client-errors}
 
 A 4xx code indicates that Bandwidth or the downstream carrier has identified some element of the message request unacceptable.  Repeating the request will produce the same result.

@@ -39,7 +39,8 @@ module.exports = function ($) {
 			'portingPhoneNumbers.html',
 			'ratelimits.html',
 			'codes.html',
-			"errors.html"
+			"errors.html",
+			"httpErrors.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
