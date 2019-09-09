@@ -78,7 +78,7 @@ Content-Type: application/json; charset=utf-8
 
 ## 401 – UNAUTHORIZED {#http-401}
 
-Bandwidth returns a `HTTP-401` Error when the specified user does not have access to the account. Ensure the username and password are correct along with the correct account number. See the [security & credentials guide](../guides/accountCredentials.md) for more information.
+Bandwidth returns a `HTTP-401` Error when the specified user does not have access to the account. Ensure the username and password are correct along with the correct account number. See the [security & credentials guide](../../guides/accountCredentials.md) for more information.
 
 {% extendmethod %}
 
@@ -180,7 +180,7 @@ Bandwidth returns a `HTTP-404` when the path is not found. Ensure the path of th
 | status    | HTTP Status            | `404`                          |
 | error     | Description of error   | `Not found`                    |
 | message   | Any more information   | `no message found`             |
-| path      | Path that wasn't found | `/peanutbutter`                |
+| path      | Path that wasn't found | `/happy`                       |
 
 {% common %}
 
