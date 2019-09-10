@@ -4,10 +4,9 @@
 
 ```
 nuget install Bandwidth.Sdk -OutputDirectory packages -Version 1.0.0-beta
-
-//This only adds the package to the disk.  
-//The packages.config or dependency file needs to be modified to add it to the project.
 ```
+
+*Note This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
 
 ### Initialize Bandwidth Client
 
