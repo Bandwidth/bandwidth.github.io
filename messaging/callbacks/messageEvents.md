@@ -9,11 +9,11 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 * Because we guarantee "at least once delivery" of events, it is possible (but not common) to receive duplicate message events. Your server should be able to handle duplicates.
 
 ## Incoming Message Concepts
-* For incoming messages sent to your numbers, a callback will also be received, notifying your [Application](../../applications/about.md) of the incoming message. For group messages where you own multiple recipient phone numbers, you will receive a distinct event and `messageId` for each individual recipient.
+* For incoming messages sent to your numbers, a callback will also be received, notifying your [Application](../../account/applications/about.md) of the incoming message. For group messages where you own multiple recipient phone numbers, you will receive a distinct event and `messageId` for each individual recipient.
 
 ## Outgoing Message Callbacks and Delivery Receipts Concepts
 
-* Callbacks will be sent via an HTTP POST request to the Callback URL for the [Application](../../applications/about.md) associated with the `applicationId` field sent with the [send message](../methods/messages/createMessage.md) payload
+* Callbacks will be sent via an HTTP POST request to the Callback URL for the [Application](../../account/applications/about.md) associated with the `applicationId` field sent with the [send message](../methods/messages/createMessage.md) payload
 * You will get a callback for any event related to that message.
   * For example, you will get an HTTP callback when your message is delivered, or blocked. In addition, you will get an event for any kind of Delivery Receipt that the destination carrier sends back, regarding the delivery of your message.
 * For each message sent, you **will** receive either (but not both) a [Message Delivered](msgDelivered.md) or [Message Failed](messageFailed.md) event.

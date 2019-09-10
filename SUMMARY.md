@@ -65,14 +65,21 @@
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
 
 ## Applications
-* [Applications](applications/about.md)
-	* [POST Create Application](applications/postApplications.md)
-	* [GET List Applications](applications/getApplications.md)
-	* [GET Fetch Application info](applications/getApplicationsApplicationId.md)
-	* [PATCH Partial Update Application](applications/patchApplicationsApplicationId.md)
-	* [PUT Completely Update Application](applications/putApplicationsApplicationId.md)
-	* [DELETE Remove Application](applications/deleteApplicationsApplicationId.md)
-	* [GET List Associated Sippeers](applications/getApplicationsApplicationIdSippeers.md)
+* [Applications](account/applications/about.md)
+	* [POST Create Application](account/applications/postApplications.md)
+	* [GET List Applications](account/applications/getApplications.md)
+	* [GET Fetch Application info](account/applications/getApplicationsApplicationId.md)
+	* [PATCH Partial Update Application](account/applications/patchApplicationsApplicationId.md)
+	* [PUT Completely Update Application](account/applications/putApplicationsApplicationId.md)
+	* [DELETE Remove Application](account/applications/deleteApplicationsApplicationId.md)
+	* [GET List Associated Sippeers](account/applications/getApplicationsApplicationIdSippeers.md)
+* [Subscriptions](account/subscriptions/about.md)
+	* [POST Create Subscription](account/subscriptions/postSubscriptions.md)
+	* [GET List Subscription](account/subscriptions/getSubscriptions.md)
+	* [GET Fetch Subscription info](account/subscriptions/getSubscriptionsSubscriptionId.md)
+	* [PUT Completely Update Subscription](account/subscriptions/putSubscriptionsSubscriptionId.md)
+	* [DELETE Remove Subscription](account/subscriptions/deleteSubscriptionsSubscriptionId.md)
+
 
 ## Numbers
 * [Overview](numbers/about.md)

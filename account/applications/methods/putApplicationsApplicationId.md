@@ -12,7 +12,7 @@
 | Parameters               | Mandatory | Description                                                                                                                         |
 |:-------------------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------|
 | `AppName`                | Yes       | Plain text name of the application                                                                                                  |
-| `CallbackUrl`            | Yes       | Url to receive either [message events](../messaging/callbacks/messageEvents.md) or [voice events](../voice/bxml/callbacks/about.md) |
+| `CallbackUrl`            | Yes       | Url to receive either [message events](../../../messaging/callbacks/messageEvents.md) or [voice events](../voice/bxml/callbacks/about.md) |
 | `CallbackCreds`          | No        | Basic auth credentials                                                                                                              |
 | `CallbackCreds.UserId`   | No        | Basic auth `UserId`                                                                                                                 |
 | `CallbackCreds.Password` | No        | Basic auth `Password`                                                                                                               |
