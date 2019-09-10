@@ -86,7 +86,7 @@ To validate the portout (IE positive validation of the port-out request). There 
 
 | Parameter  | Type      | Description                                                               |
 |:-----------|:----------|:--------------------------------------------------------------------------|
-| `Portable` | `boolean` | Must be `true`                                                           |
+| `Portable` | `boolean` | Must be `true`                                                            |
 | `PON`      | `string`  | PON for information and correlation purposes. (optional)( 25 characters ) |
 
 {% common %}
@@ -126,6 +126,23 @@ The error codes and error explanation payloads below are the ones that we expect
 * If the returned field/fields was/were not provided in the original request then that indicates that the field was missing from the request and should be provided
 * If the returned field/fields was/were different than provided then that indicates an error in the requesting information
 * For the port-out to be considered valid all telephone numbers in the request should be returned - If one telephone number is invalid then the request fails.
+
+| Code | Meaning                                                     | Disposition                 |
+|:-----|:------------------------------------------------------------|:----------------------------|
+| 7510 | Required Account Code missing                               | Request placed in Exception |
+| 7511 | Invalid Account Code                                        | Request placed in Exception |
+| 7512 | Required PIN missing                                        | Request placed in Exception |
+| 7513 | PIN Invalid                                                 | Request placed in Exception |
+| 7514 | Required ZIP Code missing                                   | Request placed in Exception |
+| 7515 | Invalid ZIP Code                                            | Request placed in Exception |
+| 7516 | Telephone Number not recognized or invalid for this account | Request Cancelled           |
+| 7517 | Too many Telephone numbers in this request                  | Request Cancelled           |
+| 7518 | Telephone Number Not Active                                 | Request Cancelled           |
+| 7519 | Customer info does not match                                | Request placed in Exception |
+| 7598 | Invalid Request -                                           | Request placed in Exception |
+| 7599 | Fatal Error in Processing                                   | Request succeeds            |
+| nnnn | Anything Else                                               | Request succeeds            |
+
 
 {% extendmethod %}
 
