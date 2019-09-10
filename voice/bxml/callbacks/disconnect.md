@@ -20,7 +20,7 @@ HTTP/1.1 204
 | startTime    | Time the call was started, in ISO 8601 format.                                                                                      |
 | answerTime   | (optional) Time the call was answered, in ISO 8601 format.                                                                          |
 | endTime      | Time the call ended, in ISO 8601 format.                                                                                            |
-| cause        | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit-call-creation-rate`,  `account-limit-concurrent-calls`, `node-capacity-exceeded`, `error`, or `unknown`. `hangup` indicates the call has ended normally. |
+| cause        | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, or `unknown`. `hangup` indicates the call has ended normally. |
 | errorMessage | (optional) Text explaining the reason that caused the call to be ended in case of errors.                                           |
 | errorId      | (optional) Bandwidth internal id that references the error event.                                                                   |
 | tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null.                     |
