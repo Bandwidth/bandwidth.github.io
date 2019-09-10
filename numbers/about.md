@@ -7,7 +7,7 @@
 
 | Guide                                                                     | Description                                                                                                                     |
 |:--------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
-| [Managing Subscriptions](../../account/subscriptions/about.md)            | Learn about how Bandwidth manages asynchronous ordering using subscriptions to manage order updates via webhooks/HTTP Callbacks |
+| [Managing Subscriptions](../account/subscriptions/about.md)            | Learn about how Bandwidth manages asynchronous ordering using subscriptions to manage order updates via webhooks/HTTP Callbacks |
 | [Searching Phone Numbers](./guides/searchForNumbers.md)                   | Learn about the basics for searching Bandwidth's available phone number inventory                                               |
 | [On-demand Search and Ordering](./guides/onDemandNumberSearchAndOrder.md) | Learn about the basics for searching **then** ordering a specific phone number                                                  |
 | [Order Phone Numbers (lite)](./guides/numberOrderingSummary.md)           | Get a snap shot of ordering phone numbers with the Bandwidth Phone Number Ordering API                                          |
