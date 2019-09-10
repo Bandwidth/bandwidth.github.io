@@ -40,7 +40,8 @@ module.exports = function ($) {
 			'ratelimits.html',
 			'codes.html',
 			"errors.html",
-			"httpErrors.html"
+			"httpErrors.html",
+			"portoutValidation.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {

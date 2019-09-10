@@ -85,6 +85,9 @@
 * [Callbacks](numbers/callbacks/about.md)
 	* [Order Notification](numbers/callbacks/orderNotification.md)
 	* [Portout Validation](numbers/callbacks/portoutValidation.md)
+		* [Callback Request](numbers/callbacks/portoutValidation.md#callback-request)
+		* [Allow Portout](numbers/callbacks/portoutValidation.md#allow-portout)
+		* [Deny Portout](numbers/callbacks/portoutValidation.md#deny-portout)
 	* [Events Notification](numbers/callbacks/eventNotification.md)
 * [Errors](numbers/error.md)
 
