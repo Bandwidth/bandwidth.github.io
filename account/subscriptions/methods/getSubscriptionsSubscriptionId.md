@@ -17,7 +17,7 @@ Get information about an existing Subscription
 
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{subscriptionId}} HTTP/1.1
-Content-Type: subscription/xml; charset=utf-8
+Content-Type: application/xml; charset=utf-8
 Authorization: {user:password}
 ```
 
@@ -27,21 +27,18 @@ Authorization: {user:password}
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: subscription/xml
+Content-Type: application/xml
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SubscriptionProvisioningResponse>
-    <Subscription>
-        <SubscriptionId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</SubscriptionId>
-        <ServiceType>Messaging-V2</ServiceType>
-        <AppName>Production Server</AppName>
-        <CallbackUrl>https://yourSecureSite.com/callbacks</CallbackUrl>
-        <CallbackCreds>
-            <UserId>Your-User-id</UserId>
-            <Password>Your-Password</Password>
-        </CallbackCreds>
-    </Subscription>
-</SubscriptionProvisioningResponse>
+<Subscription>
+    <SubscriptionId>991a60d7-a612-48a5-a86e-326b51997cac</SubscriptionId>
+    <OrderType>portins</OrderType>
+    <CallbackSubscription>
+        <URL>http://customer.com:8087/path/BandwidthHandler</URL>
+        <Expiry>4283455101</Expiry>
+        <Status>200 OK</Status>
+    </CallbackSubscription>
+</Subscription>
 ```
 
 {% endmethod %}

@@ -17,7 +17,7 @@ List all subscriptions on your account
 
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions HTTP/1.1
-Content-Type: subscription/xml; charset=utf-8
+Content-Type: application/xml; charset=utf-8
 Authorization: {user:password}
 ```
 
@@ -27,40 +27,56 @@ Authorization: {user:password}
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: subscription/xml
+Content-Type: application/xml
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SubscriptionProvisioningResponse>
-    <SubscriptionList>
+<SubscriptionsResponse>
+    <Subscriptions>
         <Subscription>
-            <SubscriptionId>2b6f1443-2b7e-4649-ac28-9c3a723d12f9</SubscriptionId>
-            <ServiceType>Messaging-V2</ServiceType>
-            <AppName>Production Server</AppName>
-            <CallbackUrl>https://yourSecureSite.com/callbacks</CallbackUrl>
-            <CallbackCreds>
-                <UserId>Your-User-id</UserId>
-                <Password>Your-Password</Password>
-            </CallbackCreds>
+            <SubscriptionId>0b3aa54d-0ce5-4f5b-bd75-1c30967b197f</SubscriptionId>
+            <OrderType>orders</OrderType>
+            <EmailSubscription>
+                <Email>bwtest@gmail.com</Email>
+                <DigestRequested>NONE</DigestRequested>
+            </EmailSubscription>
         </Subscription>
         <Subscription>
-            <SubscriptionId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</SubscriptionId>
-            <ServiceType>Messaging-V2</ServiceType>
-            <AppName>Production Server 2</AppName>
-            <CallbackUrl>https://yourUnsecureSite.com/callbacks</CallbackUrl>
-            <CallbackCreds/>
+            <SubscriptionId>ddf05927-780f-4f8f-89ab-e581f52f5f20</SubscriptionId>
+            <CallbackSubscription>
+                <URL>"https://company.com/iriscallback"</URL>
+                <Expiry>30000</Expiry>
+                <Status>some message containing status code and response body of last callback</Status>
+                <CallbackCredentials>
+                    <BasicAuthentication>
+                        <Username>iris</Username>
+                    </BasicAuthentication>
+                </CallbackCredentials>
+            </CallbackSubscription>
         </Subscription>
         <Subscription>
-            <SubscriptionId>2afad54d-8a65-4085-b25b-4c86fd5819d0</SubscriptionId>
-            <ServiceType>Messaging-V2</ServiceType>
-            <AppName>Dev Site</AppName>
-            <CallbackUrl>https://dev.yourSecureSite.com/callbacks</CallbackUrl>
-            <CallbackCreds>
-                <UserId>Your-User-id</UserId>
-                <Password>Your-Password</Password>
-            </CallbackCreds>
+            <SubscriptionId>1b2av54d-0ce5-4f5b-bd75-1c30967b197f</SubscriptionId>
+            <EventType>MESSAGING_LOST</EventType>
+            <EmailSubscription>
+                <Email>bwtest@gmail.com</Email>
+                <DigestRequested>DAILY</DigestRequested>
+            </EmailSubscription>
         </Subscription>
-    </SubscriptionList>
-</SubscriptionProvisioningResponse>
+        <Subscription>
+            <SubscriptionId>1cf05927-780f-4f8f-89ab-e581f52f5e12</SubscriptionId>
+            <EventType>MESSAGING_LOST</EventType>
+            <CallbackSubscription>
+                <URL>"https://company.com/iriscallback"</URL>
+                <Expiry>30000</Expiry>
+                <Status>some message containing status code and response body of last callback</Status>
+                <CallbackCredentials>
+                    <BasicAuthentication>
+                        <Username>iris</Username>
+                    </BasicAuthentication>
+                </CallbackCredentials>
+            </CallbackSubscription>
+        </Subscription>
+    </Subscriptions>
+</SubscriptionsResponse>
 ```
 
 {% endmethod %}

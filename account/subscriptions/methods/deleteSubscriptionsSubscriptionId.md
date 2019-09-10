@@ -17,7 +17,7 @@ Delete an existing subscription
 
 ```http
 DELETE https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{subscriptionId}} HTTP/1.1
-Content-Type: subscription/xml; charset=utf-8
+Content-Type: application/xml; charset=utf-8
 Authorization: {user:password}
 ```
 
@@ -27,7 +27,6 @@ Authorization: {user:password}
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: subscription/xml
 ```
 
 {% endmethod %}

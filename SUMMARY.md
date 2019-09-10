@@ -66,19 +66,19 @@
 
 ## Applications
 * [Applications](account/applications/about.md)
-	* [POST Create Application](account/applications/postApplications.md)
-	* [GET List Applications](account/applications/getApplications.md)
-	* [GET Fetch Application info](account/applications/getApplicationsApplicationId.md)
-	* [PATCH Partial Update Application](account/applications/patchApplicationsApplicationId.md)
-	* [PUT Completely Update Application](account/applications/putApplicationsApplicationId.md)
-	* [DELETE Remove Application](account/applications/deleteApplicationsApplicationId.md)
-	* [GET List Associated Sippeers](account/applications/getApplicationsApplicationIdSippeers.md)
+	* [POST Create Application](account/applications/methods/postApplications.md)
+	* [GET List Applications](account/applications/methods/getApplications.md)
+	* [GET Fetch Application info](account/applications/methods/getApplicationsApplicationId.md)
+	* [PATCH Partial Update Application](account/applications/methods/patchApplicationsApplicationId.md)
+	* [PUT Completely Update Application](account/applications/methods/putApplicationsApplicationId.md)
+	* [DELETE Remove Application](account/applications/methods/deleteApplicationsApplicationId.md)
+	* [GET List Associated Sippeers](account/applications/methods/getApplicationsApplicationIdSippeers.md)
 * [Subscriptions](account/subscriptions/about.md)
-	* [POST Create Subscription](account/subscriptions/postSubscriptions.md)
-	* [GET List Subscription](account/subscriptions/getSubscriptions.md)
-	* [GET Fetch Subscription info](account/subscriptions/getSubscriptionsSubscriptionId.md)
-	* [PUT Completely Update Subscription](account/subscriptions/putSubscriptionsSubscriptionId.md)
-	* [DELETE Remove Subscription](account/subscriptions/deleteSubscriptionsSubscriptionId.md)
+	* [POST Create Subscription](account/subscriptions/methods/postSubscriptions.md)
+	* [GET List Subscription](account/subscriptions/methods/getSubscriptions.md)
+	* [GET Fetch Subscription info](account/subscriptions/methods/getSubscriptionsSubscriptionId.md)
+	* [PUT Completely Update Subscription](account/subscriptions/methods/putSubscriptionsSubscriptionId.md)
+	* [DELETE Remove Subscription](account/subscriptions/methods/deleteSubscriptionsSubscriptionId.md)
 
 
 ## Numbers

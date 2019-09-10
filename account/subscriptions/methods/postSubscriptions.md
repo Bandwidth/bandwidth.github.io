@@ -10,8 +10,6 @@ Create a new [subscription](../about.md)
 
 ### Supported Parameters
 
-
-
 | Parameters                     | Mandatory                  | Description                                                                                                                                                                                                                                                       |
 |:-------------------------------|:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `OrderType`                    | Yes                        | The type of Order (see table below) of the subscription                                                                                                                                                                                                           |
@@ -51,7 +49,7 @@ Create a new [subscription](../about.md)
 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions HTTP/1.1
-Content-Type: subscription/xml; charset=utf-8
+Content-Type: application/xml; charset=utf-8
 Authorization: {user:password}
 
 <Subscription>
@@ -64,8 +62,7 @@ Authorization: {user:password}
                 <Username> [username] </Username>
                 <Password> [password] </Password>
             </BasicAuthentication>
-            <!-- optional, a BASE64 encoded public key matching the notification receiving server -->
-            <PublicKey>LS0tLS1CRUdJTiBDRVJUSUZJ [...] kQgQ0VSVElGSUNBVEUtLS0tLQ0K</PublicKey>
+            <PublicKey>kQgQ0VSVElGSUNBVEUtLS0tLQ0K</PublicKey>
         </CallbackCredentials>
     </CallbackSubscription>
 </Subscription>
@@ -87,7 +84,7 @@ Location: https://.../accounts/{{accountId}}/subscriptions/{{subscriptionId}}
 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions HTTP/1.1
-Content-Type: subscription/xml; charset=utf-8
+Content-Type: application/xml; charset=utf-8
 Authorization: {user:password}
 
 <Subscription>
