@@ -39,7 +39,6 @@
 		* [Creating and Managing a DLDA Order](numbers/guides/managingLineFeatures.md#create-dlda)
 		* [Retrieving the history of a DLDA order](numbers/guides/managingLineFeatures.md#get-dlda)
 		* [Checking DLDA information associated with a TN](numbers/guides/managingLineFeatures.md#check-dlda)
-	* [Managing Subscriptions](numbers/guides/managingSubscriptions.md)
 	* [Managing Orders](numbers/guides/managingOrders.md)
 		* [About](numbers/guides/managingOrders.md#about)
 		* [Associating Notes with Work Orders](numbers/guides/managingOrders.md#notes-with-orders)
@@ -84,6 +83,10 @@
 ## Numbers
 * [Overview](numbers/about.md)
 * [API Methods](numbers/apiReference.md)
+* [Callbacks](numbers/callbacks/about.md)
+	* [Events Notification](numbers/callbacks/eventNotification.md)
+	* [Order Notification](numbers/callbacks/orderNotification.md)
+	* [Portout Validation](numbers/callbacks/portoutValidation.md)
 * [Errors](numbers/error.md)
 
 ## Voice
