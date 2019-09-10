@@ -50,17 +50,6 @@ Authorization: {user:password}
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: subscription/xml
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SubscriptionProvisioningResponse>
-    <Subscription>
-        <SubscriptionId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</SubscriptionId>
-        <ServiceType>Messaging-V2</ServiceType>
-        <AppName>Production Server</AppName>
-        <CallbackUrl>https://yourSecureSite.com/callbacks</CallbackUrl>
-    </Subscription>
-</SubscriptionProvisioningResponse>
 ```
 
 {% endmethod %}
