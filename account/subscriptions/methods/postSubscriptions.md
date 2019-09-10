@@ -17,7 +17,7 @@ Create a new [subscription](../about.md)
 | `CallbackSubscription`         | Yes                        | Container for the callback details                                                                                                                                                                                                                                |
 | `Expiry`                       | Yes                        | The time **in seconds** to persist the subscription.  <br> Example Times <ul> <li>99 years = `3122064000` seconds</li><li>2 weeks = `1209600` seconds</li><li>1 week = `604800` seconds</li><li>1 day = `86400` seconds</li><li>1 hour = `3600` seconds</li></ul> |
 | `URL`                          | Yes                        | Url to receive callbacks for the specified `orderId` or `orderType`                                                                                                                                                                                               |
-| `CallbackCredentials`          | No, but highly recommended | Container for the Auth                                                                                                                                                                                                                                                                  |
+| `CallbackCredentials`          | No, but highly recommended | Container for the Auth                                                                                                                                                                                                                                            |
 | `BasicAuthentication`          | -                          | Basic auth credentials to apply to your message & voice events                                                                                                                                                                                                    |
 | `BasicAuthentication.Username` | No, but highly recommended | Basic auth `Username`                                                                                                                                                                                                                                             |
 | `BasicAuthentication.Password` | No, but highly recommended | Bassic auth `Password`                                                                                                                                                                                                                                            |
@@ -25,20 +25,20 @@ Create a new [subscription](../about.md)
 
 ### Order Types
 
-| Order type       | Notified states                                                                                                                                      |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `portins`        | `PENDING_DOCUMENTS`, `SUBMITTED`, `FOC`, `REQUESTED_SUPP`, `COMPLETE`, `CANCELLED`, `EXCEPTION`, `REQUESTED_CANCEL`                                  |
-| `orders`         | `COMPLETE`, `PARTIAL`, `BACKORDERED`, `FAILED`                                                                                                       |
-| `portouts`       | `COMPLETE` (`NEW`, `MODIFY`, `CANCELLED`, `VALIDATION_FAILED_NEW`, `VALIDATION_FAILED_SUPP`, `VALIDATION_FAILED_MODIFY`, `EXCEPTION`, `SOA_PENDING`) |
-| `disconnects`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                                                      |
-| `dldas`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                                            |
-| `lsrorders`      | `PENDING`, `FOC`, `EXCEPTION`, `COMPLETE`, `CANCELLED`, `PARTIAL`, `FAILED`                                                                          |
-| `e911s`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `ADJUSTED_COMPLETE`, `PARTIAL`, `ADJUSTED_PARTIAL`, `FAILED`                                                   |
-| `tnoptions`      | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                                            |
-| `externalTns`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                                                      |
-| `importtnorders` | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                                                         |
-| `lidb`           | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                                                        |
-| `bulkPortins`    | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                                                       |
+| Order type       | Notified states                                                                                                     |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------|
+| `portins`        | `PENDING_DOCUMENTS`, `SUBMITTED`, `FOC`, `REQUESTED_SUPP`, `COMPLETE`, `CANCELLED`, `EXCEPTION`, `REQUESTED_CANCEL` |
+| `orders`         | `COMPLETE`, `PARTIAL`, `BACKORDERED`, `FAILED`                                                                      |
+| `portouts`       | `COMPLETE`                                                                                                          |
+| `disconnects`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
+| `dldas`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
+| `lsrorders`      | `PENDING`, `FOC`, `EXCEPTION`, `COMPLETE`, `CANCELLED`, `PARTIAL`, `FAILED`                                         |
+| `e911s`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `ADJUSTED_COMPLETE`, `PARTIAL`, `ADJUSTED_PARTIAL`, `FAILED`                  |
+| `tnoptions`      | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
+| `externalTns`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
+| `importtnorders` | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
+| `lidb`           | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
+| `bulkPortins`    | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                      |
 
 
 {% common %}
