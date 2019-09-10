@@ -1,10 +1,10 @@
 # Subscriptions
 
-Bandwidth uses HTTP Callbacks (also known as [webhooks](../../guides/callbacks/callbacks.md)) to send [number ordering & porting events](../../numbers/callbacks/numberEvents.md) to any publicly addressable url.
+Bandwidth uses HTTP Callbacks (also known as [webhooks](../../guides/callbacks/callbacks.md)) to send [number ordering & porting events](../../numbers/callbacks/about.md) to any publicly addressable url.
 
 In order to successfully use the Number Ordering & Porting APIs you need to configure an `subscription` for each `orderType` (in table below). Each subscription is account global and each **account** can have multiple subscriptions per `orderType`.
 
-Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [number ordering & porting events](../../numbers/callbacks/numberEvents.md) for each state change.
+Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [number ordering & porting events](../../numbers/callbacks/about.md) for each state change.
 
 <img src="../../images/applications.png" style="max-width:95%">
 
@@ -16,11 +16,11 @@ Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [numb
 
 | Verb                               | Path                                                                                                       | about                                         |
 |:-----------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-| <code class="get">GET</code>       | [`/api/accounts/{accountId}/subscriptions`](methods/getsubscriptions.md)                                   | List all subscriptions                        |
-| <code class="post">POST</code>     | [`/api/accounts/{accountId}/subscriptions`](methods/postsubscriptions.md)                                  | Create an subscription                        |
-| <code class="get">GET</code>       | [`/api/accounts/{accountId}/subscriptions/{subscriptionId}`](methods/getsubscriptionssubscriptionId.md)    | Get information about a specific subscription |
-| <code class="put">PUT</code>       | [`/api/accounts/{accountId}/subscriptions/{subscriptionId}`](methods/putsubscriptionssubscriptionId.md)    | Make changes to an subscription               |
-| <code class="delete">DELETE</code> | [`/api/accounts/{accountId}/subscriptions/{subscriptionId}`](methods/deletesubscriptionssubscriptionId.md) | Delete an subscription                        |
+| <code class="get">GET</code>       | [`/api/accounts/{accountId}/subscriptions`](methods/getSubscriptions.md)                                   | List all subscriptions                        |
+| <code class="post">POST</code>     | [`/api/accounts/{accountId}/subscriptions`](methods/postSubscriptions.md)                                  | Create an subscription                        |
+| <code class="get">GET</code>       | [`/api/accounts/{accountId}/subscriptions/{subscriptionId}`](methods/getSubscriptionsSubscriptionId.md)    | Get information about a specific subscription |
+| <code class="put">PUT</code>       | [`/api/accounts/{accountId}/subscriptions/{subscriptionId}`](methods/putSubscriptionsSubscriptionId.md)    | Make changes to an subscription               |
+| <code class="delete">DELETE</code> | [`/api/accounts/{accountId}/subscriptions/{subscriptionId}`](methods/deleteSubscriptionsSubscriptionId.md) | Delete an subscription                        |
 
 ### Order Types
 
