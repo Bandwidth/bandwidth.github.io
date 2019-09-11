@@ -64,7 +64,7 @@
 		* [Canceling LNP Order](numbers/guides/portingPhoneNumbers.md#cancel-lnp)
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
 
-## Applications
+## Account
 * [Applications](applications/about.md)
 	* [POST Create Application](applications/postApplications.md)
 	* [GET List Applications](applications/getApplications.md)
@@ -134,20 +134,23 @@
 	* [Incoming Group Message](messaging/callbacks/incomingGroup.md)
 	* [Message Delivered](messaging/callbacks/msgDelivered.md)
 	* [Message Failed](messaging/callbacks/messageFailed.md)
-* [Errors](messaging/errors/codes.md)
-	* [Error Reporting](messaging/errors/codes.md#error-reporting)
-	* [Error Code Schema](messaging/errors/codes.md#error-code-schema)
-	* [Error Code Table](messaging/errors/codes.md#error-codes)
+* [Errors](messaging/errors/about.md)
+	* [HTTP Errors](messaging/errors/httpErrors.md)
+		* [400 - Bad Request](messaging/errors/httpErrors.md#http-400)
+		* [401 - Unauthorized](messaging/errors/httpErrors.md#http-401)
+		* [403 - Forbidden](messaging/errors/httpErrors.md#http-403)
+		* [404 - Not Found](messaging/errors/httpErrors.md#http-404)
+		* [415 - Invalid Media-Type](messaging/errors/httpErrors.md#http-415)
+		* [429 - Too Many Requests](messaging/errors/httpErrors.md#http-429)
+	* [Messaging Errors](messaging/errors/codes.md)
+		* [Messaging Error Code Schema](messaging/errors/codes.md#error-code-schema)
+		* [Messaging Error Code Table](messaging/errors/codes.md#error-codes)
 		* [Bandwidth Detected Client Errors](messaging/errors/codes.md#client-errors)
 		* [Carrier Reported Client Errors](messaging/errors/codes.md#carrier-client)
 		* [Bandwidth Service Failures](messaging/errors/codes.md#service-errors)
 		* [Carrier Reported Service Failures](messaging/errors/codes.md#carrier-service-errors)
 		* [Carrier Errors with Ambiguous Cause](messaging/errors/codes.md#carrier-ambiguous-errors)
-	* [400 - Bad Request](messaging/errors/badRequest.md)
-	* [401 - Unauthorized](messaging/errors/unauth.md)
-	* [403 - Forbidden](messaging/errors/forbidden.md)
-	* [415 - Unsupported Content Type](messaging/errors/unsupportedContentType.md)
-	* [429 - Too Many Requests](messaging/errors/tooManyReq.md)
+
 
 ## SDKs
 * [Python](sdks/python.md)
