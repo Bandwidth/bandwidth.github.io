@@ -16,7 +16,7 @@ The port out validation API is used for portout management purposes and gives th
 
 ## Configuration {#configuration}
 
-The configuration of the call-back API used for port-out validation is done by Bandwidth development staff.  Configuration of this service is performed on the submission of a Ticket, and on completion of the required contract extensions.
+The configuration of the call-back API used for port-out validation is done by [Bandwidth development staff](https://support.bandwidth.com).  Configuration of this service is performed on the submission of a Ticket, and on completion of the required contract extensions.
 
 * The configured URL provided by the customer that will be invoked by Bandwidth in order to validate a port-out request.
 * The security of the exchange can be protected within an https exchange, and can be authenticated with userid / password credentials, or with certificates. The setup of the callback will be covered in the ticketing process.
@@ -79,8 +79,10 @@ Content-Type: application/xml; charset=utf-8
 
 ## Allow Portout Response Parameters {#allow-portout}
 
-To validate the portout (IE positive validation of the port-out request). There is no additional information required.
+To validate the portout (IE positive validation of the port-out request), there is no additional information required. Reply with the `<Portable>true</Portable>` to approve the portout.
 
+* Failure to return a valid response will be considered an **approval of the port-out request**.
+* Failure to return any response will be considered an **approval of the port-out request.**
 
 {% extendmethod %}
 
@@ -126,6 +128,8 @@ The error codes and error explanation payloads below are the ones that we expect
 * If the returned field/fields was/were not provided in the original request then that indicates that the field was missing from the request and should be provided
 * If the returned field/fields was/were different than provided then that indicates an error in the requesting information
 * For the port-out to be considered valid all telephone numbers in the request should be returned - If one telephone number is invalid then the request fails.
+* Failure to return a valid response will be considered an **approval of the port-out request**.
+* Failure to return any response will be considered an **approval of the port-out request.**
 
 | Code | Meaning                                                     | Disposition                 |
 |:-----|:------------------------------------------------------------|:----------------------------|
