@@ -9,20 +9,20 @@ When an order changes OR when numbers in customer account are impacted due to or
 
 ### Order Types
 
-| Order type       | Notified states                                                                                                                                      |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `portins`        | `PENDING_DOCUMENTS`, `SUBMITTED`, `FOC`, `REQUESTED_SUPP`, `COMPLETE`, `CANCELLED`, `EXCEPTION`, `REQUESTED_CANCEL`                                  |
-| `orders`         | `COMPLETE`, `PARTIAL`, `BACKORDERED`, `FAILED`                                                                                                       |
-| `portouts`       | `COMPLETE` (`NEW`, `MODIFY`, `CANCELLED`, `VALIDATION_FAILED_NEW`, `VALIDATION_FAILED_SUPP`, `VALIDATION_FAILED_MODIFY`, `EXCEPTION`, `SOA_PENDING`) |
-| `disconnects`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                                                      |
-| `dldas`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                                            |
-| `lsrorders`      | `PENDING`, `FOC`, `EXCEPTION`, `COMPLETE`, `CANCELLED`, `PARTIAL`, `FAILED`                                                                          |
-| `e911s`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `ADJUSTED_COMPLETE`, `PARTIAL`, `ADJUSTED_PARTIAL`, `FAILED`                                                   |
-| `tnoptions`      | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                                            |
-| `externalTns`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                                                      |
-| `importtnorders` | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                                                         |
-| `lidb`           | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                                                        |
-| `bulkPortins`    | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                                                       |
+| Order type       | Notified states                                                                                                     |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------|
+| `portins`        | `PENDING_DOCUMENTS`, `SUBMITTED`, `FOC`, `REQUESTED_SUPP`, `COMPLETE`, `CANCELLED`, `EXCEPTION`, `REQUESTED_CANCEL` |
+| `orders`         | `COMPLETE`, `PARTIAL`, `BACKORDERED`, `FAILED`                                                                      |
+| `portouts`       | `COMPLETE`                                                                                                          |
+| `disconnects`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
+| `dldas`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
+| `lsrorders`      | `PENDING`, `FOC`, `EXCEPTION`, `COMPLETE`, `CANCELLED`, `PARTIAL`, `FAILED`                                         |
+| `e911s`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `ADJUSTED_COMPLETE`, `PARTIAL`, `ADJUSTED_PARTIAL`, `FAILED`                  |
+| `tnoptions`      | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
+| `externalTns`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
+| `importtnorders` | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
+| `lidb`           | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
+| `bulkPortins`    | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                      |
 
 {% extendmethod %}
 
