@@ -1,8 +1,14 @@
 # C# SDK
 
+⚠️ The current version is in beta, there could be some **small** breaking changes between the beta and final release.
+
 ### Download & Install
 
-Coming Soon
+```
+nuget install Bandwidth.Sdk -OutputDirectory packages -Version 1.0.0-beta
+```
+
+*Note This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
 
 ### Initialize Bandwidth Client
 
@@ -36,7 +42,7 @@ callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
 callRequest.From="+17777777777";
 
-//Be aware that the Voice Client can throw exceptions 
+//Be aware that the Voice Client can throw exceptions
 try {
 	voiceClient.CreateCall("account.id", callRequest);
 } catch (APIException e) {
@@ -61,7 +67,7 @@ speakSentence.Sentence = "Hello World";
 Response res =  new Response();
 res.Add(speakSentence);
 
-//view the BXML 
+//view the BXML
 Console.write( res.ToXml() );
 
 ```
