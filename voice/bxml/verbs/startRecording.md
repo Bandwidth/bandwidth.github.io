@@ -2,8 +2,6 @@
 ## XML: `<StartRecording>`
 The StartRecording verb allows an entire section of a call to be recorded. All audio on both sides of the call will be recorded until either the call ends or the `<StopRecording>` verb is used.
 
-<aside class="alert general small"><p>NOTE: Only one &lt;StartRecording&gt; verb may be active at a time. If a second &lt;StartRecording&gt; verb is used without first using a &lt;StopRecording&gt; verb, the second &lt;StartRecording&gt; will be ignored.</p></aside>
-
 ### Attributes
 
 | Attribute                    | Description                                                                                                                                                                                                            |
@@ -17,6 +15,8 @@ The StartRecording verb allows an entire section of a call to be recorded. All a
 | multiChannel                 | (optional) A boolean value indicating whether or not the recording file should have each side of the call in its own audio channel. Default value is `false`.                                                          |
 
 If the `recordingAvailableUrl` attribute is specified, the [Recording Available](../callbacks/recordingAvailable.md) event is sent to the URL once the recording is available for download. No BXML is expected.
+
+<aside class="alert general small"><p>NOTE: Only one &lt;StartRecording&gt; verb may be active at a time. If a second &lt;StartRecording&gt; verb is used without first using a &lt;StopRecording&gt; verb, the second &lt;StartRecording&gt; will be ignored.</p></aside>
 
 ### Callbacks Received
 
