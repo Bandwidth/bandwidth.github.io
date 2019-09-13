@@ -6,7 +6,7 @@ The Recording Available event is sent after a recording is completed. Its purpos
 ### Expected response
 
 ```http
-HTTP/1.1 200
+HTTP/1.1 204
 ```
 
 ### Properties
