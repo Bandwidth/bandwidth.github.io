@@ -26,7 +26,7 @@ In the case where a user would like to keep their existing phone number, follow 
 
 The Bandwidth Phone Number API allows users to manage notifications on their account through the `/subscriptions` resource.  Subscriptions can be configured to send a HTTP Callback to a valid publicly addressable URL or send an email to a valid email address.
 
-This guide _only_ covers creating a `<CallbackSubscription>`.  For more information see the full guide on [managing subscriptions](./managingSubscriptions.md).
+This guide _only_ covers creating a `<CallbackSubscription>`.  For more information see the full guide on [managing subscriptions](../../account/subscriptions/about.md).
 
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions`

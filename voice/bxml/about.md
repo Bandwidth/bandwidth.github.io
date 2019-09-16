@@ -4,7 +4,7 @@ Bandwidth XML allows you to create a voice application as easily as you create a
 
 Before we begin creating a new BXML application you’ll need two things initially setup:
 
-1. A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. For instructions on setting up your application, read the [applications](../../applications/about.md) page
+1. A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. For instructions on setting up your application, read the [applications](../../account/applications/about.md) page
 
 2. A public Web site that you can create content on and will handle the requests for BXML. Note that the endpoint for this site should be used to create the application in you setup above.
 
