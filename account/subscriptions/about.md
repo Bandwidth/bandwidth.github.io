@@ -6,7 +6,7 @@ In order to successfully use the Number Ordering & Porting APIs you need to conf
 
 Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [number ordering & porting events](../../numbers/callbacks/about.md) for each state change.
 
-<img src="../../images/applications.png" style="max-width:95%">
+<img src="../../images/subscriptions.png" style="max-width:95%">
 
 ### Base Url
 
