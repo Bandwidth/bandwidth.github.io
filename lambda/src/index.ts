@@ -25,7 +25,7 @@ interface CFRequest {
 
 export const handler = async (event: Event, context: object) => {
     // check the requested URL vs the url mapping object.
-    const url = event.Records[0].cf.request.uri
+    const url = event.Records[0].cf.request.uri.toLowerCase();
     if (rules[url]) {
         const response = {
             status: '302',

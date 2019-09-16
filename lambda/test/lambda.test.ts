@@ -2,26 +2,8 @@ import { expect as expectCDK, haveResource } from '@aws-cdk/assert';
 import cdk = require('@aws-cdk/core');
 import Lambda = require('../lib/lambda-stack');
 
-/*
-test('SQS Queue Created', () => {
-    const app = new cdk.App();
-    // WHEN
-    const stack = new Lambda.LambdaStack(app, 'MyTestStack');
-    // THEN
-    expectCDK(stack).to(haveResource("AWS::SQS::Queue",{
-      VisibilityTimeout: 300
-    }));
-});
-
-test('SNS Topic Created', () => {
+test("Lambda created", () => {
   const app = new cdk.App();
-  // WHEN
   const stack = new Lambda.LambdaStack(app, 'MyTestStack');
-  // THEN
-  expectCDK(stack).to(haveResource("AWS::SNS::Topic"));
-});
-*/
-
-test('sanity', () => {
-  expect(1).toBe(1);
+  expectCDK(stack).to(haveResource("AWS::Lambda::Function"))
 })
