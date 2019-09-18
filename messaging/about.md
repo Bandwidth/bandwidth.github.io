@@ -5,7 +5,7 @@
 | Guide                                               | Description                                                                                                                     |
 |:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | [Messaging API Overview](methods/about.md)   | Learn how to format and send messages                                                                                           |
-| [Message Events/Callbacks](callbacks/messageEvents.md) | Learn about the different HTTP Callbacks Bandwidth will send to the URL configured in your [application](../applications/about.md) |
+| [Message Events/Callbacks](callbacks/messageEvents.md) | Learn about the different HTTP Callbacks Bandwidth will send to the URL configured in your [application](../account/applications/about.md) |
 | [Message Error Codes](errors/codes.md)                     | Learn about the different error codes associated with a [message failure event](errors/codes.md)                        |
 
 ## Messaging Media Overview
