@@ -22,10 +22,11 @@ HTTP/1.1 204
 | startTime        | Time the recording started (in ISO8601 format).                                                                   |
 | endTime          | Time the recording ended (in ISO8601 format).                                                                     |
 | duration         | Integer length of the recording (in seconds).                                                                     |
-| fileFormat       | The format that the recording was saved in (`wav`).                                                               |
+| fileFormat       | The format that the recording was saved in (`wav` or `mp3`).                                                      |
 | callUrl          | The URL of the call associated with the event.                                                                    |
 | mediaUrl         | URL to retrieve the contents of the recording.                                                                    |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
+| status           | The state of the recording, callback event values are `complete` or `error`.                                      |
 
 {% common %}
 
@@ -49,7 +50,8 @@ POST http://[External server URL]
 	"duration": "20",
 	"fileFormat": "wav",
 	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"mediaUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d/recordings/r-115da407-e3d9-4ea7-889f-5f4ad7386a80/media"
+	"mediaUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d/recordings/r-115da407-e3d9-4ea7-889f-5f4ad7386a80/media",
+	"status": "complete"
 }
 ```
 
