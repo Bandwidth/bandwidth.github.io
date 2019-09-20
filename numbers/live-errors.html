@@ -837,6 +837,14 @@
     <td>5162</td>
     <td>Tollfree telephone numbers cannot be used unless Tollfree is enabled on SipPeer</td>
   </tr>
+    <tr>
+    <td>5163</td>
+    <td>The account %s does not own messaging service on the number %s.</td>
+  </tr>
+    <tr>
+    <td>5164</td>
+    <td>Sip Peer doesn't have Sms feature.</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -1819,6 +1827,10 @@
     <td>Portins in terminal status are not allowed for portin list update.</td>
   </tr>
     <tr>
+    <td>7715</td>
+    <td>This port-in cannot be associated with this bulk port-in because its earliest estimate date needs to be earlier than the bulk port-in requested FOC date.</td>
+  </tr>
+    <tr>
     <td>7510</td>
     <td>Required Account Code missing</td>
   </tr>
@@ -1881,6 +1893,14 @@
     <tr>
     <td>7601</td>
     <td>Immediate is not allowed outside the business hours.</td>
+  </tr>
+    <tr>
+    <td>7602</td>
+    <td>Requested FOC date must be between %s and %s</td>
+  </tr>
+    <tr>
+    <td>7603</td>
+    <td>The requested time %s is outside business hours. FOC time must be within processing hours of %s and %s Eastern Time</td>
   </tr>
     <tr>
     <td>7999</td>
@@ -2307,8 +2327,28 @@
     <td>Messaging route of %s is not configured.</td>
   </tr>
     <tr>
+    <td>19006</td>
+    <td>Bandwidth numbers cannot be imported by this account at this time.</td>
+  </tr>
+    <tr>
+    <td>19007</td>
+    <td>Account is not contracted for importing external numbers.</td>
+  </tr>
+    <tr>
+    <td>19008</td>
+    <td>Non Bandwidth numbers cannot be imported by this account at this time.</td>
+  </tr>
+    <tr>
     <td>19009</td>
     <td>No messaging route found</td>
+  </tr>
+    <tr>
+    <td>19010</td>
+    <td>Unable to provision telephone numbers. Please contact Bandwidth Support.</td>
+  </tr>
+    <tr>
+    <td>19011</td>
+    <td>Messaging provisioning  is disable for this account.</td>
   </tr>
     <tr>
     <td>19012</td>
@@ -5573,7 +5613,7 @@
   </tr>
     <tr>
     <td>13001</td>
-    <td>Proxy Peer %d has not been migrated.</td>
+    <td>Proxy Peer %s has not been migrated.</td>
   </tr>
     <tr>
     <td>13002</td>
@@ -5590,6 +5630,34 @@
     <tr>
     <td>13005</td>
     <td>Exceeded Max length %s for field %s</td>
+  </tr>
+    <tr>
+    <td>13006</td>
+    <td>Cannot remove TnType as it is enabled on at least 1 account</td>
+  </tr>
+    <tr>
+    <td>13007</td>
+    <td>The specified two letter country code is not valid: %s</td>
+  </tr>
+    <tr>
+    <td>13008</td>
+    <td>The specified vendor id %d is a valid international vendor but is currently flagged as unsupported.</td>
+  </tr>
+    <tr>
+    <td>13009</td>
+    <td>The specified vendor id %d is not a valid international vendor.</td>
+  </tr>
+    <tr>
+    <td>13011</td>
+    <td>The format of the requested country %s is not valid</td>
+  </tr>
+    <tr>
+    <td>13012</td>
+    <td>The requested operation is not valid</td>
+  </tr>
+    <tr>
+    <td>13013</td>
+    <td>Account (%s) must be a proxy peer owner in order to use sippeer (%s) as a proxy.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -5735,15 +5803,15 @@
   </tr>
     <tr>
     <td>13517</td>
-    <td>Telephone number '%s' is not available</td>
+    <td>Telephone number '%s' does not exist</td>
   </tr>
     <tr>
     <td>13518</td>
-    <td>Telephone number '%s' is not available</td>
+    <td>Telephone number '%s' is not in service</td>
   </tr>
     <tr>
     <td>13520</td>
-    <td>Telephone number '%s' is not available</td>
+    <td>Telephone number '%s' is not on account</td>
   </tr>
     <tr>
     <td>13521</td>
@@ -6280,6 +6348,10 @@
     <tr>
     <td>13672</td>
     <td>Can not disable TollFree on SipPeer because some TollFree Telephone Numbers on this SipPeer currently have A2P Settings overrides</td>
+  </tr>
+    <tr>
+    <td>13673</td>
+    <td>Can not disable SMS feature on Sip Peer because it has telephone numbers with messaging enabled.</td>
   </tr>
     <tr>
     <td>13674</td>
