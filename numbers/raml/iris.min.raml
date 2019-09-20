@@ -2814,6 +2814,35 @@ securitySchemes:
                                     404:
                                         description: |
                                             a 404 indicates that the indicated file was not found in conjunction with the order id.
+        /countries: 
+            description: Controls the available countries for international phone numbers.
+            get:
+                description: |
+                    Return all countries available to an account.
+                responses:
+                    200:
+                        description: All countries available to an account.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <CoiuntriesResponse>
+                                        <ErrorList/>
+                                            <Countries>
+                                                <Country>
+                                                    <TwoLetterCode>CH</TwoLetterCode>
+                                                </Country>
+                                                <Country>
+                                                    <TwoLetterCode>DE</TwoLetterCode>
+                                                </Country>
+                                                <Country>
+                                                    <TwoLetterCode>FR</TwoLetterCode>
+                                                </Country>
+                                                <Country>
+                                                    <TwoLetterCode>IT</TwoLetterCode>
+                                                </Country>
+                                            </Countries>
+                                    </CountriesResponse>
         /discnumbers: 
             description: This API call provides information on numbers that have been disconnected from an account.
             get:
@@ -5443,6 +5472,32 @@ securitySchemes:
                             description: The telephone number is currently in service. NOTE that there is no payload; a 200 status simply means that the phone is indeed an inservice number.
                         404:
                             description: The telephone number is not currently in service.
+        /internationalvendors: 
+            description: Controls the available international vendors for international phone numbers on the account.
+            get:
+                description: |
+                    Return all international vendors available on an account.
+                responses:
+                    200:
+                        description: All international vendors available on the specified account.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <InternationalVendorsResponse>
+                                        <ErrorList/>
+                                        <InternationalVendors>
+                                            <InternationalVendor>
+                                                <VendorId>1</VendorId>
+                                            </InternationalVendor>
+                                            <InternationalVendor>
+                                                <VendorId>2</VendorId>
+                                            </InternationalVendor>
+                                            <InternationalVendor>
+                                                <VendorId>3</VendorId>
+                                            </InternationalVendor>
+                                        </InternationalVendors>
+                                    </InternationalVendorsResponse>
         /lidbs: 
             description: |
                 The LIDBs Resource represents the requests made to the Bandwidth Dashboard API to add or otherwise manage a request to add Calling Line Information with a telephone number.  This API allows the creation and observation of a <b>"Line Information Data Base (LIDB)"</b> work order that causes an update of a person's calling name identification in a network Database.  The entry of this information in the network database in turn causes the display of their name on the phone of the people that they call. <br>
@@ -12577,6 +12632,14 @@ securitySchemes:
                                  <td>bulkPortins</td>
                                  <td>DRAFT, IN_PROGRESS, NEEDS_ATTENTION, PARTIAL, COMPLETED, CANCELLED</td>
                               </tr>
+                              <tr>
+                                 <td>importtnorders</td>
+                                 <td>PROCESSING, COMPLETE, PARTIAL, FAILED</td>
+                              </tr>
+                              <tr>
+                                 <td>removeImportedTnOrders</td>
+                                 <td>PROCESSING, COMPLETE, PARTIAL, FAILED</td>
+                              </tr>
                            </table>
                 Notified events: MESSAGING_LOST
                 The event notifications occur when TNs in your account are impacted due to orders outside of your account. For example, a MESSAGING_LOST event is reported on a TN with hosted messaging service in your account when a port in order placed by another account on the same TN is executed. An order placed in your account to remove the TN will NOT report a MESSAGING_LOST event. 
@@ -12651,7 +12714,7 @@ securitySchemes:
                     For email subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins] </OrderType> <!-- required -->
+                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders] </OrderType> <!-- required -->
                         <OrderId> [ UUID ] </OrderId> <!-- optional, if provided notifications will only be sent for events regarding this specific order, if omitted notifications regarding events for all orders of the specified type will be sent -->
                         <EmailSubscription>
                             <Email> [ email address] </Email>
@@ -12672,7 +12735,7 @@ securitySchemes:
                     For callback subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb] </OrderType> <!-- same rules and values as above -->
+                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders] </OrderType> <!-- same rules and values as above -->
                         <OrderId> [UUID]</OrderId> <!-- same rules and value as above -->
                         <CallbackSubscription>
                             <URL> [valid publically addressable URL] </URL> <!-- the URL that notifications should get POSTed to, HTTPS is highly recommended -->
@@ -12712,7 +12775,7 @@ securitySchemes:
                     ```xml
                     <Notification>
                         <SubscriptionId>...</SubscriptionId>
-                        <OrderType>portins | portouts | orders | disconnects | dldas | lsrorders | e911s| tnoptions | externalTns | lidb </OrderType>
+                        <OrderType>portins | portouts | orders | disconnects | dldas | lsrorders | e911s| tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders </OrderType>
                         <OrderId>...</OrderId>
                         <!-- for order update events -->
                         <Status>COMPLETE | FAILED | PARTIAL | EXCEPTION ... </Status>
@@ -12872,7 +12935,7 @@ securitySchemes:
                         application/xml:
                             example:
                                 <Subscription>
-                                    <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns] </OrderType>
+                                    <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | importtnorders | removeImportedTnOrders] </OrderType>
                                     <OrderId> [UUID] </OrderId>
                                     <EventType> [MESSAGING_LOST] </EventType>
                                     <CallbackSubscription>
