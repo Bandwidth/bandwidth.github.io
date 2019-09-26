@@ -48,6 +48,7 @@ User-Agent: BandwidthAPI/v2
     "type"          : "message-delivered",
     "time"          : "2016-09-14T18:20:16Z",
     "description"   : "Message delivered to carrier",
+    "to"            : "+12345678902",
     "message"       : {
       "id"            : "14762070468292kw2fuqty55yp2b2",
       "time"          : "2016-09-14T18:20:16Z",
