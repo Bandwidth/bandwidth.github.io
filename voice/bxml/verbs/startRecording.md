@@ -1,6 +1,6 @@
 {% method %}
 ## XML: `<StartRecording>`
-The StartRecording verb allows an entire section of a call to be recorded. All audio on both sides of the call will be recorded until either the call ends or the `<StopRecording>` verb is used.
+The StartRecording verb allows an entire section of a call to be recorded. All audio on both sides of the call will be recorded until either the call ends or the [`<StopRecording>`](stopRecording.md) verb is used.
 
 ### Attributes
 
@@ -25,17 +25,19 @@ If the `recordingAvailableUrl` attribute is specified, the [Recording Available]
 | [Recording Available](../callbacks/recordingAvailable.md)         | No                       |
 
 {% common %}
-#### Example: Redirect Verb
+#### Example: Recording of a call
 This shows how to use Bandwidth XML to record a phone call.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
+    <SpeakSentence voice="bridget">Transferring your call, please wait, this call is being recorded.</SpeakSentence>
     <StartRecording recordingAvailableUrl="https://myapp.com/noBXML"/>
-    <SpeakSentence voice="bridget">Transferring your call, please wait, this call is being recorded</SpeakSentence>
     <Transfer>
         <PhoneNumber>+11234567892</PhoneNumber>
     </Transfer>
+    <StopRecording/>
+    <SpeakSentence voice="bridget">Thanks for your call, have a nice day.</SpeakSentence>
 </Response>
 ```
 

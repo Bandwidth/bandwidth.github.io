@@ -109,6 +109,7 @@
 	* [SendDtmf](voice/bxml/verbs/sendDtmf.md)
 	* [SpeakSentence](voice/bxml/verbs/speakSentence.md)
 	* [StartRecording](voice/bxml/verbs/startRecording.md)
+	* [StopRecording](voice/bxml/verbs/stopRecording.md)
 	* [Transfer](voice/bxml/verbs/transfer.md)
 * [Callbacks](voice/bxml/callbacks/about.md)
 	 * [Answer](voice/bxml/callbacks/answer.md)
