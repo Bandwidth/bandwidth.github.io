@@ -11,3 +11,11 @@ This system, deployed on the cloudfront edge nodes of (formally `new.-`) dev.ban
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 
+# Pushing a new version
+
+1. Set your aws environment variables to connect to the DX AWS Account (Verify with `aws sts get-caller-identity`)
+2. Run `yarn build` to build the typescript into javascript
+3. Run `cdk deploy` (CDK must be installed on system) to push a new version of the underlying lambda function
+4. Head to the console (sorry), go to the lamba function, and click here: https://i.imgur.com/PYBM1wg.png
+5. Set the settings like this, and deploy the function: https://i.imgur.com/bPRgDMH.png
+6. Give it 10-15 minutes, and potentially submit a `*` invalidation on the distribution to clear the edge cache
