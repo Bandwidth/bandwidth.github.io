@@ -843,6 +843,14 @@
   </tr>
     <tr>
     <td>5164</td>
+    <td>DisconnectMode '%s' is invalid. Valid values are: purge</td>
+  </tr>
+    <tr>
+    <td>5165</td>
+    <td>A single disconnect order cannot contain a mix of NANP and International telephone numbers</td>
+  </tr>
+    <tr>
+    <td>5166</td>
     <td>Sip Peer doesn't have Sms feature.</td>
   </tr>
   </table>
@@ -4118,7 +4126,7 @@
   </tr>
     <tr>
     <td>12153</td>
-    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, and Trial.</td>
+    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, International, and Trial.</td>
   </tr>
     <tr>
     <td>12154</td>
@@ -4131,6 +4139,18 @@
     <tr>
     <td>12156</td>
     <td>Unsupported transition. Customer Segment cannot be changed from %s to %s.</td>
+  </tr>
+    <tr>
+    <td>12157</td>
+    <td>Accounts with International customer segment are not compatible with the '%s' product</td>
+  </tr>
+    <tr>
+    <td>12158</td>
+    <td>Accounts with International customer segment are not compatible with the UC Trunking, Messaging, E911, or Virtual products</td>
+  </tr>
+    <tr>
+    <td>12159</td>
+    <td>Accounts with International customer segment are not compatible with the Number Management features on the account</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -5657,7 +5677,19 @@
   </tr>
     <tr>
     <td>13013</td>
+    <td>Currently International accounts do not support any of the Number Management features specified</td>
+  </tr>
+    <tr>
+    <td>13014</td>
     <td>Account (%s) must be a proxy peer owner in order to use sippeer (%s) as a proxy.</td>
+  </tr>
+    <tr>
+    <td>13015</td>
+    <td>The Countries API only supports changing the supported value</td>
+  </tr>
+    <tr>
+    <td>13016</td>
+    <td>Cannot remove support for the country because it is enabled on at least 1 account</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
