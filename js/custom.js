@@ -75,7 +75,8 @@ module.exports = function ($) {
 			'tmp_messaging',
 			'tmp_howto',
 			'tmp_numbers',
-			'tmp_numbers2'
+			'tmp_numbers2',
+			'tmp_applications'
 		];
 
 		redirects.forEach(page => {
