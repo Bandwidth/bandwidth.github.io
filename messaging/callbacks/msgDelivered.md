@@ -27,7 +27,7 @@ MMS and Group messages <b>don’t</b> currently support delivery receipts. Howev
 | message.direction     | `string` | Whether the message was sent from Bandwidth, or received by a Bandwidth number                                                                                                                                                                                                                                                                                      |
 | message.to            | `array`  | The phone number (or numbers) the message the message is sent to. On a POST, this can be a String, or an array of one or more numbers. In all other places, this will be an array.                                                                                                                                                                                  |
 | message.from          | `string` | The phone number the message was sent from                                                                                                                                                                                                                                                                                                                          |
-| message.text          | `string` | The text content of the message                                                                                                                                                                                                                                                                                                                                     |
+| message.text          | `string` | Empty text/string.                                                                                                                                                                                                                                                                                                                                    |
 | message.applicationId | `string` | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                                                                                                                                            |
 | message.media         | `array`  | A list of URLs to include as media attachments as part of the message                                                                                                                                                                                                                                                                                               |
 | message.tag           | `string` | An custom String that you can use to track this particular message                                                                                                                                                                                                                                                                                                  |
@@ -57,7 +57,7 @@ User-Agent: BandwidthAPI/v2
           "+12345678903"
         ],
       "from"          : "+12345678901",
-      "text"          : "Hey, check this out!",
+      "text"          : "",
       "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
       "owner"         : "+12345678902",
       "direction"     : "in",
