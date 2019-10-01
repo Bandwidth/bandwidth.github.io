@@ -173,6 +173,6 @@
 * [PHP - _coming soon_](sdks/php.md)
 
 ## v1 Docs
-* [Home Page](https://dev.bandwidth.com)
-* [Voice](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
-* [Messaging](https://dev.bandwidth.com/ap-docs/methods/messages/messages.html)
+* [Home Page](https://old.dev.bandwidth.com)
+* [Voice](https://old.dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+* [Messaging](https://old.dev.bandwidth.com/ap-docs/methods/messages/messages.html)
