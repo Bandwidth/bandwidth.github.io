@@ -28,7 +28,7 @@ fi
 if [ "$TRAVIS_BRANCH" == "$SOURCE_BRANCH" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]
 then
   # deploy the site to s3
-  aws s3 sync ./out/ s3://old.dev.bandwidth.com --delete
+  aws s3 sync ./out/ s3://old.dev.bandwidth.com
   # Clear the cloudfront cache
   aws cloudfront create-invalidation --distribution-id E25F7XS938O4B2 --paths "/*"
   printf "%s\n" "master branch"
