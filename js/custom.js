@@ -70,6 +70,20 @@ module.exports = function ($) {
 		});
 	}
 
+	function hideForcedRedirects () {
+		var redirects = [
+			'tmp_messaging',
+			'tmp_howto',
+			'tmp_numbers',
+			'tmp_numbers2'
+		];
+
+		redirects.forEach(page => {
+			const selector = `li.chapter a:contains('${page}')`;
+			$(selector).remove();
+		});
+	}
+
 	function addExternalIconForNewTabLinks () {
 		// Add external link icon to all links in summary
 		$('ul.summary a[target=_blank]').each(function () {
@@ -95,6 +109,7 @@ module.exports = function ($) {
 	makeSummaryLinksUnClickable();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
+	hideForcedRedirects();
 
 
 	return $.html();
