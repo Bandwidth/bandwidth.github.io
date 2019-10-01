@@ -45,8 +45,8 @@
 ## API Reference
 * [Voice & Messaging API Reference](https://dev.bandwidth.com/ap-docs/methods/restApi.html)
 * [BXML Reference](https://dev.bandwidth.com/ap-docs/bxml/bxml.html)
-* [Messaging v2 Reference (NEW)](https://dev.bandwidth.com/v2-messaging)
-* [Phone Numbers Reference](https://dev.bandwidth.com/docs/phone-numbers/)
+* [Messaging v2 Reference](https://dev.bandwidth.com/messaging/about.html)
+* [Phone Numbers Reference](https://dev.bandwidth.com/numbers/about.html)
 
 ## SDKs
 * [Voice & Messaging SDKs](getStartedVMDKS.md)
@@ -63,7 +63,6 @@
   * [Python](https://github.com/Bandwidth/python-bandwidth-iris)
   * [Java](https://github.com/Bandwidth/java-bandwidth-iris)
   * [PHP](https://github.com/Bandwidth/php-bandwidth-iris)
-  
+
 ## Help
-* [FAQ](https://dev.bandwidth.com/faq)
 * [Support](https://support.bandwidth.com)
