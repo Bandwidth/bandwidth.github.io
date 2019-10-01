@@ -19,13 +19,24 @@ interface CFRequest {
     clientIp: string
     querystring: string
     method: string
-    headers: object
+    headers: Headers
     origin: object
 }
 
+interface Headers {
+    host: Host[]
+}
+
+interface Host {
+    key: String
+    value: String
+}
+
 export const handler = async (event: Event, context: object) => {
+    const request = event.Records[0].cf.request;
     // check the requested URL vs the url mapping object.
     const url = event.Records[0].cf.request.uri.toLowerCase();
+    console.log(request.headers.host[0].value)
     if (rules[url]) {
         const response = {
             status: '302',
@@ -71,6 +82,6 @@ export const handler = async (event: Event, context: object) => {
 
 
     // didn't proc any redirects, let it continue unmolested.
-    return;
+    return request;
     
 }
