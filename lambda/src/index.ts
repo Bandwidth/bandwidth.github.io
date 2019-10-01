@@ -35,7 +35,8 @@ interface Host {
 export const handler = async (event: Event, context: object) => {
     const request = event.Records[0].cf.request;
     // check the requested URL vs the url mapping object.
-    const url = event.Records[0].cf.request.uri.toLowerCase();
+    const urlNoLower = event.Records[0].cf.request.uri
+    const url = urlNoLower.toLowerCase();
     console.log(request.headers.host[0].value)
     if (rules[url]) {
         const response = {
@@ -73,7 +74,7 @@ export const handler = async (event: Event, context: object) => {
             headers: {
                 location: [{
                     key: 'Location',
-                    value: `https://old.dev.bandwidth.com${url}`
+                    value: `https://old.dev.bandwidth.com${urlNoLower}`
                 }],
             },
         };
