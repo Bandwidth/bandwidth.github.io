@@ -180,3 +180,4 @@
 * [tmp_howto](howto/sendSMSMMS.md)
 * [tmp_numbers](docs/phone-numbers/index.md)
 * [tmp_numbers2](docs/phone-numbers/apiReference.md)
+* [tmp_applications](v2-messaging/applications/about.md)
