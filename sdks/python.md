@@ -21,7 +21,7 @@ voice_basic_auth_password = 'password'
 messaging_basic_auth_user_name = 'token'
 messaging_basic_auth_password = 'secret'
 
-client = BandwidthClient(
+bandwidth_client = BandwidthClient(
     voice_basic_auth_user_name=voice_basic_auth_user_name,
     voice_basic_auth_password=voice_basic_auth_password,
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
@@ -31,7 +31,7 @@ client = BandwidthClient(
 ### Create Phone Call
 
 ```python
-voice_client = client.voice_client.client
+voice_client = bandwidth_client.voice_client.client
 account_id = '1'
 
 ##Create phone call
@@ -62,7 +62,7 @@ print(response.to_xml())
 ### Send Text Message
 
 ```python
-messaging_client = client.messaging_client.client
+messaging_client = bandwidth_client.messaging_client.client
 
 body = MessageRequest()
 body.application_id = "1-d-b" 
