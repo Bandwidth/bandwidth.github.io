@@ -116,16 +116,16 @@ Standard letters and digits:
 
 ### Supported Parameters
 
-| Parameter  | Mandatory | Description                                                                                                                                                                                                         | Example                                              |
-|:-----------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
-| `type`     | Yes       | The type of message to send. <br>For the Bandwidth API, the only valid type is `"text"`                                                                                                                             | `"text"`                                             |
-| `auth`     | Yes       | Authorization credentials for the Bandwidth International A2P Messaging API. <br> Please contact [support](https://support.bandwidth.com) to learn how to find these credentials to get started.                    | `{"username":"testuser", "password":"testpassword"}` |
-| `sender`   | Yes       | The alphanumeric value to appear as the outbound message `sender`. See the **Supported Characters** table to learn mroe.                                                                                            | `"Test"`                                             |
-| `receiver` | Yes       | The desired destination phone number of the end user                                                                                                                                                                | `"4179123456"`                                       |
-| `dcs`      | Yes       | Specifies the encoding to use for the outbound message. See the **Message Encoding** information to learn more. <br>Valid values are: <br>-`"GSM"` for GSM encoding <br>-`"UCS"` for Unicode UTF-8 encoding         | `"GSM"`                                              |
-| `text`     | Yes       | The text content to be sent to the `receiver`                                                                                                                                                                       | `"This is test message"`                             |
-| `dlrMask`  | Yes       | Specifies which DLR values to send to the `dlrUrl`. Bandwidth recommends setting the code to `19` to receive all of `DELIVERED`, `UNDELIVERED`, `REJECTED` events.<br>See the `dlrMask` table for more information. | `19`                                                 |
-| `dlrUrl`   | Yes       | The publicly addressable callback URL to send DLR information about the outbound message                                                                                                                            | `"http://my-server.com/dlrjson.php"`                 |
+| Parameter  | Mandatory | Description                                                                                                                                                                                                                    |
+|:-----------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`     | Yes       | The type of message to send. <br>For the Bandwidth API, the only valid type is `"text"`                                                                                                                                        |
+| `auth`     | Yes       | Authorization credentials for the Bandwidth International A2P Messaging API. <br> Please contact [support](https://support.bandwidth.com) to learn how to find these credentials to get started.                               |
+| `sender`   | Yes       | The alphanumeric value to appear as the outbound message `sender`. See the **Supported Characters** table to learn mroe.                                                                                                       |
+| `receiver` | Yes       | The desired destination phone number of the end user                                                                                                                                                                           |
+| `dcs`      | Yes       | Specifies the encoding to use for the outbound message. See the **Message Encoding** information to learn more. <br>Valid values are: <br>-`"GSM"` for GSM encoding <br>-`"UCS"` for Unicode UTF-8 encoding                    |
+| `text`     | Yes       | The text content to be sent to the `receiver`                                                                                                                                                                                  |
+| `dlrMask`  | Yes       | Specifies which DLR values to send to the `dlrUrl`. <br><br>ℹ️ Bandwidth recommends setting the code to `19` to receive all of `DELIVERED`, `UNDELIVERED`, `REJECTED` events.<br>See the `dlrMask` table for more information. |
+| `dlrUrl`   | Yes       | The publicly addressable callback URL to send DLR information about the outbound message                                                                                                                                       |
 
 #### dlrMask values
 
@@ -383,15 +383,15 @@ Bandwidth’s system will stop trying to deliver message in following situations
 
 {% extendmethod %}
 
-| Parameter      | Description                                                                                                           | Example                                  |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|
-| `msgId`        | The internal message ID                                                                                               | `"9325d0a8-2638-11e6-afe7-bffc7cc8fa4f"` |
-| `event`        | The event of the the callback<br>One of: `"DELIVERED"`, `"UNDELIVERED"`, `"REJECTED"`, `"BUFFERED"`, `"SENT_TO_SMSC"` | `"DELIVERED"`                            |
-| `errorCode`    | The error code of the **DLR** if it exists                                                                            | `1`                                      |
-| `errorMessage` | The message of the **DLR** error code if it exists                                                                    | `"Unknown subscriber"`                   |
-| `partNum`      | Number of the segment delivered `Range [0..numParts-1]`                                                               | `1`                                      |
-| `numParts`     | Total number of message segments                                                                                      | `2`                                      |
-| `accountName`  | Name of the account from which the message was sent                                                                   | `"testuser"`                             |
+| Parameter      | Description                                                                                                           |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------|
+| `msgId`        | The internal message ID                                                                                               |
+| `event`        | The event of the the callback<br>One of: `"DELIVERED"`, `"UNDELIVERED"`, `"REJECTED"`, `"BUFFERED"`, `"SENT_TO_SMSC"` |
+| `errorCode`    | The error code of the **DLR** if it exists                                                                            |
+| `errorMessage` | The message of the **DLR** error code if it exists                                                                    |
+| `partNum`      | Number of the segment delivered `Range [0..numParts-1]`                                                               |
+| `numParts`     | Total number of message segments                                                                                      |
+| `accountName`  | Name of the account from which the message was sent                                                                   |
 
 {% common %}
 
