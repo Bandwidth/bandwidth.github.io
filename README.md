@@ -47,7 +47,18 @@
 ```
 
 ```csharp
-// Coming Soon
+using BandwidthSdk.Standard.BandwidthMessaging;
+using BandwidthSdk.Standard.BandwidthMessaging.Controllers;
+
+APIController msgController =  new BandwidthMessagingClient(msgConfig).Client
+
+MessageRequest msgRequest = new MessageRequest();
+msgRequest.ApplicationId = applicationId;
+msgRequest.From = "+18888888888";
+msgRequest.To = new string[1] {"9199199999"};
+msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
+
+msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
 ```ruby
@@ -81,7 +92,15 @@ curl --request POST \
 ```
 
 ```csharp
-// Coming Soon
+ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+
+callRequest.ApplicationId = "3-d-4-b-5";
+callRequest.To="+19999999999";
+callRequest.AnswerUrl= "https://test.com";
+callRequest.From="+17777777777";
+
+//Be aware that the Voice Client can throw exceptions
+voiceController.CreateCall("account.id", callRequest);
 ```
 
 ```ruby

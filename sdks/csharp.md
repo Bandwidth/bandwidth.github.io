@@ -20,13 +20,13 @@ using BandwidthSdk.Standard.BandwidthVoice.Models;
 
 //create Configuration with credentials
 Configuration config = new Configuration.Builder()
-			.WithBandwidthVoiceBasicAuthPassword("voice.password")
-			.WithBandwidthVoiceBasicAuthUserName("voice.username")
-			.WithEnvironment(Configuration.Environments.PRODUCTION)
-			.Build();
+            .WithBandwidthVoiceBasicAuthPassword("voice.password")
+            .WithBandwidthVoiceBasicAuthUserName("voice.username")
+            .WithEnvironment(Configuration.Environments.PRODUCTION)
+            .Build();
 
 //Activate the Client with the Configuration
-APIController voiceClient = new BandwidthVoiceClient(config).Client;
+APIController voiceController = new BandwidthVoiceClient(config).Client;
 
 ```
 
@@ -44,11 +44,11 @@ callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 try {
-	voiceClient.CreateCall("account.id", callRequest);
+    voiceController.CreateCall("account.id", callRequest);
 } catch (APIException e) {
-	WriteLine( e.Message );
+    WriteLine( e.Message );
 } catch (IOException e) {
-	WriteLine( e.Message );
+    WriteLine( e.Message );
 }
 
 
@@ -75,7 +75,18 @@ Console.write( res.ToXml() );
 ### Send Text Message
 
 ```csharp
-//Coming soon
+using BandwidthSdk.Standard.BandwidthMessaging;
+using BandwidthSdk.Standard.BandwidthMessaging.Controllers;
+
+APIController msgController =  new BandwidthMessagingClient(msgConfig).Client
+
+MessageRequest msgRequest = new MessageRequest();
+msgRequest.ApplicationId = applicationId;
+msgRequest.From = "+18888888888";
+msgRequest.To = new string[1] {"9199199999"};
+msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
+
+msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
 ### Order Phone Number
