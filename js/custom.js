@@ -41,7 +41,8 @@ module.exports = function ($) {
 			'codes.html',
 			"errors.html",
 			"httpErrors.html",
-			"portoutValidation.html"
+			"portoutValidation.html",
+			"messaging.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {

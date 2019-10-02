@@ -163,6 +163,14 @@
 		* [Carrier Reported Service Failures](messaging/errors/codes.md#carrier-service-errors)
 		* [Carrier Errors with Ambiguous Cause](messaging/errors/codes.md#carrier-ambiguous-errors)
 
+## International Messaging
+* [Overview](international/messaging.md)
+	* [Sending SMS messages](international/messaging.md#send-sms)
+	* [Create Message API](international/messaging.md#create-message)
+	* [HTTP Responses (Success & Errors)](international/messaging.md#http-response)
+	* [Callbacks](international/messaging.md#dlrs)
+	* [DLR Parameters](international/messaging.md#http-dlr)
+	* [DLR Error Codes](international/messaging.md#dlr-errors)
 
 ## SDKs
 * [Python](sdks/python.md)
