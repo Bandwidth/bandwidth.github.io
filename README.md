@@ -71,14 +71,6 @@ curl --request POST \
 ```
 
 ```python
-from bandwidth.bandwidth_client import BandwidthClient
-from bandwidth.messaging.models.message_request import MessageRequest
-
-bandwidth_client = BandwidthClient(
-    messaging_basic_auth_user_name=messaging_basic_auth_user_name,
-    messaging_basic_auth_password=messaging_basic_auth_password)
-messaging_client = bandwidth_client.messaging_client.client
-
 account_id = "123"
 body = MessageRequest()
 body.application_id = "1-d-b"
@@ -119,14 +111,6 @@ curl --request POST \
 ```
 
 ```python
-from bandwidth.bandwidth_client import BandwidthClient
-from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
-
-bandwidth_client = BandwidthClient(
-    voice_basic_auth_user_name=voice_basic_auth_user_name,
-    voice_basic_auth_password=voice_basic_auth_password)
-voice_client = bandwidth_client.voice_client.client
-
 account_id = "123"
 body = ApiCreateCallRequest()
 body.mfrom = "+17777777777"
