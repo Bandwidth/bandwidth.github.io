@@ -51,18 +51,6 @@
 ```
 
 ```ruby
-require 'bandwidth'
-
-include Bandwidth
-include Bandwidth::Messaging
-
-bandwidth_client = Bandwidth::Client.new(
-    messaging_basic_auth_user_name: 'token',
-    messaging_basic_auth_password: 'secret'
-)
-
-message_controller = bandwidth_client.messaging_client.client
-
 account_id = "1"
 body = MessageRequest.new
 body.application_id = "1-2-3"
@@ -104,18 +92,6 @@ curl --request POST \
 ```
 
 ```ruby
-require 'bandwidth'
-
-include Bandwidth
-include Bandwidth::Voice
-
-bandwidth_client = Bandwidth::Client.new(
-    voice_basic_auth_user_name: 'username',
-    voice_basic_auth_password: 'password'
-)
-
-voice_client = bandwidth_client.voice_client.client
-
 account_id = '1'
 body = ApiCreateCallRequest.new
 body.from = '+16666666666'
