@@ -21,7 +21,7 @@ Bandwidth’s International A2P Messaging API enables customers to send SMS over
 
 Bandwidth's international A2P messaging API relies heavily on HTTP callbacks/webhooks.  Final message state (delivered, rejected, undelivered) is only delivered as a HTTP Callback/webhook.
 
-![callbacks](./callbacks.png)
+<img src="./callbacks.png" style="max-width:85%">
 
 Messages are submitted over HTTPS from customers to Bandwidth’s system. When Bandwidth’s system has information of what happened with the delivery of the message it will send (also over HTTPS) an event to the customer provided Callback DLR URL.
 
