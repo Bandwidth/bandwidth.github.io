@@ -857,6 +857,14 @@
     <td>5167</td>
     <td>TnType '%s' is not a valid TnType for account %s</td>
   </tr>
+    <tr>
+    <td>5168</td>
+    <td>Billing type '%s' is not valid for international orders. Valid billing types are: NOCHARGE</td>
+  </tr>
+    <tr>
+    <td>5169</td>
+    <td>The specified vendor is not available for this account.</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -2070,6 +2078,10 @@
     <td>PartialPort cannot be set to false for automated off-net port-ins.</td>
   </tr>
     <tr>
+    <td>7413</td>
+    <td>The ListOfPhoneNumbers cannot be changed after order submission for automated off-net port-ins.</td>
+  </tr>
+    <tr>
     <td>7414</td>
     <td>The BusinessName cannot be changed after FOC is assigned for automated off-net port-ins.</td>
   </tr>
@@ -2098,8 +2110,20 @@
     <td>The order address cannot be changed after order submission for automated off-net port-ins.</td>
   </tr>
     <tr>
-    <td>7413</td>
-    <td>The ListOfPhoneNumbers cannot be changed after order submission for automated off-net port-ins.</td>
+    <td>7604</td>
+    <td>Activation can only be triggered between the hours of %s and %s on the actual FOC date: %s.</td>
+  </tr>
+    <tr>
+    <td>7605</td>
+    <td>Activation must be scheduled between the hours of %s and %s on the actual FOC date: %s.</td>
+  </tr>
+    <tr>
+    <td>7606</td>
+    <td>Order must be in FOC state to be scheduled for activation.</td>
+  </tr>
+    <tr>
+    <td>7607</td>
+    <td>Unable to sumbit portTN request to Level3.</td>
   </tr>
   </table>
 
@@ -3009,7 +3033,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -5750,6 +5774,10 @@
     <tr>
     <td>13016</td>
     <td>Cannot remove support for the country because it is enabled on at least 1 account</td>
+  </tr>
+    <tr>
+    <td>13017</td>
+    <td>The specified country region code %s is valid, but not currently supported.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>

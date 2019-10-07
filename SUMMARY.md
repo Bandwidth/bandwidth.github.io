@@ -162,9 +162,7 @@
 		* [Bandwidth Service Failures](messaging/errors/codes.md#service-errors)
 		* [Carrier Reported Service Failures](messaging/errors/codes.md#carrier-service-errors)
 		* [Carrier Errors with Ambiguous Cause](messaging/errors/codes.md#carrier-ambiguous-errors)
-
-## International Messaging
-* [Overview](international/messaging.md)
+* [International Overview](international/messaging.md)
 	* [Sending SMS messages](international/messaging.md#send-sms)
 	* [Create Message API](international/messaging.md#create-message)
 	* [HTTP Responses (Success & Errors)](international/messaging.md#http-response)
