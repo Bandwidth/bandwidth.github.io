@@ -41,7 +41,8 @@ module.exports = function ($) {
 			'codes.html',
 			"errors.html",
 			"httpErrors.html",
-			"portoutValidation.html"
+			"portoutValidation.html",
+			"messaging.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
@@ -70,18 +71,25 @@ module.exports = function ($) {
 		});
 	}
 
-	function hideForcedRedirects () {
+	function hidePagesFromNav () {
 		var redirects = [
 			'tmp_messaging',
 			'tmp_howto',
 			'tmp_numbers',
 			'tmp_numbers2',
-			'tmp_applications'
+			'tmp_applications',
+			'International Overview'
 		];
 
 		redirects.forEach(page => {
 			const selector = `li.chapter a:contains('${page}')`;
-			$(selector).remove();
+			//for international, allow the page itself to have a link
+			if ($('head > title').text() === 'International Overview') {
+				//console.log('Skipping hide nav for international page');
+			}
+			else {
+				$(selector).remove();
+			}
 		});
 	}
 
@@ -110,7 +118,7 @@ module.exports = function ($) {
 	makeSummaryLinksUnClickable();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
-	hideForcedRedirects();
+	hidePagesFromNav();
 
 
 	return $.html();
