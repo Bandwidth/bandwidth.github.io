@@ -62,6 +62,7 @@
 		* [Modifying an LNP Order (Supp LNP Order)](numbers/guides/portingPhoneNumbers.md#modify-lnp)
 		* [Canceling LNP Order](numbers/guides/portingPhoneNumbers.md#cancel-lnp)
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
+	* [Hosted Messaging](numbers/guides/hostedMessaging.md)
 
 ## Account
 * [Applications](account/applications/about.md)
