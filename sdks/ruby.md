@@ -9,7 +9,7 @@ gem install bandwidth-sdk
 ### Initialize Bandwidth Client
 
 ```ruby
-require 'bandwidth_sdk'
+require 'bandwidth'
 
 include Bandwidth
 include Bandwidth::Voice
@@ -45,7 +45,7 @@ response = Bandwidth::Voice::Response.new()
 hangup = Bandwidth::Voice::Hangup.new()
 
 response.push(hangup)
-puts response.to_xml()
+puts response.to_bxml()
 ```
 
 ### Send Text Message
