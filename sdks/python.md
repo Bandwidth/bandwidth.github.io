@@ -56,7 +56,7 @@ speak_sentence = SpeakSentence(
 )
 
 response.add_verb(speak_sentence)
-print(response.to_xml())
+print(response.to_bxml())
 ```
 
 ### Send Text Message
