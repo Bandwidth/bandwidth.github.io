@@ -51,14 +51,14 @@ puts response.to_bxml()
 ### Send Text Message
 
 ```ruby
-message_controller = bandwidth_client.messaging_client.client
+messaging_client = bandwidth_client.messaging_client.client
 
 body = MessageRequest.new
 body.application_id = "1-2-3"
 body.to = ["+17777777777"]
 body.from = "+18888888888"
 body.text = "Hello from Bandwidth"
-message_controller.create_message("123", body)
+messaging_client.create_message("123", body)
 ```
 
 ### Order Phone Number
