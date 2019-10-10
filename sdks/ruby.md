@@ -35,7 +35,7 @@ body.to = '+17777777777'
 body.answer_url = 'https://test.com'
 body.application_id = '3-d-4-b-5'
 
-result = voice_client.create_call(account_id,:body => body)
+response = voice_client.create_call(account_id,:body => body)
 ```
 
 ### Generate BXML
@@ -58,7 +58,18 @@ body.application_id = "1-2-3"
 body.to = ["+17777777777"]
 body.from = "+18888888888"
 body.text = "Hello from Bandwidth"
-messaging_client.create_message("123", body)
+
+begin
+    response = messaging_client.create_message("123", body)
+    puts response.data.id #1570740275373xbn7mbhsfewasdr
+    puts response.status_code #202
+rescue Bandwidth::GenericClientException => e
+    puts e.description #Access is denied
+    puts e.response_code #403
+rescue Bandwidth::PathClientException => e
+    puts e.message #Your request could not be accepted. 
+    puts e.response_code #400
+end
 ```
 
 ### Order Phone Number
