@@ -135,10 +135,13 @@ Bandwidth returns a `HTTP-403` error when the user does not have access to the m
 
 ### Parameters
 
-| Parameter   | Type     | Description                                      |
-|:------------|:---------|:-------------------------------------------------|
-| type        | `string` | Type of Error                                    |
-| description | `string` | A detailed description of why the error occurred |
+| Value     | Description          | Example                                |
+|:----------|:---------------------|:---------------------------------------|
+| timestamp | Time error Occurred  | `2019-07-29T17:21:43.751+0000`         |
+| status    | HTTP Status          | `403`                                  |
+| error     | Description of error | `Forbidden`                         |
+| message   | Any more information | `Access is denied`                      |
+| path      | API Path             | `/api/v2/users/{{accountId}}/messages` |
 
 {% common %}
 
@@ -164,8 +167,12 @@ Status: 403 Forbidden
 Content-Type: application/json; charset=utf-8
 
 {
-    "type": "unauthorized",
-    "description": "Access is denied."
+  "timestamp" : "2019-10-10T19:32:28.236+0000",
+  "status"    : 403,
+  "error"     : "Forbidden",
+  "exception" : "org.springframework.security.access.AccessDeniedException",
+  "message"   : "Access is denied",
+  "path"      : "/api/v2/users/asdf/messages/"
 }
 ```
 
