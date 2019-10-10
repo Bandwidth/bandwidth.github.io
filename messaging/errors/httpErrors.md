@@ -84,10 +84,13 @@ Bandwidth returns a `HTTP-401` Error when the specified user does not have acces
 
 ### Parameters
 
-| Parameter   | Type     | Description                                      |
-|:------------|:---------|:-------------------------------------------------|
-| type        | `string` | Type of Error                                    |
-| description | `string` | A detailed description of why the error occurred |
+| Value     | Description          | Example                                |
+|:----------|:---------------------|:---------------------------------------|
+| timestamp | Time error Occurred  | `2019-07-29T17:21:43.751+0000`         |
+| status    | HTTP Status          | `401`                                  |
+| error     | Description of error | `Unauthorized`                         |
+| message   | Any more information | `Bad credentials`                      |
+| path      | API Path             | `/api/v2/users/{{accountId}}/messages` |
 
 {% common %}
 
@@ -114,8 +117,11 @@ Status: 401 Unauthorized
 Content-Type: application/json; charset=utf-8
 
 {
-    "type": "authentication-error",
-    "description": "Invalid or missing credentials."
+  "timestamp" : "2019-06-19T14:46:42.462+0000",
+  "status"    : 401,
+  "error"     : "Unauthorized",
+  "message"   : "Bad credentials",
+  "path"      : "/api/v2/users/{{accountId}}/messages"
 }
 ```
 
