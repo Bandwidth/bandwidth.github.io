@@ -35,7 +35,12 @@ body.to = '+17777777777'
 body.answer_url = 'https://test.com'
 body.application_id = '3-d-4-b-5'
 
-response = voice_client.create_call(account_id,:body => body)
+begin
+    response = voice_client.create_call(account_id,:body => body)
+rescue Bandwidth::BandwidthException => e
+    puts e.description #Invalid to: must be an E164 telephone number
+    puts e.response_code #400
+end
 ```
 
 ### Generate BXML
