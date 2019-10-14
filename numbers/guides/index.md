@@ -36,7 +36,6 @@
   * [Creating and Managing a DLDA Order](managingLineFeatures.md#create-dlda)
   * [Retrieving the history of a DLDA order](managingLineFeatures.md#get-dlda)
   * [Checking DLDA information associated with a TN](managingLineFeatures.md#check-dlda)
-* [Managing Subscriptions](managingSubscriptions.md)
 * [Managing Orders](managingOrders.md)
   * [About](managingOrders.md#about)
   * [Associating Notes with Work Orders](managingOrders.md#notes-with-orders)

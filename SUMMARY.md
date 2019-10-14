@@ -182,8 +182,3 @@
 * [Home Page](https://old.dev.bandwidth.com)
 * [Voice](https://old.dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
 * [Messaging](https://old.dev.bandwidth.com/ap-docs/methods/messages/messages.html)
-* [tmp_messaging](v2-messaging/index.md)
-* [tmp_howto](howto/sendSMSMMS.md)
-* [tmp_numbers](docs/phone-numbers/index.md)
-* [tmp_numbers2](docs/phone-numbers/apiReference.md)
-* [tmp_applications](v2-messaging/applications/about.md)

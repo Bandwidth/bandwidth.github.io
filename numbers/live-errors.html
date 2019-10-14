@@ -847,7 +847,7 @@
   </tr>
     <tr>
     <td>5165</td>
-    <td>A single disconnect order cannot contain a mix of NANP and International telephone numbers</td>
+    <td>A single order cannot contain a mix of NANP and International telephone numbers</td>
   </tr>
     <tr>
     <td>5166</td>
@@ -864,6 +864,14 @@
     <tr>
     <td>5169</td>
     <td>The specified vendor is not available for this account.</td>
+  </tr>
+    <tr>
+    <td>5170</td>
+    <td>Non-international customer segment cannot import international telephone numbers.</td>
+  </tr>
+    <tr>
+    <td>5171</td>
+    <td>International customer segment cannot import NANP telephone numbers.</td>
   </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
@@ -5777,7 +5785,19 @@
   </tr>
     <tr>
     <td>13017</td>
+    <td>Mm4 termination host(subnet) %s overlaps with addresses that are already in payload.</td>
+  </tr>
+    <tr>
+    <td>13018</td>
+    <td>SMS host %s overlaps with addresses that are already in payload.</td>
+  </tr>
+    <tr>
+    <td>13019</td>
     <td>The specified country region code %s is valid, but not currently supported.</td>
+  </tr>
+    <tr>
+    <td>13020</td>
+    <td>Cannot remove support for the vendor because it is in use on at least 1 account</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
