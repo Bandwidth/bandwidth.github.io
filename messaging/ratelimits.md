@@ -80,7 +80,7 @@ An account has an **Outbound _dequeue_ rate** of 5MPS.
 
 ### 429 – Too Many Requests
 
-When your queue size has been exceeded you will receive a [429 - Too Many Requests error.](errors/tooManyReq.md)
+When your queue size has been exceeded you will receive a [429 - Too Many Requests error.](errors/httpErrors.md#http-429)
 
 ### Sample Message Rate Limit Response
 
