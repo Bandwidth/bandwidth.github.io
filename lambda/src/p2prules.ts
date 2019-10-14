@@ -1,8 +1,5 @@
-
-
-
 export const rules: any = {
-  "/v2-messaging/uisetup.html": "https://support.bandwidth.com/hc/en-us/articles/360033658613-messaging-v2-api-account-setup-ui-",
+  "/v2-messaging/uisetup.html": "https://support.bandwidth.com/hc/en-us/articles/360033658613-Messaging-V2-API-Account-Setup-UI-",
   "/docs/phone-numbers/guides/reservingnumbers.html": "https://support.bandwidth.com",
   "/docs/phone-numbers/concepts/accountconfig.html": "https://support.bandwidth.com/hc/en-us/articles/360033671233-account-configuration-model",
   "/docs/phone-numbers/guides/portingphonenumbers.html": "https://support.bandwidth.com/hc/en-us/articles/360033671813-porting-in-phone-numbers",
@@ -105,21 +102,20 @@ export const rules: any = {
   "/v2-messaging/errors/toomanyreq.html": "https://dev.bandwidth.com/messaging/errors/tooManyReq.html",
   "/v2-messaging/": "https://dev.bandwidth.com/messaging/about.html",
   "/v2-messaging": "https://dev.bandwidth.com/messaging/about.html",
-  "/howto/sendSMSMMS": "https://dev.bandwidth.com/messaging/about.html",
-  "/howto/sendSMSMMS/": "https://dev.bandwidth.com/messaging/about.html",
-  "/howto/sendSMSMMS.html": "https://dev.bandwidth.com/messaging/about.html",
+  "/howto/sendsmsmms": "https://dev.bandwidth.com/messaging/about.html",
+  "/howto/sendsmsmms/": "https://dev.bandwidth.com/messaging/about.html",
+  "/howto/sendsmsmms.html": "https://dev.bandwidth.com/messaging/about.html",
   "/docs/phone-numbers/": "https://dev.bandwidth.com/numbers/about.html",
   "/docs/phone-numbers": "https://dev.bandwidth.com/numbers/about.html",
-  "/docs/phone-numbers/apiReference": "https://dev.bandwidth.com/numbers/apiReference.html",
-  "/docs/phone-numbers/apiReference/": "https://dev.bandwidth.com/numbers/apiReference.html",
-  "/docs/phone-numbers/apiReference.html": "https://dev.bandwidth.com/numbers/apiReference.html",
+  "/docs/phone-numbers/apireference": "https://dev.bandwidth.com/numbers/apiReference.html",
+  "/docs/phone-numbers/apireference/": "https://dev.bandwidth.com/numbers/apiReference.html",
+  "/docs/phone-numbers/apireference.html": "https://dev.bandwidth.com/numbers/apiReference.html",
   "/v2-messaging/applications/about": "https://dev.bandwidth.com/account/applications/about.html",
   "/v2-messaging/applications/about/": "https://dev.bandwidth.com/account/applications/about.html",
   "/v2-messaging/applications/about.html": "https://dev.bandwidth.com/account/applications/about.html",
-  "/howto/hostedMessaging.html": "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
-  "/howto/hostedMessaging": "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
-  "/howto/hostedMessaging/": "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
-  "/v2-messaging/events/messageEvents.html": "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html",
-  "/v2-messaging/events/messageEvents": "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html",
-  "/v2-messaging/events/messageEvents/": "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html"
+  "/howto/hostedmessaging.html": "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
+  "/howto/hostedmessaging": "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
+  "/howto/hostedmessaging/": "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
+  "/v2-messaging/events/messageevents": "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html",
+  "/v2-messaging/events/messageevents/": "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html"
 }

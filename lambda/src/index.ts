@@ -38,7 +38,9 @@ export const handler = async (event: Event, context: object) => {
     const urlNoLower = event.Records[0].cf.request.uri
     const url = urlNoLower.toLowerCase();
     console.log(request.headers.host[0].value)
+    console.log('testing against ', url);
     if (rules[url]) {
+        console.log('found ', rules[url])
         const response = {
             status: '302',
             statusDescription: 'Found',
