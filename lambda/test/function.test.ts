@@ -1,4 +1,5 @@
 import { handler } from '../src/index';
+import { rules } from '../src/p2prules'
 
 const generateRecord = (url: string) => ({
   "Records": [
@@ -80,7 +81,7 @@ const generateRecord = (url: string) => ({
 test('Generic request preserved', async () => {
   let res = await handler(generateRecord('/test.jpg'), {})
   // if no remapping is proced, this function does not return.
-  expect(res).toBeUndefined();
+  expect(res).toStrictEqual(generateRecord('/test.jpg').Records[0].cf.request);
 })
 
 test('Redirect known URL', async () => {
@@ -126,4 +127,17 @@ test('Redirect AP-docs', async () => {
       }]
     }
   })
+})
+
+test('No Uppercase keys in forwarding rules', async () => {
+  let keys = Object.keys(rules);
+  let allLower = true;
+  for (let i = 0; i < keys.length; i += 1) {
+    let key = keys[i];
+    if (key.toLowerCase() !== key) {
+      console.log(key, "FAILED")
+      allLower = false;
+    }
+  }
+  expect(allLower).toStrictEqual(true);
 })
