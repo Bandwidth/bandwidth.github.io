@@ -28,7 +28,7 @@ export const rules: any = {
   "/faq/messaging/bodyencoding.html": "https://support.bandwidth.com/hc/en-us/articles/360033743693-what-character-sets-can-i-use-in-sms-body-",
   "/faq/messaging/customcallerid.html": "https://support.bandwidth.com/hc/en-us/articles/360033743733-can-i-set-the-caller-id-on-an-outgoing-message-to-anything-i-want-",
   "/faq/messaging/dlrmms.html": "https://support.bandwidth.com/hc/en-us/articles/360033211414-are-delivery-receipts-supported-for-mms-",
-  "/faq/Messaging/dlrsms.html": "https://support.bandwidth.com/hc/en-us/articles/360033743813-can-i-get-a-delivery-receipt-for-sms-that-i-send-",
+  "/faq/messaging/dlrsms.html": "https://support.bandwidth.com/hc/en-us/articles/360033743813-can-i-get-a-delivery-receipt-for-sms-that-i-send-",
   "/faq/messaging/emojisms.html": "https://support.bandwidth.com/hc/en-us/articles/360033743853-can-i-send-and-receive-emoji-in-sms-messages-",
   "/faq/messaging/internationalsms.html": "https://support.bandwidth.com/hc/en-us/articles/360033743893-can-i-send-and-receive-sms-to-international-phone-numbers-",
   "/faq/messaging/longsms.html": "https://support.bandwidth.com/hc/en-us/articles/360033743993-if-i-send-a-long-sms-160-characters-will-the-message-be-parted-out-and-will-i-be-charged-for-each-part-of-the-message-",
