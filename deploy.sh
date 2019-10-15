@@ -9,8 +9,17 @@ function doCompile {
   cp -a _book/. out/
 }
 
+function installLambdaDependencies {
+  cd ./lambda
+  yarn install
+  cd ../
+}
+
 # Build the site
 doCompile
+
+# install lambda dependencies
+installLambdaDependencies
 
 
 #If it is the target branch and NOT a pull request, then deploy 
@@ -18,10 +27,17 @@ if [ "$TRAVIS_BRANCH" == "$TARGET_BRANCH" ] && [ "$TRAVIS_PULL_REQUEST" == "fals
 then
   # deploy the site to s3
   aws s3 sync ./out/ s3://stop-gap --delete
+  
+  
   # Clear the cloudfront cache
   aws cloudfront create-invalidation --distribution-id E2DJMH5LKMGQA6 --paths "/*"
   printf "%s\n" "master branch"
 else
+
+  # Run tests
+  cd ./lambda
+  yarn test
+
   # do nothing, and leave s3-deploy post script handle deployment.
   printf "%s\n" "another branch"
 fi

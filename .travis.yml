@@ -15,8 +15,6 @@ before_script:
 script: bash ./deploy.sh
 after_success:
 - rm -rf _book/my_project
-- pip install git+https://github.com/dtolb/s3-deploy-website.git
-- s3-deploy-website "bw-dev"
 env:
   global:
   - ENCRYPTION_LABEL: 8bc14ba12e77
