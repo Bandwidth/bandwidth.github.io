@@ -1142,16 +1142,18 @@ securitySchemes:
                       <li>INVOICE</li>
                       <li>STMTBDR</li>
                       <li>DIDSNAP</li>
+                      <li>RECORDING_BDR</li>
+                      <li>RECORDINGSTMT_BDR</li>
                       </ul>
                 queryParameters:
                     kind:
-                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP
+                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP, RECORDING_BDR, RECORDINGSTMT_BDR
                         type: string
                         required: false
                         example: DIDSNAP
                 responses:
                     200:
-                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR as status history not implemented yet for these billing types)
+                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDING_BDR, RECORDINGSTMT_BDR as status history not implemented yet for these billing types)
                         body:
                             application/xml:
                                 example: |
@@ -8989,9 +8991,9 @@ securitySchemes:
                             This API call is currently used to set the Activation time of the customer activated (triggered) port.
                             <ul>
                             <li>If the time is in the past all of the TNs in the portin request will be activated 'immediately'.</li>
-                            <li>If the time is within the three days after the approved FoC date, the auto-activation time for the port will be set to that time</li>
+                            <li>For automated on-net port-ins, if the time is within three days after the approved FoC date, the auto-activation time for the port will be set to that time.</li>
+                            <li>For automated off-net port-ins, if the date matches the actual FOC date and the time is between 5:00 AM ET and 10:00 PM ET, the auto-activation time for the port will be set to that time.</li>
                             </ul>
-                            Activation of individual telephone numbers will be enabled in a future release, but are not currently modifiable via this API
                         body:
                             application/xml:
                                 example: |
@@ -12114,7 +12116,7 @@ securitySchemes:
                                                 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
                                                 <MmsFeature>
                                                   <MmsSettings>
-                                                    <protocol>MM4</protocol>
+                                                    <Protocol>MM4</Protocol>
                                                   </MmsSettings>
                                                   <Protocols>
                                                     <MM4>
@@ -12155,7 +12157,7 @@ securitySchemes:
                                                         <MmsFeatureResponse>
                                                           <MmsFeature>
                                                             <MmsSettings>
-                                                              <protocol>MM4</protocol>
+                                                              <Protocol>MM4</Protocol>
                                                             </MmsSettings>
                                                             <Protocols>
                                                               <MM4>
@@ -12245,7 +12247,7 @@ securitySchemes:
                                                           <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                                                           <MmsFeatureMmsSettingsResponse>
                                                             <MmsSettings>
-                                                              <protocol>MM4</protocol>
+                                                              <Protocol>MM4</Protocol>
                                                             </MmsSettings>
                                                           </MmsFeatureMmsSettingsResponse>
                             /messaging/applicationSettings: 

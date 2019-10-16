@@ -51,7 +51,14 @@
 ```
 
 ```ruby
-## Coming Soon
+account_id = "1"
+body = MessageRequest.new
+body.application_id = "1-2-3"
+body.to = ["+17777777777"]
+body.from = "+18888888888"
+body.text = "Hello from Bandwidth"
+
+result = message_controller.create_message(account_id,:body => body)
 ```
 
 ```bash
@@ -71,7 +78,14 @@ curl --request POST \
 ```
 
 ```python
-## Coming Soon
+account_id = "123"
+body = MessageRequest()
+body.application_id = "1-d-b"
+body.to = ["+17777777777"]
+body.mfrom = "+18888888888"
+body.text = "Greetings!"
+
+result = messaging_client.create_message(account_id, body=body)
 ```
 
 ### Make a call
@@ -85,7 +99,14 @@ curl --request POST \
 ```
 
 ```ruby
-## Coming Soon
+account_id = '1'
+body = ApiCreateCallRequest.new
+body.from = '+16666666666'
+body.to = '+17777777777'
+body.answer_url = 'https://test.com'
+body.application_id = '3-d-4-b-5'
+
+result = voice_client.create_call(account_id,:body => body)
 ```
 
 
@@ -104,7 +125,14 @@ curl --request POST \
 ```
 
 ```python
-## Coming Soon
+account_id = "123"
+body = ApiCreateCallRequest()
+body.mfrom = "+17777777777"
+body.to = "+16666666666"
+body.application_id = "3-d-4-b-5"
+body.answer_url = "https://test.com"
+
+result = voice_client.create_call(account_id, body=body)
 ```
 
 ### Buy a telephone number

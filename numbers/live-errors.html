@@ -843,7 +843,35 @@
   </tr>
     <tr>
     <td>5164</td>
+    <td>DisconnectMode '%s' is invalid. Valid values are: purge</td>
+  </tr>
+    <tr>
+    <td>5165</td>
+    <td>A single order cannot contain a mix of NANP and International telephone numbers</td>
+  </tr>
+    <tr>
+    <td>5166</td>
     <td>Sip Peer doesn't have Sms feature.</td>
+  </tr>
+    <tr>
+    <td>5167</td>
+    <td>TnType '%s' is not a valid TnType for account %s</td>
+  </tr>
+    <tr>
+    <td>5168</td>
+    <td>Billing type '%s' is not valid for international orders. Valid billing types are: NOCHARGE</td>
+  </tr>
+    <tr>
+    <td>5169</td>
+    <td>The specified vendor is not available for this account.</td>
+  </tr>
+    <tr>
+    <td>5170</td>
+    <td>Non-international customer segment cannot import international telephone numbers.</td>
+  </tr>
+    <tr>
+    <td>5171</td>
+    <td>International customer segment cannot import NANP telephone numbers.</td>
   </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
@@ -2033,6 +2061,78 @@
     <td>7406</td>
     <td>Error: Invalid E911CoverageIndicator</td>
   </tr>
+    <tr>
+    <td>7407</td>
+    <td>The wireless AccountNumber cannot be changed after order submission for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7408</td>
+    <td>The wireless PinNumber cannot be changed after order submission for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7409</td>
+    <td>When changing the subscriber name, both FirstName and LastName must be supplied for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7410</td>
+    <td>BusinessName required when SubscriberType set to Business for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7411</td>
+    <td>Subscriber name cannot be changed when SubscriberType is set to Business for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7412</td>
+    <td>PartialPort cannot be set to false for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7413</td>
+    <td>The ListOfPhoneNumbers cannot be changed after order submission for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7414</td>
+    <td>The BusinessName cannot be changed after FOC is assigned for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7415</td>
+    <td>The BillingTelephoneNumber cannot be changed after FOC is assigned for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7416</td>
+    <td>BusinessName cannot be changed when SubscriberType is set to Residential for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7417</td>
+    <td>Both FirstName and LastName are required when SubscriberType set to Residential for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7418</td>
+    <td>The SubscriberType cannot be changed after FOC is assigned for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7419</td>
+    <td>The subscriber name cannot be changed after FOC is assigned for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7420</td>
+    <td>The order address cannot be changed after order submission for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7604</td>
+    <td>Activation can only be triggered between the hours of %s and %s on the actual FOC date: %s.</td>
+  </tr>
+    <tr>
+    <td>7605</td>
+    <td>Activation must be scheduled between the hours of %s and %s on the actual FOC date: %s.</td>
+  </tr>
+    <tr>
+    <td>7606</td>
+    <td>Order must be in FOC state to be scheduled for activation.</td>
+  </tr>
+    <tr>
+    <td>7607</td>
+    <td>Unable to sumbit portTN request to Level3.</td>
+  </tr>
   </table>
 
 <h2>LOA File Upload </h2>
@@ -2941,7 +3041,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -4118,7 +4218,7 @@
   </tr>
     <tr>
     <td>12153</td>
-    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, and Trial.</td>
+    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, International, and Trial.</td>
   </tr>
     <tr>
     <td>12154</td>
@@ -4131,6 +4231,18 @@
     <tr>
     <td>12156</td>
     <td>Unsupported transition. Customer Segment cannot be changed from %s to %s.</td>
+  </tr>
+    <tr>
+    <td>12157</td>
+    <td>Accounts with International customer segment are not compatible with the '%s' product</td>
+  </tr>
+    <tr>
+    <td>12158</td>
+    <td>Accounts with International customer segment are not compatible with the UC Trunking, Messaging, E911, or Virtual products</td>
+  </tr>
+    <tr>
+    <td>12159</td>
+    <td>Accounts with International customer segment are not compatible with the Number Management features on the account</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -5657,7 +5769,35 @@
   </tr>
     <tr>
     <td>13013</td>
+    <td>Currently International accounts do not support any of the Number Management features specified</td>
+  </tr>
+    <tr>
+    <td>13014</td>
     <td>Account (%s) must be a proxy peer owner in order to use sippeer (%s) as a proxy.</td>
+  </tr>
+    <tr>
+    <td>13015</td>
+    <td>The Countries API only supports changing the supported value</td>
+  </tr>
+    <tr>
+    <td>13016</td>
+    <td>Cannot remove support for the country because it is enabled on at least 1 account</td>
+  </tr>
+    <tr>
+    <td>13017</td>
+    <td>Mm4 termination host(subnet) %s overlaps with addresses that are already in payload.</td>
+  </tr>
+    <tr>
+    <td>13018</td>
+    <td>SMS host %s overlaps with addresses that are already in payload.</td>
+  </tr>
+    <tr>
+    <td>13019</td>
+    <td>The specified country region code %s is valid, but not currently supported.</td>
+  </tr>
+    <tr>
+    <td>13020</td>
+    <td>Cannot remove support for the vendor because it is in use on at least 1 account</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -6470,6 +6610,10 @@
     <tr>
     <td>4024</td>
     <td>Messaging Route for %s is not configured.</td>
+  </tr>
+    <tr>
+    <td>4025</td>
+    <td>Messaging Route could not be determined</td>
   </tr>
   </table>
 <h2>Core2ErrorType</h2>

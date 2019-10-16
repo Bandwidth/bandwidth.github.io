@@ -41,7 +41,8 @@ module.exports = function ($) {
 			'codes.html',
 			"errors.html",
 			"httpErrors.html",
-			"portoutValidation.html"
+			"portoutValidation.html",
+			"messaging.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
@@ -70,6 +71,23 @@ module.exports = function ($) {
 		});
 	}
 
+	function hidePagesFromNav () {
+		var redirects = [
+			'International Overview'
+		];
+
+		redirects.forEach(page => {
+			const selector = `li.chapter a:contains('${page}')`;
+			//for international, allow the page itself to have a link
+			if ($('head > title').text() === 'International Overview') {
+				//console.log('Skipping hide nav for international page');
+			}
+			else {
+				$(selector).remove();
+			}
+		});
+	}
+
 	function addExternalIconForNewTabLinks () {
 		// Add external link icon to all links in summary
 		$('ul.summary a[target=_blank]').each(function () {
@@ -95,6 +113,7 @@ module.exports = function ($) {
 	makeSummaryLinksUnClickable();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
+	hidePagesFromNav();
 
 
 	return $.html();

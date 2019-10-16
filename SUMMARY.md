@@ -167,7 +167,13 @@
 		* [Bandwidth Service Failures](messaging/errors/codes.md#service-errors)
 		* [Carrier Reported Service Failures](messaging/errors/codes.md#carrier-service-errors)
 		* [Carrier Errors with Ambiguous Cause](messaging/errors/codes.md#carrier-ambiguous-errors)
-
+* [International Overview](international/messaging.md)
+	* [Sending SMS messages](international/messaging.md#send-sms)
+	* [Create Message API](international/messaging.md#create-message)
+	* [HTTP Responses (Success & Errors)](international/messaging.md#http-response)
+	* [Callbacks](international/messaging.md#dlrs)
+	* [DLR Parameters](international/messaging.md#http-dlr)
+	* [DLR Error Codes](international/messaging.md#dlr-errors)
 
 ## SDKs
 * [Python](sdks/python.md)
@@ -178,6 +184,6 @@
 * [PHP - _coming soon_](sdks/php.md)
 
 ## v1 Docs
-* [Home Page](https://dev.bandwidth.com)
-* [Voice](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
-* [Messaging](https://dev.bandwidth.com/ap-docs/methods/messages/messages.html)
+* [Home Page](https://old.dev.bandwidth.com)
+* [Voice](https://old.dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+* [Messaging](https://old.dev.bandwidth.com/ap-docs/methods/messages/messages.html)

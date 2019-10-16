@@ -31,7 +31,7 @@ NOTE: Exceptions are outlined as synchronous and asynchronous in the Appendix A:
 
 The Orders that are managed by the Bandwidth Phone Number API to implement the above workflow are reported in the order records that are reported through the API calls below.  These “order states” comply with the state transitions captured in the following diagram:
 
-![Porting Diagram](../images/portingDiagram.png)
+![Porting Diagram](../../images/portingDiagram.png)
 
 ## Checking LNP Availability {#check-lnp}
 

@@ -19,14 +19,28 @@ interface CFRequest {
     clientIp: string
     querystring: string
     method: string
-    headers: object
+    headers: Headers
     origin: object
 }
 
+interface Headers {
+    host: Host[]
+}
+
+interface Host {
+    key: String
+    value: String
+}
+
 export const handler = async (event: Event, context: object) => {
+    const request = event.Records[0].cf.request;
     // check the requested URL vs the url mapping object.
-    const url = event.Records[0].cf.request.uri.toLowerCase();
+    const urlNoLower = event.Records[0].cf.request.uri
+    const url = urlNoLower.toLowerCase();
+    console.log(request.headers.host[0].value)
+    console.log('testing against ', url);
     if (rules[url]) {
+        console.log('found ', rules[url])
         const response = {
             status: '302',
             statusDescription: 'Found',
@@ -62,7 +76,7 @@ export const handler = async (event: Event, context: object) => {
             headers: {
                 location: [{
                     key: 'Location',
-                    value: `https://old.dev.bandwidth.com${url}`
+                    value: `https://old.dev.bandwidth.com${urlNoLower}`
                 }],
             },
         };
@@ -71,6 +85,6 @@ export const handler = async (event: Event, context: object) => {
 
 
     // didn't proc any redirects, let it continue unmolested.
-    return;
+    return request;
     
 }
