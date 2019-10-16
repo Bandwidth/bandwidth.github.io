@@ -2,6 +2,8 @@
 
 ### Download & Install
 
+ℹ️ Note that bandwidth-sdk `v4.x.x` and greater will only support Bandwidth's v2 APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate to v2. For v1 installation instructions, please see [old.dev.bandwidth.com](https://old.dev.bandwidth.com/clientLib/python.html).
+
 ```
 pip install bandwidth-sdk
 ```
@@ -65,7 +67,7 @@ print(response.to_bxml())
 messaging_client = bandwidth_client.messaging_client.client
 
 body = MessageRequest()
-body.application_id = "1-d-b" 
+body.application_id = "1-d-b"
 body.to = ["+17777777777"]
 body.mfrom = "+18888888888"
 body.text = "Greetings!"
