@@ -73,11 +73,6 @@ module.exports = function ($) {
 
 	function hidePagesFromNav () {
 		var redirects = [
-			'tmp_messaging',
-			'tmp_howto',
-			'tmp_numbers',
-			'tmp_numbers2',
-			'tmp_applications',
 			'International Overview'
 		];
 
