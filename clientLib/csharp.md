@@ -9,7 +9,6 @@ The current version is v3.0, released 1 February, 2017. Version 2.15 is availabl
 [![Build on .Net Core (Linux)](https://travis-ci.org/Bandwidth/csharp-bandwidth.svg)](https://travis-ci.org/Bandwidth/csharp-bandwidth)
 [![Coverage Status](https://coveralls.io/repos/github/Bandwidth/csharp-bandwidth/badge.svg)](https://coveralls.io/github/Bandwidth/csharp-bandwidth)
 
-[Full API Reference](src/Bandwidth.Net/Help/Home.md)
 
 ## Installing the SDK
 
@@ -55,9 +54,9 @@ Your `client` object is now ready to use the API.
 ### Lazy evalutions
 
 This library uses lazy evalutions in next cases:
-    
+
 - Object creation,
-    
+
 - Get list of objects
 
 #### Object Creation
