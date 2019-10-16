@@ -18,9 +18,11 @@
 | [`<Gather>`](bxml/verbs/gather.md)                   | The Gather verb is used to collect digits for some period of time.                           |
 | [`<Hangup>`](bxml/verbs/hangup.md)                   | The Hangup verb is used to hangup current call.                                              |
 | [`<Pause>`](bxml/verbs/pause.md)                     | The Pause verb is used to delay for a period of time in the call.                            |
+| [`<PauseRecording>`](bxml/verbs/pauseRecording.md)   | The PauseRecording verb is used to pause a recording started by a preceding `<StartRecording>` verb. |
 | [`<PlayAudio>`](bxml/verbs/playAudio.md)             | The PlayAudio verb is used to play an audio file in the call.                                |
 | [`<Record>`](bxml/verbs/record.md)                   | The Record verb allows a segment of audio to be recorded during a call.                      |
 | [`<Redirect>`](bxml/verbs/redirect.md)               | The Redirect verb is used to redirect the current XML execution to another URL.              |
+| [`<ResumeRecording>`](bxml/verbs/resumeRecording.md) | The ResumeRecording verb is used to resume a recording paused by a preceding `<PauseRecording>` verb. |
 | [`<SendDtmf>`](bxml/verbs/sendDtmf.md)               | The SendDtmf verb is used to play DTMF digits in the call.                                   |
 | [`<SpeakSentence>`](bxml/verbs/speakSentence.md)     | The SpeakSentence verb is used to convert any text into speak for the caller.                |
 | [`<StartRecording>`](bxml/verbs/startRecording.md)   | The StartRecording verb allows an entire section of a call to be recorded.                   |
