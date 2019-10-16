@@ -26,20 +26,20 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 
 ### Verbs
 
-| Verb                                          | Description                                                                                  |
-|:----------------------------------------------|:---------------------------------------------------------------------------------------------|
-| [`<Forward>`](verbs/forward.md)               | The Forward verb is used to forward an unanswered incoming call to another number.           |
-| [`<Gather>`](verbs/gather.md)                 | The Gather verb is used to collect digits for some period of time.                           |
-| [`<Hangup>`](verbs/hangup.md)                 | The Hangup verb is used to hangup current call.                                              |
-| [`<Pause>`](verbs/pause.md)                   | The Pause verb is used to delay for a period of time in the call.                            |
-| [`<PlayAudio>`](verbs/playAudio.md)           | The PlayAudio verb is used to play an audio file in the call.                                |
-| [`<Record>`](verbs/record.md)                 | The Record verb allows a segment of audio to be recorded during a call.                      |
-| [`<Redirect>`](verbs/redirect.md)             | The Redirect verb is used to redirect the current XML execution to another URL.              |
-| [`<SendDtmf>`](verbs/sendDtmf.md)             | The SendDtmf verb is used to play DTMF digits in the call.                                   |
-| [`<SpeakSentence>`](verbs/speakSentence.md)   | The SpeakSentence verb is used to convert any text into speak for the caller.                |
-| [`<StartRecording>`](verbs/startRecording.md) | The StartRecording verb allows an entire section of a call to be recorded.                   |
-| [`<StopRecording>`](verbs/stopRecording.md)   | The StopRecording stops a recording that was started by a preceding `<StartRecording>` verb. |
-| [`<Transfer>`](verbs/transfer.md)             | The Transfer verb is used to transfer the call to another number.                            |
+| Verb                                            | Description                                                                                  |
+|:------------------------------------------------|:---------------------------------------------------------------------------------------------|
+| [`<Forward>`](verbs/forward.md)                 | The Forward verb is used to forward an unanswered incoming call to another number.           |
+| [`<Gather>`](verbs/gather.md)                   | The Gather verb is used to collect digits for some period of time.                           |
+| [`<Hangup>`](verbs/hangup.md)                   | The Hangup verb is used to hangup current call.                                              |
+| [`<Pause>`](verbs/pause.md)                     | The Pause verb is used to delay for a period of time in the call.                            |
+| [`<PlayAudio>`](verbs/playAudio.md)             | The PlayAudio verb is used to play an audio file in the call.                                |
+| [`<Record>`](verbs/record.md)                   | The Record verb allows a segment of audio to be recorded during a call.                      |
+| [`<Redirect>`](verbs/redirect.md)               | The Redirect verb is used to redirect the current XML execution to another URL.              |
+| [`<SendDtmf>`](verbs/sendDtmf.md)               | The SendDtmf verb is used to play DTMF digits in the call.                                   |
+| [`<SpeakSentence>`](verbs/speakSentence.md)     | The SpeakSentence verb is used to convert any text into speak for the caller.                |
+| [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows an entire section of a call to be recorded.                   |
+| [`<StopRecording>`](verbs/stopRecording.md)     | The StopRecording stops a recording that was started by a preceding `<StartRecording>` verb. |
+| [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                            |
 
 ### BXML Callbacks
 
