@@ -16,7 +16,7 @@ Client library for the [Bandwidth App Platform](http://ap.bandwidth.com/docs/res
 
 ## Installation
 
-ℹ️ Python versions 4.x.x and greater only support v1 Bandwidth APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate your account.
+ℹ️ Python versions 4.x.x and greater only support v2 Bandwidth APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate your account.
 
 ```bash
 pip install bandwidth-sdk==3.1.0
