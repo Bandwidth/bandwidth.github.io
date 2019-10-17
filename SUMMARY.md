@@ -98,6 +98,7 @@
 	* [/calls](voice/methods/calls/about.md)
 		* [POST Create Call](voice/methods/calls/postCalls.md)
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
+		* [PUT Call Recording](voice/methods/calls/putCallsCallIdRecording.md)
 * [Call Control (BXML)](voice/bxml/about.md)
 	* [Forward](voice/bxml/verbs/forward.md)
 	* [Gather](voice/bxml/verbs/gather.md)
