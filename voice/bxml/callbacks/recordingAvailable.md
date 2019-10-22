@@ -26,7 +26,7 @@ HTTP/1.1 204
 | callUrl          | The URL of the call associated with the event.                                                                    |
 | mediaUrl         | URL to retrieve the contents of the recording.                                                                    |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
-| status           | The state of the recording, callback event values are `complete` or `error`.                                      |
+| status           | The state of the recording. Values are `complete`, `partial` and `error`. A `partial` status indicate that although the recording is available to be downloaded, parts of the recording are missing.                         |
 
 {% common %}
 
