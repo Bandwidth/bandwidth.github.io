@@ -39,9 +39,6 @@ APIController voiceController = new BandwidthClient(config).Voice.Client;
 ```csharp
 using Bandwidth.Standard.Voice.Controllers;
 
-//Create the ApiCreateCallRequest object
-ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
-
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";

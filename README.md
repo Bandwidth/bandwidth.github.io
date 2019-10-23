@@ -47,10 +47,9 @@
 ```
 
 ```csharp
-using BandwidthSdk.Standard.BandwidthMessaging;
-using BandwidthSdk.Standard.BandwidthMessaging.Controllers;
-
-APIController msgController =  new BandwidthMessagingClient(msgConfig).Client
+using Bandwidth.Standard.Messaging;
+using Bandwidth.Standard.Messaging.Models;
+using Bandwidth.Standard.Messaging.Controllers;
 
 MessageRequest msgRequest = new MessageRequest();
 msgRequest.ApplicationId = applicationId;
@@ -92,7 +91,6 @@ curl --request POST \
 ```
 
 ```csharp
-ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
 
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
