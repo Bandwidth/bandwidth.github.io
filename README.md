@@ -98,7 +98,7 @@ callRequest.AnswerUrl= "https://test.com";
 callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
-voiceController.CreateCall("account.id", callRequest);
+voiceController.CreateCall(accountId, callRequest);
 ```
 
 ```ruby
