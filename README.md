@@ -47,7 +47,17 @@
 ```
 
 ```csharp
-// Coming Soon
+using Bandwidth.Standard.Messaging;
+using Bandwidth.Standard.Messaging.Models;
+using Bandwidth.Standard.Messaging.Controllers;
+
+MessageRequest msgRequest = new MessageRequest();
+msgRequest.ApplicationId = applicationId;
+msgRequest.From = "+18888888888";
+msgRequest.To = new string[1] {"9199199999"};
+msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
+
+msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
 ```ruby
@@ -95,7 +105,14 @@ result = messaging_client.create_message(account_id, body=body)
 ```
 
 ```csharp
-// Coming Soon
+
+callRequest.ApplicationId = "3-d-4-b-5";
+callRequest.To="+19999999999";
+callRequest.AnswerUrl= "https://test.com";
+callRequest.From="+17777777777";
+
+//Be aware that the Voice Client can throw exceptions
+voiceController.CreateCall(accountId, callRequest);
 ```
 
 ```ruby

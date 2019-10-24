@@ -10,32 +10,34 @@ nuget install Bandwidth.Sdk -OutputDirectory packages -Version 1.0.0-beta
 
 *Note This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
 
-### Initialize Bandwidth Client
+### Initialize Bandwidth Voice & Message Client
 
 ```csharp
-using BandwidthSdk.Standard.BandwidthVoice;
-using BandwidthSdk.Standard.BandwidthVoice.Models;
-
+using Bandwidth.Standard;
+using Bandwidth.Standard.Voice.Controllers;
+using Bandwidth.Standard.Messaging.Controllers;
 
 
 //create Configuration with credentials
 Configuration config = new Configuration.Builder()
-			.WithBandwidthVoiceBasicAuthPassword("voice.password")
-			.WithBandwidthVoiceBasicAuthUserName("voice.username")
-			.WithEnvironment(Configuration.Environments.PRODUCTION)
-			.Build();
+            .WithMessagingBasicAuthPassword("msg.password")
+            .WithMessagingBasicAuthUserName("msg.username")
+            .WithVoiceBasicAuthPassword("voice.password")
+            .WithVoiceBasicAuthUserName("voice.username")
+            .WithEnvironment(Configuration.Environments.PRODUCTION)
+            .Build();
 
 //Activate the Client with the Configuration
-APIController voiceClient = new BandwidthVoiceClient(config).Client;
+APIController msgController = new BandwidthClient(config).Messaging.Client;
+APIController voiceController = new BandwidthClient(config).Voice.Client;
+
 
 ```
 
 ### Create Phone Call
 
 ```csharp
-
-//Create the ApiCreateCallRequest object
-ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+using Bandwidth.Standard.Voice.Controllers;
 
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
@@ -44,11 +46,11 @@ callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 try {
-	voiceClient.CreateCall("account.id", callRequest);
+    voiceController.CreateCall("account.id", callRequest);
 } catch (APIException e) {
-	WriteLine( e.Message );
+    WriteLine( e.Message );
 } catch (IOException e) {
-	WriteLine( e.Message );
+    WriteLine( e.Message );
 }
 
 
@@ -57,7 +59,7 @@ try {
 ### Generate BXML
 
 ```csharp
-using BandwidthBXML;
+using Bandwidth.Standard.Voice.Bxml;
 
 //Bandwidth XML (BXML) verb SpeakSenetence plays the sentence audio
 SpeakSentence speakSentence = new SpeakSentence();
@@ -75,7 +77,17 @@ Console.write( res.ToXml() );
 ### Send Text Message
 
 ```csharp
-//Coming soon
+using Bandwidth.Standard.Messaging;
+using Bandwidth.Standard.Messaging.Controllers;
+using Bandwidth.Standard.Messaging.Models;
+
+MessageRequest msgRequest = new MessageRequest();
+msgRequest.ApplicationId = applicationId;
+msgRequest.From = "+18888888888";
+msgRequest.To = new string[1] {"9199199999"};
+msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
+
+msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
 ### Order Phone Number
