@@ -33,7 +33,7 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Application>
     <ServiceType>Messaging-V2</ServiceType>
@@ -76,7 +76,7 @@ Content-Type: application/xml
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Application>
     <ServiceType>Voice-V2</ServiceType>

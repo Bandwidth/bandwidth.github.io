@@ -58,7 +58,7 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 ```http
 POST https://dashboard.../{{accountId}}/subscriptions HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 ```xml
 <Subscription>
@@ -110,7 +110,7 @@ This example only demonstrates searching by `NPA NXX` to learn about the differe
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers?npaNxx=540551&quantity=7 HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
@@ -172,7 +172,7 @@ Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Order>
     <CustomerOrderId>123456789</CustomerOrderId>
@@ -242,7 +242,7 @@ The HTTP Callback will contain information if the order was successful or failed
 ```http
 POST https://your-server.com HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Notification>
@@ -262,7 +262,7 @@ Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 POST https://your-server.com HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Notification>
@@ -305,7 +305,7 @@ There are no query parameters for fetching information about an existing order.
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders/4a58b348-892c-4426-8900-97fc4555c42c HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Example: Successful Order Response

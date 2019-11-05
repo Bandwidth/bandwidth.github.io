@@ -54,7 +54,7 @@ Bandwidth will return a `HTTP-400` Error when the request is malformed or invali
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -104,7 +104,7 @@ Bandwidth returns a `HTTP-401` Error when the specified user does not have acces
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -151,7 +151,7 @@ Bandwidth returns a `HTTP-403` error when the user does not have access to the v
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -202,7 +202,7 @@ Bandwidth returns a `HTTP-404` when the call-id is no longer active, or the path
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/{{invalid-call-id}} HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -231,7 +231,7 @@ Content-Type: application/json;charset=UTF-8
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/invalid-path/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -276,7 +276,7 @@ Bandwidth will return a `HTTP-405` Error when the HTTP method used in the reques
 ```http
 DELETE https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -320,7 +320,7 @@ Bandwidth returns a `HTTP-409` error when modifying a call that is unable to be 
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/{{call-id}} HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "state" : "completed"
@@ -361,7 +361,7 @@ Bandwidth returns a `HTTP-415` error when the content-type of the request is inc
 
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -405,7 +405,7 @@ Bandwidth returns a `HTTP-429` error when the rate limit has been reached.
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -452,7 +452,7 @@ Bandwidth will return a `HTTP-500` Error when an unknown error occurs. If you re
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -496,7 +496,7 @@ Bandwidth will return a `HTTP-503` Error if the service is unavailable for some 
 ```http
 POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",

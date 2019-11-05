@@ -54,7 +54,7 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Subscription>
     <OrderType>orders</OrderType>
@@ -89,7 +89,7 @@ Location: https://.../accounts/{{accountId}}/subscriptions/{{subscriptionId}}
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Subscription>
     <OrderType>portins</OrderType>
