@@ -1,4 +1,4 @@
-# Account Credentials
+# Account Credentials {#top}
 
 This guide will cover the different credentials for interacting with Bandwidth's APIs, and how to authenticate on each API.
 
@@ -6,17 +6,17 @@ This guide will cover the different credentials for interacting with Bandwidth's
 
 All of Bandwidth's APIs are protected with Basic Authorization over HTTPS. Basic Authorization requires the credential pair to be encoded with [base64](https://en.wikipedia.org/wiki/Base64) as part of the `Authorization` HTTP header.
 
-### API Credentials (Voice, Numbers, Account Management)
+### API Credentials (Voice, Numbers, Account Management) {#voice-numbers-account}
 
 All three of Voice, Numbers, & Account Management APIs leverage your API Credentials created specifically for API access.  The API Credential pair for Voice, Numbers, & Account Management must be created as a unique set within Dashboard.  Learn more about creating your API Credentials in the [support article](https://support.bandwidth.com/hc/en-us/articles/115007187088-How-to-Create-New-Users-in-the-Bandwidth-Dashboard).
 
 ⚠️ The API Credential pair are separate from your **Login Username & Password** and **can not** be used to access the dashboard.  Further, your login username and password **can not** be used to access the Voice, Numbers, & Account Management APIs.
 
-### Token & Secret (Messaging Only)
+### Token & Secret (Messaging Only) {#messaging}
 
 Bandwidth's Messaging API leverages server-side generated API Token & API Secrets. Learn more about creating and managing Tokens and Secrets in the [support article](https://support.bandwidth.com/hc/en-us/articles/360014110974).
 
-## Credentials Snapshot
+## Credentials Snapshot {#snap-shot}
 
 | Credential Name                        | Description                                                                                                                                                                                                                                                                                             | Example                                            |
 |:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
