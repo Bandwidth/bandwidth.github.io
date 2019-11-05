@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "deployLambdaEdge": "node deploy.js"
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.6.1",
@@ -17,7 +18,8 @@
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
-    "typescript": "~3.6.2"
+    "typescript": "~3.6.2",
+    "aws-sdk": "^2.549.0"
   },
   "dependencies": {
     "@aws-cdk/aws-lambda": "^1.8.0",
