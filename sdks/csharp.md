@@ -68,7 +68,7 @@ Response res =  new Response();
 res.Add(speakSentence);
 
 //view the BXML
-Console.write( res.ToXml() );
+Console.write( res.ToBXML() );
 
 ```
 
