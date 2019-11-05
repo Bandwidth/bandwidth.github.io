@@ -21,6 +21,10 @@ Disconnecting a phone number leaves it in all applicable inventories, but makes 
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Request Parameters
@@ -39,7 +43,7 @@ Disconnecting a phone number leaves it in all applicable inventories, but makes 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0"?>
 <DisconnectTelephoneNumberOrder>
@@ -98,7 +102,7 @@ There are no query parameters for fetching information about an existing disconn
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects/df2gc2e2-653d-466c-945d-8f292f09ce55 HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response

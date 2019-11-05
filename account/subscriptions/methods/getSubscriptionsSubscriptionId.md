@@ -8,6 +8,9 @@ Get information about an existing Subscription
 
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{account}}/subscriptions/{{subscriptionId}}`
 
+#### Basic Authentication
+
+Bandwidth's Account API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 {% common %}
 
@@ -18,7 +21,7 @@ Get information about an existing Subscription
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{subscriptionId}} HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 {% common %}

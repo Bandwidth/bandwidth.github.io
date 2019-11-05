@@ -8,6 +8,10 @@ Create a new [application](../about.md)
 
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{account}}/applications`
 
+#### Basic Authentication
+
+Bandwidth's Account API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
 ### Supported Parameters
 
 | Parameters               | Mandatory                  | Description                                                                                                                                                                                                                  |
@@ -29,7 +33,7 @@ Create a new [application](../about.md)
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Application>
     <ServiceType>Messaging-V2</ServiceType>
@@ -72,7 +76,7 @@ Content-Type: application/xml
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Application>
     <ServiceType>Voice-V2</ServiceType>

@@ -8,8 +8,11 @@
 
 <code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{{account}}/subscriptions/{{subscriptionId}}`
 
-### Supported Parameters
+#### Basic Authentication
 
+Bandwidth's Account API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
+### Supported Parameters
 
 | Parameters                     | Mandatory                  | Description                                                                                                                                                                                                                                                       |
 |:-------------------------------|:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -33,7 +36,7 @@
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Subscription>
     <OrderType>orders</OrderType>

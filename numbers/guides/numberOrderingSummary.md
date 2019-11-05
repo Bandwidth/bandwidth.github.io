@@ -25,6 +25,10 @@ There are a number of search approaches that can be used; the NPA NXX search is 
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Query Parameters
@@ -55,7 +59,7 @@ There are a number of search approaches that can be used; the NPA NXX search is 
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers?npaNxx=540551&quantity=10 HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
@@ -90,6 +94,10 @@ Ordering Phone Numbers for use with the network uses requires you to order speci
 
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders`
+
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
 
 {% extendmethod %}
 
@@ -136,7 +144,7 @@ These parameters _may or may not_ be required based on the type of order.  Check
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Order>
     <AreaCodeSearchAndOrderType>
@@ -181,6 +189,10 @@ A <code class="get">GET</code> Request to an existing order will return it's sta
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders/{{orderId}}`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Query Parameters
@@ -194,7 +206,7 @@ There are no query parameters for fetching information about an existing order.
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders/d30eda5a-ce10-456e-8cb9-eb13b9f14cfd HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
@@ -240,6 +252,10 @@ Disconnecting a phone number leaves it in all applicable inventories, but makes 
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Request Parameters
@@ -258,7 +274,7 @@ Disconnecting a phone number leaves it in all applicable inventories, but makes 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0"?>
 <DisconnectTelephoneNumberOrder>
@@ -304,6 +320,10 @@ A <code class="get">GET</code> Request to an existing disconnect will return it'
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects/{{disconnectId}}`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Query Parameters
@@ -317,7 +337,7 @@ There are no query parameters for fetching information about an existing disconn
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects/df2gc2e2-653d-466c-945d-8f292f09ce55 HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
