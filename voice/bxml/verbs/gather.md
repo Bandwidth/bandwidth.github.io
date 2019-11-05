@@ -29,7 +29,7 @@ completion of the gather. BXML returned by that callback are then executed. If `
 If no `gatherUrl` attribute is specified, the gathered digits are discarded and execution of verbs following the `<Gather>` continues.
 
 ### Nestable Verbs
-The following verbs may be nested inside of a `<Gather>` tag.  If using a repeat count of one, up to 20 verbs can be nested. Refer to repeatCount Attribute if using a value greater than 1. 
+The following verbs may be nested inside of a `<Gather>` tag.  If using a repeat count of one, up to 20 verbs can be nested. Refer to `repeatCount` attribute if using a value greater than 1. 
 
 | Verb                              | Description                                                                                              |
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------|
