@@ -15,7 +15,7 @@ The Gather verb is used to collect digits for some period of time.
 | maxDigits         | (optional) Max number of digits to collect. Default value is 50. Range: decimal values between 1 - 50.                                                                                                                                                                                                                                 |
 | interDigitTimeout | (optional) Time (in seconds) allowed between digit presses before automatically terminating the Gather. Default value is 5. Range: decimal values between 1 - 60.                                                                                                                                  |
 | firstDigitTimeout | (optional) Time (in seconds) to pause after any audio from nested `<SpeakSentence>` or `<PlayAudio>` verb is played (in seconds) before terminating the Gather. Default value is 5. Range: decimal values between 0 - 60.                                                                                                           |
-| repeatCount       | (optional) The number of times the audio prompt should be played if no digits are pressed. For example, if this value is `3`, the nested audio clip will be played a maximum of three times. The delay between repetitions will be equal to `firstDigitTimeout`. Default value is 1. Range: 1-20.|
+| repeatCount       | (optional) The number of times the audio prompt should be played if no digits are pressed. For example, if this value is `3`, the nested audio clip will be played a maximum of three times. The delay between repetitions will be equal to `firstDigitTimeout`. Default value is 1. Range: dependant on the total number of verbs to be repeated; repeatCount * number of verbs must not be greater than 20|
 
 The gather is terminated when one of these conditions is met:
  1. The user presses a terminating digit (if specified)
@@ -29,7 +29,7 @@ completion of the gather. BXML returned by that callback are then executed. If `
 If no `gatherUrl` attribute is specified, the gathered digits are discarded and execution of verbs following the `<Gather>` continues.
 
 ### Nestable Verbs
-The following verbs may be nested inside of a `<Gather>` tag.  Up to 20 verbs can be nested, with each repetition of a verb through use of the repeatCount attribute contributing to that total. 
+The following verbs may be nested inside of a `<Gather>` tag.  If using a repeat count of one, up to 20 verbs can be nested. Refer to repeatCount Attribute if using a value greater than 1. 
 
 | Verb                              | Description                                                                                              |
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------|
