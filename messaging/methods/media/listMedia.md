@@ -37,10 +37,8 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 
 ```bash
 curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
-  -u {token}:{secret} \
+  -u {token}:{secret}
 ```
-
-{% common %}
 
 > The above command returns JSON structured like this:
 
@@ -64,6 +62,30 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
 ]
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
 ### Example 2 of 2: List Your Media Files Using A Continuation-Token
 
 
@@ -74,8 +96,6 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
   -u {token}:{secret} \
   -H "Continuation-Token: 12345"
 ```
-
-{% common %}
 
 > The above command returns JSON structured like this:
 
@@ -99,5 +119,27 @@ Continuation-Token: 678910
         "content": "https://messaging.bandwidth.com/.../media/{mediaName3}"
   }
 ]
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 {% endmethod %}

@@ -17,8 +17,12 @@ Forwards an unanswered incoming call to another number.
 None
 
 {% common %}
-#### Example:  Forward Verb
+
+### Example 1 of 1: Simple Forward
+
 This shows how to use Bandwidth XML to forward a call from +11234567890 to +10987654321.
+
+{% sample lang="http" %}
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -26,5 +30,28 @@ This shows how to use Bandwidth XML to forward a call from +11234567890 to +1098
    <Forward from="+11234567890" to="+10987654321"/>
 </Response>
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
 
 {% endmethod %}

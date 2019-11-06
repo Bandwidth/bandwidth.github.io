@@ -25,7 +25,29 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 
 ```bash
 curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
-  -u {token}:{secret} \
+  -u {token}:{secret}
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}

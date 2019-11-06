@@ -43,10 +43,12 @@ The following verbs may be nested inside of a `<Gather>` tag.  A maximum of one 
 | [Gather](../callbacks/gather.md) | Yes                      |
 
 {% common %}
-#### Example: Gather Verb
+
+#### Example 1 of 2: Gather Verb
 This example shows how to use the Gather verb to speak a sentence, collect digits input from the phone, and send the
 results to https://gather.url/nextBXML
 
+{% sample lang="http" %}
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -57,10 +59,38 @@ results to https://gather.url/nextBXML
 </Response>
 ```
 
-#### Example: Gather With Repeated Audio Prompt
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
+#### Example 2 of 2: Gather With Repeated Audio Prompt
 This example shows the Gather verb being used to repeatedly prompt the user to press a digit. If the
 user presses nothing, the prompt will play five times. If the user presses a digit at any point, the
-Gather will end and send the result to the `gatherUrl`
+Gather will end and send the result to the **gatherUrl**
+
+{% sample lang="http" %}
+
 
 ```XML
 <Response>
@@ -68,6 +98,28 @@ Gather will end and send the result to the `gatherUrl`
       <SpeakSentence>I am going to keep asking you to press a digit</SpeakSentence>
    </Gather>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}

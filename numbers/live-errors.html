@@ -877,6 +877,10 @@
     <td>5172</td>
     <td>International customer segment cannot import NANP telephone numbers.</td>
   </tr>
+    <tr>
+    <td>5173</td>
+    <td>SMS is already %s or number is in processing.</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -4252,6 +4256,10 @@
     <td>12159</td>
     <td>Accounts with International customer segment are not compatible with the Number Management features on the account</td>
   </tr>
+    <tr>
+    <td>12160</td>
+    <td>The operation could not be performed because Account %d does not have the CSR feature enabled.</td>
+  </tr>
   </table>
 <h2>AdminValidationError</h2>
 <table class="fixed">
@@ -5565,7 +5573,7 @@
   </tr>
     <tr>
     <td>12958</td>
-    <td>Invalid property name, valid values are: tpa, vendors, bwspids, sbcNodeGroups, a2pClasses, a2pCampaignIds, blockedaccount, messagingBlockedAccountIds, systemEventSubscriptions, proxypeers, nnroutes, slingshotEnv, breakOutCountries</td>
+    <td>Invalid property name, valid values are: tpa, vendors, bwspids, sbcNodeGroups, a2pClasses, a2pCampaignIds, blockedaccount, messagingBlockedAccountIds, systemEventSubscriptions, proxypeers, nnroutes, slingshotEnv, breakOutCountries, whitelistIps</td>
   </tr>
     <tr>
     <td>12960</td>
@@ -5811,6 +5819,42 @@
     <td>13021</td>
     <td>The account ID %s is not on the customer opt-in list </td>
   </tr>
+    <tr>
+    <td>13022</td>
+    <td>Id must not be specified for POST action</td>
+  </tr>
+    <tr>
+    <td>13023</td>
+    <td>IP address must be an IPv4 address in format xxx.xxx.xxx.xxx, where xxx is from 0 - 255.</td>
+  </tr>
+    <tr>
+    <td>13024</td>
+    <td>Error: NetMask must be %s.</td>
+  </tr>
+    <tr>
+    <td>13025</td>
+    <td>All elements are mandatory when updating a whitelist IP entry using PUT</td>
+  </tr>
+    <tr>
+    <td>13026</td>
+    <td>All elements except Netmask are mandatory when creating a whitelist IP entry using POST</td>
+  </tr>
+    <tr>
+    <td>13027</td>
+    <td>Tag '%s' does not exist</td>
+  </tr>
+    <tr>
+    <td>13028</td>
+    <td>Tag '%s' is already in use</td>
+  </tr>
+    <tr>
+    <td>13029</td>
+    <td>The Account Id '%s' is already undergoing a tn_history %s with status '%s'</td>
+  </tr>
+    <tr>
+    <td>13030</td>
+    <td>An Account Id or Tag must be included as a query parameter</td>
+  </tr>
   </table>
 <h2>TerminationError</h2>
 <table class="fixed">
@@ -5935,7 +5979,7 @@
   </tr>
     <tr>
     <td>13512</td>
-    <td>'%s' is not a valid 10-digit telphone number</td>
+    <td>'%s' is not a valid 10-digit telephone number</td>
   </tr>
     <tr>
     <td>13513</td>
@@ -6115,7 +6159,7 @@
   </tr>
     <tr>
     <td>13566</td>
-    <td>Our E911 service is unavaliable</td>
+    <td>Our E911 service is unavailable</td>
   </tr>
     <tr>
     <td>13567</td>
@@ -6508,6 +6552,10 @@
     <tr>
     <td>13674</td>
     <td>Configuring subnet values larger than %s requires Bandwidth staff intervention</td>
+  </tr>
+    <tr>
+    <td>13675</td>
+    <td>SMS is already %s or number is in processing.</td>
   </tr>
   </table>
 <h2>PotValidationError</h2>

@@ -26,8 +26,10 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 
 
 {% common %}
-#### Example: Redirect Verb
+#### Example 1 of 1: Redirect Verb
 This shows how to use Bandwidth XML to redirect the response to a new url.
+
+{% sample lang="http" %}
 
 
 ```XML
@@ -35,6 +37,28 @@ This shows how to use Bandwidth XML to redirect the response to a new url.
 <Response>
    <Redirect redirectUrl="http://flow.url/newFlow"/>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}

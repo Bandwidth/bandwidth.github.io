@@ -23,8 +23,13 @@ of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative t
 None
 
 {% common %}
-#### Example:  PlayAudio Verb
+
+#### Example 1 of 1:  PlayAudio Verb
+
 This shows how to use Bandwidth XML to play two audio clips into a phone call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,6 +37,28 @@ This shows how to use Bandwidth XML to play two audio clips into a phone call.
    <PlayAudio>https://audio.url/audio1.wav</PlayAudio>
    <PlayAudio>https://audio.url/audio2.wav</PlayAudio>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}

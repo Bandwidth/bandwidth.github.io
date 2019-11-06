@@ -53,8 +53,11 @@ of that BXML, the calls are bridged.
 | [Transfer Complete](../callbacks/transferComplete.md) | Yes                      |
 
 {% common %}
-#### Example: Simple Transfer
+
+### Example 1 of 3: Simple Transfer
 This shows how to use Bandwidth XML to transfer a phone call.
+
+{% sample lang="http" %}
 
 
 ```XML
@@ -67,8 +70,36 @@ This shows how to use Bandwidth XML to transfer a phone call.
 </Response>
 ```
 
-#### Example: Single Transfer with Announcement
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
+
+### Example 2 of 3: Single Transfer with Announcement
 This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge announcement.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -79,7 +110,35 @@ This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge a
     </Transfer>
 </Response>
 ```
-The announcement BXML is:
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
+> The announcement BXML is:
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -88,9 +147,38 @@ The announcement BXML is:
 </Response>
 ```
 
-#### Example: Multi transfer
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
+
+### Example 3 of 3: Multi transfer
+
 This example shows how to use Bandwidth XML in a multi transfer scenario.  All numbers ring simultaneously and the first
 to answer is bridged to the original call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -101,6 +189,28 @@ to answer is bridged to the original call.
     </Transfer>
 </Response>
 
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}

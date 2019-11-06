@@ -19,6 +19,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 ### Tags
 
 * If there is a need to identify individual outbound messages, or correlate them with an ID in your own application, the `tag` field can be set to any string (max 1024 chars). The custom `tag` will be included in all callbacks for an outbound message.
+* ⚠️ The tag field is intended for use in correlation/troubleshooting. **You should not include sensitive or personally-identifiable information in the tag field.**
 
 ### Supported Parameters
 
@@ -31,7 +32,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 | media*        | `array`                                                        | A list of URLs to include as media attachments as part of the message. If this field is included, the message will be sent as MMS no matter the number of recipients. Media sent in messages is limited to 3.75MB.                                                                                                                       | No        |
 | tag           | `string`                                                       | Any string which will be included in the callback events of the message. (max 1024 Chars)                                                                                                                                                                                                                                                | No        |
 
-*Please check the [FAQ](https://support.bandwidth.com) for information on media size limits
+* Please check the [FAQ](https://support.bandwidth.com) for information on media size limits
 
 {% common %}
 
@@ -54,6 +55,26 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 ```
 
+> The above command returns a JSON Response structured like this:
+
+```http
+Status: 202 Accepted
+Content-Type: application/json; charset=utf-8
+
+{
+  "id"            : "14762070468292kw2fuqty55yp2b2",
+  "time"          : "2016-09-14T18:20:16Z",
+  "to"            : [ "+12345678902" ],
+  "from"          : "+12345678901",
+  "text"          : "Hey, check this out!",
+  "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+  "tag"           : "test message",
+  "owner"         : "+12345678901",
+  "direction"     : "out",
+  "segmentCount"  : 1
+}
+```
+
 {% sample lang='bash' %}
 
 ```bash
@@ -72,36 +93,6 @@ curl --request POST \
   '
 ```
 
-{% sample lang='js' %}
-
-```js
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
-  headers: { 'content-type': 'application/json' },
-  auth: {
-    user: '{{apiToken}}',
-    pass: '{{apiSecret}}'
-  },
-  body:
-   {
-     to            : [ '+12345678902'],
-     from          : '+12345678901',
-     text          : 'Hey, check this out!',
-     applicationId : '93de2206-9669-4e07-948d-329f4b722ee2',
-     tag           : 'test message'
-   },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
-
-{% common %}
 
 > The above command returns a JSON Response structured like this:
 
@@ -123,6 +114,29 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
 
 ### Example 2 of 5: Send a picture message
 {% sample lang='http' %}
@@ -144,59 +158,6 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 }
 
 ```
-
-{% sample lang='bash' %}
-
-```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
-    {
-        "to"            : ["+12345678902"],
-        "from"          : "+12345678901",
-        "text"          : "Hey, check this out!",
-        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-        "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
-          ],
-        "tag"           : "test message"
-    }
-  '
-```
-
-{% sample lang='js' %}
-
-```js
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
-  headers: { 'content-type': 'application/json' },
-  auth: {
-    user: '{{apiToken}}',
-    pass: '{{apiSecret}}'
-  },
-  body:
-   { to: [ '+12345678902'],
-     from: '+12345678901',
-     text: 'Hey, check this out!',
-     applicationId: '93de2206-9669-4e07-948d-329f4b722ee2',
-     media: [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
-      ],
-     tag: 'test message' },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
-
-{% common %}
 
 > The above command returns a JSON Response structured like this:
 
@@ -223,6 +184,77 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang='bash' %}
+
+```bash
+curl --request POST \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
+    --user {apiToken}:{apiSecret} \
+    --header 'content-type: application/json' \
+    --data '
+    {
+        "to"            : ["+12345678902"],
+        "from"          : "+12345678901",
+        "text"          : "Hey, check this out!",
+        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "media"         : [
+          "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+          ],
+        "tag"           : "test message"
+    }
+  '
+```
+
+
+> The above command returns a JSON Response structured like this:
+
+```http
+Status: 202 Accepted
+Content-Type: application/json; charset=utf-8
+
+{
+  "id"            : "14762070468292kw2fuqty55yp2b2",
+  "time"          : "2016-09-14T18:20:16Z",
+  "to"            : [
+    "+12345678902",
+  ],
+  "from"          : "+12345678901",
+  "text"          : "Hey, check this out!",
+  "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+  "tag"           : "test message",
+  "owner"         : "+12345678901",
+  "media"         : [
+    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+  ],
+  "direction"     : "out",
+  "segmentCount"  : 1
+}
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
 ### Example 3 of 5: Send multiple pictures in a message
 {% sample lang='http' %}
 
@@ -244,61 +276,6 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 }
 
 ```
-
-{% sample lang='bash' %}
-
-```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
-    {
-        "to"            : ["+12345678902"],
-        "from"          : "+12345678901",
-        "text"          : "Hey, check this out!",
-        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-        "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-          "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
-        ],
-        "tag"           : "test message"
-    }
-  '
-```
-
-{% sample lang='js' %}
-
-```js
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
-  headers: { 'content-type': 'application/json' },
-  auth: {
-    user: '{{apiToken}}',
-    pass: '{{apiSecret}}'
-  },
-  body: {
-   to            : [ '+12345678902'],
-   from          : '+12345678901',
-   text          : 'Hey, check this out!',
-   applicationId : '93de2206-9669-4e07-948d-329f4b722ee2',
-   media         : [
-    'https://s3.amazonaws.com/bw-v2-api/demo.jpg',
-    'https://s3.amazonaws.com/bw-v2-api/demo2.jpg'
-   ],
-   tag           : 'test message'},
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
-
-{% common %}
 
 > The above command returns a JSON Response structured like this:
 
@@ -324,6 +301,78 @@ Content-Type: application/json; charset=utf-8
   "segmentCount" : 1
 }
 ```
+
+{% sample lang='bash' %}
+
+```bash
+curl --request POST \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
+    --user {apiToken}:{apiSecret} \
+    --header 'content-type: application/json' \
+    --data '
+    {
+        "to"            : ["+12345678902"],
+        "from"          : "+12345678901",
+        "text"          : "Hey, check this out!",
+        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "media"         : [
+          "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
+          "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+        ],
+        "tag"           : "test message"
+    }
+  '
+```
+
+> The above command returns a JSON Response structured like this:
+
+```http
+Status: 202 Accepted
+Content-Type: application/json; charset=utf-8
+
+{
+  "id"           : "14762070468292kw2fuqty55yp2b2",
+  "time"         : "2016-09-14T18:20:16Z",
+  "to"           : [
+    "+12345678902",
+  ],
+  "from"         : "+12345678901",
+  "text"         : "Hey, check this out!",
+  "tag"          : "test message",
+  "owner"        : "+12345678901",
+  "media"        : [
+   "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
+   "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+  ],
+  "direction"    : "out",
+  "segmentCount" : 1
+}
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
 ### Example 4 of 5: Send a group message
 
 {% sample lang='http' %}
@@ -345,56 +394,6 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 }
 
 ```
-
-{% sample lang='bash' %}
-
-```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
-    {
-        "to"            : [
-          "+12345678902",
-          "+12345678903"
-        ],
-        "from"          : "+12345678901",
-        "text"          : "Hey, check this out!",
-        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-        "tag"           : "test message"
-    }
-  '
-```
-
-{% sample lang='js' %}
-
-```js
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
-  headers: { 'content-type': 'application/json' },
-  auth: {
-    user: '{{apiToken}}',
-    pass: '{{apiSecret}}'
-  },
-  body:
-   { to: [ '+12345678902', '+12345678903'],
-     from: '+12345678901',
-     text: 'Hey, check this out!',
-     applicationId: '93de2206-9669-4e07-948d-329f4b722ee2',
-     tag: 'test message' },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
-
-{% common %}
 
 > The above command returns a JSON Response structured like this:
 
@@ -419,7 +418,77 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang='bash' %}
+
+```bash
+curl --request POST \
+    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
+    --user {apiToken}:{apiSecret} \
+    --header 'content-type: application/json' \
+    --data '
+    {
+        "to"            : [
+          "+12345678902",
+          "+12345678903"
+        ],
+        "from"          : "+12345678901",
+        "text"          : "Hey, check this out!",
+        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "tag"           : "test message"
+    }
+  '
+```
+
+
+> The above command returns a JSON Response structured like this:
+
+```http
+Status: 202 Accepted
+Content-Type: application/json; charset=utf-8
+
+{
+  "id"            : "14762070468292kw2fuqty55yp2b2",
+  "time"          : "2016-09-14T18:20:16Z",
+  "to"            : [
+    "+12345678902",
+    "+12345678903"
+  ],
+  "from"          : "+12345678901",
+  "text"          : "Hey, check this out!",
+  "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+  "tag"           : "test message",
+  "owner"         : "+12345678901",
+  "direction"     : "out",
+  "segmentCount"  : 1
+}
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
 ### Example 5 of 5: Send a picture to a group message thread
+
 {% sample lang='http' %}
 
 ```http
@@ -441,6 +510,32 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
     "tag"           : "test message"
 }
 
+```
+
+> The above command returns a JSON Response structured like this:
+
+```http
+Status: 202 Accepted
+Content-Type: application/json; charset=utf-8
+
+{
+  "id"            : "14762070468292kw2fuqty55yp2b2",
+  "time"          : "2016-09-14T18:20:16Z",
+  "to"            : [
+    "+12345678902",
+    "+12345678903"
+  ],
+  "from"          : "+12345678901",
+  "text"          : "Hey, check this out!",
+  "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+  "tag"           : "test message",
+  "owner"         : "+12345678901",
+  "media"         : [
+    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+  ],
+  "direction"     : "out",
+  "segmentCount"  : 1
+}
 ```
 
 {% sample lang='bash' %}
@@ -467,38 +562,6 @@ curl --request POST \
   '
 ```
 
-{% sample lang='js' %}
-
-```js
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages',
-  headers: { 'content-type': 'application/json' },
-  auth: {
-    user: '{{apiToken}}',
-    pass: '{{apiSecret}}'
-  },
-  body:
-   { to          : [ '+12345678902', '+12345678903'],
-   from          : '+12345678901',
-   text          : 'Hey, check this out!',
-   applicationId : '93de2206-9669-4e07-948d-329f4b722ee2',
-   media         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
-   ],
-   tag           : 'test message' },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-```
-
-{% common %}
-
 > The above command returns a JSON Response structured like this:
 
 ```http
@@ -523,6 +586,28 @@ Content-Type: application/json; charset=utf-8
   "direction"     : "out",
   "segmentCount"  : 1
 }
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}

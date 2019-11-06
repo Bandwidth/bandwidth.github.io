@@ -24,8 +24,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | tag             | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.<br><br>Not allowed if `state` is `completed` | No        |
 
 {% common %}
-### Example: Redirect an existing phone call to a new URL
-{% sample lang="bash" %}
+### Example 1 of 2 : Redirect an existing phone call to a new URL
+{% sample lang="http" %}
 
 ```bash
 curl -u username:password -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}\
@@ -38,10 +38,33 @@ curl -u username:password -v -X POST https://voice.bandwidth.com/api/v2/accounts
 	}'
 ```
 
-{% common %}
-### Example: Hang Up a Phone Call
+{% sample lang="csharp" %}
 
-{% sample lang="bash" %}
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
+```
+
+{% common %}
+
+### Example 2 of 2: Hang Up a Phone Call
+
+{% sample lang="http" %}
 
 ```bash
 curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}\
@@ -52,6 +75,28 @@ curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{c
 	{
 		"state":"completed"
 	}'
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Csharp example
+
+var a = b;
+
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+# Ruby Example
+```
+
+{% sample lang="python" %}
+
+```python
+# Python Example
 ```
 
 {% endmethod %}
