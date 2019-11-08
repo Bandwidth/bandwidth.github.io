@@ -1,21 +1,17 @@
 # Lambda@Edge Redirect Engine for dev.bandwidth.com
 
-This system, deployed on the cloudfront edge nodes of (formally `new.-`) dev.bandwidth.com, handles redirect logic for existing URLs. It is _not_ setup with CI/CD. A manual `yarn build` `cdk deploy` is required to push to the DX AWS Account.
+This system, deployed on the cloudfront edge nodes of dev.bandwidth.com, handles redirect logic for existing URLs. It is setup with CI/CD.
 
 # Useful commands
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+ * `yarn build`             compile typescript to js
+ * `yarn watch`             watch for changes and compile
+ * `yarn test`              perform the jest unit tests
+ * `cdk deploy`             deploy this stack to your default AWS account/region
+ * `cdk diff`               compare deployed stack with current state
+ * `cdk synth`              emits the synthesized CloudFormation template
+ * `yarn deployLambdaEdge`  publishes a new version of the lambda function, and updates the cloudfront distribution
 
-# Pushing a new version
+ # Adding new rules
 
-1. Set your aws environment variables to connect to the DX AWS Account (Verify with `aws sts get-caller-identity`)
-2. Run `yarn build` to build the typescript into javascript
-3. Run `cdk deploy` (CDK must be installed on system) to push a new version of the underlying lambda function
-4. Head to the console (sorry), go to the lamba function, and click here: https://i.imgur.com/PYBM1wg.png
-5. Set the settings like this, and deploy the function: https://i.imgur.com/bPRgDMH.png
-6. Give it 10-15 minutes, and potentially submit a `*` invalidation on the distribution to clear the edge cache
+ Rules are defined in src/p2prules.ts (point to point mapping of URL to URL), as well as src/index.ts (rule based rewrites)

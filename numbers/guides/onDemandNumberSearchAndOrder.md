@@ -31,6 +31,10 @@ This guide _only_ covers creating a `<CallbackSubscription>`.  For more informat
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions`
 
+#### Basic Authentication
+
+Bandwidth's Account API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Basic Parameters
@@ -54,7 +58,7 @@ This guide _only_ covers creating a `<CallbackSubscription>`.  For more informat
 ```http
 POST https://dashboard.../{{accountId}}/subscriptions HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 ```xml
 <Subscription>
@@ -85,6 +89,10 @@ There are a number of search approaches that can be used; the NPA NXX search is 
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Query Parameters
@@ -102,7 +110,7 @@ This example only demonstrates searching by `NPA NXX` to learn about the differe
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers?npaNxx=540551&quantity=7 HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
@@ -138,6 +146,10 @@ Content-Type: application/xml; charset=utf-8
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Common Request Parameters
@@ -160,7 +172,7 @@ Content-Type: application/xml; charset=utf-8
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <Order>
     <CustomerOrderId>123456789</CustomerOrderId>
@@ -230,7 +242,7 @@ The HTTP Callback will contain information if the order was successful or failed
 ```http
 POST https://your-server.com HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Notification>
@@ -250,7 +262,7 @@ Authorization: {user:password}
 ```http
 POST https://your-server.com HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Notification>
@@ -276,6 +288,10 @@ In the example below the `orderId` is the `orderId` returned in the 'location' h
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders/{{orderId}}`
 
+#### Basic Authentication
+
+Bandwidth's Phone Number API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../guides/accountCredentials.md) document.
+
 {% extendmethod %}
 
 ### Query Parameters
@@ -289,7 +305,7 @@ There are no query parameters for fetching information about an existing order.
 ```http
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/orders/4a58b348-892c-4426-8900-97fc4555c42c HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: {user:password}
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Example: Successful Order Response

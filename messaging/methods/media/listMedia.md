@@ -9,6 +9,10 @@ Each request returns a maximum of 1000 media files. Retrieving more than 1000 me
 
 <code class="get">GET</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media`
 
+#### Basic Authentication
+
+Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
 ---
 
 ### Parameters

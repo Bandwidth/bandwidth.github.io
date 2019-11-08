@@ -8,6 +8,10 @@ Bandwidth retains uploaded media for up to 48 hours.
 ### Request URL
 <code class="put">PUT</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}`
 
+#### Basic Authentication
+
+Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
 ---
 
 <aside class="alert general small">

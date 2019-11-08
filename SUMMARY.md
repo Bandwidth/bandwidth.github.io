@@ -3,6 +3,8 @@
 ## Overview
 * [About](README.md)
 * [Security & Credentials](guides/accountCredentials.md)
+	* [Voice, Numbers, Account](guides/accountCredentials.md#voice-numbers-account)
+	* [Messaging](guides/accountCredentials.md#messaging)
 
 ## Guides
 * [Get Started](guides/getStarted.md)
