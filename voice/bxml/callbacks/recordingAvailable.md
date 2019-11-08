@@ -21,7 +21,7 @@ HTTP/1.1 204
 | channels         | Number of channels in the recording (1 or 2).                                                                     |
 | startTime        | Time the recording started (in ISO8601 format).                                                                   |
 | endTime          | Time the recording ended (in ISO8601 format).                                                                     |
-| duration         | Integer length of the recording (in seconds).                                                                     |
+| duration         | The duration of the recording (in ISO8601 format).                                                                |
 | fileFormat       | The format that the recording was saved in (`wav` or `mp3`).                                                      |
 | callUrl          | The URL of the call associated with the event.                                                                    |
 | mediaUrl         | URL to retrieve the contents of the recording.                                                                    |
