@@ -1,7 +1,7 @@
 {% method %}
 ##  Record Complete event
 
-The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb is executed. Its purpose is to report the record ended.
+The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb has executed. It indicates when and why the recording completed.
 
 ### Expected response
 
