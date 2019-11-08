@@ -1,7 +1,7 @@
 {% method %}
 ##  Recording Available event
 
-The Recording Available event is sent after a recording is completed. Its purpose is to report the recording is available for download.
+The Recording Available event is sent after a recording has been processed. It indicates that the recording is available for download.
 
 ### Expected response
 
@@ -19,14 +19,14 @@ HTTP/1.1 204
 | callId           | The call id associated with the event.                                                                            |
 | recordingId      | The unique id for this recording.                                                                                 |
 | channels         | Number of channels in the recording (1 or 2).                                                                     |
-| startTime        | Time the recording started (in ISO8601 format).                                                                   |
-| endTime          | Time the recording ended (in ISO8601 format).                                                                     |
+| startTime        | The time that the recording started (in ISO8601 format).                                                          |
+| endTime          | The time that the recording ended (in ISO8601 format).                                                            |
 | duration         | The duration of the recording (in ISO8601 format).                                                                |
-| fileFormat       | The format that the recording was saved in (`wav` or `mp3`).                                                      |
+| fileFormat       | The audio format that the recording was saved as (`wav` or `mp3`).                                                |
 | callUrl          | The URL of the call associated with the event.                                                                    |
-| mediaUrl         | URL to retrieve the contents of the recording.                                                                    |
+| mediaUrl         | The URL of the recording media.                                                                                   |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
-| status           | The state of the recording. Values are `complete`, `partial` and `error`. A `partial` status indicate that although the recording is available to be downloaded, parts of the recording are missing.                         |
+| status           | The state of the recording. Can be `complete`, `partial`, or `error`. A `partial` status indicates that, although the recording is available to be downloaded, parts of the recording are missing. |
 
 {% common %}
 

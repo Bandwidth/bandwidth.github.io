@@ -36,4 +36,4 @@ URLs, so POST is the preferred method.
 | Callback                                          | Description                                                                             |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------|
 | [Disconnect](disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [RecordingAvailable](recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a [`<StartRecording>`](../verbs/startRecording.md) or a [`<Record>`](../verbs/record.md) verb is available for download. |
+| [RecordingAvailable](recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |

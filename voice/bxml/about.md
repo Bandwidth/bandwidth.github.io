@@ -61,4 +61,4 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | Callback                                                    | Description                                                                             |
 |:------------------------------------------------------------|:----------------------------------------------------------------------------------------|
 | [Disconnect](callbacks/disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [RecordingAvailable](callbacks/recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a [`<StartRecording>`](verbs/startRecording.md) or a [`<Record>`](verbs/record.md) verb is available for download. |
+| [RecordingAvailable](callbacks/recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |

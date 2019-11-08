@@ -45,7 +45,7 @@
 | Callback                                                         | Description                                                                             |
 |:-----------------------------------------------------------------|:----------------------------------------------------------------------------------------|
 | [Disconnect](bxml/callbacks/disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [RecordingAvailable](bxml/callbacks/recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a [`<StartRecording>`](bxml/verbs/startRecording.md) or a [`<Record>`](bxml/verbs/record.md) verb is available for download. |
+| [RecordingAvailable](bxml/callbacks/recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 
 ## Error Codes
 | Type                         | Description                                                           |
