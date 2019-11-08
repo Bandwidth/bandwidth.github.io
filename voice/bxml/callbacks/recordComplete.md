@@ -10,7 +10,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- BXML verbs to process in the call -->
+    <!-- BXML verbs to process now that the <Record> has finished -->
 </Response>
 ```
 
@@ -37,14 +37,14 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType":"recordComplete",
-	"to":"+15553334444",
-	"from":"+15551112222",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"eventType": "recordComplete",
+	"to": "+15553334444",
+	"from": "+15551112222",
+	"direction": "outbound",
+	"callId": "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"recordingId": "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"mediaUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d/recordings/r-115da407-e3d9-4ea7-889f-5f4ad7386a80/media"
+	"callUrl": "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"mediaUrl": "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d/recordings/r-115da407-e3d9-4ea7-889f-5f4ad7386a80/media"
 }
 ```
 

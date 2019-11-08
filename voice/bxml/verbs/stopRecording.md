@@ -1,6 +1,6 @@
 {% method %}
 ## XML: `<StopRecording>`
-The StopRecording verb stops a recording that was started by a preceding [`<StartRecording>`](startRecording.md) verb.
+The StopRecording verb stops a recording that was previously started by a [`<StartRecording>`](startRecording.md) verb.
  
 If there is not currently an active recording, this verb has no effect.
 If a previous recording was paused, <StopRecording> will end it.

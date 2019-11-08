@@ -1,6 +1,6 @@
 {% method %}
 ## XML: `<ResumeRecording>`
-The ResumeRecording verb resumes a recording that was paused by a preceding [`<PauseRecording>`](pauseRecording.md) verb. 
+The ResumeRecording verb resumes a recording that was previously paused by a [`<PauseRecording>`](pauseRecording.md) verb. 
 
 Audio that occurs between the [`<PauseRecording>`](pauseRecording.md) and `<ResumeRecording>` tag will not be present in the recording.
 

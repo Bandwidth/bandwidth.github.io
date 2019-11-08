@@ -29,18 +29,18 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 | Verb                                            | Description                                                                                           |
 |:------------------------------------------------|:------------------------------------------------------------------------------------------------------|
 | [`<Forward>`](verbs/forward.md)                 | The Forward verb is used to forward an unanswered incoming call to another number.                    |
-| [`<Gather>`](verbs/gather.md)                   | The Gather verb is used to collect digits for some period of time.                                    |
-| [`<Hangup>`](verbs/hangup.md)                   | The Hangup verb is used to hangup current call.                                                       |
-| [`<Pause>`](verbs/pause.md)                     | The Pause verb is used to delay for a period of time in the call.                                     |
-| [`<PauseRecording>`](verbs/pauseRecording.md)   | The PauseRecording verb is used to pause a recording started by a preceding `<StartRecording>` verb. |
+| [`<Gather>`](verbs/gather.md)                   | The Gather verb is used to collect DTMF digits.                                                       |
+| [`<Hangup>`](verbs/hangup.md)                   | The Hangup verb is used to hangup the current call.                                                   |
+| [`<Pause>`](verbs/pause.md)                     | The Pause verb is used to delay verb execution for a period of time.                                  |
+| [`<PauseRecording>`](verbs/pauseRecording.md)   | The PauseRecording verb is used to pause a recording previously started by a `<StartRecording>` verb. |
 | [`<PlayAudio>`](verbs/playAudio.md)             | The PlayAudio verb is used to play an audio file in the call.                                         |
 | [`<Record>`](verbs/record.md)                   | The Record verb allows a segment of audio to be recorded during a call.                               |
 | [`<Redirect>`](verbs/redirect.md)               | The Redirect verb is used to redirect the current XML execution to another URL.                       |
-| [`<ResumeRecording>`](verbs/resumeRecording.md) | The ResumeRecording verb is used to resume a recording paused by a preceding `<PauseRecording>` verb. |
+| [`<ResumeRecording>`](verbs/resumeRecording.md) | The ResumeRecording verb is used to resume a recording previously paused by a `<PauseRecording>` verb.|
 | [`<SendDtmf>`](verbs/sendDtmf.md)               | The SendDtmf verb is used to play DTMF digits in the call.                                            |
-| [`<SpeakSentence>`](verbs/speakSentence.md)     | The SpeakSentence verb is used to convert any text into speak for the caller.                         |
-| [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows an entire section of a call to be recorded.                            |
-| [`<StopRecording>`](verbs/stopRecording.md)     | The StopRecording stops a recording that was started by a preceding `<StartRecording>` verb.          |
+| [`<SpeakSentence>`](verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
+| [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
+| [`<StopRecording>`](verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
 | [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
 
 ### BXML Callbacks
@@ -61,4 +61,4 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | Callback                                                    | Description                                                                             |
 |:------------------------------------------------------------|:----------------------------------------------------------------------------------------|
 | [Disconnect](callbacks/disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [RecordingAvailable](callbacks/recordingAvailable.md)       | Bandwidth API sends this to the application when a recording is available for download. |
+| [RecordingAvailable](callbacks/recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a [`<StartRecording>`](verbs/startRecording.md) or a [`<Record>`](verbs/record.md) verb is available for download. |

@@ -1,12 +1,12 @@
 {% method %}
 ## XML: `<PauseRecording>`
-The PauseRecording verb pauses a recording that was started by a preceding [`<StartRecording>`](startRecording.md) verb. 
+The PauseRecording verb is used to pause a recording previously started by a [`<StartRecording>`](startRecording.md) verb.
 
 Audio that occurs between the `<PauseRecording>` and [`<ResumeRecording>`](resumeRecording.md) tag will not be present in the recording.
 
-The paused period will not be included in the duration of the recording and will not be billed.
+The paused period will not be included in the duration of the recording and therefore will not contribute to the recording portion of the bill.
 
-If there is not currently an active recording, this verb has no effect.
+If there is not an ongoing recording at the time of this verb's execution, it has no effect.
 
 ### Attributes
 | ATTRIBUTE | Description |
