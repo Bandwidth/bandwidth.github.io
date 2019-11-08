@@ -4,9 +4,9 @@ The ResumeRecording verb resumes a recording that was previously paused by a [`<
 
 Audio that occurs between the [`<PauseRecording>`](pauseRecording.md) and `<ResumeRecording>` tag will not be present in the recording.
 
-The paused period will not be included in the duration of the recording and will not be billed.
+The paused period will not be included in the duration of the recording and therefore will not contribute to the recording portion of the bill.
 
-If there is not currently a paused recording, this verb has no effect.
+If there is not an ongoing recording at the time of this verb's execution, it has no effect.
 
 ### Attributes
 | ATTRIBUTE | Description |
