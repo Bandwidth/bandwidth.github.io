@@ -20,7 +20,7 @@ Content-Type: application/xml; charset=utf-8
 | eventType | The event type, value is `initiate`.                                                              |
 | to        | The phone number that received the call, in E.164 format (e.g. +15555555555).                     |
 | from      | The phone number that made the call, in E.164 format (e.g. +15555555555).                         |
-| direction | The direction of the call; can only be `inbound`. The direction of a call never changes. |
+| direction | The direction of the call; can only be `inbound`. The direction never changes. |
 | callId    | The call id associated with the event.                                                            |
 | callUrl   | The URL of the call associated with the event.                                                    |
 
