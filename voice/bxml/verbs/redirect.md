@@ -52,7 +52,13 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+redirect = Bandwidth::Voice::Redirect.new({
+    :redirect_url => "http://flow.url/newFlow"
+})
+
+response.push(redirect)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
