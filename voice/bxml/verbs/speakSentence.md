@@ -173,13 +173,27 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Questo è un test",
+    :voice => "Sophia"
+})
+
+response.push(speak_sentence)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Questo è un test",
+    voice="Sophia"
+)
+
+response.add_verb(speak_sentence)
+print(response.to_bxml())
 ```
 
 {% common %}
@@ -214,13 +228,27 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => 'Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
+    :voice => "Sophia"
+})
+
+response.push(speak_sentence)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence='Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
+    voice="Sophia"
+)
+
+response.add_verb(speak_sentence)
+print(response.to_bxml())
 ```
 
 

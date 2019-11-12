@@ -73,13 +73,38 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Please press a digit.",
+    :voice => "kate"
+})
+gather = Bandwidth::Voice::Gather.new({
+    :gather_url => "https://gather.url/nextBXML",
+    :terminating_digits => "#",
+    :first_digit_timeout => "10"
+    :speak_sentence => speak_sentence
+})
+
+response.push(gather)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Please press a digit.",
+    voice="kate"
+)
+gather = Gather(
+    gather_url="https://gather.url/nextBXML",
+    terminating_digits="#",
+    first_digit_timeout=10,
+    speak_sentence=speak_sentence
+)
+response.add_verb(gather)
+print(response.to_bxml())
 ```
 
 {% common %}
@@ -113,13 +138,36 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "I am going to keep asking you to press a digit"
+})
+gather = Bandwidth::Voice::Gather.new({
+    :gather_url => "https://gather.url/nextBXML",
+    :max_digits => "1",
+    :repeat_count => "5",
+    :speak_sentence => speak_sentence
+})
+
+response.push(gather)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="I am going to keep asking you to press a digit"
+)
+gather = Gather(
+    gather_url="https://gather.url/nextBXML",
+    max_digits=1,
+    repeat_count=5
+    speak_sentence=speak_sentence
+)
+response.add_verb(gather)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

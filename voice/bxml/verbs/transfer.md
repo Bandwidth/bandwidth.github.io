@@ -83,13 +83,32 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+phone_number = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+11234567892"
+})
+transfer = Bandwidth::Voice::Transfer.new({
+    :transfer_caller_id => "+11234567891",
+    :phone_numbers => [phone_number]
+})
+
+response.push(transfer)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+phone_number = PhoneNumber(
+    number="+11234567892"
+)
+transfer = Transfer(
+    transfer_caller_id="+11234567891",
+    phone_numbers=[phone_number]
+)
+
+response.add_verb(transfer)
+print(response.to_bxml())
 ```
 
 {% common %}
@@ -124,13 +143,45 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Transferring your call, please wait.",
+    :voice => "paul"
+})
+phone_number = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+11234567892",
+    :transfer_answer_url => "http://myapp.com/announcement"
+})
+transfer = Bandwidth::Voice::Transfer.new({
+    :transfer_caller_id => "+11234567891",
+    :phone_numbers => [phone_number]
+})
+
+response.push(speak_sentence)
+response.push(transfer)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Transferring your call, please wait.",
+    voice="paul"
+)
+phone_number = PhoneNumber(
+    number="+11234567892",
+    transfer_answer_url="http://myapp.com/announcement"
+)
+transfer = Transfer(
+    transfer_caller_id="+11234567891",
+    phone_numbers=[phone_number]
+)
+
+response.add_verb(speak_sentence)
+response.add_verb(transfer)
+print(response.to_bxml())
 ```
 
 {% common %}
@@ -160,13 +211,19 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Transferring your call, please wait.",
+    :voice => "paul"
+})
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+speak_sentence = SpeakSentence(
+    sentence="Transferring your call, please wait.",
+    voice="paul"
+)
 ```
 
 {% common %}
@@ -204,13 +261,38 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+phone_number_1 = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+15552221234"
+})
+phone_number_2 = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+15552221233"
+})
+transfer = Bandwidth::Voice::Transfer.new({
+    :transfer_caller_id => "+15552221235",
+    :phone_numbers => [phone_number_1, phone_number_2]
+})
+
+response.push(transfer)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+phone_number_1 = PhoneNumber(
+    number="+15552221234"
+)
+phone_number_2 = PhoneNumber(
+    number="+15552221233"
+)
+transfer = Transfer(
+    transfer_caller_id="+15552221235",
+    phone_numbers=[phone_number_1, phone_number_2]
+)
+
+response.add_verb(transfer)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

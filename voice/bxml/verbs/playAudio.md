@@ -52,13 +52,33 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+play_audio_1 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio.url/audio1.wav"
+})
+play_audio_2 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio.url/audio2.wav"
+})
+
+response.push(play_audio_1)
+response.push(play_audio_2)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+play_audio_1 = PlayAudio(
+    url="https://audio.url/audio1.wav"
+)
+play_audio_2 = PlayAudio(
+    url="https://audio.url/audio2.wav"
+)
+
+response.add_verb(play_audio_1)
+response.add_verb(play_audio_2)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

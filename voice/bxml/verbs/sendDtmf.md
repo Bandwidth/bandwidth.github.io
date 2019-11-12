@@ -47,13 +47,23 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+send_dtmf = Bandwidth::Voice::SendDtmf.new({
+    :dtmf => "12w34"
+})
+
+response.push(send_dtmf)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+send_dtmf = SendDtmf("12w34")
+
+response.add_verb(send_dtmf)
+print(response.to_bxml())
 ```
 
 {% endmethod %}
