@@ -52,11 +52,8 @@ var a = b;
 ```python
 response = Response()
 forward = Forward(
-    to="+19999999999",
-    from_="+19998888888", #Note the underscore since from is a keyword in python
-    call_timeout=3,
-    diversion_treatment="none",
-    diversion_reason="away",
+    to="+10987654321",
+    from_="+11234567890" #Note the underscore since from is a keyword in python
 )
 
 response.add_verb(forward)
