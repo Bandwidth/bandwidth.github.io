@@ -46,7 +46,11 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+hangup = Bandwidth::Voice::Hangup.new()
+
+response.push(hangup)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}

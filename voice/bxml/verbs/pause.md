@@ -41,7 +41,13 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = BandwidthSdk::Voice::Response.new()
+pause = BandwidthSdk::Voice::Pause.new({
+    :duration => 2
+})
+
+response.push(pause)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}

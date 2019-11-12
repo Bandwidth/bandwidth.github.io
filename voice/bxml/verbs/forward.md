@@ -44,7 +44,14 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+response = Bandwidth::Voice::Response.new()
+forward = Bandwidth::Voice::Forward.new({
+    :to => "+10987654321",
+    :from => "+11234567890"
+})
+
+response.push(forward)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
