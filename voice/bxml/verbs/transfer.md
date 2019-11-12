@@ -211,7 +211,10 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Transferring your call, please wait.",
+    :voice => "paul"
+})
 ```
 
 {% sample lang="python" %}
