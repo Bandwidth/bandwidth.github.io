@@ -10,7 +10,7 @@ Pause or resume recording on an active phone call.
 ### Supported Parameters
 | Parameter       | Description                                                                                                                            | Mandatory |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| state           | The recording state. Possible values: <br><br> `PAUSED` to pause an active recording<br>`RECORDING` to resume a paused recording<br>   | Yes       |
+| state           | The recording state. Possible values: <br><br> `paused` to pause an active recording<br>`recording` to resume a paused recording<br>   | Yes       |
 {% common %}
 
 ### Example: Pause a currently active recording
@@ -21,7 +21,7 @@ curl -u username:password -v -X PUT https://voice.bandwidth.com/api/v2/accounts/
 	-d \
 	'
 	{
-		"state":"PAUSED"
+		"state":"paused"
 	}'
 ```
 

@@ -1,7 +1,9 @@
 {% method %}
 ##  Record Complete event
 
-The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb has executed. It indicates when and why the recording completed.
+The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb has executed and the BXML returned by this callback is executed next.
+
+At a later moment the [Recording Available](recordingAvailable.md) event is sent asynchronously once the recording is available for download.
 
 ### Expected response
 

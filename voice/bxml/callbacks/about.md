@@ -17,7 +17,7 @@ URLs, so POST is the preferred method.
 | [Answer](answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
 | [Gather](gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                     |
 | [Initiate](initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                    |
-| [RecordComplete](recordComplete.md)      | Bandwidth API sends this to the application when a `<Record>` is completed.                                                                                                                                  |
+| [Record Complete](recordComplete.md)     | Bandwidth API sends this to the application when a `<Record>` is completed. To download the recording look for the [Recording Available](recordingAvailable.md) event.                                       |
 | [Redirect](redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
 | [Transfer Answer](transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                               |
 | [Transfer Complete](transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                               |
@@ -36,4 +36,4 @@ URLs, so POST is the preferred method.
 | Callback                                          | Description                                                                             |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------|
 | [Disconnect](disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [RecordingAvailable](recordingAvailable.md)       | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| [Recording Available](recordingAvailable.md)      | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
