@@ -47,7 +47,11 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+pause = Pause(duration=2)
+
+response.add_verb(pause)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

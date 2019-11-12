@@ -53,7 +53,11 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+send_dtmf = SendDtmf("12w34")
+
+response.add_verb(send_dtmf)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

@@ -58,7 +58,13 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+redirect = Redirect(
+    redirect_url="http://flow.url/newFlow"
+)
+
+response.add_verb(redirect)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

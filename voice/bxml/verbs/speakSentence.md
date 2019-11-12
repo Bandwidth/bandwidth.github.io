@@ -179,7 +179,14 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Questo è un test",
+    voice="Sophia"
+)
+
+response.add_verb(speak_sentence)
+print(response.to_bxml())
 ```
 
 {% common %}
@@ -220,7 +227,14 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence='Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
+    voice="Sophia"
+)
+
+response.add_verb(speak_sentence)
+print(response.to_bxml())
 ```
 
 

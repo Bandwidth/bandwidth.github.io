@@ -50,7 +50,17 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+forward = Forward(
+    to="+19999999999",
+    from_="+19998888888", #Note the underscore since from is a keyword in python
+    call_timeout=3,
+    diversion_treatment="none",
+    diversion_reason="away",
+)
+
+response.add_verb(forward)
+print(response.to_bxml())
 ```
 
 

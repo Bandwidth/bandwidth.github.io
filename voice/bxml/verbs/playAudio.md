@@ -58,7 +58,17 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+play_audio_1 = PlayAudio(
+    url="https://audio.url/audio1.wav"
+)
+play_audio_2 = PlayAudio(
+    url="https://audio.url/audio2.wav"
+)
+
+response.add_verb(play_audio_1)
+response.add_verb(play_audio_2)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

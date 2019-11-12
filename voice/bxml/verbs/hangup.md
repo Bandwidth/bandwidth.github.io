@@ -52,7 +52,11 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+response = Response()
+hangup = Hangup()
+
+response.add_verb(hangup)
+print(response.to_bxml())
 ```
 
 {% endmethod %}
