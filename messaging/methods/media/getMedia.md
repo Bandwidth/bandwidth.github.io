@@ -42,6 +42,9 @@ var a = b;
 
 ```ruby
 downloaded_media = messaging_client.get_media("12345", "mediaId")
+f = File.open("file_to_write", "wb")
+f.puts(downloaded_media)
+f.close()
 ```
 
 {% sample lang="python" %}
