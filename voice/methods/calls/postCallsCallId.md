@@ -56,7 +56,7 @@ body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
 begin
-    voice_client.modify_call("55555", data["callId"], body: body)
+    voice_client.modify_call("55555", "callId", body: body)
 rescue Exception => e
     puts e
 end
@@ -102,7 +102,7 @@ body = ApiModifyCallRequest.new
 body.state = "completed"
 
 begin
-    voice_client.modify_call("55555", data["callId"], body: body)
+    voice_client.modify_call("55555", "callId", body: body)
 rescue Exception => e
     puts e
 end
