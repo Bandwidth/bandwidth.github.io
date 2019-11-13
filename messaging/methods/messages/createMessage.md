@@ -127,7 +127,17 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = MessageRequest.new
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902"]
+body.from = "+12345678901"
+body.text = "Hey, check this out!"
+body.tag = "test message"
+begin
+    result = messaging_client.create_message("12345", body: body)
+    puts result.data.id
+rescue Exception => e
+    puts e
 ```
 
 {% sample lang="python" %}
@@ -244,7 +254,18 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = MessageRequest.new
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902"]
+body.from = "+12345678901"
+body.text = "Hey, check this out!"
+body.tag = "test message"
+body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+begin
+    result = messaging_client.create_message("12345", body: body)
+    puts result.data.id
+rescue Exception => e
+    puts e
 ```
 
 {% sample lang="python" %}
@@ -362,7 +383,18 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = MessageRequest.new
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902"]
+body.from = "+12345678901"
+body.text = "Hey, check this out!"
+body.tag = "test message"
+body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+begin
+    result = messaging_client.create_message("12345", body: body)
+    puts result.data.id
+rescue Exception => e
+    puts e
 ```
 
 {% sample lang="python" %}
@@ -476,7 +508,17 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = MessageRequest.new
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902", "+12345678903"]
+body.from = "+12345678901"
+body.text = "Hey, check this out!"
+body.tag = "test message"
+begin
+    result = messaging_client.create_message("12345", body: body)
+    puts result.data.id
+rescue Exception => e
+    puts e
 ```
 
 {% sample lang="python" %}
@@ -601,7 +643,18 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = MessageRequest.new
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902", "+12345678903"]
+body.from = "+12345678901"
+body.text = "Hey, check this out!"
+body.tag = "test message"
+body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+begin
+    result = messaging_client.create_message("12345", body: body)
+    puts result.data.id
+rescue Exception => e
+    puts e
 ```
 
 {% sample lang="python" %}

@@ -41,7 +41,7 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+downloaded_media = messaging_client.get_media("12345", "mediaId")
 ```
 
 {% sample lang="python" %}
