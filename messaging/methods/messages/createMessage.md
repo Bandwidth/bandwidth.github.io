@@ -133,7 +133,16 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = MessageRequest()
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902"]
+body.mfrom = "+12345678901"
+body.text = "Hey, check this out!"
+try:
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
+except Exception as e:
+    print(e)
 ```
 
 {% common %}
@@ -250,7 +259,17 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = MessageRequest()
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902"]
+body.mfrom = "+12345678901"
+body.text = "Hey, check this out!"
+body.media = [""https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+try:
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
+except Exception as e:
+    print(e)
 ```
 
 {% common %}
@@ -368,7 +387,17 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = MessageRequest()
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902"]
+body.mfrom = "+12345678901"
+body.text = "Hey, check this out!"
+body.media = [""https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+try:
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
+except Exception as e:
+    print(e)
 ```
 
 {% common %}
@@ -482,7 +511,16 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = MessageRequest()
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902", "+12345678903"]
+body.mfrom = "+12345678901"
+body.text = "Hey, check this out!"
+try:
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
+except Exception as e:
+    print(e)
 ```
 
 {% common %}
@@ -607,7 +645,17 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = MessageRequest()
+body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
+body.to = ["+12345678902", "+12345678903"]
+body.mfrom = "+12345678901"
+body.text = "Hey, check this out!"
+body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+try:
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
+except Exception as e:
+    print(e)
 ```
 
 {% endmethod %}

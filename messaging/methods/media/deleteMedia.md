@@ -41,7 +41,7 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 ```
 
 {% endmethod %}
