@@ -35,7 +35,7 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-messaging_client.delete_media("12345", "mediaId")
+messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 ```
 
 {% sample lang="python" %}

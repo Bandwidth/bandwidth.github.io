@@ -75,7 +75,7 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-media = messaging_client.list_media("12345")
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
 ```
 
 {% sample lang="python" %}
