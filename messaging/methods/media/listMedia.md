@@ -134,7 +134,7 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-media = messaging_client.list_media("12345", continuation_token: "token")
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: "token")
 ```
 
 {% sample lang="python" %}
