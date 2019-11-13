@@ -71,7 +71,7 @@ Bandwidth’s International A2P Messaging API allows customers format messages a
 </tbody></table>
 
 
-### Supported characters in alphanumeric sender
+### Supported characters in alphanumeric sender {#supported-characters}
 
 Standard letters and digits:
 * 0123456789
@@ -110,22 +110,22 @@ Standard letters and digits:
 
 #### Request URL
 
-<code class="post">POST</code>`https://sms.a2pi.bandwidth.com:12021/bulk/sendsms`
+<code class="post">POST</code>`https://bulksms.ia2p.bandwidth.com:12021/bulk/sendsms`
 
 {% extendmethod %}
 
 ### Supported Parameters
 
-| Parameter  | Mandatory | Description                                                                                                                                                                                                                    |
-|:-----------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `type`     | Yes       | The type of message to send. <br>For the Bandwidth API, the only valid type is `"text"`                                                                                                                                        |
-| `auth`     | Yes       | Authorization credentials for the Bandwidth International A2P Messaging API. <br> Please contact [support](https://support.bandwidth.com) to learn how to find these credentials to get started.                               |
-| `sender`   | Yes       | The alphanumeric value to appear as the outbound message `sender`. See the **Supported Characters** table to learn mroe.                                                                                                       |
-| `receiver` | Yes       | The desired destination phone number of the end user                                                                                                                                                                           |
-| `dcs`      | Yes       | Specifies the encoding to use for the outbound message. See the **Message Encoding** information to learn more. <br>Valid values are: <br>-`"GSM"` for GSM encoding <br>-`"UCS"` for Unicode UTF-8 encoding                    |
-| `text`     | Yes       | The text content to be sent to the `receiver`                                                                                                                                                                                  |
-| `dlrMask`  | Yes       | Specifies which DLR values to send to the `dlrUrl`. <br><br>ℹ️ Bandwidth recommends setting the code to `19` to receive all of `DELIVERED`, `UNDELIVERED`, `REJECTED` events.<br>See the `dlrMask` table for more information. |
-| `dlrUrl`   | Yes       | The publicly addressable callback URL to send DLR information about the outbound message                                                                                                                                       |
+| Parameter  | Mandatory | Description                                                                                                                                                                                                                                                                                                   |
+|:-----------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`     | Yes       | The type of message to send. <br>For the Bandwidth API, the only valid type is `"text"`                                                                                                                                                                                                                       |
+| `auth`     | Yes       | Authorization credentials for the Bandwidth International A2P Messaging API. <br> Please contact [support](https://support.bandwidth.com) to learn how to find these credentials to get started.                                                                                                              |
+| `sender`   | Yes       | The alphanumeric value to appear as the outbound message `sender`. See the [Supported Characters](#supported-characters) table above to learn more. <br>- **Maximum Length** when using **Alphanumeric** sender is **11 Characters**.<br>- **Maximum Length** when using **Numeric** sender is **16 Digits**. |
+| `receiver` | Yes       | The desired destination phone number of the end user                                                                                                                                                                                                                                                          |
+| `dcs`      | Yes       | Specifies the encoding to use for the outbound message. See the **Message Encoding** information to learn more. <br>Valid values are: <br>-`"GSM"` for GSM encoding <br>-`"UCS"` for Unicode UTF-8 encoding                                                                                                   |
+| `text`     | Yes       | The text content to be sent to the `receiver`                                                                                                                                                                                                                                                                 |
+| `dlrMask`  | Yes       | Specifies which DLR values to send to the `dlrUrl`. <br><br>ℹ️ Bandwidth recommends setting the code to `19` to receive all of `DELIVERED`, `UNDELIVERED`, `REJECTED` events.<br>See the `dlrMask` table for more information.                                                                                |
+| `dlrUrl`   | Yes       | The publicly addressable callback URL to send DLR information about the outbound message                                                                                                                                                                                                                      |
 
 #### dlrMask values
 
@@ -153,7 +153,7 @@ Delivery events that Bandwidth’s International A2P Messaging API sends are lis
 ### Example 1 of 4: Text messages in GSM Encoding
 
 ```http
-POST https://sms.a2pi.bandwidth.com:12021/bulk/sendsms HTTP/1.1
+POST https://bulksms.ia2p.bandwidth.com:12021/bulk/sendsms HTTP/1.1
 Content-Type: application/json; charset=utf-8
 
 {
@@ -183,7 +183,7 @@ Content-Type: application/json; charset=utf-8
 ### Example 2 of 4: Text messages in Unicode Encoding
 
 ```http
-POST https://sms.a2pi.bandwidth.com:12021/bulk/sendsms HTTP/1.1
+POST https://bulksms.ia2p.bandwidth.com:12021/bulk/sendsms HTTP/1.1
 Content-Type: application/json; charset=utf-8
 
 {
@@ -213,7 +213,7 @@ Content-Type: application/json; charset=utf-8
 ### Example 3 of 4: Text messages in GSM Encoding with invalid sender
 
 ```http
-POST https://sms.a2pi.bandwidth.com:12021/bulk/sendsms HTTP/1.1
+POST https://bulksms.ia2p.bandwidth.com:12021/bulk/sendsms HTTP/1.1
 Content-Type: application/json; charset=utf-8
 
 {
@@ -245,7 +245,7 @@ Content-Type: application/json; charset=utf-8
 ### Example 4 of 4: Text messages in GSM Encoding Rate Limited
 
 ```http
-POST https://sms.a2pi.bandwidth.com:12021/bulk/sendsms HTTP/1.1
+POST https://bulksms.ia2p.bandwidth.com:12021/bulk/sendsms HTTP/1.1
 Content-Type: application/json; charset=utf-8
 
 {
