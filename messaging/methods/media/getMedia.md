@@ -47,7 +47,10 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, media_id)
+f = open("file_to_write", "wb")
+f.write(downloaded_media.body)
+f.close()
 ```
 
 {% endmethod %}

@@ -56,7 +56,10 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-# Python Example
+f = open("some_file", "rb")
+file_content = f.read()
+messaging_client.upload_media("12345", "mediaId", str(len(file_content)), body=file_content)
+f.close()
 ```
 
 {% endmethod %}
