@@ -51,7 +51,15 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = ApiModifyCallRequest.new
+body.redirect_url = "http://www.myapp.com/new"
+body.state = "active"
+
+begin
+    voice_client.modify_call("55555", "callId", body: body)
+rescue Exception => e
+    puts e
+end
 ```
 
 {% sample lang="python" %}
@@ -90,7 +98,14 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = ApiModifyCallRequest.new
+body.state = "completed"
+
+begin
+    voice_client.modify_call("55555", "callId", body: body)
+rescue Exception => e
+    puts e
+end
 ```
 
 {% sample lang="python" %}
