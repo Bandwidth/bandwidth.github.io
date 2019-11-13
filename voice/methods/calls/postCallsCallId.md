@@ -65,7 +65,14 @@ end
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = ApiModifyCallRequest()
+body.redirect_url = "http://www.myapp.com/new"
+body.state = "active"
+
+try:
+    voice_client.modify_call("55555", "callId", body)
+except Exception as e:
+    print(e)
 ```
 
 {% common %}
@@ -111,7 +118,13 @@ end
 {% sample lang="python" %}
 
 ```python
-# Python Example
+body = ApiModifyCallRequest()
+body.state = "completed"
+
+try:
+    voice_client.modify_call("55555", "callId", body)
+except Exception as e:
+    print(e)
 ```
 
 {% endmethod %}
