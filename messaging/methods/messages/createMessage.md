@@ -139,7 +139,7 @@ body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 try:
-    result = messaging_client.create_message("12345", body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.data.id)
 except Exception as e:
     print(e)
@@ -266,7 +266,8 @@ body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 body.media = [""https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
 try:
-    messaging_client.create_message("12345", body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
 except Exception as e:
     print(e)
 ```
@@ -393,7 +394,8 @@ body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 body.media = [""https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
 try:
-    messaging_client.create_message("12345", body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
 except Exception as e:
     print(e)
 ```
@@ -515,7 +517,8 @@ body.to = ["+12345678902", "+12345678903"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 try:
-    messaging_client.create_message("12345", body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
 except Exception as e:
     print(e)
 ```
@@ -649,7 +652,8 @@ body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
 try:
-    messaging_client.create_message("12345", body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
+    print(result.data.id)
 except Exception as e:
     print(e)
 ```
