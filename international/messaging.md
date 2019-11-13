@@ -158,7 +158,10 @@ Content-Type: application/json; charset=utf-8
 
 {
   "type"     : "text",
-  "auth"     : {"username":"testuser", "password":"testpassword"},
+  "auth"     : {
+    "username" : "testuser",
+    "password" : "testpassword"
+  },
   "sender"   : "BulkTest",
   "receiver" : "4179123456",
   "dcs"      : "GSM",
@@ -188,7 +191,10 @@ Content-Type: application/json; charset=utf-8
 
 {
   "type"     : "text",
-  "auth"     : {"username":"testuser", "password":"testpassword"},
+  "auth"     : {
+    "username" : "testuser",
+    "password" : "testpassword"
+  },
   "sender"   : "BulkTest",
   "receiver" : "4179123456",
   "dcs"      : "UCS",
@@ -218,7 +224,10 @@ Content-Type: application/json; charset=utf-8
 
 {
   "type"     : "text",
-  "auth"     : {"username":"testuser", "password":"testpassword"},
+  "auth"     : {
+    "username" : "testuser",
+    "password" : "testpassword"
+  },
   "sender"   : "😀",
   "receiver" : "4179123456",
   "dcs"      : "GSM",
@@ -250,7 +259,10 @@ Content-Type: application/json; charset=utf-8
 
 {
   "type"     : "text",
-  "auth"     : {"username":"testuser", "password":"testpassword"},
+  "auth"     : {
+    "username" : "testuser",
+    "password" : "testpassword"
+  },
   "sender"   : "BulkTest",
   "receiver" : "4179123456",
   "dcs"      : "GSM",
