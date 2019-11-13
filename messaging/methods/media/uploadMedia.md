@@ -50,7 +50,9 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+f = File.open("some file", "r")
+file_content = f.read
+messaging_client.upload_media(MESSAGING_ACCOUNT_ID, "mediaId", file_content.length.to_s, file_content, :content_type => "application/octet-stream", :cache_control => "no-cache")
 ```
 
 {% sample lang="python" %}

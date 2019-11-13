@@ -35,7 +35,7 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 ```
 
 {% sample lang="python" %}
