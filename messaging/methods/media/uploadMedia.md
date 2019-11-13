@@ -58,7 +58,7 @@ var a = b;
 ```python
 f = open("some_file", "rb")
 file_content = f.read()
-messaging_client.upload_media("12345", "mediaId", str(len(file_content)), body=file_content)
+messaging_client.upload_media(MESSAGING_ACCOUNT_ID, "mediaId", str(len(file_content)), body=file_content)
 f.close()
 ```
 

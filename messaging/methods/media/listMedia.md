@@ -81,7 +81,7 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-media = messaging_client.list_media("12345")
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
 ```
 
 {% common %}
@@ -140,6 +140,6 @@ var a = b;
 {% sample lang="python" %}
 
 ```python
-media = messaging_client.list_media("12345", continuation_token="token")
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token="token")
 ```
 {% endmethod %}
