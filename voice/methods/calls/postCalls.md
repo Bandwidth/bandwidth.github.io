@@ -94,7 +94,18 @@ var a = b;
 {% sample lang="ruby" %}
 
 ```ruby
-# Ruby Example
+body = ApiCreateCallRequest.new
+body.from = "+19195551212"
+body.to = "+19195551313"
+body.answer_url = "http://www.myapp.com/hello" 
+body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
+
+begin
+    result = voice_client.create_call("55555",body: body)
+    puts result.data.callId
+rescue Exception => e
+    puts e
+end 
 ```
 
 {% sample lang="python" %}
