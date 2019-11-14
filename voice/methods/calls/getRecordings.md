@@ -1,6 +1,6 @@
 {% method %}
 
-## Retrieve Recordings
+## Retrieve Account Recordings
 Retrieve information about all recordings in the user account.
 
 ### Request URL

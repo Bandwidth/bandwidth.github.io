@@ -1,6 +1,6 @@
 {% method %}
 
-## Retrieve a Recording
+## Download Recording
 Retrieve a specific recording.
 
 ### Request URL
