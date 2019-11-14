@@ -31,7 +31,7 @@ In this example, only the transfers themselves will be recorded, and the text-to
     </Transfer>
     <PauseRecording/>
     <Gather gatherUrl="https://myapp.com/gatherCallbackBxml" maxDigits="1" firstDigitTimeout="10">
-        <SpeakSentence voice="kate">Press one if you want to be transferred to another number.</SpeakSentence>
+        <SpeakSentence voice="kate">Press 1 if you want to be transferred to another number.</SpeakSentence>
     </Gather>
 </Response>
 ```
