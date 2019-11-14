@@ -24,12 +24,12 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Retrieve recordings from a call
+### Example: Retrieve recordings using filters
 
 {% sample lang="bash" %}
 
 ```bash
-curl "https://voice.bandwidth.com/api/v2/accounts/5552319/recordings?from=+15552311772&to=+15552311778&minStartTime=2019-10-21T16:44:40.928Z&maxStartTime=2019-10-21T16:46:11.325Z" \
+curl -v "https://voice.bandwidth.com/api/v2/accounts/5552319/recordings?from=+15552311772&to=+15552311778&minStartTime=2019-10-21T16:44:40.928Z&maxStartTime=2019-10-21T16:46:11.325Z" \
      --user {username}:{password} 
 ```
 
