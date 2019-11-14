@@ -63,12 +63,22 @@ results to https://gather.url/nextBXML
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Please press a digit.";
+speakSentence.Voice = "kate";
 
+Gather gather = new Gather();
+gather.GatherUrl = "https://gather.url/nextBXML";
+gather.TerminatingDigits = "#";
+gather.FirstDigitTimeout = 10;
+gather.SpeakSentence = speakSentence;
+
+response.Add(gather);
+
+Console.WriteLine(response.ToBXML());
 ```
-
 
 {% sample lang="ruby" %}
 
@@ -127,11 +137,22 @@ Gather will end and send the result to the **gatherUrl**
 
 {% sample lang="csharp" %}
 
+
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "I am going to keep asking you to press a digit";
 
+Gather gather = new Gather();
+gather.GatherUrl = "https://gather.url/nextBXML";
+gather.RepeatCount = 5;
+gather.MaxDigits = 1;
+gather.SpeakSentence = speakSentence;
+
+response.Add(gather);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

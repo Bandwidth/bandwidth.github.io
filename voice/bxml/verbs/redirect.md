@@ -42,10 +42,14 @@ This shows how to use Bandwidth XML to redirect the response to a new url.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+Redirect redirect = new Redirect();
+redirect.RedirectUrl = "http://flow.url/newFlow";
 
+response.Add(redirect);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

@@ -42,10 +42,18 @@ This shows how to use Bandwidth XML to play two audio clips into a phone call.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+PlayAudio playAudio1 = new PlayAudio();
+playAudio1.Url = "https://audio.url/audio1.wav";
 
+PlayAudio playAudio2 = new PlayAudio();
+playAudio2.Url = "https://audio.url/audio2.wav";
+
+response.Add(playAudio1);
+response.Add(playAudio2);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

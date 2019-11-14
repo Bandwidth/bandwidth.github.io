@@ -34,10 +34,15 @@ This shows how to use Bandwidth XML to forward a call from +11234567890 to +1098
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+Forward forward = new Forward();
+forward.To = "+10987654321";
+forward.From = "+11234567890";
 
+response.Add(forward);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

@@ -73,10 +73,18 @@ This shows how to use Bandwidth XML to transfer a phone call.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+PhoneNumber phoneNumber1 = new PhoneNumber();
+phoneNumber1.Number = "+11234567892";
 
+Transfer transfer = new Transfer();
+transfer.PhoneNumbers = new PhoneNumber[] { phoneNumber1 };
+transfer.TransferCallerId = "+11234567891";
+
+response.Add(transfer);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 
@@ -133,10 +141,23 @@ This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge a
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Transferring your call, please wait.";
 
+PhoneNumber phoneNumber1 = new PhoneNumber();
+phoneNumber1.Number = "+11234567892";
+phoneNumber1.TransferAnswerUrl = "http://myapp.com/announcement";
+
+Transfer transfer = new Transfer();
+transfer.PhoneNumbers = new PhoneNumber[] { phoneNumber1 };
+transfer.TransferCallerId = "+11234567891";
+
+response.Add(speakSentence);
+response.Add(transfer);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 
@@ -186,7 +207,7 @@ print(response.to_bxml())
 
 {% common %}
 
-> The announcement BXML is:
+> The announcement BXML at http://myapp.com/announcement is:
 
 {% sample lang="http" %}
 
@@ -201,10 +222,14 @@ print(response.to_bxml())
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "A customer would like to speak to you.";
 
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 
@@ -251,10 +276,21 @@ to answer is bridged to the original call.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
+           
+PhoneNumber phoneNumber1 = new PhoneNumber();
+phoneNumber1.Number = "+15552221234";
 
-var a = b;
+PhoneNumber phoneNumber2 = new PhoneNumber();
+phoneNumber2.Number = "+15552221233";
 
+Transfer transfer = new Transfer();
+transfer.PhoneNumbers = new PhoneNumber[] { phoneNumber1, phoneNumber2 };
+transfer.TransferCallerId = "+15552221235";
+
+response.Add(transfer);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 
