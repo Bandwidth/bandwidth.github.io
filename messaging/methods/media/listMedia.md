@@ -76,12 +76,14 @@ var a = b;
 
 ```ruby
 media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
+puts media.data[0].media_name
 ```
 
 {% sample lang="python" %}
 
 ```python
 media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
+print(media.body[0].media_name)
 ```
 
 {% common %}
