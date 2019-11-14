@@ -3,7 +3,7 @@
 
 The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb has executed and the BXML returned by this callback is executed next.
 
-At a later moment the [Recording Available](recordingAvailable.md) event is sent asynchronously once the recording is available for download.
+When the recording is available for download, a [Recording Available](recordingAvailable.md) event will be sent.
 
 ### Expected response
 
