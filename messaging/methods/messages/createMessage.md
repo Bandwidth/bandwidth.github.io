@@ -8,6 +8,10 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 <code class="post">POST</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/messages`
 
+#### Basic Authentication
+
+Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
 ### Invalid Phone Number handing
 
 When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks/messageEvents.md).  You can read more on the [Messaging API concepts page](../../about.md#group-message-invalid).
@@ -38,7 +42,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: {apiToken:apiSecret}
+Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 {
     "to"            : ["+12345678902"],
@@ -126,7 +130,7 @@ Content-Type: application/json; charset=utf-8
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: {apiToken:apiSecret}
+Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 {
     "to"            : ["+12345678902"],
@@ -225,7 +229,7 @@ Content-Type: application/json; charset=utf-8
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: {apiToken:apiSecret}
+Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 {
     "to"            : ["+12345678902"],
@@ -327,7 +331,7 @@ Content-Type: application/json; charset=utf-8
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: {apiToken:apiSecret}
+Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 {
     "to"            : [
@@ -421,7 +425,7 @@ Content-Type: application/json; charset=utf-8
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: {apiToken:apiSecret}
+Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 {
     "to"            : [

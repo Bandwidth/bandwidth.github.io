@@ -855,22 +855,26 @@
   </tr>
     <tr>
     <td>5167</td>
-    <td>TnType '%s' is not a valid TnType for account %s</td>
+    <td>The tn from the specified region '%s' is not a valid region for account %s</td>
   </tr>
     <tr>
     <td>5168</td>
-    <td>Billing type '%s' is not valid for international orders. Valid billing types are: NOCHARGE</td>
+    <td>TnType '%s' is not a valid TnType for account %s</td>
   </tr>
     <tr>
     <td>5169</td>
-    <td>The specified vendor is not available for this account.</td>
+    <td>Billing type '%s' is not valid for international orders. Valid billing types are: NOCHARGE</td>
   </tr>
     <tr>
     <td>5170</td>
-    <td>Non-international customer segment cannot import international telephone numbers.</td>
+    <td>The specified vendor is not available for this account.</td>
   </tr>
     <tr>
     <td>5171</td>
+    <td>Non-international customer segment cannot import international telephone numbers.</td>
+  </tr>
+    <tr>
+    <td>5172</td>
     <td>International customer segment cannot import NANP telephone numbers.</td>
   </tr>
   </table>
@@ -2116,6 +2120,10 @@
     <tr>
     <td>7420</td>
     <td>The order address cannot be changed after order submission for automated off-net port-ins.</td>
+  </tr>
+    <tr>
+    <td>7421</td>
+    <td>All ported numbers on an order need to be from the same carrier.</td>
   </tr>
     <tr>
     <td>7604</td>
@@ -3694,7 +3702,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -5798,6 +5806,10 @@
     <tr>
     <td>13020</td>
     <td>Cannot remove support for the vendor because it is in use on at least 1 account</td>
+  </tr>
+    <tr>
+    <td>13021</td>
+    <td>The account ID %s is not on the customer opt-in list </td>
   </tr>
   </table>
 <h2>TerminationError</h2>

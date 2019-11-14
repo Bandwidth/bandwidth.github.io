@@ -6,6 +6,10 @@ Update properties of an active phone call.
 
 <code class="post">POST</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}`
 
+#### Basic Authentication
+
+Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
 ---
 
 ### Supported Parameters

@@ -2828,22 +2828,24 @@ securitySchemes:
                             application/xml:
                                 example: |
                                     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                    <CoiuntriesResponse>
+                                    <CountriesResponse>
                                         <ErrorList/>
-                                            <Countries>
-                                                <Country>
-                                                    <TwoLetterCode>CH</TwoLetterCode>
-                                                </Country>
-                                                <Country>
-                                                    <TwoLetterCode>DE</TwoLetterCode>
-                                                </Country>
-                                                <Country>
-                                                    <TwoLetterCode>FR</TwoLetterCode>
-                                                </Country>
-                                                <Country>
-                                                    <TwoLetterCode>IT</TwoLetterCode>
-                                                </Country>
-                                            </Countries>
+                                            <AccountCountries>
+                                                <Countries>
+                                                    <Country>
+                                                        <TwoLetterCode>CH</TwoLetterCode>
+                                                    </Country>
+                                                    <Country>
+                                                        <TwoLetterCode>DE</TwoLetterCode>
+                                                    </Country>
+                                                    <Country>
+                                                        <TwoLetterCode>FR</TwoLetterCode>
+                                                    </Country>
+                                                    <Country>
+                                                        <TwoLetterCode>IT</TwoLetterCode>
+                                                    </Country>
+                                                </Countries>
+                                            </AccountCountries>
                                     </CountriesResponse>
         /discnumbers: 
             description: This API call provides information on numbers that have been disconnected from an account.
