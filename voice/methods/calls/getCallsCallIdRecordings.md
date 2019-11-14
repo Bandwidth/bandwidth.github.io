@@ -1,6 +1,6 @@
 {% method %}
 
-## Retrieve Recording Information
+## Retrieve Call Recordings
 Retrieve information about recordings that occurred during a call.
 
 ### Request URL
@@ -26,17 +26,11 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Example: Retrieve recordings from a call
 
-<aside class="alert general small">
-<p>
-The call resource returned in the "Location" header can be modified to change the call (for example, play audio files, transfer to a different number, or hang up).
-</p>
-</aside>
-
 {% sample lang="bash" %}
 
 ```bash
-curl "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f/recordings?from=+15552311772&to=+15552311778&minStartTime=2019-10-21T16:44:40.928Z&maxStartTime=2019-10-21T16:46:11.325Z" \
-    --user {username}:{password} 
+curl "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f/recordings" \
+     --user {username}:{password} 
 ```
 
 ```json
@@ -59,5 +53,7 @@ curl "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a486
     }
 ]
 ```
+
+The resource returned in the "mediaUrl" field can be used to retrieve the recording, see [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md).
 
 {% endmethod %}
