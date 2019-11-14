@@ -21,4 +21,4 @@ Some of the URLs in this documentation contain placeholders for values that your
 | [`/calls/{callId}/recordings/{recordingId}`](calls/getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a specific recording.                   |
 | [`/calls/{callId}/recordings/{recordingId}`](calls/deleteCallsCallIdRecordingsRecordingId.md)         | Delete a specific recording.                                       |
 | [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a specific recording.                                     |
-| [`/recordings`](calls/getRecordings.md)                                                               | Retrieve information about your 1000 most recent recordings.       |
+| [`/recordings`](calls/getRecordings.md)                                                               | Retrieve information about your 1000 least recent recordings.      |
