@@ -21,7 +21,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Retrieve a specific recording
+### Example: Retrieve information about a specific recording
 
 {% sample lang="bash" %}
 
