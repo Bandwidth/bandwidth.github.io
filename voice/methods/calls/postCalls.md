@@ -84,10 +84,14 @@ Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+ApiCreateCallRequest apiCreateCallRequest = new ApiCreateCallRequest();
+apiCreateCallRequest.From = "+19195551212";
+apiCreateCallRequest.To = "+19195551313";
+apiCreateCallRequest.AnswerUrl = "http://www.myapp.com/hello";
+apiCreateCallRequest.ApplicationId = VOICE_APPLICATION_ID; //string
 
-var a = b;
-
+var response = voiceClient.CreateCall(VOICE_ACCOUNT_ID, apiCreateCallRequest);
+Console.WriteLine(response.Data.CallId);
 ```
 
 

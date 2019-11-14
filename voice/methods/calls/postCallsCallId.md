@@ -41,10 +41,11 @@ curl -u username:password -v -X POST https://voice.bandwidth.com/api/v2/accounts
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+ApiModifyCallRequest apiModifyCallRequest = new ApiModifyCallRequest();
+apiModifyCallRequest.RedirectUrl = "http://www.myapp.com/new";
+apiModifyCallRequest.State = StateEnum.ACTIVE;
 
-var a = b;
-
+voiceClient.ModifyCall(VOICE_ACCOUNT_ID, callId, apiModifyCallRequest);
 ```
 
 
@@ -95,10 +96,10 @@ curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{c
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+ApiModifyCallRequest apiModifyCallRequest = new ApiModifyCallRequest();
+apiModifyCallRequest.State = StateEnum.COMPLETED;
 
-var a = b;
-
+voiceClient.ModifyCall(VOICE_ACCOUNT_ID, callId, apiModifyCallRequest);
 ```
 
 
