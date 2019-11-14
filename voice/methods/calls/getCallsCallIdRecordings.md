@@ -1,7 +1,7 @@
 {% method %}
 
 ## Retrieve Call Recordings
-Retrieve information about recordings that occurred during a call.
+Retrieve information about all recordings that occurred during a call.
 
 ### Request URL
 
@@ -15,12 +15,9 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter          | Description                                                                                          | Mandatory |
-|:-------------------|:-----------------------------------------------------------------------------------------------------|:----------|
-| from               | Filter results by the `from` field.                                                                  | No        |
-| to                 | Filter results by the `to` field..                                                                   | No        |
-| minStartTime       | Filter results which have `startTime` greater than or equal `minStartTime` (in ISO8601 format).      | No        |
-| maxStartTime       | Filter results which have `startTime` lower than `maxStartTime` (in ISO8601 format).                 | No        |
+| Parameter | Description |
+|:----------|:------------|
+| None      | None        |
 
 {% common %}
 
