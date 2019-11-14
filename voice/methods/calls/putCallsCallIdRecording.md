@@ -14,15 +14,17 @@ Pause or resume recording on an active phone call.
 {% common %}
 
 ### Example: Pause a currently active recording
+
 {% sample lang="bash" %}
+
 ```bash
-curl -u username:password -v -X PUT https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording \
-	-H "Content-type: application/json" \
-	-d \
-	'
-	{
-		"state":"paused"
-	}'
+curl -v -X PUT https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording \
+     --user {username}:{password}
+     --header 'Content-type: application/json' \
+     --data '
+     {
+       "state": "paused"
+     }'
 ```
 
 {% endmethod %}
