@@ -1,7 +1,7 @@
 {% method %}
 
 ## Delete Recording
-Delete the media and the information about a specific recording.
+Delete a specific recording.
 
 ### Request URL
 

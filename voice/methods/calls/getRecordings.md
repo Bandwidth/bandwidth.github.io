@@ -1,7 +1,7 @@
 {% method %}
 
 ## Retrieve Account Recordings
-Retrieve information about all recordings in the user account.
+Retrieve information about your 1000 least recent recordings.
 
 ### Request URL
 
