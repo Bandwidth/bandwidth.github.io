@@ -65,10 +65,8 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
-
-var a = b;
-
+var response = msgClient.ListMedia(MSG_ACCOUNT_ID);
+List<Media> mediaList = response.Data;
 ```
 
 
@@ -126,10 +124,8 @@ Continuation-Token: 678910
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
-
-var a = b;
-
+var response = msgClient.ListMedia(MSG_ACCOUNT_ID, continuationToken);
+List<Media> mediaList = response.Data;
 ```
 
 

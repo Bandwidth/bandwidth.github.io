@@ -40,10 +40,10 @@ curl -v -X PUT https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{f
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
-
-var a = b;
-
+using ( FileStream fs = File.OpenRead("C:\\Path\\To\\File") )
+{
+    msgClient.UploadMedia(MSG_ACCOUNT_ID, mediaId, fs.Length, fs, "audio/wav");
+}
 ```
 
 

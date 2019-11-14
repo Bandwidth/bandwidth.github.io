@@ -117,10 +117,16 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+MessageRequest messageRequest = new MessageRequest();
+messageRequest.ApplicationId = MSG_APPLICATION_ID;
+messageRequest.To = new List<string> { "+12345678902" };
+messageRequest.From = "+12345678901";
+messageRequest.Text = "Hey, check this out!";
+messageRequest.Tag = "test message";
 
-var a = b;
+var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
+Console.WriteLine(response.Data.Id);
 ```
 
 
@@ -254,10 +260,17 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+MessageRequest messageRequest = new MessageRequest();
+messageRequest.ApplicationId = MSG_APPLICATION_ID;
+messageRequest.To = new List<string> { "+12345678902" };
+messageRequest.From = "+12345678901";
+messageRequest.Text = "Hey, check this out!";
+messageRequest.Tag = "test message";
+messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
 
-var a = b;
+var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
+Console.WriteLine(response.Data.Id);
 ```
 
 
@@ -394,10 +407,17 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+MessageRequest messageRequest = new MessageRequest();
+messageRequest.ApplicationId = MSG_APPLICATION_ID;
+messageRequest.To = new List<string> { "+12345678902" };
+messageRequest.From = "+12345678901";
+messageRequest.Text = "Hey, check this out!";
+messageRequest.Tag = "test message";
+messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"  };
 
-var a = b;
+var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
+Console.WriteLine(response.Data.Id);
 ```
 
 
@@ -530,10 +550,16 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+MessageRequest messageRequest = new MessageRequest();
+messageRequest.ApplicationId = MSG_APPLICATION_ID;
+messageRequest.To = new List<string> { "+12345678902", "+12345678903" };
+messageRequest.From = "+12345678901";
+messageRequest.Text = "Hey, check this out!";
+messageRequest.Tag = "test message";
 
-var a = b;
+var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
+Console.WriteLine(response.Data.Id);
 ```
 
 
@@ -675,10 +701,15 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+MessageRequest messageRequest = new MessageRequest();
+messageRequest.ApplicationId = MSG_APPLICATION_ID;
+messageRequest.To = new List<string> { "+12345678902", "+12345678903" };
+messageRequest.From = "+12345678901";
+messageRequest.Text = "Hey, check this out!";
+messageRequest.Tag = "text message";
+messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
 
-var a = b;
-
+msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 ```
 
 
