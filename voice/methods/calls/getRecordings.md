@@ -19,8 +19,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:-------------------|:-----------------------------------------------------------------------------------------------------|:----------|
 | from               | Filter results by the `from` field.                                                                  | No        |
 | to                 | Filter results by the `to` field..                                                                   | No        |
-| minStartTime       | Filter results which have `startTime` greater than or equal `minStartTime` (in ISO8601 format).      | No        |
-| maxStartTime       | Filter results which have `startTime` lower than `maxStartTime` (in ISO8601 format).                 | No        |
+| minStartTime       | Filter results to recordings which have a `startTime` after or including `minStartTime` (in ISO8601 format).      | No        |
+| maxStartTime       | Filter results to recordings which have a `startTime` before `maxStartTime` (in ISO8601 format).                 | No        |
 
 {% common %}
 
