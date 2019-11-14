@@ -138,6 +138,7 @@ begin
     puts result.data.id
 rescue Exception => e
     puts e
+end
 ```
 
 {% sample lang="python" %}
@@ -150,7 +151,7 @@ body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
-    print(result.data.id)
+    print(result.body.id)
 except Exception as e:
     print(e)
 ```
@@ -275,6 +276,7 @@ begin
     puts result.data.id
 rescue Exception => e
     puts e
+end
 ```
 
 {% sample lang="python" %}
@@ -285,10 +287,10 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = [""https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
-    print(result.data.id)
+    print(result.body.id)
 except Exception as e:
     print(e)
 ```
@@ -414,6 +416,7 @@ begin
     puts result.data.id
 rescue Exception => e
     puts e
+end
 ```
 
 {% sample lang="python" %}
@@ -424,10 +427,10 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = [""https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
-    print(result.data.id)
+    print(result.body.id)
 except Exception as e:
     print(e)
 ```
@@ -548,6 +551,7 @@ begin
     puts result.data.id
 rescue Exception => e
     puts e
+end
 ```
 
 {% sample lang="python" %}
@@ -560,7 +564,7 @@ body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
-    print(result.data.id)
+    print(result.body.id)
 except Exception as e:
     print(e)
 ```
@@ -693,6 +697,7 @@ begin
     puts result.data.id
 rescue Exception => e
     puts e
+end
 ```
 
 {% sample lang="python" %}
@@ -706,7 +711,7 @@ body.text = "Hey, check this out!"
 body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
-    print(result.data.id)
+    print(result.body.id)
 except Exception as e:
     print(e)
 ```
