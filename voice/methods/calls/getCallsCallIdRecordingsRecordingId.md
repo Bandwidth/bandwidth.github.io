@@ -49,6 +49,6 @@ curl "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a486
 }
 ```
 
-The resource returned in the "mediaUrl" field can be used to retrieve the recording, see [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md).
+The resource returned in the "mediaUrl" field can be used to retrieve the recording, see [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md).
 
 {% endmethod %}
