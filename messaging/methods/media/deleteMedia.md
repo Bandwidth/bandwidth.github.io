@@ -25,10 +25,7 @@ curl -v -X DELETE https://messaging.bandwidth.com/api/v2/users/{accountId}/media
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
-
-var a = b;
-
+msgClient.DeleteMedia(MSG_ACCOUNT_ID, mediaId);
 ```
 
 

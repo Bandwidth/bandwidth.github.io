@@ -31,10 +31,15 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{m
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+var response = msgClient.GetMedia(MSG_ACCOUNT_ID, mediaId);
 
-var a = b;
+Stream data = response.Data;
 
+using (var fileStream = File.Create("C:\\Path\\To\\File"))
+{
+    data.Seek(0, SeekOrigin.Begin);
+    data.CopyTo(fileStream);
+}
 ```
 
 
