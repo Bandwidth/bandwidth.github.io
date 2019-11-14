@@ -18,12 +18,12 @@ None
 
 {% common %}
 #### Example:  Forward Verb
-This shows how to use Bandwidth XML to forward a call from +11234567890 to +10987654321.
+This shows how to use Bandwidth XML to forward a call from +15554567890 to +15557654321.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-   <Forward from="+11234567890" to="+10987654321"/>
+   <Forward from="+15554567890" to="+15557654321"/>
 </Response>
 ```
 

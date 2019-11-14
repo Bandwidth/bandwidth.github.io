@@ -61,8 +61,8 @@ This shows how to use Bandwidth XML to transfer a phone call.
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <SpeakSentence gender="male">Transferring your call, please wait.</SpeakSentence>
-    <Transfer transferCallerId="+11234567891">
-        <PhoneNumber>+11234567892</PhoneNumber>
+    <Transfer transferCallerId="+15554567891">
+        <PhoneNumber>+15554567892</PhoneNumber>
     </Transfer>
 </Response>
 ```
@@ -74,8 +74,8 @@ This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge a
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <SpeakSentence voice="paul">Transferring your call, please wait.</SpeakSentence>
-    <Transfer transferCallerId="+11234567891">
-        <PhoneNumber transferAnswerUrl="http://myapp.com/announcement">+11234567892</PhoneNumber>
+    <Transfer transferCallerId="+15554567891">
+        <PhoneNumber transferAnswerUrl="http://myapp.com/announcement">+15554567892</PhoneNumber>
     </Transfer>
 </Response>
 ```

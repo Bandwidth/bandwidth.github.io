@@ -1,7 +1,7 @@
 {% method %}
 
 ## XML: `<Pause>`
-The Pause verb is used to delay for a set period of time.  Silence will be heard.
+The Pause verb is used to delay verb execution for a period of time, during which the call will be silent.
 
 ### Attributes
 

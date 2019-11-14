@@ -57,7 +57,7 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
+  "from"          : "+15552676804",
   "to"            : "scooby-doo",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
@@ -107,8 +107,8 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -154,8 +154,8 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -205,8 +205,8 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -234,8 +234,8 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -279,7 +279,7 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
+  "from"          : "+15552676804",
   "to"            : "scooby-doo",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
@@ -364,8 +364,8 @@ POST https://voice.bandwidth.com/api/v2/accounts/{{accountId}}/calls/ HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -408,8 +408,8 @@ Content-Type: application/json;charset=UTF-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -455,8 +455,8 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }
@@ -499,8 +499,8 @@ Content-Type: application/json; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
-  "from"          : "+19192676804",
-  "to"            : "+19195554444",
+  "from"          : "+15552676804",
+  "to"            : "+15555554444",
   "answerUrl"     : "http://www.myapp.com/hello",
   "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 }

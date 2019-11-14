@@ -17,8 +17,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 | Parameter          | Description                                                                                                                                                                                                             | Mandatory |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     |:----------|
-| from               | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+19195551212`).                                                                                                      | Yes       |
-| to                 | The number to call (must be an E.164 formatted number, like `+19195551212`                                                                                                                                              | Yes       |
+| from               | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`).                                                                                                      | Yes       |
+| to                 | The number to call (must be an E.164 formatted number, like `+15555551212`                                                                                                                                              | Yes       |
 | applicationId      | The id of the application to associate this call with, for billing purposes.                                                                                                                                            | Yes       |
 | answerUrl          | The full URL to send the [Answer](../../bxml/callbacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/about.md) to be executed in the call.        | Yes       |
 | answerMethod       | (optional) The HTTP method to use for the request to `answerUrl`. GET or POST. Default value is POST.                                                                                                                   | No        |
@@ -50,8 +50,8 @@ curl -v --request POST \
     --header 'Content-type: application/json' \
     --data '
     {
-      "from"          : "+19195551212",
-      "to"            : "+19195551313",
+      "from"          : "+15555551212",
+      "to"            : "+15555551313",
       "answerUrl"     : "http://www.myapp.com/hello",
       "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
     }'
@@ -61,8 +61,8 @@ curl -v --request POST \
 HTTP/1.1 201
 Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d
 {
-    "from": "+19195551212",
-    "to": "+19195551313",
+    "from": "+15555551212",
+    "to": "+15555551313",
     "applicationId": "7fc9698a-b04a-468b-9e8f-91238c0d0086",
     "callId": "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
     "callUrl": "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
