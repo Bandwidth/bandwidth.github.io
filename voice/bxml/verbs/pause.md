@@ -31,10 +31,14 @@ This shows how to use Bandwidth XML to pause for 2 seconds.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+Pause pause = new Pause();
+pause.Duration = 10;
 
+response.Add(pause);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

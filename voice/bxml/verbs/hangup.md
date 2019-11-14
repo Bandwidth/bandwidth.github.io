@@ -36,10 +36,13 @@ This shows how to use Bandwidth XML to hang up an existing call.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+Hangup hangup = new Hangup();
 
+response.Add(hangup);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

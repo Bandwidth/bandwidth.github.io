@@ -37,10 +37,14 @@ This shows how to use Bandwidth XML to play 1, 2, pause, 3, 4 on a call.
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SendDtmf sendDtmf = new SendDtmf();
+sendDtmf.Digits = "12w34";
 
+response.Add(sendDtmf);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 

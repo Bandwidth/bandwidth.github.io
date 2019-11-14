@@ -163,12 +163,16 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Questo è un test";
+speakSentence.Voice = "Sophia";
 
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
 ```
-
 
 {% sample lang="ruby" %}
 
@@ -218,10 +222,15 @@ This shows how to use Bandwidth XML with SSML tags to modify the way the text so
 {% sample lang="csharp" %}
 
 ```csharp
-// Csharp example
+Response response = new Response();
 
-var a = b;
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Hello, you have reached the home of <lang xml:lang=\"es - MX\">Antonio Mendoza</lang>.  Please leave a message.";
+speakSentence.Voice = "jorge";
 
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 
