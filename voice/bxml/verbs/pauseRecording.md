@@ -27,7 +27,7 @@ In this example, only the transfers themselves will be recorded, and the text-to
     <SpeakSentence voice="bridget">This call is being recorded. Please wait while we transfer you.</SpeakSentence>
     <StartRecording recordingAvailableUrl="https://myapp.com/noBXML"/>
     <Transfer>
-        <PhoneNumber>+11234567892</PhoneNumber>
+        <PhoneNumber>+15554567892</PhoneNumber>
     </Transfer>
     <PauseRecording/>
     <Gather gatherUrl="https://myapp.com/gatherCallbackBxml" maxDigits="1" firstDigitTimeout="10">
@@ -42,7 +42,7 @@ Gather callback bxml:
 <Response>
     <ResumeRecording/>
     <Transfer>
-        <PhoneNumber>+11234567893</PhoneNumber>
+        <PhoneNumber>+15554567893</PhoneNumber>
     </Transfer>
     <StopRecording/>
     <SpeakSentence voice="bridget">Thanks for your call. Have a nice day!</SpeakSentence>

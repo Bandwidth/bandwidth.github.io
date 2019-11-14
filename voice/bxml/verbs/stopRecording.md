@@ -26,7 +26,7 @@ This shows how to use Bandwidth XML to record a phone call.
     <SpeakSentence voice="bridget">This call is being recorded. Please wait while we transfer you.</SpeakSentence>
     <StartRecording recordingAvailableUrl="https://myapp.com/noBXML"/>
     <Transfer>
-        <PhoneNumber>+11234567892</PhoneNumber>
+        <PhoneNumber>+15554567892</PhoneNumber>
     </Transfer>
     <StopRecording/>
     <SpeakSentence voice="bridget">Thanks for your call. Have a nice day!</SpeakSentence>
