@@ -1,7 +1,7 @@
 {% method %}
 
 ## Download Recording
-Retrieve a specific recording.
+Retrieve the specified recording's audio file.
 
 ### Request URL
 
@@ -21,7 +21,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Retrieve a specific recording
+### Example: Download a recording
 
 {% sample lang="bash" %}
 

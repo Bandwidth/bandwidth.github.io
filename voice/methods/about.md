@@ -12,13 +12,13 @@ Some of the URLs in this documentation contain placeholders for values that your
 
 ## REST API Reference Index
 
-| Resource                                                                                              | Description                                                        |
-|:------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|
-| [`/calls`](calls/postCalls.md)                                                                        | The Calls resource lets you place phone calls.                     |
-| [`/calls/{callId}`](calls/postCallsCallId.md)                                                         | The CallsId resource lets you redirect active calls.               |
-| [`/calls/{callId}/recording`](calls/putCallsCallIdRecording.md)                                       | Pause or resume recording on an active call.                       |
-| [`/calls/{callId}/recordings`](calls/getCallsCallIdRecordings.md)                                     | Retrieve information about recordings that occurred during a call. |
-| [`/calls/{callId}/recordings/{recordingId}`](calls/getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a specific recording.                   |
-| [`/calls/{callId}/recordings/{recordingId}`](calls/deleteCallsCallIdRecordingsRecordingId.md)         | Delete a specific recording.                                       |
-| [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a specific recording.                                     |
-| [`/recordings`](calls/getRecordings.md)                                                               | Retrieve information about your 1000 least recent recordings.      |
+| Resource                                                                                              | Description                                                                   |
+|:------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|
+| [`/calls`](calls/postCalls.md)                                                                        | The Calls resource lets you place phone calls.                                |
+| [`/calls/{callId}`](calls/postCallsCallId.md)                                                         | The CallsId resource lets you replace an active call's BXML.                  |
+| [`/calls/{callId}/recording`](calls/putCallsCallIdRecording.md)                                       | Pause or resume a recording on an active call.                                |
+| [`/calls/{callId}/recordings`](calls/getCallsCallIdRecordings.md)                                     | Retrieve information about all of the recordings that occurred during a call. |
+| [`/calls/{callId}/recordings/{recordingId}`](calls/getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording.                                       |
+| [`/calls/{callId}/recordings/{recordingId}`](calls/deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording.                                                           |
+| [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md) | Download a recording.                                                         |
+| [`/recordings`](calls/getRecordings.md)                                                               | Retrieve information about your 1000 least recent recordings.                 |

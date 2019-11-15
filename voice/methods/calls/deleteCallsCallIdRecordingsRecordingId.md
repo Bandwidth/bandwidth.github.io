@@ -1,7 +1,7 @@
 {% method %}
 
 ## Delete Recording
-Delete both the metadata and the media of a specific recording.
+Delete both the metadata and the media of the specified recording.
 
 ### Request URL
 
@@ -21,7 +21,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Delete a specific recording
+### Example: Delete recording
 
 {% sample lang="bash" %}
 

@@ -1,6 +1,6 @@
 {% method %}
 
-## Retrieve Recording Information
+## Retrieve Recording Metadata
 Retrieve information about a specific recording.
 
 ### Request URL
