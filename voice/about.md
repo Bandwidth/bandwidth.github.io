@@ -5,9 +5,9 @@
 
 ## REST API Reference Index
 
-| Resource                           | Description                                                               |
-|:-----------------------------------|:--------------------------------------------------------------------------|
-| [`/calls`](methods/calls/about.md) | The Calls resource lets you make and phone calls and modify active calls. |
+| Resource                           | Description                                                           |
+|:-----------------------------------|:----------------------------------------------------------------------|
+| [`/calls`](methods/calls/about.md) | The Calls resource lets you make phone calls and modify active calls. |
 
 
 ## BXML verbs

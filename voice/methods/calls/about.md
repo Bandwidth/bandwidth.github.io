@@ -1,5 +1,5 @@
 # Calls
-The Calls resource lets you make and manage phone calls.
+The Calls resource lets you make and manage phone calls as well as retrieve information about recordings created during calls
 
 <aside class="alert general small">
 <p>
