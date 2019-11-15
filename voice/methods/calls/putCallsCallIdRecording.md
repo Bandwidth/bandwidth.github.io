@@ -3,7 +3,12 @@
 Pause or resume a recording on an active phone call.
 
 ### Request URL
+
 <code class="post">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording`
+
+#### Basic Authentication
+
+Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 
