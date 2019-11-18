@@ -5,7 +5,7 @@ Retrieve information about all recordings that occurred during a call.
 
 ### Request URL
 
-<code class="post">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings`
+<code class="get">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings`
 
 #### Basic Authentication
 
@@ -27,7 +27,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ```bash
 curl -v "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f/recordings" \
-     --user {username}:{password} 
+     --user {username}:{password}
 ```
 
 ```json
