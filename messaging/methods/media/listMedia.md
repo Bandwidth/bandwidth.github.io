@@ -132,12 +132,22 @@ List<Media> mediaList = response.Data;
 {% sample lang="ruby" %}
 
 ```ruby
-media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: "token")
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
+continuation_token = media.headers['Continuation-Token']
+puts media.data[0].media_name
+
+media_with_token = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: continuation_token)
+puts media_with_token.data[0].media_name
 ```
 
 {% sample lang="python" %}
 
 ```python
-media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token="token")
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
+continuation_token = media.headers['Continuation-Token']
+print(media.body[0].media_name)
+
+media_with_token = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token=continuation_token)
+print(media_with_token.body[0].media_name)
 ```
 {% endmethod %}
