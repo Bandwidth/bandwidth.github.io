@@ -53,8 +53,11 @@ of that BXML, the calls are bridged.
 | [Transfer Complete](../callbacks/transferComplete.md) | Yes                      |
 
 {% common %}
-#### Example: Simple Transfer
+
+### Example 1 of 3: Simple Transfer
 This shows how to use Bandwidth XML to transfer a phone call.
+
+{% sample lang="http" %}
 
 
 ```XML
@@ -67,8 +70,63 @@ This shows how to use Bandwidth XML to transfer a phone call.
 </Response>
 ```
 
-#### Example: Single Transfer with Announcement
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+PhoneNumber phoneNumber1 = new PhoneNumber();
+phoneNumber1.Number = "+11234567892";
+
+Transfer transfer = new Transfer();
+transfer.PhoneNumbers = new PhoneNumber[] { phoneNumber1 };
+transfer.TransferCallerId = "+11234567891";
+
+response.Add(transfer);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+phone_number = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+11234567892"
+})
+transfer = Bandwidth::Voice::Transfer.new({
+    :transfer_caller_id => "+11234567891",
+    :phone_numbers => [phone_number]
+})
+
+response.push(transfer)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+phone_number = PhoneNumber(
+    number="+11234567892"
+)
+transfer = Transfer(
+    transfer_caller_id="+11234567891",
+    phone_numbers=[phone_number]
+)
+
+response.add_verb(transfer)
+print(response.to_bxml())
+```
+
+{% common %}
+
+
+### Example 2 of 3: Single Transfer with Announcement
 This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge announcement.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -79,7 +137,80 @@ This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge a
     </Transfer>
 </Response>
 ```
-The announcement BXML is:
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Transferring your call, please wait.";
+
+PhoneNumber phoneNumber1 = new PhoneNumber();
+phoneNumber1.Number = "+11234567892";
+phoneNumber1.TransferAnswerUrl = "http://myapp.com/announcement";
+
+Transfer transfer = new Transfer();
+transfer.PhoneNumbers = new PhoneNumber[] { phoneNumber1 };
+transfer.TransferCallerId = "+11234567891";
+
+response.Add(speakSentence);
+response.Add(transfer);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Transferring your call, please wait.",
+    :voice => "paul"
+})
+phone_number = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+11234567892",
+    :transfer_answer_url => "http://myapp.com/announcement"
+})
+transfer = Bandwidth::Voice::Transfer.new({
+    :transfer_caller_id => "+11234567891",
+    :phone_numbers => [phone_number]
+})
+
+response.push(speak_sentence)
+response.push(transfer)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Transferring your call, please wait.",
+    voice="paul"
+)
+phone_number = PhoneNumber(
+    number="+11234567892",
+    transfer_answer_url="http://myapp.com/announcement"
+)
+transfer = Transfer(
+    transfer_caller_id="+11234567891",
+    phone_numbers=[phone_number]
+)
+
+response.add_verb(speak_sentence)
+response.add_verb(transfer)
+print(response.to_bxml())
+```
+
+{% common %}
+
+> The announcement BXML at http://myapp.com/announcement is:
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -88,9 +219,48 @@ The announcement BXML is:
 </Response>
 ```
 
-#### Example: Multi transfer
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "A customer would like to speak to you.";
+
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Transferring your call, please wait.",
+    :voice => "paul"
+})
+```
+
+{% sample lang="python" %}
+
+```python
+speak_sentence = SpeakSentence(
+    sentence="Transferring your call, please wait.",
+    voice="paul"
+)
+```
+
+{% common %}
+
+
+### Example 3 of 3: Multi transfer
+
 This example shows how to use Bandwidth XML in a multi transfer scenario.  All numbers ring simultaneously and the first
 to answer is bridged to the original call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -101,6 +271,64 @@ to answer is bridged to the original call.
     </Transfer>
 </Response>
 
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+           
+PhoneNumber phoneNumber1 = new PhoneNumber();
+phoneNumber1.Number = "+15552221234";
+
+PhoneNumber phoneNumber2 = new PhoneNumber();
+phoneNumber2.Number = "+15552221233";
+
+Transfer transfer = new Transfer();
+transfer.PhoneNumbers = new PhoneNumber[] { phoneNumber1, phoneNumber2 };
+transfer.TransferCallerId = "+15552221235";
+
+response.Add(transfer);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+phone_number_1 = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+15552221234"
+})
+phone_number_2 = Bandwidth::Voice::PhoneNumber.new({
+    :number => "+15552221233"
+})
+transfer = Bandwidth::Voice::Transfer.new({
+    :transfer_caller_id => "+15552221235",
+    :phone_numbers => [phone_number_1, phone_number_2]
+})
+
+response.push(transfer)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+phone_number_1 = PhoneNumber(
+    number="+15552221234"
+)
+phone_number_2 = PhoneNumber(
+    number="+15552221233"
+)
+transfer = Transfer(
+    transfer_caller_id="+15552221235",
+    phone_numbers=[phone_number_1, phone_number_2]
+)
+
+response.add_verb(transfer)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

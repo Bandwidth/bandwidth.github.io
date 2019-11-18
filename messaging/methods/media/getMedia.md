@@ -25,7 +25,40 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 
 ```bash
 curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
-  -u {token}:{secret} \
+  -u {token}:{secret}
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var response = msgClient.GetMedia(MSG_ACCOUNT_ID, mediaId);
+
+Stream data = response.Data;
+
+using (var fileStream = File.Create("C:\\Path\\To\\File"))
+{
+    data.Seek(0, SeekOrigin.Begin);
+    data.CopyTo(fileStream);
+}
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, "mediaId")
+f = File.open("file_to_write", "wb")
+f.puts(downloaded_media.data)
+f.close()
+```
+
+{% sample lang="python" %}
+
+```python
+downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, media_id)
+f = open("file_to_write", "wb")
+f.write(downloaded_media.body)
+f.close()
 ```
 
 {% endmethod %}

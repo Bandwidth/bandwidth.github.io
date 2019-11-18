@@ -106,7 +106,7 @@ Attributes:
  * `pitch`: (optional) changes the pitch, accepted values: `x-low`, `low`, `medium`, `high`, `x-high`, `default` or a relative change in `%` (e.g. `-15%` or `20%`)
  * `rate`: (optional) changes the speaking rate, accepted values: `x-slow`, `slow`, `medium`, `fast`, `x-fast` or any positive percentage (e.g. `50%` for a speaking rate of half the default rate or `200%` for a speaking rate twice the default rate)
  * `volume`: (optional) changes the volume, accepted values: `silent`, `x-soft`, `soft`, `medium`, `loud`, `x-loud`, `default` or the volume in dB (e.g. `+1dB` or `-6dB`)
- 
+
 #### `<s>`
 Adds a pause between lines or sentences.
 
@@ -145,8 +145,11 @@ None
 
 {% common %}
 
-#### Example:  SpeakSentence Verb
+### Example 1 of 2:  SpeakSentence Verb
 This shows how to use Bandwidth XML to use text to speech to speak a sentence into a phone call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -157,7 +160,54 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 </Response>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Questo è un test";
+speakSentence.Voice = "Sophia";
+
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Questo è un test",
+    :voice => "Sophia"
+})
+
+response.push(speak_sentence)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Questo è un test",
+    voice="Sophia"
+)
+
+response.add_verb(speak_sentence)
+print(response.to_bxml())
+```
+
+{% common %}
+
+### Example 2 of 2: SpeakeSentence and SSML
+
 This shows how to use Bandwidth XML with SSML tags to modify the way the text sounds.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -167,6 +217,47 @@ This shows how to use Bandwidth XML with SSML tags to modify the way the text so
         Please leave a message.
     </SpeakSentence>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Hello, you have reached the home of <lang xml:lang=\"es - MX\">Antonio Mendoza</lang>.  Please leave a message.";
+speakSentence.Voice = "jorge";
+
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => 'Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
+    :voice => "Sophia"
+})
+
+response.push(speak_sentence)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence='Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
+    voice="Sophia"
+)
+
+response.add_verb(speak_sentence)
+print(response.to_bxml())
 ```
 
 
