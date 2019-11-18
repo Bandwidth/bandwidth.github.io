@@ -1,6 +1,6 @@
 # Bandwidth Voice API
 
-The Voice resource lets you create complex call flows for in and outbound phone calls.
+The Voice resource lets you orchestrate complex call flows and retrieve recording metadata
 
 <img src="../../images/create_call.png" style="max-width:95%">
 
@@ -12,8 +12,13 @@ Some of the URLs in this documentation contain placeholders for values that your
 
 ## REST API Reference Index
 
-| Resource                                                              | Description                                          |
-|:----------------------------------------------------------------------|:-----------------------------------------------------|
-| [`/calls`](calls/postCalls.md)                                        | The Calls resource lets you place phone calls.       |
-| [`/calls/{callId}`](calls/postCallsCallId.md)                         | The CallsId resource lets you redirect active calls. |
-| [`/calls/{callId}/recording`](calls/putCallsCallIdRecording.md)       | Pause or resume recording on an active call.         |
+| VERB                               | Resource                                                                                              | Description                                                                  |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| <code class="post">POST</code>     | [`/calls`](calls/postCalls.md)                                                                        | Place phone calls                                                            |
+| <code class="post">POST</code>     | [`/calls/{callId}`](calls/postCallsCallId.md)                                                         | Replace an active call's BXML                                                |
+| <code class="put">PUT</code>       | [`/calls/{callId}/recording`](calls/putCallsCallIdRecording.md)                                       | Pause or resume a recording on an active call                                |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings`](calls/getCallsCallIdRecordings.md)                                     | Retrieve information about all of the recordings that occurred during a call |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}`](calls/getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording                                       |
+| <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}`](calls/deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording                                                           |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md) | Download a recording                                                         |
+| <code class="get">GET</code>       | [`/recordings`](calls/getRecordings.md)                                                               | Returns a max of 1000 recordings, sorted by startTime from oldest to newest  |

@@ -44,8 +44,7 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="http" %}
 
 ```bash
-curl -v --request POST \
-    --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
+curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
     --user {username}:{password} \
     --header 'Content-type: application/json' \
     --data '

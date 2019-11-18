@@ -1,7 +1,7 @@
 {% method %}
 ##  Transfer Complete Event – <Transfer> verb
-This event is sent to the callbackUrl of the Leg-A call when the transferred call(B-leg) completes. 
-In a simultaneous ringing scenario, only one call leg-B succeeds and this event corresponds to that successful leg. If none of the calls were answered, transferComplete is not sent. 
+This event is sent to the callbackUrl of the Leg-A call when the transferred call(B-leg) completes.
+In a simultaneous ringing scenario, only one call leg-B succeeds and this event corresponds to that successful leg. If none of the calls were answered, transferComplete is not sent.
 
 ### Expected response
 ```http
@@ -40,18 +40,18 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType":"transferComplete",
-	"from":"+15551112222",
-	"to":"+15553334444",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"transferCallerId":"+15551115555",
-	"transferTo":"+15556667777",
-	"startTime": "2019-07-31T13:13:34.859318Z",
-	"cause":"completed",
-	"errorMessage": "",
-	"errorId": ""
+	"eventType"        : "transferComplete",
+	"from"             : "+15551112222",
+	"to"               : "+15553334444",
+	"direction"        : "outbound",
+	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"transferCallerId" : "+15551115555",
+	"transferTo"       : "+15556667777",
+	"startTime"        : "2019-07-31T13:13:34.859318Z",
+	"cause"            : "completed",
+	"errorMessage"     : "",
+	"errorId"          : ""
 }
 ```
 
@@ -63,18 +63,18 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType":"transferComplete",
-	"from":"+15551112222",
-	"to":"+15553334444",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"transferCallerId":"+15551115555",
-	"transferTo":"+15556667777",
-	"startTime": "2019-07-31T13:13:34.859318Z",
-	"cause":"busy",
-	"errorMessage":"Callee is busy",
-	"errorId":"4642074b-7b58-478b-96e4-3a60955c6765"
+	"eventType"        : "transferComplete",
+	"from"             : "+15551112222",
+	"to"               : "+15553334444",
+	"direction"        : "outbound",
+	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"transferCallerId" : "+15551115555",
+	"transferTo"       : "+15556667777",
+	"startTime"        : "2019-07-31T13:13:34.859318Z",
+	"cause"            : "busy",
+	"errorMessage"     : "Callee is busy",
+	"errorId"          : "4642074b-7b58-478b-96e4-3a60955c6765"
 }
 ```
 

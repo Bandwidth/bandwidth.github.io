@@ -1,7 +1,7 @@
 {% method %}
 ##  Gather event
 
-The gather event is sent after a [`<Gather>`](../verbs/gather.md) verb is executed.  Its purpose is to report the gathered digits 
+The gather event is sent after a [`<Gather>`](../verbs/gather.md) verb is executed.  Its purpose is to report the gathered digits
 to the calling application.
 
 ### Expected response
@@ -38,13 +38,13 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType":"gather",
-	"from":"+15551112222",
-	"to":"+15553334444",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"digits":"25"
+	"eventType" : "gather",
+	"from"      : "+15551112222",
+	"to"        : "+15553334444",
+	"direction" : "outbound",
+	"callId"    : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"   : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"digits"    : "25"
 }
 ```
 
@@ -56,14 +56,14 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType":"gather",
-	"from":"+15551112222",
-	"to":"+15553334444",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"digits":"123",
-	"terminatingDigit":"#"
+	"eventType"        : "gather",
+	"from"             : "+15551112222",
+	"to"               : "+15553334444",
+	"direction"        : "outbound",
+	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"digits"           : "123",
+	"terminatingDigit" : "#"
 }
 ```
 {% endmethod %}
