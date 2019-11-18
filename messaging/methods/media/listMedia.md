@@ -124,8 +124,19 @@ Continuation-Token: 678910
 {% sample lang="csharp" %}
 
 ```csharp
-var response = msgClient.ListMedia(MSG_ACCOUNT_ID, continuationToken);
-List<Media> mediaList = response.Data;
+bool success;
+string continuationToken = null;
+do
+{
+    var response = msgClient.ListMedia(msgAccountId, continuationToken);
+    success = response.Headers.TryGetValue("Continuation-Token", out continuationToken);
+
+    List<Media> medias = response.Data;
+
+    Console.WriteLine("medias length:  " + medias.Count);
+    Console.WriteLine("Media 1 name:  " + medias[0].MediaName);
+
+} while (success);
 ```
 
 
