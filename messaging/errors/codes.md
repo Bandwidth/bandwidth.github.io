@@ -207,52 +207,53 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 
 ### Carrier Reported Client Errors {#carrier-client}
 
-| Code | Description                                                                   | Billable                              |
-|:-----|:------------------------------------------------------------------------------|:--------------------------------------|
-| 4700 | Carrier Rejected as Invalid Service Type                                      | YES                                   |
-| 4720 | Carrier Rejected as Invalid Destination Address                               | YES                                   |
-| 4740 | Carrier Rejected as Invalid Source Address                                    | YES                                   |
-| 4750 | Carrier Rejected Message                                                      | YES                                   |
-| 4751 | Message too long for carrier                                                  | YES                                   |
-| 4770 | Carrier Rejected as SPAM                                                      | YES                                   |
-| 4775 | Carrier Rejected due to user opt out                                          | YES                                   |
+| Code | Description                                     | Billable |
+|:-----|:------------------------------------------------|:---------|
+| 4700 | Carrier Rejected as Invalid Service Type        | YES      |
+| 4720 | Carrier Rejected as Invalid Destination Address | YES      |
+| 4740 | Carrier Rejected as Invalid Source Address      | YES      |
+| 4750 | Carrier Rejected Message                        | YES      |
+| 4751 | Message too long for carrier                    | YES      |
+| 4770 | Carrier Rejected as SPAM                        | YES      |
+| 4775 | Carrier Rejected due to user opt out            | YES      |
 
 ### Bandwidth Service Failures {#service-errors}
 
 A 5xx code indicates that either Bandwidth or the downstream carrier has reported a service failure.   For Bandwidth failures, the customer can retry the request and expect a different result.   For carrier errors a retry may also yield a different result however the customer should limit to a single retry attempt as the error encoding schema and strategy varies greatly by carrier and while Bandwidth endeavors to normalize carrier codes into predictable values there can be exceptions.
 
 
-| Code | Description                                                                   | Billable                              |
-|:-----|:------------------------------------------------------------------------------|:--------------------------------------|
-| 5100 | Application Error                                                             | NO                                    |
-| 5101 | Application Error                                                             | NO                                    |
-| 5111 | Application Error                                                             | NO                                    |
-| 5112 | Application Error                                                             | NO                                    |
-| 5143 | Application Error                                                             | NO                                    |
-| 5144 | Application Error                                                             | NO                                    |
-| 5146 | Application Error                                                             | NO                                    |
-| 5201 | Application Error                                                             | NO                                    |
-| 5211 | Application Error                                                             | NO                                    |
-| 5220 | Application Error                                                             | NO                                    |
-| 5231 | Application Error                                                             | NO                                    |
-| 5500 | General Message Send Failure                                                  | NO                                    |
-| 5501 | General Message Send Failure                                                  | NO                                    |
-| 5503 | Service Unavailable                                                           | NO                                    |
+| Code | Description                                                          | Billable |
+|:-----|:---------------------------------------------------------------------|:---------|
+| 5100 | Application Error                                                    | NO       |
+| 5101 | Application Error                                                    | NO       |
+| 5106 | Impossible to route / Attempt to deliver through retries has failed. | NO       |
+| 5111 | Application Error                                                    | NO       |
+| 5112 | Application Error                                                    | NO       |
+| 5143 | Application Error                                                    | NO       |
+| 5144 | Application Error                                                    | NO       |
+| 5146 | Application Error                                                    | NO       |
+| 5201 | Application Error                                                    | NO       |
+| 5211 | Application Error                                                    | NO       |
+| 5220 | Application Error                                                    | NO       |
+| 5231 | Application Error                                                    | NO       |
+| 5500 | General Message Send Failure                                         | NO       |
+| 5501 | General Message Send Failure                                         | NO       |
+| 5503 | Service Unavailable                                                  | NO       |
 
 ### Carrier Reported Service Failures {#carrier-service-errors}
 
-| Code | Description                                                                   | Billable                              |
-|:-----|:------------------------------------------------------------------------------|:--------------------------------------|
-| 5600 | Carrier Service Unavailable                                                   | YES                                   |
-| 5610 | Carrier Service Failure                                                       | YES                                   |
-| 5620 | Carrier Application Error                                                     | YES                                   |
-| 5630 | Carrier Application Error                                                     | YES                                   |
-| 5650 | Carrier Service Failure                                                       | YES                                   |
-| 5999 | Unknown error from downstream                                                 | YES                                   |
+| Code | Description                   | Billable |
+|:-----|:------------------------------|:---------|
+| 5600 | Carrier Service Unavailable   | YES      |
+| 5610 | Carrier Service Failure       | YES      |
+| 5620 | Carrier Application Error     | YES      |
+| 5630 | Carrier Application Error     | YES      |
+| 5650 | Carrier Service Failure       | YES      |
+| 5999 | Unknown error from downstream | YES      |
 
 ### Carrier Errors with Ambiguous Cause {#carrier-ambiguous-errors}
 
-| Code | Description                                                                                          | Billable                              |
-|:-----|:-----------------------------------------------------------------------------------------------------|:--------------------------------------|
-| 9902 | Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known. | YES                                   |
-| 9999 | Unknown error from downstream.  Carrier reported a failure code that is unknown to Bandwidth.        | YES                                   |
+| Code | Description                                                                                          | Billable |
+|:-----|:-----------------------------------------------------------------------------------------------------|:---------|
+| 9902 | Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known. | YES      |
+| 9999 | Unknown error from downstream.  Carrier reported a failure code that is unknown to Bandwidth.        | YES      |
