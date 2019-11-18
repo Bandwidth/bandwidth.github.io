@@ -36,4 +36,33 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 ```bash
 curl -v -X PUT https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{file.mp3} -H "Content-Type: audio/mpeg" -u {{token}}:{{secret}} --data-binary "@{/filepath/file.mp3}"
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+using ( FileStream fs = File.OpenRead("C:\\Path\\To\\File") )
+{
+    msgClient.UploadMedia(MSG_ACCOUNT_ID, mediaId, fs.Length, fs, "audio/wav");
+}
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+f = File.open("some file", "rb")
+file_content = f.read
+messaging_client.upload_media(MESSAGING_ACCOUNT_ID, "mediaId", file_content.length.to_s, file_content, :content_type => "application/octet-stream", :cache_control => "no-cache")
+f.close()
+```
+
+{% sample lang="python" %}
+
+```python
+f = open("some_file", "rb")
+file_content = f.read()
+messaging_client.upload_media(MESSAGING_ACCOUNT_ID, "mediaId", str(len(file_content)), body=file_content)
+f.close()
+```
+
 {% endmethod %}

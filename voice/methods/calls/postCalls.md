@@ -33,7 +33,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Create an outbound phone call
+### Example 1 of 1: Create an outbound phone call
 
 <aside class="alert general small">
 <p>
@@ -41,7 +41,7 @@ The call resource returned in the "Location" header can be modified to change th
 </p>
 </aside>
 
-{% sample lang="bash" %}
+{% sample lang="http" %}
 
 ```bash
 curl -v --request POST \
@@ -57,24 +57,75 @@ curl -v --request POST \
     }'
 ```
 
-```bash
+> Responds
+
+```http
 HTTP/1.1 201
+Content-type: application/json
 Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d
+
 {
-    "from": "+15555551212",
-    "to": "+15555551313",
-    "applicationId": "7fc9698a-b04a-468b-9e8f-91238c0d0086",
-    "callId": "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-    "callUrl": "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-    "callTimeout": 30,
-    "answerUrl": "http://www.myapp.com/hello",
-    "answerMethod": "POST",
-    "disconnectUrl": null,
-    "disconnectMethod": "POST",
-    "username": null,
-    "password": null,
-    "tag": null
+    "from"             : "+19195551212",
+    "to"               : "+19195551313",
+    "applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+    "callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    "callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    "callTimeout"      : 30,
+    "answerUrl"        : "http://www.myapp.com/hello",
+    "answerMethod"     : "POST",
+    "disconnectUrl"    : null,
+    "disconnectMethod" : "POST",
+    "username"         : null,
+    "password"         : null,
+    "tag"              : null
 }
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+ApiCreateCallRequest apiCreateCallRequest = new ApiCreateCallRequest();
+apiCreateCallRequest.From = "+19195551212";
+apiCreateCallRequest.To = "+19195551313";
+apiCreateCallRequest.AnswerUrl = "http://www.myapp.com/hello";
+apiCreateCallRequest.ApplicationId = VOICE_APPLICATION_ID; //string
+
+var response = voiceClient.CreateCall(VOICE_ACCOUNT_ID, apiCreateCallRequest);
+Console.WriteLine(response.Data.CallId);
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+body = ApiCreateCallRequest.new
+body.from = "+19195551212"
+body.to = "+19195551313"
+body.answer_url = "http://www.myapp.com/hello"
+body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
+
+begin
+    result = voice_client.create_call("55555",body: body)
+    puts result.data.call_id
+rescue Exception => e
+    puts e
+end
+```
+
+{% sample lang="python" %}
+
+```python
+body = ApiCreateCallRequest()
+body.mfrom = "+19195551212"
+body.to = "+19195551313"
+body.answer_url = "http://www.myapp.com/hello"
+body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
+
+try:
+    result = voice_client.create_call("55555", body)
+    print(result.data.call_id)
+except Exception as e:
+    print(e)
 ```
 
 {% endmethod %}

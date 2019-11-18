@@ -20,14 +20,54 @@ The SendDtmf verb is used to play DTMF digits in the call.
 None
 
 {% common %}
-#### Example:  PlayAudio Verb
+#### Example 1 of 1:  PlayAudio Verb
+
 This shows how to use Bandwidth XML to play 1, 2, pause, 3, 4 on a call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
    <SendDtmf>12w34</SendDtmf>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+SendDtmf sendDtmf = new SendDtmf();
+sendDtmf.Digits = "12w34";
+
+response.Add(sendDtmf);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+send_dtmf = Bandwidth::Voice::SendDtmf.new({
+    :dtmf => "12w34"
+})
+
+response.push(send_dtmf)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+send_dtmf = SendDtmf("12w34")
+
+response.add_verb(send_dtmf)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

@@ -26,8 +26,10 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 
 
 {% common %}
-#### Example: Redirect Verb
+#### Example 1 of 1: Redirect Verb
 This shows how to use Bandwidth XML to redirect the response to a new url.
+
+{% sample lang="http" %}
 
 
 ```XML
@@ -35,6 +37,44 @@ This shows how to use Bandwidth XML to redirect the response to a new url.
 <Response>
    <Redirect redirectUrl="http://flow.url/newFlow"/>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+Redirect redirect = new Redirect();
+redirect.RedirectUrl = "http://flow.url/newFlow";
+
+response.Add(redirect);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+redirect = Bandwidth::Voice::Redirect.new({
+    :redirect_url => "http://flow.url/newFlow"
+})
+
+response.push(redirect)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+redirect = Redirect(
+    redirect_url="http://flow.url/newFlow"
+)
+
+response.add_verb(redirect)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

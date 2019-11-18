@@ -37,10 +37,8 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 
 ```bash
 curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
-  -u {token}:{secret} \
+  -u {token}:{secret}
 ```
-
-{% common %}
 
 > The above command returns JSON structured like this:
 
@@ -64,6 +62,30 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
 ]
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var response = msgClient.ListMedia(MSG_ACCOUNT_ID);
+List<Media> mediaList = response.Data;
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
+puts media.data[0].media_name
+```
+
+{% sample lang="python" %}
+
+```python
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
+print(media.body[0].media_name)
+```
+
+{% common %}
+
 ### Example 2 of 2: List Your Media Files Using A Continuation-Token
 
 
@@ -74,8 +96,6 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
   -u {token}:{secret} \
   -H "Continuation-Token: 12345"
 ```
-
-{% common %}
 
 > The above command returns JSON structured like this:
 
@@ -99,5 +119,25 @@ Continuation-Token: 678910
         "content": "https://messaging.bandwidth.com/.../media/{mediaName3}"
   }
 ]
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var response = msgClient.ListMedia(MSG_ACCOUNT_ID, continuationToken);
+List<Media> mediaList = response.Data;
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: "token")
+```
+
+{% sample lang="python" %}
+
+```python
+media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token="token")
 ```
 {% endmethod %}

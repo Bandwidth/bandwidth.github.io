@@ -43,10 +43,12 @@ The following verbs may be nested inside of a `<Gather>` tag.  If using a repeat
 | [Gather](../callbacks/gather.md) | Yes                      |
 
 {% common %}
-#### Example: Gather Verb
+
+#### Example 1 of 2: Gather Verb
 This example shows how to use the Gather verb to speak a sentence, collect digits input from the phone, and send the
 results to https://gather.url/nextBXML
 
+{% sample lang="http" %}
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -57,10 +59,73 @@ results to https://gather.url/nextBXML
 </Response>
 ```
 
-#### Example: Gather With Repeated Audio Prompt
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Please press a digit.";
+speakSentence.Voice = "kate";
+
+Gather gather = new Gather();
+gather.GatherUrl = "https://gather.url/nextBXML";
+gather.TerminatingDigits = "#";
+gather.FirstDigitTimeout = 10;
+gather.SpeakSentence = speakSentence;
+
+response.Add(gather);
+
+Console.WriteLine(response.ToBXML());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Please press a digit.",
+    :voice => "kate"
+})
+gather = Bandwidth::Voice::Gather.new({
+    :gather_url => "https://gather.url/nextBXML",
+    :terminating_digits => "#",
+    :first_digit_timeout => "10"
+    :speak_sentence => speak_sentence
+})
+
+response.push(gather)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Please press a digit.",
+    voice="kate"
+)
+gather = Gather(
+    gather_url="https://gather.url/nextBXML",
+    terminating_digits="#",
+    first_digit_timeout=10,
+    speak_sentence=speak_sentence
+)
+response.add_verb(gather)
+print(response.to_bxml())
+```
+
+{% common %}
+
+#### Example 2 of 2: Gather With Repeated Audio Prompt
 This example shows the Gather verb being used to repeatedly prompt the user to press a digit. If the
 user presses nothing, the prompt will play five times. If the user presses a digit at any point, the
-Gather will end and send the result to the `gatherUrl`
+Gather will end and send the result to the **gatherUrl**
+
+{% sample lang="http" %}
+
 
 ```XML
 <Response>
@@ -68,6 +133,62 @@ Gather will end and send the result to the `gatherUrl`
       <SpeakSentence>I am going to keep asking you to press a digit</SpeakSentence>
    </Gather>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+
+```csharp
+Response response = new Response();
+
+SpeakSentence speakSentence = new SpeakSentence();
+speakSentence.Sentence = "I am going to keep asking you to press a digit";
+
+Gather gather = new Gather();
+gather.GatherUrl = "https://gather.url/nextBXML";
+gather.RepeatCount = 5;
+gather.MaxDigits = 1;
+gather.SpeakSentence = speakSentence;
+
+response.Add(gather);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "I am going to keep asking you to press a digit"
+})
+gather = Bandwidth::Voice::Gather.new({
+    :gather_url => "https://gather.url/nextBXML",
+    :max_digits => "1",
+    :repeat_count => "5",
+    :speak_sentence => speak_sentence
+})
+
+response.push(gather)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="I am going to keep asking you to press a digit"
+)
+gather = Gather(
+    gather_url="https://gather.url/nextBXML",
+    max_digits=1,
+    repeat_count=5
+    speak_sentence=speak_sentence
+)
+response.add_verb(gather)
+print(response.to_bxml())
 ```
 
 {% endmethod %}
