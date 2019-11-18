@@ -140,7 +140,8 @@ loop do
     else
         continuation_token = nil
     end
-    puts media.data[0].media_name
+    puts "Medias length: " + media.data.length.to_s
+    puts "Media 1 name: " + media.data[0].media_name
     break if continuation_token == nil
 end
 ```
@@ -155,7 +156,8 @@ while True:
         continuation_token = media.headers['Continuation-Token']
     else:
         continuation_token = None
-    print(media.body[0].media_name)
+    print("Medias length: " + str(len(media.body)))
+    print("Media 1 name: " + media.body[0].media_name)
     if continuation_token is None:
         break
 ```
