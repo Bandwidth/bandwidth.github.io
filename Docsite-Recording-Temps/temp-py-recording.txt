@@ -43,3 +43,9 @@ with(open("file_to_write", "wb")) as f:
     response = voice_client.get_stream_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
     f.write(response.body)
 ```
+
+getRecordings.md
+```
+response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
+print(response.body[0].duration)
+```
