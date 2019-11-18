@@ -37,4 +37,16 @@ response = voice_client.get_metadata_for_recording(VOICE_ACCOUNT_ID, call_id, re
 puts response.data.duration
 ```
 
+getCallsCallIdRecordingsRecordingIdMedia.md
+```
+File.open("file_to_write", "wb") do |f|
+    response = voice_client.get_stream_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
+    f.puts(response.data)
+end
+```
 
+getRecordings.md
+```
+response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
+puts response.data[0].duration
+```
