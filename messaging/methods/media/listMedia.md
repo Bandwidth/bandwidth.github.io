@@ -132,22 +132,31 @@ List<Media> mediaList = response.Data;
 {% sample lang="ruby" %}
 
 ```ruby
-media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
-continuation_token = media.headers['Continuation-Token']
-puts media.data[0].media_name
-
-media_with_token = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: continuation_token)
-puts media_with_token.data[0].media_name
+continuation_token = nil
+loop do
+    media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: continuation_token)
+    if media.headers.key?('Continuation-Token')
+        continuation_token = media.headers['Continuation-Token']
+    else
+        continuation_token = nil
+    end
+    puts media.data[0].media_name
+    break if continuation_token == nil
+end
 ```
 
 {% sample lang="python" %}
 
 ```python
-media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
-continuation_token = media.headers['Continuation-Token']
-print(media.body[0].media_name)
-
-media_with_token = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token=continuation_token)
-print(media_with_token.body[0].media_name)
+continuation_token = None
+while True:
+    media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token=continuation_token)
+    if 'Continuation-Token' in media.headers.keys():
+        continuation_token = media.headers['Continuation-Token']
+    else:
+        continuation_token = None
+    print(media.body[0].media_name)
+    if continuation_token is None:
+        break
 ```
 {% endmethod %}
