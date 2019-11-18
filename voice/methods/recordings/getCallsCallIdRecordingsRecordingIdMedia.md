@@ -1,7 +1,8 @@
 {% method %}
 
 ## Download Recording
-Retrieve the specified recording's audio file.
+
+Retrieve the specified recording's audio file. [⚠️ Be sure to not expose your API Credentials to end-users](./about.md#caution-recordings)
 
 ### Request URL
 
@@ -21,18 +22,38 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Download a recording
+### Example 1 of 1: Download a recording
 
-{% sample lang="bash" %}
+{% sample lang="http" %}
 
 ```bash
-curl -v "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f/recordings/r-d68201ef-d53e-4c6d-a743-1c1283909d41/media" \
+curl -v "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/media" \
      --user {username}:{password} \
      --output recording.wav
 ```
 
 ```
 HTTP/1.1 200
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+
+//coming soon
+;
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+# coming soon
 ```
 
 {% endmethod %}

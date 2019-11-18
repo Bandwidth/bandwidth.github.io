@@ -18,9 +18,9 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | state           | The recording state. Possible values: <br><br> `paused` to pause an active recording<br>`recording` to resume a paused recording<br>   | Yes       |
 {% common %}
 
-### Example: Pause a currently active recording
+### Example 1 of 1: Pause a currently active recording
 
-{% sample lang="bash" %}
+{% sample lang="http" %}
 
 ```bash
 curl -v -X PUT https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording \
@@ -30,6 +30,26 @@ curl -v -X PUT https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{ca
      {
        "state": "paused"
      }'
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+
+//coming soon
+;
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+# coming soon
 ```
 
 {% endmethod %}

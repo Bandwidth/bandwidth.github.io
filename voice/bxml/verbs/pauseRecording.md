@@ -17,9 +17,15 @@ If there is not an ongoing recording at the time of this verb's execution, it ha
 None
 
 {% common %}
-#### Example: Pausing a recording
+
+#### Example 1 of 1 : Pausing a recording
+
+
 This shows how to use Bandwidth XML to pause a recording in a phone call.
 In this example, only the transfers themselves will be recorded, and the text-to-speech instructing the user will not be present in the recording.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -36,7 +42,33 @@ In this example, only the transfers themselves will be recorded, and the text-to
 </Response>
 ```
 
-Gather callback bxml:
+{% sample lang="csharp" %}
+
+```csharp
+
+//coming soon
+;
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+# coming soon
+```
+
+{% common %}
+
+> Gather callback bxml:
+
+{% sample lang="http" %}
+
+
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -48,5 +80,26 @@ Gather callback bxml:
     <SpeakSentence voice="bridget">Thanks for your call. Have a nice day!</SpeakSentence>
 </Response>
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+
+//coming soon
+;
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+# coming soon
+```
+
 
 {% endmethod %}

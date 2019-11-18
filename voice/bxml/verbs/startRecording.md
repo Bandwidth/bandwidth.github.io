@@ -29,8 +29,11 @@ BXML returned in response to this callback will be ignored.
 | [Recording Available](../callbacks/recordingAvailable.md)         | No                       |
 
 {% common %}
-#### Example: Recording of a call
+#### Example 1 of 1: Recording of a call
 This shows how to use Bandwidth XML to record a phone call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -43,6 +46,26 @@ This shows how to use Bandwidth XML to record a phone call.
     <StopRecording/>
     <SpeakSentence voice="bridget">Thanks for your call. Have a nice day!</SpeakSentence>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+
+//coming soon
+;
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+# coming soon
 ```
 
 {% endmethod %}

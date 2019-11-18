@@ -32,8 +32,13 @@ If the `recordingAvailableUrl` attribute is specified, then the [Recording Avail
 | [Recording Available](../callbacks/recordingAvailable.md)         | No                       |
 
 {% common %}
-#### Example: Redirect Verb
+
+#### Example 1 of 1: Record Verb
+
 This shows how to use Bandwidth XML to record a phone call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -44,5 +49,26 @@ This shows how to use Bandwidth XML to record a phone call.
     <!-- Any verbs after this point would be replaced by those returned by the recordCompleteUrl -->
 </Response>
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+
+//coming soon
+;
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+# coming soon
+```
+
 
 {% endmethod %}

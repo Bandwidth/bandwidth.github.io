@@ -35,12 +35,12 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType":"redirect",
-	"from":"+15551112222",
-	"to":"+15553334444",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d"
+	"eventType" : "redirect",
+	"from"      : "+15551112222",
+	"to"        : "+15553334444",
+	"direction" : "outbound",
+	"callId"    : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"   : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d"
 }
 ```
 
@@ -51,13 +51,13 @@ POST http://[External server URL]
 ```
 ```json
 {
-	"eventType":"redirect",
-	"from":"+15551112222",
-	"to":"+15553334444",
-	"direction":"outbound",
-	"callId":"c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl":"https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"tag":"example-tag"
+	"eventType" : "redirect",
+	"from"      : "+15551112222",
+	"to"        : "+15553334444",
+	"direction" : "outbound",
+	"callId"    : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"   : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"tag"       : "example-tag"
 }
 ```
 
