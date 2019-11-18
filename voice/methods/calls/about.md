@@ -22,4 +22,4 @@ Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#vo
 | <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}`](getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording                                       |
 | <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}`](deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording                                                           |
 | <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a recording                                                         |
-| <code class="get">GET</code>       | [`/recordings`](getRecordings.md)                                                               | Retrieve information about your 1000 least recent recordings                 |
+| <code class="get">GET</code>       | [`/recordings`](getRecordings.md)                                                               | Returns a max of 1000 recordings, sorted by startTime from oldest to newest  |
