@@ -5,7 +5,7 @@ Retrieve the specified recording's audio file.
 
 ### Request URL
 
-<code class="post">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/media`
+<code class="get">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/media`
 
 #### Basic Authentication
 
@@ -32,7 +32,7 @@ curl -v "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2a913f94-6a
 ```
 
 ```
-HTTP/1.1 200 
+HTTP/1.1 200
 ```
 
 {% endmethod %}

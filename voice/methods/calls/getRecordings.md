@@ -1,11 +1,11 @@
 {% method %}
 
 ## Retrieve Account Recordings
-Retrieve information about your 1000 least recent recordings.
+Returns a max of 1000 recordings, sorted by startTime from oldest to newest
 
 ### Request URL
 
-<code class="post">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/recordings`
+<code class="get">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/recordings`
 
 #### Basic Authentication
 
@@ -30,7 +30,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ```bash
 curl -v "https://voice.bandwidth.com/api/v2/accounts/5552319/recordings?from=+15552311772&to=+15552311778&minStartTime=2019-10-21T16:44:40.928Z&maxStartTime=2019-10-21T16:46:11.325Z" \
-     --user {username}:{password} 
+     --user {username}:{password}
 ```
 
 ```json

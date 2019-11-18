@@ -15,14 +15,53 @@ The Pause verb is used to delay verb execution for a period of time, during whic
 None
 
 {% common %}
-#### Example:  Pause Verb
+#### Example 1 of 1:  Pause Verb
 This shows how to use Bandwidth XML to pause for 2 seconds.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
    <Pause duration="2" />
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+Pause pause = new Pause();
+pause.Duration = 10;
+
+response.Add(pause);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthSdk::Voice::Response.new()
+pause = BandwidthSdk::Voice::Pause.new({
+    :duration => 2
+})
+
+response.push(pause)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+pause = Pause(duration=2)
+
+response.add_verb(pause)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

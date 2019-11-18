@@ -23,8 +23,13 @@ of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative t
 None
 
 {% common %}
-#### Example:  PlayAudio Verb
+
+#### Example 1 of 1:  PlayAudio Verb
+
 This shows how to use Bandwidth XML to play two audio clips into a phone call.
+
+{% sample lang="http" %}
+
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,6 +37,56 @@ This shows how to use Bandwidth XML to play two audio clips into a phone call.
    <PlayAudio>https://audio.url/audio1.wav</PlayAudio>
    <PlayAudio>https://audio.url/audio2.wav</PlayAudio>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+PlayAudio playAudio1 = new PlayAudio();
+playAudio1.Url = "https://audio.url/audio1.wav";
+
+PlayAudio playAudio2 = new PlayAudio();
+playAudio2.Url = "https://audio.url/audio2.wav";
+
+response.Add(playAudio1);
+response.Add(playAudio2);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+play_audio_1 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio.url/audio1.wav"
+})
+play_audio_2 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio.url/audio2.wav"
+})
+
+response.push(play_audio_1)
+response.push(play_audio_2)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+play_audio_1 = PlayAudio(
+    url="https://audio.url/audio1.wav"
+)
+play_audio_2 = PlayAudio(
+    url="https://audio.url/audio2.wav"
+)
+
+response.add_verb(play_audio_1)
+response.add_verb(play_audio_2)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

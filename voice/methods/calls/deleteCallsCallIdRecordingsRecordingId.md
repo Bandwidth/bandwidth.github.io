@@ -5,7 +5,7 @@ Delete both the metadata and the media of the specified recording.
 
 ### Request URL
 
-<code class="post">DELETE</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}`
+<code class="delete">DELETE</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}`
 
 #### Basic Authentication
 
@@ -31,7 +31,7 @@ curl -v -X DELETE "https://voice.bandwidth.com/api/v2/accounts/5552319/calls/c-2
 ```
 
 ```
-HTTP/1.1 204 
+HTTP/1.1 204
 ```
 
 {% endmethod %}

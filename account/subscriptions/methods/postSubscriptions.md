@@ -78,7 +78,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```http
 HTTP/1.1 201 Created
-Content-Type: subscription/xml
+Content-Type: application/xml
 Location: https://.../accounts/{{accountId}}/subscriptions/{{subscriptionId}}
 ```
 
@@ -113,7 +113,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```http
 HTTP/1.1 201 Created
-Content-Type: subscription/xml
+Content-Type: application/xml
 Location: https://.../accounts/{{accountId}}/subscriptions/{{subscriptionId}}
 ```
 

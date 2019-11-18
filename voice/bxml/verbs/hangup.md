@@ -18,8 +18,12 @@ The Hangup verb is also used to reject incoming calls either explicitly or impli
 | [CallComplete](../callbacks/disconnect.md) | No                      |
 
 {% common %}
-#### Example: Hangup Verb
+
+
+#### Example 1 of 1: Hangup Verb
 This shows how to use Bandwidth XML to hang up an existing call.
+
+{% sample lang="http" %}
 
 
 ```XML
@@ -27,6 +31,39 @@ This shows how to use Bandwidth XML to hang up an existing call.
 <Response>
    <Hangup/>
 </Response>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+Hangup hangup = new Hangup();
+
+response.Add(hangup);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+hangup = Bandwidth::Voice::Hangup.new()
+
+response.push(hangup)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+hangup = Hangup()
+
+response.add_verb(hangup)
+print(response.to_bxml())
 ```
 
 {% endmethod %}

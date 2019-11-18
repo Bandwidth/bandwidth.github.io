@@ -4,7 +4,7 @@ Pause or resume a recording on an active phone call.
 
 ### Request URL
 
-<code class="post">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording`
+<code class="put">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording`
 
 #### Basic Authentication
 

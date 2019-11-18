@@ -17,8 +17,11 @@ Forwards an unanswered incoming call to another number.
 None
 
 {% common %}
-#### Example:  Forward Verb
-This shows how to use Bandwidth XML to forward a call from +15554567890 to +15557654321.
+### Example 1 of 1: Simple Forward
+
+This shows how to use Bandwidth XML to forward a call from +11234567890 to +10987654321.
+
+{% sample lang="http" %}
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -26,5 +29,47 @@ This shows how to use Bandwidth XML to forward a call from +15554567890 to +1555
    <Forward from="+15554567890" to="+15557654321"/>
 </Response>
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+Response response = new Response();
+
+Forward forward = new Forward();
+forward.To = "+10987654321";
+forward.From = "+11234567890";
+
+response.Add(forward);
+
+Console.WriteLine(response.ToBXML());
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+forward = Bandwidth::Voice::Forward.new({
+    :to => "+10987654321",
+    :from => "+11234567890"
+})
+
+response.push(forward)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+forward = Forward(
+    to="+10987654321",
+    from_="+11234567890" #Note the underscore since from is a keyword in python
+)
+
+response.add_verb(forward)
+print(response.to_bxml())
+```
+
 
 {% endmethod %}

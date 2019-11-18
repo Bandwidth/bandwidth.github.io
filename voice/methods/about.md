@@ -12,13 +12,13 @@ Some of the URLs in this documentation contain placeholders for values that your
 
 ## REST API Reference Index
 
-| VERB                             | Resource                                                                                              | Description                                                                  |
-|:---------------------------------|:------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| <code class="post">POST</code>   | [`/calls`](calls/postCalls.md)                                                                        | Place phone calls                                                            |
-| <code class="post">POST</code>   | [`/calls/{callId}`](calls/postCallsCallId.md)                                                         | Replace an active call's BXML                                                |
-| <code class="put">PUT</code>    | [`/calls/{callId}/recording`](calls/putCallsCallIdRecording.md)                                       | Pause or resume a recording on an active call                                |
-| <code class="get">GET</code>    | [`/calls/{callId}/recordings`](calls/getCallsCallIdRecordings.md)                                     | Retrieve information about all of the recordings that occurred during a call |
-| <code class="get">GET</code>    | [`/calls/{callId}/recordings/{recordingId}`](calls/getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording                                       |
+| VERB                               | Resource                                                                                              | Description                                                                  |
+|:-----------------------------------|:------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| <code class="post">POST</code>     | [`/calls`](calls/postCalls.md)                                                                        | Place phone calls                                                            |
+| <code class="post">POST</code>     | [`/calls/{callId}`](calls/postCallsCallId.md)                                                         | Replace an active call's BXML                                                |
+| <code class="put">PUT</code>       | [`/calls/{callId}/recording`](calls/putCallsCallIdRecording.md)                                       | Pause or resume a recording on an active call                                |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings`](calls/getCallsCallIdRecordings.md)                                     | Retrieve information about all of the recordings that occurred during a call |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}`](calls/getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording                                       |
 | <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}`](calls/deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording                                                           |
-| <code class="get">GET</code>    | [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md) | Download a recording                                                         |
-| <code class="get">GET</code>    | [`/recordings`](calls/getRecordings.md)                                                               | Retrieve information about your 1000 least recent recordings                 |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/media`](calls/getCallsCallIdRecordingsRecordingIdMedia.md) | Download a recording                                                         |
+| <code class="get">GET</code>       | [`/recordings`](calls/getRecordings.md)                                                               | Retrieve information about your 1000 least recent recordings                 |
