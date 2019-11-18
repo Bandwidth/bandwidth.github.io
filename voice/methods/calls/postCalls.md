@@ -17,8 +17,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 | Parameter          | Description                                                                                                                                                                                                             | Mandatory |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     |:----------|
-| from               | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+19195551212`).                                                                                                      | Yes       |
-| to                 | The number to call (must be an E.164 formatted number, like `+19195551212`                                                                                                                                              | Yes       |
+| from               | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`).                                                                                                      | Yes       |
+| to                 | The number to call (must be an E.164 formatted number, like `+15555551212`                                                                                                                                              | Yes       |
 | applicationId      | The id of the application to associate this call with, for billing purposes.                                                                                                                                            | Yes       |
 | answerUrl          | The full URL to send the [Answer](../../bxml/callbacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/about.md) to be executed in the call.        | Yes       |
 | answerMethod       | (optional) The HTTP method to use for the request to `answerUrl`. GET or POST. Default value is POST.                                                                                                                   | No        |
@@ -50,8 +50,8 @@ curl -v --request POST \
     --header 'Content-type: application/json' \
     --data '
     {
-      "from"          : "+19195551212",
-      "to"            : "+19195551313",
+      "from"          : "+15555551212",
+      "to"            : "+15555551313",
       "answerUrl"     : "http://www.myapp.com/hello",
       "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086"
     }'
@@ -101,7 +101,7 @@ Console.WriteLine(response.Data.CallId);
 body = ApiCreateCallRequest.new
 body.from = "+19195551212"
 body.to = "+19195551313"
-body.answer_url = "http://www.myapp.com/hello" 
+body.answer_url = "http://www.myapp.com/hello"
 body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 
 begin
@@ -109,7 +109,7 @@ begin
     puts result.data.call_id
 rescue Exception => e
     puts e
-end 
+end
 ```
 
 {% sample lang="python" %}
@@ -118,7 +118,7 @@ end
 body = ApiCreateCallRequest()
 body.mfrom = "+19195551212"
 body.to = "+19195551313"
-body.answer_url = "http://www.myapp.com/hello" 
+body.answer_url = "http://www.myapp.com/hello"
 body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 
 try:
