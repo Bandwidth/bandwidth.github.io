@@ -143,12 +143,33 @@ do
 {% sample lang="ruby" %}
 
 ```ruby
-media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: "token")
+continuation_token = nil
+loop do
+    media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token: continuation_token)
+    if media.headers.key?('Continuation-Token')
+        continuation_token = media.headers['Continuation-Token']
+    else
+        continuation_token = nil
+    end
+    puts "Medias length: " + media.data.length.to_s
+    puts "Media 1 name: " + media.data[0].media_name
+    break if continuation_token == nil
+end
 ```
 
 {% sample lang="python" %}
 
 ```python
-media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token="token")
+continuation_token = None
+while True:
+    media = messaging_client.list_media(MESSAGING_ACCOUNT_ID, continuation_token=continuation_token)
+    if 'Continuation-Token' in media.headers.keys():
+        continuation_token = media.headers['Continuation-Token']
+    else:
+        continuation_token = None
+    print("Medias length: " + str(len(media.body)))
+    print("Media 1 name: " + media.body[0].media_name)
+    if continuation_token is None:
+        break
 ```
 {% endmethod %}
