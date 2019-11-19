@@ -1,0 +1,59 @@
+Create Recording Verb
+
+```
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Please leave your message after the beep",
+    :voice => "bridget"
+})
+play_audio = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio.url/beep.wav"
+})
+record = Bandwidth::Voice::Record.new({
+    :record_complete_url="https://myapp.com/nextBXML",
+    :max_duration="10"
+})
+
+response.push(speak_sentence)
+response.push(play_audio)
+repsonse.push(record)
+puts response.to_bxml()
+```
+
+deleteCallsCallIdRecordingsRecordingId.md
+```
+voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
+```
+
+getCallsCallIdRecordings.md
+```
+response = voice_client.get_query_metadata_for_account_and_call(VOICE_ACCOUNT_ID, call_id)
+puts response.data[0].duration
+```
+
+getCallsCallIdRecordingsRecordingId.md
+```
+response = voice_client.get_metadata_for_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
+puts response.data.duration
+```
+
+getCallsCallIdRecordingsRecordingIdMedia.md
+```
+File.open("file_to_write", "wb") do |f|
+    response = voice_client.get_stream_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
+    f.puts(response.data)
+end
+```
+
+getRecordings.md
+```
+response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
+puts response.data[0].duration
+```
+
+putCallsCallIdRecording
+```
+body = ModifyCallRecordingState.new
+body.state = "paused"
+voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body: body)
+```
