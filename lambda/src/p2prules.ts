@@ -117,7 +117,7 @@ export const rules: any = {
   "/howto/hostedmessaging"                                                                            : "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
   "/howto/hostedmessaging/"                                                                           : "https://support.bandwidth.com/hc/en-us/sections/360000775413-Hosted-Messaging",
   "/v2-messaging/events/messageevents"                                                                : "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html",
-  "/v2-messaging/events/messageevents/"                                                               : "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html"
+  "/v2-messaging/events/messageevents/"                                                               : "https://dev.bandwidth.com/messaging/callbacks/messageEvents.html",
   "/clientlib/csharp.html"                                                                            : "https://old.dev.bandwidth.com/clientLib/csharp.html",
   "/clientlib/java.html"                                                                              : "https://old.dev.bandwidth.com/clientLib/java.html",
   "/clientlib/node.html"                                                                              : "https://old.dev.bandwidth.com/clientLib/node.html",
