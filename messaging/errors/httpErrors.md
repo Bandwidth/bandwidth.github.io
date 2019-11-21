@@ -244,7 +244,7 @@ Bandwidth returns a `HTTP-415` error when the Content-type of the request is inc
 
 {% common %}
 
-### Example: Incorrect Content-type sent
+### Example: Incorrect content-type sent
 
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages HTTP/1.1
@@ -266,7 +266,7 @@ Status: 415 Unsupported Media Type
 Content-Type: application/json; charset=utf-8
 
 {
-  "type": "unsupported-Content-type",
+  "type": "unsupported-content-type",
   "description": "Content type 'text/plain;charset=UTF-8' not supported. Please use 'application/json'"
 }
 ```
