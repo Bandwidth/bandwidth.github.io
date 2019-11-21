@@ -345,7 +345,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## 415 - UNSUPPORTED MEDIA TYPE {#http-415}
 
-Bandwidth returns a `HTTP-415` error when the content-type of the request is incorrect. Ensure the request header contains `Content-Type: application/json; charset=utf-8` and try again.
+Bandwidth returns a `HTTP-415` error when the Content-type of the request is incorrect. Ensure the request header contains `Content-Type: application/json; charset=utf-8` and try again.
 
 {% extendmethod %}
 

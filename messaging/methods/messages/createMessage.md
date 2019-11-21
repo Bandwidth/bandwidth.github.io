@@ -82,7 +82,7 @@ curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
     -H 'Content-type: application/json' \
-    --data-raw-raw '
+    --data-raw '
     {
         "to"            : ["+12345678902"],
         "from"          : "+12345678901",
@@ -217,7 +217,7 @@ curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
     -H 'Content-type: application/json' \
-    --data-raw-raw '
+    --data-raw '
     {
         "to"            : ["+12345678902"],
         "from"          : "+12345678901",
@@ -363,7 +363,7 @@ Content-Type: application/json; charset=utf-8
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
-    -H 'content-type: application/json' \
+    -H 'Content-type: application/json' \
     --data-raw '
     {
         "to"            : ["+12345678902"],
@@ -508,7 +508,7 @@ Content-Type: application/json; charset=utf-8
 curl --request POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
-    -H 'content-type: application/json' \
+    -H 'Content-type: application/json' \
     --data-raw '
     {
         "to"            : [
@@ -654,7 +654,7 @@ Content-Type: application/json; charset=utf-8
 curl --request POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
-    -H 'content-type: application/json' \
+    -H 'Content-type: application/json' \
     --data-raw '
     {
         "to"            : [
