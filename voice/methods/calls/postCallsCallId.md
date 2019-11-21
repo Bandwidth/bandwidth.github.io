@@ -28,10 +28,11 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 {% sample lang="http" %}
 
 ```bash
-curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId} \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "state"       : "active",
       "redirectUrl" : "http://www.myapp.com/new"
@@ -83,10 +84,11 @@ except Exception as e:
 {% sample lang="http" %}
 
 ```bash
-curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId} \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "state": "completed"
     }'

@@ -34,7 +34,11 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X PUT https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{file.mp3} -H "Content-Type: audio/mpeg" -u {{token}}:{{secret}} --data-binary "@{/filepath/file.mp3}"
+curl -X PUT \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{file.mp3}' \
+    -H "Content-Type: audio/mpeg" \
+    -u '{token}:{secret}' \
+    --data-raw "@{/filepath/file.mp3}"
 ```
 
 {% sample lang="csharp" %}

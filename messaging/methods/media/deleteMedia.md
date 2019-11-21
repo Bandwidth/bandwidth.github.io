@@ -18,8 +18,9 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
-	-u {token}:{secret}
+curl -X DELETE \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}' \
+	-u '{token}:{secret}'
 ```
 
 {% sample lang="csharp" %}
