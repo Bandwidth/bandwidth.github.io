@@ -505,7 +505,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
+curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
     -H 'Content-type: application/json' \
@@ -651,7 +651,7 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
+curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
     -u '{apiToken}:{apiSecret}' \
     -H 'Content-type: application/json' \
