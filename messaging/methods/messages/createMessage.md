@@ -78,11 +78,11 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
         "to"            : ["+12345678902"],
         "from"          : "+12345678901",
@@ -213,11 +213,11 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
         "to"            : ["+12345678902"],
         "from"          : "+12345678901",
@@ -360,11 +360,11 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
         "to"            : ["+12345678902"],
         "from"          : "+12345678901",
@@ -505,11 +505,11 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
         "to"            : [
           "+12345678902",
@@ -651,11 +651,11 @@ Content-Type: application/json; charset=utf-8
 {% sample lang='bash' %}
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
         "to"            : [
           "+12345678902",

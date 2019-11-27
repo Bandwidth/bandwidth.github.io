@@ -72,11 +72,11 @@ result = message_controller.create_message(account_id,:body => body)
 ```
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{accountId}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "to"            : ["+12345678902"],
       "from"          : "+12345678901",
@@ -128,11 +128,11 @@ result = voice_client.create_call(account_id,:body => body)
 
 
 ```bash
-curl --request POST \
-    --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "from"          : "+19195551212",
       "to"            : "+19195551313",
@@ -155,11 +155,11 @@ result = voice_client.create_call(account_id, body=body)
 ### Buy a telephone number
 
 ```bash
-curl --request POST \
-    --url https://dashboard.bandwidth.com/api/accounts/{accountId}/orders \
-    --user {username}:{password} \
-    --header 'content-type: application/xml; charset=utf-8' \
-    --data '
+curl -X POST \
+    --url 'https://dashboard.bandwidth.com/api/accounts/{accountId}/orders' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/xml; charset=utf-8' \
+    --data-raw '
     <Order>
         <AreaCodeSearchAndOrderType>
             <AreaCode>910</AreaCode>

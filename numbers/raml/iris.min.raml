@@ -2421,7 +2421,7 @@ securitySchemes:
                             400:
                                 description: There was an error - one or more of the port-in orders was invalid.  The response payload will indicate the errors that were detected, and no changes will be made to the list of portin orders associated with the bulk order.
                 /notes: 
-                    # note that this file is shared between 6 order types -
+                    # note that this file is shared between multiple order types -
                     #  - orders
                     #  - disconnects
                     #  - portins
@@ -2430,9 +2430,10 @@ securitySchemes:
                     #  - lidbs
                     #  - dldas
                     #  - bulkPortins
+                    #  - csrs
                     #
                     description: |
-                        The /notes resource manages a note or set of notes associated with an order.  Notes can only be appended to the collection, and are not individually addressable or modifiable once added.
+                        The /notes resource manages a note or set of notes associated with an order.
                     post:
                         description: Updates the Notes resource by adding a note.
                         body:
@@ -2447,7 +2448,7 @@ securitySchemes:
                             201:
                                 description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
                             400:
-                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the repsonse.
+                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
                                 body:
                                     application/xml:
                                         example: |
@@ -2483,6 +2484,33 @@ securitySchemes:
                                             </Notes>                    
                             204:
                                 description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
+                    /{noteId}: 
+                        description: |
+                            Resource manages a note.
+                        put:
+                            description: Updates single note by it's id.
+                            body:
+                                application/xml:
+                                    example:
+                                        <Note>
+                                           <UserId>userId</UserId>
+                                           <Description>note text</Description>
+                                        </Note>
+                            responses:
+                                200:
+                                    description: OK - note has been updated.  No body is returned
+                                400:
+                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <NoteResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>12501</ErrorCode>
+                                                        <Description>Username is required</Description>
+                                                    </ResponseStatus>
+                                                </NoteResponse>           
                 /tnList: 
                     description: |
                         The TnList is a collection (called a bucket elsewhere) of Telephone Numbers that are destined to be decomposed into a set of port-in orders based on a set of industry based and network based tools.    This API causes the decomposition, as well as provide a way to get a comprehensive list of Telephone Numbers associated with the Bulk Portin.
@@ -2816,6 +2844,289 @@ securitySchemes:
                                     404:
                                         description: |
                                             a 404 indicates that the indicated file was not found in conjunction with the order id.
+        /csrs: 
+            description: |
+                The csrs endpoint is used to manage csrs requests.  Like many other requests, the csrs endpoint causes the creation of an <b>order</b> that is used to manage the lifecycle of the request.
+                The various sub-resources and methods are covered in greater detail below.
+                The elements used or supplied in the payloads are described in the following table...
+                <table border="1" cellspacing="0" cellpadding="0" width="624">
+                    <tbody>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    <strong>Parameter</strong>
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p>
+                                    <strong>Required</strong>
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    <strong>Description</strong>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    accountId (URL Parameter)
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    Yes
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    The account ID for creating csr order.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    CustomerOrderId
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Internal customer order id for tracking the order.  Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    WorkingOrBillingTelephoneNumber (WTN)
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    Yes
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Working or Billing telephone number in 10-digits format NPANXXXXXX.
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            post:
+                description: |
+                    Creates a csr order.<br>
+                    Upon a successfully-submitted payload, the order will have a status of "RECEIVED".<br>
+                    <br><br>
+                body:
+                    application/xml:
+                        example: |
+                            <Csr>
+                               <CustomerOrderId>myOrderId</CustomerOrderId>
+                               <WorkingOrBillingTelephoneNumber>2016191211</WorkingOrBillingTelephoneNumber>
+                            </Csr>
+                responses:
+                    201:
+                        description: The order has been created and an order ID will be specified in the payload and in the header.
+                        body:
+                            application/xml:
+                                example: |
+                                    <CsrResponse>
+                                        <OrderId>4f5b3804-3d0d-49de-a133-d4b67ad6fa11</OrderId>
+                                        <Status>RECEIVED</Status>
+                                    </CsrResponse>
+                    400:
+                        description: The order failed. One of the input parameters is invalid.
+                        body:
+                            application/xml:
+                                example: |
+                                    <CsrResponse>
+                                        <Errors>
+                                            <Error>
+                                                <Code>26002</Code>
+                                                <Description>Customer order ID is invalid. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.</Description>
+                                            </Error>
+                                        </Errors>
+                                    </CsrResponse>
+                    409:
+                        description: Action can not be performed because account does not have CSR product feature enabled.
+                        body:
+                            application/xml:
+                                example: |
+                                    <CsrResponse>
+                                        <Errors>
+                                            <Error>
+                                                <Code>12160</Code>
+                                                <Description>The operation could not be performed because Account 123 does not have the CSR feature enabled.</Description>
+                                            </Error>
+                                        </Errors>
+                                    </CsrResponse>
+            /{orderid}: 
+                description: |
+                    This resource retrieves information associated with the csr associated with the ID number specified.
+                get:
+                    description: 'Retrieves the information associated with the specified csr order ID number.'
+                    responses:
+                        200:
+                            description: The information has been successfully retrieved and displayed in the payload.
+                            body:
+                                application/xml:
+                                    example: |
+                                        <CsrResponse>
+                                            <CustomerOrderId>someValue</CustomerOrderId>
+                                            <LastModifiedBy>systemUser</LastModifiedBy>
+                                            <OrderCreateDate>2019-10-25T09:51:17Z</OrderCreateDate>
+                                            <AccountId>1</AccountId>
+                                            <OrderId>a2f55ebe-782a-4242-983b-6ae6cfa97833</OrderId>
+                                            <LastModifiedDate>2019-10-25T12:51:22.139Z</LastModifiedDate>
+                                            <Status>COMPLETE</Status>
+                                            <CsrData>
+                                                <AccountNumber>123456789</AccountNumber>
+                                                <CustomerName>JOHN SMITH</CustomerName>
+                                                <ServiceAddress>
+                                                    <UnparsedAddress>900 MAIN CAMPUS DR</UnparsedAddress>
+                                                    <City>RALEIGH</City>
+                                                    <State>NC</State>
+                                                    <Zip>27616</Zip>
+                                                </ServiceAddress>
+                                                <WorkingTelephoneNumber>9196191211</WorkingTelephoneNumber>
+                                                <WorkingTelephoneNumbersOnAccount>
+                                                    <TelephoneNumber>9196191211</TelephoneNumber>
+                                                </WorkingTelephoneNumbersOnAccount>
+                                            </CsrData>
+                                            <!-- This section is present if tram responds with error -->
+                                            <Errors>
+                                                <Error>
+                                                    <Code>26500</Code>
+                                                    <Description>CSR is not available for this TN</Description>
+                                                </Error>
+                                            </Errors>
+                                        </CsrResponse>
+                        404:
+                            description: Order does not exists or belongs to different account.
+                            body:
+                                application/xml:
+                                    example: |
+                                        <CsrResponse>
+                                            <Errors>
+                                                <Error>
+                                                    <Code>26005</Code>
+                                                    <Description>CSR order not found</Description>
+                                                </Error>
+                                            </Errors>
+                                        </CsrResponse>
+                        409:
+                            description: Action can not be performed because account does not have CSR product feature enabled.
+                            body:
+                                application/xml:
+                                    example: |
+                                        <CsrResponse>
+                                            <Errors>
+                                                <Error>
+                                                    <Code>12160</Code>
+                                                    <Description>The operation could not be performed because Account 123 does not have the CSR feature enabled.</Description>
+                                                </Error>
+                                            </Errors>
+                                        </CsrResponse>
+                /notes: 
+                    # note that this file is shared between multiple order types -
+                    #  - orders
+                    #  - disconnects
+                    #  - portins
+                    #  - portouts
+                    #  - inporttoaccount
+                    #  - lidbs
+                    #  - dldas
+                    #  - bulkPortins
+                    #  - csrs
+                    #
+                    description: |
+                        The /notes resource manages a note or set of notes associated with an order.
+                    post:
+                        description: Updates the Notes resource by adding a note.
+                        body:
+                            application/xml:
+                                example:
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <Note>
+                                       <UserId>userId</UserId>
+                                       <Description>note text</Description>
+                                    </Note>
+                        responses:
+                            201:
+                                description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
+                            400:
+                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
+                                body:
+                                    application/xml:
+                                        example: |
+                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                            <NoteResponse>
+                                                <ResponseStatus>
+                                                    <ErrorCode>12501</ErrorCode>
+                                                    <Description>Username is required</Description>
+                                                </ResponseStatus>
+                                            </NoteResponse>           
+                    get:
+                        description: Retrieve the set of notes associated with an order.
+                        responses:
+                            200:
+                                description: OK - there are Notes associated with the order, and they have been returned in the response.
+                                body:
+                                    application/xml:
+                                        example: |
+                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                            <Notes>
+                                                <Note>
+                                                    <Id>87037</Id>
+                                                    <UserId>jbm</UserId>
+                                                    <Description>This is a test note</Description>
+                                                    <LastDateModifier>2014-11-16T04:01:10.000Z</LastDateModifier>
+                                                </Note>
+                                                <Note>
+                                                    <Id>87039</Id>
+                                                    <UserId>smckinnon</UserId>
+                                                    <Description>This is a second test note</Description>
+                                                    <LastDateModifier>2014-11-16T04:08:46.000Z</LastDateModifier>
+                                                </Note>
+                                            </Notes>                    
+                            204:
+                                description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
+                    /{noteId}: 
+                        description: |
+                            Resource manages a note.
+                        put:
+                            description: Updates single note by it's id.
+                            body:
+                                application/xml:
+                                    example:
+                                        <Note>
+                                           <UserId>userId</UserId>
+                                           <Description>note text</Description>
+                                        </Note>
+                            responses:
+                                200:
+                                    description: OK - note has been updated.  No body is returned
+                                400:
+                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <NoteResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>12501</ErrorCode>
+                                                        <Description>Username is required</Description>
+                                                    </ResponseStatus>
+                                                </NoteResponse>           
         /countries: 
             description: Controls the available countries for international phone numbers.
             get:
@@ -3092,7 +3403,7 @@ securitySchemes:
                                             <OrderStatus>COMPLETE</OrderStatus>
                                         </DisconnectTelephoneNumberOrderResponse>
                 /notes: 
-                    # note that this file is shared between 6 order types -
+                    # note that this file is shared between multiple order types -
                     #  - orders
                     #  - disconnects
                     #  - portins
@@ -3101,9 +3412,10 @@ securitySchemes:
                     #  - lidbs
                     #  - dldas
                     #  - bulkPortins
+                    #  - csrs
                     #
                     description: |
-                        The /notes resource manages a note or set of notes associated with an order.  Notes can only be appended to the collection, and are not individually addressable or modifiable once added.
+                        The /notes resource manages a note or set of notes associated with an order.
                     post:
                         description: Updates the Notes resource by adding a note.
                         body:
@@ -3118,7 +3430,7 @@ securitySchemes:
                             201:
                                 description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
                             400:
-                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the repsonse.
+                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
                                 body:
                                     application/xml:
                                         example: |
@@ -3154,6 +3466,33 @@ securitySchemes:
                                             </Notes>                    
                             204:
                                 description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
+                    /{noteId}: 
+                        description: |
+                            Resource manages a note.
+                        put:
+                            description: Updates single note by it's id.
+                            body:
+                                application/xml:
+                                    example:
+                                        <Note>
+                                           <UserId>userId</UserId>
+                                           <Description>note text</Description>
+                                        </Note>
+                            responses:
+                                200:
+                                    description: OK - note has been updated.  No body is returned
+                                400:
+                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <NoteResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>12501</ErrorCode>
+                                                        <Description>Username is required</Description>
+                                                    </ResponseStatus>
+                                                </NoteResponse>           
         /dldas: 
             description: |
                 The DLDAs Resource represents the requests made to the Bandwidth Dashboard API to add or otherwise manage a request to associate the street address with the telephone number.  This API allows the creation and observation of a <b>"Directory Listing and Directory Assistance"</b> work order that causes an update of a address information in a network Database. <br>
@@ -6679,7 +7018,7 @@ securitySchemes:
                                                 </ResponseStatus>
                                             </LsrOrderReportResponse>
                 /notes: 
-                    # note that this file is shared between 6 order types -
+                    # note that this file is shared between multiple order types -
                     #  - orders
                     #  - disconnects
                     #  - portins
@@ -6688,9 +7027,10 @@ securitySchemes:
                     #  - lidbs
                     #  - dldas
                     #  - bulkPortins
+                    #  - csrs
                     #
                     description: |
-                        The /notes resource manages a note or set of notes associated with an order.  Notes can only be appended to the collection, and are not individually addressable or modifiable once added.
+                        The /notes resource manages a note or set of notes associated with an order.
                     post:
                         description: Updates the Notes resource by adding a note.
                         body:
@@ -6705,7 +7045,7 @@ securitySchemes:
                             201:
                                 description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
                             400:
-                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the repsonse.
+                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
                                 body:
                                     application/xml:
                                         example: |
@@ -6741,6 +7081,33 @@ securitySchemes:
                                             </Notes>                    
                             204:
                                 description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
+                    /{noteId}: 
+                        description: |
+                            Resource manages a note.
+                        put:
+                            description: Updates single note by it's id.
+                            body:
+                                application/xml:
+                                    example:
+                                        <Note>
+                                           <UserId>userId</UserId>
+                                           <Description>note text</Description>
+                                        </Note>
+                            responses:
+                                200:
+                                    description: OK - note has been updated.  No body is returned
+                                400:
+                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <NoteResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>12501</ErrorCode>
+                                                        <Description>Username is required</Description>
+                                                    </ResponseStatus>
+                                                </NoteResponse>           
         /numbersAssignment: 
             description: |
                 The TelephoneNumbersAssignment order resource represents the requests made to the Bandwidth Dashboard API to declare whether telephone numbers associated with the customer's account are assigned to end users or not.  This declaration of assignment is used in preparing NRUF Federal and PUC telephone number utilizatoin filings, and in providing justification for the acquisition and allocation of additional telephone numbers to the overall inventory<br>
@@ -7702,7 +8069,7 @@ securitySchemes:
                                                 <TelephoneNumber>8042105666</TelephoneNumber>
                                             </TelephoneNumbers>
                 /notes:   
-                    # note that this file is shared between 6 order types -
+                    # note that this file is shared between multiple order types -
                     #  - orders
                     #  - disconnects
                     #  - portins
@@ -7711,9 +8078,10 @@ securitySchemes:
                     #  - lidbs
                     #  - dldas
                     #  - bulkPortins
+                    #  - csrs
                     #
                     description: |
-                        The /notes resource manages a note or set of notes associated with an order.  Notes can only be appended to the collection, and are not individually addressable or modifiable once added.
+                        The /notes resource manages a note or set of notes associated with an order.
                     post:
                         description: Updates the Notes resource by adding a note.
                         body:
@@ -7728,7 +8096,7 @@ securitySchemes:
                             201:
                                 description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
                             400:
-                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the repsonse.
+                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
                                 body:
                                     application/xml:
                                         example: |
@@ -7764,6 +8132,33 @@ securitySchemes:
                                             </Notes>                    
                             204:
                                 description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
+                    /{noteId}: 
+                        description: |
+                            Resource manages a note.
+                        put:
+                            description: Updates single note by it's id.
+                            body:
+                                application/xml:
+                                    example:
+                                        <Note>
+                                           <UserId>userId</UserId>
+                                           <Description>note text</Description>
+                                        </Note>
+                            responses:
+                                200:
+                                    description: OK - note has been updated.  No body is returned
+                                400:
+                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <NoteResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>12501</ErrorCode>
+                                                        <Description>Username is required</Description>
+                                                    </ResponseStatus>
+                                                </NoteResponse>           
                 /history: 
                     description: |
                         History information is available on orders that have gone through multiple transitions, which is possible in the case that telephone numbers are backordered.  In this case the order will have one or more OrderHistory records associated with it, detailing the set of events that have affected the order.
@@ -8825,7 +9220,7 @@ securitySchemes:
                                             <ProcessingStatus>EXCEPTION</ProcessingStatus>
                                         </LnpOrderResponse>
                 /notes: 
-                    # note that this file is shared between 6 order types -
+                    # note that this file is shared between multiple order types -
                     #  - orders
                     #  - disconnects
                     #  - portins
@@ -8834,9 +9229,10 @@ securitySchemes:
                     #  - lidbs
                     #  - dldas
                     #  - bulkPortins
+                    #  - csrs
                     #
                     description: |
-                        The /notes resource manages a note or set of notes associated with an order.  Notes can only be appended to the collection, and are not individually addressable or modifiable once added.
+                        The /notes resource manages a note or set of notes associated with an order.
                     post:
                         description: Updates the Notes resource by adding a note.
                         body:
@@ -8851,7 +9247,7 @@ securitySchemes:
                             201:
                                 description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
                             400:
-                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the repsonse.
+                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
                                 body:
                                     application/xml:
                                         example: |
@@ -8887,6 +9283,33 @@ securitySchemes:
                                             </Notes>                    
                             204:
                                 description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
+                    /{noteId}: 
+                        description: |
+                            Resource manages a note.
+                        put:
+                            description: Updates single note by it's id.
+                            body:
+                                application/xml:
+                                    example:
+                                        <Note>
+                                           <UserId>userId</UserId>
+                                           <Description>note text</Description>
+                                        </Note>
+                            responses:
+                                200:
+                                    description: OK - note has been updated.  No body is returned
+                                400:
+                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <NoteResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>12501</ErrorCode>
+                                                        <Description>Username is required</Description>
+                                                    </ResponseStatus>
+                                                </NoteResponse>           
                 /history: 
                     description: This resource retrieves the history of a port-in order. Obtaining history for a draft port-in is not supported.
                     get:
@@ -12643,6 +13066,10 @@ securitySchemes:
                               <tr>
                                  <td>removeImportedTnOrders</td>
                                  <td>PROCESSING, COMPLETE, PARTIAL, FAILED</td>
+                              </tr>
+                              <tr>
+                                 <td>csrs</td>
+                                 <td>COMPLETE, FAILED</td>
                               </tr>
                            </table>
                 Notified events: MESSAGING_LOST

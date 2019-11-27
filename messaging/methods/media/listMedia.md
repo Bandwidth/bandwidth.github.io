@@ -36,8 +36,9 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
-  -u {token}:{secret}
+curl -X GET \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media' \
+    -u '{token}:{secret}'
 ```
 
 > The above command returns JSON structured like this:
@@ -92,9 +93,10 @@ print(media.body[0].media_name)
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
-  -u {token}:{secret} \
-  -H "Continuation-Token: 12345"
+curl -X GET \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media' \
+    -u '{token}:{secret}' \
+    -H "Continuation-Token: 12345"
 ```
 
 > The above command returns JSON structured like this:

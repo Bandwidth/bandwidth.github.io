@@ -24,8 +24,9 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
-  -u {token}:{secret}
+curl -X GET \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}' \
+    -u '{token}:{secret}'
 ```
 
 {% sample lang="csharp" %}

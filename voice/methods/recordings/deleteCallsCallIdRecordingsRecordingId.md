@@ -26,8 +26,9 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 {% sample lang="http" %}
 
 ```bash
-curl -v -X DELETE "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}" \
-     --user {username}:{password}
+curl -X DELETE \
+    --url "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}" \
+     -u '{username}:{password}'
 ```
 
 ```
