@@ -18,8 +18,8 @@ using Bandwidth.Standard.Messaging.Controllers;
 
 //create Configuration with credentials
 Configuration config = new Configuration.Builder()
-            .WithMessagingBasicAuthPassword("msg.password")
-            .WithMessagingBasicAuthUserName("msg.username")
+            .WithMessagingBasicAuthPassword("msg.apiToken")
+            .WithMessagingBasicAuthUserName("msg.apiSecret")
             .WithVoiceBasicAuthPassword("voice.password")
             .WithVoiceBasicAuthUserName("voice.username")
             .WithEnvironment(Configuration.Environments.PRODUCTION)
