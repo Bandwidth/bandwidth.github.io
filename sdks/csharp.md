@@ -6,9 +6,12 @@
 nuget install Bandwidth.Sdk -OutputDirectory packages
 ```
 
-*Note This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
+*Note:  This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
+
 
 ### Initialize Bandwidth Voice & Message Client
+
+*Note:  This code may be needed `System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;`
 
 ```csharp
 using Bandwidth.Standard;
