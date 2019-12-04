@@ -11,7 +11,7 @@ nuget install Bandwidth.Sdk -OutputDirectory packages
 
 ### Initialize Bandwidth Voice & Message Client
 
-*Note:  If you see this error `System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send.`  This code may be needed `System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;`
+*__Note__:  If you see this error `System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send.`  This code may be needed `System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;`
 
 ```csharp
 using Bandwidth.Standard;
