@@ -10,13 +10,13 @@ play_audio = Bandwidth::Voice::PlayAudio.new({
     :url => "https://audio.url/beep.wav"
 })
 record = Bandwidth::Voice::Record.new({
-    :record_complete_url="https://myapp.com/nextBXML",
-    :max_duration="10"
+    :record_complete_url => "https://myapp.com/nextBXML",
+    :max_duration => "10"
 })
 
 response.push(speak_sentence)
 response.push(play_audio)
-repsonse.push(record)
+response.push(record)
 puts response.to_bxml()
 ```
 
@@ -28,13 +28,13 @@ voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 getCallsCallIdRecordings.md
 ```
 response = voice_client.get_query_metadata_for_account_and_call(VOICE_ACCOUNT_ID, call_id)
-puts response.data[0].duration
+puts response.data[0].media_url
 ```
 
 getCallsCallIdRecordingsRecordingId.md
 ```
 response = voice_client.get_metadata_for_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
-puts response.data.duration
+puts response.data.media_url
 ```
 
 getCallsCallIdRecordingsRecordingIdMedia.md
@@ -48,7 +48,7 @@ end
 getRecordings.md
 ```
 response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
-puts response.data[0].duration
+puts response.data[0].media_url
 ```
 
 putCallsCallIdRecording
