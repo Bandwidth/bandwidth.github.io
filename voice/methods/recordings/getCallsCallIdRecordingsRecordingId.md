@@ -66,7 +66,8 @@ curl -v "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = voice_client.get_metadata_for_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
+print(response.body.media_url)
 ```
 
 {% common %}

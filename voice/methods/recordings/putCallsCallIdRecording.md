@@ -49,7 +49,9 @@ curl -v -X PUT https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{ca
 {% sample lang="python" %}
 
 ```python
-# coming soon
+body = ModifyCallRecordingState()
+body.state = "paused"
+voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body=body)
 ```
 
 {% endmethod %}

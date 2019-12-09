@@ -67,7 +67,23 @@ This shows how to use Bandwidth XML to record a phone call.
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Please leave your message after the beep",
+    voice="bridget"
+)
+play_audio = PlayAudio(
+    url="https://audio.url/beep.wav"
+)
+record = Record(
+    record_complete_url="https://myapp.com/nextBXML",
+    max_duration=10
+)
+
+response.add_verb(speak_sentence)
+response.add_verb(play_audio)
+response.add_verb(record)
+print(response.to_bxml())
 ```
 
 

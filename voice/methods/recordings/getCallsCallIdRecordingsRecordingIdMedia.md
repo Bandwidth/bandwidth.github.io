@@ -53,7 +53,9 @@ HTTP/1.1 200
 {% sample lang="python" %}
 
 ```python
-# coming soon
+with(open("file_to_write", "wb")) as f:
+    response = voice_client.get_stream_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
+    f.write(response.body)
 ```
 
 {% endmethod %}

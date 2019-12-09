@@ -51,7 +51,7 @@ HTTP/1.1 204
 {% sample lang="python" %}
 
 ```python
-# coming soon
+voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 ```
 
 {% endmethod %}
