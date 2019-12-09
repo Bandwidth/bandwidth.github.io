@@ -97,7 +97,8 @@ curl -v "https://voice.bandwidth.com/api/v2/accounts/5552319/recordings?from=+15
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
+puts response.data[0].media_url
 ```
 
 {% sample lang="python" %}
