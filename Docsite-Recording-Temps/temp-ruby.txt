@@ -1,3 +1,5 @@
+`BandwidthException` needs to be `ErrorResponseException` ###MAJOR UPGRADE###
+
 Create Recording Verb
 
 ```
