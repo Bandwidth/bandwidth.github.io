@@ -39,7 +39,7 @@ Content-Type: application/xml
             <ApplicationId>2b6f1443-2b7e-4649-ac28-9c3a723d12f9</ApplicationId>
             <ServiceType>Messaging-V2</ServiceType>
             <AppName>Production Server</AppName>
-            <CallbackUrl>https://yourSecureSite.com/callbacks</CallbackUrl>
+            <MsgCallbackUrl>https://yourSecureSite.com/callbacks</MsgCallbackUrl>
             <CallbackCreds>
                 <UserId>Your-User-id</UserId>
                 <Password>Your-Password</Password>
@@ -49,14 +49,14 @@ Content-Type: application/xml
             <ApplicationId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</ApplicationId>
             <ServiceType>Messaging-V2</ServiceType>
             <AppName>Production Server 2</AppName>
-            <CallbackUrl>https://yourUnsecureSite.com/callbacks</CallbackUrl>
+            <MsgCallbackUrl>https://yourUnsecureSite.com/callbacks</MsgCallbackUrl>
             <CallbackCreds/>
         </Application>
         <Application>
             <ApplicationId>2afad54d-8a65-4085-b25b-4c86fd5819d0</ApplicationId>
-            <ServiceType>Messaging-V2</ServiceType>
+            <ServiceType>Voice-V2</ServiceType>
             <AppName>Dev Site</AppName>
-            <CallbackUrl>https://dev.yourSecureSite.com/callbacks</CallbackUrl>
+            <CallInitiatedCallbackUrl>https://dev.yourSecureSite.com/callbacks</CallInitiatedCallbackUrl>
             <CallbackCreds>
                 <UserId>Your-User-id</UserId>
                 <Password>Your-Password</Password>

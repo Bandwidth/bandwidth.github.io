@@ -36,9 +36,9 @@ Content-Type: application/xml
 <ApplicationProvisioningResponse>
     <Application>
         <ApplicationId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</ApplicationId>
-        <ServiceType>Messaging-V2</ServiceType>
+        <ServiceType>Voice-V2</ServiceType>
         <AppName>Production Server</AppName>
-        <CallbackUrl>https://yourSecureSite.com/callbacks</CallbackUrl>
+        <CallInitiatedCallbackUrl>https://yourSecureSite.com/callbacks</CallInitiatedCallbackUrl>
         <CallbackCreds>
             <UserId>Your-User-id</UserId>
             <Password>Your-Password</Password>

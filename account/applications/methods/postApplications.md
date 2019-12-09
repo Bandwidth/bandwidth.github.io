@@ -14,14 +14,18 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 
 ### Supported Parameters
 
-| Parameters               | Mandatory                  | Description                                                                                                                                                                                                                  |
-|:-------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ServiceType`            | Yes                        | The type of service the application will be used for. <br><br>- `Messaging-V2` for [message events](../../../messaging/callbacks/messageEvents.md) <br><br>- `Voice-V2` for [voice events](../../../voice/bxml/callbacks/about.md) |
-| `AppName`                | Yes                        | Plain text name of the application                                                                                                                                                                                           |
-| `CallbackUrl`            | Yes                        | Url to receive either [message events](../../../messaging/callbacks/messageEvents.md) or [voice events](../../../voice/bxml/callbacks/about.md)                                                                                    |
-| `CallbackCreds`          | No, but highly recommended | Basic auth credentials to apply to your message & voice events                                                                                                                                                               |
-| `CallbackCreds.UserId`   | No, but highly recommended | Basic auth `UserId`                                                                                                                                                                                                          |
-| `CallbackCreds.Password` | No, but highly recommended | Basic auth `Password`                                                                                                                                                                                                        |
+| Parameters                 | Mandatory                  | Description                                                                                                                                                                                                                        |
+|:---------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ServiceType`              | Yes                        | The type of service the application will be used for. <br><br>- `Messaging-V2` for [message events](../../../messaging/callbacks/messageEvents.md) <br><br>- `Voice-V2` for [voice events](../../../voice/bxml/callbacks/about.md) |
+| `AppName`                  | Yes                        | Plain text name of the application                                                                                                                                                                                                 |
+| `MsgCallbackUrl`           | Yes, for `Messaging-V2`    | Url to receive [message events](../../../messaging/callbacks/messageEvents.md)                                                                                                                                                     |
+| `CallInitiatedCallbackUrl` | Yes, for `Voice-V2`        | Url to receive [voice events](../../../voice/bxml/callbacks/about.md)                                                                                                                                                              |
+| `CallInitiatedMethod`      | No                         | HTTP method for events sent to the `CallInitiatedCallbackUrl`.<br> <code class="post">POST</code> or <code class="get">GET</code><br>Default is <code class="post">POST</code>                                                     |
+| `CallStatusCallbackUrl`    | No                         | Url to receive [voice events](../../../voice/bxml/callbacks/about.md) **NOT** related to Initiated. Such as: rejected or hung up.                                                                                                  |
+| `CallStatusMethod`         | No                         | HTTP method for events sent to the `CallStatusCallbackUrl`.<br> <code class="post">POST</code> or <code class="get">GET</code><br>Default is <code class="post">POST</code>                                                        |
+| `CallbackCreds`            | No, but highly recommended | Basic auth credentials to apply to your message & voice events                                                                                                                                                                     |
+| `CallbackCreds.UserId`     | No, but highly recommended | Basic auth `UserId`                                                                                                                                                                                                                |
+| `CallbackCreds.Password`   | No, but highly recommended | Basic auth `Password`                                                                                                                                                                                                              |
 
 
 {% common %}
@@ -38,7 +42,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 <Application>
     <ServiceType>Messaging-V2</ServiceType>
     <AppName>Production Server</AppName>
-    <CallbackUrl>https://yourSecureSite.com/callbacks/messaging</CallbackUrl>
+    <MsgCallbackUrl>https://yourSecureSite.com/callbacks/messaging</MsgCallbackUrl>
     <CallbackCreds>
       <UserId>Your-User-id</UserId>
       <Password>Your-Password</Password>
@@ -60,7 +64,7 @@ Content-Type: application/xml
         <ApplicationId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</ApplicationId>
         <ServiceType>Messaging-V2</ServiceType>
         <AppName>Production Server</AppName>
-        <CallbackUrl>https://yourSecureSite.com/callbacks/messaging</CallbackUrl>
+        <MsgCallbackUrl>https://yourSecureSite.com/callbacks/messaging</MsgCallbackUrl>
         <CallbackCreds>
             <UserId>Your-User-id</UserId>
             <Password>Your-Password</Password>
@@ -81,7 +85,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 <Application>
     <ServiceType>Voice-V2</ServiceType>
     <AppName>Production Server</AppName>
-    <CallbackUrl>https://yourSecureSite.com/callbacks/voice</CallbackUrl>
+    <CallInitiatedCallbackUrl>https://yourSecureSite.com/callbacks/voice</CallInitiatedCallbackUrl>
     <CallbackCreds>
       <UserId>Your-User-id</UserId>
       <Password>Your-Password</Password>
@@ -103,7 +107,7 @@ Content-Type: application/xml
         <ApplicationId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</ApplicationId>
         <ServiceType>Voice-V2</ServiceType>
         <AppName>Production Server</AppName>
-        <CallbackUrl>https://yourSecureSite.com/callbacks/voice</CallbackUrl>
+        <CallInitiatedCallbackUrl>https://yourSecureSite.com/callbacks/voice</CallInitiatedCallbackUrl>
         <CallbackCreds>
             <UserId>Your-User-id</UserId>
             <Password>Your-Password</Password>
