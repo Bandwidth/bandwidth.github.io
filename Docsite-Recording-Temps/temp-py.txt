@@ -1,3 +1,8 @@
+Need an `from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState` somewhere
+
+`from bandwidth.voice.exceptions.bandwidth_exception import BandwidthException` is no more?
+replace with `from bandwidth.voice.exceptions.error_response_exception import ErrorResponseException` (###MAJOR UPGRADE###)
+
 Create Recording verb
 
 ```
@@ -25,13 +30,13 @@ deleteCallsCallIdRecordingsRecordingId.md
 voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 ```
 
-getCallsCallIdRecordings.md
+getCallsCallIdRecordings.md #todo: fix
 ```
 response = voice_client.get_query_metadata_for_account_and_call(VOICE_ACCOUNT_ID, call_id)
 print(response.body[0].duration)
 ```
 
-getCallsCallIdRecordingsRecordingId.md
+getCallsCallIdRecordingsRecordingId.md #todo: fix
 ```
 response = voice_client.get_metadata_for_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 print(response.body.duration)
@@ -44,7 +49,7 @@ with(open("file_to_write", "wb")) as f:
     f.write(response.body)
 ```
 
-getRecordings.md
+getRecordings.md #todo: fix
 ```
 response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
 print(response.body[0].duration)
