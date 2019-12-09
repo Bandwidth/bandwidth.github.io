@@ -1330,28 +1330,29 @@ securitySchemes:
                                             </BillingReportArchiveRetrievalResponse>
         /bulkPortins: 
             description:
-                The bulkPortins endpoint is used to manage requests to port a large diverse collection of Telephone Numbers into the Bandwidth Dashboard API.
+                <p>The bulkPortins endpoint is used to manage requests to port a large diverse collection of Telephone Numbers into the Bandwidth Dashboard.
                 These telephone numbers will be decomposed into a set of individual port-in orders based on the needs of the industry, making all reasonable attempts to treat the individual port-in requests in a uniform manner.
-                Like many other requests, the bulkPortins endpoint causes the creation of ana Bulk Portins <b>order</b> that is used to manage the porting event throughout the lifecycle of the request.
-                <p>The various sub-resources and methods are covered in greater detail below.
+                Like many other requests, the bulkPortins endpoint causes the creation of a Bulk Portins <b>order</b> that is used to manage the porting event throughout the lifecycle of the request.</p>
+                <p>The various sub-resources and methods are covered in greater detail below.</p>
                 <p>The elements used or supplied in the payloads are described in the following table.
                 These values will act as an initial template for port-in requests that are created by decomposing the collection of Telephone Numbers into individual port-in orders.
+                </p>
                 <p>Bulk port-in order can have one of 3 terminal processing statuses&#58; COMPLETED, CANCELLED, and PARTIAL.
-                Terminal means that an order with such status cannot be transfered to any another processing status (terminal or not).
+                Terminal means that an order with such status cannot be transferred to any other processing status (terminal or not).
                 Bulk order goes to terminal status automatically as soon as last of its associated port-ins transfers to terminal status (COMPLETE or CANCELLED).
                 The resulting terminal processing status of the bulk port-in order depends on statuses of associaed port-ins&#58;
                 COMPLETED - when all port-ins are in COMPLTE status, CANCELLED - when all port-ins are in CANCELLED status, PARTIAL - when there is a mix of CANCELLED and COMPLETE port-ins statuses.
+                </p>
+                <p>The following table describes parameters for the bulk port-in API. All parameters except for
+                 the URL parameter "accountId" are optional in the bulk port-in, although the rules for individual
+                 port-ins described in the /portins API still apply to the port-ins that make up the bulk port-in.
+                 Enforcement of required fields in the individual port-ins occurs when the bulk port-in is submitted (i.e. removed from DRAFT status).</p>
                 <table border="1" cellspacing="0" cellpadding="0" width="624">
                     <tbody>
                         <tr>
                             <td valign="top">
                                 <p>
                                     <strong>Parameter</strong>
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p>
-                                    <strong>Required</strong>
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1366,11 +1367,6 @@ securitySchemes:
                                     accountId (URL Parameter)
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    Yes
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     The account ID for porting the numbers.
@@ -1383,11 +1379,6 @@ securitySchemes:
                                     CustomerOrderId
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Internal customer order id for tracking the order. This can be any alphanumeric string.
@@ -1398,11 +1389,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     RequestedFocDate
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1418,14 +1404,9 @@ securitySchemes:
                                     AlternateSpid
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
-                                    Unique customer AltSPID to be applied to the portin requests. Can be changed only for DRAFT bulk portin.
+                                    Unique customer AltSPID to be applied to the port-in requests. Can be changed only for DRAFT bulk port-in.
                                 </p>
                             </td>
                         </tr>
@@ -1433,11 +1414,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     BillingTelephoneNumber (BTN)
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1453,11 +1429,6 @@ securitySchemes:
                                     SubscriberType
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    Yes
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     (BUSINESS, RESIDENTIAL) If residential, order will be rejected if a BusinessName is entered.
@@ -1468,11 +1439,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     BusinessName
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1487,11 +1453,6 @@ securitySchemes:
                                     FirstName
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Subscriber first name.
@@ -1502,11 +1463,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     MiddleInitial
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1521,11 +1477,6 @@ securitySchemes:
                                     LastName
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Subscriber last name.
@@ -1536,11 +1487,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     HouseNumber
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1555,11 +1501,6 @@ securitySchemes:
                                     HousePrefix
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Street address number prefix
@@ -1570,11 +1511,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     HouseSuffix
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1589,11 +1525,6 @@ securitySchemes:
                                     PreDirectional
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Street address pre-directional.
@@ -1604,11 +1535,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     StreetName
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1623,11 +1549,6 @@ securitySchemes:
                                     StreetSuffix
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Street suffix.
@@ -1638,11 +1559,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     PostDirectional
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1657,11 +1573,6 @@ securitySchemes:
                                     AddressLine2
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Put unit, suite, floor, etc. here.
@@ -1672,11 +1583,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     City
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    Yes
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1691,11 +1597,6 @@ securitySchemes:
                                     StateCode
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    Yes
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Two letter state code.
@@ -1706,11 +1607,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     Zip
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1725,11 +1621,6 @@ securitySchemes:
                                     PlusFour
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     Zip + 4 value.
@@ -1740,11 +1631,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     Country
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1759,11 +1645,6 @@ securitySchemes:
                                     LoaAuthorizingPerson
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No. Derived from state code (so country can't be removed if state code is present)
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     First and last name of person who authorized LOA.
@@ -1774,11 +1655,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     AccountNumber
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1794,26 +1670,16 @@ securitySchemes:
                                     PinNumber
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     PIN Number, often required for wireless ports.
                                 </p>
                             </td>
-                        </tr>>
+                        </tr>
                         <tr>
                             <td valign="top">
                                 <p>
                                     siteid
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1828,11 +1694,6 @@ securitySchemes:
                                     PeerId
                                 </p>
                             </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
                             <td width="351" valign="top">
                                 <p>
                                     This is the SIP Peer / Location ID made visible in the /accounts/{accountId}/sites/{siteId}/sipPeers API call
@@ -1843,11 +1704,6 @@ securitySchemes:
                             <td valign="top">
                                 <p>
                                     TnAttributes
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
                                 </p>
                             </td>
                             <td width="351" valign="top">
@@ -1888,12 +1744,12 @@ securitySchemes:
                         example: 2014-08-05
                     modifiedDateTo:
                         description: |
-                            The latest date that the order was last modified. If modified date is not earlier than today - response poyload will contain it's subtending portins. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo
+                            The latest date that the order was last modified. If modified date is not earlier than today - response poyload will contain it's subtending port-in"s. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo
                         type: date
                         example: 2014-08-05
                     orderDetails:
                         description: |
-                            If set to true, a list of bulk portin order details will be displayed instead the summary information.
+                            If set to true, a list of bulk port-in order details will be displayed instead the summary information.
                         type: boolean
                         default: false
                 responses:
@@ -1940,6 +1796,8 @@ securitySchemes:
                                             <PinNumber>1234</PinNumber>
                                             <TnAttributes>
                                                 <TnAttribute>Protected</TnAttribute>
+                                                <TnAttribute>External</TnAttribute>
+                                                <TnAttribute>Imported</TnAttribute>
                                             </TnAttributes>
                                             <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                             <SiteId>2857</SiteId>
@@ -1955,16 +1813,16 @@ securitySchemes:
                                     </BulkPortinResponses>
             post:
                 description: |
-                    Creates a Bulk Port-in request to be used as a template for a collections of individual portin orders. This will be applied to port-ins that result from decomposing a collection of Telephone Numbers that span carriers, or have attributes that drive the decomposition into a number of individual portin orders.
-                    <p>Upon a successfully-submitted payload, the order will have a status of "DRAFT", denoting that further modification to the template is suspected.
-                    <p>Releated sub-resources are used to decompose the collection of Telephone Numbers into individual portin orders.
-                    <p>The only valid value for the <ProcessingStatus> element ina POST is 'DRAFT', which is the default value.
+                    Creates a Bulk Port-in request to be used as a template for a collections of individual port-in orders. This will be applied to port-ins that result from decomposing a collection of Telephone Numbers that span carriers, or have attributes that drive the decomposition into a number of individual port-in orders.
+                    <p>Upon a successfully-submitted payload, the order will have a status of "DRAFT", denoting that further modification to the template is expected.
+                    <p>Releated sub-resources are used to decompose the collection of Telephone Numbers into individual port-in orders.
+                    <p>The only valid value for the <ProcessingStatus> element in a POST is 'DRAFT', which is the default value.
                 body:
                     application/xml:
                         example: 
                             <?xml version="1.0" encoding="UTF-8"?>
                             <BulkPortin>
-                                <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                <ProcessingStatus>DRAFT</ProcessingStatus>
                                 <CustomerOrderId>SJM00002</CustomerOrderId>
                                 <RequestedFocDate>2014-12-04T13:00:00.000Z</RequestedFocDate>
                                 <BillingTelephoneNumber>8045030092</BillingTelephoneNumber>
@@ -2003,7 +1861,7 @@ securitySchemes:
                                             <LastModifiedDate>2014-08-04T13:37:08.676Z</LastModifiedDate>
                                             <CreatedByUser>jbm</CreatedByUser>
                                             <LastModifiedBy>jbm</LastModifiedBy>
-                                            <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                            <ProcessingStatus>DRAFT</ProcessingStatus>
                                             <RequestedFocDate>2016-03-25T21:15:00.000Z</RequestedFocDate>
                                             <CustomerOrderId>SJM00002</CustomerOrderId>
                                             <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
@@ -2027,6 +1885,8 @@ securitySchemes:
                                             <PinNumber>1234</PinNumber>
                                             <TnAttributes>
                                                 <TnAttribute>Protected</TnAttribute>
+                                                <TnAttribute>External</TnAttribute>
+                                                <TnAttribute>Imported</TnAttribute>
                                             </TnAttributes>
                                             <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                             <SiteId>2857</SiteId>
@@ -2039,10 +1899,10 @@ securitySchemes:
                             application/xml:
                                 example: | 
                                     <BulkPortinResponse>
-                                        <Status>
-                                            <Code>7104</Code>
-                                            <Description>Subscriber information is required</Description>
-                                        </Status>
+                                        <ResponseStatus>
+                                            <ErrorCode>7333</ErrorCode>
+                                            <Description>Porting is not enabled on the account.</Description>
+                                        </ResponseStatus>
                                     </BulkPortinResponse>
             /{orderid}: 
                 description: |
@@ -2061,7 +1921,7 @@ securitySchemes:
                                                 <LastModifiedDate>2014-08-04T13:37:08.676Z</LastModifiedDate>
                                                 <CreatedByUser>jbm</CreatedByUser>
                                                 <LastModifiedBy>jbm</LastModifiedBy>
-                                                <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                                <ProcessingStatus>DRAFT</ProcessingStatus>
                                                 <RequestedFocDate>2016-03-25T21:15:00.000Z</RequestedFocDate>
                                                 <CustomerOrderId>SJM00002</CustomerOrderId>
                                                 <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
@@ -2085,6 +1945,8 @@ securitySchemes:
                                                 <PinNumber>1234</PinNumber>
                                                 <TnAttributes>
                                                     <TnAttribute>Protected</TnAttribute>
+                                                    <TnAttribute>External</TnAttribute>
+                                                    <TnAttribute>Imported</TnAttribute>
                                                 </TnAttributes>
                                                 <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                                 <SiteId>2857</SiteId>
@@ -2105,7 +1967,7 @@ securitySchemes:
                             example: |
                                     <?xml version="1.0" encoding="UTF-8"?>
                                     <BulkPortin>
-                                        <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                        <ProcessingStatus>DRAFT</ProcessingStatus>
                                         <CustomerOrderId>SJM00002</CustomerOrderId>
                                         <RequestedFocDate>2014-12-04T13:00:00.000Z</RequestedFocDate>
                                         <BillingTelephoneNumber>8045030092</BillingTelephoneNumber>
@@ -2142,7 +2004,7 @@ securitySchemes:
                                                 <LastModifiedDate>2014-08-04T13:37:08.676Z</LastModifiedDate>
                                                 <CreatedByUser>jbm</CreatedByUser>
                                                 <LastModifiedBy>jbm</LastModifiedBy>
-                                                <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                                <ProcessingStatus>DRAFT</ProcessingStatus>
                                                 <RequestedFocDate>2016-03-25T21:15:00.000Z</RequestedFocDate>
                                                 <CustomerOrderId>SJM00002</CustomerOrderId>
                                                 <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
@@ -2166,6 +2028,8 @@ securitySchemes:
                                                 <PinNumber>1234</PinNumber>
                                                 <TnAttributes>
                                                     <TnAttribute>Protected</TnAttribute>
+                                                    <TnAttribute>External</TnAttribute>
+                                                    <TnAttribute>Imported</TnAttribute>
                                                 </TnAttributes>
                                                 <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                                 <SiteId>2857</SiteId>
@@ -2220,7 +2084,7 @@ securitySchemes:
                             example: | 
                                 <?xml version="1.0" encoding="UTF-8"?>
                                 <BulkPortin>
-                                    <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                    <ProcessingStatus>DRAFT</ProcessingStatus>
                                     <CustomerOrderId>SJM00002</CustomerOrderId>
                                     <RequestedFocDate>2014-12-04T13:00:00.000Z</RequestedFocDate>
                                     <BillingTelephoneNumber>8045030092</BillingTelephoneNumber>
@@ -2257,7 +2121,7 @@ securitySchemes:
                                                 <LastModifiedDate>2014-08-04T13:37:08.676Z</LastModifiedDate>
                                                 <CreatedByUser>jbm</CreatedByUser>
                                                 <LastModifiedBy>jbm</LastModifiedBy>
-                                                <ProcessingStatus>[DRAFT|IN_PROGRESS]</ProcessingStatus>
+                                                <ProcessingStatus>DRAFT</ProcessingStatus>
                                                 <RequestedFocDate>2016-03-25T21:15:00.000Z</RequestedFocDate>
                                                 <CustomerOrderId>SJM00002</CustomerOrderId>
                                                 <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
@@ -2281,6 +2145,8 @@ securitySchemes:
                                                 <PinNumber>1234</PinNumber>
                                                 <TnAttributes>
                                                     <TnAttribute>Protected</TnAttribute>
+                                                    <TnAttribute>External</TnAttribute>
+                                                    <TnAttribute>Imported</TnAttribute>
                                                 </TnAttributes>
                                                 <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                                 <SiteId>2857</SiteId>
@@ -3236,7 +3102,10 @@ securitySchemes:
                         <td>Name</td><td>The name of the order. Max length restricted to 50 characters</td>
                     </tr>
                     <tr>
-                        <td>TelephoneNumberList</td><td>A list of telephone numbers to disconnect.</td>
+                        <td>TelephoneNumberList</td>
+                        <td>A list of telephone numbers to disconnect.<br/>
+                          supported for disconnect orders.</i>
+                        </td>
                     </tr>
                     </tr>
                     <tr>
@@ -3368,6 +3237,32 @@ securitySchemes:
                                                 </TelephoneNumberList>
                                                 <DisconnectMode>normal</DisconnectMode>
                                                 <Protected>UNCHANGED</Protected>
+                                            </DisconnectTelephoneNumberOrderType>
+                                        </orderRequest>
+                                    </DisconnectTelephoneNumberOrderResponse>
+                    400:
+                        description: |
+                            Bad Response - there were errors in evaluating the body of the request.
+                            Potential errors include: <ul>
+                              <li> Protected attribute is invalid. Valid values: TRUE, FALSE, UNCHANGED.</li>
+                            </ul>
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <DisconnectTelephoneNumberOrderResponse>
+                                        <ErrorList>
+                                            <Error>
+                                                <Code>54321</Code>
+                                                <Description>Some error description</Description>
+                                            </Error>
+                                        </ErrorList>
+                                        <orderRequest>
+                                            <OrderCreateDate>2019-11-19T14:06:57.254Z</OrderCreateDate>
+                                            <DisconnectTelephoneNumberOrderType>
+                                                <TelephoneNumberList>
+                                                    <TelephoneNumber>4158714245</TelephoneNumber>
+                                                </TelephoneNumberList>
                                             </DisconnectTelephoneNumberOrderType>
                                         </orderRequest>
                                     </DisconnectTelephoneNumberOrderResponse>
@@ -6097,8 +5992,36 @@ securitySchemes:
                                             </ResponseStatus>
                                         </LidbOrderReportResponse>
         /lnpchecker: 
-            description: | 
-                The lnpchecker resource performs a portability analysis for a set ot TNs, returning information about the coverage and losing carrier characteristics of the TNs allowing a better assessment of which port requests to submit.
+            description: |
+              Bandwidth supports two APIs for porting numbers to Bandwidth: /portins and /bulkPortins.<br>
+              The <B>/portins</B> API allows a set of TNs to be ported in, provided that the set of TNs meets the criteria below.<br>
+              TNs can be ported in a single /portins request if all of the following are true:<br>
+              <ul>
+                <li>They all have the same Port Type</li>
+                <li>They all have the same losing carrier</li>
+                <li>They are all associated with the same billing TN and Service Address</li>
+              </ul>
+              There are also a number of reasons why a TN may not be able to be ported in:<br>
+              <ul>
+                <li>The TN is in a rate center that is not supported by Bandwidth or any of Bandwidth's partners.</li>
+                <li>The TN belongs to a losing carrier that Bandwidth does not have a Trading Partner Agreement with.</li>
+                <li>The TN is already being processed in another active port-in order.</li>
+                <li>The Bandwidth account has not been enabled for porting.</li>
+              </ul>
+              Otherwise the user must separate the TNs into individual /portins requests.<br>
+              The <B>/lnpchecker</B> API is used to determine the Port Type(s) and losing carrier(s) for a set of TNs.<br>
+              The <B>/bulkPortins</B> API eliminates the need for the /lnpchecker API by sorting the list of TNs (up to 5000 TNs) automatically into a set of port-in requests by Port Type. The set of port-ins associated with the bulk port-in remain in a DRAFT state until you've had a chance to examine the breakdown. From that point, you can decide to submit all of the port-ins together under the umbrella of the bulk port-in, or you can separate out individual port-ins to submit by themselves.<br>
+              <B>Terminology</B><br>
+              <ul>
+                <li><B>Port Type</B> - A categorization of how the TNs submitted to the /lnpchecker API will be handled by Bandwidth. See the POST operation for more information.</li>
+                <li><B>On-Net</B> - TNs that belong to a rate center covered by Bandwidth are referred to as on-net TNs.</li>
+                <li><B>Off-Net</B> - TNs that belong to a rate center covered by a Bandwidth partner are refered to as off-net TNs.</li>
+                <li><B>Automated</B> - If the TNs are on-net, or off-net and covered by a Bandwidth partner that supports automated ports, then the port-in of these TNs will be handled with no human intervention.</li>
+                <li><B>Manual</B> - If the TNs cannot be ported automatically, the Bandwidth LNP team will work with the appropriate porting vendor or losing carrier to ensure completion of the port-in. The /portins API can be used to submit manual port-ins, which will be identified as such, and a Zendesk ticket will be automatically created to notify the Bandwidth LNP team.</li>
+                <li><B>Internal</B> - TNs that are being moved from one Bandwidth account to another Bandwidth account are referred to as internal ports. Internal ports are handled automatically.</li>
+                <li><B>Losing carrier</B> - The carrier from which the TN(s) is being ported.</li>
+              </ul>
+              <br>
             post:
                 description: |
                     Request portability information on a set of TNs 
@@ -6131,7 +6054,7 @@ securitySchemes:
                                 <tr>
                                     <td>offnetportability</td>
                                     <td>in addition to on-net information return off-net port information in <i>&lt;PartnerSupportedRateCenters&gt;</i> element with Partner/Vendor that the port will be supported on. 
-                                    Contains a list of the TNs that are supported in partner rate centers, and for which we will manually execute a port if requested
+                                    Contains a list of the TNs that are supported in partner rate centers, and for which we will execute a port if requested
                                     </td>
                                 </tr>
                             </table>
@@ -6165,6 +6088,16 @@ securitySchemes:
                                      <td> AUTOMATED, AUTOMATEDOFFNET, INTERNAL, MANUAL_ON_NET, MANUALOFFNET, MANUAL_TOLLFREE, MIXED</td>
                                  </tr>
                              </table>
+                             <br>
+                             <ul>
+                               <li><B>AUTOMATED</B> - A properly formatted /portins request with these TNs will be processed by Bandwidth and our porting vendor without requiring human intervention.</li>
+                               <li><B>AUTOMATEDOFFNET</B> - A properly formatted /portins request with these TNs will be processed by Bandwidth and our off-net porting vendor without requiring human intervention.</li>
+                               <li><B>INTERNAL</B> - The TNs will be moved from one Bandwidth account to another Bandwidth account. Internal ports are handled automatically, without human intervention.</li>
+                               <li><B>MANUAL_ON_NET</B> - Some on-net ports, if they include too many TNs, must be handled manually. The limits vary based on a number of factors, but generally it is at least 50 TNs.</li>
+                               <li><B>MANUALOFFNET</B> - For off-net vendors that do not support a porting API, or have a porting API that Bandwidth does not support, these port-ins will be handled manually.</li>
+                               <li><B>MANUAL_TOLLFREE</B> - All toll-free port-ins are handled manually.</li>
+                               <li><B>MIXED</B> - If the list of TNs supplied to /lnpchecker includes TNs that are categorized as more than one of the above Port Types, the resulting Port Type will be MIXED. If you plan to use /portins to port the TNs, you must break the TN list into separate /portins requests for each Port Type.</li>
+                             </ul>
                         body:
                             application/xml:
                                 example: |
@@ -6253,8 +6186,6 @@ securitySchemes:
                         description: | 
                             Bad Response - there were errors in evaluating the body of the request
                             Potential errors include: <ul>
-                            <li> Un-supported losing carrier.
-                            <li> Unable to provide coverage.
                             <li> Telephone number is already being processed on another order.
                             <li> Rate Center Not Present in Bandwidth Dashboard API.
                             <li> Account not enabled for LNP 
@@ -7870,6 +7801,8 @@ securitySchemes:
                                 </CombinedSearchAndOrderType>
                                 <TnAttributes>
                                         <TnAttribute>Protected</TnAttribute>
+                                        <TnAttribute>External</TnAttribute>
+                                        <TnAttribute>Imported</TnAttribute>
                                 </TnAttributes>
                                 <PartialAllowed>true</PartialAllowed>
                                 <SiteId>743</SiteId>
@@ -7893,6 +7826,8 @@ securitySchemes:
                                             </ZIPSearchAndOrderType>
                                             <TnAttributes>
                                                     <TnAttribute>Protected</TnAttribute>
+                                                    <TnAttribute>External</TnAttribute>
+                                                    <TnAttribute>Imported</TnAttribute>
                                             </TnAttributes>
                                             <PartialAllowed>true</PartialAllowed>
                                             <SiteId>3013</SiteId>
@@ -7922,6 +7857,8 @@ securitySchemes:
                                             </AreaCodeSearchAndOrderType>
                                             <TnAttributes>
                                                     <TnAttribute>Protected</TnAttribute>
+                                                    <TnAttribute>External</TnAttribute>
+                                                    <TnAttribute>Imported</TnAttribute>
                                             </TnAttributes>
                                             <PartialAllowed>true</PartialAllowed>
                                             <SiteId>763</SiteId>
@@ -7967,6 +7904,8 @@ securitySchemes:
                                                 </AreaCodeSearchAndOrderType>
                                                 <TnAttributes>
                                                         <TnAttribute>Protected</TnAttribute>
+                                                        <TnAttribute>External</TnAttribute>
+                                                        <TnAttribute>Imported</TnAttribute>
                                                 </TnAttributes>
                                                 <PartialAllowed>true</PartialAllowed>
                                                 <SiteId>743</SiteId>
@@ -8276,12 +8215,16 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
-                                    If not entered, the next available FOC date will be used. It if is entered, order will be rejected if date is earlier than losing carriers
-                                    minimum number of days to port-out or if date is a weekend or holiday. Format is ISO8601 encoding of ZULU/UTC/GMT such as
-                                    “2013-05-10T15:14:22Z”.
-                                </p>
-                                <p>
-                                    If the port is capable of on demand activation then the time value in the request considered to be the default activation time of the port.
+                                    Format: ISO8601 encoding such as “2013-05-10T15:14:22Z”, or "2019-10-31T17:15:00+04:00".
+                                    For all ports, if RequestedFocDate is specified, the date portion must be:
+                                    <ul>
+                                      <li> in the future </li>
+                                      <li> after the losing carrier's minimum number of days to port-out </li>
+                                      <li> not on a weekend or U.S. holiday </li>
+                                    </ul>
+                                    If RequestedFocDate is not specified, then the next available FOC date, meeting the criteria above, will be used.
+                                    For non-Triggered Ports, the Time portion of the RequestedFocDate may be omitted. These ports will be activated at the default activation time of 11:30.
+                                    For Triggered Ports, the desired activation time should be included in the RequestedFocDate. If the time portion of RequestedFocDate is omitted, time defaults to 00:00:00Z, so please specify a time.
                                 </p>
                             </td>
                         </tr>
@@ -8368,7 +8311,7 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
-                                    Subscriber business name.
+                                    Subscriber business name. Mandatory if SubscriberType is BUSINESS.
                                 </p>
                             </td>
                         </tr>
@@ -8419,7 +8362,7 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
-                                    Subscriber last name.
+                                    Subscriber last name. Mandatory if SubscriberType is RESIDENTIAL.
                                 </p>
                             </td>
                         </tr>
@@ -8640,7 +8583,7 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
-                                    Country.
+                                    Country. Derived from StateCode if omitted.
                                 </p>
                             </td>
                         </tr>
@@ -8735,7 +8678,7 @@ securitySchemes:
                         <tr>
                             <td valign="top">
                                 <p>
-                                    siteid
+                                    SiteId
                                 </p>
                             </td>
                             <td valign="top">
@@ -8745,7 +8688,10 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
-                                    See section on Sites
+                                    This identifier specifies the site, aka sub-account, that the TNs will be
+                                    ported into. You can find the identifier for a site/sub-account by using GET
+                                     /accounts/<accountId>/sites, or by clicking on 'Manage sub-account' for the
+                                      desired sub-account on the main page of the Bandwidth Dashboard UI portal.
                                 </p>
                             </td>
                         </tr>
@@ -8762,7 +8708,13 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
-                                    See section on SIP Peers
+                                    This identifier specifies the SIP-peer, aka Location, that the TNs will be
+                                    ported into. You can find the identifier for a sip-peer/location by using
+                                    GET /accounts/<accountId>/sites/<siteId>/sippeers, or by clicking on 'Accounts'
+                                     on the upper right of the Bandwidth Dashboard UI portal, then clicking
+                                     'Locations' on the navigation bar. The Location identifiers are listed next
+                                     each location name. If PeerId is omitted, the Location designated as the
+                                      'default location' for that sub-account will be used.
                                 </p>
                             </td>
                         </tr>
@@ -8779,6 +8731,7 @@ securitySchemes:
                             </td>
                             <td width="351" valign="top">
                                 <p>
+                                    "PartialPort" false means that all TNs associated with the Billing TN are being ported.
                                     By default all portin orders are classified as full ports. If the attribute PartialPort is specified as true, the order will be submitted
                                     as a partial port. Would be ignored in provisioning of toll free numbers for RespOrg Exception customer.
                                 </p>
@@ -8826,6 +8779,43 @@ securitySchemes:
                             </td>
                         </tr>
                         </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    ProcessingStatus
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Including ProcessingStatus with a value of "DRAFT" allows you to create a port-in request in the Bandwidth Dashboard, but not processing the request. Omitting ProcessingStatus cause the port-in to be validated and if correct, processed right away. Be aware,
+                                    however, that validation of the port-in payload occurs when the request is actually submitted by
+                                    performing a PUT on the order with ProcessingStatus set to SUBMITTED.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td valign="top">
+                              <p>
+                                  Immediately
+                              </p>
+                          </td>
+                          <td valign="top">
+                              <p align="center">
+                                  No
+                              </p>
+                          </td>
+                          <td width="351" valign="top">
+                              <p>
+                                  Including Immediately with a value of true will cause an Internal port-in to
+                                   complete as soon as possible, without requiring a scheduled activation time.
+                                    Immediately has no meaning for port types other than Internal.
+                              </p>
+                          </td>
                         </tr>
                     </tbody>
                 </table>
@@ -8913,9 +8903,10 @@ securitySchemes:
                                     </LNPResponseWrapper>
             post:
                 description: |
-                    Creates a port-in request under the given site ID and sippeer ID as specified in the body.<br>
-                    Upon a successfully-submitted payload, the order will have a status of "PENDING_DOCUMENTS".<br>
-                    In order to have a successful POST, the payload will need to have a specific <strong>site ID</strong> and <strong>sippeer ID</strong>, according to the account.
+                    Creates a port-in request for the accountId, SiteId, and PeerId.
+                     If PeerId is omitted, the default PeerId (Location) for the Site (Sub-Account) will be used.
+                      Once the payload is successfully submitted, the order will temporarily have a status of
+                      "PENDING_DOCUMENTS", then "SUBMITTED".
                     <br><br>
                 body:
                     application/xml:
@@ -8947,6 +8938,8 @@ securitySchemes:
                                 </WirelessInfo>
                                 <TnAttributes>
                                         <TnAttribute>Protected</TnAttribute>
+                                        <TnAttribute>External</TnAttribute>
+                                        <TnAttribute>Imported</TnAttribute>
                                 </TnAttributes>
                                 <ListOfPhoneNumbers>
                                     <PhoneNumber>9194809871</PhoneNumber>
@@ -8988,6 +8981,8 @@ securitySchemes:
                                         </WirelessInfo>
                                         <TnAttributes>
                                                 <TnAttribute>Protected</TnAttribute>
+                                                <TnAttribute>External</TnAttribute>
+                                                <TnAttribute>Imported</TnAttribute>
                                         </TnAttributes>
                                         <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                         <NewBillingTelephoneNumber>9175131245</NewBillingTelephoneNumber>
@@ -9040,6 +9035,8 @@ securitySchemes:
                                         </WirelessInfo>
                                         <TnAttributes>
                                                 <TnAttribute>Protected</TnAttribute>
+                                                <TnAttribute>External</TnAttribute>
+                                                <TnAttribute>Imported</TnAttribute>
                                         </TnAttributes>
                                         <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                         <NewBillingTelephoneNumber>9175131245</NewBillingTelephoneNumber>
@@ -9050,9 +9047,9 @@ securitySchemes:
                                     </LnpOrderResponse>
             /{orderid}: 
                 description: |
-                    This resource retrieves information associated with the port-in associated with the ID number specified.
+                    This resource is used to manage a specific existing port-in order.
                 get:
-                    description: 'Retrieves the information associated with the specified port-in ID number. Note: For users of Enterprise Telephony accounts, AlternateSpid, LosingCarrierSPID, LosingCarrierName, and LosingCarrierIsWireless, shall be omitted from the success output.'
+                    description: 'Retrieves the information associated with the specified port-in ID number. Note: For users of Enterprise Telephony accounts, AlternateSpid, LosingCarrierSPID, LosingCarrierName, and LosingCarrierIsWireless, are omitted from the success output.'
                     responses:
                         200:
                             description: The information has been successfully retrieved and displayed in the payload.
@@ -9089,6 +9086,8 @@ securitySchemes:
                                             </WirelessInfo>
                                             <TnAttributes>
                                                 <TnAttribute>Protected</TnAttribute>
+                                                <TnAttribute>External</TnAttribute>
+                                                <TnAttribute>Imported</TnAttribute>
                                             </TnAttributes>
                                             <BillingTelephoneNumber>9195551234</BillingTelephoneNumber>
                                             <NewBillingTelephoneNumber>9175131245</NewBillingTelephoneNumber>
@@ -9107,13 +9106,13 @@ securitySchemes:
                                             <LastModifiedBy>jbm</LastModifiedBy>
                                             <PartialPort>false</PartialPort>
                                             <Triggered>false</Triggered>
-                                            <PortType>AUTOMATED</PortType> <!-- [ AUTOMATED | INTERNAL | MANUALOFFNET ] -->
+                                            <PortType>AUTOMATED</PortType>
                                         </LnpOrderResponse>
                 put:
                     description: |
                         It is possible to change ("SUPP" in LNP terms) an existing LNP order.  This is done via a PUT on the existing order-id.
                         Since many of the entries in an LNP Order cannot be changed after the initial order is placed the PUT on a porting order-id does *not* require that the full order payload is included.<br/>
-                        is provided.
+                        If SUPP is done to <strong>draft</strong> portin no validations will be applied except validation of tn list if at least 1 tn is provided.
                         Items that can be included in a SUPP request include:
                         <ul>
                         <li>CustomerOrderId</li>
@@ -9129,13 +9128,24 @@ securitySchemes:
                         <li>PartialPort, and</li>
                         <li>LoaAuthorizingPerson</li>
                         <li>ListOfPhoneNumbers</li>
+                        <li>Triggered</li>
+                        <li>Immediately</li>
                         </ul>
+                        Note: If the order ProcessingStatus is DRAFT, the rules about what can be changed are much more relaxed. Validation is performed when the ProcessingStatus is changed from DRAFT to SUBMITTED.
                         <p>The AltSpid element can be modified if it is not configured at the system level.
                         <p>List of phone numbers can not be modified if order status was/is in FOC or complete state. Doesn't apply for internal port type.
                         <p><b>ProcessingStatus</b> - you can only provide this field with a value of SUBMITTED and only if the current ProcessingStatus of the port-in is DRAFT.
                         <p><b>ResetAddressFields -</b> As stated above the general approach to handling <i>this</i> API call is to replace the elements included in the request body, and leave other preexisting elements in an unmodified condition.  This is typical of a PATCH method, but because of our commitment to backwards compatibility we have elected not to "Fix" this behavior.
                         As a result, providing only a few fields in the street address will result in an update to just those fields. This prevents removal of an element of the address.  The ResetAddressFields element is provided to resolve this issue.  The default setting of 'false' is to consistency with the initial implementation.
                         The recommendation is to replace the entire street address.  This ensures that you are enforcing the street address content of the port-in order.  As part of this recommendation the ResetAddressFields element should be set to true, which will force the street address to be exactly what you specified in the payload.
+                        <br> <br> When a port-in is being processed by off-net partner Level 3 (you can tell this because /lnpchecker indicates a Port Type of AUTOMATEDOFFNET), the rules for what can be changed in a SUPP operation are more restrictive. If the order has NOT yet received FOC, you may change the following:
+                        <ul>
+                          <li>RequestedFocDate</li>
+                          <li>BillingTelephoneNumber</li>
+                          <li>SubscriberType</li>
+                          <li>Subscriber name elements or BusinessName, provided that SubscriberType is provided</li>
+                        </ul>
+                        After FOC has been received, only RequestedFocDate may be changed.
                     body:
                         application/xml:
                             example: |
@@ -9151,6 +9161,8 @@ securitySchemes:
                                     </WirelessInfo>
                                     <TnAttributes>
                                         <TnAttribute>Protected</TnAttribute>
+                                        <TnAttribute>External</TnAttribute>
+                                        <TnAttribute>Imported</TnAttribute>
                                     </TnAttributes>
                                     <Subscriber>
                                         <SubscriberType>RESIDENTIAL</SubscriberType>
@@ -9365,8 +9377,8 @@ securitySchemes:
                 /activationStatus: 
                     get:
                         description: |
-                            Retrieve the currently activated status for customer activated (triggered) portin orders. The payload returns the list of activated TNs associated with the order. It also returns a list of the TNs associated with the order that have not yet been activated <br><br>
-                            At this time all phone numbers associated with a PON will be activated at the same time, but a change to per-TN activation is coming and will use the same basic payload and activation model.
+                            Retrieve the status (activated or not activated) of TNs associated with the customer activated (triggered) order. <br><br>
+                            At this time all phone numbers associated with a PON will be activated at the same time.
                         responses: 
                             200:
                                 description: |
@@ -9386,7 +9398,7 @@ securitySchemes:
                                             </ActivationStatusResponse>
                             400:
                                 description: |
-                                    Return a 400 error if the Portin Order is not in FOC status, or if not executed on the day of FOC or within the delay interval.
+                                    Return a 400 error if the port-in Order is not in FOC status, or if not executed on the day of FOC or within the delay interval.
                                 body:
                                     application/xml:
                                         example: |
@@ -9394,12 +9406,12 @@ securitySchemes:
                                             <ActivationStatusResponse>
                                                 <ResponseStatus>
                                                     <ErrorCode>7342</ErrorCode>
-                                                    <Description>On demand portin activation not yet allowed.</Description>
+                                                    <Description>On demand port-in activation not yet allowed.</Description>
                                                 </ResponseStatus>
                                             </ActivationStatusResponse>
                             404:
                                 description: |
-                                    Return a 404 if the Portin Order is missing, or if the activation is complete, and thus the ActivationStatus resource has been erased.
+                                    Return a 404 if the Port-in Order is missing, or if the activation is complete, and thus the ActivationStatus resource has been erased.
                                 body:
                                     application/xml:
                                         example:
@@ -9412,12 +9424,12 @@ securitySchemes:
                                             </ActivationStatusResponse>
                     put:
                         description: |
-                            Sets the activation time for the portin order.  <br> <br>
-                            This API call is currently used to set the Activation time of the customer activated (triggered) port.
+                            Sets the activation time for the port-in order.  <br> <br>
+                            This API call is used to set the Activation time of the customer activated (triggered) port.
                             <ul>
-                            <li>If the time is in the past all of the TNs in the portin request will be activated 'immediately'.</li>
+                            <li>If the time is in the past all of the TNs in the port-in request will be activated 'immediately'.</li>
                             <li>For automated on-net port-ins, if the time is within three days after the approved FoC date, the auto-activation time for the port will be set to that time.</li>
-                            <li>For automated off-net port-ins, if the date matches the actual FOC date and the time is between 5:00 AM ET and 10:00 PM ET, the auto-activation time for the port will be set to that time.</li>
+                            <li>For automated off-net port-ins, if the date matches the actual FOC date and the time is between 6:00 AM ET and 10:00 PM ET, the auto-activation time for the port will be set to that time.</li>
                             </ul>
                         body:
                             application/xml:
@@ -9445,7 +9457,7 @@ securitySchemes:
                                             <ActivationStatusResponse>
                                                 <ResponseStatus>
                                                     <ErrorCode>7342</ErrorCode>
-                                                    <Description>On demand portin activation not yet allowed.</Description>
+                                                    <Description>On demand port-in activation not yet allowed.</Description>
                                                 </ResponseStatus>
                                             </ActivationStatusResponse>      
                             404:
@@ -11698,6 +11710,8 @@ securitySchemes:
                                                                 <CallingNameDisplay>true</CallingNameDisplay>
                                                                 <TnAttributes>
                                                                     <TnAttribute>Protected</TnAttribute>
+                                                                    <TnAttribute>External</TnAttribute>
+                                                                    <TnAttribute>Imported</TnAttribute>
                                                                 </TnAttributes>
                                                                 <MessagingSettings>
                                                                     <SmsEnabled>true</SmsEnabled>
@@ -11740,6 +11754,8 @@ securitySchemes:
                                                                 <CallingNameDisplay>true</CallingNameDisplay>
                                                                 <TnAttributes>
                                                                     <TnAttribute>Protected</TnAttribute>
+                                                                    <TnAttribute>External</TnAttribute>
+                                                                    <TnAttribute>Imported</TnAttribute>
                                                                 </TnAttributes>
                                                                 <MessagingSettings>
                                                                     <SmsEnabled>true</SmsEnabled>
@@ -11762,6 +11778,8 @@ securitySchemes:
                                                     <CallingNameDisplay>true</CallingNameDisplay>
                                                     <TnAttributes>
                                                         <TnAttribute>Protected</TnAttribute>
+                                                        <TnAttribute>External</TnAttribute>
+                                                        <TnAttribute>Imported</TnAttribute>
                                                     </TnAttributes>
                                                     <MessagingSettings>
                                                         <SmsEnabled>true</SmsEnabled>
@@ -14319,6 +14337,10 @@ securitySchemes:
                                                 <PeerId>500014</PeerId>
                                                 <PeerName>a2750fad-3</PeerName>
                                             </SipPeer>
+                                            <ServiceTypes>
+                                                <ServiceType>Voice</ServiceType>
+                                                <ServiceType>Messaging</ServiceType>
+                                            </ServiceTypes>
                                             <LastModified>2014-07-30T11:29:37.000Z</LastModified>
                                             <InServiceDate>2014-07-30T11:29:37.000Z</InServiceDate>
                                             <Features>
@@ -14372,8 +14394,113 @@ securitySchemes:
                                             </MessagingSettings>
                                             <TnAttributes>
                                                 <TnAttribute>Protected</TnAttribute>
+                                                <TnAttribute>External</TnAttribute>
                                             </TnAttributes>
                                         </TelephoneNumberDetails>
+                                    </TelephoneNumberResponse>
+                                      <!--Shared tn details-->
+                                    <TelephoneNumberResponse>
+                                    <TelephoneNumberDetails>
+                                      <City>JERSEY CITY</City>
+                                      <Lata>224</Lata>
+                                      <State>NJ</State>
+                                      <FullNumber>2018981023</FullNumber>
+                                      <Tier>0</Tier>
+                                      <VendorId>49</VendorId>
+                                      <VendorName>Bandwidth CLEC</VendorName>
+                                      <RateCenter>JERSEYCITY</RateCenter>
+                                      <Status>Inservice</Status>
+                                      <AccountId>14</AccountId>
+                                      <Site>
+                                        <Id>479</Id>
+                                        <Name>site_9b08f</Name>
+                                      </Site>
+                                      <SipPeer>
+                                        <PeerId>500014</PeerId>
+                                        <PeerName>a2750fad-3</PeerName>
+                                      </SipPeer>
+                                      <ServiceTypes>
+                                        <ServiceType>Voice</ServiceType>
+                                      </ServiceTypes>
+                                      <LastModified>2014-07-30T11:29:37.000Z</LastModified>
+                                      <InServiceDate>2014-07-30T11:29:37.000Z</InServiceDate>
+                                      <Features>
+                                        <E911>
+                                          <LastE911OrderOutcome>SUCCESS</LastE911OrderOutcome>
+                                          <SipPeerAddress>false</SipPeerAddress>
+                                          <CallerName>Test CallerName</CallerName>
+                                          <Address>
+                                            <HouseNumber>901</HouseNumber>
+                                            <StreetName>MAIN CAMPUS</StreetName>
+                                            <StreetSuffix>DR</StreetSuffix>
+                                            <City>RALEIGH</City>
+                                            <StateCode>NC</StateCode>
+                                            <Zip>27606</Zip>
+                                            <PlusFour>5244</PlusFour>
+                                            <Country>United States</Country>
+                                          </Address>
+                                        </E911>
+                                        <Lidb>
+                                          <Status>Pending</Status>
+                                          <SubscriberInformation>Fred</SubscriberInformation>
+                                          <UseType>BUSINESS</UseType>
+                                          <Visibility>PUBLIC</Visibility>
+                                        </Lidb>
+                                        <Dlda>
+                                          <Status>Success</Status>
+                                          <SubscriberType>BUSINESS</SubscriberType>
+                                          <ListingType>LISTED</ListingType>
+                                          <ListingName>
+                                            <FirstName>Joe</FirstName>
+                                            <LastName>Smith</LastName>
+                                          </ListingName>
+                                          <ListAddress>true</ListAddress>
+                                          <Address>
+                                            <HouseNumber>12</HouseNumber>
+                                            <StreetName>ELM</StreetName>
+                                            <City>New York</City>
+                                            <StateCode>NY</StateCode>
+                                            <Zip>10007</Zip>
+                                            <Country>United States</Country>
+                                            <AddressType>Dlda</AddressType>
+                                          </Address>
+                                        </Dlda>
+                                      </Features>
+                                      <TnAttributes>
+                                        <TnAttribute>Hosted</TnAttribute>
+                                      </TnAttributes>
+                                      <HostedTelephoneNumberDetails>
+                                        <HostedTelephoneNumberDetail>
+                                          <AccountId>12346160</AccountId>
+                                          <Site>
+                                            <Id>487</Id>
+                                            <Name>site_Mw4FX</Name>
+                                          </Site>
+                                          <SipPeer>
+                                            <PeerId>500026</PeerId>
+                                            <PeerName>sippeeremhlO</PeerName>
+                                            <IsDefaultPeer>true</IsDefaultPeer>
+                                          </SipPeer>
+                                          <ServiceTypes>
+                                            <ServiceType>Hosted Messaging</ServiceType>
+                                          </ServiceTypes>
+                                          <MessagingSettings>
+                                            <SmsEnabled>true</SmsEnabled>
+                                            <CampaignId>fYtaiwCESO7Z7sgnc3smfMOg1JgMZ16FCQ1FtFosjHRUSkJVNWYW5p70gdVWGTGe</CampaignId>
+                                            <MessageClass>V4578Qab0yppj6E4xumcMbmE5d6IPY9FWT37xI9gHt6AGoiEihurpYLNuV5EfbTn
+                                            </MessageClass>
+                                            <A2pState>overridden</A2pState>
+                                            <AssignedNnRoute>
+                                              <Nnid>2183991</Nnid>
+                                              <Name>7ae5LXMn</Name>
+                                            </AssignedNnRoute>
+                                          </MessagingSettings>
+                                          <TnAttributes>
+                                            <TnAttribute>Hosted</TnAttribute>
+                                          </TnAttributes>
+                                        </HostedTelephoneNumberDetail>
+                                      </HostedTelephoneNumberDetails>
+                                    </TelephoneNumberDetails>
                                     </TelephoneNumberResponse>
                     400:
                         description: Bad Request - failed to get detailed information about the current phone number.

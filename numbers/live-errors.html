@@ -881,6 +881,14 @@
     <td>5173</td>
     <td>SMS is already %s or number is in processing.</td>
   </tr>
+    <tr>
+    <td>5174</td>
+    <td>A purge disconnect type is required for Short Code TNs</td>
+  </tr>
+    <tr>
+    <td>5175</td>
+    <td>Only a single type of TN is allowed for a Disconnect action</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -982,49 +990,6 @@
     <tr>
     <td>5047</td>
     <td>Cannot unreserve telephone number %s</td>
-  </tr>
-  </table>
-<h2>VirtualInventoryError</h2>
-<table class="fixed">
-  <tr>
-    <th>Error Code</th>
-    <th>Error Description</th>
-  </tr>
-    <tr>
-    <td>15000</td>
-    <td>Account '%s' does not have an account quota</td>
-  </tr>
-    <tr>
-    <td>15001</td>
-    <td>Account '%s' is already set up for Virtual Inventory</td>
-  </tr>
-    <tr>
-    <td>15002</td>
-    <td>Unable to lower %sQuota due to an existing criteria with a higher quantity</td>
-  </tr>
-    <tr>
-    <td>15003</td>
-    <td>AccountQuota of '%s' exceeds criteria quantity sum of '%s'</td>
-  </tr>
-    <tr>
-    <td>15004</td>
-    <td>%s Quota of '%s' exceeds AccountQuota of '%s'</td>
-  </tr>
-    <tr>
-    <td>15005</td>
-    <td>Criteria values may not overlap (e.g. if there already is a 919 criteria, 919234 cannot be added, however 918 can; if there already is 919234, 919 cannot be added, however 919235 can)</td>
-  </tr>
-    <tr>
-    <td>15006</td>
-    <td>Quantity '%s' exeeds CriteriaQuota of '%s'</td>
-  </tr>
-    <tr>
-    <td>15007</td>
-    <td>The sum of criteria quantities exceed AccountQuota of '%s'</td>
-  </tr>
-    <tr>
-    <td>15009</td>
-    <td>Account=%s does not have a criteria quota of type=%s</td>
   </tr>
   </table>
 
@@ -1688,7 +1653,7 @@
   </tr>
     <tr>
     <td>7399</td>
-    <td>Telephone number attribute '%s' is invalid. Valid values: Protected, External</td>
+    <td>Telephone number attribute '%s' is invalid. Valid values: Protected, External, Hosted</td>
   </tr>
     <tr>
     <td>7474</td>
@@ -2144,6 +2109,10 @@
     <tr>
     <td>7608</td>
     <td>The requested time can not be updated for non triggered portin order.</td>
+  </tr>
+    <tr>
+    <td>7609</td>
+    <td>The telephone number(s) belongs to unsupported losing carrier.</td>
   </tr>
   </table>
 
@@ -2997,7 +2966,7 @@
   </tr>
     <tr>
     <td>15519</td>
-    <td>Invalid 'status'. Valid values: Available, Inservice, Disconnected, Aging, PortInPendingFoc, Virtual, PortOut, Reserved, Removed, Eliminated, StatusUnchanged</td>
+    <td>Invalid 'status'. Valid values: Available, Inservice, Disconnected, Aging, PortInPendingFoc, PortOut, Reserved, Removed, Eliminated, StatusUnchanged</td>
   </tr>
     <tr>
     <td>15520</td>
@@ -3686,7 +3655,7 @@
   </tr>
     <tr>
     <td>12013</td>
-    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, VirtualInventory, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement</td>
+    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement</td>
   </tr>
     <tr>
     <td>12015</td>
@@ -3706,7 +3675,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4230,7 +4199,7 @@
   </tr>
     <tr>
     <td>12153</td>
-    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, International, and Trial.</td>
+    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, and Trial.</td>
   </tr>
     <tr>
     <td>12154</td>
@@ -4250,7 +4219,7 @@
   </tr>
     <tr>
     <td>12158</td>
-    <td>Accounts with International customer segment are not compatible with the UC Trunking, Messaging, E911, or Virtual products</td>
+    <td>Accounts with International customer segment are not compatible with the UC Trunking, Messaging, or E911 products</td>
   </tr>
     <tr>
     <td>12159</td>
@@ -4259,6 +4228,18 @@
     <tr>
     <td>12160</td>
     <td>The operation could not be performed because Account %d does not have the CSR feature enabled.</td>
+  </tr>
+    <tr>
+    <td>12161</td>
+    <td>HTTP Voice is not enabled for account %s in Edge Management.</td>
+  </tr>
+    <tr>
+    <td>12162</td>
+    <td>FalloutManagementGrade cannot be set. Please enable the Fallout Management feature on the account first.</td>
+  </tr>
+    <tr>
+    <td>12163</td>
+    <td>The value supplied for FalloutManagementGrade is invalid. Acceptable values are 1, 2 or 3.</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -5854,6 +5835,10 @@
     <tr>
     <td>13030</td>
     <td>An Account Id or Tag must be included as a query parameter</td>
+  </tr>
+    <tr>
+    <td>13031</td>
+    <td>LNP feature is required for LnpFalloutManagement feature</td>
   </tr>
   </table>
 <h2>TerminationError</h2>

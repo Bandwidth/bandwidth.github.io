@@ -4,7 +4,8 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](../../guides/callbacks/c
 
 In order to successfully use the Voice & Messaging APIs, you need to configure an `Application` for **both** the [Voice API](../../voice/about.md) & the [Messaging API](../../messaging/about.md).
 
-Applications contain the `CallbackUrl` & `CallbackCreds` to authenticate and send either [message events](../../messaging/callbacks/messageEvents.md) or [voice events](../../voice/bxml/callbacks/about.md) to your service.
+Applications contain the `MsgCallbackUrl` for messaging applications or the `CallInitiatedCallbackUrl` & `CallStatusCallbackUrl` for voice applications.  These URLs are used to send either [message events](../../messaging/callbacks/messageEvents.md) or [voice events](../../voice/bxml/callbacks/about.md) to your service.
+The application object also contains the `CallbackCreds` to authenticate requests to your server.
 
 Each application can be assigned to as many `Locations` as needed.  However, each `Location` can only have a single `Application` per service type.
 
