@@ -62,9 +62,9 @@ f.write(downloaded_media.body)
 f.close()
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var response = await messagingController.getMedia(messagingAccountId, "mediaId");
 fs.writeFileSync("file_to_write", response, "binary");
 ```

@@ -69,7 +69,7 @@ messaging_client.upload_media(MESSAGING_ACCOUNT_ID, "mediaId", str(len(file_cont
 f.close()
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
 ```js
 var contentLength;

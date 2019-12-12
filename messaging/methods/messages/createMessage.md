@@ -162,9 +162,9 @@ except Exception as e:
     print(e)
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
     "to": ["+12345678902"],
@@ -322,9 +322,9 @@ except Exception as e:
     print(e)
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
     "to": ["+12345678902"],
@@ -484,9 +484,9 @@ except Exception as e:
     print(e)
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
     "to": ["+12345678902"],
@@ -639,9 +639,9 @@ except Exception as e:
     print(e)
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
     "to": ["+12345678902", "+12345678903"],
@@ -805,9 +805,9 @@ except Exception as e:
     print(e)
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
     "to": ["+12345678902", "+12345678903"],

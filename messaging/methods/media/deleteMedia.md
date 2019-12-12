@@ -42,9 +42,9 @@ messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 await messagingController.deleteMedia(messagingAccountId, "mediaId")
 ```
 

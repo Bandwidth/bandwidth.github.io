@@ -42,7 +42,7 @@
 
 ### Send a message
 
-```node
+```js
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId": applicationId ,
     "to": ["+19999999999"],

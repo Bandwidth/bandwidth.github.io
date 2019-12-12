@@ -85,9 +85,9 @@ media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
 print(media.body[0].media_name)
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 var response = await messagingController.listMedia(userId, '');
 console.log(response[0].mediaName);
 ```
@@ -182,9 +182,9 @@ while True:
         break
 ```
 
-{% sample lang="node" %}
+{% sample lang="js" %}
 
-```node
+```js
 async function getMediaWithToken(continuationToken) {
     await messagingController.listMedia(userId, continuationToken, function(error, response, context) {
         console.log("Medias length: " + response.length);
