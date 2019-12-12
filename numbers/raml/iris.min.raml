@@ -1142,18 +1142,21 @@ securitySchemes:
                       <li>INVOICE</li>
                       <li>STMTBDR</li>
                       <li>DIDSNAP</li>
-                      <li>RECORDING_BDR</li>
-                      <li>RECORDINGSTMT_BDR</li>
+                      <li>DIDSNAP_MSG</li>
+                      <li>RECORDINGBDR</li>
+                      <li>RECORDINGSTMTBDR</li>
+                      <li>CNAMBDR</li>
+                      <li>CNAMSTMTBDR</li>
                       </ul>
                 queryParameters:
                     kind:
-                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP, RECORDING_BDR, RECORDINGSTMT_BDR
+                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP, RECORDINGBDR, RECORDINGSTMTBDR, CNAMBDR, CNAMSTMTBDR
                         type: string
                         required: false
                         example: DIDSNAP
                 responses:
                     200:
-                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDING_BDR, RECORDINGSTMT_BDR as status history not implemented yet for these billing types)
+                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDINGBDR, RECORDINGSTMTBDR, CNAMBDR, CNAMSTMTBDR  as status history not implemented yet for these billing types)
                         body:
                             application/xml:
                                 example: |
@@ -14326,6 +14329,7 @@ securitySchemes:
                                             <Tier>0</Tier>
                                             <VendorId>49</VendorId>
                                             <VendorName>Bandwidth CLEC</VendorName>
+                                            <OnNetVendor>true</OnNetVendor>
                                             <RateCenter>JERSEYCITY</RateCenter>
                                             <Status>Inservice</Status>
                                             <AccountId>14</AccountId>

@@ -69,4 +69,16 @@ messaging_client.upload_media(MESSAGING_ACCOUNT_ID, "mediaId", str(len(file_cont
 f.close()
 ```
 
+{% sample lang="node" %}
+
+```js
+var contentLength;
+var contentType = 'application/octet-stream';
+var cacheControl = 'no-cache';
+
+var contents = fs.readFileSync("some_file", "binary");
+contentLength = contents.length;
+await messagingController.uploadMedia(messagingAccountId, "mediaId", contentLength, contents, contentType, cacheControl);
+```
+
 {% endmethod %}

@@ -42,8 +42,17 @@
 
 ### Send a message
 
-```js
-// Coming Soon
+```node
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": applicationId ,
+    "to": ["+19999999999"],
+    "from": "+18888888888",
+    "text": "The quick brown fox jumps over a lazy dog."
+});
+
+messagingController.createMessage(msgUserId, body, function(error, response, context) {
+    console.log(response);
+});
 ```
 
 ```csharp

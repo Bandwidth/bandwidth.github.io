@@ -85,6 +85,13 @@ media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
 print(media.body[0].media_name)
 ```
 
+{% sample lang="node" %}
+
+```node
+var response = await messagingController.listMedia(userId, '');
+console.log(response[0].mediaName);
+```
+
 {% common %}
 
 ### Example 2 of 2: List Your Media Files Using A Continuation-Token
@@ -174,4 +181,30 @@ while True:
     if continuation_token is None:
         break
 ```
+
+{% sample lang="node" %}
+
+```node
+async function getMediaWithToken(continuationToken) {
+    await messagingController.listMedia(userId, continuationToken, function(error, response, context) {
+        console.log("Medias length: " + response.length);
+        console.log("Media 1 name: " + response[0].mediaName);
+        if (context.response.headers.hasOwnProperty('continuation-token')) {
+            continuationToken = context.response.headers['continuation-token'];
+        } else {
+            continuationToken = null;
+        }
+    });
+    return continuationToken;
+}
+
+var continuationToken = '';
+while (true) {
+    continuationToken = await getMediaWithToken(continuationToken);
+    if (continuationToken === null) {
+        break;
+    }
+}
+```
+
 {% endmethod %}

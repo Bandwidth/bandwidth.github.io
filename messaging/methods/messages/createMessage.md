@@ -162,6 +162,20 @@ except Exception as e:
     print(e)
 ```
 
+{% sample lang="node" %}
+
+```node
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
+    "to": ["+12345678902"],
+    "from": "+12345678901",
+    "text": "Hey, check this out!"
+});
+
+var response = await messagingController.createMessage(messagingAccountId, body);
+console.log(response);
+```
+
 {% common %}
 
 ### Example 2 of 5: Send a picture message
@@ -306,6 +320,21 @@ try:
     print(result.body.id)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="node" %}
+
+```node
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
+    "to": ["+12345678902"],
+    "from": "+12345678901",
+    "text": "Hey, check this out!",
+    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+});
+
+var response = await messagingController.createMessage(messagingAccountId, body);
+console.log(response);
 ```
 
 {% common %}
@@ -455,6 +484,21 @@ except Exception as e:
     print(e)
 ```
 
+{% sample lang="node" %}
+
+```node
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
+    "to": ["+12345678902"],
+    "from": "+12345678901",
+    "text": "Hey, check this out!",
+    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+});
+
+var response = await messagingController.createMessage(messagingAccountId, body);
+console.log(response);
+```
+
 {% common %}
 
 ### Example 4 of 5: Send a group message
@@ -593,6 +637,20 @@ try:
     print(result.body.id)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="node" %}
+
+```node
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
+    "to": ["+12345678902", "+12345678903"],
+    "from": "+12345678901",
+    "text": "Hey, check this out!",
+});
+
+var response = await messagingController.createMessage(messagingAccountId, body);
+console.log(response);
 ```
 
 {% common %}
@@ -745,6 +803,21 @@ try:
     print(result.body.id)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="node" %}
+
+```node
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
+    "to": ["+12345678902", "+12345678903"],
+    "from": "+12345678901",
+    "text": "Hey, check this out!",
+    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+});
+
+var response = await messagingController.createMessage(messagingAccountId, body);
+console.log(response);
 ```
 
 {% endmethod %}
