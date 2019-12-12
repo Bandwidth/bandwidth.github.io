@@ -50,9 +50,8 @@ var body = new BandwidthMessaging.MessageRequest({
     "text": "The quick brown fox jumps over a lazy dog."
 });
 
-messagingController.createMessage(msgUserId, body, function(error, response, context) {
-    console.log(response);
-});
+var response = await messagingController.createMessage(msgUserId, body);
+console.log(response);
 ```
 
 ```csharp
