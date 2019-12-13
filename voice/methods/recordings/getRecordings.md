@@ -104,7 +104,8 @@ curl -X GET \
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
+print(response.body[0].media_url)
 ```
 
 {% common %}
