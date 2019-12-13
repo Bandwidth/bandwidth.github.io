@@ -57,7 +57,7 @@ body.state = "paused"
 voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body=body)
 ```
 
-{% sample lang="js %}
+{% sample lang="js" %}
 
 ```js
 var body = new BandwidthVoice.ModifyCallRecordingState({
