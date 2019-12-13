@@ -71,5 +71,17 @@ response.add_verb(forward)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var forward = new BandwidthBxml.Verbs.Forward();
+forward.setTo("+18888888888");
+forward.setFrom("+19999999999");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(forward);
+
+console.log(response.toBxml());
+```
 
 {% endmethod %}

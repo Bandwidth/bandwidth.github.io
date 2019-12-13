@@ -200,6 +200,19 @@ response.add_verb(speak_sentence)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Questo è un test");
+speakSentence.setVoice("Sophia");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+
+console.log(response.toBxml());
+```
+
 {% common %}
 
 ### Example 2 of 2: SpeakeSentence and SSML
@@ -260,5 +273,10 @@ response.add_verb(speak_sentence)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+//coming soon
+```
 
 {% endmethod %}
