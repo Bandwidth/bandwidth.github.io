@@ -77,6 +77,17 @@ except Exception as e:
     print(e)
 ```
 
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiModifyCallRequest({
+    "redirectUrl": "http://www.myapp.com/new",
+    "state": "active"
+});
+
+await voiceController.modifyCall(accountId, "callId", body);
+```
+
 {% common %}
 
 ### Example 2 of 2: Hang Up a Phone Call
