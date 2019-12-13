@@ -10,18 +10,19 @@ npm install @bandwidth/messaging
 const BandwidthMessaging = require('@bandwidth/messaging');
 BandwidthMessaging.Configuration.basicAuthUserName = "token";
 BandwidthMessaging.Configuration.basicAuthPassword = "secret";
+var messagingController = BandwidthMessaging.APIController;
 ```
 
 ### Create Phone Call
 
 ```js
-const foo = new bar();
+//coming soon
 ```
 
 ### Generate BXML
 
 ```js
-const foo = new bar();
+//coming soon
 ```
 
 ### Send Text Message
@@ -34,13 +35,12 @@ var body = new BandwidthMessaging.MessageRequest({
     "text": "The quick brown fox jumps over a lazy dog."
 });
 
-controller.createMessage(msgUserId, body, function(error, response, context) {
-    console.log(response);
-});
+var response = await messagingController.createMessage(msgUserId, body);
+console.log(response);
 ```
 
 ### Order Phone Number
 
 ```js
-const foo = new bar();
+//coming soon
 ```
