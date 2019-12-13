@@ -3,6 +3,8 @@
 ### Download & Install
 
 npm install @bandwidth/messaging
+npm install @bandwidth/voice
+npm install @bandwidth/bxml
 
 ### Initialize Bandwidth Client
 
@@ -11,18 +13,43 @@ const BandwidthMessaging = require('@bandwidth/messaging');
 BandwidthMessaging.Configuration.basicAuthUserName = "token";
 BandwidthMessaging.Configuration.basicAuthPassword = "secret";
 var messagingController = BandwidthMessaging.APIController;
+
+const BandwidthVoice = require('@bandwidth/voice');
+BandwidthVoice.Configuration.basicAuthUserName = "username";
+BandwidthVoice.Configuration.basicAuthPassword = "password";
+var voiceController = BandwidthVoice.APIController;
+
+const BandwidthBxml = require('@bandwidth/bxml');
 ```
 
 ### Create Phone Call
 
 ```js
-//coming soon
+var body = new BandwidthVoice.ApiCreateCallRequest({
+    "from": "+19999999999",
+    "to": "+18888888888",
+    "applicationId": "123",
+    "answerUrl": "https://test.com",
+    "answerMethod": "POST",
+    "callTimeout": 30
+});
+var response = await voiceController.createCall(accountId, body);
+console.log(response);
 ```
 
 ### Generate BXML
 
 ```js
-//coming soon
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("test");
+speakSentence.setVoice("susan");
+speakSentence.setGender("female");
+speakSentence.setLocale("en_US");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+
+console.log(response.toBxml());
 ```
 
 ### Send Text Message
