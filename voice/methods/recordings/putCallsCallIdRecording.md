@@ -44,7 +44,9 @@ curl -X PUT \
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+body = ModifyCallRecordingState.new
+body.state = "paused"
+voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body: body)
 ```
 
 {% sample lang="python" %}

@@ -48,7 +48,10 @@ HTTP/1.1 200
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+File.open("file_to_write", "wb") do |f|
+    response = voice_client.get_stream_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
+    f.puts(response.data)
+end
 ```
 
 {% sample lang="python" %}

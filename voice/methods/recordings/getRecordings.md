@@ -98,7 +98,8 @@ curl -X GET \
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
+puts response.data[0].media_url
 ```
 
 {% sample lang="python" %}

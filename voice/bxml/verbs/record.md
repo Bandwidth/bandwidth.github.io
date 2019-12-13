@@ -61,7 +61,23 @@ This shows how to use Bandwidth XML to record a phone call.
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Please leave your message after the beep",
+    :voice => "bridget"
+})
+play_audio = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio.url/beep.wav"
+})
+record = Bandwidth::Voice::Record.new({
+    :record_complete_url => "https://myapp.com/nextBXML",
+    :max_duration => "10"
+})
+
+response.push(speak_sentence)
+response.push(play_audio)
+response.push(record)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
