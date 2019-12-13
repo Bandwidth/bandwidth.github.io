@@ -111,7 +111,7 @@ body = ApiModifyCallRequest.new
 body.state = "completed"
 
 begin
-    voice_client.modify_call("55555", "callId", body: body)
+    voice_client.modify_call(VOICE_ACCOUNT_ID, "callId", body: body)
 rescue Exception => e
     puts e
 end
@@ -124,9 +124,19 @@ body = ApiModifyCallRequest()
 body.state = "completed"
 
 try:
-    voice_client.modify_call("55555", "callId", body)
+    voice_client.modify_call(VOICE_ACCOUNT_ID, "callId", body)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiModifyCallRequest({
+    "state": "completed"
+});
+
+await voiceController.modifyCall(accountId, "callId", body);
 ```
 
 {% endmethod %}
