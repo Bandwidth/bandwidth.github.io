@@ -55,4 +55,10 @@ voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 ```
 
+{% sample lang="js" %}
+
+```js
+await voiceController.deleteRecording(accountId, callId, recordingId);
+```
+
 {% endmethod %}
