@@ -2848,6 +2848,10 @@
     <td>8063</td>
     <td>StateCode '%s' is invalid or not supported. Please correct and try the request again.</td>
   </tr>
+    <tr>
+    <td>8064</td>
+    <td>Optional Callback Information can only be enabled on an account that has PIDFLO enabled.</td>
+  </tr>
   </table>
 
 
@@ -3022,7 +3026,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, CNAMBDR, CNAMSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -3675,7 +3679,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4055,7 +4059,7 @@
   </tr>
     <tr>
     <td>12116</td>
-    <td>Either email or zendesk group id is required</td>
+    <td>One of <Email>, <ZendeskGroupId>, or <CallbackOrderType> is required.</td>
   </tr>
     <tr>
     <td>12117</td>
@@ -4240,6 +4244,14 @@
     <tr>
     <td>12163</td>
     <td>The value supplied for FalloutManagementGrade is invalid. Acceptable values are 1, 2 or 3.</td>
+  </tr>
+    <tr>
+    <td>12164</td>
+    <td>Digest Type 'daily' is not supported for callback subscriptions.</td>
+  </tr>
+    <tr>
+    <td>12165</td>
+    <td>CallbackOrderType value %s is not supported. Supported values are: 'port_in'.</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>

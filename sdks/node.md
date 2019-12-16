@@ -2,34 +2,45 @@
 
 ### Download & Install
 
-Coming Soon
+npm install @bandwidth/messaging
 
 ### Initialize Bandwidth Client
 
 ```js
-const foo = new bar();
+const BandwidthMessaging = require('@bandwidth/messaging');
+BandwidthMessaging.Configuration.basicAuthUserName = "token";
+BandwidthMessaging.Configuration.basicAuthPassword = "secret";
+var messagingController = BandwidthMessaging.APIController;
 ```
 
 ### Create Phone Call
 
 ```js
-const foo = new bar();
+//coming soon
 ```
 
 ### Generate BXML
 
 ```js
-const foo = new bar();
+//coming soon
 ```
 
 ### Send Text Message
 
 ```js
-const foo = new bar();
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": applicationId ,
+    "to": ["+19999999999"],
+    "from": "+18888888888",
+    "text": "The quick brown fox jumps over a lazy dog."
+});
+
+var response = await messagingController.createMessage(msgUserId, body);
+console.log(response);
 ```
 
 ### Order Phone Number
 
 ```js
-const foo = new bar();
+//coming soon
 ```

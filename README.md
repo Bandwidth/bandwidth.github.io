@@ -43,7 +43,15 @@
 ### Send a message
 
 ```js
-// Coming Soon
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": applicationId ,
+    "to": ["+19999999999"],
+    "from": "+18888888888",
+    "text": "The quick brown fox jumps over a lazy dog."
+});
+
+var response = await messagingController.createMessage(msgUserId, body);
+console.log(response);
 ```
 
 ```csharp

@@ -26,7 +26,7 @@ Bandwidth's Messaging API leverages server-side generated API Token & API Secret
 | `subAccountId` <br> -or- <br> `siteId` | Any **id** for any sub-account.  The `subAccountId` is used as part of the url to make some API requests. <br> Ex: `https://dashboard.bandwidth.com/api/accounts/{accountId}/sites/{sideId}` <br><br> ℹ️ *Sub-accounts* are also known as *sites* <br> ℹ️ An *account* can have multiple *sub-accounts* | `13606`                                            |
 | `apiToken`                             | **Messaging Only** Your unique api token.  The `apiToken` is used as the **username** to authenticate to the API as part of the basic auth scheme                                                                                                                                                       | `f12a9edeed04ecd21b303c6f1f9f0831a1482f7f3c59199e` |
 | `apiSecret`                            | **Messaging Only** Your unique api secret.  The `apiSecret` is used as the **password** to authenticate to the API as part of the basic auth scheme                                                                                                                                                     | `j54935lddasl837592356aasdf8359hlo3`               |
-| `applicationId`                        | The ID of your messaging application                                                                                                                                                                                                                                                                    | `532qd-fk5odk5-dlslka40-l5k3lsdmc`                 |
+| `applicationId`                        | The ID of your messaging or voice application                                                                                                                                                                                                                                                                    | `532qd-fk5odk5-dlslka40-l5k3lsdmc`                 |
 
 ### Voice Credentials Needed
 
@@ -35,6 +35,7 @@ Bandwidth's Messaging API leverages server-side generated API Token & API Secret
 | `accountId`     | Used as a URL parameter for the API endpoint `https://voice.bandwidth.com/api/v2/accounts/{accountId}` |
 | `username`      | Used as the username for HTTP basic auth                                                          |
 | `password`     | Used as the password for HTTP basic auth                                                          |
+| `applicationId` | Used as a parameter in the request body                                                                          |
 
 ### Messaging Credentials Needed
 

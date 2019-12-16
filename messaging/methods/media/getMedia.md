@@ -56,10 +56,17 @@ f.close()
 {% sample lang="python" %}
 
 ```python
-downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, media_id)
+downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, "mediaId")
 f = open("file_to_write", "wb")
 f.write(downloaded_media.body)
 f.close()
+```
+
+{% sample lang="js" %}
+
+```js
+var response = await messagingController.getMedia(messagingAccountId, "mediaId");
+fs.writeFileSync("file_to_write", response, "binary");
 ```
 
 {% endmethod %}
