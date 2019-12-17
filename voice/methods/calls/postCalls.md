@@ -139,8 +139,13 @@ var body = new BandwidthVoice.ApiCreateCallRequest({
     "answerMethod": "POST",
     "callTimeout": 30
 });
-var response = await voiceController.createCall(accountId, body);
-console.log(response);
+
+try {
+    var response = await voiceController.createCall(accountId, body);
+    console.log(response);
+catch (error) {
+    console.error(error);
+}
 ```
 
 {% endmethod %}
