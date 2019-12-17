@@ -64,7 +64,11 @@ var body = new BandwidthVoice.ModifyCallRecordingState({
     "state": "paused"
 });
 
-await voiceController.modifyCallRecordingState(accountId, callId, body);
+try {
+    await voiceController.modifyCallRecordingState(accountId, callId, body);
+catch (error) {
+    console.error(error);
+}
 ```
 
 {% endmethod %}

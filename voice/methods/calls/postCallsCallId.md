@@ -85,7 +85,11 @@ var body = new BandwidthVoice.ApiModifyCallRequest({
     "state": "active"
 });
 
-await voiceController.modifyCall(accountId, "callId", body);
+try {
+    await voiceController.modifyCall(accountId, "callId", body);
+} catch (error) {
+    console.error(error);
+}
 ```
 
 {% common %}
