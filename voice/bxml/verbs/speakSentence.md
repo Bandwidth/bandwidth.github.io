@@ -276,7 +276,14 @@ print(response.to_bxml())
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence('Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message');
+speakSentence.setVoice("Sophia");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+
+console.log(response.toBxml());
 ```
 
 {% endmethod %}

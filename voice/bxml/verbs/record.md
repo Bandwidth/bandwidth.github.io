@@ -102,5 +102,27 @@ response.add_verb(record)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Please leave your message after the beep");
+speakSentence.setVoice("bridget");
+
+var playAudio = new BandwidthBxml.Verbs.PlayAudio();
+playAudio.setUrl("https://audio.url/beep.wav");
+
+var record = new BandwidthBxml.Verbs.Record();
+record.setRecordCompleteUrl("https://myapp.com/nextBXML");
+record.setMaxDuration(10);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(playAudio);
+response.addVerb(record);
+
+console.log(response.toBxml());
+```
+
 
 {% endmethod %}
