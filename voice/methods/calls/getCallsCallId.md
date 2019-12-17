@@ -29,7 +29,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example: Retrieve information about a specific call
+### Example 1 of 1: Retrieve information about a specific call
 
 {% sample lang="http" %}
 
@@ -42,7 +42,7 @@ curl -X GET \
 ```json
 {
   "callId"              : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-  "applicationId"       : "60bae05f-1c6d-4ea5-9f53-9ea71c4825aa",
+  "applicationId"       : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
   "accountId"           : "5555555",
   "to"                  : "+15553334444",
   "from"                : "+15551112222",
