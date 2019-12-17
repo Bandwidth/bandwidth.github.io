@@ -92,6 +92,7 @@
 		* [POST Create Call](voice/methods/calls/postCalls.md)
 		* [GET Call Information](voice/methods/calls/getCallsCallId.md)
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
+		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Recording Management](voice/methods/recordings/about.md)
 		* [GET Account Recordings](voice/methods/recordings/getRecordings.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
