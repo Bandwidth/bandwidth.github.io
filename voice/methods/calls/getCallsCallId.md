@@ -3,11 +3,13 @@
 ## Retrieve Call Information
 Retrieve the current state of a specific call.
 
-The `answerTime` field will be populated once the call has been answered.
+The `state` attribute indicates the current state of the call. Valid values are `created`, `answered` and `disconnected`.
 
-The `endTime` and `disconnectCause` fields will be populated once the call has ended
+The `answerTime` attribute is populated once the call has been answered.
 
-The `errorMessage` and `errorId` fields will be populated if the call ends with an error. If the call has not ended, or ends for a non-error reason, these fields will never be populated.
+The `endTime` and `disconnectCause` attributes are populated once the call has ended.
+
+The `errorMessage` and `errorId` attributes are populated only if the call ends with an error.
 
 ### Request URL
 
