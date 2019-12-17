@@ -12,12 +12,12 @@ npm install @bandwidth/bxml
 const BandwidthMessaging = require('@bandwidth/messaging');
 BandwidthMessaging.Configuration.basicAuthUserName = "token";
 BandwidthMessaging.Configuration.basicAuthPassword = "secret";
-var messagingController = BandwidthMessaging.APIController;
+const messagingController = BandwidthMessaging.APIController;
 
 const BandwidthVoice = require('@bandwidth/voice');
 BandwidthVoice.Configuration.basicAuthUserName = "username";
 BandwidthVoice.Configuration.basicAuthPassword = "password";
-var voiceController = BandwidthVoice.APIController;
+const voiceController = BandwidthVoice.APIController;
 
 const BandwidthBxml = require('@bandwidth/bxml');
 ```
