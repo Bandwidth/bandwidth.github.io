@@ -128,4 +128,24 @@ except Exception as e:
     print(e)
 ```
 
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiCreateCallRequest({
+    "from": "+19999999999",
+    "to": "+18888888888",
+    "applicationId": "123",
+    "answerUrl": "https://test.com",
+    "answerMethod": "POST",
+    "callTimeout": 30
+});
+
+try {
+    var response = await voiceController.createCall(accountId, body);
+    console.log(response);
+catch (error) {
+    console.error(error);
+}
+```
+
 {% endmethod %}

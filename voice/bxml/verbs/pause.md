@@ -64,4 +64,16 @@ response.add_verb(pause)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var pause = new BandwidthBxml.Verbs.Pause();
+pause.setDuration(3);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(pause);
+
+console.log(response.toBxml());
+```
+
 {% endmethod %}

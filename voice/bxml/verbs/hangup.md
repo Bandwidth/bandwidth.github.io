@@ -66,4 +66,15 @@ response.add_verb(hangup)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var hangup = new BandwidthBxml.Verbs.Hangup();
+
+var response = new BandwidthBxml.Response();
+response.addVerb(hangup);
+
+console.log(response.toBxml());
+```
+
 {% endmethod %}

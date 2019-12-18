@@ -117,6 +117,25 @@ response.add_verb(gather)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Please press a digit.");
+speakSentence.setVoice("kate");
+
+var gather = new BandwidthBxml.Verbs.Gather();
+gather.setGatherUrl("https://gather.url/nextBXML");
+gather.setTerminatingDigits("#");
+gather.setFirstDigitTimeout(10);
+gather.setSpeakSentence(speakSentence);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(gather);
+
+console.log(response.toBxml());
+```
+
 {% common %}
 
 #### Example 2 of 2: Gather With Repeated Audio Prompt
@@ -189,6 +208,24 @@ gather = Gather(
 )
 response.add_verb(gather)
 print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("I am going to keep asking you to press a digit");
+
+var gather = new BandwidthBxml.Verbs.Gather();
+gather.setGatherUrl("https://gather.url/nextBXML");
+gather.setMaxDigits(1);
+gather.setRepeatCount(5);
+gather.setSpeakSentence(speakSentence);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(gather);
+
+console.log(response.toBxml());
 ```
 
 {% endmethod %}

@@ -77,4 +77,16 @@ response.add_verb(redirect)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var redirect = new BandwidthBxml.Verbs.Redirect();
+redirect.setRedirectUrl("https://flow.url/nextFlow");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(redirect);
+
+console.log(response.toBxml());
+```
+
 {% endmethod %}
