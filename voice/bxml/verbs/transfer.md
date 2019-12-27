@@ -17,9 +17,11 @@ The Transfer verb is used to bridge another party onto the current call.
 | diversionReason        | (optional) Can be any of the following values: <br>`unknown`<br>`user-busy`<br>`no-answer`<br>`unavailable`<br>`unconditional`<br>`time-of-day`<br>`do-not-disturb`<br>`deflection`<br>`follow-me`<br>`out-of-service`<br>`away` <br><br>This parameter is considered only when `diversionTreatment` is set to `stack`.  Defaults to `unknown`.                                                                                                                                                                                                                                                                                               |
 
 When the called party hangs up, if the `transferCompleteUrl` attribute is specified, the [TransferComplete](../callbacks/transferComplete.md) callback is sent to the `transferCompleteUrl` and
-the BXML returned by that callback are executed. Verbs following the `<Transfer>` will be ignored when the `transferCompleteUrl` attribute is specified.
+the BXML returned by that callback is executed on the original call. Verbs following the `<Transfer>` will be ignored when the `transferCompleteUrl` attribute is specified.
 
 If no `transferCompleteUrl` is specified, no event will be sent, and execution of verbs following the `<Transfer>` tag continues when the called party hangs up.
+
+Note that the [TransferComplete](../callbacks/transferComplete.md) callback is only sent if the call is still active after the `<Transfer>` completes. If you need an event delivered for every `<Transfer>` regardless of how it ends, see the [Transfer Disconnect](../callbacks/transferDisconnect.md) event below. 
 
 ### Nested Tags
 Between 1 and 8 `<PhoneNumber>` tags must be nested within the `<Transfer>` tag to define the called parties.  If more than
@@ -31,26 +33,32 @@ to the original call:
 | PhoneNumber | A collection of phone numbers to transfer the call to. The first to answer will be transferred. |
 
 #### PhoneNumber attributes
-| Attribute            | Description                                                                                                                                                                                                            |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| transferAnswerUrl    | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged                                         |
-| transferAnswerMethod | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST.                                                                                                          |
-| username             | (optional) The username to send in the HTTP request to `transferAnswerUrl`.                                                                                                                                            |
-| password             | (optional) The password to send in the HTTP request to `transferAnswerUrl`.                                                                                                                                            |
-| tag                  | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| Attribute                | Description                                                                                                                                                                                                             |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| transferAnswerUrl        | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged                                          |
+| transferAnswerMethod     | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST.                                                                                                           |
+| transferDisconnectUrl    | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML.              |
+| transferDisconnectMethod | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST.                                                                                                       |
+| username                 | (optional) The username to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`.                                                                                                                 |
+| password                 | (optional) The password to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`.                                                                                                                 |
+| tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 When the called party answers, if the `transferAnswerUrl` is specified, the [Transfer Answer](../callbacks/transferAnswer.md) callback is sent to the `transferAnswerUrl` and
 the BXML returned by that callback is executed. That BXML is executed only for the called party.  At the conclusion
 of that BXML, the calls are bridged.
 
+When each leg of the transfer ends for any reason, if `transferDisconnectUrl` was set for that phone number, the
+[Transfer Disconnect](../callbacks/transferDisconnect.md) event will be sent to that URL. This event may not be responded to with BXML.
+
 <aside class="alert general small"><p>There can be a maximum of 8 phone numbers to transfer to. </p></aside>
 
 ### Callbacks Received
 
-| Callbacks                                             | Can reply with more BXML |
-|:------------------------------------------------------|:-------------------------|
-| [Transfer Answer](../callbacks/transferAnswer.md)     | Yes                      |
-| [Transfer Complete](../callbacks/transferComplete.md) | Yes                      |
+| Callbacks                                                 | Can reply with more BXML |
+|:----------------------------------------------------------|:-------------------------|
+| [Transfer Answer](../callbacks/transferAnswer.md)         | Yes                      |
+| [Transfer Complete](../callbacks/transferComplete.md)     | Yes                      |
+| [Transfer Disconnect](../callbacks/transferDisconnect.md) | No                       |
 
 {% common %}
 
