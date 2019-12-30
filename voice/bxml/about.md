@@ -55,7 +55,7 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | [Record Complete](callbacks/recordComplete.md)     | Bandwidth API sends this when a `<Record>` is completed. The recording is not available to download until the [Recording Available](callbacks/recordingAvailable.md) event is received.|
 | [Redirect](callbacks/redirect.md)                  | Bandwidth API sends this when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
 | [Transfer Answer](callbacks/transferAnswer.md)     | Bandwidth API sends this when a `<Transfer>` is answered.                                                                                                                              |
-| [Transfer Complete](callbacks/transferComplete.md) | Bandwidth API sends this when the `<Transfer>` is complete.                                                                                                                            |
+| [Transfer Complete](callbacks/transferComplete.md) | Bandwidth API sends this when the `<Transfer>` is complete and the original call needs to continue.                                                                                                                            |
 
 ### Asynchronous Callbacks
 | Callback                                                    | Description                                                                                                                                         |
