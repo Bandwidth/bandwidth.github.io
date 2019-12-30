@@ -3,7 +3,7 @@
 ## Retrieve Call Information
 Retrieve the current state of a specific call.
 
-The `state` attribute indicates the current state of the call. Valid values are `created`, `answered` and `disconnected`.
+The `state` attribute indicates the current state of the call. Valid values are `initiated`, `answered` and `disconnected`.
 
 The `answerTime` attribute is populated once the call has been answered.
 
