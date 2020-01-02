@@ -59,8 +59,7 @@ module.exports = function ($) {
 
 	function makeSummaryLinksUnClickable () {
 		var sdkPages = [
-			'java',
-			'php'
+			'java'
 		];
 
 		sdkPages.forEach(page => {

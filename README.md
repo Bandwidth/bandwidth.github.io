@@ -33,6 +33,8 @@
           <label for="radio-three"><span>ruby</span></label>
           <input type="radio" name="basic-options" value="five" id="radio-five" class="lang-python trigger" data-rel="lang-python"/>
           <label for="radio-five"><span>python</span></label>
+          <input type="radio" name="basic-options" value="six" id="radio-six" class="lang-php trigger" data-rel="lang-php"/>
+          <label for="radio-six"><span>php</span></label>
       </div>
    </div>
 
@@ -104,6 +106,16 @@ body.mfrom = "+18888888888"
 body.text = "Greetings!"
 
 result = messaging_client.create_message(account_id, body=body)
+```
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+$response = $messagingClient->createMessage($messagingAccountId, $body);
 ```
 
 ### Make a call
@@ -201,6 +213,10 @@ curl -X POST \
 
 ```python
 ## Coming Soon
+```
+
+```php
+// Coming soon
 ```
 
 {% raw %}
