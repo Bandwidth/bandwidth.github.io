@@ -54,6 +54,21 @@ var response = await messagingController.createMessage(msgUserId, body);
 console.log(response);
 ```
 
+```java
+MessageRequest msgReq = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+19999999999");
+
+msgReq.setTo( toNumbers );
+msgReq.setFrom("+18888888888");
+msgReq.setApplicationId("1-2-3");
+msgReq.setText("Hello World");
+
+controller.createMessage(accountId, msgReq);
+```
+
 ```csharp
 using Bandwidth.Standard.Messaging;
 using Bandwidth.Standard.Messaging.Models;
@@ -119,6 +134,17 @@ var body = new BandwidthVoice.ApiCreateCallRequest({
 });
 var response = await voiceController.createCall(accountId, body);
 console.log(response);
+```
+
+```java
+ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+
+callRequest.setApplicationId("3-d-4-b-5");
+callRequest.setFrom("+17777777777");
+callRequest.setTo("+19999999999");
+callRequest.setAnswerUrl("https://test.com");
+
+ApiResponse<ApiCallResponse> response = controller.createCall(accountId, callRequest);;
 ```
 
 ```csharp

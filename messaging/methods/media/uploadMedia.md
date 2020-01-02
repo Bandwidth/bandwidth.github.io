@@ -41,6 +41,13 @@ curl -X PUT \
     --data-raw "@{/filepath/file.mp3}"
 ```
 
+{% sample lang="java" %}
+
+```java
+File file = new File("C:\\Path\\To\\File");
+controller.uploadMedia(MSG_ACCOUNT_ID, mediaId, file.length(), file, "audio/wav", false);
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

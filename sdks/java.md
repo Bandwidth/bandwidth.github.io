@@ -7,20 +7,19 @@ Coming Soon
 ### Initialize Bandwidth Client
 
 ```java
-import com.bandwidth.voice.controllers.APIController;
-import com.bandwidth.voice.Configuration;
-import com.bandwidth.voice.Environments;
+import com.bandwidth.BandwidthClient;
+import com.bandwidth.Environment;
 
 
 //Set the voice client configuration with credentials
-Configuration config = new Configuration().newBuilder()
-            .basicAuthPassword( "voice.password" )
-            .basicAuthUserName( "voice.username" )
-            .environment(Environments.PRODUCTION)
+BandwidthClient client = new BandwidthClient.Builder()
+            .messagingBasicAuthCredentials( "MSG_API_TOKEN", "MSG_API_SECRET")
+            .environment(Environment.PRODUCTION)
             .build();
 
 //create the voice client with the configuration
-APIController voiceClient = new BandwidthV2VoiceClient(config).getClient();
+com.bandwidth.voice.controllers.APIController voiceClient = client.getVoiceClient().getAPIController();
+com.bandwidth.messaging.controllers.APIController msgClient = client.getMessagingClient().getAPIController();
 
 
 ```
@@ -70,8 +69,26 @@ System.out.println( response.toXml() )
 ### Send Text Message
 
 ```java
-//Coming soon
-```
+{% sample lang="java" %}
+
+```java
+import com.bandwidth.messaging.models.MessageRequest;
+
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+
+messageRequest.setApplicationId(MSG_APPLICATION_ID);
+messageRequest.setText("Hey, check this out!");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setTag("test tag");
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
+``````
 
 ### Order Phone Number
 
