@@ -92,6 +92,21 @@ try {
 }
 ```
 
+{% sample lang="php" %}
+
+```php
+$body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body->state = "active";
+$body->redirectUrl = "http://www.myapp.com/new";
+
+try {
+    $response = $voiceClient->createCall($accountId, "callId", $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
+```
+
 {% common %}
 
 ### Example 2 of 2: Hang Up a Phone Call
@@ -152,6 +167,20 @@ var body = new BandwidthVoice.ApiModifyCallRequest({
 });
 
 await voiceController.modifyCall(accountId, "callId", body);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body->state = "completed";
+
+try {
+    $response = $voiceClient->createCall($accountId, "callId", $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}
