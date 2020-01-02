@@ -181,6 +181,16 @@ body.answer_url = "https://test.com"
 result = voice_client.create_call(account_id, body=body)
 ```
 
+```php
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body->from = "+15554442222";
+$body->to = "+15554443333";
+$body->answerUrl = "https://test.com";
+$body->applicationId = "3-6-4-a";
+
+$response = $voiceClient->createCall($accountId, $body);
+```
+
 ### Buy a telephone number
 
 ```bash
