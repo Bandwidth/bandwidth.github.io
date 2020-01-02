@@ -69,4 +69,13 @@ var response = await messagingController.getMedia(messagingAccountId, "mediaId")
 fs.writeFileSync("file_to_write", response, "binary");
 ```
 
+{% sample lang="php" %}
+
+```php
+$response = $messagingClient->getMedia($messagingAccountId, "mediaId");
+$file = fopen("file_to_write", "wb") or die("Unable to open file");
+fwrite($file, $response->getResult());
+fclose($file);
+```
+
 {% endmethod %}
