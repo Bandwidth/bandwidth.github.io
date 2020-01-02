@@ -53,8 +53,22 @@ This shows how to use Bandwidth XML to record a phone call.
 {% sample lang="csharp" %}
 
 ```csharp
+Response response = new Response();
 
-//coming soon
+var speakSentence = new SpeakSentence();
+speakSentence.Sentence = "Please leave your message after the beep";
+speakSentence.Voice = "bridget";
+
+var playAudio = new PlayAudio();
+playAudio.Url = "https://audio.url/beep.wav";
+
+var record = new Record();
+record.RecordCompleteUrl = "/record/callbacks";
+record.MaxDuration = 10;
+
+response.Add(speakSentence);
+response.Add(playAudio);
+response.Add(record);
 ;
 ```
 

@@ -71,9 +71,8 @@ curl -X GET \
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-;
+var response = voiceController.GetQueryMetadataForAccountAndCall(VOICE_ACCOUNT_ID, callId);
+List<RecordingMetadataResponse> data = response.Data;
 ```
 
 {% sample lang="ruby" %}

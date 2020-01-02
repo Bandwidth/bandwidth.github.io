@@ -38,8 +38,7 @@ HTTP/1.1 204
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
+voiceClient.DeleteRecording(recordingId, VOICE_ACCOUNT_ID, callId);
 ;
 ```
 

@@ -53,8 +53,8 @@ curl -X GET \
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
+var response = voiceController.GetMetadataForRecording(recordingId, VOICE_ACCOUNT_ID, callId);
+RecordingMetadataResponse data = response.Data;
 ;
 ```
 

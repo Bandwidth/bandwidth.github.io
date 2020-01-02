@@ -40,8 +40,8 @@ HTTP/1.1 200
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
+var response = voiceController.GetStreamRecordingMedia(VOICE_ACCOUNT_ID, callId, recordingId);
+Stream data = response.Data;
 ;
 ```
 
