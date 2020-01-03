@@ -95,7 +95,7 @@ try {
 {% sample lang="php" %}
 
 ```php
-$body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body = new BandwidthLib\Voice\Models\ApiModifyCallRequest();
 $body->state = "active";
 $body->redirectUrl = "http://www.myapp.com/new";
 
