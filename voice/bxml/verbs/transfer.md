@@ -135,6 +135,22 @@ response.addVerb(transfer);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$number = new BandwidthLib\Voice\Bxml\PhoneNumber("+17777777777");
+
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->transferCallerId("+18888888888");
+$transfer->phoneNumbers(array($number));
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($transfer);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% common %}
 
 
@@ -242,6 +258,26 @@ response.addVerb(transfer);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Transferring your call, please wait.");
+$speakSentence->voice("paul");
+
+$number = new BandwidthLib\Voice\Bxml\PhoneNumber("+17777777777");
+
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->transferCallerId("+18888888888");
+$transfer->phoneNumbers(array($number));
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($transfer);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% common %}
 
 > The announcement BXML at http://myapp.com/announcement is:
@@ -294,6 +330,13 @@ speak_sentence = SpeakSentence(
 var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentence.setSentence("Transferring your call, please wait.");
 speakSentence.setVoice("paul");
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Transferring your call, please wait.");
+$speakSentence->voice("paul");
 ```
 
 {% common %}
@@ -376,6 +419,8 @@ response.add_verb(transfer)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
 ```js
 var phone_number_1 = new BandwidthBxml.Verbs.PhoneNumber();
 phone_number_1.setNumber("+17777777777");
@@ -383,7 +428,7 @@ var phone_number_2 = new BandwidthBxml.Verbs.PhoneNumber();
 phone_number_2.setNumber("+18888888888");
 
 var transfer = new BandwidthBxml.Verbs.Transfer();
-transfer.setTransferCallerId("+18888888888");
+transfer.setTransferCallerId("+19999999999");
 transfer.addPhoneNumber(phone_number_1);
 transfer.addPhoneNumber(phone_number_2);
 
@@ -391,6 +436,23 @@ var response = new BandwidthBxml.Response();
 response.addVerb(transfer);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$number1 = new BandwidthLib\Voice\Bxml\PhoneNumber("+17777777777");
+$number2 = new BandwidthLib\Voice\Bxml\PhoneNumber("+15555555555");
+
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->transferCallerId("+18888888888");
+$transfer->phoneNumbers(array($number1, $number2));
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($transfer);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

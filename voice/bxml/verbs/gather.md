@@ -136,6 +136,25 @@ response.addVerb(gather);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Please press a digit.");
+$speakSentence->voice("kate");
+
+$gather = new BandwidthLib\Voice\Bxml\Gather();
+$gather->gatherUrl("https://gather.url/nextBXML");
+$gather->terminatingDigits("#");
+$gather->firstDigitTimeout(10);
+$gather->speakSentence($speakSentence);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($gather);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% common %}
 
 #### Example 2 of 2: Gather With Repeated Audio Prompt
@@ -226,6 +245,24 @@ var response = new BandwidthBxml.Response();
 response.addVerb(gather);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("I am going to keep asking you to press a digit");
+
+$gather = new BandwidthLib\Voice\Bxml\Gather();
+$gather->gatherUrl("https://gather.url/nextBXML");
+$gather->maxDigits(1);
+$gather->repeatCount(5);
+$gather->speakSentence($speakSentence);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($gather);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}
