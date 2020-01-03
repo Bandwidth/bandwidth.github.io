@@ -42,6 +42,7 @@ curl -X GET \
 ```json
 {
   "callId"              : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+  "parentCallId"        : null,
   "applicationId"       : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
   "accountId"           : "5555555",
   "to"                  : "+15553334444",
@@ -54,7 +55,7 @@ curl -X GET \
   "disconnectCause"     : "hangup",
   "errorMessage"        : null,
   "errorId"             : null,
-  "lastUpdateTime"      : "2019-10-21T16:55:12.950Z"
+  "lastUpdateTime"      : "2019-10-21T16:55:12.971Z"
 }
 ```
 
