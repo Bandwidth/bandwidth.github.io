@@ -186,7 +186,6 @@
 * [Java - _coming soon_](sdks/java.md)
 * [Node](sdks/node.md)
 * [PHP](sdks/php.md)
->>>>>>> stop-gap-v2
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
