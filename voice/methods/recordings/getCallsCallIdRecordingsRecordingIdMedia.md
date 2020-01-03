@@ -37,6 +37,17 @@ curl -X GET \
 HTTP/1.1 200
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiResponse<InputStream> response = voiceClient.getStreamRecordingMedia(VOICE_ACCOUNT_ID, "callId", "recordingId");
+    byte[] bytes = response.getResult().readAllBytes();
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

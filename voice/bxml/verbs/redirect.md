@@ -39,6 +39,19 @@ This shows how to use Bandwidth XML to redirect the response to a new url.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Redirect redirect = Redirect.builder()
+        .redirectUrl("https://flow.url/newFlow")
+        .build();
+
+Response response = Response.builder().build()
+        .add(redirect);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

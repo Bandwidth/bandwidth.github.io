@@ -30,6 +30,20 @@ This shows how to use Bandwidth XML to forward a call from +11234567890 to +1098
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Forward forward = Forward.builder()
+        .to("+10987654321")
+        .from("+11234567890")
+        .build();
+
+Response response = Response.builder().build()
+        .add(forward);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

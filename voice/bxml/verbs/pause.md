@@ -28,6 +28,19 @@ This shows how to use Bandwidth XML to pause for 2 seconds.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Pause pause = Pause.builder()
+        .duration(2.0)
+        .build();
+
+Response response = Response.builder().build()
+        .add(pause);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

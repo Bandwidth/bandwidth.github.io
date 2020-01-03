@@ -160,6 +160,20 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Questo è un test")
+        .voice("Sophia")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -230,6 +244,20 @@ This shows how to use Bandwidth XML with SSML tags to modify the way the text so
         Please leave a message.
     </SpeakSentence>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Hello, you have reached the home of <lang xml:lang=\"es - MX\">Antonio Mendoza</lang>.  Please leave a message.")
+        .voice("jorge")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}

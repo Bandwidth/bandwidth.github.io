@@ -33,6 +33,19 @@ curl -X PUT \
      }'
 ```
 
+{% sample lang="java" %}
+
+```java
+ModifyCallRecordingState modifyCallRecordingState = new ModifyCallRecordingState();
+modifyCallRecordingState.setState(State1Enum.PAUSED);
+
+try {
+    ApiResponse<Void> response = voiceClient.modifyCallRecordingState(VOICE_ACCOUNT_ID, "callId", modifyCallRecordingState);
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

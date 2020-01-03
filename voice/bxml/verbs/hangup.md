@@ -33,6 +33,17 @@ This shows how to use Bandwidth XML to hang up an existing call.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Hangup hangup = Hangup.builder().build();
+
+Response response = Response.builder().build()
+        .add(hangup);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
