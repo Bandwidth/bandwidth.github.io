@@ -182,9 +182,11 @@
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
 * [C#](sdks/csharp.md)
+* [Node](sdks/node.md)
 * [Java - _coming soon_](sdks/java.md)
 * [Node](sdks/node.md)
 * [PHP](sdks/php.md)
+>>>>>>> stop-gap-v2
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
