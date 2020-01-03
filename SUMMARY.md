@@ -184,7 +184,6 @@
 * [C#](sdks/csharp.md)
 * [Node](sdks/node.md)
 * [Java - _coming soon_](sdks/java.md)
-* [Node](sdks/node.md)
 * [PHP](sdks/php.md)
 
 ## v1 Docs
