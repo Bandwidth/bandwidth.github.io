@@ -89,4 +89,19 @@ response.add_verb(play_audio_2)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var playAudio1 = new BandwidthBxml.Verbs.PlayAudio();
+playAudio1.setUrl("https://audio.url/audio1.wav");
+var playAudio2 = new BandwidthBxml.Verbs.PlayAudio();
+playAudio2.setUrl("https://audio.url/audio2.wav");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(playAudio1);
+response.addVerb(playAudio2);
+
+console.log(response.toBxml());
+```
+
 {% endmethod %}

@@ -109,6 +109,13 @@ response = voice_client.get_query_metadata_for_account(VOICE_ACCOUNT_ID)
 print(response.body[0].media_url)
 ```
 
+{% sample lang="js" %}
+
+```js
+var response = await voiceController.getQueryMetadataForAccount(accountId);
+console.log(response[0].mediaUrl);
+```
+
 {% common %}
 
 The resource returned in the "mediaUrl" field can be used to retrieve the recording, see [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md).

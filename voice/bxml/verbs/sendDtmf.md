@@ -70,4 +70,16 @@ response.add_verb(send_dtmf)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var sendDtmf = new BandwidthBxml.Verbs.SendDtmf();
+sendDtmf.setDtmf("12w34");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(sendDtmf);
+
+console.log(response.toBxml());
+```
+
 {% endmethod %}

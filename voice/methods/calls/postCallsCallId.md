@@ -77,6 +77,21 @@ except Exception as e:
     print(e)
 ```
 
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiModifyCallRequest({
+    "redirectUrl": "http://www.myapp.com/new",
+    "state": "active"
+});
+
+try {
+    await voiceController.modifyCall(accountId, "callId", body);
+} catch (error) {
+    console.error(error);
+}
+```
+
 {% common %}
 
 ### Example 2 of 2: Hang Up a Phone Call
@@ -111,7 +126,7 @@ body = ApiModifyCallRequest.new
 body.state = "completed"
 
 begin
-    voice_client.modify_call("55555", "callId", body: body)
+    voice_client.modify_call(VOICE_ACCOUNT_ID, "callId", body: body)
 rescue Exception => e
     puts e
 end
@@ -124,9 +139,19 @@ body = ApiModifyCallRequest()
 body.state = "completed"
 
 try:
-    voice_client.modify_call("55555", "callId", body)
+    voice_client.modify_call(VOICE_ACCOUNT_ID, "callId", body)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiModifyCallRequest({
+    "state": "completed"
+});
+
+await voiceController.modifyCall(accountId, "callId", body);
 ```
 
 {% endmethod %}

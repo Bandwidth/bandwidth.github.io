@@ -119,6 +119,22 @@ response.add_verb(transfer)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var phone_number = new BandwidthBxml.Verbs.PhoneNumber();
+phone_number.setNumber("+17777777777");
+
+var transfer = new BandwidthBxml.Verbs.Transfer();
+transfer.setTransferCallerId("+18888888888");
+transfer.addPhoneNumber(phone_number);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(transfer);
+
+console.log(response.toBxml());
+```
+
 {% common %}
 
 
@@ -205,6 +221,27 @@ response.add_verb(transfer)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Transferring your call, please wait.");
+speakSentence.setVoice("paul");
+
+var phone_number = new BandwidthBxml.Verbs.PhoneNumber();
+phone_number.setNumber("+17777777777");
+
+var transfer = new BandwidthBxml.Verbs.Transfer();
+transfer.setTransferCallerId("+18888888888");
+transfer.addPhoneNumber(phone_number);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(transfer);
+
+console.log(response.toBxml());
+```
+
 {% common %}
 
 > The announcement BXML at http://myapp.com/announcement is:
@@ -249,6 +286,14 @@ speak_sentence = SpeakSentence(
     sentence="Transferring your call, please wait.",
     voice="paul"
 )
+```
+
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Transferring your call, please wait.");
+speakSentence.setVoice("paul");
 ```
 
 {% common %}
@@ -329,6 +374,23 @@ transfer = Transfer(
 
 response.add_verb(transfer)
 print(response.to_bxml())
+```
+
+```js
+var phone_number_1 = new BandwidthBxml.Verbs.PhoneNumber();
+phone_number_1.setNumber("+17777777777");
+var phone_number_2 = new BandwidthBxml.Verbs.PhoneNumber();
+phone_number_2.setNumber("+18888888888");
+
+var transfer = new BandwidthBxml.Verbs.Transfer();
+transfer.setTransferCallerId("+18888888888");
+transfer.addPhoneNumber(phone_number_1);
+transfer.addPhoneNumber(phone_number_2);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(transfer);
+
+console.log(response.toBxml());
 ```
 
 {% endmethod %}

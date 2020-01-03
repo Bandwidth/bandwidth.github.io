@@ -62,4 +62,11 @@ with(open("file_to_write", "wb")) as f:
     f.write(response.body)
 ```
 
+{% sample lang="js" %}
+
+```js
+var response = await voiceController.getStreamRecordingMedia(accountId, callId, recordingId);
+fs.writeFileSync("file_to_write", response, "binary");
+```
+
 {% endmethod %}
