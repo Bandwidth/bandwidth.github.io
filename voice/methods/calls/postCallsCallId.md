@@ -100,7 +100,7 @@ $body->state = "active";
 $body->redirectUrl = "http://www.myapp.com/new";
 
 try {
-    $response = $voiceClient->createCall($accountId, "callId", $body);
+    $response = $voiceClient->modifyCall($accountId, "callId", $body);
     print_r($response);
 } catch (BandwidthLib\APIException $e) {
     print_r($e);
@@ -176,7 +176,7 @@ $body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
 $body->state = "completed";
 
 try {
-    $response = $voiceClient->createCall($accountId, "callId", $body);
+    $response = $voiceClient->modifyCall($accountId, "callId", $body);
     print_r($response);
 } catch (BandwidthLib\APIException $e) {
     print_r($e);
