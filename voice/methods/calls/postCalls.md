@@ -148,4 +148,21 @@ catch (error) {
 }
 ```
 
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body->from = "+15554443333";
+$body->to = "+15554442222";
+$body->answerUrl = "https://test.com";
+$body->applicationId = "3-6-4-b-4";
+
+try {
+    $response = $voiceClient->createCall($accountId, $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
+```
+
 {% endmethod %}
