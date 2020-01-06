@@ -49,13 +49,13 @@ curl -X GET \
   "from"                : "+15551112222",
   "direction"           : "inbound",
   "state"               : "disconnected",
-  "startTime"           : "2019-10-21T16:45:11.293Z",
-  "answerTime"          : "2019-10-21T16:45:14.352Z",
-  "endTime"             : "2019-10-21T16:55:12.950Z",
+  "startTime"           : "2019-10-21T16:45:11.293728Z",
+  "answerTime"          : "2019-10-21T16:45:14.352125Z",
+  "endTime"             : "2019-10-21T16:55:12.950568Z",
   "disconnectCause"     : "hangup",
   "errorMessage"        : null,
   "errorId"             : null,
-  "lastUpdateTime"      : "2019-10-21T16:55:12.971Z"
+  "lastUpdate"          : "2019-10-21T16:55:12.971571Z"
 }
 ```
 
