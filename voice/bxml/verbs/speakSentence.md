@@ -302,7 +302,11 @@ console.log(response.toBxml());
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence('Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.');
+$speakSentence->locale("en_US");
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+echo $response->toBxml();
 ```
 
 {% endmethod %}
