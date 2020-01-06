@@ -108,6 +108,17 @@ var response = await voiceController.getQueryMetadataForAccountAndCall(accountId
 console.log(response[0].mediaUrl);
 ```
 
+{% sample lang="php" %}
+
+```php
+try {
+    $response = $voiceClient->getQueryMetadataForAccountAndCall($accountId, $callId)
+    print_r($response->getResult()[0]->mediaUrl);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
+```
+
 {% common %}
 
 The resource returned in the "mediaUrl" field can be used to retrieve the recording, see [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md).

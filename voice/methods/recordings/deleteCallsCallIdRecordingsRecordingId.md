@@ -75,4 +75,14 @@ catch (error) {
 }
 ```
 
+{% sample lang="php" %}
+
+```php
+try {
+    $voiceClient->deleteRecording($accountId, $callId, $recordingId);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
+```
+
 {% endmethod %}

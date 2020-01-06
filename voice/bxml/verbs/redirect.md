@@ -102,4 +102,17 @@ response.addVerb(redirect);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$redirect = new BandwidthLib\Voice\Bxml\Redirect();
+$redirect->redirectUrl("https://flow.url/newFlow");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($redirect);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% endmethod %}

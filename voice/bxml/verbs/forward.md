@@ -96,4 +96,18 @@ response.addVerb(forward);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$forward = new BandwidthLib\Voice\Bxml\Forward();
+$forward->to("+18888888888");
+$forward->from("+18889999999");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($forward);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% endmethod %}

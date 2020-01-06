@@ -99,6 +99,13 @@ var response = await messagingController.listMedia(userId, '');
 console.log(response[0].mediaName);
 ```
 
+{% sample lang="php" %}
+
+```php
+$response = $messagingClient->listMedia($messagingUserId);
+print_r($response->getResult()[0]->mediaName);
+```
+
 {% common %}
 
 ### Example 2 of 2: List Your Media Files Using A Continuation-Token
@@ -229,6 +236,23 @@ var continuationToken = '';
 while (true) {
     continuationToken = await getMediaWithToken(continuationToken);
     if (continuationToken === null) {
+        break;
+    }
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$continuationToken = "";
+while (true) {
+    $response = $messagingClient->listMedia($messagingAccountId, $continuationToken);
+    print_r($response->getResult()[0]->mediaName);
+    echo "\n";
+    if (array_key_exists("continuation-token", $response->getHeaders())) {
+        $continuationToken = $response->getHeaders()["continuation-token"];
+    }
+    else {
         break;
     }
 }

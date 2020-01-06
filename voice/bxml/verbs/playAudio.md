@@ -122,4 +122,18 @@ response.addVerb(playAudio2);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$playAudio1 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio1.wav");
+$playAudio2 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio2.wav");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($playAudio1);
+$response->addVerb($playAudio2);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% endmethod %}

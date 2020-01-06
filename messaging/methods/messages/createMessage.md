@@ -195,6 +195,23 @@ var response = await messagingController.createMessage(messagingAccountId, body)
 console.log(response);
 ```
 
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
+```
+
 {% common %}
 
 ### Example 2 of 5: Send a picture message
@@ -376,6 +393,24 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -562,6 +597,24 @@ var response = await messagingController.createMessage(messagingAccountId, body)
 console.log(response);
 ```
 
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
+```
+
 {% common %}
 
 ### Example 4 of 5: Send a group message
@@ -734,6 +787,23 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902", "+12345678903");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -923,6 +993,24 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902", "+12345678903");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

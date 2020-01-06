@@ -154,7 +154,7 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-   <SpeakSentence voice="Sophia">
+   <SpeakSentence voice="sophia">
       Questo è un test
    </SpeakSentence>
 </Response>
@@ -181,7 +181,7 @@ Response response = new Response();
 
 SpeakSentence speakSentence = new SpeakSentence();
 speakSentence.Sentence = "Questo è un test";
-speakSentence.Voice = "Sophia";
+speakSentence.Voice = "sophia";
 
 response.Add(speakSentence);
 
@@ -194,7 +194,7 @@ Console.WriteLine(response.ToBXML());
 response = Bandwidth::Voice::Response.new()
 speak_sentence = Bandwidth::Voice::SpeakSentence.new({
     :sentence => "Questo è un test",
-    :voice => "Sophia"
+    :voice => "sophia"
 })
 
 response.push(speak_sentence)
@@ -207,7 +207,7 @@ puts response.to_bxml()
 response = Response()
 speak_sentence = SpeakSentence(
     sentence="Questo è un test",
-    voice="Sophia"
+    voice="sophia"
 )
 
 response.add_verb(speak_sentence)
@@ -219,12 +219,25 @@ print(response.to_bxml())
 ```js
 var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentence.setSentence("Questo è un test");
-speakSentence.setVoice("Sophia");
+speakSentence.setVoice("sophia");
 
 var response = new BandwidthBxml.Response();
 response.addVerb(speakSentence);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Questo è un test");
+$speakSentence->voice("sophia");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% common %}
@@ -281,7 +294,7 @@ Console.WriteLine(response.ToBXML());
 response = Bandwidth::Voice::Response.new()
 speak_sentence = Bandwidth::Voice::SpeakSentence.new({
     :sentence => 'Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
-    :voice => "Sophia"
+    :voice => "sophia"
 })
 
 response.push(speak_sentence)
@@ -294,7 +307,7 @@ puts response.to_bxml()
 response = Response()
 speak_sentence = SpeakSentence(
     sentence='Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
-    voice="Sophia"
+    voice="sophia"
 )
 
 response.add_verb(speak_sentence)
@@ -306,12 +319,22 @@ print(response.to_bxml())
 ```js
 var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentence.setSentence('Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message');
-speakSentence.setVoice("Sophia");
+speakSentence.setVoice("sophia");
 
 var response = new BandwidthBxml.Response();
 response.addVerb(speakSentence);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence('Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.');
+$speakSentence->locale("en_US");
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+echo $response->toBxml();
 ```
 
 {% endmethod %}

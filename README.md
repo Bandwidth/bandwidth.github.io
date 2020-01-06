@@ -35,6 +35,8 @@
           <label for="radio-five"><span>python</span></label>
           <input type="radio" name="basic-options" value="six" id="radio-six" class="lang-java trigger" data-rel="lang-java"/>
           <label for="radio-six"><span>java</span></label>
+          <input type="radio" name="basic-options" value="seven" id="radio-seven" class="lang-php trigger" data-rel="lang-php"/>
+          <label for="radio-seven"><span>php</span></label>
       </div>
    </div>
 
@@ -128,6 +130,16 @@ body.text = "Greetings!"
 result = messaging_client.create_message(account_id, body=body)
 ```
 
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+$response = $messagingClient->createMessage($messagingAccountId, $body);
+```
+
 ### Make a call
 
 ```js
@@ -207,6 +219,16 @@ body.answer_url = "https://test.com"
 result = voice_client.create_call(account_id, body=body)
 ```
 
+```php
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body->from = "+15554442222";
+$body->to = "+15554443333";
+$body->answerUrl = "https://test.com";
+$body->applicationId = "3-6-4-a";
+
+$response = $voiceClient->createCall($accountId, $body);
+```
+
 ### Buy a telephone number
 
 ```bash
@@ -239,6 +261,10 @@ curl -X POST \
 
 ```python
 ## Coming Soon
+```
+
+```php
+// Coming soon
 ```
 
 {% raw %}

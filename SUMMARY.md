@@ -182,9 +182,9 @@
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
 * [C#](sdks/csharp.md)
+* [Node](sdks/node.md)
 * [Java - _coming soon_](sdks/java.md)
-* [Node - _coming soon_](sdks/node.md)
-* [PHP - _coming soon_](sdks/php.md)
+* [PHP](sdks/php.md)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
