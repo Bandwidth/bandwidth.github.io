@@ -57,19 +57,6 @@ module.exports = function ($) {
 		});
 	}
 
-	function makeSummaryLinksUnClickable () {
-		var sdkPages = [
-			'java'
-		];
-
-		sdkPages.forEach(page => {
-			//Removes the ability to click the chapter
-			$(`li.chapter a[href*="${page}.html"]`).replaceWith(function(){ return $(this).text() });
-			//Fix the CSS
-			$(`li[data-path*="${page}.html"]`).css({padding: '1px 15px'});
-		});
-	}
-
 	function hidePagesFromNav () {
 		var redirects = [
 			'International Overview'
@@ -109,7 +96,6 @@ module.exports = function ($) {
 
 	fixHTTPMethodStyling();
 	addTopToSummaryPages();
-	makeSummaryLinksUnClickable();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
 	hidePagesFromNav();
