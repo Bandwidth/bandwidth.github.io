@@ -46,6 +46,8 @@ curl -X PUT \
 ```java
 File file = new File("C:\\Path\\To\\File");
 controller.uploadMedia(MSG_ACCOUNT_ID, mediaId, file.length(), file, "audio/wav", false);
+
+//NOTE:  known issue with the java SDK uploadMedia.  None text files may be corrupt.
 ```
 
 {% sample lang="csharp" %}
