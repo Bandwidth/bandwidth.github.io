@@ -34,7 +34,7 @@
           <input type="radio" name="basic-options" value="five" id="radio-five" class="lang-python trigger" data-rel="lang-python"/>
           <label for="radio-five"><span>python</span></label>
           <input type="radio" name="basic-options" value="six" id="radio-six" class="lang-java trigger" data-rel="lang-java"/>
-          <label for="radio-six"><span>python</span></label>
+          <label for="radio-six"><span>java</span></label>
       </div>
    </div>
 
@@ -68,7 +68,12 @@ msgReq.setFrom("+18888888888");
 msgReq.setApplicationId("1-2-3");
 msgReq.setText("Hello World");
 
-controller.createMessage(accountId, msgReq);
+ try {
+    ApiResponse<BandwidthMessage> response = msgController.createMessage(accountId, messageRequest);
+    System.out.println(response.getResult().getId());
+} catch (ApiException  | IOException e){
+    //Handle
+}
 ```
 
 ```csharp
@@ -146,7 +151,12 @@ callRequest.setFrom("+17777777777");
 callRequest.setTo("+19999999999");
 callRequest.setAnswerUrl("https://test.com");
 
-ApiResponse<ApiCallResponse> response = controller.createCall(accountId, callRequest);;
+try {
+    ApiResponse<ApiCallResponse> response = voiceController.createCall(accountId, callRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (IOException | ApiException e) {
+    //Handle
+}
 ```
 
 ```csharp

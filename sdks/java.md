@@ -39,11 +39,10 @@ callRequest.setFrom("+17777777777");
 
 //The voice client createCall can throw these exceptions.
 try {
-	voiceClient.createCall("account.id", callRequest);
-} catch (APIException e) {
-	e.printStackTrace();
-} catch (IOException e) {
-	e.printStackTrace();
+    ApiResponse<ApiCallResponse> response = voiceClient.createCall("account.id", callRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (IOException | ApiException e) {
+    //Handle
 }
 		
 ```
@@ -86,8 +85,12 @@ messageRequest.setFrom("+12345678901");
 messageRequest.setTo( toNumbers );
 messageRequest.setTag("test tag");
 
-ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
-System.out.println(response.getResult().getId());
+try {
+    ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+    System.out.println(response.getResult().getId());
+} catch (ApiException  | IOException e){
+    //Handle
+}
 ``````
 
 ### Order Phone Number
