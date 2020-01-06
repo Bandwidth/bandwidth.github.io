@@ -82,4 +82,16 @@ response.addVerb(sendDtmf);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$sendDtmf = new BandwidthLib\Voice\Bxml\SendDtmf("12w34");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($sendDtmf);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% endmethod %}
