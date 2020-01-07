@@ -8,18 +8,28 @@ This walks through how to programmatically setup and configure your Bandwidth ac
 ## Assumptions
 
 * Familiarity with [Account API Credentials](../../guides/accountCredentials.md)
+* Created an [API Credential Pair within the UI](https://support.bandwidth.com/hc/en-us/articles/360039065753-Classic-How-to-Create-New-Users-in-the-Bandwidth-Dashboard)
 * Account enabled for HTTP Voice & HTTP Messaging (please contact support@bandwidth.com)
 
 ## Getting Started
 
-[Create **messaging** application](#create-messaging-application)
-[Create **voice** application](#create-voice-application)
-[Create subaccount (_site_)](#create-subaccount-site)
-[Create location (_sippeer_)](#create-location)
-[Enable **SMS** on Location (_sippeer_)](#enable-sms-on-location)
-[Enable **MMS** on Location (_sippeer_)](#enable-mms-on-location)
-[Assign Application to Location (_sippeer_)](#assign-messaging-application-to-location)
-[Enable HTTP Voice **and** assign Application on Location (_sippeer_)](#assign-application-enable-voice-on-location)
+* [Create **messaging** application](#create-messaging-application)
+* [Create **voice** application](#create-voice-application)
+* [Create subaccount (_site_)](#create-subaccount-site)
+* [Create location (_sippeer_)](#create-location)
+* [Enable **SMS** on Location (_sippeer_)](#enable-sms-on-location)
+* [Enable **MMS** on Location (_sippeer_)](#enable-mms-on-location)
+* [Assign Application to Location (_sippeer_)](#assign-messaging-application-to-location)
+* [Enable HTTP Voice **and** assign Application on Location (_sippeer_)](#assign-application-enable-voice-on-location)
+
+## Next Steps
+
+Once the account has been configured correctly for HTTP Services. See the guides for:
+
+* [Ordering Phone Numbers with a Callback](../../numbers/guides/onDemandNumberSearchAndOrder.md)
+* [Ordering Phone Numbers and polling order status](../../numbers/guides/numberOrderingSummary.md)
+* [HTTP Messaging](../../messaging/about.md)
+* [HTTP Voice](../../voice/about.md)
 
 ## Create **Messaging** Application {#create-messaging-application}
 
@@ -500,7 +510,7 @@ Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <ApplicationsSettings>
-  <HttpMessagingV2AppId>{{Messaging-Application-Id}}</HttpMessagingV2AppId>
+  <HttpMessagingV2AppId>{{messaging-applicationId}}</HttpMessagingV2AppId>
 </ApplicationsSettings>
 ```
 
