@@ -10,7 +10,7 @@
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
-	* [Automate Account Setup](account/guides/programmatic-http-setup.md)
+	* [Automate Account Setup](account/guides/programmaticApplicationSetup.md)
 * [Applications](account/applications/about.md)
 	* [POST Create Application](account/applications/methods/postApplications.md)
 	* [GET List Applications](account/applications/methods/getApplications.md)
