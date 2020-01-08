@@ -7,20 +7,17 @@ Coming Soon
 ### Initialize Bandwidth Client
 
 ```java
-import com.bandwidth.BandwidthClient;
-import com.bandwidth.Environment;
-
 
 //Set the voice client configuration with credentials
 BandwidthClient client = new BandwidthClient.Builder()
-            .messagingBasicAuthCredentials( "MSG_API_TOKEN", "MSG_API_SECRET")
+            .messagingBasicAuthCredentials("MESSAGING_API_TOKEN", "MESSAGING_API_SECRET")
+            .voiceBasicAuthCredentials("VOICE_API_USERNAME", "VOICE_API_PASSWORD")
             .environment(Environment.PRODUCTION)
             .build();
 
-//create the voice client with the configuration
-com.bandwidth.voice.controllers.APIController voiceClient = client.getVoiceClient().getAPIController();
-com.bandwidth.messaging.controllers.APIController msgClient = client.getMessagingClient().getAPIController();
-
+//Fully qualified name to remove confilicts
+com.bandwidth.messaging.controllers.APIController messagingController = client.getMessagingClient().getAPIController();
+com.bandwidth.voice.controllers.APIController voiceController = client.getVoiceClient().getAPIController();
 
 ```
 
@@ -39,7 +36,7 @@ callRequest.setFrom("+17777777777");
 
 //The voice client createCall can throw these exceptions.
 try {
-    ApiResponse<ApiCallResponse> response = voiceClient.createCall("account.id", callRequest);
+    ApiResponse<ApiCallResponse> response = voiceController.createCall("account.id", callRequest);
     System.out.println(response.getResult().getCallId());
 } catch (IOException | ApiException e) {
     //Handle
@@ -86,7 +83,7 @@ messageRequest.setTo( toNumbers );
 messageRequest.setTag("test tag");
 
 try {
-    ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+    ApiResponse<BandwidthMessage> response = messagingController.createMessage(accountId, messageRequest);
     System.out.println(response.getResult().getId());
 } catch (ApiException  | IOException e){
     //Handle
