@@ -837,7 +837,7 @@ messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "text message";
 messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
 
-msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
+var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 ```
 
 

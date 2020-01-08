@@ -47,7 +47,7 @@ callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 try {
-    voiceController.CreateCall("account.id", callRequest);
+    var response = voiceController.CreateCall("account.id", callRequest);
 } catch (APIException e) {
     WriteLine( e.Message );
 } catch (IOException e) {
@@ -88,7 +88,7 @@ msgRequest.From = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
-msgController.CreateMessage(msgUserId, msgRequest);
+var response = msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
 ### Order Phone Number
