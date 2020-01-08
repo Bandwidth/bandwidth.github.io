@@ -39,6 +39,21 @@ curl -X POST \
     }'
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiModifyCallRequest modifyCallRequest = new ApiModifyCallRequest();
+    modifyCallRequest.setRedirectUrl("");
+    modifyCallRequest.setState(StateEnum.ACTIVE);
+
+    ApiResponse<Void> response = voiceClient.modifyCall(VOICE_ACCOUNT_ID, "callId", modifyCallRequest);
+    
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

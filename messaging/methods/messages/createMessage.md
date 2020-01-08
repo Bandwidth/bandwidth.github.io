@@ -114,6 +114,25 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+
+messageRequest.setApplicationId(MSG_APPLICATION_ID);
+messageRequest.setText("Hey, check this out!");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setTag("test tag");
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -286,6 +305,28 @@ Content-Type: application/json; charset=utf-8
   "direction"     : "out",
   "segmentCount"  : 1
 }
+```
+
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+messageRequest.setApplicationId(MSG_APPLICATION_ID);
+messageRequest.setText("Hey, check this out!");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setTag("test tag");
+messageRequest.setMedia(medias);
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
 ```
 
 {% sample lang="csharp" %}
@@ -467,6 +508,28 @@ Content-Type: application/json; charset=utf-8
   "segmentCount" : 1
 }
 ```
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+
+messageRequest.setApplicationId(applicationId);
+messageRequest.setText("Hello World");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setMedia(medias);
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+response.getResult().getId();
+System.out.println(response.getResult().getId());
+```
 
 {% sample lang="csharp" %}
 
@@ -642,6 +705,26 @@ Content-Type: application/json; charset=utf-8
   "direction"     : "out",
   "segmentCount"  : 1
 }
+```
+
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+toNumbers.add("+12345678903");
+
+messageRequest.setApplicationId(applicationId);
+messageRequest.setText("Hello World");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
 ```
 
 {% sample lang="csharp" %}
@@ -824,6 +907,28 @@ Content-Type: application/json; charset=utf-8
   "direction"     : "out",
   "segmentCount"  : 1
 }
+```
+
+{% sample lang="java" %}
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+toNumbers.add("+12345678903");
+
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+messageRequest.setApplicationId(applicationId);
+messageRequest.setText("Hello World");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setMedia(medias);
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
 ```
 
 {% sample lang="csharp" %}
