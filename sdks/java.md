@@ -2,7 +2,16 @@
 
 ### Download & Install
 
-Coming Soon
+Maven:
+
+```xml
+<!-- https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk -->
+<dependency>
+    <groupId>com.bandwidth.sdk</groupId>
+    <artifactId>bandwidth-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
 ### Initialize Bandwidth Client
 
