@@ -484,7 +484,7 @@ Content-Type: application/xml; charset=utf-8
 
 ## Assign Messaging Application to Location (_sippeer_) {#assign-messaging-application-to-location}
 
-In order to use messaging 2.0 in your account, you need to assign the `application` created above to the location (_sippeer_)
+In order to use the messaging API, you need to assign the `application` created above to the location (_sippeer_)
 
 {% extendmethod %}
 
