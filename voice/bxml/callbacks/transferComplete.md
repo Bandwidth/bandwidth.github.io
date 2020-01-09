@@ -28,7 +28,6 @@ Content-Type: application/xml; charset=utf-8
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                     |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                       |
-| startTime        | Time the Leg-A call was started, in ISO 8601 format.                                                                                  |
 | cause            | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, or `unknown`. `hangup` indicates the call has ended normally. |
 | errorMessage     | Text explaining the reason that caused the call to be ended in case of errors.                                                        |
 | errorId          | Bandwidth internal id that references the error event.                                                                                |
