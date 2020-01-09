@@ -41,12 +41,16 @@ In this example, only the transfers themselves will be recorded, and the text-to
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+//coming soon
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
-
 //coming soon
-;
 ```
 
 {% sample lang="ruby" %}

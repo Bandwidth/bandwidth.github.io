@@ -29,6 +29,11 @@ curl -X DELETE \
 msgClient.DeleteMedia(MSG_ACCOUNT_ID, mediaId);
 ```
 
+{% sample lang="csharp" %}
+
+```java
+messagingClient.deleteMedia(MESSAGING_ACCOUNT_ID, "mediaId");
+```
 
 {% sample lang="ruby" %}
 

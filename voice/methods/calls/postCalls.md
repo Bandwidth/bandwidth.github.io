@@ -81,6 +81,23 @@ Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+ApiCreateCallRequest createCallRequest = new ApiCreateCallRequest();
+createCallRequest.setTo("+19195551313");
+createCallRequest.setFrom("+19195551212");
+createCallRequest.setAnswerUrl("http://www.myapp.com/hello");
+createCallRequest.setApplicationId(VOICE_APPLICATION_ID); //String
+
+try {
+    ApiResponse<ApiCallResponse> response = voiceClient.createCall(VOICE_ACCOUNT_ID, createCallRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
