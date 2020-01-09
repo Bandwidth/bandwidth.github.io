@@ -18,6 +18,9 @@ Content-Type: application/xml; charset=utf-8
 | Property  | Description                                                                                                       |
 |:----------|:------------------------------------------------------------------------------------------------------------------|
 | eventType | The event type, value is `redirect`.                                                                              |
+| accountId     | The user account associated with the call.                                                                        |
+| applicationId | The id of the application associated with the call.                                                               |
+| startTime     | Time the call was started, in ISO 8601 format.                                                                    |
 | to        | The phone number that received the call, in E.164 format (e.g. +15555555555).                                     |
 | from      | The phone number that made the call, in E.164 format (e.g. +15555555555).                                         |
 | direction | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                 |
@@ -35,12 +38,15 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType" : "redirect",
-	"from"      : "+15551112222",
-	"to"        : "+15553334444",
-	"direction" : "outbound",
-	"callId"    : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl"   : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d"
+	"eventType"     : "redirect",
+	"accountId"     : "55555555",
+	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"startTime"     : "2019-06-20T15:54:22.234Z",
+	"from"          : "+15551112222",
+	"to"            : "+15553334444",
+	"direction"     : "outbound",
+	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"       : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d"
 }
 ```
 
@@ -51,13 +57,16 @@ POST http://[External server URL]
 ```
 ```json
 {
-	"eventType" : "redirect",
-	"from"      : "+15551112222",
-	"to"        : "+15553334444",
-	"direction" : "outbound",
-	"callId"    : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl"   : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"tag"       : "example-tag"
+	"eventType"     : "redirect",
+	"accountId"     : "55555555",
+	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"startTime"     : "2019-06-20T15:54:22.234Z",
+	"from"          : "+15551112222",
+	"to"            : "+15553334444",
+	"direction"     : "outbound",
+	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"       : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"tag"           : "example-tag"
 }
 ```
 
