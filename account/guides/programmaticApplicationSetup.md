@@ -11,6 +11,10 @@ This walks through how to programmatically setup and configure your Bandwidth ac
 * Created an [API Credential Pair within the UI](https://support.bandwidth.com/hc/en-us/articles/360039065753-Classic-How-to-Create-New-Users-in-the-Bandwidth-Dashboard)
 * Account enabled for HTTP Voice & HTTP Messaging (please contact support@bandwidth.com)
 
+## API Authentication
+
+The Account Management API resources are authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds).
+
 ## Getting Started
 
 * [Create **messaging** application](#create-messaging-application)
@@ -132,9 +136,6 @@ Learn more about [applications in the documentation](../applications/about.md).
 #### Request URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications`
 
-#### Request Authentication
-
-The [Applications](../applications/about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds)
 
 | Parameters                 | Mandatory | Description                                                                                                                |
 |:---------------------------|:----------|:---------------------------------------------------------------------------------------------------------------------------|

@@ -2304,7 +2304,7 @@ securitySchemes:
                     description: |
                         The /notes resource manages a note or set of notes associated with an order.
                     post:
-                        description: Updates the Notes resource by adding a note.
+                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
                         body:
                             application/xml:
                                 example:
@@ -2788,6 +2788,210 @@ securitySchemes:
                                 </p>
                             </td>
                         </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    AccountNumber
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the main account number on your bill, assigned by the current service provider. Alphanumeric characters are supported with a max length of 20 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    AccountTelephoneNumber
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the account telephone number assigned by the current service provider. Alphanumeric characters are supported with a max length of 10 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    EndUserName
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the name of the end user associated with the telephone number being queried. Alphanumeric characters are supported with a max length of 100 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    AuthorizingUserName
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the name of the end user who signed the authorization. Alphanumeric characters are supported with a max length of 100 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    CustomerCode
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the customer code associated with the service provider. Must be numeric characters only with a max length of 3 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    EndUserPIN
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the end user’s personal identification number (PIN). Alphanumeric characters are supported with a max length of 50 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    EndUserPassword
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the end user’s password to access the CSR, if applicable. Alphanumeric characters are supported with a max length of 100 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    AddressLine1
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the address line 1 portion of the service address. Alphanumeric characters are supported with a max length of 200 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    City
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the city of the end user where the telephone number is being serviced. Alphanumeric characters are supported with a max length of 100 characters.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    State
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the abbreviation for the state or province of the end user where the telephone number is being serviced. Must be alpha characters only in the format XX with a max length of 2 characters, where XX is the state or province abbreviation.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    ZIPCode
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    Identifies the ZIP code, ZIP Code + extension, or postal code or the end user where the telephone number is being serviced. Alphanumeric characters are supported with a max length of 10 characters (including the dash if using ZIP Code with extension).
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <p>
+                                    TypeOfService
+                                </p>
+                            </td>
+                            <td valign="top">
+                                <p align="center">
+                                    No
+                                </p>
+                            </td>
+                            <td width="351" valign="top">
+                                <p>
+                                    The type of service identifying the end user account. Must be alphabetic characters only with a max length of 50 characters.
+                                </p>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             post:
@@ -2811,6 +3015,18 @@ securitySchemes:
                                     <CsrResponse>
                                         <OrderId>4f5b3804-3d0d-49de-a133-d4b67ad6fa11</OrderId>
                                         <Status>RECEIVED</Status>
+                                        <AccountNumber>123456789ABC</AccountNumber>
+                                        <AccountTelephoneNumber>9196191234</AccountTelephoneNumber>
+                                        <EndUserName>Bandwidth User</EndUserName>
+                                        <AuthorizingUserName>Auth Bandwidth User</AuthorizingUserName>
+                                        <CustomerCode>123</CustomerCode>
+                                        <EndUserPIN>123ABC</EndUserPIN>
+                                        <EndUserPassword>supersecretpassword123</EndUserPassword>
+                                        <AddressLine1>900 Main Campus Drive</AddressLine1>
+                                        <City>Raleigh</City>
+                                        <State>NC</State>
+                                        <ZIPCode>27606</ZIPCode>
+                                        <TypeOfService>business</TypeOfService>
                                     </CsrResponse>
                     400:
                         description: The order failed. One of the input parameters is invalid.
@@ -2857,6 +3073,18 @@ securitySchemes:
                                             <OrderId>a2f55ebe-782a-4242-983b-6ae6cfa97833</OrderId>
                                             <LastModifiedDate>2019-10-25T12:51:22.139Z</LastModifiedDate>
                                             <Status>COMPLETE</Status>
+                                            <AccountNumber>987654321</AccountNumber>
+                                            <AccountTelephoneNumber>9196194444</AccountTelephoneNumber>
+                                            <EndUserName>bandwidthGuy</EndUserName>
+                                            <AuthorizingUserName>importantAuthGuy</AuthorizingUserName>
+                                            <CustomerCode>123</CustomerCode>
+                                            <EndUserPIN>12345</EndUserPIN>
+                                            <EndUserPassword>enduserpassword123</EndUserPassword>
+                                            <AddressLine1>900 Main Campus Dr</AddressLine1>
+                                            <City>Raleigh</City>
+                                            <State>NC</State>
+                                            <ZIPCode>27612</ZIPCode>
+                                            <TypeOfService>residential</TypeOfService>
                                             <CsrData>
                                                 <AccountNumber>123456789</AccountNumber>
                                                 <CustomerName>JOHN SMITH</CustomerName>
@@ -2920,7 +3148,7 @@ securitySchemes:
                     description: |
                         The /notes resource manages a note or set of notes associated with an order.
                     post:
-                        description: Updates the Notes resource by adding a note.
+                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
                         body:
                             application/xml:
                                 example:
@@ -3315,7 +3543,7 @@ securitySchemes:
                     description: |
                         The /notes resource manages a note or set of notes associated with an order.
                     post:
-                        description: Updates the Notes resource by adding a note.
+                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
                         body:
                             application/xml:
                                 example:
@@ -6966,7 +7194,7 @@ securitySchemes:
                     description: |
                         The /notes resource manages a note or set of notes associated with an order.
                     post:
-                        description: Updates the Notes resource by adding a note.
+                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
                         body:
                             application/xml:
                                 example:
@@ -8025,7 +8253,7 @@ securitySchemes:
                     description: |
                         The /notes resource manages a note or set of notes associated with an order.
                     post:
-                        description: Updates the Notes resource by adding a note.
+                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
                         body:
                             application/xml:
                                 example:
@@ -9249,7 +9477,7 @@ securitySchemes:
                     description: |
                         The /notes resource manages a note or set of notes associated with an order.
                     post:
-                        description: Updates the Notes resource by adding a note.
+                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
                         body:
                             application/xml:
                                 example:
