@@ -2,9 +2,11 @@
 
 ### Download & Install
 
+```bash
 npm install @bandwidth/messaging
 npm install @bandwidth/voice
 npm install @bandwidth/bxml
+```
 
 ### Initialize Bandwidth Client
 
@@ -26,12 +28,12 @@ const BandwidthBxml = require('@bandwidth/bxml');
 
 ```js
 var body = new BandwidthVoice.ApiCreateCallRequest({
-    "from": "+19999999999",
-    "to": "+18888888888",
-    "applicationId": "123",
-    "answerUrl": "https://test.com",
-    "answerMethod": "POST",
-    "callTimeout": 30
+    "from"          : "+19999999999",
+    "to"            : "+18888888888",
+    "applicationId" : "123",
+    "answerUrl"     : "https://test.com",
+    "answerMethod"  : "POST",
+    "callTimeout"   : 30
 });
 var response = await voiceController.createCall(accountId, body);
 console.log(response);
@@ -56,10 +58,10 @@ console.log(response.toBxml());
 
 ```js
 var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": applicationId ,
-    "to": ["+19999999999"],
-    "from": "+18888888888",
-    "text": "The quick brown fox jumps over a lazy dog."
+    "applicationId" : applicationId ,
+    "to"            : ["+19999999999"],
+    "from"          : "+18888888888",
+    "text"          : "The quick brown fox jumps over a lazy dog."
 });
 
 var response = await messagingController.createMessage(msgUserId, body);

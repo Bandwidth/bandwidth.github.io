@@ -48,4 +48,10 @@ messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 await messagingController.deleteMedia(messagingAccountId, "mediaId")
 ```
 
+{% sample lang="php" %}
+
+```php
+$messagingClient->deleteMedia($messagingAccountId, "mediaId");
+```
+
 {% endmethod %}

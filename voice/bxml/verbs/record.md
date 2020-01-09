@@ -124,5 +124,24 @@ response.addVerb(record);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Please leave your message after the beep");
+$speakSentence->voice("bridget");
+
+$playAudio = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/beep.wav");
+
+$record = new BandwidthLib\Voice\Bxml\Record();
+$record->recordCompleteUrl("https://url.com");
+$record->maxDuration(10);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($playAudio);
+$response->addVerb($record);
+
+echo $response->toBxml();
+```
 
 {% endmethod %}

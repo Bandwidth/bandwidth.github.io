@@ -71,4 +71,17 @@ catch (error) {
 }
 ```
 
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ModifyCallRecordingState();
+$body->state = "paused";
+
+try {
+    $voiceClient->modifyCallRecordingState($accountId, $callId, $body);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
+```
+
 {% endmethod %}

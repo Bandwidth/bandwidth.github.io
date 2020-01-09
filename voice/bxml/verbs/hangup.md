@@ -77,4 +77,15 @@ response.addVerb(hangup);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$hangup = new BandwidthLib\Voice\Bxml\Hangup();
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($hangup);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% endmethod %}
