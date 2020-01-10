@@ -61,7 +61,9 @@ speak_sentence_start = Bandwidth::Voice::SpeakSentence.new({
     :voice => "bridget"
 })
 
-start_recording = Bandwidth::Voice::StartRecording.new()
+start_recording = Bandwidth::Voice::StartRecording.new({
+    :recording_available_url => "https://myapp.com/noBXML"
+})
 
 phone_number = Bandwidth::Voice::PhoneNumber.new({
     :number => "+15554567892"
@@ -101,7 +103,9 @@ speak_sentence_start = SpeakSentence(
     voice="bridget"
 )
 
-start_recording = StartRecording()
+start_recording = StartRecording(
+    recording_available_url="https://myapp.com/noBXML"
+)
 
 phone_number = PhoneNumber(
     number="+15554567892"
