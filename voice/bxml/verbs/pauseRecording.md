@@ -59,13 +59,38 @@ In this example, only the transfers themselves will be recorded, and the text-to
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = Bandwidth::Voice::Response.new()
+pause_recording = Bandwidth::Voice::PauseRecording.new()
+
+response.push(pause_recording)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = Response()
+pause_recording = PauseRecording()
+
+response.add_verb(pause_recording)
+print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var pauseRecording = new BandwidthBxml.Verbs.PauseRecording();
+
+var response = new BandwidthBxml.Response();
+response.addVerb(pauseRecording);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
 ```
 
 {% common %}

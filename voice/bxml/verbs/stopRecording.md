@@ -47,13 +47,32 @@ This shows how to use Bandwidth XML to record a phone call.
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = Bandwidth::Voice::Response.new()
+stop_recording = Bandwidth::Voice::StopRecording.new()
+
+response.push(stop_recording)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = Response()
+stop_recording = StopRecording()
+
+response.add_verb(stop_recording)
+print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var stopRecording = new BandwidthBxml.Verbs.StopRecording();
+
+var response = new BandwidthBxml.Response();
+response.addVerb(stopRecording);
+
+console.log(response.toBxml());
 ```
 
 {% sample lang="php" %}
