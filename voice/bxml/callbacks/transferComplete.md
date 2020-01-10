@@ -1,7 +1,8 @@
 {% method %}
 ##  Transfer Complete Event – <Transfer> verb
 This event is sent to the `transferCompleteUrl` of the A-leg's `<Transfer>` verb when the transferred call (B-leg) completes.
-In a simultaneous ringing scenario, only one B-leg succeeds and this event corresponds to that successful leg. If none of the calls were answered, the `transferComplete` event is not sent.
+In a simultaneous ringing scenario, only one B-leg succeeds and this event corresponds to that successful leg.
+If none of the calls were answered, the `transferComplete` event corresponds to one of the legs.
 
 ### Expected response
 ```http
