@@ -51,16 +51,20 @@ speak_sentence_start = Bandwidth::Voice::SpeakSentence.new({
     :sentence => "This call is being recorded. Please wait while we transfer you.",
     :voice => "bridget"
 })
+
 start_recording = Bandwidth::Voice::StartRecording.new({
     :recording_available_url => "https://myapp.com/noBXML"
 })
+
 phone_number = Bandwidth::Voice::PhoneNumber.new({
     :number => "+15554567892"
 })
 transfer = Bandwidth::Voice::Transfer.new({
     :phone_numbers => [phone_number]
 })
+
 stop_recording = Bandwidth::Voice::StopRecording.new()
+
 speak_sentence_end = Bandwidth::Voice::SpeakSentence.new({
     :sentence => "Thanks for your call. Have a nice day!",
     :voice => "bridget"
@@ -72,6 +76,7 @@ response.push(start_recording)
 response.push(transfer)
 response.push(stop_recording)
 response.push(speak_sentence_end)
+
 puts response.to_bxml()
 ```
 
@@ -82,16 +87,20 @@ speak_sentence_start = SpeakSentence(
     sentence="This call is being recorded. Please wait while we transfer you.",
     voice="bridget"
 )
+
 start_recording = StartRecording(
     recording_available_url="https://myapp.com/noBXML"
 )
+
 phone_number = PhoneNumber(
     number="+15554567892"
 )
 transfer = Transfer(
     phone_numbers=[phone_number]
 )
+
 stop_recording = StopRecording()
+
 speak_sentence_end = SpeakSentence(
     sentence="Thanks for your call. Have a nice day!",
     voice="bridget"
@@ -103,6 +112,7 @@ response.add_verb(start_recording)
 response.add_verb(transfer)
 response.add_verb(stop_recording)
 response.add_verb(speak_sentence_end)
+
 print(response.to_bxml())
 ```
 
@@ -112,13 +122,17 @@ print(response.to_bxml())
 var speakSentenceStart = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentenceStart.setSentence("This call is being recorded. Please wait while we transfer you.");
 speakSentenceStart.setVoice("bridget");
+
 var startRecording = new BandwidthBxml.Verbs.StartRecording();
 startRecording.setRecordingAvailableUrl("https://myapp.com/noBXML");
+
 var phoneNumber = new BandwidthBxml.Verbs.PhoneNumber();
 phoneNumber.setNumber("+15554567892");
 var transfer = new BandwidthBxml.Verbs.Transfer();
 transfer.addPhoneNumber(phoneNumber);
+
 var stopRecording = new BandwidthBxml.Verbs.StopRecording();
+
 var speakSentenceEnd = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentenceEnd.setSentence("Thanks for your call. Have a nice day!");
 speakSentenceEnd.setVoice("bridget");
