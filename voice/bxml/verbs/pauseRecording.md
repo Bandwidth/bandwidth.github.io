@@ -320,7 +320,24 @@ console.log(response.toBxml());
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$resumeRecording = new BandwidthLib\Voice\Bxml\ResumeRecording();
+
+$phoneNumber = new BandwidthLib\Voice\Bxml\PhoneNumber("+15554567893");
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->phoneNumbers(array($phoneNumber));
+
+$stopRecording = new BandwidthLib\Voice\Bxml\StopRecording();
+
+$speakSentenceEnd = new BandwidthLib\Voice\Bxml\SpeakSentence("Thanks for your call. Have a nice day!");
+$speakSentenceEnd->voice("bridget");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($resumeRecording);
+$response->addVerb($transfer);
+$response->addVerb($stopRecording);
+$response->addVerb($speakSentenceEnd);
+
+echo $response->toBxml();
 ```
 
 
