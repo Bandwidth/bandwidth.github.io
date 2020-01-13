@@ -176,7 +176,34 @@ console.log(response.toBxml());
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$speakSentenceStart = new BandwidthLib\Voice\Bxml\SpeakSentence("This call is being recorded. Please wait while we transfer you.");
+$speakSentenceStart->voice("bridget");
+
+$startRecording = new BandwidthLib\Voice\Bxml\StartRecording();
+$startRecording->recordingAvailableUrl("https://myapp.com/noBXML");
+
+$phoneNumber = new BandwidthLib\Voice\Bxml\PhoneNumber("+15554567892");
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->phoneNumbers(array($phoneNumber));
+
+$pauseRecording = new BandwidthLib\Voice\Bxml\PauseRecording();
+
+$speakSentenceGather = new BandwidthLib\Voice\Bxml\SpeakSentence("Press one if you want to be transferred to another number.");
+$speakSentenceGather->voice("kate");
+$gather = new BandwidthLib\Voice\Bxml\Gather();
+$gather->gatherUrl("https://myapp.com/gatherCallbackBxml");
+$gather->maxDigits(1);
+$gather->firstDigitTimeout(10);
+$gather->speakSentence($speakSentenceGather);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentenceStart);
+$response->addVerb($startRecording);
+$response->addVerb($transfer);
+$response->addVerb($pauseRecording);
+$response->addVerb($gather);
+
+echo $response->toBxml();
 ```
 
 {% common %}
