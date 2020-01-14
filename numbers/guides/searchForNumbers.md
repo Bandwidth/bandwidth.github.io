@@ -5,17 +5,25 @@
 
 There are a number of different resource paths for querying available telephone numbers in the Bandwidth Phone Number inventory. These are:
 
-* Area Code or NPA
-* AvailableNpaNxx (List of NPA NXX quantities)
-* NPA-NXX with Local Calling Area
-* NPA-NXX-X with Local Calling Area
-* Rate Center
-* Toll Free Vanity
-* Toll Free Wild Card
-* State
-* City, State
-* Zip code
-* Lata (Telecom terminology)
+## Table of parameters
+
+| Search Criteria                    | Required Parameters     | Combinable Parameters                                                                                       | Optional Parameters                                |
+|:-----------------------------------|:------------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+| Area Code                          | areaCode                | rateCenter (state required)<br>city (state required)<br>state<br>lata<br>zip                                | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| NPA-NXX                            | npaNxx                  | rateCenter (state required)<br>city (state required)<br>state<br>lata<br>zip<br>orderBy                     | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| NPA-NXX with Local Calling Area    | npaNxx                  |                                                                                                             | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| NPA-NXX-X                          | npaNxxx                 | rateCenter (state required)<br>city (state required)<br>state<br>lata<br>zip<br>orderBy                     | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| NPA-NXX-X with Local Calling Area  | npaNxxx                 |                                                                                                             | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| RateCenter                         | rateCenter<br>state     | city<br>areaCode/npaNxx/npaNxxx<br>lata<br>zip<br>orderBy                                                   | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| RateCenter with Local Calling Area | rateCenter<br>state     |                                                                                                             | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| State                              | state                   | rateCenter<br>city<br>areaCode/npaNxx/npaNxxx<br>lata<br>zip                                                | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| City                               | city<br>state           | rateCenter<br>state<br>areaCode/npaNxx/npaNxxx<br>lata<br>zip<br>orderBy                                    | quantity<br>enableTNDetail<br>protected            |
+| Zip Code                           | zip                     | rateCenter (state required)<br>city (state required)<br>state<br>areaCode/npaNxx/npaNxxx<br>lata<br>orderBy | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| LATA                               | lata                    | rateCenter (state required)<br>city (state required)<br>state<br>areaCode/npaNxx/npaNxxx<br>zip             | quantity<br>LCA<br>enableTNDetail<br>protected     |
+| Local Vanity                       | localVanity             | state<br>areaCode                                                                                           | endsIn<br>quantity<br>protected<br>enableTNdetails |
+| TollFree Vanity                    | tollFreeVanity          | orderBy                                                                                                     | quantity                                           |
+| TollFree WildCard                  | tollFreeWildCardPattern | orderBy                                                                                                     | quantity                                           |
+
 
 ## Search HTTP GET Request Format
 
@@ -44,4 +52,3 @@ The response to the search request provides a list of available numbers, and if 
     </TelephoneNumberList>
 </SearchResult>
 ```
-<br>
