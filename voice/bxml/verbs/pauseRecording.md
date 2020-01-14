@@ -51,9 +51,46 @@ In this example, only the transfers themselves will be recorded, and the text-to
 {% sample lang="csharp" %}
 
 ```csharp
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "This call is being recorded. Please wait while we transfer you."
+};            
 
-//coming soon
-;
+StartRecording startRecording = new StartRecording
+{
+    RecordingAvailableUrl = "https://myapp.com/noBXML"
+};
+
+Transfer transfer = new Transfer
+{
+    PhoneNumbers = new PhoneNumber[] {new PhoneNumber
+    {
+        Number = "+15554567892"
+    } }
+};
+
+PauseRecording pauseRecording = new PauseRecording();
+
+Gather gather = new Gather
+{
+    GatherUrl = "https://myapp.com/gatherCallbackBxml",
+    MaxDigits = 1,
+    SpeakSentence = new SpeakSentence
+    {
+        Voice = "kate",
+        Sentence = "Press one if you want to be transferred to another number."
+    }
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(startRecording);
+response.Add(transfer);
+response.Add(pauseRecording);
+response.Add(gather);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
@@ -231,9 +268,28 @@ echo $response->toBxml();
 {% sample lang="csharp" %}
 
 ```csharp
+ResumeRecording resumeRecording = new ResumeRecording();
 
-//coming soon
-;
+Transfer transfer = new Transfer
+{
+    PhoneNumbers = new PhoneNumber[] {new PhoneNumber
+    {
+        Number = "+15554567893"
+    } }
+};
+
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "Thanks for your call. Have a nice day!"
+};
+
+Response response = new Response();
+response.Add(resumeRecording);
+response.Add(transfer);
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
