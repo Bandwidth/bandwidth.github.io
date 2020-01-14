@@ -36,6 +36,35 @@ This shows how to use Bandwidth XML to record a phone call.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+StartRecording startRecording = StartRecording.builder()
+        .recordingAvailableUrl("https://myapp.com/noBXML")
+        .build();
+
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .voice("bridget")
+        .text("This call is being recorded.  Please wait while we transfer you.")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .phoneNumbers(
+                PhoneNumber.builder().phoneNumber("+15554567892").build()
+        )
+        .build();
+
+StopRecording stopRecording = StopRecording.builder().build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(startRecording)
+        .add(transfer)
+        .add(stopRecording);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
