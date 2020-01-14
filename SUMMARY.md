@@ -90,6 +90,8 @@
 ## Voice
 * [Overview](voice/about.md)
 	* [Rate Limits](voice/rateLimits.md)
+* [Guides & Tutorials](voice/guides/index.md)
+    * [BXML Recording](voice/guides/bxmlRecording.md)
 * [API Methods](voice/methods/about.md)
 	* [Create & Update Calls](voice/methods/calls/about.md)
 		* [POST Create Call](voice/methods/calls/postCalls.md)
