@@ -44,7 +44,43 @@ In this example, only the transfers themselves will be recorded, and the text-to
 {% sample lang="java" %}
 
 ```java
-//coming soon
+StartRecording startRecording = StartRecording.builder()
+        .recordingAvailableUrl("https://myapp.com/noBXML")
+        .build();
+
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .voice("bridget")
+        .text("This call is being recorded.  Please wait while we transfer you.")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .phoneNumbers(
+                PhoneNumber.builder().phoneNumber("+15554567892").build()
+        )
+        .build();
+
+PauseRecording pauseRecording = PauseRecording.builder().build();
+
+Gather gather = Gather.builder()
+        .gatherUrl("https://myapp.com/gatherCallbackBxml")
+        .maxDigits(1)
+        .firstDigitTimeout(30.0)
+        .audioProducer(
+                SpeakSentence.builder()
+                        .voice("kate")
+                        .text("Press one if you want to be transferred to another number.")
+                        .build()
+        )
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(startRecording)
+        .add(transfer)
+        .add(pauseRecording)
+        .add(gather);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -223,6 +259,30 @@ echo $response->toBxml();
     <StopRecording/>
     <SpeakSentence voice="bridget">Thanks for your call. Have a nice day!</SpeakSentence>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+ResumeRecording resumeRecording = ResumeRecording.builder().build();
+
+Transfer transfer = Transfer.builder()
+        .phoneNumbers(
+                PhoneNumber.builder().phoneNumber("+15554567893").build()
+        )
+        .build();
+
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .voice("bridget")
+        .text("Thanks for your call. Have a nice day!")
+        .build();
+
+Response response = Response.builder().build()
+        .add(resumeRecording)
+        .add(transfer)
+        .add(speakSentence);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
