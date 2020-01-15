@@ -16,9 +16,89 @@ If there is not an ongoing recording at the time of this verb's execution, it ha
 ### Callbacks Received
 None
 
-{% common %}
 
-#### Example: Pausing a recording
+{% common %}
+#### Example 1 of 2: ResumeRecording verb
+
+{% sample lang="http" %}
+
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <ResumeRecording/>
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+ResumeRecording resumeRecording = ResumeRecording.builder().build();
+
+Response response = Response.builder().build()
+        .add(resumeRecording);
+
+System.out.println(response.toBXML());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+ResumeRecording resumeRecording = new ResumeRecording();
+
+Response response = new Response();
+response.Add(resumeRecording);
+
+Console.WriteLine(response.ToBXML());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+resume_recording = Bandwidth::Voice::ResumeRecording.new()
+
+response = Bandwidth::Voice::Response.new()
+response.push(resume_recording)
+
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+resume_recording = ResumeRecording()
+
+response = Response()
+response.add_verb(resume_recording)
+
+print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var resumeRecording = new BandwidthBxml.Verbs.ResumeRecording();
+
+var response = new BandwidthBxml.Response();
+response.addVerb(resumeRecording);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$resumeRecording = new BandwidthLib\Voice\Bxml\ResumeRecording();
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($resumeRecording);
+
+echo $response->toBxml();
+```
+
+
+{% common %}
+#### Example 2 of 2: Pausing a recording
 
 This shows how to use Bandwidth XML to pause a recording in a phone call.
 In this example, only the transfers themselves will be recorded, and the text-to-speech instructing the user will not be present in the recording.

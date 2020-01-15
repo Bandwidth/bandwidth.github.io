@@ -17,8 +17,87 @@ If there is not an ongoing recording at the time of this verb's execution, it ha
 None
 
 {% common %}
+#### Example 1 of 2: PauseRecording verb
 
-#### Example 1 of 1 : Pausing a recording
+{% sample lang="http" %}
+
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <PauseRecording/>
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+PauseRecording pauseRecording = PauseRecording.builder().build();
+
+Response response = Response.builder().build()
+        .add(pauseRecording);
+
+System.out.println(response.toBXML());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+PauseRecording pauseRecording = new PauseRecording();
+
+Response response = new Response();
+response.Add(pauseRecording);
+
+Console.WriteLine(response.ToBXML());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+pause_recording = Bandwidth::Voice::PauseRecording.new()
+
+response = Bandwidth::Voice::Response.new()
+response.push(pause_recording)
+
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+pause_recording = PauseRecording()
+
+response = Response()
+response.add_verb(pause_recording)
+
+print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var pauseRecording = new BandwidthBxml.Verbs.PauseRecording();
+
+var response = new BandwidthBxml.Response();
+response.addVerb(pauseRecording);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$pauseRecording = new BandwidthLib\Voice\Bxml\PauseRecording();
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($pauseRecording);
+
+echo $response->toBxml();
+```
+
+{% common %}
+
+#### Example 2 of 2: Pausing a recording
 
 
 This shows how to use Bandwidth XML to pause a recording in a phone call.
