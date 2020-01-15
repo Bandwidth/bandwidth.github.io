@@ -80,9 +80,41 @@ System.out.println(response.toBXML());
 {% sample lang="csharp" %}
 
 ```csharp
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "This call is being recorded. Please wait while we transfer you."
+};
 
-//coming soon
-;
+StartRecording startRecording = new StartRecording
+{
+    RecordingAvailableUrl = "https://myapp.com/noBXML"
+};
+
+Transfer transfer = new Transfer
+{
+    PhoneNumbers = new PhoneNumber[] {new PhoneNumber
+    {
+        Number = "+15554567892"
+    } }
+};
+
+StopRecording stopRecording = new StopRecording();
+
+SpeakSentence speakSentence1 = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "Thanks for your call. Have a nice day!"
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(startRecording);
+response.Add(transfer);
+response.Add(stopRecording);
+response.Add(speakSentence1);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
