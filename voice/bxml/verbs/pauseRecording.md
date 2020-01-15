@@ -43,9 +43,12 @@ System.out.println(response.toBXML());
 {% sample lang="csharp" %}
 
 ```csharp
+PauseRecording pauseRecording = new PauseRecording();
 
-//coming soon
-;
+Response response = new Response();
+response.Add(pauseRecording);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
