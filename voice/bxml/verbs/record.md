@@ -53,15 +53,54 @@ This shows how to use Bandwidth XML to record a phone call.
 {% sample lang="java" %}
 
 ```java
-//coming soon
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .voice("bridget")
+        .text("Please leave your message after the beep")
+        .build();
+
+PlayAudio playAudio = PlayAudio.builder()
+        .audioUri("http://audio.url/beep.wav")
+        .build();
+
+Record record = Record.builder()
+        .recordCompleteUrl("https://myapp.com/nextBXML")
+        .maxDuration(10)
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(playAudio)
+        .add(record);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "Please leave your message after the beep."
+};
 
-//coming soon
-;
+PlayAudio playAudio = new PlayAudio
+{
+    Url = "http://audio.url/beep.wav"
+};
+
+Record record = new Record
+{
+    RecordCompleteUrl = "https://myapp.com/nextBXML",
+    MaxDuration = 10
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(playAudio);
+response.Add(record);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
