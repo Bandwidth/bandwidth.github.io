@@ -1,9 +1,13 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Number Ordering Summary {#top}
+# Search And Order Phone Numbers by Polling {#top}
 
 This guide will take you through the _basics_ of searching and ordering phone numbers with the Bandwidth Phone Number API.
+
+## Differences between Polling & Callbacks
+
+Phone number ordering in the Bandwidth Dashboard is asyncronous through creating an "order". The orders are then processed and the order status is updated asyncronously.  Bandwidth recommends configuring your account with a [subscription](../../account/subscriptions/about.md) and following the [Order Phone Number with Callbacks guide](onDemandNumberSearchAndOrder.md) instead of polling the order status for the `<OrderStatus>`.
 
 ## Assumptions
 * You have a [Bandwidth](https://dashboard.bandwidth.com) account

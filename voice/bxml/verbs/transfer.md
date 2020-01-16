@@ -70,6 +70,30 @@ This shows how to use Bandwidth XML to transfer a phone call.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Transferring your call, please wait.")
+        .gender("male")
+        .build();
+
+PhoneNumber phoneNumber = PhoneNumber.builder()
+        .phoneNumber("+11234567892")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .transferCallerId("+11234567891")
+        .phoneNumbers(phoneNumber)
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(transfer);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -168,6 +192,31 @@ This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge a
         <PhoneNumber transferAnswerUrl="http://myapp.com/announcement">+15554567892</PhoneNumber>
     </Transfer>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Transferring your call, please wait.")
+        .voice("paul")
+        .build();
+
+PhoneNumber phoneNumber = PhoneNumber.builder()
+        .phoneNumber("+11234567892")
+        .transferAnswerUrl("http://myapp.com/announcement")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .transferCallerId("+11234567891")
+        .phoneNumbers(phoneNumber)
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(transfer);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -359,6 +408,28 @@ to answer is bridged to the original call.
     </Transfer>
 </Response>
 
+```
+
+{% sample lang="java" %}
+
+```java
+PhoneNumber phoneNumber1 = PhoneNumber.builder()
+        .phoneNumber("+11234567892")
+        .build();
+
+PhoneNumber phoneNumber2 = PhoneNumber.builder()
+        .phoneNumber("+11234567893")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .transferCallerId("+11234567891")
+        .phoneNumbers(phoneNumber1, phoneNumber2)
+        .build();
+
+Response response = Response.builder().build()
+        .add(transfer);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}

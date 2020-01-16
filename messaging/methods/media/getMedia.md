@@ -29,6 +29,16 @@ curl -X GET \
     -u '{token}:{secret}'
 ```
 
+{% sample lang="java" %}
+```java
+try {
+    ApiResponse<InputStream> response = controller.getMedia(MSG_ACCOUNT_ID, "mediaId");
+    byte[] bytes = response.getResult().readAllBytes();
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+} 
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

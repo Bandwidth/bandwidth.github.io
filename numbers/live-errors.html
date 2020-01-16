@@ -1704,10 +1704,6 @@
     <td>SIP Peer assignment cannot change for this port request.</td>
   </tr>
     <tr>
-    <td>7488</td>
-    <td>External telephone numbers should be processed by separate port request.</td>
-  </tr>
-    <tr>
     <td>7489</td>
     <td>Port PS check returned empty SPID.</td>
   </tr>
@@ -2089,6 +2085,22 @@
     <tr>
     <td>7421</td>
     <td>All ported numbers on an order need to be from the same carrier.</td>
+  </tr>
+    <tr>
+    <td>7422</td>
+    <td>The LocalOrderUpdate query parameter is restricted to Bandwidth internal users only.</td>
+  </tr>
+    <tr>
+    <td>7423</td>
+    <td>The LocalOrderUpdate query parameter can only be specified for orders in FOC status.</td>
+  </tr>
+    <tr>
+    <td>7424</td>
+    <td>The LocalOrderUpdate query parameter requires inclusion of a valid RequestedFocDate in the request payload.</td>
+  </tr>
+    <tr>
+    <td>7425</td>
+    <td>The LocalOrderUpdate query parameter may only be used when it is not possible for the user to change the FOC date using the normal SUPP request.</td>
   </tr>
     <tr>
     <td>7604</td>
@@ -3152,7 +3164,7 @@
     <td>Subscription object is invalid</td>
   </tr>
     <tr>
-    <td>14500</td>
+    <td>14502</td>
     <td>Incorrect digest type</td>
   </tr>
     <tr>

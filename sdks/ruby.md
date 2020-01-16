@@ -60,21 +60,22 @@ puts response.to_bxml()
 ```ruby
 messaging_client = bandwidth_client.messaging_client.client
 
+account_id = '1'
 body = MessageRequest.new
-body.application_id = "1-2-3"
-body.to = ["+17777777777"]
-body.from = "+18888888888"
-body.text = "Hello from Bandwidth"
+body.application_id = '1-2-3'
+body.to = ['+17777777777']
+body.from = '+18888888888'
+body.text = 'Hello from Bandwidth'
 
 begin
-    response = messaging_client.create_message("123", body)
+    response = messaging_client.create_message(account_id, :body => body)
     puts response.data.id #1570740275373xbn7mbhsfewasdr
     puts response.status_code #202
 rescue Bandwidth::GenericClientException => e
     puts e.description #Access is denied
     puts e.response_code #403
 rescue Bandwidth::PathClientException => e
-    puts e.message #Your request could not be accepted. 
+    puts e.message #Your request could not be accepted.
     puts e.response_code #400
 end
 ```

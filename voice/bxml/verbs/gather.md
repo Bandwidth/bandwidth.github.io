@@ -59,6 +59,27 @@ results to https://gather.url/nextBXML
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Please press a digit.")
+        .voice("kate")
+        .build();
+
+Gather gather = Gather.builder()
+        .gatherUrl("https://gather.url/nextBxml")
+        .terminatingDigits("#")
+        .firstDigitTimeout(10.0)
+        .audioProducer(speakSentence)
+        .build();
+
+Response response = Response.builder().build()
+        .add(gather);
+
+System.out.println(response.toBXML());
+```
+
 
 {% sample lang="csharp" %}
 
@@ -171,6 +192,26 @@ Gather will end and send the result to the **gatherUrl**
       <SpeakSentence>I am going to keep asking you to press a digit</SpeakSentence>
    </Gather>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("I am going to keep asking you to press a digit.")
+        .build();
+
+Gather gather = Gather.builder()
+        .gatherUrl("https://gather.url/nextBxml")
+        .repeatCount(5)
+        .maxDigits(1)
+        .audioProducer(speakSentence)
+        .build();
+
+Response response = Response.builder().build()
+        .add(gather);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}

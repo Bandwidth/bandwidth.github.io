@@ -87,6 +87,17 @@ curl -X GET \
 ]
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiResponse<RecordingMetadataResponse> response = voiceClient.getMetadataForRecording(VOICE_ACCOUNT_ID, "callId", "recordingId");
+    System.out.println(response.getResult().getMediaUrl());
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp

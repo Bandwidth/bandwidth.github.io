@@ -33,8 +33,10 @@
           <label for="radio-three"><span>ruby</span></label>
           <input type="radio" name="basic-options" value="five" id="radio-five" class="lang-python trigger" data-rel="lang-python"/>
           <label for="radio-five"><span>python</span></label>
-          <input type="radio" name="basic-options" value="six" id="radio-six" class="lang-php trigger" data-rel="lang-php"/>
-          <label for="radio-six"><span>php</span></label>
+          <input type="radio" name="basic-options" value="six" id="radio-six" class="lang-java trigger" data-rel="lang-java"/>
+          <label for="radio-six"><span>java</span></label>
+          <input type="radio" name="basic-options" value="seven" id="radio-seven" class="lang-php trigger" data-rel="lang-php"/>
+          <label for="radio-seven"><span>php</span></label>
       </div>
    </div>
 
@@ -54,6 +56,26 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(msgUserId, body);
 console.log(response);
+```
+
+```java
+MessageRequest msgReq = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+19999999999");
+
+msgReq.setTo( toNumbers );
+msgReq.setFrom("+18888888888");
+msgReq.setApplicationId("1-2-3");
+msgReq.setText("Hello World");
+
+ try {
+    ApiResponse<BandwidthMessage> response = msgController.createMessage(accountId, messageRequest);
+    System.out.println(response.getResult().getId());
+} catch (ApiException  | IOException e){
+    //Handle
+}
 ```
 
 ```csharp
@@ -131,6 +153,22 @@ var body = new BandwidthVoice.ApiCreateCallRequest({
 });
 var response = await voiceController.createCall(accountId, body);
 console.log(response);
+```
+
+```java
+ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+
+callRequest.setApplicationId("3-d-4-b-5");
+callRequest.setFrom("+17777777777");
+callRequest.setTo("+19999999999");
+callRequest.setAnswerUrl("https://test.com");
+
+try {
+    ApiResponse<ApiCallResponse> response = voiceController.createCall(accountId, callRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (IOException | ApiException e) {
+    //Handle
+}
 ```
 
 ```csharp
