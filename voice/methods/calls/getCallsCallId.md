@@ -3,14 +3,6 @@
 ## Retrieve Call Information
 Retrieve the current state of a specific call.
 
-The `state` attribute indicates the current state of the call. Valid values are `initiated`, `answered` and `disconnected`.
-
-The `answerTime` attribute is populated once the call has been answered.
-
-The `endTime` and `disconnectCause` attributes are populated once the call has ended.
-
-The `errorMessage` and `errorId` attributes are populated only if the call ends with an error.
-
 ### Request URL
 
 <code class="get">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}`
@@ -26,6 +18,26 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | Parameter | Description |
 |:----------|:------------|
 | None      | None        |
+
+### Response Attributes
+
+| Property        | Description                                                                                                              |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------|
+| callId          | The call id.                                                                                                             |
+| parentCallId    | (optional) The A-leg call id, set only if this call is the B-leg of a [`<Transfer>`](../../bxml/verbs/transfer.md).      |
+| applicationId   | The application id associated  with the call.                                                                            |
+| accountId       | The account id associated with the call.                                                                                 |
+| to              | The phone number that received the call, in E.164 format (e.g. +15555555555).                                            |
+| from            | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                |
+| direction       | The direction of the call. Either `inbound` or `outbound`.                                                               |
+| state           | The current state of the call: `initiated`, `answered`, or `disconnected`.                                               |
+| startTime       | The time the call was initiated, in ISO 8601 format.                                                                     |
+| answerTime      | (optional) Populated once the call has been answered, with the time in ISO 8601 format.                                  |
+| endTime         | (optional) Populated once the call has ended, with the time in ISO 8601 format.                                          |
+| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, or `unknown`.<br>`hangup` indicates the call ended normally. |
+| errorMessage    | (optional) Populated only if the call ended with an error, with a text explaining the reason.                            |
+| errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
+| lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |
 
 {% common %}
 
