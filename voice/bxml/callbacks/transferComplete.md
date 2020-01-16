@@ -50,7 +50,7 @@ POST http://[External server URL]
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
 	"startTime"        : "2019-07-31T13:13:34.859318Z",
-	"cause"            : "completed",
+	"cause"            : "hangup",
 	"errorMessage"     : "",
 	"errorId"          : ""
 }
