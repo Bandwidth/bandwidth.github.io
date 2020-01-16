@@ -16,9 +16,89 @@ If there is not an ongoing recording at the time of this verb's execution, it ha
 ### Callbacks Received
 None
 
-{% common %}
 
-#### Example: Pausing a recording
+{% common %}
+#### Example 1 of 2: ResumeRecording verb
+
+{% sample lang="http" %}
+
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <ResumeRecording/>
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+ResumeRecording resumeRecording = ResumeRecording.builder().build();
+
+Response response = Response.builder().build()
+        .add(resumeRecording);
+
+System.out.println(response.toBXML());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+ResumeRecording resumeRecording = new ResumeRecording();
+
+Response response = new Response();
+response.Add(resumeRecording);
+
+Console.WriteLine(response.ToBXML());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+resume_recording = Bandwidth::Voice::ResumeRecording.new()
+
+response = Bandwidth::Voice::Response.new()
+response.push(resume_recording)
+
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+resume_recording = ResumeRecording()
+
+response = Response()
+response.add_verb(resume_recording)
+
+print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var resumeRecording = new BandwidthBxml.Verbs.ResumeRecording();
+
+var response = new BandwidthBxml.Response();
+response.addVerb(resumeRecording);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$resumeRecording = new BandwidthLib\Voice\Bxml\ResumeRecording();
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($resumeRecording);
+
+echo $response->toBxml();
+```
+
+
+{% common %}
+#### Example 2 of 2: Pausing a recording
 
 This shows how to use Bandwidth XML to pause a recording in a phone call.
 In this example, only the transfers themselves will be recorded, and the text-to-speech instructing the user will not be present in the recording.
@@ -44,13 +124,88 @@ In this example, only the transfers themselves will be recorded, and the text-to
 {% sample lang="java" %}
 
 ```java
-//coming soon
+StartRecording startRecording = StartRecording.builder()
+        .recordingAvailableUrl("https://myapp.com/noBXML")
+        .build();
+
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .voice("bridget")
+        .text("This call is being recorded.  Please wait while we transfer you.")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .phoneNumbers(
+                PhoneNumber.builder().phoneNumber("+15554567892").build()
+        )
+        .build();
+
+PauseRecording pauseRecording = PauseRecording.builder().build();
+
+Gather gather = Gather.builder()
+        .gatherUrl("https://myapp.com/gatherCallbackBxml")
+        .maxDigits(1)
+        .firstDigitTimeout(30.0)
+        .audioProducer(
+                SpeakSentence.builder()
+                        .voice("kate")
+                        .text("Press one if you want to be transferred to another number.")
+                        .build()
+        )
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(startRecording)
+        .add(transfer)
+        .add(pauseRecording)
+        .add(gather);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "This call is being recorded. Please wait while we transfer you."
+};            
+
+StartRecording startRecording = new StartRecording
+{
+    RecordingAvailableUrl = "https://myapp.com/noBXML"
+};
+
+Transfer transfer = new Transfer
+{
+    PhoneNumbers = new PhoneNumber[] {new PhoneNumber
+    {
+        Number = "+15554567892"
+    } }
+};
+
+PauseRecording pauseRecording = new PauseRecording();
+
+Gather gather = new Gather
+{
+    GatherUrl = "https://myapp.com/gatherCallbackBxml",
+    MaxDigits = 1,
+    SpeakSentence = new SpeakSentence
+    {
+        Voice = "kate",
+        Sentence = "Press one if you want to be transferred to another number."
+    }
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(startRecording);
+response.Add(transfer);
+response.Add(pauseRecording);
+response.Add(gather);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
@@ -225,12 +380,55 @@ echo $response->toBxml();
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+ResumeRecording resumeRecording = ResumeRecording.builder().build();
+
+Transfer transfer = Transfer.builder()
+        .phoneNumbers(
+                PhoneNumber.builder().phoneNumber("+15554567893").build()
+        )
+        .build();
+
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .voice("bridget")
+        .text("Thanks for your call. Have a nice day!")
+        .build();
+
+Response response = Response.builder().build()
+        .add(resumeRecording)
+        .add(transfer)
+        .add(speakSentence);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
+ResumeRecording resumeRecording = new ResumeRecording();
 
-//coming soon
-;
+Transfer transfer = new Transfer
+{
+    PhoneNumbers = new PhoneNumber[] {new PhoneNumber
+    {
+        Number = "+15554567893"
+    } }
+};
+
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Voice = "bridget",
+    Sentence = "Thanks for your call. Have a nice day!"
+};
+
+Response response = new Response();
+response.Add(resumeRecording);
+response.Add(transfer);
+response.Add(speakSentence);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
