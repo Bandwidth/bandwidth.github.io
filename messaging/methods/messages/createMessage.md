@@ -114,6 +114,25 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+
+messageRequest.setApplicationId(MSG_APPLICATION_ID);
+messageRequest.setText("Hey, check this out!");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setTag("test tag");
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -174,6 +193,23 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -271,6 +307,28 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+messageRequest.setApplicationId(MSG_APPLICATION_ID);
+messageRequest.setText("Hey, check this out!");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setTag("test tag");
+messageRequest.setMedia(medias);
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -335,6 +393,24 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -432,6 +508,28 @@ Content-Type: application/json; charset=utf-8
   "segmentCount" : 1
 }
 ```
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+
+messageRequest.setApplicationId(applicationId);
+messageRequest.setText("Hello World");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setMedia(medias);
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+response.getResult().getId();
+System.out.println(response.getResult().getId());
+```
 
 {% sample lang="csharp" %}
 
@@ -497,6 +595,24 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -591,6 +707,26 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+toNumbers.add("+12345678903");
+
+messageRequest.setApplicationId(applicationId);
+messageRequest.setText("Hello World");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -651,6 +787,23 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902", "+12345678903");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -756,6 +909,28 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+{% sample lang="java" %}
+```java
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+List<String> medias = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+toNumbers.add("+12345678903");
+
+medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+messageRequest.setApplicationId(applicationId);
+messageRequest.setText("Hello World");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setMedia(medias);
+
+ApiResponse<BandwidthMessage> response = messagingClient.createMessage(accountId, messageRequest);
+System.out.println(response.getResult().getId());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -767,7 +942,7 @@ messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "text message";
 messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
 
-msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
+var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 ```
 
 
@@ -818,6 +993,24 @@ var body = new BandwidthMessaging.MessageRequest({
 
 var response = await messagingController.createMessage(messagingAccountId, body);
 console.log(response);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902", "+12345678903");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+
+try {
+    $response = $messagingClient->createMessage($messagingAccountId, $body);
+    print_r($response);
+} catch (Exception $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

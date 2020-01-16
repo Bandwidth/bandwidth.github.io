@@ -81,6 +81,23 @@ Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+ApiCreateCallRequest createCallRequest = new ApiCreateCallRequest();
+createCallRequest.setTo("+19195551313");
+createCallRequest.setFrom("+19195551212");
+createCallRequest.setAnswerUrl("http://www.myapp.com/hello");
+createCallRequest.setApplicationId(VOICE_APPLICATION_ID); //String
+
+try {
+    ApiResponse<ApiCallResponse> response = voiceClient.createCall(VOICE_ACCOUNT_ID, createCallRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -145,6 +162,23 @@ try {
     console.log(response);
 catch (error) {
     console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body->from = "+15554443333";
+$body->to = "+15554442222";
+$body->answerUrl = "https://test.com";
+$body->applicationId = "3-6-4-b-4";
+
+try {
+    $response = $voiceClient->createCall($accountId, $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
 }
 ```
 

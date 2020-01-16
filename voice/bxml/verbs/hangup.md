@@ -33,6 +33,17 @@ This shows how to use Bandwidth XML to hang up an existing call.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Hangup hangup = Hangup.builder().build();
+
+Response response = Response.builder().build()
+        .add(hangup);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -75,6 +86,17 @@ var response = new BandwidthBxml.Response();
 response.addVerb(hangup);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$hangup = new BandwidthLib\Voice\Bxml\Hangup();
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($hangup);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

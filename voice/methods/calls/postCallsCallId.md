@@ -39,6 +39,21 @@ curl -X POST \
     }'
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiModifyCallRequest modifyCallRequest = new ApiModifyCallRequest();
+    modifyCallRequest.setRedirectUrl("");
+    modifyCallRequest.setState(StateEnum.ACTIVE);
+
+    ApiResponse<Void> response = voiceClient.modifyCall(VOICE_ACCOUNT_ID, "callId", modifyCallRequest);
+    
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -89,6 +104,21 @@ try {
     await voiceController.modifyCall(accountId, "callId", body);
 } catch (error) {
     console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body->state = "active";
+$body->redirectUrl = "http://www.myapp.com/new";
+
+try {
+    $response = $voiceClient->modifyCall($accountId, "callId", $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
 }
 ```
 
@@ -152,6 +182,20 @@ var body = new BandwidthVoice.ApiModifyCallRequest({
 });
 
 await voiceController.modifyCall(accountId, "callId", body);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body->state = "completed";
+
+try {
+    $response = $voiceClient->modifyCall($accountId, "callId", $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

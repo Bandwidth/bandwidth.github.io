@@ -2,26 +2,31 @@
 
 ### Download & Install
 
-Coming Soon
+Maven:
+
+```xml
+<!-- https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk -->
+<dependency>
+    <groupId>com.bandwidth.sdk</groupId>
+    <artifactId>bandwidth-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
 ### Initialize Bandwidth Client
 
 ```java
-import com.bandwidth.voice.controllers.APIController;
-import com.bandwidth.voice.Configuration;
-import com.bandwidth.voice.Environments;
-
 
 //Set the voice client configuration with credentials
-Configuration config = new Configuration().newBuilder()
-            .basicAuthPassword( "voice.password" )
-            .basicAuthUserName( "voice.username" )
-            .environment(Environments.PRODUCTION)
+BandwidthClient client = new BandwidthClient.Builder()
+            .messagingBasicAuthCredentials("MESSAGING_API_TOKEN", "MESSAGING_API_SECRET")
+            .voiceBasicAuthCredentials("VOICE_API_USERNAME", "VOICE_API_PASSWORD")
+            .environment(Environment.PRODUCTION)
             .build();
 
-//create the voice client with the configuration
-APIController voiceClient = new BandwidthV2VoiceClient(config).getClient();
-
+//Fully qualified name to remove confilicts
+com.bandwidth.messaging.controllers.APIController messagingController = client.getMessagingClient().getAPIController();
+com.bandwidth.voice.controllers.APIController voiceController = client.getVoiceClient().getAPIController();
 
 ```
 
@@ -40,13 +45,12 @@ callRequest.setFrom("+17777777777");
 
 //The voice client createCall can throw these exceptions.
 try {
-	voiceClient.createCall("account.id", callRequest);
-} catch (APIException e) {
-	e.printStackTrace();
-} catch (IOException e) {
-	e.printStackTrace();
+    ApiResponse<ApiCallResponse> response = voiceController.createCall("account.id", callRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (IOException | ApiException e) {
+    //Handle
 }
-		
+
 ```
 
 ### Generate BXML
@@ -70,7 +74,26 @@ System.out.println( response.toXml() )
 ### Send Text Message
 
 ```java
-//Coming soon
+import com.bandwidth.messaging.models.MessageRequest;
+
+MessageRequest messageRequest = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+12345678902");
+
+messageRequest.setApplicationId(MSG_APPLICATION_ID);
+messageRequest.setText("Hey, check this out!");
+messageRequest.setFrom("+12345678901");
+messageRequest.setTo( toNumbers );
+messageRequest.setTag("test tag");
+
+try {
+    ApiResponse<BandwidthMessage> response = messagingController.createMessage(accountId, messageRequest);
+    System.out.println(response.getResult().getId());
+} catch (ApiException  | IOException e){
+    //Handle
+}
 ```
 
 ### Order Phone Number

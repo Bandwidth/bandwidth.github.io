@@ -28,6 +28,19 @@ This shows how to use Bandwidth XML to pause for 2 seconds.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Pause pause = Pause.builder()
+        .duration(2.0)
+        .build();
+
+Response response = Response.builder().build()
+        .add(pause);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -68,12 +81,25 @@ print(response.to_bxml())
 
 ```js
 var pause = new BandwidthBxml.Verbs.Pause();
-pause.setDuration(3);
+pause.setDuration(2);
 
 var response = new BandwidthBxml.Response();
 response.addVerb(pause);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$pause = new BandwidthLib\Voice\Bxml\Pause();
+$pause->duration(2);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($pause);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

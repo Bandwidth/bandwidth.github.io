@@ -63,6 +63,13 @@ curl -X GET \
 ]
 ```
 
+{% sample lang="java" %}
+
+```java
+ApiResponse<List<Media>> response = controller.listMedia(MESSAGING_ACCOUNT_ID, "");
+List<Media> mediaList = response.getResult();
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -90,6 +97,13 @@ print(media.body[0].media_name)
 ```js
 var response = await messagingController.listMedia(userId, '');
 console.log(response[0].mediaName);
+```
+
+{% sample lang="php" %}
+
+```php
+$response = $messagingClient->listMedia($messagingUserId);
+print_r($response->getResult()[0]->mediaName);
 ```
 
 {% common %}
@@ -128,6 +142,26 @@ Continuation-Token: 678910
         "content": "https://messaging.bandwidth.com/.../media/{mediaName3}"
   }
 ]
+```
+
+{% sample lang="java" %}
+
+```java
+String continuationToken = null;
+try {
+    do {
+        ApiResponse<List<Media>> response = controller.listMedia("userId", continuationToken);
+        continuationToken = response.getHeaders().value("Continuation-Token");
+        List<Media> mediaList = response.getResult();
+        
+        System.out.println(mediaList.size());
+        System.out.println(mediaList.get(0).getMediaName());
+        
+    } while (continuationToken != null);
+    
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
 ```
 
 {% sample lang="csharp" %}
@@ -202,6 +236,23 @@ var continuationToken = '';
 while (true) {
     continuationToken = await getMediaWithToken(continuationToken);
     if (continuationToken === null) {
+        break;
+    }
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$continuationToken = "";
+while (true) {
+    $response = $messagingClient->listMedia($messagingAccountId, $continuationToken);
+    print_r($response->getResult()[0]->mediaName);
+    echo "\n";
+    if (array_key_exists("continuation-token", $response->getHeaders())) {
+        $continuationToken = $response->getHeaders()["continuation-token"];
+    }
+    else {
         break;
     }
 }

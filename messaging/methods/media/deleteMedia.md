@@ -29,6 +29,11 @@ curl -X DELETE \
 msgClient.DeleteMedia(MSG_ACCOUNT_ID, mediaId);
 ```
 
+{% sample lang="csharp" %}
+
+```java
+messagingClient.deleteMedia(MESSAGING_ACCOUNT_ID, "mediaId");
+```
 
 {% sample lang="ruby" %}
 
@@ -46,6 +51,12 @@ messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 
 ```js
 await messagingController.deleteMedia(messagingAccountId, "mediaId")
+```
+
+{% sample lang="php" %}
+
+```php
+$messagingClient->deleteMedia($messagingAccountId, "mediaId");
 ```
 
 {% endmethod %}

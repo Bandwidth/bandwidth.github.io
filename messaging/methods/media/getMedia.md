@@ -29,6 +29,16 @@ curl -X GET \
     -u '{token}:{secret}'
 ```
 
+{% sample lang="java" %}
+```java
+try {
+    ApiResponse<InputStream> response = controller.getMedia(MSG_ACCOUNT_ID, "mediaId");
+    byte[] bytes = response.getResult().readAllBytes();
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+} 
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -67,6 +77,15 @@ f.close()
 ```js
 var response = await messagingController.getMedia(messagingAccountId, "mediaId");
 fs.writeFileSync("file_to_write", response, "binary");
+```
+
+{% sample lang="php" %}
+
+```php
+$response = $messagingClient->getMedia($messagingAccountId, "mediaId");
+$file = fopen("file_to_write", "wb") or die("Unable to open file");
+fwrite($file, $response->getResult());
+fclose($file);
 ```
 
 {% endmethod %}

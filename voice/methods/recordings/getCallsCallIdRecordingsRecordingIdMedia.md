@@ -37,6 +37,17 @@ curl -X GET \
 HTTP/1.1 200
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiResponse<InputStream> response = voiceClient.getStreamRecordingMedia(VOICE_ACCOUNT_ID, "callId", "recordingId");
+    byte[] bytes = response.getResult().readAllBytes();
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -67,6 +78,19 @@ with(open("file_to_write", "wb")) as f:
 ```js
 var response = await voiceController.getStreamRecordingMedia(accountId, callId, recordingId);
 fs.writeFileSync("file_to_write", response, "binary");
+```
+
+{% sample lang="php" %}
+
+```php
+try {
+    $response = $voiceClient->getStreamRecordingMedia($accountId, $callId, $recordingId);
+    $file = fopen("file_to_write", "wb") or die("Unable to open file");
+    fwrite($file, $response->getResult());
+    fclose($file);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

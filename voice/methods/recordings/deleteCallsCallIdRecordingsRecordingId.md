@@ -35,12 +35,22 @@ curl -X DELETE \
 HTTP/1.1 204
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiResponse<Void> response = voiceClient.deleteRecording(VOICE_ACCOUNT_ID, "callId", "recordingId");
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
 
 //coming soon
-;
+
 ```
 
 {% sample lang="ruby" %}
@@ -62,6 +72,16 @@ try {
     await voiceController.deleteRecording(accountId, callId, recordingId);
 catch (error) {
     console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+try {
+    $voiceClient->deleteRecording($accountId, $callId, $recordingId);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
 }
 ```
 

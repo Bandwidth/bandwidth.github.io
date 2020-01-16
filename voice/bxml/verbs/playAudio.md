@@ -39,6 +39,24 @@ This shows how to use Bandwidth XML to play two audio clips into a phone call.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+PlayAudio playAudio1 = PlayAudio.builder()
+        .audioUri("https;//audio.url/audio1.wav")
+        .build();
+
+PlayAudio playAudio2 = PlayAudio.builder()
+        .audioUri("https://audio.url/audio2.wav")
+        .build();
+
+Response response = Response.builder().build()
+        .add(playAudio1)
+        .add(playAudio2);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -102,6 +120,20 @@ response.addVerb(playAudio1);
 response.addVerb(playAudio2);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$playAudio1 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio1.wav");
+$playAudio2 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio2.wav");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($playAudio1);
+$response->addVerb($playAudio2);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

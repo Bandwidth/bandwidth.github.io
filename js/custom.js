@@ -31,7 +31,6 @@ module.exports = function ($) {
 		var helperPages = [
 			'onDemandNumberSearchAndOrder.html',
 			'numberOrderingSummary.html',
-			'advancedOrdering.html',
 			'disconnectSummary.html',
 			'managingLineFeatures.html',
 			'managingOrders.html',
@@ -54,20 +53,6 @@ module.exports = function ($) {
 					a.attr("href", link+'#top');
 				}
 			});
-		});
-	}
-
-	function makeSummaryLinksUnClickable () {
-		var sdkPages = [
-			'java',
-			'php'
-		];
-
-		sdkPages.forEach(page => {
-			//Removes the ability to click the chapter
-			$(`li.chapter a[href*="${page}.html"]`).replaceWith(function(){ return $(this).text() });
-			//Fix the CSS
-			$(`li[data-path*="${page}.html"]`).css({padding: '1px 15px'});
 		});
 	}
 
@@ -110,7 +95,6 @@ module.exports = function ($) {
 
 	fixHTTPMethodStyling();
 	addTopToSummaryPages();
-	makeSummaryLinksUnClickable();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
 	hidePagesFromNav();

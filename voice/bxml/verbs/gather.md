@@ -59,6 +59,27 @@ results to https://gather.url/nextBXML
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Please press a digit.")
+        .voice("kate")
+        .build();
+
+Gather gather = Gather.builder()
+        .gatherUrl("https://gather.url/nextBxml")
+        .terminatingDigits("#")
+        .firstDigitTimeout(10.0)
+        .audioProducer(speakSentence)
+        .build();
+
+Response response = Response.builder().build()
+        .add(gather);
+
+System.out.println(response.toBXML());
+```
+
 
 {% sample lang="csharp" %}
 
@@ -136,6 +157,25 @@ response.addVerb(gather);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Please press a digit.");
+$speakSentence->voice("kate");
+
+$gather = new BandwidthLib\Voice\Bxml\Gather();
+$gather->gatherUrl("https://gather.url/nextBXML");
+$gather->terminatingDigits("#");
+$gather->firstDigitTimeout(10);
+$gather->speakSentence($speakSentence);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($gather);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% common %}
 
 #### Example 2 of 2: Gather With Repeated Audio Prompt
@@ -152,6 +192,26 @@ Gather will end and send the result to the **gatherUrl**
       <SpeakSentence>I am going to keep asking you to press a digit</SpeakSentence>
    </Gather>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("I am going to keep asking you to press a digit.")
+        .build();
+
+Gather gather = Gather.builder()
+        .gatherUrl("https://gather.url/nextBxml")
+        .repeatCount(5)
+        .maxDigits(1)
+        .audioProducer(speakSentence)
+        .build();
+
+Response response = Response.builder().build()
+        .add(gather);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -226,6 +286,24 @@ var response = new BandwidthBxml.Response();
 response.addVerb(gather);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("I am going to keep asking you to press a digit");
+
+$gather = new BandwidthLib\Voice\Bxml\Gather();
+$gather->gatherUrl("https://gather.url/nextBXML");
+$gather->maxDigits(1);
+$gather->repeatCount(5);
+$gather->speakSentence($speakSentence);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($gather);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

@@ -78,6 +78,30 @@ This shows how to use Bandwidth XML to transfer a phone call.
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Transferring your call, please wait.")
+        .gender("male")
+        .build();
+
+PhoneNumber phoneNumber = PhoneNumber.builder()
+        .phoneNumber("+11234567892")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .transferCallerId("+11234567891")
+        .phoneNumbers(phoneNumber)
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(transfer);
+
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -143,6 +167,22 @@ response.addVerb(transfer);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$number = new BandwidthLib\Voice\Bxml\PhoneNumber("+17777777777");
+
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->transferCallerId("+18888888888");
+$transfer->phoneNumbers(array($number));
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($transfer);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% common %}
 
 
@@ -160,6 +200,31 @@ This shows how to use Bandwidth XML to transfer a phone call with a pre-bridge a
         <PhoneNumber transferAnswerUrl="http://myapp.com/announcement">+15554567892</PhoneNumber>
     </Transfer>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Transferring your call, please wait.")
+        .voice("paul")
+        .build();
+
+PhoneNumber phoneNumber = PhoneNumber.builder()
+        .phoneNumber("+11234567892")
+        .transferAnswerUrl("http://myapp.com/announcement")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .transferCallerId("+11234567891")
+        .phoneNumbers(phoneNumber)
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(transfer);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -250,6 +315,26 @@ response.addVerb(transfer);
 console.log(response.toBxml());
 ```
 
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Transferring your call, please wait.");
+$speakSentence->voice("paul");
+
+$number = new BandwidthLib\Voice\Bxml\PhoneNumber("+17777777777");
+
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->transferCallerId("+18888888888");
+$transfer->phoneNumbers(array($number));
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($transfer);
+
+echo $response->toBxml();
+echo "\n";
+```
+
 {% common %}
 
 > The announcement BXML at http://myapp.com/announcement is:
@@ -304,6 +389,13 @@ speakSentence.setSentence("Transferring your call, please wait.");
 speakSentence.setVoice("paul");
 ```
 
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Transferring your call, please wait.");
+$speakSentence->voice("paul");
+```
+
 {% common %}
 
 
@@ -324,6 +416,28 @@ to answer is bridged to the original call.
     </Transfer>
 </Response>
 
+```
+
+{% sample lang="java" %}
+
+```java
+PhoneNumber phoneNumber1 = PhoneNumber.builder()
+        .phoneNumber("+11234567892")
+        .build();
+
+PhoneNumber phoneNumber2 = PhoneNumber.builder()
+        .phoneNumber("+11234567893")
+        .build();
+
+Transfer transfer = Transfer.builder()
+        .transferCallerId("+11234567891")
+        .phoneNumbers(phoneNumber1, phoneNumber2)
+        .build();
+
+Response response = Response.builder().build()
+        .add(transfer);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -384,6 +498,8 @@ response.add_verb(transfer)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
 ```js
 var phone_number_1 = new BandwidthBxml.Verbs.PhoneNumber();
 phone_number_1.setNumber("+17777777777");
@@ -391,7 +507,7 @@ var phone_number_2 = new BandwidthBxml.Verbs.PhoneNumber();
 phone_number_2.setNumber("+18888888888");
 
 var transfer = new BandwidthBxml.Verbs.Transfer();
-transfer.setTransferCallerId("+18888888888");
+transfer.setTransferCallerId("+19999999999");
 transfer.addPhoneNumber(phone_number_1);
 transfer.addPhoneNumber(phone_number_2);
 
@@ -399,6 +515,23 @@ var response = new BandwidthBxml.Response();
 response.addVerb(transfer);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$number1 = new BandwidthLib\Voice\Bxml\PhoneNumber("+17777777777");
+$number2 = new BandwidthLib\Voice\Bxml\PhoneNumber("+15555555555");
+
+$transfer = new BandwidthLib\Voice\Bxml\Transfer();
+$transfer->transferCallerId("+18888888888");
+$transfer->phoneNumbers(array($number1, $number2));
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($transfer);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

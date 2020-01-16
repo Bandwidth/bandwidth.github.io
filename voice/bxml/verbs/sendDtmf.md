@@ -20,9 +20,9 @@ The SendDtmf verb is used to play DTMF digits in the call.
 None
 
 {% common %}
-#### Example 1 of 1:  PlayAudio Verb
+#### Example 1 of 1:  SendDtmf Verb
 
-This shows how to use Bandwidth XML to play 1, 2, pause, 3, 4 on a call.
+This shows how to use Bandwidth XML to Send Dtmf during a call.
 
 {% sample lang="http" %}
 
@@ -32,6 +32,17 @@ This shows how to use Bandwidth XML to play 1, 2, pause, 3, 4 on a call.
 <Response>
    <SendDtmf>12w34</SendDtmf>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SendDtmf sendDtmf = SendDtmf.builder()
+        .digits("12w34")
+        .build();
+
+Response response = Response.builder().build()
+        .add(sendDtmf);
 ```
 
 {% sample lang="csharp" %}
@@ -80,6 +91,18 @@ var response = new BandwidthBxml.Response();
 response.addVerb(sendDtmf);
 
 console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$sendDtmf = new BandwidthLib\Voice\Bxml\SendDtmf("12w34");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($sendDtmf);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% endmethod %}

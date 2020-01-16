@@ -87,6 +87,17 @@ curl -X GET \
 ]
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiResponse<RecordingMetadataResponse> response = voiceClient.getMetadataForRecording(VOICE_ACCOUNT_ID, "callId", "recordingId");
+    System.out.println(response.getResult().getMediaUrl());
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -114,6 +125,17 @@ print(response.body[0].media_url)
 ```js
 var response = await voiceController.getQueryMetadataForAccount(accountId);
 console.log(response[0].mediaUrl);
+```
+
+{% sample lang="php" %}
+
+```php
+try {
+    $response = $voiceClient->getQueryMetadataForAccount($accountId);
+    print_r($response->getResult()[0]->mediaUrl);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
