@@ -10,7 +10,7 @@ The Record verb starts recording in a call and pauses all BXML execution until t
 
 If the `recordingAvailableUrl` attribute is set, this URL will receive a callback once the recording is available to use.
 
-#### Use Record if:
+#### Use `<Record>` if:
 
 * You're capturing a voicemail
 * You only need a single party recording
@@ -31,7 +31,7 @@ The StartRecording verb starts recording in a call without pausing BXML executio
 
 Much like the Record verb, StartRecording also has a `recordingAvailableUrl` attribute to receive the recording available callback.
 
-#### Use StartRecording if:
+#### Use `<StartRecording>` if:
 
 * You want to record both ends (together or separate) of a phone call
 * You want to record a call for quality assurance
