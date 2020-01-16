@@ -10,6 +10,12 @@ The Record verb starts recording in a call and pauses all BXML execution until t
 
 If the `recordingAvailableUrl` attribute is set, this URL will receive a callback once the recording is available to use.
 
+#### Use Record if:
+
+* You're capturing a voicemail
+* You only need a single party recording
+* You're capturing input that should pause the call until finished
+
 #### Record Example
 
 ```xml
@@ -24,6 +30,12 @@ If the `recordingAvailableUrl` attribute is set, this URL will receive a callbac
 The StartRecording verb starts recording in a call without pausing BXML execution. The [PauseRecording](../bxml/verbs/pauseRecording.md), [ResumeRecording](../bxml/verbs/resumeRecording.md), and [StopRecording](../bxml/verbs/stopRecording.md) BXML verbs can be used to toggle the recording. Recording is terminated by either the call ending, or by a StopRecording verb.
 
 Much like the Record verb, StartRecording also has a `recordingAvailableUrl` attribute to receive the recording available callback.
+
+#### Use StartRecording if:
+
+* You want to record both ends (together or separate) of a phone call
+* You want to record a call for quality assurance
+* You need other BXML verbs to execute while a recording is going on
 
 #### StartRecording Examples
 
