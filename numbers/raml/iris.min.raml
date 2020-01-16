@@ -4475,7 +4475,7 @@ securitySchemes:
                             <strong>PIDF-LO</strong><br>
                             PIDF-LO AEUI endpoint-provisioning order with additional address provisioning and without pre-defined location id.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>Address</b>, and <b>Identifier</b> are required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.<br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             Default value of <b>PreferredLanguage</b> is 'en'.
                           </td>
@@ -4498,7 +4498,7 @@ securitySchemes:
                         &lt;AlternateEndUserIdentifier&gt;
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4512,7 +4512,7 @@ securitySchemes:
                             <strong>PIDF-LO</strong><br>
                             PIDF-LO AEUI endpoint-provisioning order with additional address provisioning and with pre-defined location id.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>Address</b>, and <b>Identifier</b> are required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.<br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             Default value of <b>PreferredLanguage</b> is 'en'.
                           </td>
@@ -4536,7 +4536,7 @@ securitySchemes:
                         &lt;AlternateEndUserIdentifier&gt;
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4550,7 +4550,7 @@ securitySchemes:
                             <strong>PIDF-LO</strong><br>
                             PIDF-LO AEUI endpoint-provisioning order with provisioned location id.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>LocationId</b>, and <b>Identifier</b> are required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.<br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             Default value of <b>PreferredLanguage</b> is 'en'.
                           </td>
@@ -4563,7 +4563,7 @@ securitySchemes:
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;LocationId&gt;Some32CharacterOrLessString&lt;/LocationId&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4579,10 +4579,10 @@ securitySchemes:
                             Default value of <b>PreferredLanguage</b> is 'en'.<br>
                             <strong>Non-PIDF-LO:</strong><br>
                             <b>CallbackNumber</b> is required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, must contain at least one letter, and must be between 6 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 6 and 32 characters.<br>
                             <strong>PIDF-LO:</strong><br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.
                           </td>
                           <td>
                             <pre>
@@ -4606,7 +4606,7 @@ securitySchemes:
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;LocationId&gt;Some32CharacterOrLessString&lt;/LocationId&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4630,7 +4630,7 @@ securitySchemes:
                             <b>Identifier</b> can only contain alphanumeric characters 6 and 32 characters.<br>
                             <strong>PIDF-LO:</strong><br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.
                           </td>
                           <td>
                             <pre>
@@ -4638,7 +4638,7 @@ securitySchemes:
                       &lt;CustomerOrderId&gt;CustomOrderId1&lt;/CustomerOrderId&gt;
                       &lt;AlternateEndUserIdentifiers&gt;
                         &lt;AlternateEndUserIdentifier&gt;
-                          &lt;Identifier&gt;a1&lt;/Identifier&gt;
+                          &lt;Identifier&gt;identifier&lt;/Identifier&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
                       &lt;/AlternateEndUserIdentifiers&gt;
                       &lt;DeleteTNSpecificE911Address&gt;true&lt;/DeleteTNSpecificE911Address&gt;
@@ -4883,7 +4883,7 @@ securitySchemes:
                                                 <AlternateEndUserIdentifiers>
                                                     <AlternateEndUserIdentifier>
                                                         <PIDFLOEnabled>true</PIDFLOEnabled>
-                                                        <Identifier>alphanumeric_or.:-_@_6_32_chars</Identifier>
+                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters maximum</Identifier>
                                                         <CallbackNumber>9706542332</CallbackNumber>
                                                         <CallerName>Eli</CallerName>
                                                         <PreferredLanguage>en</PreferredLanguage>
@@ -4907,7 +4907,7 @@ securitySchemes:
                                                     </AlternateEndUserIdentifier>
                                                     <AlternateEndUserIdentifier>
                                                         <PIDFLOEnabled>true</PIDFLOEnabled>
-                                                        <Identifier>alphanumeric_or.:-_@_6_32_chars</Identifier>
+                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters maximum</Identifier>
                                                         <CallbackNumber>9706542333</CallbackNumber>
                                                         <CallerName>Ethan</CallerName>
                                                         <PreferredLanguage>en</PreferredLanguage>

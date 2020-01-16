@@ -40,7 +40,7 @@ bandwidth_client = BandwidthClient(
 
 ```python
 voice_client = bandwidth_client.voice_client.client
-account_id = '1'
+account_id = "1"
 
 ##Create phone call
 body = ApiCreateCallRequest()
@@ -77,7 +77,7 @@ print(response.to_bxml())
 
 ```python
 messaging_client = bandwidth_client.messaging_client.client
-account_id = '1'
+account_id = "1"
 
 body = MessageRequest()
 body.application_id = "1-d-b"
@@ -86,7 +86,7 @@ body.mfrom = "+18888888888"
 body.text = "Greetings!"
 
 try:
-    response = messaging_client.create_message(account_id, body)
+    response = messaging_client.create_message(account_id, body=body)
     print(response.body.id) #1570819529611mexbyfr7ugrouuxy
     print(response.status_code) #202
 except GenericClientException as e:
