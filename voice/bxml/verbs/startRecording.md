@@ -21,8 +21,8 @@ event is sent to the URL once the recording is available for download, indicatin
 BXML returned in response to this callback will be ignored.
 
 If the `multiChannel` attribute is `true`, then the resulting recording will have 2 audio channels.<br>
-The caller/called party will be recorded in channel 0 (left channel) and any [`<PlayAudio>`](playAudio.md) or [`<SpeakSentence>`](speakSentence.md) will be recorded in channel 1 (right channel).<br>
-During a [`<Transfer>`](transfer.md) the A-leg will be recorded in channel 0 (left channel) and the B-leg will be recorded in channel 1 (right channel).
+The caller/called party will be recorded in channel 0 (left channel) while [`<PlayAudio>`](playAudio.md) and [`<SpeakSentence>`](speakSentence.md) will be recorded in channel 1 (right channel).<br>
+During a [`<Transfer>`](transfer.md) the A-leg will be recorded in channel 0 (left channel) while the B-leg will be recorded in channel 1 (right channel).
 
 <aside class="alert general small"><p>NOTE: Only one &lt;StartRecording&gt; verb may be active at a time. If a second &lt;StartRecording&gt; verb is used without first using a &lt;StopRecording&gt; verb, the second &lt;StartRecording&gt; will be ignored.</p></aside>
 
