@@ -48,9 +48,9 @@ curl -X GET \
   "mediaUrl"      : "https://../{accountId}/calls/{callId}/recordings/{recordingId}/media",
   "transcription" : {
     "id"            : "t-1a68a908-544f-48ae-b30d-d1747dca3723",
-    "url"           : "https://../{accountId}/calls/{callId}/recordings/{recordingId}/transcription",
     "status"        : "available",
-    "completedTime" : "2019-10-21T16:55:56.512Z"
+    "completedTime" : "2019-10-21T16:55:56.512Z",
+    "url"           : "https://../{accountId}/calls/{callId}/recordings/{recordingId}/transcription"
   }
 }
 ```

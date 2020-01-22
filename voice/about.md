@@ -5,9 +5,10 @@
 
 ## REST API Reference Index
 
-| Resource                           | Description                                                           |
-|:-----------------------------------|:----------------------------------------------------------------------|
-| [`/calls`](methods/calls/about.md) | The Calls resource lets you make phone calls and modify active calls. |
+| Resource                                     | Description                                                           |
+|:---------------------------------------------|:----------------------------------------------------------------------|
+| [`/calls`](methods/calls/about.md)           | The Calls resource lets you make phone calls and modify active calls. |
+| [`/recordings`](methods/recordings/about.md) | The Recordings resource lets you retrieve information about recordings created during calls as well as manage recordings on a live call. |
 
 
 ## BXML verbs

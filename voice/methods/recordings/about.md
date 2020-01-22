@@ -1,6 +1,6 @@
 # Recordings
 
-The Recordings resource lets retrieve information about recordings created during calls as well as manage recordings on a live call.
+The Recordings resource lets you retrieve information about recordings created during calls as well as manage recordings on a live call.
 
 <aside class="alert general small">
 <p>
@@ -35,6 +35,9 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 | <code class="put">PUT</code>       | [`/calls/{callId}/recording`](putCallsCallIdRecording.md)                                       | Pause or resume a recording on an active call                                |
 | <code class="get">GET</code>       | [`/calls/{callId}/recordings`](getCallsCallIdRecordings.md)                                     | Retrieve information about all of the recordings that occurred during a call |
 | <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}`](getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording                                       |
-| <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}`](deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording                                                           |
-| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a recording                                                         |
-| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/transcription`](getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a recording transcription                                   |
+| <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}`](deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording metadata, media and transcription                         |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md) | Download a recording                                                         |
+| <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}/media`](deleteCallsCallIdRecordingsRecordingIdMedia.md)                 | Delete the recording media                                |
+| <code class="post">POST</code>     | [`/calls/{callId}/recordings/{recordingId}/transcription`](postCallsCallIdRecordingsRecordingIdTranscription.md)   | Create the recording transcription                        |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/transcription`](getCallsCallIdRecordingsRecordingIdTranscription.md)    | Retrieve the recording transcription                      |
+| <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}/transcription`](deleteCallsCallIdRecordingsRecordingIdTranscription.md) | Delete the recording transcription                        |

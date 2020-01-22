@@ -1,7 +1,8 @@
 {% method %}
 
 ## Delete Recording
-Delete both the metadata and the media of the specified recording.
+
+Delete the metadata, the media and the transcription of the specified recording.
 
 ### Request URL
 
