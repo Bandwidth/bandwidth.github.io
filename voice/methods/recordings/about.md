@@ -37,3 +37,4 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 | <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}`](getCallsCallIdRecordingsRecordingId.md)            | Retrieve information about a recording                                       |
 | <code class="delete">DELETE</code> | [`/calls/{callId}/recordings/{recordingId}`](deleteCallsCallIdRecordingsRecordingId.md)         | Delete a recording                                                           |
 | <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a recording                                                         |
+| <code class="get">GET</code>       | [`/calls/{callId}/recordings/{recordingId}/transcription`](getCallsCallIdRecordingsRecordingIdMedia.md) | Retrieve a recording transcription                                   |

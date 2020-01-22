@@ -42,10 +42,11 @@
 | [Transfer Complete](bxml/callbacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                                  |
 
 ## Asynchronous Callbacks
-| Callback                                                         | Description                                                                             |
-|:-----------------------------------------------------------------|:----------------------------------------------------------------------------------------|
-| [Disconnect](bxml/callbacks/disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [Recording Available](bxml/callbacks/recordingAvailable.md)      | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| Callback                                                            | Description                                                                             |
+|:--------------------------------------------------------------------|:----------------------------------------------------------------------------------------|
+| [Disconnect](bxml/callbacks/disconnect.md)                          | Bandwidth API sends this to the application when a call ends.                           |
+| [Recording Available](bxml/callbacks/recordingAvailable.md)         | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| [Transcription Available](bxml/callbacks/transcriptionAvailable.md) | Bandwidth API sends this to the application when the transcription of a recording is available for download. |
 
 ## Error Codes
 | Type                         | Description                                                           |

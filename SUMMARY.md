@@ -126,6 +126,7 @@
 	 * [Initiate](voice/bxml/callbacks/initiate.md)
 	 * [RecordComplete](voice/bxml/callbacks/recordComplete.md)
 	 * [RecordingAvailable](voice/bxml/callbacks/recordingAvailable.md)
+	 * [TranscriptionAvailable](voice/bxml/callbacks/transcriptionAvailable.md)
 	 * [Redirect](voice/bxml/callbacks/redirect.md)
 	 * [Transfer Answer](voice/bxml/callbacks/transferAnswer.md)
 	 * [Transfer Complete](voice/bxml/callbacks/transferComplete.md)
