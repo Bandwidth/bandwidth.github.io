@@ -101,7 +101,7 @@ curl -X GET \
 {% sample lang="ruby" %}
 
 ```ruby
-// coming soon
+# coming soon
 ```
 
 {% sample lang="python" %}

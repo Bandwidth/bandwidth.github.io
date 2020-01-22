@@ -62,7 +62,7 @@ HTTP/1.1 204
 {% sample lang="ruby" %}
 
 ```ruby
-// coming soon
+# coming soon
 ```
 
 {% sample lang="python" %}

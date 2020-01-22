@@ -122,7 +122,7 @@
 	* [SpeakSentence](voice/bxml/verbs/speakSentence.md)
 	* [StartRecording](voice/bxml/verbs/startRecording.md)
 	* [StopRecording](voice/bxml/verbs/stopRecording.md)
-	* [Transfer](voice/bxml/verbs/transfer.md)The Recordings resource lets you make phone calls and modify active calls.
+	* [Transfer](voice/bxml/verbs/transfer.md)
 * [Callbacks](voice/bxml/callbacks/about.md)
 	 * [Answer](voice/bxml/callbacks/answer.md)
 	 * [Disconnect](voice/bxml/callbacks/disconnect.md)
