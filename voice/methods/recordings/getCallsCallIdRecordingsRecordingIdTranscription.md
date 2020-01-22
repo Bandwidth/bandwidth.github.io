@@ -1,6 +1,6 @@
 {% method %}
 
-## Download Recording
+## Download Transcription
 
 Retrieve the specified recording's transcription file. [⚠️ Be sure to not expose your API Credentials to end-users](./about.md#caution-recordings)
 
