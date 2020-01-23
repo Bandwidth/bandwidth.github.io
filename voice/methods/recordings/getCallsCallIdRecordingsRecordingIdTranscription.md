@@ -20,6 +20,29 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:----------|:------------|
 | None      | None        |
 
+
+### Transcription Attributes
+
+<!--
+Description taken from:
+https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_Item.html
+https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-dg.pdf
+-->
+
+| Attribute   | Description                                                                       |
+|:------------|:----------------------------------------------------------------------------------|
+| transcripts | Contains the transcription, which is created from the concatenation of the items. |
+| items       | List of words transcribed from the input audio (see Item).                        |
+
+#### Item
+
+| Attribute    | Description                                                                         |
+|:-------------|:------------------------------------------------------------------------------------|
+| start_time   | (optional) Offset from the beginning of the recording to the beginning of the item. |
+| end_time     | (optional) Offset from the beginning of the recording to the end of the item.       |
+| alternatives | Contains the `content` and `confidence` attributes, which correspond respectively to the recognized word or punctuation and the confidence on the recognized content, ranging from `0.0` to `1.0`. |
+| type         | The type of the item. Valid Values: `pronunciation`, `punctuation`.                 |
+
 {% common %}
 
 ### Example 1 of 1: Download a transcription
