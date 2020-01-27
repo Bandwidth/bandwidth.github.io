@@ -199,8 +199,8 @@ echo $response->toBxml();
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-   <SpeakSentence voice="Emily">Please say your name</SpeakSentence>
-   <Record recordCompleteUrl="https://record.url.server/record" transcribe="true" transcriptionAvailableUrl="https://transcription.url.server/transcribe/">
+   <SpeakSentence>Please say your name</SpeakSentence>
+   <Record recordCompleteUrl="https://record.url.server/record" transcribe="true" transcriptionAvailableUrl="https://transcription.url.server/transcribe/"/>
 </Response>
 ```
 
@@ -219,25 +219,72 @@ echo $response->toBxml();
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Please say your name"
+})
+record = Bandwidth::Voice::Record.new({
+    :record_complete_url => "https://record.url.server/record",
+    :transcribe => true,
+    :transcription_available_url => "https://transcription.url.server/transcribe/",
+})
+
+response.push(speak_sentence)
+response.push(record)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-#coming soon
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Please say your name"
+)
+record = Record(
+    record_complete_url="https://record.url.server/record",
+    transcribe=True,
+    transcription_available_url="https://transcription.url.server/transcribe/",
+)
+
+response.add_verb(speak_sentence)
+response.add_verb(record)
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Please say your name")
+
+var record = new BandwidthBxml.Verbs.Record();
+record.setTranscribe(true);
+record.setTranscriptionAvailableUrl("https://transcription.url.server/transcribe/");
+record.setRecordCompleteUrl("https://record.url.server/record");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(record);
+
+console.log(response.toBxml());
 ```
 
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Please say your name");
+
+$record = new BandwidthLib\Voice\Bxml\Record();
+$record->transcribe(true);
+$record->transcriptionAvailableUrl("https://transcription.url.server/transcribe/");
+$record->recordCompleteUrl("https://record.url.server/record");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($record);
+
+echo $response->toBxml();
 ```
 
 {% endmethod %}
