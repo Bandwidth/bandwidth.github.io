@@ -33,7 +33,7 @@ If the `recordingAvailableUrl` attribute is specified, then the [Recording Avail
 
 {% common %}
 
-#### Example 1 of 1: Record Verb
+#### Example 1 of 2: Record Verb
 
 This shows how to use Bandwidth XML to record a phone call.
 
@@ -187,6 +187,57 @@ $response->addVerb($playAudio);
 $response->addVerb($record);
 
 echo $response->toBxml();
+```
+
+{% common %}
+
+#### Example 2 of 2: Record Verb with transcriptions
+
+{% sample lang="http" %}
+
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+   <SpeakSentence voice="Emily">Please say your name</SpeakSentence>
+   <Record recordCompleteUrl="https://record.url.server/record" transcribe="true" transcriptionAvailableUrl="https://transcription.url.server/transcribe/">
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+//coming soon
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+#coming soon
+```
+
+{% sample lang="js" %}
+
+```js
+//coming soon
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
 ```
 
 {% endmethod %}
