@@ -91,7 +91,7 @@ curl -X GET \
 
 ```java
 try {
-    ApiResponse<RecordingMetadataResponse> response = voiceClient.getMetadataForRecording(VOICE_ACCOUNT_ID, "callId", "recordingId");
+    ApiResponse<RecordingMetadataResponse> response = voiceClient.getQueryMetadataForAccount(VOICE_ACCOUNT_ID);
     System.out.println(response.getResult().getMediaUrl());
 } catch (ApiException | IOException e) {
     e.printStackTrace();
@@ -101,8 +101,8 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
+var response = controller.GetQueryMetadataForAccount(accountId);
+Console.WriteLine(response.Data.Duration);
 ;
 ```
 

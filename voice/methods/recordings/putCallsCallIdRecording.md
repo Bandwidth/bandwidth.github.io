@@ -49,9 +49,10 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-;
+controller.ModifyCallRecordingState(accountId, callId, new ModifyCallRecordingState
+{
+    State = State1Enum.PAUSED
+});
 ```
 
 {% sample lang="ruby" %}

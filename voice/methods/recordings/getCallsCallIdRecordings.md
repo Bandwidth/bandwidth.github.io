@@ -82,9 +82,8 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-
+var response = controller.GetQueryMetadataForAccountAndCall(accountId, callId);
+Console.WriteLine(response.Data.Count);
 ```
 
 {% sample lang="ruby" %}
