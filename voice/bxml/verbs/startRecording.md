@@ -20,9 +20,10 @@ All audio on both sides of the call will be recorded until the call ends or the 
 
 If the `recordingAvailableUrl` attribute is specified, then the [Recording Available](../callbacks/recordingAvailable.md)
 event is sent to the URL once the recording is available for download, indicating the `mediaUrl` and if there was any issue processing the recording.
+BXML returned in response to this callback will be ignored.
 
-If the `transcriptionAvailableUrl` attribute is specified, then the [Transcription Available](../callbacks/transcriptionAvailable.md) event is sent to the URL once the transcription is available for download. BXML returned in response to this callback will be ignored.
-
+If the `transcriptionAvailableUrl` attribute is specified, then the [Transcription Available](../callbacks/transcriptionAvailable.md)
+event is sent to the URL once the transcription is available for download.
 BXML returned in response to this callback will be ignored.
 
 <aside class="alert general small"><p>NOTE: Only one &lt;StartRecording&gt; verb may be active at a time. If a second &lt;StartRecording&gt; verb is used without first using a &lt;StopRecording&gt; verb, the second &lt;StartRecording&gt; will be ignored.</p></aside>
