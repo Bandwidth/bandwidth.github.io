@@ -69,9 +69,8 @@ curl -X GET \
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-
+var response = controller.GetMetadataForRecording(accountId, callId, recordingId);
+Console.WriteLine(response.Data.Duration);
 ```
 
 {% sample lang="ruby" %}

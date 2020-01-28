@@ -48,9 +48,7 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-
+controller.DeleteRecording(accountId, callId, recordingId);
 ```
 
 {% sample lang="ruby" %}
