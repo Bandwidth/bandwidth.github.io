@@ -23,12 +23,6 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Transcription Attributes
 
-<!--
-Description taken from:
-https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_Item.html
-https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-dg.pdf
--->
-
 | Attribute   | Description                                                                       |
 |:------------|:----------------------------------------------------------------------------------|
 | transcripts | Contains the transcription, which is created from the concatenation of the items. |
