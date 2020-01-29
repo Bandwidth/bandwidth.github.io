@@ -306,10 +306,16 @@ Anytime the status of the order is updated (complete, error, etc...) Bandwidth w
 
 <code class="post">POST</code>`{{your-callback-url_as-defined-in-the-subscription}}`
 
-| Parameters        | Mandatory | Description                                                                                                                                                                                                                                                                                     |
-|:------------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `<PeerName>`      | Yes       | Plain text name of the Location (_sippeer_)                                                                                                                                                                                                                                                     |
-| `<IsDefaultPeer>` | No        | Boolean: <br> * `true` <br> * `false` <br> The Default SIP Peer is the default "destination" for any Telephone Numbers that are ordered for the Site in which the SIP Peer resides.  Each sub-account (_site_) can have only 1 default SIP Peer. You can configure multiple SIP Peers on a Site |
+| Parameter           | Description                                                        |
+|:--------------------|:-------------------------------------------------------------------|
+| `<SubscriptionId>`  | Subscription ID that the notification is in response to.           |
+| `<OrderType>`       | Will be `importtnorders`                                           |
+| `<OrderId>`         | ID of the importTNOrder                                            |
+| `<CustomerOrderId>` | Custom Order Id defined when creating the importTnOrder            |
+| `<Status>`          | The newly updated status reflecting the state of the importTnOrder |
+| `<Message>`         | Description about the status                                       |
+| `<Note>`            | Custom note added when updating or creating the importTnOrder      |
+
 
 {% common %}
 
