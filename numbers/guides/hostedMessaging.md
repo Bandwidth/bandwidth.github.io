@@ -32,6 +32,8 @@ Once the phone numbers have been successfully imported into Bandwidth, see the g
 
 ## Importing Phone Numbers Overview
 
+![import_remove_tns](../../images/import_tn_flow.png)
+
 There are 3 different APIs that you will use to manage phone numbers for hosted messaging:
 
 | Endpoint                  | Description                                                                                                                                                                         |
@@ -39,10 +41,6 @@ There are 3 different APIs that you will use to manage phone numbers for hosted 
 | `/importTnOrders`         | Initiates the process of importing a new number to your account.                                                                                                                    |
 | `/removeImportedTnOrders` | Initiates the process of removing the numbers that were imported into your account for hosted messaging.  Removing an imported TN will restore it to it’s prior pre-imported state. |
 | `/importTnChecker`        | Preliminary check to make sure that a TN is “importable” by checking against our internal databases.                                                                                |
-
-### Flow Chart
-
-![import_remove_tns](../../images/import_remove_flow.png)
 
 ## Create Subscription for `importtnorders` {#create-subscription}
 
