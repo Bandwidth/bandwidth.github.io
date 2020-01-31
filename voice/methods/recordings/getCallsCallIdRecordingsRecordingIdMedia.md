@@ -51,9 +51,8 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-;
+var response = controller.GetStreamRecordingMedia(accountId, callId, recordingId);
+Console.WriteLine(response.Data.Length);
 ```
 
 {% sample lang="ruby" %}

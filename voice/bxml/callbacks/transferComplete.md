@@ -19,6 +19,8 @@ Content-Type: application/xml; charset=utf-8
 | Property         | Description                                                                                                                           |
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | eventType        | The event type, value is `transferComplete`.                                                                                          |
+| accountId        | The user account associated with the call.                                                                                            |
+| applicationId    | The id of the application associated with the call.                                                                                   |
 | from             | The phone number used in the `from` field of the original call, in E.164 format (e.g. +15555555555).                                  |
 | to               | The phone number user in the `to` field of the original call, in E.164 format (e.g. +15555555555).                                    |
 | direction        | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                     |
@@ -42,6 +44,8 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"        : "transferComplete",
+	"accountId"        : "55555555",
+	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",
@@ -65,6 +69,8 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"        : "transferComplete",
+	"accountId"        : "55555555",
+	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",
