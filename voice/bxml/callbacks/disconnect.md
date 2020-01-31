@@ -7,7 +7,6 @@ The Disconnect event is fired when a call ends, for any reason.
 HTTP/1.1 204
 ```
 
-
 ### Properties
 
 | Property     | Description                                                                                                                         |

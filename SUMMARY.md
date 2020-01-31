@@ -130,6 +130,7 @@
 	 * [Redirect](voice/bxml/callbacks/redirect.md)
 	 * [Transfer Answer](voice/bxml/callbacks/transferAnswer.md)
 	 * [Transfer Complete](voice/bxml/callbacks/transferComplete.md)
+	 * [Transfer Disconnect](voice/bxml/callbacks/transferDisconnect.md)
 * [Errors](voice/errors.md)
 	* [400 - Bad Request](voice/errors.md#http-400)
 	* [401 - Unauthorized](voice/errors.md#http-401)
