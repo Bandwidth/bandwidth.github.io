@@ -1,7 +1,8 @@
 {% method %}
 ##  Transfer Complete Event – <Transfer> verb
-This event is sent to the callbackUrl of the Leg-A call when the transferred call(B-leg) completes.
-In a simultaneous ringing scenario, only one call leg-B succeeds and this event corresponds to that successful leg. If none of the calls were answered, transferComplete is not sent.
+This event is sent to the `transferCompleteUrl` of the A-leg's `<Transfer>` verb when the transferred call (B-leg) completes.
+In a simultaneous ringing scenario, only one B-leg succeeds and this event corresponds to that successful leg.
+If none of the calls were answered, the `transferComplete` event corresponds to one of the legs.
 
 ### Expected response
 ```http
@@ -53,7 +54,7 @@ POST http://[External server URL]
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
 	"startTime"        : "2019-07-31T13:13:34.859318Z",
-	"cause"            : "completed",
+	"cause"            : "hangup",
 	"errorMessage"     : "",
 	"errorId"          : ""
 }
