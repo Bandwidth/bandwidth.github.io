@@ -5,6 +5,10 @@
 
 This walks through how to programmatically import Phone Numbers to your account for use with [Bandwidth's Messaging Products](../../messaging/about.md).
 
+### Important note about imported Phone Numbers and Line Features.
+
+Line Options feature management is **NOT** available for Phone numbers that have been imported for use with Hosted Messaging.
+
 ## Assumptions
 
 * Familiarity with [Account API Credentials](../../guides/accountCredentials.md)
