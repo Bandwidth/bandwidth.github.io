@@ -207,13 +207,44 @@ echo $response->toBxml();
 {% sample lang="java" %}
 
 ```java
-//coming soon
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Please say your name")
+        .build();
+
+Record record = Record.builder()
+        .recordCompleteUrl("https://record.url.server/record")
+        .transcribe(true)
+        .transcriptionAvailableUrl("https://transcription.url.server/transcribe/")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(record);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Sentence = "Please say your name"
+};
+
+Record record = new Record
+{
+    RecordCompleteUrl = "https://record.url.server/record",
+    Transcribe = true,
+    TranscriptionAvailableUrl = "https://transcription.url.server/transcribe/"
+
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(record);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
