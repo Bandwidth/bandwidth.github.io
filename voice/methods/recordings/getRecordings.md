@@ -30,7 +30,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ```bash
 curl -X GET \
-    --url "https://voice.bandwidth.com/api/v2/accounts/5552319/recordings?from={from}&to={to}&minStartTime={minStartTime}&maxStartTime={maxStartTime}" \
+    --url "https://voice.bandwidth.com/api/v2/accounts/{accountId}/recordings?from={from}&to={to}&minStartTime={minStartTime}&maxStartTime={maxStartTime}" \
     -u '{username}:{password}'
 ```
 
