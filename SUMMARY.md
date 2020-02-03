@@ -103,7 +103,7 @@
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 		* [GET Call Recordings](voice/methods/recordings/getCallsCallIdRecordings.md)
 		* [GET Recording Information](voice/methods/recordings/getCallsCallIdRecordingsRecordingId.md)
-		* [DELETE Delete Recording](voice/methods/recordings/deleteCallsCallIdRecordingsRecordingId.md)
+		* [DELETE Delete Recording Information](voice/methods/recordings/deleteCallsCallIdRecordingsRecordingId.md)
 		* [GET Download Recording](voice/methods/recordings/getCallsCallIdRecordingsRecordingIdMedia.md)
 		* [DELETE Delete Recording](voice/methods/recordings/deleteCallsCallIdRecordingsRecordingIdMedia.md)
 		* [POST Transcribe recording](voice/methods/recordings/postCallsCallIdRecordingsRecordingIdTranscription.md)
