@@ -3,7 +3,7 @@
 The PlayAudio verb is used to play an audio file in the call.  The URL of an audio file should be included in the body
 of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative to the endpoint that returned the BXML.
 
-**NOTE:** .wav files encoded as PCM or G711 are supported.
+⚠️ **ONLY** .wav files encoded as PCM or G711 are supported.
 
 ### Attributes
 | ATTRIBUTE | Description                                                        |
@@ -15,7 +15,8 @@ of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative t
 ### Text Content
 | Name     | Description                                                                |
 |:---------|:---------------------------------------------------------------------------|
-| audioUri | The URL of the audio file realative to the endpoint that returned the BXML |
+| audioUri | The URL of the audio file realative to the endpoint that returned the BXML <br> ⚠️ **ONLY** .wav files encoded as PCM or G711 are supported.
+ |
 
 
 ### Callbacks Received
@@ -27,6 +28,8 @@ None
 #### Example 1 of 1:  PlayAudio Verb
 
 This shows how to use Bandwidth XML to play two audio clips into a phone call.
+
+⚠️ **ONLY** .wav files encoded as PCM or G711 are supported.
 
 {% sample lang="http" %}
 
