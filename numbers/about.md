@@ -16,5 +16,4 @@
 | [Managing Line Features](./guides/managingLineFeatures.md)                | Learn about the various line features and how to enable / disable features like CNAM                                            |
 | [Managing Orders](./guides/managingOrders.md)                             | Learn about managing in flight orders (orders that have yet to reach a terminal state)                                          |
 | [Number Utilization Review API](./guides/numberUtilizationReviewAPI.md)   | Step By Step Guide To Number Assignment Using The Bandwidth Phone Number Management API                                         |
-| [Reporting](./guides/reporting.md)                                        | Learn how to manage and generate Billing Detail Reports                                                                         |
 | [Porting Phone Numbers](./guides/portingPhoneNumbers.md)                  | Learn the work flow associated to porting and managing port orders                                                              |

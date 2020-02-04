@@ -887,7 +887,35 @@
   </tr>
     <tr>
     <td>5175</td>
-    <td>Only a single type of TN is allowed for a Disconnect action</td>
+    <td>Only a single type of TN is allowed for a Disconnect action.</td>
+  </tr>
+    <tr>
+    <td>5176</td>
+    <td>Billing type '%s' is not valid for short code orders. Valid billing type is NOCHARGE</td>
+  </tr>
+    <tr>
+    <td>5177</td>
+    <td>VendorName is required.</td>
+  </tr>
+    <tr>
+    <td>5178</td>
+    <td>Setting the initial short code telephone number status to '%s' is not valid - only 'Inservice' is supported.</td>
+  </tr>
+    <tr>
+    <td>5179</td>
+    <td>Short code telephone numbers cannot be used unless Short Code is enabled on location.</td>
+  </tr>
+    <tr>
+    <td>5180</td>
+    <td>Telephone number attributes are not applicable for short code numbers.</td>
+  </tr>
+    <tr>
+    <td>5181</td>
+    <td>Only a single type of TN is allowed when importing numbers to an account.</td>
+  </tr>
+    <tr>
+    <td>5182</td>
+    <td>Only A2P line option may be changed for short code telephone numbers.</td>
   </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
@@ -2440,10 +2468,6 @@
     <td>Unable to provision telephone numbers. Please contact Bandwidth Support.</td>
   </tr>
     <tr>
-    <td>19011</td>
-    <td>Messaging provisioning  is disable for this account.</td>
-  </tr>
-    <tr>
     <td>19012</td>
     <td>Account is not migrated to new messaging</td>
   </tr>
@@ -2794,7 +2818,7 @@
   </tr>
     <tr>
     <td>8045</td>
-    <td>'%s' is not a valid Alternate End User Identifier. Identifier can contain alphabetic chars, numbers, periods, colons, dashes, underscores, at (@) symbols.</td>
+    <td>'%s' is not a valid Alternate End User Identifier. Identifier can contain letters or numbers only.</td>
   </tr>
     <tr>
     <td>8046</td>
@@ -3099,6 +3123,10 @@
     <tr>
     <td>15616</td>
     <td>Search by billing report '%s' is not supported yet. Supported report types are : '%s'</td>
+  </tr>
+    <tr>
+    <td>15617</td>
+    <td>Account ID or Archive ID foes not match actual record</td>
   </tr>
   </table>
 
@@ -3691,7 +3719,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -5166,7 +5194,7 @@
   </tr>
     <tr>
     <td>12743</td>
-    <td>Invalid 'RouteType'. Valid values: onNet, offNetUs, offNetCa, externalCustomerOwned, externalThirdParty, externalCanadian, tollFree, externalTollFree</td>
+    <td>Invalid 'RouteType'. Valid values: onNet, offNetUs, offNetCa, externalCustomerOwned, externalThirdParty, externalCanadian, tollFree, externalTollFree, incorrectValue</td>
   </tr>
     <tr>
     <td>12744</td>

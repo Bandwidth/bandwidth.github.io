@@ -1199,6 +1199,7 @@ securitySchemes:
                     <li>INVOICE - A copy of the invoice file or files for the specified date range</li>
                     <li>STMTBDR - BDR records that are aligned with the invoice</li>
                     <li>DIDSNAP - a list of telephone numbers aligned as closely as we can with the billing window</li>
+                    <li>DIDSNAP_MSG - a list of telephone numbers with active messaging</li>
                     </ul>
                 body:
                     application/xml:
@@ -3107,6 +3108,19 @@ securitySchemes:
                                                 </Error>
                                             </Errors>
                                         </CsrResponse>
+                        400:
+                            description: Order ID has invalid format.
+                            body:
+                                application/xml:
+                                    example: |
+                                        <CsrResponse>
+                                            <Errors>
+                                                <Error>
+                                                    <Code>5061</Code>
+                                                    <Description>Order ID is invalid.</Description>
+                                                </Error>
+                                            </Errors>
+                                        </CsrResponse>
                         404:
                             description: Order does not exists or belongs to different account.
                             body:
@@ -3133,6 +3147,99 @@ securitySchemes:
                                                 </Error>
                                             </Errors>
                                         </CsrResponse>
+                put:
+                    description: Replaces the existing csr conditional data with specificed csr conditional data. To cancel CSR order need provide Status tag with REQUESTED_CANCEL value. Note that csr order must be a non-real time with PROCESSING or ACTION_REQUIRED status.
+                    body:
+                        application/xml:
+                            example: |
+                                  <Csr>
+                                    <AccountNumber>987654321</AccountNumber>
+                                    <AccountTelephoneNumber>9196194444</AccountTelephoneNumber>
+                                    <EndUserName>bandwidthGuy</EndUserName>
+                                    <AuthorizingUserName>importantAuthGuy</AuthorizingUserName>
+                                    <CustomerCode>123</CustomerCode>
+                                    <EndUserPIN>12345</EndUserPIN>
+                                    <EndUserPassword>enduserpassword123</EndUserPassword>
+                                    <AddressLine1>900 Main Campus Dr</AddressLine1>
+                                    <City>Raleigh</City>
+                                    <State>NC</State>
+                                    <ZIPCode>27612</ZIPCode>
+                                    <TypeOfService>residential</TypeOfService>
+                                    <!-- cancel csr order -->
+                                    <Status>REQUESTED_CANCEL</Status>
+                                  </Csr>
+                    responses:
+                        200:
+                          description: The csr conditional data was successfully updated for the order.
+                          body:
+                            application/xml:
+                              example: |
+                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                <CsrResponse>
+                                    <CustomerOrderId>TEST BWDB-6506</CustomerOrderId>
+                                    <LastModifiedBy>systemUser</LastModifiedBy>
+                                    <OrderCreateDate>2020-01-13T21:14:35Z</OrderCreateDate>
+                                    <AccountId>14</AccountId>
+                                    <OrderId>5c3b8240-52b5-45a5-8d7d-42a71ebcd1ba</OrderId>
+                                    <LastModifiedDate>2020-01-13T16:51:21.920Z</LastModifiedDate>
+                                    <Status>COMPLETE</Status>
+                                    <AccountNumber>987654321</AccountNumber>
+                                    <AccountTelephoneNumber>9196194444</AccountTelephoneNumber>
+                                    <EndUserName>bandwidthGuy</EndUserName>
+                                    <AuthorizingUserName>importantAuthGuy</AuthorizingUserName>
+                                    <CustomerCode>123</CustomerCode>
+                                    <EndUserPIN>12345</EndUserPIN>
+                                    <EndUserPassword>enduserpassword123</EndUserPassword>
+                                    <AddressLine1>900 Main Campus Dr</AddressLine1>
+                                    <City>Raleigh</City>
+                                    <State>NC</State>
+                                    <ZIPCode>27612</ZIPCode>
+                                    <TypeOfService>residential</TypeOfService>
+                                    <CsrData>
+                                        <AccountNumber>123456789</AccountNumber>
+                                        <CustomerName>JOHN SMITH</CustomerName>
+                                        <ServiceAddress>
+                                            <UnparsedAddress>900 MAIN CAMPUS DR</UnparsedAddress>
+                                            <City>RALEIGH</City>
+                                            <State>NC</State>
+                                            <Zip>27616</Zip>
+                                        </ServiceAddress>
+                                        <WorkingTelephoneNumber>9196191156</WorkingTelephoneNumber>
+                                        <WorkingTelephoneNumbersOnAccount>
+                                            <TelephoneNumber>9196191156</TelephoneNumber>
+                                        </WorkingTelephoneNumbersOnAccount>
+                                    </CsrData>
+                                </CsrResponse>
+                        400:
+                          description: There was an error replacing the conditional data for the order.
+                          body:
+                            application/xml:
+                              example: |
+                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                <CsrResponse>
+                                    <Errors>
+                                        <Error>
+                                            <Code>26020</Code>
+                                            <Description>Modification of a CSR order that is in a terminal status is not allowed.</Description>
+                                        </Error>
+                                        <Error>
+                                            <Code>26021</Code>
+                                            <Description>Modification of conditional fields on CSR orders is only allowed if order is in ACTION_REQUIRED status</Description>
+                                        </Error>
+                                        <Error>
+                                            <Code>26008</Code>
+                                            <Description>AccountTelephoneNumber is invalid. Alphanumeric characters are supported with a max length of 10 characters.</Description>
+                                        </Error>
+                                        <Error>
+                                            <Code>26012</Code>
+                                            <Description>EndUserPIN is invalid. Alphanumeric characters are supported with a max length of 50 characters.</Description>
+                                        </Error>
+                                        <Error>
+                                            <Code>26013</Code>
+                                            <Description>EndUserPassword is invalid. Alphanumeric characters are supported with a max length of 100 characters.</Description>
+                                        </Error>
+                                    </Errors>
+                                </CsrResponse>
                 /notes: 
                     # note that this file is shared between multiple order types -
                     #  - orders
@@ -3224,37 +3331,6 @@ securitySchemes:
                                                         <Description>Username is required</Description>
                                                     </ResponseStatus>
                                                 </NoteResponse>           
-        /countries: 
-            description: Controls the available countries for international phone numbers.
-            get:
-                description: |
-                    Return all countries available to an account.
-                responses:
-                    200:
-                        description: All countries available to an account.
-                        body:
-                            application/xml:
-                                example: |
-                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                    <CountriesResponse>
-                                        <ErrorList/>
-                                            <AccountCountries>
-                                                <Countries>
-                                                    <Country>
-                                                        <TwoLetterCode>CH</TwoLetterCode>
-                                                    </Country>
-                                                    <Country>
-                                                        <TwoLetterCode>DE</TwoLetterCode>
-                                                    </Country>
-                                                    <Country>
-                                                        <TwoLetterCode>FR</TwoLetterCode>
-                                                    </Country>
-                                                    <Country>
-                                                        <TwoLetterCode>IT</TwoLetterCode>
-                                                    </Country>
-                                                </Countries>
-                                            </AccountCountries>
-                                    </CountriesResponse>
         /discnumbers: 
             description: This API call provides information on numbers that have been disconnected from an account.
             get:
@@ -4475,7 +4551,7 @@ securitySchemes:
                             <strong>PIDF-LO</strong><br>
                             PIDF-LO AEUI endpoint-provisioning order with additional address provisioning and without pre-defined location id.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>Address</b>, and <b>Identifier</b> are required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.<br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             Default value of <b>PreferredLanguage</b> is 'en'.
                           </td>
@@ -4498,7 +4574,7 @@ securitySchemes:
                         &lt;AlternateEndUserIdentifier&gt;
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4512,7 +4588,7 @@ securitySchemes:
                             <strong>PIDF-LO</strong><br>
                             PIDF-LO AEUI endpoint-provisioning order with additional address provisioning and with pre-defined location id.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>Address</b>, and <b>Identifier</b> are required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.<br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             Default value of <b>PreferredLanguage</b> is 'en'.
                           </td>
@@ -4536,7 +4612,7 @@ securitySchemes:
                         &lt;AlternateEndUserIdentifier&gt;
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4550,7 +4626,7 @@ securitySchemes:
                             <strong>PIDF-LO</strong><br>
                             PIDF-LO AEUI endpoint-provisioning order with provisioned location id.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>LocationId</b>, and <b>Identifier</b> are required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.<br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             Default value of <b>PreferredLanguage</b> is 'en'.
                           </td>
@@ -4563,7 +4639,7 @@ securitySchemes:
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;LocationId&gt;Some32CharacterOrLessString&lt;/LocationId&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4579,10 +4655,10 @@ securitySchemes:
                             Default value of <b>PreferredLanguage</b> is 'en'.<br>
                             <strong>Non-PIDF-LO:</strong><br>
                             <b>CallbackNumber</b> is required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, must contain at least one letter, and must be between 6 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 6 and 32 characters.<br>
                             <strong>PIDF-LO:</strong><br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.
                           </td>
                           <td>
                             <pre>
@@ -4606,7 +4682,7 @@ securitySchemes:
                           &lt;CallerName&gt;OptionalCallerName&lt;/CallerName&gt;
                           &lt;LocationId&gt;Some32CharacterOrLessString&lt;/LocationId&gt;
                           &lt;CallbackNumber&gt;9706542333&lt;/CallbackNumber&gt;
-                          &lt;Identifier&gt;blep123@.-_blop&lt;/Identifier&gt;
+                          &lt;Identifier&gt;blep123&lt;/Identifier&gt;
                           &lt;PIDFLOEnabled&gt;true&lt;/PIDFLOEnabled&gt;
                           &lt;PreferredLanguage&gt;en&lt;/PreferredLanguage&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
@@ -4630,7 +4706,7 @@ securitySchemes:
                             <b>Identifier</b> can only contain alphanumeric characters 6 and 32 characters.<br>
                             <strong>PIDF-LO:</strong><br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, underscores, dashes, dots, and @ symbols and must be between 1 and 32 characters.
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.
                           </td>
                           <td>
                             <pre>
@@ -4638,7 +4714,7 @@ securitySchemes:
                       &lt;CustomerOrderId&gt;CustomOrderId1&lt;/CustomerOrderId&gt;
                       &lt;AlternateEndUserIdentifiers&gt;
                         &lt;AlternateEndUserIdentifier&gt;
-                          &lt;Identifier&gt;a1&lt;/Identifier&gt;
+                          &lt;Identifier&gt;identifier&lt;/Identifier&gt;
                         &lt;/AlternateEndUserIdentifier&gt;
                       &lt;/AlternateEndUserIdentifiers&gt;
                       &lt;DeleteTNSpecificE911Address&gt;true&lt;/DeleteTNSpecificE911Address&gt;
@@ -4883,7 +4959,9 @@ securitySchemes:
                                                 <AlternateEndUserIdentifiers>
                                                     <AlternateEndUserIdentifier>
                                                         <PIDFLOEnabled>true</PIDFLOEnabled>
-                                                        <Identifier>alphanumeric_or.:-_@_6_32_chars</Identifier>
+                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters
+                                                            maximum
+                                                        </Identifier>
                                                         <CallbackNumber>9706542332</CallbackNumber>
                                                         <CallerName>Eli</CallerName>
                                                         <PreferredLanguage>en</PreferredLanguage>
@@ -4907,7 +4985,9 @@ securitySchemes:
                                                     </AlternateEndUserIdentifier>
                                                     <AlternateEndUserIdentifier>
                                                         <PIDFLOEnabled>true</PIDFLOEnabled>
-                                                        <Identifier>alphanumeric_or.:-_@_6_32_chars</Identifier>
+                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters
+                                                            maximum
+                                                        </Identifier>
                                                         <CallbackNumber>9706542333</CallbackNumber>
                                                         <CallerName>Ethan</CallerName>
                                                         <PreferredLanguage>en</PreferredLanguage>
@@ -5941,32 +6021,6 @@ securitySchemes:
                             description: The telephone number is currently in service. NOTE that there is no payload; a 200 status simply means that the phone is indeed an inservice number.
                         404:
                             description: The telephone number is not currently in service.
-        /internationalvendors: 
-            description: Controls the available international vendors for international phone numbers on the account.
-            get:
-                description: |
-                    Return all international vendors available on an account.
-                responses:
-                    200:
-                        description: All international vendors available on the specified account.
-                        body:
-                            application/xml:
-                                example: |
-                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                    <InternationalVendorsResponse>
-                                        <ErrorList/>
-                                        <InternationalVendors>
-                                            <InternationalVendor>
-                                                <VendorId>1</VendorId>
-                                            </InternationalVendor>
-                                            <InternationalVendor>
-                                                <VendorId>2</VendorId>
-                                            </InternationalVendor>
-                                            <InternationalVendor>
-                                                <VendorId>3</VendorId>
-                                            </InternationalVendor>
-                                        </InternationalVendors>
-                                    </InternationalVendorsResponse>
         /lidbs: 
             description: |
                 The LIDBs Resource represents the requests made to the Bandwidth Dashboard API to add or otherwise manage a request to add Calling Line Information with a telephone number.  This API allows the creation and observation of a <b>"Line Information Data Base (LIDB)"</b> work order that causes an update of a person's calling name identification in a network Database.  The entry of this information in the network database in turn causes the display of their name on the phone of the people that they call. <br>
@@ -12941,14 +12995,22 @@ securitySchemes:
                                                           </ApplicationsSettings>
                                                         </ApplicationsSettingsResponse>
                                 put:
-                                    description: create/update/delete application settings for sippeer (use value 'REMOVE' to unassing application)
+                                    description: |
+                                        Create/update/delete application settings for sippeer
+                                        <br>
+                                        Set the ApplicationsSettings value to 'REMOVE' to unassign application <br>
                                     body:
-                                        application/json:
+                                        application/xml:
                                             example: |
-                                                <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-                                                <ApplicationsSettings>
-                                                  <HttpMessagingV2AppId>c3b0f805-06ab-4d36-8bf4-8baff7623398</HttpMessagingV2AppId>
-                                                </ApplicationsSettings>
+                                              <!--an  example of updating the applicationId-->
+                                              <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+                                              <ApplicationsSettings>
+                                                <HttpMessagingV2AppId>c3b0f805-06ab-4d36-8bf4-8baff7623398</HttpMessagingV2AppId>
+                                              </ApplicationsSettings>
+                                              <!--an  example of removing the applicationId-->
+                                              <ApplicationsSettings>
+                                                REMOVE
+                                              </ApplicationsSettings>
                                     responses:
                                         200:
                                             description: settings were successfully created/updated
@@ -12961,6 +13023,64 @@ securitySchemes:
                                                           <HttpMessagingV2AppId>c3b0f805-06ab-4d36-8bf4-8baff7623398</HttpMessagingV2AppId>
                                                         </ApplicationsSettings>
                                                       </ApplicationsSettingsResponse>
+                            /messaging/settings: 
+                                get:
+                                    description: |
+                                        Retrieve sipper messaging settings
+                                    responses:
+                                        200:
+                                            description: A successful result that contains the response data
+                                            body:
+                                                application/xml:
+                                                    example: |
+                                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                        <SipPeerMessagingSettingsResponse>
+                                                            <SipPeerMessagingSettings>
+                                                                <BreakOutCountries>
+                                                                    <Country>CAN</Country>
+                                                                    <Country>GBR</Country>
+                                                                </BreakOutCountries>
+                                                            </SipPeerMessagingSettings>
+                                                        </SipPeerMessagingSettingsResponse>
+                                put:
+                                    description: create/update/delete messaging settings
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <SipPeerMessagingSettings>
+                                                    <BreakOutCountries>
+                                                        <Country>CAN</Country>
+                                                        <Country>GBR</Country>
+                                                    </BreakOutCountries>
+                                                </SipPeerMessagingSettings>
+                                    responses:
+                                        200:
+                                            description: settings were successfully created/updated
+                                            body:
+                                                application/xml:
+                                                    example: |
+                                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                        <SipPeerMessagingSettingsResponse>
+                                                            <SipPeerMessagingSettings>
+                                                                <BreakOutCountries>
+                                                                    <Country>CAN</Country>
+                                                                    <Country>GBR</Country>
+                                                                 </BreakOutCountries>
+                                                            </SipPeerMessagingSettings>
+                                                        </SipPeerMessagingSettingsResponse>
+                                        400:
+                                           description: settings were successfully created/updated
+                                           body:
+                                               application/xml:
+                                                   example: |
+                                                       <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                       <SipPeerMessagingSettingsResponse>
+                                                           <ResponseStatus>
+                                                               <ErrorCode>13654</ErrorCode>
+                                                               <Description>The country values '[GBR]' do not match a 3-character country code that has been approved for this account.</Description>
+                                                           </ResponseStatus>
+                                                       </SipPeerMessagingSettingsResponse>
                 /inserviceNumbers: 
                     description: Retrieves all the telephone numbers currently in service for the given site.
                     get:
@@ -14154,43 +14274,6 @@ securitySchemes:
                     responses:
                         200:
                             description: A reservation has been successfully deleted.
-        /tntypes: 
-            description: Controls the type of telephone numbers that can be added to an account.
-            get:
-                description: |
-                    Return all Tn Types assigned to an account.
-                responses:
-                    200:
-                        description: All Tn Types assigned to account.
-                        body:
-                            application/xml:
-                                example: |
-                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                    <AccountTnTypesResponse>
-                                        <ErrorList/>
-                                        <AccountTnTypes>
-                                            <TnTypes>
-                                                <TnType>
-                                                    <Source>libphonenumber</Source>
-                                                    <Type>FIXED_LINE</Type>
-                                                    <IsAllowed>true</IsAllowed>
-                                                    <TnTypeId>1</TnTypeId>
-                                                </TnType>
-                                                <TnType>
-                                                    <Source>libphonenumber</Source>
-                                                    <Type>FIXED_LINE_OR_MOBILE</Type>
-                                                    <IsAllowed>true</IsAllowed>
-                                                    <TnTypeId>2</TnTypeId>
-                                                </TnType>
-                                                <TnType>
-                                                    <Source>libphonenumber</Source>
-                                                    <Type>MOBILE</Type>
-                                                    <IsAllowed>true</IsAllowed>
-                                                    <TnTypeId>3</TnTypeId>
-                                                </TnType>
-                                            </TnTypes>
-                                        </AccountTnTypes>
-                                    </AccountTnTypesResponse>
         /users: 
             get:
                 description: Retrieves a list of users as specified by the account ID.

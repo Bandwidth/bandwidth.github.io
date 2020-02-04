@@ -62,6 +62,7 @@ a[aria-label="Change Layout"]{
 }
 .markdown-section code, .markdown-section pre {
     font-family: 'Overpass Mono',monospace;
+    text-transform: initial;
 }
 .book-summary ul.summary li.active>a {
   color: #00bcec;

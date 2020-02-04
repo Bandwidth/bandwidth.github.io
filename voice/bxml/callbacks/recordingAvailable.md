@@ -13,6 +13,8 @@ HTTP/1.1 204
 | Property    | Description                                                                                                                                                                                        |
 |:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | eventType   | The event type, value is `recordingAvailable`.                                                                                                                                                     |
+| accountId     | The user account associated with the call.                                                                                                                                                         |
+| applicationId | The id of the application associated with the call.                                                                                                                                                |
 | to          | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                                                                                      |
 | from        | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                                          |
 | direction   | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                                                                                  |
@@ -38,20 +40,22 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType"   : "recordingAvailable",
-	"to"          : "+15553334444",
-	"from"        : "+15551112222",
-	"direction"   : "outbound",
-	"callId"      : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"recordingId" : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
-	"channels"    : 1,
-	"startTime"   : "2019-09-13T16:48:29.235833Z",
-	"endTime"     : "2019-09-13T16:48:48.890016Z",
-	"duration"    : "PT20.056S",
-	"fileFormat"  : "wav",
-	"callUrl"     : "https://../{accountId}/calls/{callId-1}",
-	"mediaUrl"    : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/media",
-	"status"      : "complete"
+	"eventType"     : "recordingAvailable",
+	"accountId"     : "55555555",
+	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"to"            : "+15553334444",
+	"from"          : "+15551112222",
+	"direction"     : "outbound",
+	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
+	"channels"      : 1,
+	"startTime"     : "2019-09-13T16:48:29.235833Z",
+	"endTime"       : "2019-09-13T16:48:48.890016Z",
+	"duration"      : "PT20.056S",
+	"fileFormat"    : "wav",
+	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
+	"mediaUrl"      : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/media",
+	"status"        : "complete"
 }
 ```
 

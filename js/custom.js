@@ -31,7 +31,6 @@ module.exports = function ($) {
 		var helperPages = [
 			'onDemandNumberSearchAndOrder.html',
 			'numberOrderingSummary.html',
-			'advancedOrdering.html',
 			'disconnectSummary.html',
 			'managingLineFeatures.html',
 			'managingOrders.html',

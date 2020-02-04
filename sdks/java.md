@@ -2,7 +2,16 @@
 
 ### Download & Install
 
-Coming Soon
+Maven:
+
+```xml
+<!-- https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk -->
+<dependency>
+    <groupId>com.bandwidth.sdk</groupId>
+    <artifactId>bandwidth-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
 ### Initialize Bandwidth Client
 
@@ -41,7 +50,7 @@ try {
 } catch (IOException | ApiException e) {
     //Handle
 }
-		
+
 ```
 
 ### Generate BXML
@@ -65,9 +74,6 @@ System.out.println( response.toXml() )
 ### Send Text Message
 
 ```java
-{% sample lang="java" %}
-
-```java
 import com.bandwidth.messaging.models.MessageRequest;
 
 MessageRequest messageRequest = new MessageRequest();
@@ -88,7 +94,7 @@ try {
 } catch (ApiException  | IOException e){
     //Handle
 }
-``````
+```
 
 ### Order Phone Number
 
