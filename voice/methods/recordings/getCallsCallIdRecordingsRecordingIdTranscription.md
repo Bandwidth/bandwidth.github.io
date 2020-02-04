@@ -23,19 +23,10 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Transcription Attributes
 
-| Attribute   | Description                                                                       |
-|:------------|:----------------------------------------------------------------------------------|
-| transcripts | Contains the transcription, which is created from the concatenation of the items. |
-| items       | List of words transcribed from the input audio (see Item).                        |
-
-#### Item
-
-| Attribute    | Description                                                                         |
-|:-------------|:------------------------------------------------------------------------------------|
-| start_time   | (optional) Offset from the beginning of the recording to the beginning of the item. |
-| end_time     | (optional) Offset from the beginning of the recording to the end of the item.       |
-| alternatives | Contains the `content` and `confidence` attributes, which correspond respectively to the recognized word or punctuation and the confidence on the recognized content, ranging from `0.0` to `1.0`. |
-| type         | The type of the item. Valid Values: `pronunciation`, `punctuation`.                 |
+| Attribute    | Description                                                            |
+|:-------------|:-----------------------------------------------------------------------|
+| text         | The transcription.                                                     |
+| confidence   | The confidence on the recognized content, ranging from `0.0` to `1.0`. |
 
 {% common %}
 
@@ -53,51 +44,8 @@ curl -X GET \
 {
   "transcripts": [
     {
-      "transcript": "transcribing is easy."
-    }
-  ],
-  "items": [
-    {
-      "start_time": "0.14",
-      "end_time": "0.95",
-      "alternatives": [
-        {
-          "confidence": "1.0",
-          "content": "transcribing"
-        }
-      ],
-      "type": "pronunciation"
-    },
-    {
-      "start_time": "0.95",
-      "end_time": "1.14",
-      "alternatives": [
-        {
-          "confidence": "0.9905",
-          "content": "is"
-        }
-      ],
-      "type": "pronunciation"
-    },
-    {
-      "start_time": "1.14",
-      "end_time": "1.72",
-      "alternatives": [
-        {
-          "confidence": "0.9984",
-          "content": "easy"
-        }
-      ],
-      "type": "pronunciation"
-    },
-    {
-      "alternatives": [
-        {
-          "confidence": "0.0",
-          "content": "."
-        }
-      ],
-      "type": "punctuation"
+      "text": "transcribing is easy.",
+      "confidence": 0.98
     }
   ]
 }
