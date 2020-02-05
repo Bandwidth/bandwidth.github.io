@@ -8,7 +8,8 @@ The SendDtmf verb is used to play DTMF digits in the call.
 ### Attributes
 | ATTRIBUTE | Description |
 |:----------|:------------|
-| None      | None        |
+| toneDuration | (optional) The length (in milliseconds) of each DTMF tone. Default value is 200. Range: decimal values between 50 - 5000. |
+| toneInterval | (optional) The duration of silence (in milliseconds) following each DTMF tone. Default value is 400. Range: decimal values between 50 - 5000. |
 
 ### Text Content
 | Name        | Description |
