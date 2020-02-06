@@ -86,7 +86,8 @@ curl -X GET \
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = voice_client.get_call_state(account_id, call_id)
+print(response.body.state)
 ```
 
 {% endmethod %}
