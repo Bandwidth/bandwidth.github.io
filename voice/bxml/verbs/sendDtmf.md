@@ -13,9 +13,7 @@ The SendDtmf verb is used to play DTMF digits in the call.
 
 `w`, `,` and `W` chars replace `toneInterval`, so if a
 
-`<SendDtmf toneInterval=300>1w2</SendDtmf>`
-
-is used, `2` will be played 500ms after `1` because of `w`
+`<SendDtmf toneInterval=300>1w2</SendDtmf>` is used, `2` will be played 500ms after `1` because of `w`
 
 ### Text Content
 | Name        | Description |
