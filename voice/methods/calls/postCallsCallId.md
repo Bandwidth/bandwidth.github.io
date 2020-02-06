@@ -73,7 +73,7 @@ body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
 begin
-    voice_client.modify_call("55555", "callId", body: body)
+    voice_client.modify_call(account_id, call_id, body: body)
 rescue Exception => e
     puts e
 end
@@ -87,7 +87,7 @@ body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
 try:
-    voice_client.modify_call("55555", "callId", body)
+    voice_client.modify_call(account_id, call_id, body)
 except Exception as e:
     print(e)
 ```
@@ -101,7 +101,7 @@ var body = new BandwidthVoice.ApiModifyCallRequest({
 });
 
 try {
-    await voiceController.modifyCall(accountId, "callId", body);
+    await voiceController.modifyCall(accountId, callId, body);
 } catch (error) {
     console.error(error);
 }

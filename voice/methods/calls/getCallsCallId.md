@@ -80,7 +80,8 @@ curl -X GET \
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+result = voice_client.get_call_state(account_id, call_id)
+puts result.data.state
 ```
 
 {% sample lang="python" %}
