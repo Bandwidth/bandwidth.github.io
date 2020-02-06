@@ -51,6 +51,8 @@ curl -X GET \
 }
 ```
 
+**NOTE:** the `applicationId` attribute was added recently and it will be `null` for old recordings.
+
 {% sample lang="java" %}
 
 ```java
