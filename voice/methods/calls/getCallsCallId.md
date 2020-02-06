@@ -91,6 +91,13 @@ response = voice_client.get_call_state(account_id, call_id)
 print(response.body.state)
 ```
 
+{% sample lang="js" %}
+
+```js
+var response = await voiceController.getCallState(accountId, callId);
+console.log(response.state);
+```
+
 {% sample lang="php" %}
 
 ```php
