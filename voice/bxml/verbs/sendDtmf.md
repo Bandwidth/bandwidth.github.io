@@ -11,9 +11,9 @@ The SendDtmf verb is used to play DTMF digits in the call.
 | toneDuration | (optional) The length (in milliseconds) of each DTMF tone. Default value is 200. Range: decimal values between 50 - 5000. |
 | toneInterval | (optional) The duration of silence (in milliseconds) following each DTMF tone. Default value is 400. Range: decimal values between 50 - 5000. |
 
-`w`, `,` and `W` chars replace `toneInterval`, so if a
+All `w`, `,` and `W` chars replace `toneInterval`, so if a
 
-`<SendDtmf toneInterval=300>1w2</SendDtmf>` is used, `2` will be played 500ms after `1` because of `w`
+`<SendDtmf toneInterval="300">1w2</SendDtmf>` is used, `2` will be played 500ms after `1` because of `w`
 
 ### Text Content
 | Name        | Description |
