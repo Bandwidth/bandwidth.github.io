@@ -51,7 +51,11 @@ curl -X GET \
 }
 ```
 
-**NOTE:** the `applicationId` attribute was added recently and it will be `null` for old recordings.
+<aside class="alert general small">
+<p>
+The `applicationId` attribute was added recently and it will be `null` for old recordings.
+</p>
+</aside>
 
 {% sample lang="java" %}
 
