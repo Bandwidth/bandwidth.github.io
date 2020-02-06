@@ -53,7 +53,7 @@ curl -X GET \
 
 <aside class="alert general small">
 <p>
-The `applicationId` attribute was added recently and it will be `null` for old recordings.
+The `applicationId` attribute was added recently and it will be null for old recordings.
 </p>
 </aside>
 
