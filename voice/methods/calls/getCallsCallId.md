@@ -91,4 +91,11 @@ response = voice_client.get_call_state(account_id, call_id)
 print(response.body.state)
 ```
 
+{% sample lang="php" %}
+
+```php
+$response = $voiceClient->getCallState($accountId, $callId);
+print_r($response->getResult()->state);
+```
+
 {% endmethod %}

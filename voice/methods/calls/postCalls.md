@@ -178,7 +178,7 @@ $body->applicationId = "3-6-4-b-4";
 
 try {
     $response = $voiceClient->createCall($accountId, $body);
-    print_r($response);
+    print_r($response->getResult()->callId);
 } catch (BandwidthLib\APIException $e) {
     print_r($e);
 }
