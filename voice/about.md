@@ -31,21 +31,22 @@
 
 ## BXML Callbacks
 
-| Callback                                                | Description                                                                                                                                                                                                     |
-|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Answer](bxml/callbacks/answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                          |
-| [Gather](bxml/callbacks/gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                        |
-| [Initiate](bxml/callbacks/initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                       |
-| [Record Complete](bxml/callbacks/recordComplete.md)     | Bandwidth API sends this to the application when a `<Record>` is completed. The recording is not available to download until the [Recording Available](bxml/callbacks/recordingAvailable.md) event is received. |
-| [Redirect](bxml/callbacks/redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](methods/calls/postCallsCallId.md) endpoint requesting a redirect.          |
-| [Transfer Answer](bxml/callbacks/transferAnswer.md)     | Bandwidth API sends this to the application when the `<Transfer>` is answered.                                                                                                                                  |
-| [Transfer Complete](bxml/callbacks/transferComplete.md) | Bandwidth API sends this to the application when the `<Transfer>` is complete.                                                                                                                                  |
+| Callback                                                    | Description                                                                                                                                                                                  |
+|:------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Answer](bxml/callbacks/answer.md)                          | Bandwidth API sends this when the call is answered.                                                                                                                                          |
+| [Gather](bxml/callbacks/gather.md)                          | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                     |
+| [Initiate](bxml/callbacks/initiate.md)                      | Bandwidth API sends this when an inbound call arrives.                                                                                                                                       |
+| [Record Complete](bxml/callbacks/recordComplete.md)         | Bandwidth API sends this when a `<Record>` is completed. The recording is not available to download until the [Recording Available](bxml/callbacks/recordingAvailable.md) event is received. |
+| [Redirect](bxml/callbacks/redirect.md)                      | Bandwidth API sends this when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](methods/calls/postCallsCallId.md) endpoint requesting a redirect.          |
+| [Transfer Answer](bxml/callbacks/transferAnswer.md)         | Bandwidth API sends this when the `<Transfer>` is answered.                                                                                                                                  |
+| [Transfer Complete](bxml/callbacks/transferComplete.md)     | Bandwidth API sends this when the `<Transfer>` is complete and the original call needs to continue.                                                                                          |
 
 ## Asynchronous Callbacks
-| Callback                                                         | Description                                                                             |
-|:-----------------------------------------------------------------|:----------------------------------------------------------------------------------------|
-| [Disconnect](bxml/callbacks/disconnect.md)                       | Bandwidth API sends this to the application when a call ends.                           |
-| [Recording Available](bxml/callbacks/recordingAvailable.md)      | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| Callback                                                         | Description                                                                                                                      |
+|:-----------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| [Disconnect](bxml/callbacks/disconnect.md)                       | Bandwidth API sends this  when a call ends.                                                                                      |
+| [Recording Available](bxml/callbacks/recordingAvailable.md)      | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| [Transfer Disconnect](bxml/callbacks/transferDisconnect.md)      | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                    |
 
 ## Error Codes
 | Type                         | Description                                                           |

@@ -95,15 +95,16 @@
 * [API Methods](voice/methods/about.md)
 	* [Create & Update Calls](voice/methods/calls/about.md)
 		* [POST Create Call](voice/methods/calls/postCalls.md)
+		* [GET Call Information](voice/methods/calls/getCallsCallId.md)
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Recording Management](voice/methods/recordings/about.md)
-		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 		* [GET Account Recordings](voice/methods/recordings/getRecordings.md)
+		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 		* [GET Call Recordings](voice/methods/recordings/getCallsCallIdRecordings.md)
 		* [GET Recording Information](voice/methods/recordings/getCallsCallIdRecordingsRecordingId.md)
-		* [GET Download recording](voice/methods/recordings/getCallsCallIdRecordingsRecordingIdMedia.md)
 		* [DELETE Delete Recording](voice/methods/recordings/deleteCallsCallIdRecordingsRecordingId.md)
+		* [GET Download recording](voice/methods/recordings/getCallsCallIdRecordingsRecordingIdMedia.md)
 * [Call Control (BXML)](voice/bxml/about.md)
 	* [Forward](voice/bxml/verbs/forward.md)
 	* [Gather](voice/bxml/verbs/gather.md)
@@ -129,6 +130,7 @@
 	 * [Redirect](voice/bxml/callbacks/redirect.md)
 	 * [Transfer Answer](voice/bxml/callbacks/transferAnswer.md)
 	 * [Transfer Complete](voice/bxml/callbacks/transferComplete.md)
+	 * [Transfer Disconnect](voice/bxml/callbacks/transferDisconnect.md)
 * [Errors](voice/errors.md)
 	* [400 - Bad Request](voice/errors.md#http-400)
 	* [401 - Unauthorized](voice/errors.md#http-401)
@@ -190,6 +192,9 @@
 * [Node](sdks/node.md)
 * [Java](sdks/java.md)
 * [PHP](sdks/php.md)
+
+## Developer Tools
+* [Bandwidth Examples Github Repo](https://github.com/Bandwidth/examples)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
