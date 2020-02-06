@@ -18,17 +18,18 @@ Content-Type: application/xml; charset=utf-8
 | Property  | Description                                                                    |
 |:----------|:-------------------------------------------------------------------------------|
 | eventType | The event type, value is `initiate`.                                           |
-| accountId     | The user account associated with the call.                                     |
-| applicationId | The id of the application associated with the call.                            |
+| accountId     | The user account associated with the call.                                 |
+| applicationId | The id of the application associated with the call.                        |
 | to        | The phone number that received the call, in E.164 format (e.g. +15555555555).  |
 | from      | The phone number that made the call, in E.164 format (e.g. +15555555555).      |
 | direction | The direction of the call; can only be `inbound`. The direction never changes. |
 | callId    | The call id associated with the event.                                         |
 | callUrl   | The URL of the call associated with the event.                                 |
+| diversion | (optional) Information from the most recent Diversion header, if any. If present, the value will be a sub-object like `"diversion": {"param1": "value1", "param2": "value2"}`.<br>Each diversion parameter gets its own key in the JSON structure, and the keys present and their values will vary depending on the parameters received in the SIP header.<br><br>**Common Parameters**<br>- `origTo`: always present. Indicates the last telephone number that the call was diverted from.<br><br>**Note**: for all of the following keys, the values listed are common values, but this list is not exhaustive. Your application **must** be tolerant of unlisted keys and unlisted values of those keys.<br>- `reason`: The reason for the diversion. Common values: `unknown`, `user-busy`, `no-answer`, `unavailable`, `unconditional`, `time-of-day`, `do-not-disturb`, `deflection`, `follow-me`, `out-of-service`, `away`<br>- `screen`: `no` if the number was provided by the user, `yes` if the number was provided by the network<br>- `privacy`: `off` or `full`<br>- `counter`: the number of diversions that have occurred<br>- `limit`: The maximum number of diversions allowed for this session |
 
 {% common %}
 
-#### Example: Basic initiate event
+#### Example: Initiate event with Diversion information
 
 ```
 POST http://[External server URL]
@@ -43,7 +44,13 @@ POST http://[External server URL]
 	"to"            : "+15553334444",
 	"direction"     : "inbound",
 	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-	"callUrl"       : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d"
+	"callUrl"       : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"diversion": {
+		"origTo"    : "+15558884444",
+		"reason"    : "unavailable",
+		"privacy"   : "off",
+		"unknown"   : "unknownValue"
+	}
 }
 ```
 
