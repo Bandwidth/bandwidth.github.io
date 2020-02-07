@@ -74,7 +74,19 @@ curl -X GET \
 {% sample lang="csharp" %}
 
 ```csharp
-// coming soon
+var response = voiceClient.GetCallState(accountId, callID);
+Console.WriteLine(response.State);
+```
+
+{% sample lang="java" %}
+
+```java
+ApiResponse<ApiCallStateResponse> response = null;
+try {
+    response = voiceController.getCallState(accountId, callId);
+} catch (IOException | ApiException e) {
+    System.out.println(e.getMessage());
+}
 ```
 
 {% sample lang="ruby" %}
