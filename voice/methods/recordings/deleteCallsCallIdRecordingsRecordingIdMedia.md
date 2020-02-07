@@ -51,13 +51,13 @@ HTTP/1.1 204
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+voice_client.delete_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
 ```
 
 {% sample lang="python" %}
 
 ```python
-# coming soon
+voice_client.delete_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
 ```
 
 {% sample lang="js" %}
