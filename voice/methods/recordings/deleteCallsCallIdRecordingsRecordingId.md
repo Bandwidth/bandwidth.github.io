@@ -1,7 +1,7 @@
 {% method %}
 
 ## Delete Recording
-Delete both the metadata and the media of the specified recording.
+Delete the recording information, media and transcription.
 
 ### Request URL
 
@@ -48,9 +48,7 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-
+controller.DeleteRecording(accountId, callId, recordingId);
 ```
 
 {% sample lang="ruby" %}

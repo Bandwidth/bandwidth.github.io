@@ -9,16 +9,26 @@ All audio on both sides of the call will be recorded until the call ends or the 
 |:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | recordingAvailableUrl        | (optional) URL to send the [Recording Available](../callbacks/recordingAvailable.md) event to once it has been processed. Does not accept BXML.                                                                        |
 | recordingAvailableMethod     | (optional) The HTTP method to use for the request to `recordingAvailableUrl`. GET or POST. Default value is POST.                                                                                                      |
-| username                     | (optional) The username to send in the HTTP request to `recordingAvailableUrl`. If specified, the URL must be TLS-encrypted (i.e., `https`).                                                                           |
-| password                     | (optional) The password to send in the HTTP request to `recordingAvailableUrl`. If specified, the URL must be TLS-encrypted (i.e., `https`).                                                                           |
+| transcribe                   | (optional) A boolean value to indicate that recording should be transcribed. Default is `false`.                                                                                                                       |
+| transcriptionAvailableUrl    | (optional) URL to send the [Transcription Available](../callbacks/transcriptionAvailable.md) event to once it has been processed. Does not accept BXML.                                                                |
+| transcriptionAvailableMethod | (optional) The HTTP method to use for the request to `transcriptionAvailableUrl`. GET or POST. Default value is POST.                                                                                                  |
+| username                     | (optional) The username to send in the HTTP request to `recordingAvailableUrl` or `transcriptionAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`).                                           |
+| password                     | (optional) The password to send in the HTTP request to `recordingAvailableUrl` or `transcriptionAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`).                                           |
 | tag                          | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 | fileFormat                   | (optional) The audio format that the recording will be saved as: `mp3` or `wav`.  Default value is `wav`.                                                                                                              |
-| multiChannel                 | (optional) A boolean value indicating whether or not the recording file should separate each side of the call into its own audio channel. Default value is `false`. `true` results in two channels.                    |
+| multiChannel                 | (optional) A boolean value indicating whether or not the recording file should separate each side of the call into its own audio channel. Default value is `false`.                                                    |
 
 If the `recordingAvailableUrl` attribute is specified, then the [Recording Available](../callbacks/recordingAvailable.md)
 event is sent to the URL once the recording is available for download, indicating the `mediaUrl` and if there was any issue processing the recording.
-
 BXML returned in response to this callback will be ignored.
+
+If the `transcriptionAvailableUrl` attribute is specified, then the [Transcription Available](../callbacks/transcriptionAvailable.md)
+event is sent to the URL once the transcription is available for download.
+BXML returned in response to this callback will be ignored.
+
+If the `multiChannel` attribute is `true`, then the resulting recording will have 2 audio channels.<br>
+The caller/called party will be recorded in channel 0 (left channel) while [`<PlayAudio>`](playAudio.md) and [`<SpeakSentence>`](speakSentence.md) will be recorded in channel 1 (right channel).<br>
+During a [`<Transfer>`](transfer.md) the A-leg will be recorded in channel 0 (left channel) while the B-leg will be recorded in channel 1 (right channel).
 
 <aside class="alert general small"><p>NOTE: Only one &lt;StartRecording&gt; verb may be active at a time. If a second &lt;StartRecording&gt; verb is used without first using a &lt;StopRecording&gt; verb, the second &lt;StartRecording&gt; will be ignored.</p></aside>
 
@@ -27,6 +37,7 @@ BXML returned in response to this callback will be ignored.
 | Callbacks                                                         | Can reply with more BXML |
 |:------------------------------------------------------------------|:-------------------------|
 | [Recording Available](../callbacks/recordingAvailable.md)         | No                       |
+| [Transcription Available](../callbacks/transcriptionAvailable.md) | No                       |
 
 {% common %}
 #### Example 1 of 1: Recording of a call
