@@ -5,9 +5,10 @@
 
 ## REST API Reference Index
 
-| Resource                           | Description                                                           |
-|:-----------------------------------|:----------------------------------------------------------------------|
-| [`/calls`](methods/calls/about.md) | The Calls resource lets you make phone calls and modify active calls. |
+| Resource                                     | Description                                                           |
+|:---------------------------------------------|:----------------------------------------------------------------------|
+| [`/calls`](methods/calls/about.md)           | The Calls resource lets you make phone calls and modify active calls. |
+| [`/recordings`](methods/recordings/about.md) | The Recordings resource lets you retrieve information about recordings created during calls as well as manage recordings on a live call. |
 
 
 ## BXML verbs
@@ -47,6 +48,7 @@
 | [Disconnect](bxml/callbacks/disconnect.md)                       | Bandwidth API sends this  when a call ends.                                                                                      |
 | [Recording Available](bxml/callbacks/recordingAvailable.md)      | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 | [Transfer Disconnect](bxml/callbacks/transferDisconnect.md)      | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                    |
+| [Transcription Available](bxml/callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                     |
 
 ## Error Codes
 | Type                         | Description                                                           |

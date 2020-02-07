@@ -9,8 +9,11 @@ The Record verb allows a segment of audio to be recorded during a call. At the e
 | recordCompleteMethod         | (optional) The HTTP method to use for the request to `recordCompleteUrl`. GET or POST. Default value is POST.                                                                                                          |
 | recordingAvailableUrl        | (optional) URL to send the [Recording Available](../callbacks/recordingAvailable.md) event to once it has been processed. Does not accept BXML.                                                                        |
 | recordingAvailableMethod     | (optional) The HTTP method to use for the request to `recordingAvailableUrl`. GET or POST. Default value is POST.                                                                                                      |
-| username                     | (optional) The username to send in the HTTP request to `recordCompleteUrl` or `recordingAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`).                                                   |
-| password                     | (optional) The password to send in the HTTP request to `recordCompleteUrl` or `recordingAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`).                                                   |
+| transcribe                   | (optional) A boolean value to indicate that recording should be transcribed. Default is `false`.                                                                                                                       |
+| transcriptionAvailableUrl    | (optional) URL to send the [Transcription Available](../callbacks/transcriptionAvailable.md) event to once it has been processed. Does not accept BXML.                                                                |
+| transcriptionAvailableMethod | (optional) The HTTP method to use for the request to `transcriptionAvailableUrl`. GET or POST. Default value is POST.                                                                                                  |
+| username                     | (optional) The username to send in the HTTP request to `recordCompleteUrl`, `recordingAvailableUrl` or `transcriptionAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`).                      |
+| password                     | (optional) The password to send in the HTTP request to `recordCompleteUrl`, `recordingAvailableUrl` or `transcriptionAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`).                      |
 | tag                          | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 | terminatingDigits            | (optional) When pressed, this digit will terminate the recording. Default value is `“#”`.                                                                                                                              |
 | maxDuration                  | (optional) Maximum length of recording (in seconds). Max 10800 (3 hours). Default value is 60.                                                                                                                         |
@@ -24,12 +27,15 @@ If the `recordCompleteUrl` attribute is specified, then the [Recording Complete]
 
 If the `recordingAvailableUrl` attribute is specified, then the [Recording Available](../callbacks/recordingAvailable.md) event is sent to the URL once the recording is available for download. BXML returned in response to this callback will be ignored.
 
+If the `transcriptionAvailableUrl` attribute is specified, then the [Transcription Available](../callbacks/transcriptionAvailable.md) event is sent to the URL once the transcription is available for download. BXML returned in response to this callback will be ignored.
+
 ### Callbacks Received
 
 | Callbacks                                                         | Can reply with more BXML |
 |:------------------------------------------------------------------|:-------------------------|
 | [Record Complete](../callbacks/recordComplete.md)                 | Yes                      |
 | [Recording Available](../callbacks/recordingAvailable.md)         | No                       |
+| [Transcription Available](../callbacks/transcriptionAvailable.md) | No                       |
 
 {% common %}
 
