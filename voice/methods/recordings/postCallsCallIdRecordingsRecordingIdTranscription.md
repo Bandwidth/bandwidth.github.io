@@ -80,13 +80,20 @@ voice_client.create_transcribe_recording(VOICE_ACCOUNT_ID, call_id, recording_id
 {% sample lang="js" %}
 
 ```js
-// coming soon
+var body = new BandwidthVoice.ApiTranscribeRecordingRequest({
+    "callbackUrl": "https://www.myapp.com/transcription"
+});
+
+await voiceController.createTranscribeRecording(accountId, callId, recordingId, body);
 ```
 
 {% sample lang="php" %}
 
 ```php
-// coming soon
+$body = new BandwidthLib\Voice\Models\ApiTranscribeRecordingRequest();
+$body->callbackUrl = "https://www.myapp.com/transcription";
+
+$voiceClient->createTranscribeRecording($accountId, $callId, $recordingId, $body);
 ```
 
 {% endmethod %}

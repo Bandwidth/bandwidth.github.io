@@ -63,13 +63,13 @@ voice_client.delete_recording_media(VOICE_ACCOUNT_ID, call_id, recording_id)
 {% sample lang="js" %}
 
 ```js
-// coming soon
+await voiceController.deleteRecordingMedia(accountId, callId, recordingId);
 ```
 
 {% sample lang="php" %}
 
 ```php
-// coming soon
+$voiceClient->deleteRecordingMedia($accountId, $callId, $recordingId);
 ```
 
 {% endmethod %}

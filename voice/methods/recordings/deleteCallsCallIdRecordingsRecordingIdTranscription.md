@@ -63,13 +63,13 @@ voice_client.delete_recording_transcription(VOICE_ACCOUNT_ID, call_id, recording
 {% sample lang="js" %}
 
 ```js
-// coming soon
+await voiceController.deleteRecordingTranscription(accountId, callId, recordingId);
 ```
 
 {% sample lang="php" %}
 
 ```php
-// coming soon
+$voiceClient->deleteRecordingTranscription($accountId, $callId, $recordingId);
 ```
 
 {% endmethod %}
