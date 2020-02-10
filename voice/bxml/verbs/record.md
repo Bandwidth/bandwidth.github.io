@@ -39,7 +39,7 @@ If the `transcriptionAvailableUrl` attribute is specified, then the [Transcripti
 
 {% common %}
 
-#### Example 1 of 1: Record Verb
+#### Example 1 of 2: Record Verb
 
 This shows how to use Bandwidth XML to record a phone call.
 
@@ -190,6 +190,135 @@ $record->maxDuration(10);
 $response = new BandwidthLib\Voice\Bxml\Response();
 $response->addVerb($speakSentence);
 $response->addVerb($playAudio);
+$response->addVerb($record);
+
+echo $response->toBxml();
+```
+
+{% common %}
+
+#### Example 2 of 2: Record Verb with transcriptions
+
+{% sample lang="http" %}
+
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+   <SpeakSentence>Please say your name</SpeakSentence>
+   <Record recordCompleteUrl="https://record.url.server/record" transcribe="true" transcriptionAvailableUrl="https://transcription.url.server/transcribe/"/>
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Please say your name")
+        .build();
+
+Record record = Record.builder()
+        .recordCompleteUrl("https://record.url.server/record")
+        .transcribe(true)
+        .transcriptionAvailableUrl("https://transcription.url.server/transcribe/")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(record);
+
+System.out.println(response.toBXML());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Sentence = "Please say your name"
+};
+
+Record record = new Record
+{
+    RecordCompleteUrl = "https://record.url.server/record",
+    Transcribe = true,
+    TranscriptionAvailableUrl = "https://transcription.url.server/transcribe/"
+
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(record);
+
+Console.WriteLine(response.ToBXML());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = Bandwidth::Voice::Response.new()
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Please say your name"
+})
+record = Bandwidth::Voice::Record.new({
+    :record_complete_url => "https://record.url.server/record",
+    :transcribe => true,
+    :transcription_available_url => "https://transcription.url.server/transcribe/",
+})
+
+response.push(speak_sentence)
+response.push(record)
+puts response.to_bxml()
+```
+
+{% sample lang="python" %}
+
+```python
+response = Response()
+speak_sentence = SpeakSentence(
+    sentence="Please say your name"
+)
+record = Record(
+    record_complete_url="https://record.url.server/record",
+    transcribe=True,
+    transcription_available_url="https://transcription.url.server/transcribe/",
+)
+
+response.add_verb(speak_sentence)
+response.add_verb(record)
+print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Please say your name")
+
+var record = new BandwidthBxml.Verbs.Record();
+record.setTranscribe(true);
+record.setTranscriptionAvailableUrl("https://transcription.url.server/transcribe/");
+record.setRecordCompleteUrl("https://record.url.server/record");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(record);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Please say your name");
+
+$record = new BandwidthLib\Voice\Bxml\Record();
+$record->transcribe(true);
+$record->transcriptionAvailableUrl("https://transcription.url.server/transcribe/");
+$record->recordCompleteUrl("https://record.url.server/record");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
 $response->addVerb($record);
 
 echo $response->toBxml();

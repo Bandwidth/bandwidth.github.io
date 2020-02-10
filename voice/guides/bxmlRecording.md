@@ -63,3 +63,18 @@ Much like the Record verb, StartRecording also has a `recordingAvailableUrl` att
     <SpeakSentence voice="bridget">Recording has been stopped.</SpeakSentence>
 </Response>
 ```
+
+### Transcriptions
+
+If you want to do a transcription of your recording, you can add a `transcribe` attribute to your `Record` or `StartRecording` BXML verbs. If you want to receive a [TranscriptionAvailable](../bxml/callbacks/transcriptionAvailable.md) callbacks, you can set the `transcriptionAvailableUrl` to your URL of choice, and `transcriptionAvailableMethod` to your HTTP method (`GET` or `POST`).
+
+#### Recording Transcription Example
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+   <Record transcribe="true" transcriptionAvailableUrl="https://transcription.url.server/transcribe/" transcriptionAvailableMethod="POST"/>
+</Response>
+```
+
+<br>
