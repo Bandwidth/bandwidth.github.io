@@ -66,19 +66,25 @@ curl -X GET \
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+response = voice_client.get_recording_transcription(account_id, call_id, recording_id)
+puts response.data.transcripts[0].text
+puts response.data.transcripts[0].confidence
 ```
 
 {% sample lang="python" %}
 
 ```python
-# coming soon
+response = voice_client.get_recording_transcription(account_id, call_id, recording_id)
+print(response.body.transcripts[0].text)
+print(response.body.transcripts[0].confidence)
 ```
 
 {% sample lang="js" %}
 
 ```js
-// coming soon
+var response = await voiceController.getRecordingTranscription(accountId, callId, recordingId);
+console.log(response.transcripts[0].text);
+console.log(response.transcripts[0].confidence);
 ```
 
 {% sample lang="php" %}
