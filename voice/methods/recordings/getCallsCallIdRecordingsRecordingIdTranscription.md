@@ -58,6 +58,7 @@ ApiResponse<TranscriptionResponse>  response = controller.getRecordingTranscript
 
 List<Transcript> list = response.getResult().getTranscripts();
 System.out.println(list.get(0).getText());
+System.out.println(list.get(0).getConfidence());
 ```
 
 {% sample lang="csharp" %}
@@ -65,7 +66,8 @@ System.out.println(list.get(0).getText());
 ```csharp
 var response = controller.GetRecordingTranscription(accountId, callId, recordingId);
 
-Console.WriteLine(response.Data.Transcripts[0].Text);n
+Console.WriteLine(response.Data.Transcripts[0].Text);
+Console.WriteLine(response.Data.Transcripts[0].Confidence);
 ```
 
 {% sample lang="ruby" %}
