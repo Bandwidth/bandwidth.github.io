@@ -39,13 +39,13 @@ HTTP/1.1 204
 {% sample lang="java" %}
 
 ```java
-// coming soon
+ApiResponse<Void> response = controller.deleteRecordingTranscription(accountId, callId, recordingId);
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// coming soon
+controller.DeleteRecordingTranscription(accountId, callId, recordingId);
 ```
 
 {% sample lang="ruby" %}

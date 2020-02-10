@@ -54,13 +54,20 @@ curl -X GET \
 {% sample lang="java" %}
 
 ```java
-// coming soon
+ApiResponse<TranscriptionResponse>  response = controller.getRecordingTranscription(accountId, callId, recordingId);
+
+List<Transcript> list = response.getResult().getTranscripts();
+System.out.println(list.get(0).getText());
+System.out.println(list.get(0).getConfidence());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// coming soon
+var response = controller.GetRecordingTranscription(accountId, callId, recordingId);
+
+Console.WriteLine(response.Data.Transcripts[0].Text);
+Console.WriteLine(response.Data.Transcripts[0].Confidence);
 ```
 
 {% sample lang="ruby" %}

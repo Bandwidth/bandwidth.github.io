@@ -50,13 +50,20 @@ HTTP/1.1 204
 {% sample lang="java" %}
 
 ```java
-// coming soon
+ApiTranscribeRecordingRequest requestBody = new ApiTranscribeRecordingRequest();
+requestBody.setCallbackUrl("https://example.server.com");
+
+ApiResponse<Void> response = controller.createTranscribeRecording(accountId, callId, recordingId, requestBody);
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// coming soon
+var apiTranscribeRecordingRequest = new ApiTranscribeRecordingRequest
+{
+    CallbackUrl = "https://example.com"
+};
+controller.CreateTranscribeRecording(accountId, callId, recordingId, apiTranscribeRecordingRequest);
 ```
 
 {% sample lang="ruby" %}
