@@ -124,7 +124,7 @@ body.answer_url = "http://www.myapp.com/hello"
 body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 
 begin
-    result = voice_client.create_call("55555",body: body)
+    result = voice_client.create_call(account_id, body: body)
     puts result.data.call_id
 rescue Exception => e
     puts e
@@ -141,8 +141,8 @@ body.answer_url = "http://www.myapp.com/hello"
 body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 
 try:
-    result = voice_client.create_call("55555", body)
-    print(result.data.call_id)
+    result = voice_client.create_call(account_id, body)
+    print(result.body.call_id)
 except Exception as e:
     print(e)
 ```
@@ -178,7 +178,7 @@ $body->applicationId = "3-6-4-b-4";
 
 try {
     $response = $voiceClient->createCall($accountId, $body);
-    print_r($response);
+    print_r($response->getResult()->callId);
 } catch (BandwidthLib\APIException $e) {
     print_r($e);
 }
