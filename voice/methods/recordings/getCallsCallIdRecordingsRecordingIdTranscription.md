@@ -104,6 +104,8 @@ console.log(response.transcripts[0].confidence);
 // coming soon
 ```
 
+{% common %}
+
 ### Example 2 of 2: Download a multi-channel transcription
 
 {% sample lang="http" %}
