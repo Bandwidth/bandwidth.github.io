@@ -35,6 +35,7 @@ curl -X GET \
 {
   "accountId"     : "55555555",
   "callId"        : "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f",
+  "applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
   "recordingId"   : "r-d68201ef-d53e-4c6d-a743-1c1283909d41",
   "to"            : "+15552311778",
   "from"          : "+15552311772",
@@ -54,6 +55,12 @@ curl -X GET \
   }
 }
 ```
+
+<aside class="alert general small">
+<p>
+The `applicationId` attribute was added recently and it will be null for old recordings.
+</p>
+</aside>
 
 {% sample lang="java" %}
 

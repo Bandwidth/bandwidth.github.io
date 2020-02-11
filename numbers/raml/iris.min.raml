@@ -1199,6 +1199,7 @@ securitySchemes:
                     <li>INVOICE - A copy of the invoice file or files for the specified date range</li>
                     <li>STMTBDR - BDR records that are aligned with the invoice</li>
                     <li>DIDSNAP - a list of telephone numbers aligned as closely as we can with the billing window</li>
+                    <li>DIDSNAP_MSG - a list of telephone numbers with active messaging</li>
                     </ul>
                 body:
                     application/xml:
@@ -3147,7 +3148,7 @@ securitySchemes:
                                             </Errors>
                                         </CsrResponse>
                 put:
-                    description: Replaces the existing csr conditional data with specificed csr conditional data.
+                    description: Replaces the existing csr conditional data with specificed csr conditional data. To cancel CSR order need provide Status tag with REQUESTED_CANCEL value. Note that csr order must be a non-real time with PROCESSING or ACTION_REQUIRED status.
                     body:
                         application/xml:
                             example: |
@@ -3164,6 +3165,8 @@ securitySchemes:
                                     <State>NC</State>
                                     <ZIPCode>27612</ZIPCode>
                                     <TypeOfService>residential</TypeOfService>
+                                    <!-- cancel csr order -->
+                                    <Status>REQUESTED_CANCEL</Status>
                                   </Csr>
                     responses:
                         200:
@@ -4956,7 +4959,9 @@ securitySchemes:
                                                 <AlternateEndUserIdentifiers>
                                                     <AlternateEndUserIdentifier>
                                                         <PIDFLOEnabled>true</PIDFLOEnabled>
-                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters maximum</Identifier>
+                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters
+                                                            maximum
+                                                        </Identifier>
                                                         <CallbackNumber>9706542332</CallbackNumber>
                                                         <CallerName>Eli</CallerName>
                                                         <PreferredLanguage>en</PreferredLanguage>
@@ -4980,7 +4985,9 @@ securitySchemes:
                                                     </AlternateEndUserIdentifier>
                                                     <AlternateEndUserIdentifier>
                                                         <PIDFLOEnabled>true</PIDFLOEnabled>
-                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters maximum</Identifier>
+                                                        <Identifier>alphanumeric characters only, 1 character minimum, 30 characters
+                                                            maximum
+                                                        </Identifier>
                                                         <CallbackNumber>9706542333</CallbackNumber>
                                                         <CallerName>Ethan</CallerName>
                                                         <PreferredLanguage>en</PreferredLanguage>
