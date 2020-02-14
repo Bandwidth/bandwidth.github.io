@@ -26,6 +26,7 @@ The Numbers API resources are authenticated with your [API Credentials for "Numb
 * [Create importTNOrder](#create-importTN-order)
 * [Receive callback for the importTnOrders](#receive-callback)
 * [Fetch Order Status](#fetch-order-status)
+* [Upload Letter of Authorization (loa)](#upload-loa)
 * [Check in service numbers to ensure number imported](#check-inservice-numbers)
 
 ## Next Steps
@@ -430,6 +431,59 @@ Content-Type: application/xml; charset=utf-8
 
 ---
 
+## Upload Letter of Authorization (LOA) {#upload-loa}
+
+For **completed** orders, Bandwidth requires a completed Subscriber "Letter of Authorization" (LOA) from the phone number user.  The LOA file is used in the case there is a dispute to ensure the phone number had permission to be enabled for hosted messaging for Bandwidth.
+
+You are able to keep the LOA file within your own system, or upload the file to Bandwidth as part of the `importTnOrder` path.
+
+{% extendmethod %}
+
+#### Request URL
+
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/importTnOrders/{{orderId}}/loas`
+
+#### Request Parameters
+
+A POST request to the /loas resource will upload the file. The key attribute to a successful upload is to ensure that the headers are set correctly to support the _type_ of the file upload.
+
+{% common %}
+
+### Upload PDF for an importTnOrder
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.../{{accountId}}/importTnOrders/{{orderId}}/loas HTTP/1.1
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+Accept: /
+Accept-Encoding: gzip, deflate
+Content-Type: application/pdf
+```
+
+```
+[file-content-as-body]
+```
+
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml; charset=utf-8
+```
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fileUploadResponse>
+    <filename>63097af1-37ae-432f-8a0d-9b0e6517a35b-1429550165581.pdf</filename>
+    <resultCode>0</resultCode>
+    <resultMessage>LOA file uploaded successfully for order 63097af1-37ae-432f-8a0d-9b0e6517a35b</resultMessage>
+</fileUploadResponse>
+```
+
+{% endextendmethod %}
+
+---
+
 ## Check in service numbers to ensure number imported {#check-inservice-numbers}
 
 Optional, but recommended. To finally confirm that the phone number was successfully imported into your Bandwidth account, create a <code class="get">GET</code>  request to the inserviceNumbers to list the numbers in your account.
@@ -438,7 +492,7 @@ If everything was imported correctly, the recently imported number will appear i
 
 {% extendmethod %}
 
-### Enable MMS Parameters
+### Inservice Numbers Parameters
 
 #### Request URL
 
