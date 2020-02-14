@@ -20,6 +20,10 @@ Initially this capability is restricted to the management of Calling Name Displa
 
 In addition to the configuration of Calling Name information, other per-TN capabilities already supported by the API will be addressed in this new document section.
 
+### Note about imported Phone Numbers for Hosted Messaging
+
+Line Options feature management is **NOT** available for Phone numbers that have been [imported for use with Hosted Messaging](hostedMessaging.md).
+
 ## Single TN Option Assignment {#single-tn}
 
 There are a number of TN capabilities that can be easily assigned directly to the Telephone Number(TN) on a per-TN basis.   This set of Per-TN Options includes:
