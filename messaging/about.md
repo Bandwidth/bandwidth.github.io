@@ -1,5 +1,8 @@
 # Bandwidth Messaging API
 
+## Base API URL
+`https://messaging.bandwidth.com/api/v2/users/{accountId}`
+
 ## Messaging Overview
 
 | Guide                                               | Description                                                                                                                     |
@@ -35,9 +38,9 @@ As the messaging API **does not** offer message storage or detailed messaging re
 
 After 24 hours, if your server has not returned a `HTTP 2xx` code, Bandwidth will no longer try to send the callback.
 
-## Message Creation/Acceptance (`HTTP 201` vs `HTTP 202`) {#message-creation}
+## Message Creation/Acceptance (`HTTP 202`) {#message-creation}
 
-The messaging 2.0 API works off of an internal queuing system.  As such, when you <code class="post">POST</code> to the `v2/.../messages` to create a new message, Bandwidth will reply with an `HTTP 202 - Accepted`.  This indicates that the message has been placed on the queue
+The messaging API works off of an internal queuing system.  As such, when you <code class="post">POST</code> to the `v2/.../messages` to create a new message, Bandwidth will reply with an `HTTP 202 - Accepted`.  This indicates that the message has been placed on the queue
 
 As the message progresses through the internal system you will receive a  a [Message Delivered](callbacks/msgDelivered.md) callback when the message has been handed off to the downstream carrier.
 
@@ -57,12 +60,3 @@ The value `segmentCount` is returned in the callback events and the response whe
 
 MMS and Group messages **don’t** currently support delivery receipts. However, you will still receive a message delivered event when the message is sent. For _only MMS and Group Messages_ this means that your message has been handed off to the Bandwidth core network, but has not been confirmed at the downstream carrier. We are actively working to support true delivery receipts for the v2 Messaging API.
 
-## Invalid Phone Numbers and Group Messaging Behavior {#group-message-invalid}
-
-#### Current Behavior
-
-You will receive the `message-failed` event for the invalid number, but then you get the `message-delivered` event for _each_ of the `to` numbers including the ones for which you _already_ got `message-failed` with the `invalid-to-number`] code. So you would get both a failed **and** a success callback for the invalid ones, and just the success one for the success ones.
-
-#### Correct Behavior
-
-You will exactly one callback per `to` number. The ones that are invalid are `message-failed` with an error code that means `invalid-to-number`, and the ones that are valid will receive the `message-delivered` event.
