@@ -10,9 +10,9 @@ Bandwidth's Voice & Messaging APIs use callbacks to communicate with the develop
 
 *Guides*
 * [Send SMS & MMS Guide](https://dev.bandwidth.com/howto/sendSMSMMS.html)
-* [Receive Messages or Calls](https://dev.bandwidth.com/howto/incomingCallandMessaging.html) 
-* [Building Blocks](https://dev.bandwidth.com/howto/howto.html) 
-* [Rate Limits](https://dev.bandwidth.com/ap-docs/rateLimits.html) 
+* [Receive Messages or Calls](https://dev.bandwidth.com/howto/incomingCallandMessaging.html)
+* [Building Blocks](https://dev.bandwidth.com/howto/howto.html)
+* [Rate Limits](https://dev.bandwidth.com/ap-docs/rateLimits.html)
 
 #### BXML for Voice Applications
 Voice applications can be built using BXML (Bandwidth Extensible Markup Language). BXML is incredibly powerful and easy to use. For incoming calls, your application can form and serve BXML documents on the URL setup for voice callbacks. For outgoing voice calls, a REST API is used to establish the call, then the callback will fetch the BXML from your application server.
@@ -28,8 +28,8 @@ Voice applications can be built using BXML (Bandwidth Extensible Markup Language
 
 *_The examples below use C# and Bandwidth's [.Net SDK](https://dev.bandwidth.com/clientLib/csharp.html), but the basic steps are constistent in most any programming language. The links above point to examples specific to those programming languages and the menu to the left conatins links to SDKs in various programming languages. You are not required to use an SDK or specific HTTP client, you can consume Bandwidth's APIs directly using any programming language or tool capable of making HTTPS requests._*
 
-* Open your favorite .Net/C# IDE. You can find a free one [here](https://visualstudio.microsoft.com/vs/community/).  
-* Get the Bandwidth C# SDK (Available via NuGet or [here](https://dev.bandwidth.com/clientLib/csharp.html)) 
+* Open your favorite .Net/C# IDE. You can find a free one [here](https://visualstudio.microsoft.com/vs/community/).
+* Get the Bandwidth C# SDK (Available via NuGet or [here](https://dev.bandwidth.com/clientLib/csharp.html))
 * Include necessary libraries.
 
 ```csharp
@@ -39,14 +39,14 @@ using Bandwidth.Net;
 using Bandwidth.Net.Api;
 ```
 
-* Create a class and setup authentication constants. NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables. 
+* Create a class and setup authentication constants. NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.
 
 ```csharp
 public class Program
 {
-    private const string UserId = "u-userID"; // user_id 
-    private const string Token = "t-token"; // token 
-    private const string Secret = "secret"; // secret 
+    private const string UserId = "u-userID"; // user_id
+    private const string Token = "t-token"; // token
+    private const string Secret = "secret"; // secret
 }
 ```
 
@@ -149,7 +149,7 @@ private static async Task RunAsync()
 {
     // Instantiate Bandwidth Client Object
     var client = new Client(UserId, Token, Secret);
-    
+
     // Create a call
     var callId = await client.Call.CreateAsync(new CreateCallData
     {
@@ -157,7 +157,7 @@ private static async Task RunAsync()
         To = "+11234567899" // Your mobile number for example
     });
 
-    // Now that we have a call, let's check the call state every 
+    // Now that we have a call, let's check the call state every
     // two seconds and play a message when the call is answered
     Call call;
 
@@ -186,7 +186,7 @@ private static async Task RunAsync()
                      callId
                   );
         }
-        // Repeat until call state is a hangup or error state 
+        // Repeat until call state is a hangup or error state
     } while (call.State != CallState.Completed &&
              call.State != CallState.Error     &&
              call.State != CallState.Rejected
@@ -203,7 +203,7 @@ private static async Task RunAsync()
 var callbackEvent = await Request.Content.ReadAsCallbackEventAsync();
 
 // anywhere
-var callbackEvent = await content.ReadAsCallbackEventAsync(); 
+var callbackEvent = await content.ReadAsCallbackEventAsync();
 
 // SMS callback looks like this:
 POST /your_url HTTP/1.1
@@ -226,7 +226,7 @@ User-Agent: BandwidthAPI/v1
 
 ### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
 
-*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications. There are two options for creating and serving BXML to Bandwidth. The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents. The second option is to build BXML documents from scratch and serve them via a web server. More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html). NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself. For example, upon an incoming call to a number associated to an application with the autoanswer feature set. To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications. There are two options for creating and serving BXML to Bandwidth. The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents. The second option is to build BXML documents from scratch and serve them via a web server. More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html). NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself. For example, upon an incoming call to a number associated to an application with the autoanswer feature set. To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._*
 
 * Using C# SDK
 
@@ -641,7 +641,7 @@ require 'rubygems'
 require 'ruby-bandwidth'
 ```
 
-* Initialize your desired API clients. NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables. 
+* Initialize your desired API clients. NOTE: In a production setting, the authentication strings should be stored in a secure location such as environment variables.
 
 ```ruby
 # Create a single instance of a client object
@@ -726,7 +726,7 @@ end
 
 ### Play a Message on an Incoming Call using [BXML](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
 
-*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications. There are two options for creating and serving BXML to Bandwidth. The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents. The second option is to build BXML documents from scratch and serve them via a web server. More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html). NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself. For example, upon an incoming call to a number associated to an application with the autoanswer feature set. To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._* 
+*_BXML is a powerful and easy-to-use markup language that allows you to control voice applications. There are two options for creating and serving BXML to Bandwidth. The first option is to use an SDK, such as the Bandwidth C# SDK, to form BXML documents. The second option is to build BXML documents from scratch and serve them via a web server. More information on BXML can be found [here](https://dev.bandwidth.com/ap-docs/bxml/bxml.html). NOTE: BXML is sent to Bandwidth only when Bandwidth asks for it via the voice callback url or a redirect verb in the BXML itself. For example, upon an incoming call to a number associated to an application with the autoanswer feature set. To use BMXL on [outgoing calls](https://dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html), you must create the call first using a REST call or using an SDK to start the callback process._*
 
 * Using Ruby SDK
 
@@ -978,7 +978,7 @@ const client = new Bandwidth({
 client.Message.send({
     from    : "+9195551212",
     to      : "+19195551213",
-    text:   : "Hello World"
+    text    : "Hello World"
 }).then(message => console.log(message));
 ```
 
