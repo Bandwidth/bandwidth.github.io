@@ -103,6 +103,18 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Subscription>
 ```
 
+{% sample lang="php" %}
+
+```php
+$subscription = $account->subscriptions()->create([
+    "OrderType" => "portins",
+    "OrderId" => "98939562-90b0-40e9-8335-5526432d9741",
+    "CallbackSubscription" => [
+        "URL" => "{your-callback-url}"
+    ]
+]);
+```
+
 {% common %}
 
 ### Response
@@ -155,6 +167,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   </TelephoneNumbers>
 </ImportTnCheckerPayload>
 
+```
+
+{% sample lang="php" %}
+
+```php
+print_r($account->checkTnsPortability(array("5554443333", "5553334444"))->ImportTnCheckerPayload);
 ```
 
 {% common %}
@@ -248,6 +266,32 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
     <TelephoneNumber>3032280004</TelephoneNumber>
   </TelephoneNumbers>
 </ImportTnOrder>
+```
+
+{% sample lang="php" %}
+
+```php
+$importTnOrder = new \Iris\ImportTnOrder(array(
+    "CustomerOrderId" => "id",
+    "TelephoneNumbers" => array(
+        "TelephoneNumber" => array("5554443333")
+    ),
+    "SiteId" => "12345",
+    "Subscriber" => array(
+        "Name" => "Company INC",
+        "ServiceAddress" => array(
+            "HouseNumber" => "1",
+            "StreetName" => "Street",
+            "City" => "City",
+            "StateCode" => "XY",
+            "Zip" => "54345",
+            "County" => "County"
+        )
+    ),
+    "LoaAuthorizingPerson" => "Test Person"
+));
+
+print_r($account->createImportTnOrder($importTnOrder)->ImportTnOrder->OrderId);
 ```
 
 {% common %}
@@ -427,6 +471,12 @@ Content-Type: application/xml; charset=utf-8
 </ImportTnOrder>
 ```
 
+{% sample lang="php" %}
+
+```php
+print_r($account->getImportTnOrder("order_id")->ProcessingStatus);
+```
+
 {% endextendmethod %}
 
 ---
@@ -463,6 +513,12 @@ Content-Type: application/pdf
 
 ```
 [file-content-as-body]
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
 ```
 
 ### Response
@@ -538,6 +594,12 @@ Content-Type: application/xml; charset=utf-8
         <TelephoneNumber>8043325302</TelephoneNumber>
     </TelephoneNumbers>
 </TNs>
+```
+
+{% sample lang="php" %}
+
+```php
+print_r($account->getInserviceNumbers());
 ```
 
 {% endextendmethod %}
