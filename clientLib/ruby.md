@@ -19,9 +19,9 @@ With ruby-bandwidth  you have access to the entire set of API methods including:
 * **Message** - send SMS/MMS, list messages,
 * **NumberInfo** - receive CNUM info by phone number,
 * **PhoneNumber** - get access to user's phone numbers,
-* **Recording** - mamange user's recordings.
+* **Recording** - mange user's recordings.
 
-Also you can work with Bandwidth XML using special types (in namespace `Bandwidth::Xml`). 
+Also you can work with Bandwidth XML using special types (in namespace `Bandwidth::Xml`).
 ## Install
 
 Via rubygems:
@@ -41,7 +41,7 @@ or add to your Gemfile:
 
 ```ruby
   client = Bandwidth::Client.new(:user_id => "userId", :api_token => "token", :api_secret => "secret")
-  
+
 # Or you can use default client instance
 # Do that only once
   Client.global_options = {:user_id => "userId", :api_token => "token", :api_secret => "secret"}
@@ -51,7 +51,7 @@ or add to your Gemfile:
 
 ## Usage
 
-All "static" (classs) functions support 2 ways to be called: with client instance as first arg or without client instance (default client instance will be used then)
+All "static" (classes) functions support 2 ways to be called: with client instance as first arg or without client instance (default client instance will be used then)
 
 ```ruby
   client = Bandwidth::Client.new(:user_id => "userId", :api_token => "token", :api_secret => "secret")
@@ -103,7 +103,7 @@ Send some SMSes
   statuses = Bandwidth::Message.create(client, [{:from => "+19195551212", :to => "+191955512142", :text => "Test"}, {:from => "+19195551212", :to => "+191955512143", :text => "Test2"}])
 ```
 
-Upload file 
+Upload file
 
 ```ruby
   Bandwidth::Media.upload("avatar.png", File.open("/local/path/to/file.png", "r"), "image/png")
@@ -201,7 +201,7 @@ Generate Bandwidth XML
         })
 
   hangup = Bandwidth::Xml::Verbs::Hangup.new()
-  response << speak_sentence << transfer << hangup 
+  response << speak_sentence << transfer << hangup
 
   # as alternative way we can pass list of verbs to constructor of Response
   # response = Bandwidth::Xml::Response.new([speak_sentence, transfer, hangup])
