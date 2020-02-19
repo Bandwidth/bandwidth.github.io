@@ -107,12 +107,23 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```php
 $subscription = $account->subscriptions()->create([
-    "OrderType" => "portins",
-    "OrderId" => "98939562-90b0-40e9-8335-5526432d9741",
+    "OrderType" => "importtnorders",
     "CallbackSubscription" => [
         "URL" => "{your-callback-url}"
     ]
 ]);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+subscription = {
+  :order_type => "importtnorders",
+  :callback_subcription => {
+    :url => "{your-callback-url}"
+  }
+}
+BandwidthIris::Subscription.create(subscription)
 ```
 
 {% common %}
@@ -173,6 +184,17 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```php
 print_r($account->checkTnsPortability(array("5554443333", "5553334444"))->ImportTnCheckerPayload);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthIris::ImportTnChecker.check_tns_portability({
+    :telephone_numbers => {
+        :telephone_number => ["5554443333", "5553334444"]
+    }
+})
+puts response
 ```
 
 {% common %}
@@ -292,6 +314,32 @@ $importTnOrder = new \Iris\ImportTnOrder(array(
 ));
 
 print_r($account->createImportTnOrder($importTnOrder)->ImportTnOrder->OrderId);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+import_tn_order = {
+    :customer_order_id => "id",
+    :site_id => "12345",
+    :subscriber => {
+        :service_address => {
+            :city => "city",
+            :house_number => "1",
+            :street_name => "Street",
+            :state_code => "XY",
+            :zip => "54345",
+            :county => "County"
+        },
+        :name => "Company INC"
+    },
+    :loa_authorizing_person => "Test Person",
+    :telephone_numbers => {
+        :telephone_number => ["5554443333"]
+    }
+}
+response = BandwidthIris::ImportTnOrders.create_import_tn_order(import_tn_order)
+puts response
 ```
 
 {% common %}
@@ -474,7 +522,14 @@ Content-Type: application/xml; charset=utf-8
 {% sample lang="php" %}
 
 ```php
-print_r($account->getImportTnOrder("order_id")->ProcessingStatus);
+print_r($account->getImportTnOrder("order_id"));
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthIris::ImportTnOrders.get_import_tn_order("id")
+puts response
 ```
 
 {% endextendmethod %}
@@ -519,6 +574,12 @@ Content-Type: application/pdf
 
 ```php
 //coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
 ```
 
 ### Response
@@ -600,6 +661,13 @@ Content-Type: application/xml; charset=utf-8
 
 ```php
 print_r($account->getInserviceNumbers());
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthIris::InServiceNumber.list()
+puts response[0]
 ```
 
 {% endextendmethod %}
