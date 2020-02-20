@@ -183,7 +183,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="php" %}
 
 ```php
-print_r($account->checkTnsPortability(array("5554443333", "5553334444"))->ImportTnCheckerPayload);
+$response = $account->checkTnsPortability(array("5554443333", "5553334444"))->ImportTnCheckerPayload;
+print_r($response);
 ```
 
 {% sample lang="ruby" %}
@@ -313,7 +314,8 @@ $importTnOrder = new \Iris\ImportTnOrder(array(
     "LoaAuthorizingPerson" => "Test Person"
 ));
 
-print_r($account->createImportTnOrder($importTnOrder)->ImportTnOrder->OrderId);
+$response = $account->createImportTnOrder($importTnOrder)->ImportTnOrder;
+print_r($response);
 ```
 
 {% sample lang="ruby" %}
@@ -522,7 +524,8 @@ Content-Type: application/xml; charset=utf-8
 {% sample lang="php" %}
 
 ```php
-print_r($account->getImportTnOrder("order_id"));
+$response = $account->getImportTnOrder("order_id");
+print_r($response);
 ```
 
 {% sample lang="ruby" %}
@@ -660,7 +663,8 @@ Content-Type: application/xml; charset=utf-8
 {% sample lang="php" %}
 
 ```php
-print_r($account->getInserviceNumbers());
+$response = $account->getInserviceNumbers();
+print_r($response);
 ```
 
 {% sample lang="ruby" %}
