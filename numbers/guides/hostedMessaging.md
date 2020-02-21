@@ -112,6 +112,7 @@ $subscription = $account->subscriptions()->create([
         "URL" => "{your-callback-url}"
     ]
 ]);
+print_r($subscription->SubscriptionId);
 ```
 
 {% sample lang="ruby" %}
@@ -119,21 +120,36 @@ $subscription = $account->subscriptions()->create([
 ```ruby
 subscription = {
   :order_type => "importtnorders",
-  :callback_subcription => {
-    :url => "{your-callback-url}"
+  :callback_subscription => {
+    :URL => "https://test4.com"
   }
 }
-BandwidthIris::Subscription.create(subscription)
+response = BandwidthIris::Subscription.create(subscription)
+puts response.to_data()[:subscription_id]
 ```
 
 {% common %}
 
 ### Response
 
+{% sample lang="http" %}
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
+```
+
+{% sample lang="php" %}
+
+```php
+390-f-42-89-40
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+390-f-42-89-40
 ```
 
 {% endextendmethod %}
@@ -183,8 +199,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="php" %}
 
 ```php
-$response = $account->checkTnsPortability(array("5554443333", "5553334444"))->ImportTnCheckerPayload;
-print_r($response);
+$response = $account->checkTnsPortability(array("5554443333", "5553334444"));
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError);
 ```
 
 {% sample lang="ruby" %}
@@ -201,6 +217,8 @@ puts response
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
 
 ```http
 HTTP/1.1 200 OK
@@ -226,6 +244,75 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/application
     </ImportTnErrors>
   </ImportTnCheckerPayload>
 </ImportTnCheckerResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+Iris\ImportTnError Object
+(
+    [fields:protected] => Array
+        (
+            [TelephoneNumbers] => Array
+                (
+                    [type] => \Iris\Phones
+                )
+
+            [Code] => Array
+                (
+                    [type] => string
+                )
+
+            [Description] => Array
+                (
+                    [type] => string
+                )
+
+        )
+
+    [Code] => 19005
+    [Description] => Messaging route of External Third Party TNs is not configured.
+    [TelephoneNumbers] => Iris\Phones Object
+        (
+            [fields:protected] => Array
+                (
+                    [PhoneNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [TelephoneNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [FullNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [Count] => Array
+                        (
+                            [type] => string
+                        )
+
+                )
+
+            [TelephoneNumber] => Array
+                (
+                    [0] => 5554443333
+                    [1] => 5553334444
+                )
+
+        )
+
+)
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+{:import_tn_checker_payload=>{:telephone_numbers=>{}, :import_tn_errors=>{:import_tn_error=>{:code=>19005, :description=>"Messaging route of External Third Party TNs is not configured.", :telephone_numbers=>{:telephone_number=>["5554443333", "5553334444"]}}}}}
 ```
 
 {% endextendmethod %}
@@ -314,8 +401,8 @@ $importTnOrder = new \Iris\ImportTnOrder(array(
     "LoaAuthorizingPerson" => "Test Person"
 ));
 
-$response = $account->createImportTnOrder($importTnOrder)->ImportTnOrder;
-print_r($response);
+$response = $account->createImportTnOrder($importTnOrder);
+print_r($response->ImportTnOrder);
 ```
 
 {% sample lang="ruby" %}
@@ -347,6 +434,9 @@ puts response
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml; charset=utf-8
@@ -383,6 +473,266 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/importTnOrd
     <Errors/>
   </ImportTnOrder>
 </ImportTnOrderResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+Iris\ImportTnOrder Object
+(
+    [fields:protected] => Array
+        (
+            [CustomerOrderId] => Array
+                (
+                    [type] => string
+                )
+
+            [OrderCreateDate] => Array
+                (
+                    [type] => string
+                )
+
+            [AccountId] => Array
+                (
+                    [type] => string
+                )
+
+            [CreatedByUser] => Array
+                (
+                    [type] => string
+                )
+
+            [OrderId] => Array
+                (
+                    [type] => string
+                )
+
+            [LastModifiedDate] => Array
+                (
+                    [type] => string
+                )
+
+            [SiteId] => Array
+                (
+                    [type] => string
+                )
+
+            [SipPeerId] => Array
+                (
+                    [type] => string
+                )
+
+            [Subscriber] => Array
+                (
+                    [type] => \Iris\Subscriber
+                )
+
+            [LoaAuthorizingPerson] => Array
+                (
+                    [type] => string
+                )
+
+            [ProcessingStatus] => Array
+                (
+                    [type] => string
+                )
+
+            [Errors] => Array
+                (
+                    [type] => \Iris\Error
+                )
+
+            [TelephoneNumbers] => Array
+                (
+                    [type] => \Iris\Phones
+                )
+
+        )
+
+    [CustomerOrderId] => id
+    [OrderCreateDate] => 2020-02-21T19:34:18.418Z
+    [AccountId] => 9900778
+    [CreatedByUser] => jmulford-api
+    [OrderId] => 7ab81595-fad9-49b6-8deb-3caf43822702
+    [LastModifiedDate] => 2020-02-21T19:34:18.418Z
+    [SiteId] => 12345
+    [Subscriber] => Iris\Subscriber Object
+        (
+            [fields:protected] => Array
+                (
+                    [SubscriberType] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [BusinessName] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [ServiceAddress] => Array
+                        (
+                            [type] => \Iris\ServiceAddress
+                        )
+
+                    [FirstName] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [LastName] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [MiddleInitial] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [Name] => Array
+                        (
+                            [type] => string
+                        )
+
+                )
+
+            [Name] => Company INC
+            [ServiceAddress] => Iris\ServiceAddress Object
+                (
+                    [fields:protected] => Array
+                        (
+                            [City] => Array
+                                (
+                                    [type] => string
+                                    [required] => 1
+                                )
+
+                            [HouseNumber] => Array
+                                (
+                                    [type] => string
+                                    [required] => 1
+                                )
+
+                            [StreetName] => Array
+                                (
+                                    [type] => string
+                                    [required] => 1
+                                )
+
+                            [StateCode] => Array
+                                (
+                                    [type] => string
+                                    [required] => 1
+                                )
+
+                            [Zip] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [Country] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [County] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [HousePrefix] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [HouseSuffix] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [PreDirectional] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [StreetSuffix] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [PostDirectional] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [AddressLine2] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [PlusFour] => Array
+                                (
+                                    [type] => string
+                                )
+
+                            [AddressType] => Array
+                                (
+                                    [type] => string
+                                )
+
+                        )
+
+                    [HouseNumber] => 900
+                    [StreetName] => Main Campus Drive
+                    [City] => Raleigh
+                    [StateCode] => NC
+                    [Zip] => 27606
+                    [County] => Wake
+                    [Country] => United States
+                    [AddressType] => Service
+                )
+
+        )
+
+    [LoaAuthorizingPerson] => Test Person
+    [TelephoneNumbers] => Iris\Phones Object
+        (
+            [fields:protected] => Array
+                (
+                    [PhoneNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [TelephoneNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [FullNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [Count] => Array
+                        (
+                            [type] => string
+                        )
+
+                )
+
+            [TelephoneNumber] => 5554443333
+        )
+
+    [ProcessingStatus] => RECEIVED
+)
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+{:import_tn_order=>{:customer_order_id=>"id", :order_create_date=>Fri, 21 Feb 2020 19:30:40 +0000, :account_id=>9900778, :created_by_user=>"jmulford-api", :order_id=>"a341edae-f526-40e5-94e1-36be2e976235", :last_modified_date=>Fri, 21 Feb 2020 19:30:40 +0000, :site_id=>12345, :subscriber=>{:name=>"Company INC", :service_address=>{:house_number=>900, :street_name=>"Main Campus Drive", :city=>"Raleigh", :state_code=>"NC", :zip=>27606, :county=>"Wake", :country=>"United States", :address_type=>"Service"}}, :loa_authorizing_person=>"Test Person", :telephone_numbers=>{:telephone_number=>"5554443333"}, :processing_status=>"RECEIVED", :errors=>{}}}
 ```
 
 {% endextendmethod %}
@@ -587,6 +937,8 @@ Content-Type: application/pdf
 
 ### Response
 
+{%sample lang="http" %}
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml; charset=utf-8
@@ -598,6 +950,18 @@ Content-Type: application/xml; charset=utf-8
     <resultCode>0</resultCode>
     <resultMessage>LOA file uploaded successfully for order 63097af1-37ae-432f-8a0d-9b0e6517a35b</resultMessage>
 </fileUploadResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
 ```
 
 {% endextendmethod %}
@@ -665,6 +1029,89 @@ Content-Type: application/xml; charset=utf-8
 ```php
 $response = $account->getInserviceNumbers();
 print_r($response);
+
+//output
+Iris\InserviceTns Object
+(
+    [fields:protected] => Array
+        (
+            [TotalCount] => Array
+                (
+                    [type] => string
+                )
+
+            [TelephoneNumbers] => Array
+                (
+                    [type] => \Iris\Phones
+                )
+
+            [Links] => Array
+                (
+                    [type] => \Iris\Links
+                )
+
+        )
+
+    [TotalCount] => 7
+    [Links] => Iris\Links Object
+        (
+            [fields:protected] => Array
+                (
+                    [first] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [next] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [last] => Array
+                        (
+                            [type] => string
+                        )
+
+                )
+
+            [first] => Link=<https://dashboard.bandwidth.com:443/v1.0/accounts/99/inserviceNumbers?page=1&size=500>;rel="first";
+        )
+
+    [TelephoneNumbers] => Iris\Phones Object
+        (
+            [fields:protected] => Array
+                (
+                    [PhoneNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [TelephoneNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [FullNumber] => Array
+                        (
+                            [type] => string
+                        )
+
+                    [Count] => Array
+                        (
+                            [type] => string
+                        )
+
+                )
+
+            [Count] => 1
+            [TelephoneNumber] => Array
+                (
+                    [0] => 5554443333
+                )
+
+        )
+
+)
 ```
 
 {% sample lang="ruby" %}
@@ -672,6 +1119,9 @@ print_r($response);
 ```ruby
 response = BandwidthIris::InServiceNumber.list()
 puts response[0]
+
+#output
+{:total_count=>7, :links=>{:first=>"Link=<https://api.inetwork.com:443/v1.0/accounts/99/inserviceNumbers?page=1&size=500>;rel=\"first\";"}, :telephone_numbers=>{:count=>1, :telephone_number=>["5554443333"]}}
 ```
 
 {% endextendmethod %}
