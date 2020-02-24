@@ -73,6 +73,28 @@ try {
 
 ### Order Phone Number
 
+Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/php-bandwidth-iris). You can install this package by running the following command
+
+```
+composer require bandwidth/iris
+```
+
 ```php
-//coming soon
+require "vendor/autoload.php";
+
+$client = new \Iris\Client($username, $password, ['url' => 'https://dashboard.bandwidth.com/api/']);
+$account = new \Iris\Account($accountId, $client);
+$phoneNumbers = $account->availableNumbers([ "areaCode" => "919", "quantity" => 3 ]);
+$order = $account->orders()->create([
+    "Name" => "Available Telephone Number order",
+    "SiteId" => "12345",
+    "CustomerOrderId" => "123456789",
+    "ExistingTelephoneNumberOrderType" => [
+        "TelephoneNumberList" => [
+            "TelephoneNumber" => [$phoneNumbers[0]->TelephoneNumber[0]]
+        ]
+    ]
+]);
+$response = $account->orders()->order($order->id, true);
+print_r($response);
 ```

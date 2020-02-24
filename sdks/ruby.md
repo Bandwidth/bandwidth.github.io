@@ -82,4 +82,36 @@ end
 
 ### Order Phone Number
 
-Coming soon
+Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/ruby-bandwidth-iris). You can install this package by running the following command
+
+```
+gem install ruby-bandwidth-iris
+```
+
+```ruby
+require 'ruby-bandwidth-iris'
+
+BandwidthIris::Client.global_options = {
+    :account_id => "900",
+    :username => "username",
+    :password => "password",
+    :api_endpoint => "https://dashboard.bandwidth.com/api"
+}
+
+phone_numbers = BandwidthIris::AvailableNumber.list({:area_code => "919", :quantity => 3})
+order_data = {
+  :name => "Ruby Order",
+  :site_id => 12345,
+  :existing_telephone_number_order_type => {
+    :telephone_number_list =>
+      {
+        :telephone_number => [phone_numbers[0]]
+      }
+
+  }
+}
+
+order_response = BandwidthIris::Order.create(order_data)
+order_info = BandwidthIris::Order.get(order_response.id)
+puts order_info.name
+```
