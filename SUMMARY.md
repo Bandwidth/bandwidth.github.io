@@ -85,6 +85,7 @@
 		* [Canceling LNP Order](numbers/guides/portingPhoneNumbers.md#cancel-lnp)
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
 	* [Number Utilization Review API](numbers/guides/numberUtilizationReviewAPI.md)
+	* [CSR Lookup API](numbers/guides/csrLookup.md)
 * [API Methods](numbers/apiReference.md)
 * [Callbacks](numbers/callbacks/about.md)
 	* [Order Notification](numbers/callbacks/orderNotification.md)
