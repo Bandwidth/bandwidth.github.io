@@ -93,14 +93,53 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Subscription>
 ```
 
+{% sample lang="php" %}
+
+```php
+$subscription = $account->subscriptions()->create([
+    "OrderType" => "csrs",
+    "CallbackSubscription" => [
+        "URL" => "{your-callback-url}"
+    ]
+]);
+print_r($subscription->SubscriptionId);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+subscription = {
+  :order_type => "csrs",
+  :callback_subscription => {
+    :URL => "https://test4.com"
+  }
+}
+response = BandwidthIris::Subscription.create(subscription)
+puts response.to_data()[:subscription_id]
+```
+
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
 
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
+```
+
+{% sample lang="php" %}
+
+```php
+390-f-42-89-40
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+390-f-42-89-40
 ```
 
 {% endextendmethod %}
@@ -166,13 +205,25 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$csrOrder = new \Iris\Csr(array(
+    "CustomerOrderId" => "order id",
+    "WorkingOrBillingTelephoneNumber" => "5554443333"
+));
+
+$response = $account->createCsrOrder($csrOrder);
+print_r($response->OrderId);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+csr_data = {
+    :customer_order_id => "order id",
+    :working_or_billing_telephone_number => "5554443333"
+}
+
+response = BandwidthIris::Csr.create(csr_data)
+puts response[0][:order_id]
 ```
 
 {% common %}
@@ -196,13 +247,13 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orde
 {% sample lang="php" %}
 
 ```php
-//coming soon
+18cee9d0-a5c5-4322-9a47-d04176bc924c
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+18cee9d0-a5c5-4322-9a47-d04176bc924c
 ```
 
 {% endextendmethod %}
@@ -334,13 +385,15 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$response = $account->getCsrOrder("csr_id");
+print_r($response->CsrData->CustomerName);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = BandwidthIris::Csr.get("csr_id")
+puts response[0][:csr_data][:customer_name]
 ```
 
 {% common %}
@@ -383,14 +436,16 @@ Content-Type: application/xml; charset=utf-8
 {% sample lang="php" %}
 
 ```php
-//coming soon
+House of Mouse
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+House of Mouse
 ```
+
+{% common %}
 
 ### Example 2 of 2: Fetch Failed CSR Order Status
 
@@ -404,13 +459,19 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$response = $account->getCsrOrder($bad_order_id);
+print_r($response->Errors->Error->Description);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+begin
+    response = BandwidthIris::Csr.get(bad_order_id)
+    puts response
+rescue => e
+    puts e
+end
 ```
 
 {% common %}
@@ -446,13 +507,13 @@ Content-Type: application/xml; charset=utf-8
 {% sample lang="php" %}
 
 ```php
-//coming soon
+CSR is not available for this TN
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+CSR is not available for this TN
 ```
 
 {% endextendmethod %}
