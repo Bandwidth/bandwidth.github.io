@@ -17,7 +17,10 @@ The Numbers API resources are authenticated with your [API Credentials for "Numb
 
 ## Table of Contents
 
-* []
+* [Create Subscription for CSR Order Updates](#create-subscription)
+* [Create a CSR Order](#create-csr-order)
+* [Receive callback for the CSR Order](#receive-callback)
+* [Fetch Order Status](#fetch-order-status)
 
 ## Next Steps
 
@@ -29,11 +32,11 @@ Once the CSR record have been pulled, phone numbers are ready to create a [port 
 
 There are 3 different APIs that you will use to manage phone numbers for hosted messaging:
 
-| Endpoint                  | Description                                                                                                                                                                         |
-|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `/csrs`                   | Initiates the process of importing a new number to your account.                                                                                                                    |
-| `/removeImportedTnOrders` | Initiates the process of removing the numbers that were imported into your account for hosted messaging.  Removing an imported TN will restore it to it’s prior pre-imported state. |
-| `/importTnChecker`        | Preliminary check to make sure that a TN is “importable” by checking against our internal databases.                                                                                |
+| Endpoint          | Description                                                                 |
+|:------------------|:----------------------------------------------------------------------------|
+| `/subscriptions`  | Setup Bandwidth to send HTTP Callbacks to your server as the status updates |
+| `/csrs`           | Create the CSR lookup order.                                                |
+| `/csrs/{orderId}` | Fetch information about the CSR lookup and order status                     |
 
 ## Create Subscription for `importtnorders` {#create-subscription}
 
@@ -104,7 +107,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptio
 
 ---
 
-## Create a CSR Order
+## Create a CSR Order {#create-csr-order}
 
 Before creating the order, be sure to collect any information from the end user to submit to the CSR API. Generally speaking, the more information provided, the better.
 
@@ -112,8 +115,6 @@ Before creating the order, be sure to collect any information from the end user 
 * AccountNumber
 * PIN Numbers
 * More (see table below for options)
-
-If for whatever reason the provided information was not correct or sufficient, the order will transition to the non-terminal state: `ACTION_REQUIRED`. The required fields will be listed to be updated via a <code class="put">PUT</code> request to the `csrOrderId`
 
 {% extendmethod %}
 
