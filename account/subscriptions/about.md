@@ -39,6 +39,7 @@ Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [numb
 | `bulkPortins`            | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                      |
 | `importtnorders`         | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
 | `removeImportedTnOrders` | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
+| `csrs`                   | `COMPLETE`, `FAILED`, `ACTION_REQUIRED`                                                                             |
 
 ### Event Types
 
