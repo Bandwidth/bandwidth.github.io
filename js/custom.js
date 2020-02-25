@@ -44,7 +44,8 @@ module.exports = function ($) {
 			"messaging.html",
 			"accountCredentials.html",
 			"hostedMessaging.html",
-			"programmaticApplicationSetup.html"
+			"programmaticApplicationSetup.html",
+			"csrLookup.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
