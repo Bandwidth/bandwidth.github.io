@@ -163,9 +163,23 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```
 
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
 
 ```http
 HTTP/1.1 200 OK
@@ -177,6 +191,18 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orde
     <OrderId>18cee9d0-a5c5-4322-9a47-d04176bc924c</OrderId>
     <Status>RECEIVED</Status>
 </CsrResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
 ```
 
 {% endextendmethod %}
@@ -305,6 +331,18 @@ GET https://dashboard.../{{accountId}}/csrs/{{orderId}} HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
 {% common %}
 
 > Responds
@@ -342,6 +380,18 @@ Content-Type: application/xml; charset=utf-8
 </CsrResponse>
 ```
 
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
 ### Example 2 of 2: Fetch Failed CSR Order Status
 
 {% sample lang="http" %}
@@ -349,6 +399,18 @@ Content-Type: application/xml; charset=utf-8
 ```http
 GET https://dashboard.../{{accountId}}/csrs/{{orderId}} HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
 ```
 
 {% common %}
@@ -379,6 +441,18 @@ Content-Type: application/xml; charset=utf-8
     <WorkingTelephoneNumber>9198675309</WorkingTelephoneNumber>
   </CsrData>
 </CsrResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
 ```
 
 {% endextendmethod %}
