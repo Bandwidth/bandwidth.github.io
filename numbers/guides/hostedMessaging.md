@@ -103,14 +103,53 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Subscription>
 ```
 
+{% sample lang="php" %}
+
+```php
+$subscription = $account->subscriptions()->create([
+    "OrderType" => "importtnorders",
+    "CallbackSubscription" => [
+        "URL" => "{your-callback-url}"
+    ]
+]);
+print_r($subscription->SubscriptionId);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+subscription = {
+  :order_type => "importtnorders",
+  :callback_subscription => {
+    :URL => "https://test4.com"
+  }
+}
+response = BandwidthIris::Subscription.create(subscription)
+puts response.to_data()[:subscription_id]
+```
+
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
 
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
+```
+
+{% sample lang="php" %}
+
+```php
+390-f-42-89-40
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+390-f-42-89-40
 ```
 
 {% endextendmethod %}
@@ -157,9 +196,35 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```
 
+{% sample lang="php" %}
+
+```php
+$response = $account->checkTnsPortability(array("5554443333", "5553334444"));
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->Code);
+echo "\n";
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->Description);
+echo "\n";
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->TelephoneNumbers->TelephoneNumber);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthIris::ImportTnChecker.check_tns_portability({
+    :telephone_numbers => {
+        :telephone_number => ["5554443333", "5553334444"]
+    }
+})
+puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:code]
+puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:description]
+puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:telephone_numbers][:telephone_number]
+```
+
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
 
 ```http
 HTTP/1.1 200 OK
@@ -185,6 +250,27 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/application
     </ImportTnErrors>
   </ImportTnCheckerPayload>
 </ImportTnCheckerResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+19005
+Messaging route of External Third Party TNs is not configured.
+Array
+(
+    [0] => 5554443333
+    [1] => 5553334444
+)
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+19005
+Messaging route of External Third Party TNs is not configured.
+5554443333
+5553334444
 ```
 
 {% endextendmethod %}
@@ -250,9 +336,68 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </ImportTnOrder>
 ```
 
+{% sample lang="php" %}
+
+```php
+$importTnOrder = new \Iris\ImportTnOrder(array(
+    "CustomerOrderId" => "id",
+    "TelephoneNumbers" => array(
+        "TelephoneNumber" => array("5554443333")
+    ),
+    "SiteId" => "12345",
+    "Subscriber" => array(
+        "Name" => "Company INC",
+        "ServiceAddress" => array(
+            "HouseNumber" => "1",
+            "StreetName" => "Street",
+            "City" => "City",
+            "StateCode" => "XY",
+            "Zip" => "54345",
+            "County" => "County"
+        )
+    ),
+    "LoaAuthorizingPerson" => "Test Person"
+));
+
+$response = $account->createImportTnOrder($importTnOrder);
+print_r($response->ImportTnOrder->OrderId);
+echo "\n";
+print_r($response->ImportTnOrder->ProcessingStatus);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+import_tn_order = {
+    :customer_order_id => "id",
+    :site_id => "12345",
+    :subscriber => {
+        :service_address => {
+            :city => "city",
+            :house_number => "1",
+            :street_name => "Street",
+            :state_code => "XY",
+            :zip => "54345",
+            :county => "County"
+        },
+        :name => "Company INC"
+    },
+    :loa_authorizing_person => "Test Person",
+    :telephone_numbers => {
+        :telephone_number => ["5554443333"]
+    }
+}
+response = BandwidthIris::ImportTnOrders.create_import_tn_order(import_tn_order)
+puts response[0][:import_tn_order][:order_id]
+puts response[0][:import_tn_order][:processing_status]
+```
+
 {% common %}
 
 ### Response
+
+{% sample lang="http" %}
+
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml; charset=utf-8
@@ -289,6 +434,20 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/importTnOrd
     <Errors/>
   </ImportTnOrder>
 </ImportTnOrderResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+8-3-4-9-a
+RECEIVED
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+8-3-4-9-a
+RECEIVED
 ```
 
 {% endextendmethod %}
@@ -427,6 +586,26 @@ Content-Type: application/xml; charset=utf-8
 </ImportTnOrder>
 ```
 
+{% sample lang="php" %}
+
+```php
+$response = $account->getImportTnOrder("order_id");
+print_r($response->ProcessingStatus);
+
+//output
+COMPLETE
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthIris::ImportTnOrders.get_import_tn_order("id")
+puts response[:processing_status]
+
+#output
+COMPLETE
+```
+
 {% endextendmethod %}
 
 ---
@@ -465,7 +644,21 @@ Content-Type: application/pdf
 [file-content-as-body]
 ```
 
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
 ### Response
+
+{%sample lang="http" %}
 
 ```http
 HTTP/1.1 201 Created
@@ -478,6 +671,18 @@ Content-Type: application/xml; charset=utf-8
     <resultCode>0</resultCode>
     <resultMessage>LOA file uploaded successfully for order 63097af1-37ae-432f-8a0d-9b0e6517a35b</resultMessage>
 </fileUploadResponse>
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
 ```
 
 {% endextendmethod %}
@@ -538,6 +743,29 @@ Content-Type: application/xml; charset=utf-8
         <TelephoneNumber>8043325302</TelephoneNumber>
     </TelephoneNumbers>
 </TNs>
+```
+
+{% sample lang="php" %}
+
+```php
+$response = $account->getInserviceNumbers();
+print_r($response->TelephoneNumbers->TelephoneNumber);
+
+//output
+Array
+(
+    [0] => 5554443333
+)
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+response = BandwidthIris::InServiceNumber.list()
+puts response[0][:telephone_numbers][:telephone_number]
+
+#output
+5554443333
 ```
 
 {% endextendmethod %}
