@@ -120,6 +120,28 @@ response = BandwidthIris::Subscription.create(subscription)
 puts response.to_data()[:subscription_id]
 ```
 
+{% sample lang="js" %}
+
+```js
+const subscriptionData = {
+  orderType:"csrs",
+  callbackSubscription: {
+    URL:"http://mycallbackurl.com",
+    user:"userid",
+    expiry: 12000
+  }
+};
+try {
+  const subscription = await numbers.Subscription.createAsync(subscriptionData);
+  console.log(subscription.id);
+}
+catch (e) {
+  console.log(e)
+}
+```
+
+
+
 {% common %}
 
 ### Response
@@ -142,6 +164,12 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptio
 
 ```ruby
 390-f-42-89-40
+```
+
+{% sample lang="js" %}
+
+```js
+//d84d932f-63e0-4b25-b39f-ec85ae141858
 ```
 
 {% endextendmethod %}
@@ -228,6 +256,26 @@ response = BandwidthIris::Csr.create(csr_data)
 puts response[0][:order_id]
 ```
 
+{% sample lang="js" %}
+
+```js
+const data = {
+  customerOrderId: "MyId5",
+  WorkingOrBillingTelephoneNumber:"9198675309",
+  accountNumber:"123463",
+  endUserPIN:"1231"
+};
+
+try {
+  const csrOrderResponse = await numbers.CsrOrder.createAsync(data);
+  console.log(csrOrderResponse.orderId);
+  //31e0b16b-4720-4f2e-bb99-1399eeb2ff9e
+}
+catch (e) {
+  console.log(e);
+}
+```
+
 {% common %}
 
 ### Response
@@ -256,6 +304,12 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orde
 
 ```ruby
 18cee9d0-a5c5-4322-9a47-d04176bc924c
+```
+
+{% sample lang="js" %}
+
+```js
+//31e0b16b-4720-4f2e-bb99-1399eeb2ff9e
 ```
 
 {% endextendmethod %}
@@ -398,6 +452,19 @@ response = BandwidthIris::Csr.get("csr_id")
 puts response[0][:csr_data][:customer_name]
 ```
 
+{% sample lang="js" %}
+
+```js
+const csrId = "csr_id"
+try {
+  const csrOrderData = await numbers.CsrOrder.getAsync(client, csrId);
+  console.log(csrOrderData.csrData.customerName);
+}
+catch (e) {
+  console.log(e);
+}
+```
+
 {% common %}
 
 > Responds
@@ -447,6 +514,12 @@ House of Mouse
 House of Mouse
 ```
 
+{% sample lang="js" %}
+
+```js
+// House of Mouse
+```
+
 {% common %}
 
 ### Example 2 of 2: Fetch Failed CSR Order Status
@@ -474,6 +547,21 @@ begin
 rescue => e
     puts e
 end
+```
+
+{% sample lang="js" %}
+
+```js
+const csrOrderId = "1234-abc"
+
+try {
+  const csrOrderData = await CsrOrder.getAsync(csrOrderId);
+  console.log(csrOrderData.status);
+  //Won't fire, as request is failed
+}
+catch (e) {
+  console.log(e);
+}
 ```
 
 {% common %}
@@ -516,6 +604,16 @@ CSR is not available for this TN
 
 ```ruby
 CSR is not available for this TN
+```
+
+{% sample lang="js" %}
+
+```js
+// [BandwidthError: CSR is not available for this TN] {
+//   code: 26500,
+//   message: 'CSR is not available for this TN',
+//   httpStatus: 200
+// }
 ```
 
 {% endextendmethod %}
