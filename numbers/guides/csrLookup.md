@@ -38,9 +38,9 @@ There are 3 different APIs that you will use to manage phone numbers for hosted 
 | `/csrs`           | Create the CSR lookup order.                                                |
 | `/csrs/{orderId}` | Fetch information about the CSR lookup and order status                     |
 
-## Create Subscription for `importtnorders` {#create-subscription}
+## Create Subscription for `csrs` {#create-subscription}
 
-The [Subscription](../../account/subscriptions/methods/postSubscriptions.md) contains the HTTP URL to receive HTTP Callbacks/webhooks anytime there is an update to the `importTnOrder` status.
+The [Subscription](../../account/subscriptions/methods/postSubscriptions.md) contains the HTTP URL to receive HTTP Callbacks/webhooks anytime there is an update to the `csrs` status.
 
 Creating the subscription should _generally_ only be needed **once per account** depending on the `<Expiry>` time set when creating the subscription.  Bandwidth allows very large integer values such as (99 years = `3122064000`) seconds to _essentially_ allow for the subscription to persist.
 
@@ -151,6 +151,25 @@ var response = await Subscription.Create(subscription);
 
 Console.WriteLine(response.SubscriptionId);
 ```
+{% sample lang="js" %}
+
+```js
+const subscriptionData = {
+  orderType:"csrs",
+  callbackSubscription: {
+    URL:"http://mycallbackurl.com",
+    user:"userid",
+    expiry: 12000
+  }
+};
+try {
+  const subscription = await numbers.Subscription.createAsync(subscriptionData);
+  console.log(subscription.id);
+}
+catch (e) {
+  console.log(e)
+}
+```
 
 {% common %}
 
@@ -186,6 +205,13 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptio
 
 ```csharp
 390-f-42-89-40
+```
+
+
+{% sample lang="js" %}
+
+```js
+//d84d932f-63e0-4b25-b39f-ec85ae141858
 ```
 
 {% endextendmethod %}
@@ -298,6 +324,26 @@ var response = await Csr.Create(csr);
 Console.WriteLine(response.OrderId);
 ```
 
+{% sample lang="js" %}
+
+```js
+const data = {
+  customerOrderId: "MyId5",
+  WorkingOrBillingTelephoneNumber:"9198675309",
+  accountNumber:"123463",
+  endUserPIN:"1231"
+};
+
+try {
+  const csrOrderResponse = await numbers.CsrOrder.createAsync(data);
+  console.log(csrOrderResponse.orderId);
+  //31e0b16b-4720-4f2e-bb99-1399eeb2ff9e
+}
+catch (e) {
+  console.log(e);
+}
+```
+
 {% common %}
 
 ### Response
@@ -336,8 +382,14 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orde
 
 {% sample lang="csharp" %}
 
-```ruby
+```csharp
 18cee9d0-a5c5-4322-9a47-d04176bc924c
+```
+
+{% sample lang="js" %}
+
+```js
+//31e0b16b-4720-4f2e-bb99-1399eeb2ff9e
 ```
 
 {% endextendmethod %}
@@ -371,6 +423,26 @@ Anytime the status of the order is updated (`COMPLETE`, `FAILED`, `ACTION_REQUIR
 
 {% common %}
 
+{% sample lang="js" %}
+
+A small example leveraging [express](https://expressjs.com/) & [body-parser-xml](https://www.npmjs.com/package/body-parser-xml) to handle callbacks
+
+### Express setup
+
+```js
+const express = require("express");
+const app = express();
+const http = require("http").Server(app);
+
+app.set('port', (process.env.PORT || 3000));
+
+const bodyParser = require("body-parser");
+require('body-parser-xml')(bodyParser);
+app.use(bodyParser.xml());
+```
+
+{% common %}
+
 ### Example 1 of 2: Receive Successful Callback to your server
 
 {% sample lang="http" %}
@@ -388,6 +460,25 @@ Authorization: {subscription_user:subscription_password}
   <OrderId>20ba7d26-7fa0-4716-ab45-6c8e07d37862</OrderId>
   <OrderType>csrs</OrderType>
 </Notification>
+```
+
+{% sample lang="js" %}
+
+```js
+app.post('/csrUpdate', (req, res) => {
+  console.log(req.body);
+// {
+//   Notification: {
+//     Status: [ 'COMPLETE' ],
+//     SubscriptionId: [ '4a7e2ee1-224e-4ee9-8edf-97a149d23dd4' ],
+//     Message: [ '26500: CSR is not available for this TN' ],
+//     OrderId: [ '7182a3b7-0f16-444a-8d2f-a1220f5b00a5' ],
+//     OrderType: [ 'csrs' ],
+//     CustomerOrderId: [ 'MyId5' ]
+//   }
+// }
+  res.sendStatus(200);
+});
 ```
 
 {% common %}
@@ -415,6 +506,26 @@ Authorization: {subscription_user:subscription_password}
   <OrderId>91e7298a-0942-47e4-996b-788da5544b6b</OrderId>
   <OrderType>csrs</OrderType>
 </Notification>
+```
+
+{% sample lang="js" %}
+
+
+```js
+app.post('/csrUpdate', (req, res) => {
+  console.log(req.body);
+// {
+//   Notification: {
+//     Status: [ 'FAILED' ],
+//     SubscriptionId: [ '4a7e2ee1-224e-4ee9-8edf-97a149d23dd4' ],
+//     Message: [ '26500: CSR is not available for this TN' ],
+//     OrderId: [ '7182a3b7-0f16-444a-8d2f-a1220f5b00a5' ],
+//     OrderType: [ 'csrs' ],
+//     CustomerOrderId: [ 'MyId5' ]
+//   }
+// }
+  res.sendStatus(200);
+});
 ```
 
 {% common %}
@@ -494,6 +605,19 @@ var response = await Csr.Get(client, orderId);
 Console.WriteLine(response.CustomerName)
 ```
 
+{% sample lang="js" %}
+
+```js
+const csrId = "csr_id"
+try {
+  const csrOrderData = await numbers.CsrOrder.getAsync(client, csrId);
+  console.log(csrOrderData.csrData.customerName);
+}
+catch (e) {
+  console.log(e);
+}
+```
+
 {% common %}
 
 > Responds
@@ -555,6 +679,12 @@ House of Mouse
 House of Mouse
 ```
 
+{% sample lang="js" %}
+
+```js
+// House of Mouse
+```
+
 {% common %}
 
 ### Example 2 of 2: Fetch Failed CSR Order Status
@@ -600,6 +730,20 @@ try {
 } catch(Exception e)
 {
     Console.WriteLine(e.InnerException.Message);
+```
+
+{% sample lang="js" %}
+
+```js
+const csrOrderId = "1234-abc"
+
+try {
+  const csrOrderData = await CsrOrder.getAsync(csrOrderId);
+  console.log(csrOrderData.status);
+  //Won't fire, as request is failed
+}
+catch (e) {
+  console.log(e);
 }
 ```
 
@@ -655,6 +799,16 @@ CSR is not available for this TN
 
 ```csharp
 CSR is not available for this TN
+```
+
+{% sample lang="js" %}
+
+```js
+// [BandwidthError: CSR is not available for this TN] {
+//   code: 26500,
+//   message: 'CSR is not available for this TN',
+//   httpStatus: 200
+// }
 ```
 
 {% endextendmethod %}
