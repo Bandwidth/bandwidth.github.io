@@ -343,6 +343,26 @@ Anytime the status of the order is updated (`COMPLETE`, `FAILED`, `ACTION_REQUIR
 
 {% common %}
 
+{% sample lang="js" %}
+
+A small example leveraging [express](https://expressjs.com/) & [body-parser-xml](https://www.npmjs.com/package/body-parser-xml) to handle callbacks
+
+### Express setup
+
+```js
+const express = require("express");
+const app = express();
+const http = require("http").Server(app);
+
+app.set('port', (process.env.PORT || 3000));
+
+const bodyParser = require("body-parser");
+require('body-parser-xml')(bodyParser);
+app.use(bodyParser.xml());
+```
+
+{% common %}
+
 ### Example 1 of 2: Receive Successful Callback to your server
 
 {% sample lang="http" %}
@@ -360,6 +380,25 @@ Authorization: {subscription_user:subscription_password}
   <OrderId>20ba7d26-7fa0-4716-ab45-6c8e07d37862</OrderId>
   <OrderType>csrs</OrderType>
 </Notification>
+```
+
+{% sample lang="js" %}
+
+```js
+app.post('/csrUpdate', (req, res) => {
+  console.log(req.body);
+// {
+//   Notification: {
+//     Status: [ 'COMPLETE' ],
+//     SubscriptionId: [ '4a7e2ee1-224e-4ee9-8edf-97a149d23dd4' ],
+//     Message: [ '26500: CSR is not available for this TN' ],
+//     OrderId: [ '7182a3b7-0f16-444a-8d2f-a1220f5b00a5' ],
+//     OrderType: [ 'csrs' ],
+//     CustomerOrderId: [ 'MyId5' ]
+//   }
+// }
+  res.sendStatus(200);
+});
 ```
 
 {% common %}
@@ -391,19 +430,8 @@ Authorization: {subscription_user:subscription_password}
 
 {% sample lang="js" %}
 
-A small example leveraging [express](https://expressjs.com/) & [body-parser-xml](https://www.npmjs.com/package/body-parser-xml) to handle callbacks
 
 ```js
-const express = require("express");
-const app = express();
-const http = require("http").Server(app);
-
-app.set('port', (process.env.PORT || 3000));
-
-const bodyParser = require("body-parser");
-require('body-parser-xml')(bodyParser);
-app.use(bodyParser.xml());
-
 app.post('/csrUpdate', (req, res) => {
   console.log(req.body);
 // {
