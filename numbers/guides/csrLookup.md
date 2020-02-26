@@ -144,14 +144,14 @@ puts response.to_data()[:subscription_id]
 {% sample lang="java" %}
 
 ```java
-EmailSubscription emailSubscription = new EmailSubscription();
-emailSubscription.setEmail("your email");
+CallbackSubscription callbackSubscription = new CallbackSubscription();
+callbackSubscription.setURL("http://example.com");
 
 Subscription subscription = new Subscription();
 subscription.setOrderType("csrs");
-subscription.setEmailSubscription(emailSubscription);
+subscription.setCallbackSubscription(callbackSubscription);
 
-Subscription newSubscription = Subscription.create(getDefaultClient(), subscription);
+Subscription newSubscription = Subscription.create(client, subscription);
 
 System.out.println(newSubscription.getSubscriptionId());
 ```
