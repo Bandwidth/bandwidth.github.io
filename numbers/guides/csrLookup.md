@@ -120,6 +120,37 @@ response = BandwidthIris::Subscription.create(subscription)
 puts response.to_data()[:subscription_id]
 ```
 
+{% sample lang="java" %}
+
+```java
+EmailSubscription emailSubscription = new EmailSubscription();
+emailSubscription.setEmail("your email");
+
+Subscription subscription = new Subscription();
+subscription.setOrderType("csrs");
+subscription.setEmailSubscription(emailSubscription);
+
+Subscription newSubscription = Subscription.create(getDefaultClient(), subscription);
+
+System.out.println(newSubscription.getSubscriptionId());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var subscription = new Subscription
+{
+    CallbackSubscription = new CallbackSubscription
+    {
+        Url = "https://test4.com"
+    },
+    OrderType = "csrs"
+};
+
+var response = await Subscription.Create(subscription);
+
+Console.WriteLine(response.SubscriptionId);
+```
 {% sample lang="js" %}
 
 ```js
@@ -139,8 +170,6 @@ catch (e) {
   console.log(e)
 }
 ```
-
-
 
 {% common %}
 
@@ -165,6 +194,19 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptio
 ```ruby
 390-f-42-89-40
 ```
+
+{% sample lang="java" %}
+
+```java
+390-f-42-89-40
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+390-f-42-89-40
+```
+
 
 {% sample lang="js" %}
 
@@ -256,6 +298,32 @@ response = BandwidthIris::Csr.create(csr_data)
 puts response[0][:order_id]
 ```
 
+{% sample lang="java" %}
+
+```java
+Csr csr = new Csr();
+csr.setCustomerOrderId("order id");
+csr.setWorkingOrBillingTelephoneNumber("5554443333");
+
+CsrResponse response = Csr.Create(client, csr);
+
+System.out.println(response.getOrderId())
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var csr = new Csr
+{
+    CustomerOrderId = "order id",
+    WorkingOrBillingTelephoneNumber = "5554443333",
+};
+
+var response = await Csr.Create(csr);
+
+Console.WriteLine(response.OrderId);
+```
+
 {% sample lang="js" %}
 
 ```js
@@ -303,6 +371,18 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orde
 {% sample lang="ruby" %}
 
 ```ruby
+18cee9d0-a5c5-4322-9a47-d04176bc924c
+```
+
+{% sample lang="java" %}
+
+```java
+18cee9d0-a5c5-4322-9a47-d04176bc924c
+```
+
+{% sample lang="csharp" %}
+
+```csharp
 18cee9d0-a5c5-4322-9a47-d04176bc924c
 ```
 
@@ -511,6 +591,20 @@ response = BandwidthIris::Csr.get("csr_id")
 puts response[0][:csr_data][:customer_name]
 ```
 
+{% sample lang="java" %}
+
+```java
+CsrResponse response = Csr.Get(orderId);
+System.out.println(response.getCustomerName());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var response = await Csr.Get(client, orderId);
+Console.WriteLine(response.CustomerName)
+```
+
 {% sample lang="js" %}
 
 ```js
@@ -573,6 +667,18 @@ House of Mouse
 House of Mouse
 ```
 
+{% sample lang="java" %}
+
+```java
+House of Mouse
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+House of Mouse
+```
+
 {% sample lang="js" %}
 
 ```js
@@ -606,6 +712,24 @@ begin
 rescue => e
     puts e
 end
+```
+
+{% sample lang="java" %}
+
+```java
+CsrResponse response = Csr.Get(client, badOrderId);
+System.out.println(response.getErrors()[0].getDescription());
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+CsrResponse result = null; 
+try {
+    result = Csr.Get(client, orderId).Result;
+} catch(Exception e)
+{
+    Console.WriteLine(e.InnerException.Message);
 ```
 
 {% sample lang="js" %}
@@ -662,6 +786,18 @@ CSR is not available for this TN
 {% sample lang="ruby" %}
 
 ```ruby
+CSR is not available for this TN
+```
+
+{% sample lang="java" %}
+
+```java
+CSR is not available for this TN
+```
+
+{% sample lang="csharp" %}
+
+```csharp
 CSR is not available for this TN
 ```
 
