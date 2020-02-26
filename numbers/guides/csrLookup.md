@@ -95,6 +95,15 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Subscription>
 ```
 
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
+```
+
+
 {% sample lang="php" %}
 
 ```php
@@ -105,6 +114,12 @@ $subscription = $account->subscriptions()->create([
     ]
 ]);
 print_r($subscription->SubscriptionId);
+```
+
+### Output
+
+```
+390-f-42-89-40
 ```
 
 {% sample lang="ruby" %}
@@ -120,6 +135,12 @@ response = BandwidthIris::Subscription.create(subscription)
 puts response.to_data()[:subscription_id]
 ```
 
+### Output
+
+```
+390-f-42-89-40
+```
+
 {% sample lang="java" %}
 
 ```java
@@ -133,6 +154,12 @@ subscription.setEmailSubscription(emailSubscription);
 Subscription newSubscription = Subscription.create(getDefaultClient(), subscription);
 
 System.out.println(newSubscription.getSubscriptionId());
+```
+
+### Output
+
+```
+390-f-42-89-40
 ```
 
 {% sample lang="csharp" %}
@@ -151,6 +178,13 @@ var response = await Subscription.Create(subscription);
 
 Console.WriteLine(response.SubscriptionId);
 ```
+
+### Output
+
+```
+390-f-42-89-40
+```
+
 {% sample lang="js" %}
 
 ```js
@@ -171,48 +205,12 @@ catch (e) {
 }
 ```
 
-{% common %}
+### Output
 
-### Response
-
-{% sample lang="http" %}
-
-```http
-HTTP/1.1 201 Created
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
 ```
-
-{% sample lang="php" %}
-
-```php
 390-f-42-89-40
 ```
 
-{% sample lang="ruby" %}
-
-```ruby
-390-f-42-89-40
-```
-
-{% sample lang="java" %}
-
-```java
-390-f-42-89-40
-```
-
-{% sample lang="csharp" %}
-
-```csharp
-390-f-42-89-40
-```
-
-
-{% sample lang="js" %}
-
-```js
-//d84d932f-63e0-4b25-b39f-ec85ae141858
-```
 
 {% endextendmethod %}
 
@@ -271,7 +269,20 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <WorkingOrBillingTelephoneNumber>9198675309</WorkingOrBillingTelephoneNumber>
   <EndUserPIN>1234</EndUserPIN>
 </Csr>
+```
 
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orderId}}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CsrResponse>
+    <OrderId>18cee9d0-a5c5-4322-9a47-d04176bc924c</OrderId>
+    <Status>RECEIVED</Status>
+</CsrResponse>
 ```
 
 {% sample lang="php" %}
@@ -286,6 +297,12 @@ $response = $account->createCsrOrder($csrOrder);
 print_r($response->OrderId);
 ```
 
+### Output
+
+```
+18cee9d0-a5c5-4322-9a47-d04176bc924c
+```
+
 {% sample lang="ruby" %}
 
 ```ruby
@@ -296,6 +313,12 @@ csr_data = {
 
 response = BandwidthIris::Csr.create(csr_data)
 puts response[0][:order_id]
+```
+
+### Output
+
+```
+18cee9d0-a5c5-4322-9a47-d04176bc924c
 ```
 
 {% sample lang="java" %}
@@ -310,6 +333,12 @@ CsrResponse response = Csr.Create(client, csr);
 System.out.println(response.getOrderId())
 ```
 
+### Output
+
+```
+18cee9d0-a5c5-4322-9a47-d04176bc924c
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -322,6 +351,12 @@ var csr = new Csr
 var response = await Csr.Create(csr);
 
 Console.WriteLine(response.OrderId);
+```
+
+### Output
+
+```
+18cee9d0-a5c5-4322-9a47-d04176bc924c
 ```
 
 {% sample lang="js" %}
@@ -344,53 +379,12 @@ catch (e) {
 }
 ```
 
-{% common %}
+### Output
 
-### Response
-
-{% sample lang="http" %}
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/csrs/{{orderId}}
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CsrResponse>
-    <OrderId>18cee9d0-a5c5-4322-9a47-d04176bc924c</OrderId>
-    <Status>RECEIVED</Status>
-</CsrResponse>
 ```
-
-{% sample lang="php" %}
-
-```php
 18cee9d0-a5c5-4322-9a47-d04176bc924c
 ```
 
-{% sample lang="ruby" %}
-
-```ruby
-18cee9d0-a5c5-4322-9a47-d04176bc924c
-```
-
-{% sample lang="java" %}
-
-```java
-18cee9d0-a5c5-4322-9a47-d04176bc924c
-```
-
-{% sample lang="csharp" %}
-
-```csharp
-18cee9d0-a5c5-4322-9a47-d04176bc924c
-```
-
-{% sample lang="js" %}
-
-```js
-//31e0b16b-4720-4f2e-bb99-1399eeb2ff9e
-```
 
 {% endextendmethod %}
 
@@ -462,6 +456,22 @@ Authorization: {subscription_user:subscription_password}
 </Notification>
 ```
 
+{% sample lang="php" %}
+
+Your Server should respond with a 200-OK message
+
+{% sample lang="ruby" %}
+
+Your Server should respond with a 200-OK message
+
+{% sample lang="java" %}
+
+Your Server should respond with a 200-OK message
+
+{% sample lang="csharp" %}
+
+Your Server should respond with a 200-OK message
+
 {% sample lang="js" %}
 
 ```js
@@ -507,6 +517,22 @@ Authorization: {subscription_user:subscription_password}
   <OrderType>csrs</OrderType>
 </Notification>
 ```
+
+{% sample lang="php" %}
+
+Your Server should respond with a 200-OK message
+
+{% sample lang="ruby" %}
+
+Your Server should respond with a 200-OK message
+
+{% sample lang="java" %}
+
+Your Server should respond with a 200-OK message
+
+{% sample lang="csharp" %}
+
+Your Server should respond with a 200-OK message
 
 {% sample lang="js" %}
 
@@ -577,52 +603,7 @@ GET https://dashboard.../{{accountId}}/csrs/{{orderId}} HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
-{% sample lang="php" %}
-
-```php
-$response = $account->getCsrOrder("csr_id");
-print_r($response->CsrData->CustomerName);
-```
-
-{% sample lang="ruby" %}
-
-```ruby
-response = BandwidthIris::Csr.get("csr_id")
-puts response[0][:csr_data][:customer_name]
-```
-
-{% sample lang="java" %}
-
-```java
-CsrResponse response = Csr.Get(orderId);
-System.out.println(response.getCustomerName());
-```
-
-{% sample lang="csharp" %}
-
-```csharp
-var response = await Csr.Get(client, orderId);
-Console.WriteLine(response.CustomerName)
-```
-
-{% sample lang="js" %}
-
-```js
-const csrId = "csr_id"
-try {
-  const csrOrderData = await numbers.CsrOrder.getAsync(client, csrId);
-  console.log(csrOrderData.csrData.customerName);
-}
-catch (e) {
-  console.log(e);
-}
-```
-
-{% common %}
-
-> Responds
-
-{% sample lang="http" %}
+### Responds
 
 ```http
 HTTP/1.1 200 OK
@@ -658,34 +639,73 @@ Content-Type: application/xml; charset=utf-8
 {% sample lang="php" %}
 
 ```php
+$response = $account->getCsrOrder("csr_id");
+print_r($response->CsrData->CustomerName);
+```
+
+### Output
+
+```
 House of Mouse
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
+response = BandwidthIris::Csr.get("csr_id")
+puts response[0][:csr_data][:customer_name]
+```
+
+### Output
+
+```
 House of Mouse
 ```
 
 {% sample lang="java" %}
 
 ```java
+CsrResponse response = Csr.Get(orderId);
+System.out.println(response.getCustomerName());
+```
+
+### Output
+
+```
 House of Mouse
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
+var response = await Csr.Get(client, orderId);
+Console.WriteLine(response.CustomerName);
+```
+
+### Output
+
+```
 House of Mouse
 ```
 
 {% sample lang="js" %}
 
 ```js
-// House of Mouse
+const csrId = "csr_id"
+try {
+  const csrOrderData = await numbers.CsrOrder.getAsync(client, csrId);
+  console.log(csrOrderData.csrData.customerName);
+}
+catch (e) {
+  console.log(e);
+}
 ```
 
-{% common %}
+### Output
+
+```
+House of Mouse
+```
 
 ### Example 2 of 2: Fetch Failed CSR Order Status
 
@@ -696,62 +716,7 @@ GET https://dashboard.../{{accountId}}/csrs/{{orderId}} HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
-{% sample lang="php" %}
-
-```php
-$response = $account->getCsrOrder($bad_order_id);
-print_r($response->Errors->Error->Description);
-```
-
-{% sample lang="ruby" %}
-
-```ruby
-begin
-    response = BandwidthIris::Csr.get(bad_order_id)
-    puts response
-rescue => e
-    puts e
-end
-```
-
-{% sample lang="java" %}
-
-```java
-CsrResponse response = Csr.Get(client, badOrderId);
-System.out.println(response.getErrors()[0].getDescription());
-```
-
-{% sample lang="csharp" %}
-
-```csharp
-CsrResponse result = null; 
-try {
-    result = Csr.Get(client, orderId).Result;
-} catch(Exception e)
-{
-    Console.WriteLine(e.InnerException.Message);
-```
-
-{% sample lang="js" %}
-
-```js
-const csrOrderId = "1234-abc"
-
-try {
-  const csrOrderData = await CsrOrder.getAsync(csrOrderId);
-  console.log(csrOrderData.status);
-  //Won't fire, as request is failed
-}
-catch (e) {
-  console.log(e);
-}
-```
-
-{% common %}
-
-> Responds
-
-{% sample lang="http" %}
+### Responds
 
 ```http
 HTTP/1.1 200 OK
@@ -777,38 +742,91 @@ Content-Type: application/xml; charset=utf-8
 </CsrResponse>
 ```
 
+
 {% sample lang="php" %}
 
 ```php
+$response = $account->getCsrOrder($bad_order_id);
+print_r($response->Errors->Error->Description);
+```
+
+### Output
+
+```
 CSR is not available for this TN
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
+begin
+    response = BandwidthIris::Csr.get(bad_order_id)
+    puts response
+rescue => e
+    puts e
+end
+```
+
+### Output
+
+```
 CSR is not available for this TN
 ```
 
 {% sample lang="java" %}
 
 ```java
+CsrResponse response = Csr.Get(client, badOrderId);
+System.out.println(response.getErrors()[0].getDescription());
+```
+
+### Output
+
+```
 CSR is not available for this TN
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
+CsrResponse result = null;
+try {
+    result = Csr.Get(client, orderId).Result;
+} catch(Exception e)
+{
+    Console.WriteLine(e.InnerException.Message);
+}
+```
+
+### Output
+
+```
 CSR is not available for this TN
 ```
 
 {% sample lang="js" %}
 
 ```js
-// [BandwidthError: CSR is not available for this TN] {
-//   code: 26500,
-//   message: 'CSR is not available for this TN',
-//   httpStatus: 200
-// }
+const csrOrderId = "1234-abc"
+
+try {
+  const csrOrderData = await CsrOrder.getAsync(csrOrderId);
+  console.log(csrOrderData.status);
+  //Won't fire, as request is failed
+}
+catch (e) {
+  console.log(e);
+}
+```
+
+### Output
+
+```
+[BandwidthError: CSR is not available for this TN] {
+  code: 26500,
+  message: 'CSR is not available for this TN',
+  httpStatus: 200
+}
 ```
 
 {% endextendmethod %}
