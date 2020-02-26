@@ -101,7 +101,9 @@ console.log(response.transcripts[0].confidence);
 {% sample lang="php" %}
 
 ```php
-// coming soon
+$response = $voiceClient->getRecordingTranscription($accountId, $callId, $recordingId);
+print_r($response->getResult()->transcripts[0]->text);
+print_r($response->getResult()->transcripts[0]->confidence);
 ```
 
 {% common %}
@@ -187,7 +189,11 @@ console.log(response.transcripts[1].confidence);
 {% sample lang="php" %}
 
 ```php
-// coming soon
+$response = $voiceClient->getRecordingTranscription($accountId, $callId, $recordingId);
+print_r($response->getResult()->transcripts[0]->text);
+print_r($response->getResult()->transcripts[0]->confidence);
+print_r($response->getResult()->transcripts[1]->text);
+print_r($response->getResult()->transcripts[1]->confidence);
 ```
 
 {% endmethod %}
