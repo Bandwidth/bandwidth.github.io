@@ -38,9 +38,9 @@ There are 3 different APIs that you will use to manage phone numbers for hosted 
 | `/csrs`           | Create the CSR lookup order.                                                |
 | `/csrs/{orderId}` | Fetch information about the CSR lookup and order status                     |
 
-## Create Subscription for `importtnorders` {#create-subscription}
+## Create Subscription for `csrs` {#create-subscription}
 
-The [Subscription](../../account/subscriptions/methods/postSubscriptions.md) contains the HTTP URL to receive HTTP Callbacks/webhooks anytime there is an update to the `importTnOrder` status.
+The [Subscription](../../account/subscriptions/methods/postSubscriptions.md) contains the HTTP URL to receive HTTP Callbacks/webhooks anytime there is an update to the `csrs` status.
 
 Creating the subscription should _generally_ only be needed **once per account** depending on the `<Expiry>` time set when creating the subscription.  Bandwidth allows very large integer values such as (99 years = `3122064000`) seconds to _essentially_ allow for the subscription to persist.
 
