@@ -30,7 +30,7 @@ Once the CSR record have been pulled, phone numbers are ready to create a [port 
 
 ## Importing Phone Numbers Overview
 
-There are 3 different APIs that you will use to manage phone numbers for hosted messaging:
+There are 3 different APIs that you will use to manage csr lookup orders:
 
 | Endpoint          | Description                                                                 |
 |:------------------|:----------------------------------------------------------------------------|
@@ -458,17 +458,78 @@ Authorization: {subscription_user:subscription_password}
 
 {% sample lang="php" %}
 
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>COMPLETE</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request is complete.</Message>
+  <OrderId>20ba7d26-7fa0-4716-ab45-6c8e07d37862</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
+
 Your Server should respond with a 200-OK message
 
 {% sample lang="ruby" %}
+
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>COMPLETE</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request is complete.</Message>
+  <OrderId>20ba7d26-7fa0-4716-ab45-6c8e07d37862</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
 
 Your Server should respond with a 200-OK message
 
 {% sample lang="java" %}
 
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>COMPLETE</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request is complete.</Message>
+  <OrderId>20ba7d26-7fa0-4716-ab45-6c8e07d37862</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
+
 Your Server should respond with a 200-OK message
 
+
 {% sample lang="csharp" %}
+
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>COMPLETE</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request is complete.</Message>
+  <OrderId>20ba7d26-7fa0-4716-ab45-6c8e07d37862</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
 
 Your Server should respond with a 200-OK message
 
@@ -520,17 +581,77 @@ Authorization: {subscription_user:subscription_password}
 
 {% sample lang="php" %}
 
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>FAILED</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request has failed.</Message>
+  <OrderId>91e7298a-0942-47e4-996b-788da5544b6b</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
+
 Your Server should respond with a 200-OK message
 
 {% sample lang="ruby" %}
+
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>FAILED</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request has failed.</Message>
+  <OrderId>91e7298a-0942-47e4-996b-788da5544b6b</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
 
 Your Server should respond with a 200-OK message
 
 {% sample lang="java" %}
 
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>FAILED</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request has failed.</Message>
+  <OrderId>91e7298a-0942-47e4-996b-788da5544b6b</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
+
 Your Server should respond with a 200-OK message
 
 {% sample lang="csharp" %}
+
+```http
+POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: {subscription_user:subscription_password}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Notification>
+  <Status>FAILED</Status>
+  <SubscriptionId>bfdf89f4-8d0c-4415-a203-ceb7afe00f88</SubscriptionId>
+  <Message>The CSR request has failed.</Message>
+  <OrderId>91e7298a-0942-47e4-996b-788da5544b6b</OrderId>
+  <OrderType>csrs</OrderType>
+</Notification>
+```
 
 Your Server should respond with a 200-OK message
 
