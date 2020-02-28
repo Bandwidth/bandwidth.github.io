@@ -44,7 +44,8 @@ module.exports = function ($) {
 			"messaging.html",
 			"accountCredentials.html",
 			"hostedMessaging.html",
-			"programmaticApplicationSetup.html"
+			"programmaticApplicationSetup.html",
+			"csrLookup.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
@@ -60,13 +61,14 @@ module.exports = function ($) {
 
 	function hidePagesFromNav () {
 		var redirects = [
-			'International Overview'
+			'International Overview',
+			'CSR Lookup API'
 		];
 
 		redirects.forEach(page => {
 			const selector = `li.chapter a:contains('${page}')`;
 			//for international, allow the page itself to have a link
-			if ($('head > title').text() === 'International Overview') {
+			if ($('head > title').text() === page) {
 				//console.log('Skipping hide nav for international page');
 			}
 			else {

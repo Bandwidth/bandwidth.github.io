@@ -1145,18 +1145,20 @@ securitySchemes:
                       <li>DIDSNAP_MSG</li>
                       <li>RECORDINGBDR</li>
                       <li>RECORDINGSTMTBDR</li>
+                      <li>TRANSCRIPTIONBDR</li>
+                      <li>TRANSCRIPTIONSTMTBDR</li>
                       <li>CNAMBDR</li>
                       <li>CNAMSTMTBDR</li>
                       </ul>
                 queryParameters:
                     kind:
-                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP, RECORDINGBDR, RECORDINGSTMTBDR, CNAMBDR, CNAMSTMTBDR
+                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR
                         type: string
                         required: false
                         example: DIDSNAP
                 responses:
                     200:
-                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDINGBDR, RECORDINGSTMTBDR, CNAMBDR, CNAMSTMTBDR  as status history not implemented yet for these billing types)
+                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR  as status history not implemented yet for these billing types)
                         body:
                             application/xml:
                                 example: |
@@ -14930,7 +14932,7 @@ securitySchemes:
             200:
                 description: |
                     The descriptive payload for the TNs query provides information about the TN(s) that were found in the Query. Information about the City, State, LATA, Rate Center, Tier, Vendor, Status, Owning Account and Last Modified Date is provided for each TN in the payload.
-                    The Payload also can contain <ErrorList> where invalid or non-existing  on account(s) TNs are specified.
+                    The Payload also can contain <ErrorList> where invalid or non-existing  on account(s) TNs are specified. Aging numbers will be displayed if user has access to the previous accountId.
                     Pagination doesn't work in this case.
                 body:
                     application/xml:
@@ -14953,6 +14955,19 @@ securitySchemes:
                                         <RateCenter>INDIANAPLS</RateCenter>
                                         <Status>Available</Status>
                                         <AccountId>753</AccountId>
+                                        <LastModified>2016-11-16T19:34:22.000Z</LastModified>
+                                    </TelephoneNumber>
+                                    <TelephoneNumber>
+                                        <City>INDIANAPOLIS</City>
+                                        <Lata>336</Lata>
+                                        <State>IN</State>
+                                        <FullNumber>3172000500</FullNumber>
+                                        <Tier>0</Tier>
+                                        <VendorId>49</VendorId>
+                                        <VendorName>Bandwidth CLEC</VendorName>
+                                        <RateCenter>INDIANAPLS</RateCenter>
+                                        <Status>Aging</Status>
+                                        <AccountId>14</AccountId>
                                         <LastModified>2016-11-16T19:34:22.000Z</LastModified>
                                     </TelephoneNumber>
                                     <TelephoneNumber>
