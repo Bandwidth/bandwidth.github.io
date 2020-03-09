@@ -128,6 +128,28 @@ response = BandwidthIris::Subscription.create(subscription)
 puts response.to_data()[:subscription_id]
 ```
 
+{% sample lang="java" %}
+
+```java
+CallbackSubscription callbackSubscription = new callbackSubscription();
+callbackSubscription.setURL("https://test4.com");
+
+
+Subscription subscription = new Subscription();
+subscription.setOrderType("importnorders");
+subscription.setCallbackSubscription(callbackSubscription);
+
+Subscription subscriptionCreated = Subscription.create(client, subscription);
+
+System.out.println(subscriptionCreated.getOrderId());
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -149,6 +171,18 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptio
 {% sample lang="ruby" %}
 
 ```ruby
+390-f-42-89-40
+```
+
+{% sample lang="java" %}
+
+```java
+390-f-42-89-40
+```
+
+{% sample lang="C#" %}
+
+```C#
 390-f-42-89-40
 ```
 
@@ -220,6 +254,29 @@ puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error
 puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:telephone_numbers][:telephone_number]
 ```
 
+{% sample lang="java" %}
+
+```java
+TelephoneNumber number = new TelephoneNumber();
+number.setFullNumber("5554443333");
+
+ImportTnCheckerPayload payload = new ImportTnCheckerPayload();
+payload.setTelephoneNumberList( Arrays.asList( new TelephoneNumber[] {number} ) );
+
+
+ImportTnCheckerResponse response = ImportTnChecker.Check(client, payload);
+
+System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().get(0).getCode());
+System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().get(0).getDescription());
+System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().get(0).getCode().getTelephoneNumberList().get(0));
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -271,6 +328,20 @@ Array
 Messaging route of External Third Party TNs is not configured.
 5554443333
 5553334444
+```
+
+{% sample lang="java" %}
+
+```java
+19005
+Messaging route of External Third Party TNs is not configured.
+5554443333
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
 ```
 
 {% endextendmethod %}
@@ -392,6 +463,28 @@ puts response[0][:import_tn_order][:order_id]
 puts response[0][:import_tn_order][:processing_status]
 ```
 
+{% sample lang="java" %}
+
+```java
+ImportTnOrder importTnOrder = new ImportTnOrder();
+importTnOrder.setCustomerOrderId("id");
+importTnOrder.setSiteId(123456);
+importTnOrder.setSubscriber(subscriber);
+importTnOrder.setLoaAuthorizingPerson("Test Person");
+importTnOrder.setTelephoneNumberList(telephoneNumberList);
+
+ImportTnOrderResponse response = ImportTnOrder.Create(client, importTnOrder);
+
+System.out.println(response.getImportTnOrder().getOrderId());
+System.out.println(response.getImportTnOrder()..getProcessingStatus());
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -448,6 +541,19 @@ RECEIVED
 ```ruby
 8-3-4-9-a
 RECEIVED
+```
+
+{% sample lang="java" %}
+
+```java
+8-3-4-9-a
+RECEIVED
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
 ```
 
 {% endextendmethod %}
@@ -606,6 +712,23 @@ puts response[:processing_status]
 COMPLETE
 ```
 
+{% sample lang="java" %}
+
+```java
+ImportTnOrder importTnOrder = ImportTnOrder.Get(client, "id");
+
+System.out.println(importTnOrder.getProcessingStatus());
+
+//Output
+COMPLETE
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
+```
+
 {% endextendmethod %}
 
 ---
@@ -656,6 +779,18 @@ Content-Type: application/pdf
 #coming soon
 ```
 
+{% sample lang="java" %}
+
+```java
+//TODO
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
+```
+
 ### Response
 
 {%sample lang="http" %}
@@ -683,6 +818,18 @@ Content-Type: application/xml; charset=utf-8
 
 ```ruby
 #coming soon
+```
+
+{% sample lang="java" %}
+
+```java
+//TODO
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
 ```
 
 {% endextendmethod %}
@@ -766,6 +913,20 @@ puts response[0][:telephone_numbers][:telephone_number]
 
 #output
 5554443333
+```
+
+{% sample lang="java" %}
+
+```java
+TNss tns = InserviceNumber.list(client, new HashMap<>());
+
+System.out.println(tns.getTelephoneNumbers().get(0))
+```
+
+{% sample lang="C#" %}
+
+```C#
+//TODO
 ```
 
 {% endextendmethod %}
