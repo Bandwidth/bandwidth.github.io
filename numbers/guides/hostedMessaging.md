@@ -147,7 +147,16 @@ System.out.println(subscriptionCreated.getOrderId());
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+var subscription = new Subscription {
+    CallbackSubscription = new CallbackSubscription{
+        Url = "https://test4.com"
+    },
+    OrderType = "importnorders"
+};
+
+var createdSubscription = Subscription.Create(client, subscription);
+
+Console.WriteLine(createdSubscription.Id);
 ```
 
 {% common %}
@@ -274,7 +283,18 @@ System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().g
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+var payload = new ImportTnCheckerPayload{
+    TelephoneNumbers = new TelephoneNumber[] {new TelephoneNumber{
+            FullNumber = "5554443333"
+        } 
+    }
+};
+
+var response = await ImportTnChecker.Create(client, payload);
+
+Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].Code);
+Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].Description);
+Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].TelephoneNumbers[0]);
 ```
 
 {% common %}
@@ -341,7 +361,9 @@ Messaging route of External Third Party TNs is not configured.
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+19005
+Messaging route of External Third Party TNs is not configured.
+5554443333
 ```
 
 {% endextendmethod %}
@@ -482,7 +504,33 @@ System.out.println(response.getImportTnOrder()..getProcessingStatus());
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+var importTnOrder = new ImportTnOrder{
+    CustomerOrderId = "id",
+    SiteId = 12345,
+    Subscriber = {
+        ServiceAddress = new Address{
+            City = "city",
+            HouseNumber = "1",
+            StreetName = "Street",
+            StateCode = "XY",
+            Zip = "54345",
+            County = "County"
+        },
+        BusinessName = "Company INC"
+    },
+    LoaAuthorizingPerson = "Test Person",
+    TelephoneNumbers = new TelephoneNumber[]{
+        new TelephoneNumber{
+            FullNumber = "5554443333"
+        }
+    }
+};
+
+var response = await ImportTnOrder.Create(client, importTnOrder);
+
+Console.WriteLine(response.ImportTnOrder.OrderId);
+Console.WriteLine(response.ImportTnOrder.ProcessingStatus);
+
 ```
 
 {% common %}
@@ -553,7 +601,8 @@ RECEIVED
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+8-3-4-9-a
+RECEIVED
 ```
 
 {% endextendmethod %}
@@ -726,7 +775,12 @@ COMPLETE
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+var response = await ImportTnOrder.Get(client, "id");
+
+Console.WriteLine(response.ProcessingStatus);
+
+//Output
+COMPLETE
 ```
 
 {% endextendmethod %}
@@ -926,7 +980,9 @@ System.out.println(tns.getTelephoneNumbers().get(0))
 {% sample lang="C#" %}
 
 ```C#
-//TODO
+var tns = await InServiceNumber.List(client);
+
+Cosnole.WriteLine(tns[0])
 ```
 
 {% endextendmethod %}
