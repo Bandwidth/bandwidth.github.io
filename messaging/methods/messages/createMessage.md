@@ -206,7 +206,7 @@ $body->text = "Hey, check this out!";
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response);
+    print_r($response->getResult());
 } catch (Exception $e) {
     print_r($e);
 }
@@ -407,7 +407,7 @@ $body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response);
+    print_r($response->getResult());
 } catch (Exception $e) {
     print_r($e);
 }
@@ -609,7 +609,7 @@ $body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response);
+    print_r($response->getResult());
 } catch (Exception $e) {
     print_r($e);
 }
@@ -800,7 +800,7 @@ $body->text = "Hey, check this out!";
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response);
+    print_r($response->getResult());
 } catch (Exception $e) {
     print_r($e);
 }
@@ -1007,7 +1007,7 @@ $body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response);
+    print_r($response->getResult());
 } catch (Exception $e) {
     print_r($e);
 }
