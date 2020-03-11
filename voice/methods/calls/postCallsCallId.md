@@ -73,7 +73,7 @@ body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
 begin
-    voice_client.modify_call(account_id, call_id, body: body)
+    voice_client.modify_call(account_id, call_id, :body => body)
 rescue Exception => e
     puts e
 end

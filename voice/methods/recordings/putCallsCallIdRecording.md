@@ -60,7 +60,7 @@ controller.ModifyCallRecordingState(accountId, callId, new ModifyCallRecordingSt
 ```ruby
 body = ModifyCallRecordingState.new
 body.state = "paused"
-voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body: body)
+voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, :body => body)
 ```
 
 {% sample lang="python" %}
