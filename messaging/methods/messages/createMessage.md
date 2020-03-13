@@ -159,7 +159,7 @@ body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body: body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -357,7 +357,7 @@ body.text = "Hey, check this out!"
 body.tag = "test message"
 body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body: body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -559,7 +559,7 @@ body.text = "Hey, check this out!"
 body.tag = "test message"
 body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body: body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -753,7 +753,7 @@ body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body: body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -957,7 +957,7 @@ body.text = "Hey, check this out!"
 body.tag = "test message"
 body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body: body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
     puts result.data.id
 rescue Exception => e
     puts e
