@@ -396,7 +396,7 @@ Bandwidth returns a `HTTP-429` error when the rate limit has been reached.
 
 | Type  | Message                                       |
 |:------|:----------------------------------------------|
-| error | User rate limit or concurrency limit exceeded |
+| error | `Account call creation rate limit exceeded` or `Account concurrent call limit exceeded` |
 
 {% common %}
 
@@ -423,7 +423,7 @@ Content-Type: application/json;charset=UTF-8
 
 {
   "type"        : "error",
-  "description" : "User rate limit or concurrency limit exceeded",
+  "description" : "Account call creation rate limit exceeded",
   "id"          : ""
 }
 

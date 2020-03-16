@@ -6,28 +6,27 @@
 nuget install Bandwidth.Sdk -OutputDirectory packages
 ```
 
-*Note This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
+*Note:  This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
+
 
 ### Initialize Bandwidth Voice & Message Client
 
+*__Note__:  If you see this error `System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send.`  This code may be needed `System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;`
+
 ```csharp
 using Bandwidth.Standard;
-using Bandwidth.Standard.Voice.Controllers;
-using Bandwidth.Standard.Messaging.Controllers;
-
 
 //create Configuration with credentials
-Configuration config = new Configuration.Builder()
-            .WithMessagingBasicAuthPassword("msg.password")
-            .WithMessagingBasicAuthUserName("msg.username")
-            .WithVoiceBasicAuthPassword("voice.password")
-            .WithVoiceBasicAuthUserName("voice.username")
-            .WithEnvironment(Configuration.Environments.PRODUCTION)
-            .Build();
+BandwidthClient client = new BandwidthClient.Builder()
+                .Environment(Bandwidth.Standard.Environment.Production)
+                .VoiceBasicAuthCredentials( username, password )
+                .MessagingBasicAuthCredentials( token, secret )
+                .Build();
 
-//Activate the Client with the Configuration
-APIController msgController = new BandwidthClient(config).Messaging.Client;
-APIController voiceController = new BandwidthClient(config).Voice.Client;
+            
+//Select namespaced controller.
+Bandwidth.Standard.Voice.Controllers.APIController voiceController = client.Voice.APIController;
+Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Messaging.APIController;
 
 
 ```
@@ -40,11 +39,11 @@ using Bandwidth.Standard.Voice.Controllers;
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
-callRequest.From="+17777777777";
+callRequest.MFrom="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 try {
-    voiceController.CreateCall("account.id", callRequest);
+    var response = voiceController.CreateCall("account.id", callRequest);
 } catch (APIException e) {
     WriteLine( e.Message );
 } catch (IOException e) {
@@ -81,11 +80,11 @@ using Bandwidth.Standard.Messaging.Models;
 
 MessageRequest msgRequest = new MessageRequest();
 msgRequest.ApplicationId = applicationId;
-msgRequest.From = "+18888888888";
+msgRequest.MFrom = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
-msgController.CreateMessage(msgUserId, msgRequest);
+var response = msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
 ### Order Phone Number

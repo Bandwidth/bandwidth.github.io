@@ -31,7 +31,6 @@ module.exports = function ($) {
 		var helperPages = [
 			'onDemandNumberSearchAndOrder.html',
 			'numberOrderingSummary.html',
-			'advancedOrdering.html',
 			'disconnectSummary.html',
 			'managingLineFeatures.html',
 			'managingOrders.html',
@@ -43,7 +42,10 @@ module.exports = function ($) {
 			"httpErrors.html",
 			"portoutValidation.html",
 			"messaging.html",
-			"accountCredentials.html"
+			"accountCredentials.html",
+			"hostedMessaging.html",
+			"programmaticApplicationSetup.html",
+			"csrLookup.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
@@ -57,30 +59,16 @@ module.exports = function ($) {
 		});
 	}
 
-	function makeSummaryLinksUnClickable () {
-		var sdkPages = [
-			'java',
-			'node',
-			'php'
-		];
-
-		sdkPages.forEach(page => {
-			//Removes the ability to click the chapter
-			$(`li.chapter a[href*="${page}.html"]`).replaceWith(function(){ return $(this).text() });
-			//Fix the CSS
-			$(`li[data-path*="${page}.html"]`).css({padding: '1px 15px'});
-		});
-	}
-
 	function hidePagesFromNav () {
 		var redirects = [
-			'International Overview'
+			'International Overview',
+			'CSR Lookup API'
 		];
 
 		redirects.forEach(page => {
 			const selector = `li.chapter a:contains('${page}')`;
 			//for international, allow the page itself to have a link
-			if ($('head > title').text() === 'International Overview') {
+			if ($('head > title').text() === page) {
 				//console.log('Skipping hide nav for international page');
 			}
 			else {
@@ -111,7 +99,6 @@ module.exports = function ($) {
 
 	fixHTTPMethodStyling();
 	addTopToSummaryPages();
-	makeSummaryLinksUnClickable();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
 	hidePagesFromNav();

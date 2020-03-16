@@ -28,14 +28,30 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 {% sample lang="http" %}
 
 ```bash
-curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId} \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "state"       : "active",
       "redirectUrl" : "http://www.myapp.com/new"
     }'
+```
+
+{% sample lang="java" %}
+
+```java
+try {
+    ApiModifyCallRequest modifyCallRequest = new ApiModifyCallRequest();
+    modifyCallRequest.setRedirectUrl("");
+    modifyCallRequest.setState(StateEnum.ACTIVE);
+
+    ApiResponse<Void> response = voiceClient.modifyCall(VOICE_ACCOUNT_ID, "callId", modifyCallRequest);
+    
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
 ```
 
 {% sample lang="csharp" %}
@@ -57,7 +73,7 @@ body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
 begin
-    voice_client.modify_call("55555", "callId", body: body)
+    voice_client.modify_call(account_id, call_id, :body => body)
 rescue Exception => e
     puts e
 end
@@ -71,9 +87,39 @@ body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
 try:
-    voice_client.modify_call("55555", "callId", body)
+    voice_client.modify_call(account_id, call_id, body)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiModifyCallRequest({
+    "redirectUrl": "http://www.myapp.com/new",
+    "state": "active"
+});
+
+try {
+    await voiceController.modifyCall(accountId, callId, body);
+} catch (error) {
+    console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body->state = "active";
+$body->redirectUrl = "http://www.myapp.com/new";
+
+try {
+    $response = $voiceClient->modifyCall($accountId, $callId, $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% common %}
@@ -83,10 +129,11 @@ except Exception as e:
 {% sample lang="http" %}
 
 ```bash
-curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId} \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "state": "completed"
     }'
@@ -109,7 +156,7 @@ body = ApiModifyCallRequest.new
 body.state = "completed"
 
 begin
-    voice_client.modify_call("55555", "callId", body: body)
+    voice_client.modify_call(VOICE_ACCOUNT_ID, "callId", body: body)
 rescue Exception => e
     puts e
 end
@@ -122,9 +169,33 @@ body = ApiModifyCallRequest()
 body.state = "completed"
 
 try:
-    voice_client.modify_call("55555", "callId", body)
+    voice_client.modify_call(VOICE_ACCOUNT_ID, "callId", body)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiModifyCallRequest({
+    "state": "completed"
+});
+
+await voiceController.modifyCall(accountId, "callId", body);
+```
+
+{% sample lang="php" %}
+
+```php
+$body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body->state = "completed";
+
+try {
+    $response = $voiceClient->modifyCall($accountId, "callId", $body);
+    print_r($response);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

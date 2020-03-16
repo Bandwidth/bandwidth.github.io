@@ -154,10 +154,24 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-   <SpeakSentence voice="Sophia">
-      Questo è un test
+   <SpeakSentence voice="julie">
+      This is a test
    </SpeakSentence>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("This is a test")
+        .voice("julie")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -166,8 +180,8 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 Response response = new Response();
 
 SpeakSentence speakSentence = new SpeakSentence();
-speakSentence.Sentence = "Questo è un test";
-speakSentence.Voice = "Sophia";
+speakSentence.Sentence = "This is a test";
+speakSentence.Voice = "julie";
 
 response.Add(speakSentence);
 
@@ -179,8 +193,8 @@ Console.WriteLine(response.ToBXML());
 ```ruby
 response = Bandwidth::Voice::Response.new()
 speak_sentence = Bandwidth::Voice::SpeakSentence.new({
-    :sentence => "Questo è un test",
-    :voice => "Sophia"
+    :sentence => "This is a test",
+    :voice => "julie"
 })
 
 response.push(speak_sentence)
@@ -192,12 +206,38 @@ puts response.to_bxml()
 ```python
 response = Response()
 speak_sentence = SpeakSentence(
-    sentence="Questo è un test",
-    voice="Sophia"
+    sentence="This is a test",
+    voice="julie"
 )
 
 response.add_verb(speak_sentence)
 print(response.to_bxml())
+```
+
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("This is a test");
+speakSentence.setVoice("julie");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("This is a test");
+$speakSentence->voice("julie");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% common %}
@@ -217,6 +257,20 @@ This shows how to use Bandwidth XML with SSML tags to modify the way the text so
         Please leave a message.
     </SpeakSentence>
 </Response>
+```
+
+{% sample lang="java" %}
+
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Hello, you have reached the home of <lang xml:lang=\"es - MX\">Antonio Mendoza</lang>.  Please leave a message.")
+        .voice("jorge")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -240,7 +294,7 @@ Console.WriteLine(response.ToBXML());
 response = Bandwidth::Voice::Response.new()
 speak_sentence = Bandwidth::Voice::SpeakSentence.new({
     :sentence => 'Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
-    :voice => "Sophia"
+    :voice => "julie"
 })
 
 response.push(speak_sentence)
@@ -253,12 +307,34 @@ puts response.to_bxml()
 response = Response()
 speak_sentence = SpeakSentence(
     sentence='Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.',
-    voice="Sophia"
+    voice="julie"
 )
 
 response.add_verb(speak_sentence)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence('Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message');
+speakSentence.setVoice("julie");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence('Hello, you have reached the home of <lang xml:lang="es-MX">Antonio Mendoza</lang>.Please leave a message.');
+$speakSentence->locale("en_US");
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+echo $response->toBxml();
+```
 
 {% endmethod %}

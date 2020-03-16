@@ -23,33 +23,79 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 {% sample lang="http" %}
 
 ```bash
-curl -v -X PUT https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording \
-     --user {username}:{password}
-     --header 'Content-type: application/json' \
-     --data '
+curl -X PUT \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recording' \
+     -u '{username}:{password}'
+     -H 'Content-type: application/json' \
+     --data-raw '
      {
        "state": "paused"
      }'
 ```
 
+{% sample lang="java" %}
+
+```java
+ModifyCallRecordingState modifyCallRecordingState = new ModifyCallRecordingState();
+modifyCallRecordingState.setState(State1Enum.PAUSED);
+
+try {
+    ApiResponse<Void> response = voiceClient.modifyCallRecordingState(VOICE_ACCOUNT_ID, "callId", modifyCallRecordingState);
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-;
+controller.ModifyCallRecordingState(accountId, callId, new ModifyCallRecordingState
+{
+    State = State1Enum.PAUSED
+});
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+body = ModifyCallRecordingState.new
+body.state = "paused"
+voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, :body => body)
 ```
 
 {% sample lang="python" %}
 
 ```python
-# coming soon
+body = ModifyCallRecordingState()
+body.state = "paused"
+voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body=body)
+```
+
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ModifyCallRecordingState({
+    "state": "paused"
+});
+
+try {
+    await voiceController.modifyCallRecordingState(accountId, callId, body);
+catch (error) {
+    console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ModifyCallRecordingState();
+$body->state = "paused";
+
+try {
+    $voiceClient->modifyCallRecordingState($accountId, $callId, $body);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

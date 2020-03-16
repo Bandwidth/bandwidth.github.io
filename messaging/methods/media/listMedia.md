@@ -36,8 +36,9 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
-  -u {token}:{secret}
+curl -X GET \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media' \
+    -u '{token}:{secret}'
 ```
 
 > The above command returns JSON structured like this:
@@ -60,6 +61,13 @@ curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
         "content": "https://messaging.bandwidth.com/.../media/{mediaName3}"
   }
 ]
+```
+
+{% sample lang="java" %}
+
+```java
+ApiResponse<List<Media>> response = controller.listMedia(MESSAGING_ACCOUNT_ID, "");
+List<Media> mediaList = response.getResult();
 ```
 
 {% sample lang="csharp" %}
@@ -84,6 +92,20 @@ media = messaging_client.list_media(MESSAGING_ACCOUNT_ID)
 print(media.body[0].media_name)
 ```
 
+{% sample lang="js" %}
+
+```js
+var response = await messagingController.listMedia(userId, '');
+console.log(response[0].mediaName);
+```
+
+{% sample lang="php" %}
+
+```php
+$response = $messagingClient->listMedia($messagingUserId);
+print_r($response->getResult()[0]->mediaName);
+```
+
 {% common %}
 
 ### Example 2 of 2: List Your Media Files Using A Continuation-Token
@@ -92,9 +114,10 @@ print(media.body[0].media_name)
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media \
-  -u {token}:{secret} \
-  -H "Continuation-Token: 12345"
+curl -X GET \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media' \
+    -u '{token}:{secret}' \
+    -H "Continuation-Token: 12345"
 ```
 
 > The above command returns JSON structured like this:
@@ -119,6 +142,26 @@ Continuation-Token: 678910
         "content": "https://messaging.bandwidth.com/.../media/{mediaName3}"
   }
 ]
+```
+
+{% sample lang="java" %}
+
+```java
+String continuationToken = null;
+try {
+    do {
+        ApiResponse<List<Media>> response = controller.listMedia("userId", continuationToken);
+        continuationToken = response.getHeaders().value("Continuation-Token");
+        List<Media> mediaList = response.getResult();
+        
+        System.out.println(mediaList.size());
+        System.out.println(mediaList.get(0).getMediaName());
+        
+    } while (continuationToken != null);
+    
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
 ```
 
 {% sample lang="csharp" %}
@@ -172,4 +215,47 @@ while True:
     if continuation_token is None:
         break
 ```
+
+{% sample lang="js" %}
+
+```js
+async function getMediaWithToken(continuationToken) {
+    await messagingController.listMedia(userId, continuationToken, function(error, response, context) {
+        console.log("Medias length: " + response.length);
+        console.log("Media 1 name: " + response[0].mediaName);
+        if (context.response.headers.hasOwnProperty('continuation-token')) {
+            continuationToken = context.response.headers['continuation-token'];
+        } else {
+            continuationToken = null;
+        }
+    });
+    return continuationToken;
+}
+
+var continuationToken = '';
+while (true) {
+    continuationToken = await getMediaWithToken(continuationToken);
+    if (continuationToken === null) {
+        break;
+    }
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$continuationToken = "";
+while (true) {
+    $response = $messagingClient->listMedia($messagingAccountId, $continuationToken);
+    print_r($response->getResult()[0]->mediaName);
+    echo "\n";
+    if (array_key_exists("continuation-token", $response->getHeaders())) {
+        $continuationToken = $response->getHeaders()["continuation-token"];
+    }
+    else {
+        break;
+    }
+}
+```
+
 {% endmethod %}

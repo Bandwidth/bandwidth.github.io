@@ -18,8 +18,9 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
-	-u {token}:{secret}
+curl -X DELETE \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}' \
+	-u '{token}:{secret}'
 ```
 
 {% sample lang="csharp" %}
@@ -28,6 +29,11 @@ curl -v -X DELETE https://messaging.bandwidth.com/api/v2/users/{accountId}/media
 msgClient.DeleteMedia(MSG_ACCOUNT_ID, mediaId);
 ```
 
+{% sample lang="csharp" %}
+
+```java
+messagingClient.deleteMedia(MESSAGING_ACCOUNT_ID, "mediaId");
+```
 
 {% sample lang="ruby" %}
 
@@ -39,6 +45,18 @@ messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 
 ```python
 messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
+```
+
+{% sample lang="js" %}
+
+```js
+await messagingController.deleteMedia(messagingAccountId, "mediaId")
+```
+
+{% sample lang="php" %}
+
+```php
+$messagingClient->deleteMedia($messagingAccountId, "mediaId");
 ```
 
 {% endmethod %}

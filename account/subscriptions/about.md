@@ -24,17 +24,26 @@ Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [numb
 
 ### Order Types
 
-| Order type       | Notified states                                                                                                     |
-|:-----------------|:--------------------------------------------------------------------------------------------------------------------|
-| `portins`        | `PENDING_DOCUMENTS`, `SUBMITTED`, `FOC`, `REQUESTED_SUPP`, `COMPLETE`, `CANCELLED`, `EXCEPTION`, `REQUESTED_CANCEL` |
-| `orders`         | `COMPLETE`, `PARTIAL`, `BACKORDERED`, `FAILED`                                                                      |
-| `portouts`       | `COMPLETE`                                                                                                          |
-| `disconnects`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
-| `dldas`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
-| `lsrorders`      | `PENDING`, `FOC`, `EXCEPTION`, `COMPLETE`, `CANCELLED`, `PARTIAL`, `FAILED`                                         |
-| `e911s`          | `RECEIVED`, `PROCESSING`, `COMPLETE`, `ADJUSTED_COMPLETE`, `PARTIAL`, `ADJUSTED_PARTIAL`, `FAILED`                  |
-| `tnoptions`      | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
-| `externalTns`    | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
-| `importtnorders` | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
-| `lidb`           | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
-| `bulkPortins`    | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                      |
+| Order type               | Notified states                                                                                                     |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------|
+| `portins`                | `PENDING_DOCUMENTS`, `SUBMITTED`, `FOC`, `REQUESTED_SUPP`, `COMPLETE`, `CANCELLED`, `EXCEPTION`, `REQUESTED_CANCEL` |
+| `orders`                 | `COMPLETE`, `PARTIAL`, `BACKORDERED`, `FAILED`                                                                      |
+| `portouts`               | `COMPLETE`                                                                                                          |
+| `disconnects`            | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
+| `dldas`                  | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
+| `lsrorders`              | `PENDING`, `FOC`, `EXCEPTION`, `COMPLETE`, `CANCELLED`, `PARTIAL`, `FAILED`                                         |
+| `e911s`                  | `RECEIVED`, `PROCESSING`, `COMPLETE`, `ADJUSTED_COMPLETE`, `PARTIAL`, `ADJUSTED_PARTIAL`, `FAILED`                  |
+| `tnoptions`              | `RECEIVED`, `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                           |
+| `externalTns`            | `COMPLETE`, `PARTIAL`, `FAILED`                                                                                     |
+| `lidb`                   | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
+| `bulkPortins`            | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                      |
+| `importtnorders`         | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
+| `removeImportedTnOrders` | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
+| `csrs`                   | `COMPLETE`, `FAILED`, `ACTION_REQUIRED`                                                                             |
+
+### Event Types
+
+
+| Event type       | Description                                                                                                                                                                                                                                                                                                                                                     |
+|:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MESSAGING_LOST` | Sent when TNs in your account are impacted due to orders outside of your account. For example, a `MESSAGING_LOST` event is reported on a TN with hosted messaging service in your account when a port in order placed by another account on the same TN is executed. An order placed in your account to remove the TN will NOT report a `MESSAGING_LOST` event. |

@@ -30,6 +30,18 @@ This shows how to use Bandwidth XML to forward a call from +11234567890 to +1098
 </Response>
 ```
 
+{% sample lang="java" %}
+
+```java
+Forward forward = Forward.builder()
+        .to("+10987654321")
+        .from("+11234567890")
+        .build();
+Response response = Response.builder().build()
+        .add(forward);
+System.out.println(response.toBXML());
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -71,5 +83,31 @@ response.add_verb(forward)
 print(response.to_bxml())
 ```
 
+{% sample lang="js" %}
+
+```js
+var forward = new BandwidthBxml.Verbs.Forward();
+forward.setTo("+18888888888");
+forward.setFrom("+19999999999");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(forward);
+
+console.log(response.toBxml());
+```
+
+{% sample lang="php" %}
+
+```php
+$forward = new BandwidthLib\Voice\Bxml\Forward();
+$forward->to("+18888888888");
+$forward->from("+18889999999");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($forward);
+
+echo $response->toBxml();
+echo "\n";
+```
 
 {% endmethod %}

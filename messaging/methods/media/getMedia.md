@@ -24,8 +24,19 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName} \
-  -u {token}:{secret}
+curl -X GET \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}' \
+    -u '{token}:{secret}'
+```
+
+{% sample lang="java" %}
+```java
+try {
+    ApiResponse<InputStream> response = controller.getMedia(MSG_ACCOUNT_ID, "mediaId");
+    byte[] bytes = response.getResult().readAllBytes();
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+} 
 ```
 
 {% sample lang="csharp" %}
@@ -55,10 +66,26 @@ f.close()
 {% sample lang="python" %}
 
 ```python
-downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, media_id)
+downloaded_media = messaging_client.get_media(MESSAGING_ACCOUNT_ID, "mediaId")
 f = open("file_to_write", "wb")
 f.write(downloaded_media.body)
 f.close()
+```
+
+{% sample lang="js" %}
+
+```js
+var response = await messagingController.getMedia(messagingAccountId, "mediaId");
+fs.writeFileSync("file_to_write", response, "binary");
+```
+
+{% sample lang="php" %}
+
+```php
+$response = $messagingClient->getMedia($messagingAccountId, "mediaId");
+$file = fopen("file_to_write", "wb") or die("Unable to open file");
+fwrite($file, $response->getResult());
+fclose($file);
 ```
 
 {% endmethod %}

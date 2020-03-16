@@ -39,7 +39,7 @@ begin
     response = voice_client.create_call(account_id,:body => body)
     puts response.data.call_id #c-d45a41e5-bcb12581-b18e-4bdc-9874-6r3235dfweao
     puts response.status_code #201
-rescue Bandwidth::BandwidthException => e
+rescue Bandwidth::ErrorResponseException => e
     puts e.description #Invalid to: must be an E164 telephone number
     puts e.response_code #400
 end
@@ -60,25 +60,58 @@ puts response.to_bxml()
 ```ruby
 messaging_client = bandwidth_client.messaging_client.client
 
+account_id = '1'
 body = MessageRequest.new
-body.application_id = "1-2-3"
-body.to = ["+17777777777"]
-body.from = "+18888888888"
-body.text = "Hello from Bandwidth"
+body.application_id = '1-2-3'
+body.to = ['+17777777777']
+body.from = '+18888888888'
+body.text = 'Hello from Bandwidth'
 
 begin
-    response = messaging_client.create_message("123", body)
+    response = messaging_client.create_message(account_id, :body => body)
     puts response.data.id #1570740275373xbn7mbhsfewasdr
     puts response.status_code #202
 rescue Bandwidth::GenericClientException => e
     puts e.description #Access is denied
     puts e.response_code #403
 rescue Bandwidth::PathClientException => e
-    puts e.message #Your request could not be accepted. 
+    puts e.message #Your request could not be accepted.
     puts e.response_code #400
 end
 ```
 
 ### Order Phone Number
 
-Coming soon
+Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/ruby-bandwidth-iris). You can install this package by running the following command
+
+```
+gem install ruby-bandwidth-iris
+```
+
+```ruby
+require 'ruby-bandwidth-iris'
+
+BandwidthIris::Client.global_options = {
+    :account_id => "900",
+    :username => "username",
+    :password => "password",
+    :api_endpoint => "https://dashboard.bandwidth.com/api"
+}
+
+phone_numbers = BandwidthIris::AvailableNumber.list({:area_code => "919", :quantity => 3})
+order_data = {
+  :name => "Ruby Order",
+  :site_id => 12345,
+  :existing_telephone_number_order_type => {
+    :telephone_number_list =>
+      {
+        :telephone_number => [phone_numbers[0]]
+      }
+
+  }
+}
+
+order_response = BandwidthIris::Order.create(order_data)
+order_info = BandwidthIris::Order.get(order_response.id)
+puts order_info.name
+```

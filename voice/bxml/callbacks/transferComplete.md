@@ -1,7 +1,8 @@
 {% method %}
 ##  Transfer Complete Event – <Transfer> verb
-This event is sent to the callbackUrl of the Leg-A call when the transferred call(B-leg) completes.
-In a simultaneous ringing scenario, only one call leg-B succeeds and this event corresponds to that successful leg. If none of the calls were answered, transferComplete is not sent.
+This event is sent to the `transferCompleteUrl` of the A-leg's `<Transfer>` verb when the transferred call (B-leg) completes.
+In a simultaneous ringing scenario, only one B-leg succeeds and this event corresponds to that successful leg.
+If none of the calls were answered, the `transferComplete` event corresponds to one of the legs.
 
 ### Expected response
 ```http
@@ -18,11 +19,14 @@ Content-Type: application/xml; charset=utf-8
 | Property         | Description                                                                                                                           |
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | eventType        | The event type, value is `transferComplete`.                                                                                          |
+| accountId        | The user account associated with the call.                                                                                            |
+| applicationId    | The id of the application associated with the call.                                                                                   |
 | from             | The phone number used in the `from` field of the original call, in E.164 format (e.g. +15555555555).                                  |
 | to               | The phone number user in the `to` field of the original call, in E.164 format (e.g. +15555555555).                                    |
 | direction        | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                     |
 | callId           | The call id associated with the event.                                                                                                |
 | callUrl          | The URL of the call associated with the event.                                                                                        |
+| startTime        | Time the call was started, in ISO 8601 format.                                                                                        |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                     |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                       |
@@ -41,6 +45,8 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"        : "transferComplete",
+	"accountId"        : "55555555",
+	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",
@@ -49,7 +55,7 @@ POST http://[External server URL]
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
 	"startTime"        : "2019-07-31T13:13:34.859318Z",
-	"cause"            : "completed",
+	"cause"            : "hangup",
 	"errorMessage"     : "",
 	"errorId"          : ""
 }
@@ -64,6 +70,8 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"        : "transferComplete",
+	"accountId"        : "55555555",
+	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",

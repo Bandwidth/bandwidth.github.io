@@ -33,6 +33,10 @@
           <label for="radio-three"><span>ruby</span></label>
           <input type="radio" name="basic-options" value="five" id="radio-five" class="lang-python trigger" data-rel="lang-python"/>
           <label for="radio-five"><span>python</span></label>
+          <input type="radio" name="basic-options" value="six" id="radio-six" class="lang-java trigger" data-rel="lang-java"/>
+          <label for="radio-six"><span>java</span></label>
+          <input type="radio" name="basic-options" value="seven" id="radio-seven" class="lang-php trigger" data-rel="lang-php"/>
+          <label for="radio-seven"><span>php</span></label>
       </div>
    </div>
 
@@ -43,17 +47,41 @@
 ### Send a message
 
 ```js
-// Coming Soon
+var body = new BandwidthMessaging.MessageRequest({
+    "applicationId": applicationId ,
+    "to": ["+19999999999"],
+    "from": "+18888888888",
+    "text": "The quick brown fox jumps over a lazy dog."
+});
+
+var response = await messagingController.createMessage(msgUserId, body);
+console.log(response);
+```
+
+```java
+MessageRequest msgReq = new MessageRequest();
+
+List<String> toNumbers = new ArrayList<>();
+
+toNumbers.add("+19999999999");
+
+msgReq.setTo( toNumbers );
+msgReq.setFrom("+18888888888");
+msgReq.setApplicationId("1-2-3");
+msgReq.setText("Hello World");
+
+ try {
+    ApiResponse<BandwidthMessage> response = msgController.createMessage(accountId, messageRequest);
+    System.out.println(response.getResult().getId());
+} catch (ApiException  | IOException e){
+    //Handle
+}
 ```
 
 ```csharp
-using Bandwidth.Standard.Messaging;
-using Bandwidth.Standard.Messaging.Models;
-using Bandwidth.Standard.Messaging.Controllers;
-
 MessageRequest msgRequest = new MessageRequest();
 msgRequest.ApplicationId = applicationId;
-msgRequest.From = "+18888888888";
+msgRequest.MFrom = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
@@ -72,11 +100,11 @@ result = message_controller.create_message(account_id,:body => body)
 ```
 
 ```bash
-curl --request POST \
-    --url https://messaging.bandwidth.com/api/v2/users/{accountId}/messages \
-    --user {apiToken}:{apiSecret} \
-    --header 'content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
+    -u '{apiToken}:{apiSecret}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "to"            : ["+12345678902"],
       "from"          : "+12345678901",
@@ -98,18 +126,52 @@ body.text = "Greetings!"
 result = messaging_client.create_message(account_id, body=body)
 ```
 
+```php
+$body = new BandwidthLib\Messaging\Models\MessageRequest();
+$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
+$body->to = array("+12345678902");
+$body->from = "+12345678901";
+$body->text = "Hey, check this out!";
+
+$response = $messagingClient->createMessage($messagingAccountId, $body);
+```
+
 ### Make a call
 
 ```js
-// Coming Soon
+var body = new BandwidthVoice.ApiCreateCallRequest({
+    "from": "+19999999999",
+    "to": "+18888888888",
+    "applicationId": "123",
+    "answerUrl": "https://test.com",
+    "answerMethod": "POST",
+    "callTimeout": 30
+});
+var response = await voiceController.createCall(accountId, body);
+console.log(response);
+```
+
+```java
+ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+
+callRequest.setApplicationId("3-d-4-b-5");
+callRequest.setFrom("+17777777777");
+callRequest.setTo("+19999999999");
+callRequest.setAnswerUrl("https://test.com");
+
+try {
+    ApiResponse<ApiCallResponse> response = voiceController.createCall(accountId, callRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (IOException | ApiException e) {
+    //Handle
+}
 ```
 
 ```csharp
-
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
-callRequest.From="+17777777777";
+callRequest.MFrom="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 voiceController.CreateCall(accountId, callRequest);
@@ -128,11 +190,11 @@ result = voice_client.create_call(account_id,:body => body)
 
 
 ```bash
-curl --request POST \
-    --url https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "from"          : "+19195551212",
       "to"            : "+19195551313",
@@ -152,14 +214,24 @@ body.answer_url = "https://test.com"
 result = voice_client.create_call(account_id, body=body)
 ```
 
+```php
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body->from = "+15554442222";
+$body->to = "+15554443333";
+$body->answerUrl = "https://test.com";
+$body->applicationId = "3-6-4-a";
+
+$response = $voiceClient->createCall($accountId, $body);
+```
+
 ### Buy a telephone number
 
 ```bash
-curl --request POST \
-    --url https://dashboard.bandwidth.com/api/accounts/{accountId}/orders \
-    --user {username}:{password} \
-    --header 'content-type: application/xml; charset=utf-8' \
-    --data '
+curl -X POST \
+    --url 'https://dashboard.bandwidth.com/api/accounts/{accountId}/orders' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/xml; charset=utf-8' \
+    --data-raw '
     <Order>
         <AreaCodeSearchAndOrderType>
             <AreaCode>910</AreaCode>
@@ -184,6 +256,10 @@ curl --request POST \
 
 ```python
 ## Coming Soon
+```
+
+```php
+// Coming soon
 ```
 
 {% raw %}

@@ -44,10 +44,11 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="http" %}
 
 ```bash
-curl -v -X POST https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls \
-    --user {username}:{password} \
-    --header 'Content-type: application/json' \
-    --data '
+curl -X POST \
+    --url 'https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls' \
+    -u '{username}:{password}' \
+    -H 'Content-type: application/json' \
+    --data-raw '
     {
       "from"          : "+15555551212",
       "to"            : "+15555551313",
@@ -64,12 +65,14 @@ Content-type: application/json
 Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d
 
 {
+    "accountId"        : "55555555",
     "from"             : "+19195551212",
     "to"               : "+19195551313",
     "applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
     "callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    "startTime"        : "2019-06-20T15:54:22.234Z",
     "callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-    "callTimeout"      : 30,
+    "callTimeout"      : 30.0,
     "answerUrl"        : "http://www.myapp.com/hello",
     "answerMethod"     : "POST",
     "disconnectUrl"    : null,
@@ -80,11 +83,28 @@ Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-
 }
 ```
 
+{% sample lang="java" %}
+
+```java
+ApiCreateCallRequest createCallRequest = new ApiCreateCallRequest();
+createCallRequest.setTo("+19195551313");
+createCallRequest.setFrom("+19195551212");
+createCallRequest.setAnswerUrl("http://www.myapp.com/hello");
+createCallRequest.setApplicationId(VOICE_APPLICATION_ID); //String
+
+try {
+    ApiResponse<ApiCallResponse> response = voiceClient.createCall(VOICE_ACCOUNT_ID, createCallRequest);
+    System.out.println(response.getResult().getCallId());
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
 ApiCreateCallRequest apiCreateCallRequest = new ApiCreateCallRequest();
-apiCreateCallRequest.From = "+19195551212";
+apiCreateCallRequest.MFrom = "+19195551212";
 apiCreateCallRequest.To = "+19195551313";
 apiCreateCallRequest.AnswerUrl = "http://www.myapp.com/hello";
 apiCreateCallRequest.ApplicationId = VOICE_APPLICATION_ID; //string
@@ -104,7 +124,7 @@ body.answer_url = "http://www.myapp.com/hello"
 body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 
 begin
-    result = voice_client.create_call("55555",body: body)
+    result = voice_client.create_call(account_id, :body => body)
     puts result.data.call_id
 rescue Exception => e
     puts e
@@ -121,10 +141,47 @@ body.answer_url = "http://www.myapp.com/hello"
 body.application_id = "7fc9698a-b04a-468b-9e8f-91238c0d0086"
 
 try:
-    result = voice_client.create_call("55555", body)
-    print(result.data.call_id)
+    result = voice_client.create_call(account_id, body)
+    print(result.body.call_id)
 except Exception as e:
     print(e)
+```
+
+{% sample lang="js" %}
+
+```js
+var body = new BandwidthVoice.ApiCreateCallRequest({
+    "from": "+19999999999",
+    "to": "+18888888888",
+    "applicationId": "123",
+    "answerUrl": "https://test.com",
+    "answerMethod": "POST",
+    "callTimeout": 30
+});
+
+try {
+    var response = await voiceController.createCall(accountId, body);
+    console.log(response);
+catch (error) {
+    console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body->from = "+15554443333";
+$body->to = "+15554442222";
+$body->answerUrl = "https://test.com";
+$body->applicationId = "3-6-4-b-4";
+
+try {
+    $response = $voiceClient->createCall($accountId, $body);
+    print_r($response->getResult()->callId);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

@@ -1,7 +1,7 @@
 {% method %}
 
 ## Delete Recording
-Delete both the metadata and the media of the specified recording.
+Delete the recording information, media and transcription.
 
 ### Request URL
 
@@ -26,32 +26,61 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 {% sample lang="http" %}
 
 ```bash
-curl -v -X DELETE "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}" \
-     --user {username}:{password}
+curl -X DELETE \
+    --url "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}/recordings/{recordingId}" \
+     -u '{username}:{password}'
 ```
 
 ```
 HTTP/1.1 204
 ```
 
+{% sample lang="java" %}
+
+```java
+try {
+    ApiResponse<Void> response = voiceClient.deleteRecording(VOICE_ACCOUNT_ID, "callId", "recordingId");
+} catch (ApiException | IOException e) {
+    e.printStackTrace();
+}
+```
+
 {% sample lang="csharp" %}
 
 ```csharp
-
-//coming soon
-;
+controller.DeleteRecording(accountId, callId, recordingId);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
 ```
 
 {% sample lang="python" %}
 
 ```python
-# coming soon
+voice_client.delete_recording(VOICE_ACCOUNT_ID, call_id, recording_id)
+```
+
+{% sample lang="js" %}
+
+```js
+try {
+    await voiceController.deleteRecording(accountId, callId, recordingId);
+catch (error) {
+    console.error(error);
+}
+```
+
+{% sample lang="php" %}
+
+```php
+try {
+    $voiceClient->deleteRecording($accountId, $callId, $recordingId);
+} catch (BandwidthLib\APIException $e) {
+    print_r($e);
+}
 ```
 
 {% endmethod %}

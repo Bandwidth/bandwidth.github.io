@@ -881,6 +881,42 @@
     <td>5173</td>
     <td>SMS is already %s or number is in processing.</td>
   </tr>
+    <tr>
+    <td>5174</td>
+    <td>A purge disconnect type is required for Short Code TNs</td>
+  </tr>
+    <tr>
+    <td>5175</td>
+    <td>Only a single type of TN is allowed for a Disconnect action.</td>
+  </tr>
+    <tr>
+    <td>5176</td>
+    <td>Billing type '%s' is not valid for short code orders. Valid billing type is NOCHARGE</td>
+  </tr>
+    <tr>
+    <td>5177</td>
+    <td>VendorName is required.</td>
+  </tr>
+    <tr>
+    <td>5178</td>
+    <td>Setting the initial short code telephone number status to '%s' is not valid - only 'Inservice' is supported.</td>
+  </tr>
+    <tr>
+    <td>5179</td>
+    <td>Short code telephone numbers cannot be used unless Short Code is enabled on location.</td>
+  </tr>
+    <tr>
+    <td>5180</td>
+    <td>Telephone number attributes are not applicable for short code numbers.</td>
+  </tr>
+    <tr>
+    <td>5181</td>
+    <td>Only a single type of TN is allowed when importing numbers to an account.</td>
+  </tr>
+    <tr>
+    <td>5182</td>
+    <td>Only A2P line option may be changed for short code telephone numbers.</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -982,49 +1018,6 @@
     <tr>
     <td>5047</td>
     <td>Cannot unreserve telephone number %s</td>
-  </tr>
-  </table>
-<h2>VirtualInventoryError</h2>
-<table class="fixed">
-  <tr>
-    <th>Error Code</th>
-    <th>Error Description</th>
-  </tr>
-    <tr>
-    <td>15000</td>
-    <td>Account '%s' does not have an account quota</td>
-  </tr>
-    <tr>
-    <td>15001</td>
-    <td>Account '%s' is already set up for Virtual Inventory</td>
-  </tr>
-    <tr>
-    <td>15002</td>
-    <td>Unable to lower %sQuota due to an existing criteria with a higher quantity</td>
-  </tr>
-    <tr>
-    <td>15003</td>
-    <td>AccountQuota of '%s' exceeds criteria quantity sum of '%s'</td>
-  </tr>
-    <tr>
-    <td>15004</td>
-    <td>%s Quota of '%s' exceeds AccountQuota of '%s'</td>
-  </tr>
-    <tr>
-    <td>15005</td>
-    <td>Criteria values may not overlap (e.g. if there already is a 919 criteria, 919234 cannot be added, however 918 can; if there already is 919234, 919 cannot be added, however 919235 can)</td>
-  </tr>
-    <tr>
-    <td>15006</td>
-    <td>Quantity '%s' exeeds CriteriaQuota of '%s'</td>
-  </tr>
-    <tr>
-    <td>15007</td>
-    <td>The sum of criteria quantities exceed AccountQuota of '%s'</td>
-  </tr>
-    <tr>
-    <td>15009</td>
-    <td>Account=%s does not have a criteria quota of type=%s</td>
   </tr>
   </table>
 
@@ -1688,7 +1681,7 @@
   </tr>
     <tr>
     <td>7399</td>
-    <td>Telephone number attribute '%s' is invalid. Valid values: Protected, External</td>
+    <td>Telephone number attribute '%s' is invalid. Valid values: Protected, External, Hosted</td>
   </tr>
     <tr>
     <td>7474</td>
@@ -1737,10 +1730,6 @@
     <tr>
     <td>7487</td>
     <td>SIP Peer assignment cannot change for this port request.</td>
-  </tr>
-    <tr>
-    <td>7488</td>
-    <td>External telephone numbers should be processed by separate port request.</td>
   </tr>
     <tr>
     <td>7489</td>
@@ -2126,6 +2115,22 @@
     <td>All ported numbers on an order need to be from the same carrier.</td>
   </tr>
     <tr>
+    <td>7422</td>
+    <td>The LocalOrderUpdate query parameter is restricted to Bandwidth internal users only.</td>
+  </tr>
+    <tr>
+    <td>7423</td>
+    <td>The LocalOrderUpdate query parameter can only be specified for orders in FOC status.</td>
+  </tr>
+    <tr>
+    <td>7424</td>
+    <td>The LocalOrderUpdate query parameter requires inclusion of a valid RequestedFocDate in the request payload.</td>
+  </tr>
+    <tr>
+    <td>7425</td>
+    <td>The LocalOrderUpdate query parameter may only be used when it is not possible for the user to change the FOC date using the normal SUPP request.</td>
+  </tr>
+    <tr>
     <td>7604</td>
     <td>Activation can only be triggered between the hours of %s and %s on the actual FOC date: %s.</td>
   </tr>
@@ -2140,6 +2145,14 @@
     <tr>
     <td>7607</td>
     <td>Unable to sumbit portTN request to Level3.</td>
+  </tr>
+    <tr>
+    <td>7608</td>
+    <td>The requested time can not be updated for non triggered portin order.</td>
+  </tr>
+    <tr>
+    <td>7609</td>
+    <td>The telephone number(s) belongs to unsupported losing carrier.</td>
   </tr>
   </table>
 
@@ -2453,10 +2466,6 @@
     <tr>
     <td>19010</td>
     <td>Unable to provision telephone numbers. Please contact Bandwidth Support.</td>
-  </tr>
-    <tr>
-    <td>19011</td>
-    <td>Messaging provisioning  is disable for this account.</td>
   </tr>
     <tr>
     <td>19012</td>
@@ -2809,7 +2818,7 @@
   </tr>
     <tr>
     <td>8045</td>
-    <td>'%s' is not a valid Alternate End User Identifier. Identifier can contain alphabetic chars, numbers, periods, colons, dashes, underscores, at (@) symbols.</td>
+    <td>'%s' is not a valid Alternate End User Identifier. Identifier can contain letters or numbers only.</td>
   </tr>
     <tr>
     <td>8046</td>
@@ -2874,6 +2883,66 @@
     <tr>
     <td>8063</td>
     <td>StateCode '%s' is invalid or not supported. Please correct and try the request again.</td>
+  </tr>
+    <tr>
+    <td>8064</td>
+    <td>Optional Callback Information can only be enabled on an account that has PIDFLO enabled.</td>
+  </tr>
+    <tr>
+    <td>8065</td>
+    <td>Invalid TelephoneNumber. Telephone number must be 11 digits in format 1NPANXXXXXX.</td>
+  </tr>
+    <tr>
+    <td>8066</td>
+    <td>Description must be present and non-empty.</td>
+  </tr>
+    <tr>
+    <td>8067</td>
+    <td>Type value must be one of 'EMAIL', 'SMS', 'TTS', or 'CALLBACK'.</td>
+  </tr>
+    <tr>
+    <td>8068</td>
+    <td>Type is a mandatory element.</td>
+  </tr>
+    <tr>
+    <td>8069</td>
+    <td>When Type %s is specified, %s must be included.</td>
+  </tr>
+    <tr>
+    <td>8070</td>
+    <td>Invalid EmailAddress. Format should be foo@bar.com. Max length is 254 characters.</td>
+  </tr>
+    <tr>
+    <td>8071</td>
+    <td>Invalid Url. Format should be https://foo.bar?param=val.</td>
+  </tr>
+    <tr>
+    <td>8072</td>
+    <td>Invalid Username. Username must be between 1 and 32 characters.</td>
+  </tr>
+    <tr>
+    <td>8073</td>
+    <td>Invalid Password. Password must be between 1 and 256 characters.</td>
+  </tr>
+    <tr>
+    <td>8074</td>
+    <td>An entry with an identical recipient already exists. Identifier %s.</td>
+  </tr>
+    <tr>
+    <td>8075</td>
+    <td>Could not find Emergency Notification Recipient with id: %s</td>
+  </tr>
+    <tr>
+    <td>8076</td>
+    <td>Emergency notification recipient with identifier %s is being used by emergency notification group with identifier %s. Please remove the recipient reference from the group prior to removing the recipient.</td>
+  </tr>
+    <tr>
+    <td>8077</td>
+    <td>Recipient '%s' not found.</td>
+  </tr>
+    <tr>
+    <td>8078</td>
+    <td>Received error response %s from EVS when attempting to %s emergency notification.</td>
   </tr>
   </table>
 
@@ -2993,7 +3062,7 @@
   </tr>
     <tr>
     <td>15519</td>
-    <td>Invalid 'status'. Valid values: Available, Inservice, Disconnected, Aging, PortInPendingFoc, Virtual, PortOut, Reserved, Removed, Eliminated, StatusUnchanged</td>
+    <td>Invalid 'status'. Valid values: Available, Inservice, Disconnected, Aging, PortInPendingFoc, PortOut, Reserved, Removed, Eliminated, StatusUnchanged</td>
   </tr>
     <tr>
     <td>15520</td>
@@ -3049,7 +3118,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -3110,6 +3179,10 @@
     <tr>
     <td>15616</td>
     <td>Search by billing report '%s' is not supported yet. Supported report types are : '%s'</td>
+  </tr>
+    <tr>
+    <td>15617</td>
+    <td>Account ID or Archive ID foes not match actual record</td>
   </tr>
   </table>
 
@@ -3175,7 +3248,7 @@
     <td>Subscription object is invalid</td>
   </tr>
     <tr>
-    <td>14500</td>
+    <td>14502</td>
     <td>Incorrect digest type</td>
   </tr>
     <tr>
@@ -3682,7 +3755,7 @@
   </tr>
     <tr>
     <td>12013</td>
-    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, VirtualInventory, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement</td>
+    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement</td>
   </tr>
     <tr>
     <td>12015</td>
@@ -3702,7 +3775,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4082,7 +4155,7 @@
   </tr>
     <tr>
     <td>12116</td>
-    <td>Either email or zendesk group id is required</td>
+    <td>One of <Email>, <ZendeskGroupId>, or <CallbackOrderType> is required.</td>
   </tr>
     <tr>
     <td>12117</td>
@@ -4226,7 +4299,7 @@
   </tr>
     <tr>
     <td>12153</td>
-    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, International, and Trial.</td>
+    <td>Valid values for CustomerSegment are: Wholesale, EnterpriseTelephony, UC, and Trial.</td>
   </tr>
     <tr>
     <td>12154</td>
@@ -4246,7 +4319,7 @@
   </tr>
     <tr>
     <td>12158</td>
-    <td>Accounts with International customer segment are not compatible with the UC Trunking, Messaging, E911, or Virtual products</td>
+    <td>Accounts with International customer segment are not compatible with the UC Trunking, Messaging, or E911 products</td>
   </tr>
     <tr>
     <td>12159</td>
@@ -4255,6 +4328,26 @@
     <tr>
     <td>12160</td>
     <td>The operation could not be performed because Account %d does not have the CSR feature enabled.</td>
+  </tr>
+    <tr>
+    <td>12161</td>
+    <td>HTTP Voice is not enabled for account %s in Edge Management.</td>
+  </tr>
+    <tr>
+    <td>12162</td>
+    <td>FalloutManagementGrade cannot be set. Please enable the Fallout Management feature on the account first.</td>
+  </tr>
+    <tr>
+    <td>12163</td>
+    <td>The value supplied for FalloutManagementGrade is invalid. Acceptable values are 1, 2 or 3.</td>
+  </tr>
+    <tr>
+    <td>12164</td>
+    <td>Digest Type 'daily' is not supported for callback subscriptions.</td>
+  </tr>
+    <tr>
+    <td>12165</td>
+    <td>CallbackOrderType value %s is not supported. Supported values are: 'port_in'.</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -5157,7 +5250,7 @@
   </tr>
     <tr>
     <td>12743</td>
-    <td>Invalid 'RouteType'. Valid values: onNet, offNetUs, offNetCa, externalCustomerOwned, externalThirdParty, externalCanadian, tollFree, externalTollFree</td>
+    <td>Invalid 'RouteType'. Valid values: onNet, offNetUs, offNetCa, externalCustomerOwned, externalThirdParty, externalCanadian, tollFree, externalTollFree, incorrectValue</td>
   </tr>
     <tr>
     <td>12744</td>
@@ -5850,6 +5943,10 @@
     <tr>
     <td>13030</td>
     <td>An Account Id or Tag must be included as a query parameter</td>
+  </tr>
+    <tr>
+    <td>13031</td>
+    <td>LNP feature is required for LnpFalloutManagement feature</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
