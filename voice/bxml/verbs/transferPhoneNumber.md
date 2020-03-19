@@ -1,7 +1,7 @@
 {% method %}
 
 ## XML: `<Transfer><PhoneNumber>`
-The Transfer verb is used to bridge another party onto the current call.
+The Transfer verb with `<PhoneNumber>` is used to bridge another party onto the current call.
 
 ### Attributes
 | Attribute              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |

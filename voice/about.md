@@ -28,7 +28,7 @@
 | [`<SpeakSentence>`](bxml/verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
 | [`<StartRecording>`](bxml/verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
 | [`<StopRecording>`](bxml/verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
-| [`<Transfer>`](bxml/verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
+| [`<Transfer>`](bxml/verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number or to join into a conference.        |
 
 ## BXML Callbacks
 

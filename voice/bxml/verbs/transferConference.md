@@ -1,9 +1,9 @@
 {% method %}
 
 ## XML: `<Transfer><Conference>`
-TODO
+The Transfer verb with `<Conference>` is used to join the current call into a conference.
 
-The Transfer verb is used to bridge another party onto the current call.
+TODO
 
 ### Attributes
 | Attribute              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
