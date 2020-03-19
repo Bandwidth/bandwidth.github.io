@@ -1,6 +1,6 @@
 {% method %}
 ##  Transfer Answer Event – <Transfer> verb
-When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent when a called party (B-leg) answers.  The event is sent to
+When processing a [`<Transfer>`](../verbs/transferPhoneNumber.md) verb, this event is sent when a called party (B-leg) answers.  The event is sent to
   the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered.  [`<PlayAudio>`](../verbs/playAudio.md) and/or [`<SpeakSentence>`](../verbs/speakSentence.md) verbs returned by this callback will be
   executed for the called party only.  No other BXML verbs may be specified.  Afterward, the called party will be bridged to the original
   call.
