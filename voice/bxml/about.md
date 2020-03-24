@@ -8,6 +8,8 @@ Before we begin creating a new BXML application you’ll need two things initial
 
 2. A public Web site that you can create content on and will handle the requests for BXML. Note that the endpoint for this site should be used to create the application in you setup above.
 
+The maximum size of a BXML document is 64 KB.
+
 <img src="../../images/bxml_how.png" style="max-width:95%">
 
 ###  Understanding BXML Callback Events

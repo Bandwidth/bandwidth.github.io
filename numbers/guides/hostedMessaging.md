@@ -991,7 +991,6 @@ TNss tns = InserviceNumber.list(client, new HashMap<>());
 System.out.println(tns.getTelephoneNumbers().get(0))
 ```
 
-
 > Output
 
 ```

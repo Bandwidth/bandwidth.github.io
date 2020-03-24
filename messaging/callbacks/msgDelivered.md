@@ -60,7 +60,7 @@ User-Agent: BandwidthAPI/v2
       "text"          : "",
       "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
       "owner"         : "+12345678902",
-      "direction"     : "in",
+      "direction"     : "out",
       "segmentCount"  : 1
     }
   }

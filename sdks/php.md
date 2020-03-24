@@ -35,7 +35,7 @@ $body->applicationId = "3-d-4-b-5";
 
 try {
     $response = $voiceClient->createCall($voiceAccountId, $body);
-    print_r($response);
+    print_r($response->getResult()->callId);
 } catch (Exception $e) {
     print_r($e);
 }
@@ -65,7 +65,7 @@ $body->text = "Greetings!";
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response);
+    print_r($response->getResult()->id);
 } catch (Exception $e) {
     print_r($e);
 }
