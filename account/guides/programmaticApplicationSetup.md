@@ -614,7 +614,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```csharp
 await SipPeer.UpdateApplicationSettings(client, site.Id, sipPeer.Id, new ApplicationsSettings
 {
-    HttpMessagingV2AppId = messageApplication.Application.ApplicationId
+    HttpMessagingV2AppId = messageApplication.Application.ApplicationId 
 });
 ```
 
