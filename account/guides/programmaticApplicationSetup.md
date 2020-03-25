@@ -89,6 +89,17 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Application>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var messageApplication = await Application.Create(client, new Application
+{
+    AppName = "BandwidthMsgApplication",
+    ServiceType = "Messaging-V2",
+    MsgCallbackUrl = "https://yourcallback.com"
+});
+```
+
 {% common %}
 
 ### Response
@@ -170,6 +181,17 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Application>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var voiceApplication = await Application.Create(client, new Application
+{
+    AppName = "BandwidthVoiceApplication",
+    ServiceType = "Voice-V2",
+    CallInitiatedCallbackUrl = "https://yourcallback.com"
+});
+```
+
 {% common %}
 
 ### Response
@@ -244,6 +266,25 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Site>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+Site site = await Site.Create(client, new Site
+{
+    Name = "BandwidthApplicationSubAccount",
+    Address = new Address
+    {
+        City = "RALEIGH",
+        HouseNumber = "900",
+        StateCode = "NC",
+        StreetName = "Main Campus Dr",
+        StreetSuffix = "DR",
+        Zip = "27606",
+        AddressType = "Billing"
+    }
+});
+```
+
 {% common %}
 
 ### Response
@@ -315,6 +356,17 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </SipPeer>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+SipPeer sipPeer = await SipPeer.Create(client, new SipPeer
+{
+    SiteId = site.Id,
+    Name = "BandwidthApplicationLocation",
+    IsDefaultPeer = true
+});
+```
+
 {% common %}
 
 ### Response
@@ -378,6 +430,28 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   </SipPeerSmsFeatureSettings>
   <HttpSettings />
 </SipPeerSmsFeature>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var smsMessageFeature = await SipPeer.CreateSMSSettings(client, site.Id, sipPeer.Id, new SipPeerSmsFeature
+{
+    SipPeerSmsFeatureSettings = new SipPeerSmsFeatureSettings
+    {
+        TollFree = false,
+        ShortCode = false,
+        Protocol = "HTTP",
+        Zone1 = true,
+        Zone2 = false,
+        Zone3 = false,
+        Zone4 = false,
+        Zone5 = false,
+    },
+    HttpSettings = new HttpSettings
+    {
+    }
+});
 ```
 
 {% common %}
@@ -452,6 +526,26 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </MmsFeature>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var mmsMessageFeature = await SipPeer.CreateMMSSettings(client, site.Id, sipPeer.Id, new MmsFeature
+{
+    MmsSettings = new MmsSettings
+    {
+        Protocol = "HTTP"
+    },
+    Protocols = new Protocols
+    {
+        HTTP = new HTTP { 
+            HttpSettings = new HttpSettings
+            {
+            }
+        }
+    }
+});
+```
+
 {% common %}
 
 ### Response
@@ -513,6 +607,15 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 <ApplicationsSettings>
   <HttpMessagingV2AppId>{{messaging-applicationId}}</HttpMessagingV2AppId>
 </ApplicationsSettings>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+await SipPeer.UpdateApplicationSettings(client, site.Id, sipPeer.Id, new ApplicationsSettings
+{
+    HttpMessagingV2AppId = messageApplication.Application.ApplicationId 
+});
 ```
 
 {% common %}
@@ -581,6 +684,19 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </SipPeerOriginationSettings>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var voiceFeature = await SipPeer.SetOriginationSettings(client, site.Id, sipPeer.Id, new SipPeerOriginationSettings
+{
+    VoiceProtocol = "HTTP",
+    HttpSettings = new HttpSettings
+    {
+        HttpVoiceV2AppId = voiceApplication.Application.ApplicationId
+    }
+});
+```
+
 {% common %}
 
 ### Response
@@ -609,6 +725,12 @@ Content-Type: application/xml; charset=utf-8
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/sites/{{siteId}}/sippeers/{{sippeerId}}/products/termination/settings HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var terminationSettings = await SipPeer.GetTerminationSetting(client, site.Id, sipPeer.Id);
 ```
 
 {% common %}
