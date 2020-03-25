@@ -89,6 +89,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Application>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -170,6 +176,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Application>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -244,6 +256,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Site>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -315,6 +333,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </SipPeer>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -378,6 +402,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   </SipPeerSmsFeatureSettings>
   <HttpSettings />
 </SipPeerSmsFeature>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
 ```
 
 {% common %}
@@ -452,6 +482,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </MmsFeature>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -513,6 +549,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 <ApplicationsSettings>
   <HttpMessagingV2AppId>{{messaging-applicationId}}</HttpMessagingV2AppId>
 </ApplicationsSettings>
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
 ```
 
 {% common %}
@@ -581,6 +623,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </SipPeerOriginationSettings>
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+```
+
 {% common %}
 
 ### Response
@@ -609,6 +657,12 @@ Content-Type: application/xml; charset=utf-8
 GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/sites/{{siteId}}/sippeers/{{sippeerId}}/products/termination/settings HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
 ```
 
 {% common %}
