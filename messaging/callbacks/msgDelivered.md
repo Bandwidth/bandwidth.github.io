@@ -35,7 +35,7 @@ MMS and Group messages <b>don’t</b> currently support delivery receipts. Howev
 
 {% common %}
 
-### Example 1 of 2: SMS Message delivered
+### Example 1 of 3: SMS Message delivered
 
 {% sample lang='http' %}
 
@@ -65,9 +65,46 @@ User-Agent: BandwidthAPI/v2
 ]
 ```
 
-{% endmethod %}
+{% common %}
 
-### Example 2 of 2: Group MMS Message delivered to carrier
+
+### Example 2 of 3: MMS Message delivered to carrier
+
+{% sample lang='http' %}
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v2
+
+[
+  {
+    "type"          : "message-delivered",
+    "time"          : "2016-09-14T18:20:16Z",
+    "description"   : "Message delivered to carrier",
+    "to"            : "+12345678902",
+    "message"       : {
+      "id"            : "14762070468292kw2fuqty55yp2b2",
+      "time"          : "2016-09-14T18:20:16Z",
+      "to"            : ["+12345678902"],
+      "from"          : "+12345678901",
+      "text"          : "",
+      "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+      "owner"        : "+12345678902",
+      "direction"    : "out",
+      "segmentCount" : 1,
+      "media"        : [""https://s3.amazonaws.com/bw-v2-api/demo.jpg""]
+    }
+  }
+]
+```
+
+{% common %}
+
+
+### Example 3 of 3: Group MMS Message delivered to carrier
+
+You will receive a unique callback per phonenumber sent in the group message. The example below shows **1 of the 2** callbacks that would be sent from Bandwidth.
 
 {% sample lang='http' %}
 
