@@ -34,7 +34,40 @@ MMS and Group messages <b>don’t</b> currently support delivery receipts. Howev
 | message.segmentCount  | `int`    | This indicates the number of segments the original message from the user is broken into before sending over to career networks                                                                                                                                                                                                                                      |
 
 {% common %}
-### Message delivered to carrier
+
+### Example 1 of 2: SMS Message delivered to carrier
+
+{% sample lang='http' %}
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v2
+
+[
+  {
+    "type"          : "message-delivered",
+    "time"          : "2016-09-14T18:20:16Z",
+    "description"   : "ok",
+    "to"            : "+12345678902",
+    "message"       : {
+      "id"            : "14762070468292kw2fuqty55yp2b2",
+      "time"          : "2016-09-14T18:20:16Z",
+      "to"            : ["+12345678902"]
+      "from"          : "+12345678901",
+      "text"          : "",
+      "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+      "owner"         : "+12345678902",
+      "direction"     : "out",
+      "segmentCount"  : 1
+    }
+  }
+]
+```
+
+{% endmethod %}
+
+### Example 2 of 2: Group MMS Message delivered to carrier
 
 {% sample lang='http' %}
 
