@@ -92,7 +92,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+var messageApplication = await Application.Create(client, new Application
+{
+    AppName = "BandwidthMsgApplication",
+    ServiceType = "Messaging-V2",
+    MsgCallbackUrl = "https://yourcallback.com"
+});
 ```
 
 {% common %}
@@ -179,7 +184,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+var voiceApplication = await Application.Create(client, new Application
+{
+    AppName = "BandwidthVoiceApplication",
+    ServiceType = "Voice-V2",
+    CallInitiatedCallbackUrl = "https://yourcallback.com"
+});
 ```
 
 {% common %}
@@ -259,7 +269,20 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+Site site = await Site.Create(client, new Site
+{
+    Name = "BandwidthApplicationSubAccount",
+    Address = new Address
+    {
+        City = "RALEIGH",
+        HouseNumber = "900",
+        StateCode = "NC",
+        StreetName = "Main Campus Dr",
+        StreetSuffix = "DR",
+        Zip = "27606",
+        AddressType = "Billing"
+    }
+});
 ```
 
 {% common %}
@@ -336,7 +359,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+SipPeer sipPeer = await SipPeer.Create(client, new SipPeer
+{
+    SiteId = site.Id,
+    Name = "BandwidthApplicationLocation",
+    IsDefaultPeer = true
+});
 ```
 
 {% common %}
@@ -407,7 +435,23 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+var smsMessageFeature = await SipPeer.CreateSMSSettings(client, site.Id, sipPeer.Id, new SipPeerSmsFeature
+{
+    SipPeerSmsFeatureSettings = new SipPeerSmsFeatureSettings
+    {
+        TollFree = false,
+        ShortCode = false,
+        Protocol = "HTTP",
+        Zone1 = true,
+        Zone2 = false,
+        Zone3 = false,
+        Zone4 = false,
+        Zone5 = false,
+    },
+    HttpSettings = new HttpSettings
+    {
+    }
+});
 ```
 
 {% common %}
@@ -485,7 +529,21 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+var mmsMessageFeature = await SipPeer.CreateMMSSettings(client, site.Id, sipPeer.Id, new MmsFeature
+{
+    MmsSettings = new MmsSettings
+    {
+        Protocol = "HTTP"
+    },
+    Protocols = new Protocols
+    {
+        HTTP = new HTTP { 
+            HttpSettings = new HttpSettings
+            {
+            }
+        }
+    }
+});
 ```
 
 {% common %}
@@ -554,7 +612,10 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+await SipPeer.UpdateApplicationSettings(client, site.Id, sipPeer.Id, new ApplicationsSettings
+{
+    HttpMessagingV2AppId = messageApplication.Application.ApplicationId
+});
 ```
 
 {% common %}
@@ -626,7 +687,14 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+var voiceFeature = await SipPeer.SetOriginationSettings(client, site.Id, sipPeer.Id, new SipPeerOriginationSettings
+{
+    VoiceProtocol = "HTTP",
+    HttpSettings = new HttpSettings
+    {
+        HttpVoiceV2AppId = voiceApplication.Application.ApplicationId
+    }
+});
 ```
 
 {% common %}
@@ -662,7 +730,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% sample lang="csharp" %}
 
 ```csharp
-//TODO
+var terminationSettings = await SipPeer.GetTerminationSetting(client, site.Id, sipPeer.Id);
 ```
 
 {% common %}
