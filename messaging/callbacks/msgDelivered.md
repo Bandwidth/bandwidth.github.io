@@ -35,7 +35,7 @@ MMS and Group messages <b>don’t</b> currently support delivery receipts. Howev
 
 {% common %}
 
-### Example 1 of 2: SMS Message delivered to carrier
+### Example 1 of 2: SMS Message delivered
 
 {% sample lang='http' %}
 
