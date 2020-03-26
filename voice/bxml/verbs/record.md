@@ -17,7 +17,7 @@ The Record verb allows a segment of audio to be recorded during a call. At the e
 | tag                          | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 | terminatingDigits            | (optional) When pressed, this digit will terminate the recording. Default value is `“#”`. This feature can be disabed with `""`.                                                                                       |
 | maxDuration                  | (optional) Maximum length of recording (in seconds). Max 10800 (3 hours). Default value is 60.                                                                                                                         |
-| silenceTimeout               | (optional) Length of silence after which to end the recording (in seconds). Max is equivalent to the maximum `maxDuration` value. Default value is 0, which means disabled.                                            |
+| silenceTimeout               | (optional) Length of silence after which to end the recording (in seconds). Max is equivalent to the maximum `maxDuration` value. Default value is 0, which means no timeout.                                            |
 | fileFormat                   | (optional) The audio format that the recording will be saved as: `mp3` or `wav`.  Default value is `wav`.                                                                                                              |
 
 To stop the recording, the caller can press one of the `terminatingDigits` or stop talking for `silenceTimeout` seconds.
