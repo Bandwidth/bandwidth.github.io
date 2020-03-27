@@ -64,7 +64,7 @@ User-Agent: BandwidthAPI/v2
 ### Example Error 2 of 2 (9902 - DLR Timeout)
 
 * Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known.
-* A timeout response with error-code : **9902 - Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known.** does **not** indicate that the message was not received. Only that the end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window.
+* A timeout response with error-code : **9902 - Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known.** does **not** indicate that the message was not received. Only that the end-users' device did not communicate back to the network or the carrier did not provide us with a delivery confirmation
 
 {% sample lang='http' %}
 
