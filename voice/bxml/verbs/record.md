@@ -20,7 +20,7 @@ The Record verb allows a segment of audio to be recorded during a call. At the e
 | silenceTimeout               | (optional) Length of silence after which to end the recording (in seconds). Max is equivalent to the maximum `maxDuration` value. Default value is 0, which means disabled.                                            |
 | fileFormat                   | (optional) The audio format that the recording will be saved as: `mp3` or `wav`.  Default value is `wav`.                                                                                                              |
 
-To stop the recording, the caller can press one of the `terminatingDigits` or stop talking for `silenceTimeout` seconds.
+To stop the recording, the user can press one of the `terminatingDigits` or stop talking for `silenceTimeout` seconds.
 
 A `maxDuration` can be specified to stop recording after a specified period of time.
 
