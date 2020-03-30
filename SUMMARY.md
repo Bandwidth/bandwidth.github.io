@@ -203,6 +203,9 @@
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
 
+## MFA
+* [Overview](mfa/about.md)
+
 ## SDKs
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
