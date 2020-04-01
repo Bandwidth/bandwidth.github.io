@@ -137,6 +137,8 @@
 	* [StartRecording](voice/bxml/verbs/startRecording.md)
 	* [StopRecording](voice/bxml/verbs/stopRecording.md)
 	* [Transfer](voice/bxml/verbs/transfer.md)
+	    * [PhoneNumber](voice/bxml/verbs/transferPhoneNumber.md)
+	    * [Conference](voice/bxml/verbs/transferConference.md)
 * [Callbacks](voice/bxml/callbacks/about.md)
 	 * [Answer](voice/bxml/callbacks/answer.md)
 	 * [Disconnect](voice/bxml/callbacks/disconnect.md)
