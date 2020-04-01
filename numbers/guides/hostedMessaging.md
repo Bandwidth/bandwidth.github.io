@@ -103,6 +103,14 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </Subscription>
 ```
 
+> Responds
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
+```
+
 {% sample lang="php" %}
 
 ```php
@@ -113,6 +121,12 @@ $subscription = $account->subscriptions()->create([
     ]
 ]);
 print_r($subscription->SubscriptionId);
+```
+
+> Output
+
+```
+390-f-42-89-40
 ```
 
 {% sample lang="ruby" %}
@@ -128,29 +142,55 @@ response = BandwidthIris::Subscription.create(subscription)
 puts response.to_data()[:subscription_id]
 ```
 
-{% common %}
+> Output
 
-### Response
-
-{% sample lang="http" %}
-
-```http
-HTTP/1.1 201 Created
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/subscriptions/{{applicationID}}
 ```
-
-{% sample lang="php" %}
-
-```php
 390-f-42-89-40
 ```
 
-{% sample lang="ruby" %}
+{% sample lang="java" %}
 
-```ruby
+```java
+CallbackSubscription callbackSubscription = new callbackSubscription();
+callbackSubscription.setURL("https://test4.com");
+
+
+Subscription subscription = new Subscription();
+subscription.setOrderType("importnorders");
+subscription.setCallbackSubscription(callbackSubscription);
+
+Subscription subscriptionCreated = Subscription.create(client, subscription);
+
+System.out.println(subscriptionCreated.getOrderId());
+```
+
+> Output
+
+```
 390-f-42-89-40
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+var subscription = new Subscription {
+    CallbackSubscription = new CallbackSubscription{
+        Url = "https://test4.com"
+    },
+    OrderType = "importnorders"
+};
+
+var createdSubscription = Subscription.Create(client, subscription);
+
+Console.WriteLine(createdSubscription.Id);
+```
+
+> Output
+
+```
+390-f-42-89-40
+```
+
 
 {% endextendmethod %}
 
@@ -196,35 +236,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```
 
-{% sample lang="php" %}
-
-```php
-$response = $account->checkTnsPortability(array("5554443333", "5553334444"));
-print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->Code);
-echo "\n";
-print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->Description);
-echo "\n";
-print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->TelephoneNumbers->TelephoneNumber);
-```
-
-{% sample lang="ruby" %}
-
-```ruby
-response = BandwidthIris::ImportTnChecker.check_tns_portability({
-    :telephone_numbers => {
-        :telephone_number => ["5554443333", "5553334444"]
-    }
-})
-puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:code]
-puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:description]
-puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:telephone_numbers][:telephone_number]
-```
-
-{% common %}
-
-### Response
-
-{% sample lang="http" %}
+> Responds
 
 ```http
 HTTP/1.1 200 OK
@@ -255,6 +267,17 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/application
 {% sample lang="php" %}
 
 ```php
+$response = $account->checkTnsPortability(array("5554443333", "5553334444"));
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->Code);
+echo "\n";
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->Description);
+echo "\n";
+print_r($response->ImportTnCheckerPayload->ImportTnErrors->ImportTnError->TelephoneNumbers->TelephoneNumber);
+```
+
+> Output
+
+```
 19005
 Messaging route of External Third Party TNs is not configured.
 Array
@@ -267,10 +290,73 @@ Array
 {% sample lang="ruby" %}
 
 ```ruby
+response = BandwidthIris::ImportTnChecker.check_tns_portability({
+    :telephone_numbers => {
+        :telephone_number => ["5554443333", "5553334444"]
+    }
+})
+puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:code]
+puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:description]
+puts response[0][:import_tn_checker_payload][:import_tn_errors][:import_tn_error][:telephone_numbers][:telephone_number]
+```
+
+> Output
+
+```
 19005
 Messaging route of External Third Party TNs is not configured.
 5554443333
 5553334444
+```
+
+{% sample lang="java" %}
+
+```java
+TelephoneNumber number = new TelephoneNumber();
+number.setFullNumber("5554443333");
+
+ImportTnCheckerPayload payload = new ImportTnCheckerPayload();
+payload.setTelephoneNumberList( Arrays.asList( new TelephoneNumber[] {number} ) );
+
+
+ImportTnCheckerResponse response = ImportTnChecker.Check(client, payload);
+
+System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().get(0).getCode());
+System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().get(0).getDescription());
+System.out.println(response.getImportTnCheckerPayload().getImportTnErrorList().get(0).getCode().getTelephoneNumberList().get(0));
+```
+
+> Output
+
+```
+19005
+Messaging route of External Third Party TNs is not configured.
+5554443333
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var payload = new ImportTnCheckerPayload{
+    TelephoneNumbers = new TelephoneNumber[] {new TelephoneNumber{
+            FullNumber = "5554443333"
+        }
+    }
+};
+
+var response = await ImportTnChecker.Create(client, payload);
+
+Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].Code);
+Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].Description);
+Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].TelephoneNumbers[0]);
+```
+
+> Output
+
+```
+19005
+Messaging route of External Third Party TNs is not configured.
+5554443333
 ```
 
 {% endextendmethod %}
@@ -336,67 +422,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 </ImportTnOrder>
 ```
 
-{% sample lang="php" %}
-
-```php
-$importTnOrder = new \Iris\ImportTnOrder(array(
-    "CustomerOrderId" => "id",
-    "TelephoneNumbers" => array(
-        "TelephoneNumber" => array("5554443333")
-    ),
-    "SiteId" => "12345",
-    "Subscriber" => array(
-        "Name" => "Company INC",
-        "ServiceAddress" => array(
-            "HouseNumber" => "1",
-            "StreetName" => "Street",
-            "City" => "City",
-            "StateCode" => "XY",
-            "Zip" => "54345",
-            "County" => "County"
-        )
-    ),
-    "LoaAuthorizingPerson" => "Test Person"
-));
-
-$response = $account->createImportTnOrder($importTnOrder);
-print_r($response->ImportTnOrder->OrderId);
-echo "\n";
-print_r($response->ImportTnOrder->ProcessingStatus);
-```
-
-{% sample lang="ruby" %}
-
-```ruby
-import_tn_order = {
-    :customer_order_id => "id",
-    :site_id => "12345",
-    :subscriber => {
-        :service_address => {
-            :city => "city",
-            :house_number => "1",
-            :street_name => "Street",
-            :state_code => "XY",
-            :zip => "54345",
-            :county => "County"
-        },
-        :name => "Company INC"
-    },
-    :loa_authorizing_person => "Test Person",
-    :telephone_numbers => {
-        :telephone_number => ["5554443333"]
-    }
-}
-response = BandwidthIris::ImportTnOrders.create_import_tn_order(import_tn_order)
-puts response[0][:import_tn_order][:order_id]
-puts response[0][:import_tn_order][:processing_status]
-```
-
-{% common %}
-
-### Response
-
-{% sample lang="http" %}
+> Responds
 
 ```http
 HTTP/1.1 201 Created
@@ -439,6 +465,35 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/importTnOrd
 {% sample lang="php" %}
 
 ```php
+$importTnOrder = new \Iris\ImportTnOrder(array(
+    "CustomerOrderId" => "id",
+    "TelephoneNumbers" => array(
+        "TelephoneNumber" => array("5554443333")
+    ),
+    "SiteId" => "12345",
+    "Subscriber" => array(
+        "Name" => "Company INC",
+        "ServiceAddress" => array(
+            "HouseNumber" => "1",
+            "StreetName" => "Street",
+            "City" => "City",
+            "StateCode" => "XY",
+            "Zip" => "54345",
+            "County" => "County"
+        )
+    ),
+    "LoaAuthorizingPerson" => "Test Person"
+));
+
+$response = $account->createImportTnOrder($importTnOrder);
+print_r($response->ImportTnOrder->OrderId);
+echo "\n";
+print_r($response->ImportTnOrder->ProcessingStatus);
+```
+
+> Output
+
+```
 8-3-4-9-a
 RECEIVED
 ```
@@ -446,9 +501,99 @@ RECEIVED
 {% sample lang="ruby" %}
 
 ```ruby
+import_tn_order = {
+    :customer_order_id => "id",
+    :site_id => "12345",
+    :subscriber => {
+        :service_address => {
+            :city => "city",
+            :house_number => "1",
+            :street_name => "Street",
+            :state_code => "XY",
+            :zip => "54345",
+            :county => "County"
+        },
+        :name => "Company INC"
+    },
+    :loa_authorizing_person => "Test Person",
+    :telephone_numbers => {
+        :telephone_number => ["5554443333"]
+    }
+}
+response = BandwidthIris::ImportTnOrders.create_import_tn_order(import_tn_order)
+puts response[0][:import_tn_order][:order_id]
+puts response[0][:import_tn_order][:processing_status]
+```
+
+> Output
+
+```
 8-3-4-9-a
 RECEIVED
 ```
+
+{% sample lang="java" %}
+
+```java
+ImportTnOrder importTnOrder = new ImportTnOrder();
+importTnOrder.setCustomerOrderId("id");
+importTnOrder.setSiteId(123456);
+importTnOrder.setSubscriber(subscriber);
+importTnOrder.setLoaAuthorizingPerson("Test Person");
+importTnOrder.setTelephoneNumberList(telephoneNumberList);
+
+ImportTnOrderResponse response = ImportTnOrder.Create(client, importTnOrder);
+
+System.out.println(response.getImportTnOrder().getOrderId());
+System.out.println(response.getImportTnOrder()..getProcessingStatus());
+```
+
+> Output
+
+```
+8-3-4-9-a
+RECEIVED
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var importTnOrder = new ImportTnOrder{
+    CustomerOrderId = "id",
+    SiteId = 12345,
+    Subscriber = {
+        ServiceAddress = new Address{
+            City = "city",
+            HouseNumber = "1",
+            StreetName = "Street",
+            StateCode = "XY",
+            Zip = "54345",
+            County = "County"
+        },
+        BusinessName = "Company INC"
+    },
+    LoaAuthorizingPerson = "Test Person",
+    TelephoneNumbers = new TelephoneNumber[]{
+        new TelephoneNumber{
+            FullNumber = "5554443333"
+        }
+    }
+};
+
+var response = await ImportTnOrder.Create(client, importTnOrder);
+
+Console.WriteLine(response.ImportTnOrder.OrderId);
+Console.WriteLine(response.ImportTnOrder.ProcessingStatus);
+
+```
+
+> Output
+
+```
+8-3-4-9-a
+RECEIVED
+```
+
 
 {% endextendmethod %}
 
@@ -482,8 +627,6 @@ Anytime the status of the order is updated (complete, error, etc...) Bandwidth w
 {% common %}
 
 ### Receive Callback to your server
-
-{% sample lang="http" %}
 
 ```http
 POST https://your-callback-url_as-defined-in-the-subscription HTTP/1.1
@@ -551,7 +694,11 @@ HTTP/1.1 200 OK
 ```http
 GET https://dashboard.../{{accountId}}/importTnOrders/{{orderId}} HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
 
+> Responds
+
+```http
 HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
@@ -591,8 +738,11 @@ Content-Type: application/xml; charset=utf-8
 ```php
 $response = $account->getImportTnOrder("order_id");
 print_r($response->ProcessingStatus);
+```
 
-//output
+> Output
+
+```
 COMPLETE
 ```
 
@@ -601,8 +751,39 @@ COMPLETE
 ```ruby
 response = BandwidthIris::ImportTnOrders.get_import_tn_order("id")
 puts response[:processing_status]
+```
 
-#output
+> Output
+
+```
+COMPLETE
+```
+
+{% sample lang="java" %}
+
+```java
+ImportTnOrder importTnOrder = ImportTnOrder.Get(client, "id");
+
+System.out.println(importTnOrder.getProcessingStatus());
+```
+
+> Output
+
+```
+COMPLETE
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var response = await ImportTnOrder.Get(client, "id");
+
+Console.WriteLine(response.ProcessingStatus);
+```
+
+> Output
+
+```
 COMPLETE
 ```
 
@@ -644,26 +825,13 @@ Content-Type: application/pdf
 [file-content-as-body]
 ```
 
-{% sample lang="php" %}
-
-```php
-//coming soon
-```
-
-{% sample lang="ruby" %}
-
-```ruby
-#coming soon
-```
-
-### Response
-
-{%sample lang="http" %}
+> Responds
 
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml; charset=utf-8
 ```
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <fileUploadResponse>
@@ -679,10 +847,47 @@ Content-Type: application/xml; charset=utf-8
 //coming soon
 ```
 
+> Output
+
+```
+//coming soon
+```
+
 {% sample lang="ruby" %}
 
 ```ruby
 #coming soon
+```
+
+> Output
+
+```
+//coming soon
+```
+
+{% sample lang="java" %}
+
+```java
+//TODO
+```
+
+> Output
+
+```
+//coming soon
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//TODO
+;
+```
+
+> Output
+
+```
+//coming soon
 ```
 
 {% endextendmethod %}
@@ -720,7 +925,11 @@ If everything was imported correctly, the recently imported number will appear i
 ```http
 GET https://dashboard.../{{accountId}}/inserviceNumbers HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
 
+> Responds
+
+```http
 HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
@@ -750,8 +959,11 @@ Content-Type: application/xml; charset=utf-8
 ```php
 $response = $account->getInserviceNumbers();
 print_r($response->TelephoneNumbers->TelephoneNumber);
+```
 
-//output
+> Output
+
+```
 Array
 (
     [0] => 5554443333
@@ -763,8 +975,39 @@ Array
 ```ruby
 response = BandwidthIris::InServiceNumber.list()
 puts response[0][:telephone_numbers][:telephone_number]
+```
 
-#output
+> Output
+
+```
+5554443333
+```
+
+{% sample lang="java" %}
+
+```java
+TNss tns = InserviceNumber.list(client, new HashMap<>());
+
+System.out.println(tns.getTelephoneNumbers().get(0))
+```
+
+> Output
+
+```
+5554443333
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var tns = await InServiceNumber.List(client);
+
+Cosnole.WriteLine(tns[0]);
+```
+
+> Output
+
+```
 5554443333
 ```
 

@@ -24,7 +24,7 @@ In order to receive message events, you need to ensure you have set up your appl
 | message.segmentCount  | `int`     | This indicates the number of segments the original message from the user is broken into before sending over to career networks                                                                                                                                                                                                                                      |
 
 {% common %}
-### Example Error (4432 - forbidden to country)
+### Example Error 1 of 2 (4432 - forbidden to country)
 
 {% sample lang='http' %}
 
@@ -54,6 +54,42 @@ User-Agent: BandwidthAPI/v2
           "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
         ],
       "owner"         : "+12345678901",
+      "direction"     : "out",
+      "segmentCount"  : 1
+    }
+  }
+]
+```
+
+### Example Error 2 of 2 (9902 - DLR Timeout)
+
+* Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known.
+* A timeout response with error-code : **9902 - Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known.** does **not** indicate that the message was not received. Only that the end-users' device did not communicate back to the network or the carrier did not provide us with a delivery confirmation
+
+{% sample lang='http' %}
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v2
+
+[
+  {
+    "type"          : "message-failed",
+    "time"          : "2016-09-14T18:20:16Z",
+    "description"   : "delivery-receipt-expired",
+    "to"            : "+12345678902",
+    "errorCode"     : 9902,
+    "message"       : {
+      "id"            : "14762070468292kw2fuqty55yp2b2",
+      "time"          : "2016-09-14T18:20:16Z",
+      "to"            : [
+          "+12345678902",
+        ],
+      "from"          : "+18008675309",
+      "text"          : "",
+      "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+      "owner"         : "+18008675309",
       "direction"     : "out",
       "segmentCount"  : 1
     }

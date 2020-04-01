@@ -2,7 +2,9 @@
 ## XML: `<Hangup>`
 The Hangup verb is used to hang up the current call.
 
-The Hangup verb is also used to reject incoming calls either explicitly or implicitly.
+The Hangup verb is also used to reject incoming, unanswered calls. An empty `<Response/>` is equivalent to a `<Response>` containing a `<Hangup/>`.
+
+You will not be charged for rejected calls.
 
 
 ### Attributes
