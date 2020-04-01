@@ -1,6 +1,6 @@
 {% method %}
 
-## XML: `<Transfer><Conference>`
+## XML: `<Conference>`
 The Transfer verb with the nested tag `<Conference>` is used to join the current call into a conference.
 
 ### Attributes
