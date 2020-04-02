@@ -6,9 +6,9 @@ to the endpoint that returned the BXML.
 
 Audio is cached according to [RFC 7234](https://tools.ietf.org/html/rfc7234). Our system may cache
 your media up to the value of the response's `Cache-Control` header's `max-age` directive, or,
-if none is present, until the time given in an `Expires` header. If no `Cache-Control` or `Expires`
-header is set on the response, media will not be cached. In any case, our system may always cache
-for a shorter amount of time or not cache at all.
+if none is present, until the time given in an `Expires` header. In either case, our system may
+always cache for a shorter amount of time or not cache at all. If no `Cache-Control` or `Expires`
+header is set on the response, media will not be cached.
 
 
 ### Attributes
