@@ -14,7 +14,11 @@ Forwards an unanswered incoming call to another number.
 
 ### Callbacks Received
 
-None
+| Callbacks                                 | Can reply with more BXML |
+|:------------------------------------------|:-------------------------|
+| [Disconnect](../callbacks/disconnect.md)  | No                       |
+
+**NOTE:** You will not receive any callbacks for the forwarded leg of the call (i.e. Answer). 
 
 {% common %}
 ### Example 1 of 1: Simple Forward
