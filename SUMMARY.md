@@ -7,7 +7,7 @@
 * [Security & Credentials](guides/accountCredentials.md)
 	* [Voice, Numbers, Account](guides/accountCredentials.md#voice-numbers-account)
 	* [Messaging](guides/accountCredentials.md#messaging)
-* [API & SDK Changelog](changelog.md)
+* [API, SDK, and BXML Changelog](changelog.md)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
