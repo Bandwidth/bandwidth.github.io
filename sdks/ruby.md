@@ -71,12 +71,9 @@ begin
     response = messaging_client.create_message(account_id, :body => body)
     puts response.data.id #1570740275373xbn7mbhsfewasdr
     puts response.status_code #202
-rescue Bandwidth::GenericClientException => e
+rescue Bandwidth::MessagingException => e
     puts e.description #Access is denied
     puts e.response_code #403
-rescue Bandwidth::PathClientException => e
-    puts e.message #Your request could not be accepted.
-    puts e.response_code #400
 end
 ```
 

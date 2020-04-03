@@ -14,8 +14,7 @@ pip install bandwidth-sdk
 from bandwidth.bandwidth_client import BandwidthClient
 
 from bandwidth.messaging.models.message_request import MessageRequest
-from bandwidth.messaging.exceptions.generic_client_exception import GenericClientException
-from bandwidth.messaging.exceptions.path_client_exception import PathClientException
+from bandwidth.messaging.exceptions.messaging_exception import MessagingException
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
@@ -89,12 +88,9 @@ try:
     response = messaging_client.create_message(account_id, body=body)
     print(response.body.id) #1570819529611mexbyfr7ugrouuxy
     print(response.status_code) #202
-except GenericClientException as e:
+except MessagingException as e:
     print(e.description) #Your request could not be accepted.
     print(e.response_code) #400
-except PathClientException as e:
-    print(e.message) #Access is denied
-    print(e.response_code) #403
 ```
 
 ### Order Phone Number
