@@ -1,6 +1,12 @@
 # Python SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 6.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+
+## Download & Install
 
 ℹ️ Note that bandwidth-sdk [`v5.x.x`](https://pypi.org/project/bandwidth-sdk/) and greater will only support Bandwidth's v2 APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate to v2. For v1 installation instructions, please see [old.dev.bandwidth.com](https://old.dev.bandwidth.com/clientLib/python.html).
 
@@ -8,7 +14,7 @@
 pip install bandwidth-sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```python
 from bandwidth.bandwidth_client import BandwidthClient
@@ -35,7 +41,7 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_password=messaging_basic_auth_password)
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```python
 voice_client = bandwidth_client.voice_client.client
@@ -57,7 +63,7 @@ except ErrorResponseException as e:
     print(e.response_code) #400
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```python
 response = Response()
@@ -72,7 +78,7 @@ response.add_verb(speak_sentence)
 print(response.to_bxml())
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```python
 messaging_client = bandwidth_client.messaging_client.client
@@ -93,6 +99,6 @@ except MessagingException as e:
     print(e.response_code) #400
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 Coming soon

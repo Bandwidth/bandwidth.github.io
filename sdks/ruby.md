@@ -1,12 +1,18 @@
 # Ruby SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 3.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+
+## Download & Install
 
 ```
 gem install bandwidth-sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```ruby
 require 'bandwidth'
@@ -23,7 +29,7 @@ bandwidth_client = Bandwidth::Client.new(
 )
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```ruby
 voice_client = bandwidth_client.voice_client.client
@@ -45,7 +51,7 @@ rescue Bandwidth::ErrorResponseException => e
 end
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```ruby
 response = Bandwidth::Voice::Response.new()
@@ -55,7 +61,7 @@ response.push(hangup)
 puts response.to_bxml()
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```ruby
 messaging_client = bandwidth_client.messaging_client.client
@@ -77,7 +83,7 @@ rescue Bandwidth::MessagingException => e
 end
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/ruby-bandwidth-iris). You can install this package by running the following command
 
