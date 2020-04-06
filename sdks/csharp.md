@@ -1,6 +1,12 @@
 # C# SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+
+## Download & Install
 
 ```
 nuget install Bandwidth.Sdk -OutputDirectory packages
@@ -9,7 +15,7 @@ nuget install Bandwidth.Sdk -OutputDirectory packages
 *Note:  This only adds the package to the disk.  The packages.config or dependency file needs to be modified to add it to the project.
 
 
-### Initialize Bandwidth Voice & Message Client
+## Initialize Bandwidth Voice & Message Client
 
 *__Note__:  If you see this error `System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send.`  This code may be needed `System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;`
 
@@ -31,7 +37,7 @@ Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Me
 
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```csharp
 using Bandwidth.Standard.Voice.Controllers;
@@ -53,7 +59,7 @@ try {
 
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```csharp
 using Bandwidth.Standard.Voice.Bxml;
@@ -71,7 +77,7 @@ Console.write( res.ToBXML() );
 
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```csharp
 using Bandwidth.Standard.Messaging;
@@ -87,7 +93,7 @@ msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 var response = msgController.CreateMessage(msgUserId, msgRequest);
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 ```csharp
 //Coming soon
