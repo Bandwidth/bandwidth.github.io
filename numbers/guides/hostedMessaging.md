@@ -400,7 +400,7 @@ Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <ImportTnOrder>
-  <CustomerOrderID>marktestorders</CustomerOrderID>
+  <CustomerOrderId>marktestorders</CustomerOrderId>
   <SiteId>14413</SiteId>
   <SipPeerId>521952</SipPeerId>
   <Subscriber>
