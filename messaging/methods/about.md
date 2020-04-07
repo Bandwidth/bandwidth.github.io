@@ -16,6 +16,7 @@ To receive [events/callbacks](../callbacks/messageEvents.md) for incoming and ou
 | Verb                           | Path                                                               | about                                                                         |
 |:-------------------------------|:-------------------------------------------------------------------|:------------------------------------------------------------------------------|
 | <code class="post">POST</code> | [`/users/{accountId}/messages`](../methods/messages/createMessage.md) | Send a text message to a single number or a group message to multiple numbers |
+| <code class="post">GET</code> | [`/users/{accountId}/messages`](../methods/messages/getMessages.md) | Get message information |
 
 ### Media & Attachment Management
 | Verb                               | Path                                                                   | about                                                                          |
