@@ -31,7 +31,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messages.messageType | string | The type of message  |
 | messages.segmentCount | integer | The number of segments the message was sent as |
 | messages.errorCode | integer | The numeric error code of the message |
-| messages.messageTime | string | The ISO 8601 datetime of the message |
+| messages.receiveTime | string | The ISO 8601 datetime of the message |
 
 {% common %}
 
@@ -60,7 +60,7 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
             "messageType":"sms",
             "segmentCount":1,
             "errorCode":0,
-            "messageTime":"2020-04-07T14:03:07.000Z"
+            "receiveTime":"2020-04-07T14:03:07.000Z"
         }
     ]
 }
