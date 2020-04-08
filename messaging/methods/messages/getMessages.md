@@ -1,6 +1,8 @@
 {% method %}
   
 ## Get Messages
+ 
+Note: This endpoint is in limited availability and is still in development. Changes should be expected.
 
 ### Request URL
 
