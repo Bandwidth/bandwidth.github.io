@@ -19,6 +19,13 @@ To choose a specific voice by name, use the `voice` attribute.
 | gender    | Selects the gender of the speaker. Valid values are `"male"` or `"female"`.<br><br>Default `"female"`                                                                            |
 | locale    | Selects the locale of the speaker. Consult `locale` column in the below table for valid values.<br><br>Default `"en_US"`                                                         |
 
+
+### Text Content
+| Name     | Description                                                                                                                                  |
+|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| text | The text to speak. Cannot be blank. Can be a mixture of plain text and SSML tags (see below for list of supported tags). |
+
+
 | **voice** | **locale** | **gender** |
 |:----------|:-----------|:-----------|
 | julie     | en_us      | female     |
