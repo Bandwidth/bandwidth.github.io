@@ -26,6 +26,11 @@ If no `transferCompleteUrl` is specified, no event will be sent, and execution o
 Note that the [TransferComplete](../callbacks/transferComplete.md) callback is only sent if the call is still active after the `<Transfer>` completes. If you need an event delivered for every `<Transfer>` regardless of how it ends, see the [Transfer Disconnect](../callbacks/transferDisconnect.md) event below. 
 
 ### Nested Tags
+
+You can either transfer to a `<PhoneNumber>` or a `<Conference>`, not both.
+
+### PhoneNumber
+
 Between 1 and 8 `<PhoneNumber>` tags must be nested within the `<Transfer>` tag to define the called parties.  If more than
 one `<PhoneNumber>` is specified, called parties will ring simultaneously and the first to answer will be bridged
 to the original call:
@@ -53,6 +58,23 @@ When each leg of the transfer ends for any reason, if `transferDisconnectUrl` wa
 [Transfer Disconnect](../callbacks/transferDisconnect.md) event will be sent to that URL. This event may not be responded to with BXML.
 
 <aside class="alert general small"><p>There can be a maximum of 8 phone numbers to transfer to. </p></aside>
+
+### Conference
+
+`<Conference>` tags must be nested within the `<Transfer>` tag for adding a call to a conference. This can be used to add inbound or outbound calls. 
+
+#### Conference attributes
+| Attribute                | Description                                                                                                                                                                                                             |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| friendlyName             | (required) The custom name used to reference this conference.                                                                                                                                                           |
+| mute                     | (optional) A boolean value to indicate if the member can't speak in the conference. Defaults to false                                                                                                                   |
+| hold                     | (optional) A boolean value to indicate if the member can't hear or speak in the conference. Defaults to false                                                                                                           |
+| callIdsToCoach           | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST.                                                                                                       |
+| conferenceEventUrl       | (optional) URL to send Conference events to and request new BXML.                                                                                                                                                       |
+| conferenceEventMethod    | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.                                                                                                          |
+| username                 | (optional) The username to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
+| password                 | (optional) The password to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
+| tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### Callbacks Received
 
