@@ -25,25 +25,27 @@ To choose a specific voice by name, use the `voice` attribute.
 |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | text | The text to speak. Cannot be blank. Can be a mixture of plain text and SSML tags (see below for list of supported tags). |
 
+### Supported Voices
+The table below shows a mapping of our supported voices.  It also maps our voice names to our current TTS provider (Amazon Polly).  Please note: in order to provide our customers the best experience possible we reserve the right to change TTS providers in the future.
 
-| **voice** | **locale** | **gender** |
-|:----------|:-----------|:-----------|
-| julie     | en_us      | female     |
-| kate      | en_us      | female     |
-| susan     | en_us      | female     |
-| dave      | en_us      | male       |
-| paul      | en_us      | male       |
-| bridget   | en_uk      | female     |
-| simon     | en_uk      | male       |
-| katrin    | de         | female     |
-| stefan    | de         | male       |
-| esperanza | es         | female     |
-| violeta   | es         | female     |
-| jorge     | es         | male       |
-| jolie     | fr         | female     |
-| bernard   | fr         | male       |
-| paola     | it         | female     |
-| luca      | it         | male       |
+| **voice** | **locale** | **gender** | **Provider Name (AWS Polly)** |
+|:----------|:-----------|:-----------|:-----------|
+| julie     | en_us      | female     | Joanna     |
+| kate      | en_us      | female     | Kendra     |
+| susan     | en_us      | female     | Kimberly   |
+| dave      | en_us      | male       | Matthew    |
+| paul      | en_us      | male       | Matthew    |
+| bridget   | en_uk      | female     | Amy        |
+| simon     | en_uk      | male       | Brian      |
+| katrin    | de         | female     | Marlene    |
+| stefan    | de         | male       | Hans       |
+| esperanza | es         | female     | Conchita   |
+| violeta   | es         | female     | Lucia      |
+| jorge     | es         | male       | Enrique    |
+| jolie     | fr         | female     | Celine     |
+| bernard   | fr         | male       | Mathieu    |
+| paola     | it         | female     | Carla      |
+| luca      | it         | male       | Giorgio    |
 
 ### SSML Tags Supported:
 
