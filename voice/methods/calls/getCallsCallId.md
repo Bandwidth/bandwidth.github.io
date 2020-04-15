@@ -34,7 +34,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | startTime       | The time the call was initiated, in ISO 8601 format.                                                                     |
 | answerTime      | (optional) Populated once the call has been answered, with the time in ISO 8601 format.                                  |
 | endTime         | (optional) Populated once the call has ended, with the time in ISO 8601 format.                                          |
-| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, or `unknown`.<br>`hangup` indicates the call ended normally. |
+| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`.<br>`hangup` indicates the call ended normally. |
 | errorMessage    | (optional) Populated only if the call ended with an error, with a text explaining the reason.                            |
 | errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
 | lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |
