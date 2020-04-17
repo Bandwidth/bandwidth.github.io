@@ -1122,7 +1122,7 @@ securitySchemes:
                                         example: "attachment; filename=bdrs_2015-04-01_2015-04-30.zip"
         /billingreports: 
             description: |
-                This API allows the retrieval of a zip file containing billing report for a specified date range and type.
+                This API allows the retrieval of a zip file containing billing report for a specified date range and type. Billing report data is available for 24-48 hours by API.
                 This billing report is delivered as a zip compressed comma separated values (CSV) file.<br>
                 The general flow of the API calls required to retrieve these records is
                 <ol>
@@ -1152,7 +1152,7 @@ securitySchemes:
                       </ul>
                 queryParameters:
                     kind:
-                        description: One of billing report type of BDR, MDR, INVOICE, STMTBDR, DIDSNAP, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR
+                        description: One of billing report types DIDSNAP, DIDSNAP_MSG. Empty parameter will return all reports of types DIDSNAP, DIDSNAP_MSG.
                         type: string
                         required: false
                         example: DIDSNAP
@@ -1191,6 +1191,10 @@ securitySchemes:
                                             </BillingReport>
                                         </BillingReportList>
                                     </BillingReportsRetrievalResponse>
+                    204:
+                        description: Billing report data for requested time frame hasn't been provided yet.
+                    400:
+                        description: A 400 response indicates that report type is incorrect.
             post:
                 description:
                     The payload for the POST declares the date range and type for the desired reports.
@@ -2608,7 +2612,7 @@ securitySchemes:
                         description: |
                             A GET on the loas file resource will cause the downloading of the file in a manner consistent with typical browser file downloads.
                         get:
-                            description: Retrieves the list of the loa (and other) files associated with the order
+                            description: Retrieves the file associated with the order
                             responses:
                                 200:
                                     description: |
@@ -2664,7 +2668,7 @@ securitySchemes:
                                 404:
                                     description: A 404 indicates that the file was not available for replacement.
                         delete:
-                            description: Retrieves the list of the loa (and other) files associated with the order
+                            description: Deletes the file associated with the order
                             responses:
                                 200:
                                     description: |
@@ -2717,357 +2721,41 @@ securitySchemes:
                                         description: |
                                             a 404 indicates that the indicated file was not found in conjunction with the order id.
         /csrs: 
-            description: |
-                The csrs endpoint is used to manage csrs requests.  Like many other requests, the csrs endpoint causes the creation of an <b>order</b> that is used to manage the lifecycle of the request.
-                The various sub-resources and methods are covered in greater detail below.
-                The elements used or supplied in the payloads are described in the following table...
-                <table border="1" cellspacing="0" cellpadding="0" width="624">
-                    <tbody>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    <strong>Parameter</strong>
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p>
-                                    <strong>Required</strong>
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    <strong>Description</strong>
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    accountId (URL Parameter)
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    Yes
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    The account ID for creating csr order.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    CustomerOrderId
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Internal customer order id for tracking the order.  Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    WorkingOrBillingTelephoneNumber (WTN)
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    Yes
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Working or Billing telephone number in 10-digits format NPANXXXXXX.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    AccountNumber
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the main account number on your bill, assigned by the current service provider. Alphanumeric characters are supported with a max length of 20 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    AccountTelephoneNumber
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the account telephone number assigned by the current service provider. Alphanumeric characters are supported with a max length of 10 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    EndUserName
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the name of the end user associated with the telephone number being queried. Alphanumeric characters are supported with a max length of 100 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    AuthorizingUserName
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the name of the end user who signed the authorization. Alphanumeric characters are supported with a max length of 100 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    CustomerCode
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the customer code associated with the service provider. Must be numeric characters only with a max length of 3 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    EndUserPIN
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the end user’s personal identification number (PIN). Alphanumeric characters are supported with a max length of 50 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    EndUserPassword
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the end user’s password to access the CSR, if applicable. Alphanumeric characters are supported with a max length of 100 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    AddressLine1
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the address line 1 portion of the service address. Alphanumeric characters are supported with a max length of 200 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    City
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the city of the end user where the telephone number is being serviced. Alphanumeric characters are supported with a max length of 100 characters.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    State
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the abbreviation for the state or province of the end user where the telephone number is being serviced. Must be alpha characters only in the format XX with a max length of 2 characters, where XX is the state or province abbreviation.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    ZIPCode
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    Identifies the ZIP code, ZIP Code + extension, or postal code or the end user where the telephone number is being serviced. Alphanumeric characters are supported with a max length of 10 characters (including the dash if using ZIP Code with extension).
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">
-                                <p>
-                                    TypeOfService
-                                </p>
-                            </td>
-                            <td valign="top">
-                                <p align="center">
-                                    No
-                                </p>
-                            </td>
-                            <td width="351" valign="top">
-                                <p>
-                                    The type of service identifying the end user account. Must be alphabetic characters only with a max length of 50 characters.
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            post:
+            get:
                 description: |
-                    Creates a csr order.<br>
-                    Upon a successfully-submitted payload, the order will have a status of "RECEIVED".<br>
-                    <br><br>
-                body:
-                    application/xml:
-                        example: |
-                            <Csr>
-                               <CustomerOrderId>myOrderId</CustomerOrderId>
-                               <WorkingOrBillingTelephoneNumber>2016191211</WorkingOrBillingTelephoneNumber>
-                            </Csr>
+                    Retrieves the csr orders for the given account ID.<br>
+                queryParameters:
+                    modifiedDateFrom:
+                        description: The earliest date that the order was last modified.
+                        type: date
+                        example: 2014-08-05T00:00:00.000Z
+                    modifiedDateTo:
+                        description: The latest date that the order was last modified. If no modifiedDateTo is specified when a modifiedDateFrom is specified then 'now' will be presumed to be the modifiedDateTo.
+                        type: date
+                        example: 2014-08-05T00:00:00.000Z
+                    page:
+                        description: The CSR order id corresponding to the page that you want to start from. "1" is used as a convention for the first CSR order for the account. Defaults to 1, if not provided.
+                        type: string
+                        example: ca8065d1-ec1a-43da-af40-1dcee43becb5
+                    size:
+                        description: The maximum number of results to retrieve. Defaults to 300, if not provided.
+                        type: integer
+                        example: 30
+                    status:
+                        description: Displays the CSR orders with a given order status.
+                        type: string
+                        example: complete
                 responses:
-                    201:
-                        description: The order has been created and an order ID will be specified in the payload and in the header.
+                    200:
+                        description: The response will include all CSR related data.
                         body:
                             application/xml:
                                 example: |
-                                    <CsrResponse>
-                                        <OrderId>4f5b3804-3d0d-49de-a133-d4b67ad6fa11</OrderId>
-                                        <Status>RECEIVED</Status>
-                                        <AccountNumber>123456789ABC</AccountNumber>
-                                        <AccountTelephoneNumber>9196191234</AccountTelephoneNumber>
-                                        <EndUserName>Bandwidth User</EndUserName>
-                                        <AuthorizingUserName>Auth Bandwidth User</AuthorizingUserName>
-                                        <CustomerCode>123</CustomerCode>
-                                        <EndUserPIN>123ABC</EndUserPIN>
-                                        <EndUserPassword>supersecretpassword123</EndUserPassword>
-                                        <AddressLine1>900 Main Campus Drive</AddressLine1>
-                                        <City>Raleigh</City>
-                                        <State>NC</State>
-                                        <ZIPCode>27606</ZIPCode>
-                                        <TypeOfService>business</TypeOfService>
-                                    </CsrResponse>
-                    400:
-                        description: The order failed. One of the input parameters is invalid.
-                        body:
-                            application/xml:
-                                example: |
-                                    <CsrResponse>
-                                        <Errors>
-                                            <Error>
-                                                <Code>26002</Code>
-                                                <Description>Customer order ID is invalid. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.</Description>
-                                            </Error>
-                                        </Errors>
-                                    </CsrResponse>
-                    409:
-                        description: Action can not be performed because account does not have CSR product feature enabled.
-                        body:
-                            application/xml:
-                                example: |
-                                    <CsrResponse>
-                                        <Errors>
-                                            <Error>
-                                                <Code>12160</Code>
-                                                <Description>The operation could not be performed because Account 123 does not have the CSR feature enabled.</Description>
-                                            </Error>
-                                        </Errors>
-                                    </CsrResponse>
-            /{orderid}: 
-                description: |
-                    This resource retrieves information associated with the csr associated with the ID number specified.
-                get:
-                    description: 'Retrieves the information associated with the specified csr order ID number.'
-                    responses:
-                        200:
-                            description: The information has been successfully retrieved and displayed in the payload.
-                            body:
-                                application/xml:
-                                    example: |
+                                    <CsrResponses>
+                                        <TotalCount>3</TotalCount>
+                                        <Links>
+                                            <first>Link=&lt;http://admin.localhost:8080/iris/accounts/1/csrs?page=1&amp;size=3&amp;shortPayload=true&gt;;rel="first";</first>
+                                        </Links>
                                         <CsrResponse>
                                             <CustomerOrderId>someValue</CustomerOrderId>
                                             <LastModifiedBy>systemUser</LastModifiedBy>
@@ -3082,257 +2770,34 @@ securitySchemes:
                                             <AuthorizingUserName>importantAuthGuy</AuthorizingUserName>
                                             <CustomerCode>123</CustomerCode>
                                             <EndUserPIN>12345</EndUserPIN>
-                                            <EndUserPassword>enduserpassword123</EndUserPassword>
                                             <AddressLine1>900 Main Campus Dr</AddressLine1>
                                             <City>Raleigh</City>
                                             <State>NC</State>
                                             <ZIPCode>27612</ZIPCode>
-                                            <TypeOfService>residential</TypeOfService>
-                                            <CsrData>
-                                                <AccountNumber>123456789</AccountNumber>
-                                                <CustomerName>JOHN SMITH</CustomerName>
-                                                <ServiceAddress>
-                                                    <UnparsedAddress>900 MAIN CAMPUS DR</UnparsedAddress>
-                                                    <City>RALEIGH</City>
-                                                    <State>NC</State>
-                                                    <Zip>27616</Zip>
-                                                </ServiceAddress>
-                                                <WorkingTelephoneNumber>9196191211</WorkingTelephoneNumber>
-                                                <WorkingTelephoneNumbersOnAccount>
-                                                    <TelephoneNumber>9196191211</TelephoneNumber>
-                                                </WorkingTelephoneNumbersOnAccount>
-                                            </CsrData>
-                                            <!-- This section is present if tram responds with error -->
-                                            <Errors>
-                                                <Error>
-                                                    <Code>26500</Code>
-                                                    <Description>CSR is not available for this TN</Description>
-                                                </Error>
-                                            </Errors>
+                                           <TypeOfService>residential</TypeOfService>
+                                           <CsrData>
+                                            <AccountNumber>123456789</AccountNumber>
+                                            <CustomerName>JOHN SMITH</CustomerName>
+                                            <ServiceAddress>
+                                                <UnparsedAddress>900 MAIN CAMPUS DR</UnparsedAddress>
+                                                <City>RALEIGH</City>
+                                                <State>NC</State>
+                                                <Zip>27616</Zip>
+                                            </ServiceAddress>
+                                            <WorkingTelephoneNumber>9196191211</WorkingTelephoneNumber>
+                                            <WorkingTelephoneNumbersOnAccount>
+                                                <TelephoneNumber>9196191211</TelephoneNumber>
+                                            </WorkingTelephoneNumbersOnAccount>
+                                        </CsrData>
                                         </CsrResponse>
-                        400:
-                            description: Order ID has invalid format.
-                            body:
-                                application/xml:
-                                    example: |
                                         <CsrResponse>
-                                            <Errors>
-                                                <Error>
-                                                    <Code>5061</Code>
-                                                    <Description>Order ID is invalid.</Description>
-                                                </Error>
-                                            </Errors>
+                                            <!-- SNIP -->
                                         </CsrResponse>
-                        404:
-                            description: Order does not exists or belongs to different account.
-                            body:
-                                application/xml:
-                                    example: |
                                         <CsrResponse>
-                                            <Errors>
-                                                <Error>
-                                                    <Code>26005</Code>
-                                                    <Description>CSR order not found</Description>
-                                                </Error>
-                                            </Errors>
+                                            <!-- SNIP -->
                                         </CsrResponse>
-                        409:
-                            description: Action can not be performed because account does not have CSR product feature enabled.
-                            body:
-                                application/xml:
-                                    example: |
-                                        <CsrResponse>
-                                            <Errors>
-                                                <Error>
-                                                    <Code>12160</Code>
-                                                    <Description>The operation could not be performed because Account 123 does not have the CSR feature enabled.</Description>
-                                                </Error>
-                                            </Errors>
-                                        </CsrResponse>
-                put:
-                    description: Replaces the existing csr conditional data with specificed csr conditional data. To cancel CSR order need provide Status tag with REQUESTED_CANCEL value. Note that csr order must be a non-real time with PROCESSING or ACTION_REQUIRED status.
-                    body:
-                        application/xml:
-                            example: |
-                                  <Csr>
-                                    <AccountNumber>987654321</AccountNumber>
-                                    <AccountTelephoneNumber>9196194444</AccountTelephoneNumber>
-                                    <EndUserName>bandwidthGuy</EndUserName>
-                                    <AuthorizingUserName>importantAuthGuy</AuthorizingUserName>
-                                    <CustomerCode>123</CustomerCode>
-                                    <EndUserPIN>12345</EndUserPIN>
-                                    <EndUserPassword>enduserpassword123</EndUserPassword>
-                                    <AddressLine1>900 Main Campus Dr</AddressLine1>
-                                    <City>Raleigh</City>
-                                    <State>NC</State>
-                                    <ZIPCode>27612</ZIPCode>
-                                    <TypeOfService>residential</TypeOfService>
-                                    <!-- cancel csr order -->
-                                    <Status>REQUESTED_CANCEL</Status>
-                                  </Csr>
-                    responses:
-                        200:
-                          description: The csr conditional data was successfully updated for the order.
-                          body:
-                            application/xml:
-                              example: |
-                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                <CsrResponse>
-                                    <CustomerOrderId>TEST BWDB-6506</CustomerOrderId>
-                                    <LastModifiedBy>systemUser</LastModifiedBy>
-                                    <OrderCreateDate>2020-01-13T21:14:35Z</OrderCreateDate>
-                                    <AccountId>14</AccountId>
-                                    <OrderId>5c3b8240-52b5-45a5-8d7d-42a71ebcd1ba</OrderId>
-                                    <LastModifiedDate>2020-01-13T16:51:21.920Z</LastModifiedDate>
-                                    <Status>COMPLETE</Status>
-                                    <AccountNumber>987654321</AccountNumber>
-                                    <AccountTelephoneNumber>9196194444</AccountTelephoneNumber>
-                                    <EndUserName>bandwidthGuy</EndUserName>
-                                    <AuthorizingUserName>importantAuthGuy</AuthorizingUserName>
-                                    <CustomerCode>123</CustomerCode>
-                                    <EndUserPIN>12345</EndUserPIN>
-                                    <EndUserPassword>enduserpassword123</EndUserPassword>
-                                    <AddressLine1>900 Main Campus Dr</AddressLine1>
-                                    <City>Raleigh</City>
-                                    <State>NC</State>
-                                    <ZIPCode>27612</ZIPCode>
-                                    <TypeOfService>residential</TypeOfService>
-                                    <CsrData>
-                                        <AccountNumber>123456789</AccountNumber>
-                                        <CustomerName>JOHN SMITH</CustomerName>
-                                        <ServiceAddress>
-                                            <UnparsedAddress>900 MAIN CAMPUS DR</UnparsedAddress>
-                                            <City>RALEIGH</City>
-                                            <State>NC</State>
-                                            <Zip>27616</Zip>
-                                        </ServiceAddress>
-                                        <WorkingTelephoneNumber>9196191156</WorkingTelephoneNumber>
-                                        <WorkingTelephoneNumbersOnAccount>
-                                            <TelephoneNumber>9196191156</TelephoneNumber>
-                                        </WorkingTelephoneNumbersOnAccount>
-                                    </CsrData>
-                                </CsrResponse>
-                        400:
-                          description: There was an error replacing the conditional data for the order.
-                          body:
-                            application/xml:
-                              example: |
-                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                <CsrResponse>
-                                    <Errors>
-                                        <Error>
-                                            <Code>26020</Code>
-                                            <Description>Modification of a CSR order that is in a terminal status is not allowed.</Description>
-                                        </Error>
-                                        <Error>
-                                            <Code>26021</Code>
-                                            <Description>Modification of conditional fields on CSR orders is only allowed if order is in ACTION_REQUIRED status</Description>
-                                        </Error>
-                                        <Error>
-                                            <Code>26008</Code>
-                                            <Description>AccountTelephoneNumber is invalid. Alphanumeric characters are supported with a max length of 10 characters.</Description>
-                                        </Error>
-                                        <Error>
-                                            <Code>26012</Code>
-                                            <Description>EndUserPIN is invalid. Alphanumeric characters are supported with a max length of 50 characters.</Description>
-                                        </Error>
-                                        <Error>
-                                            <Code>26013</Code>
-                                            <Description>EndUserPassword is invalid. Alphanumeric characters are supported with a max length of 100 characters.</Description>
-                                        </Error>
-                                    </Errors>
-                                </CsrResponse>
-                /notes: 
-                    # note that this file is shared between multiple order types -
-                    #  - orders
-                    #  - disconnects
-                    #  - portins
-                    #  - portouts
-                    #  - inporttoaccount
-                    #  - lidbs
-                    #  - dldas
-                    #  - bulkPortins
-                    #  - csrs
-                    #
-                    description: |
-                        The /notes resource manages a note or set of notes associated with an order.
-                    post:
-                        description: Updates the Notes resource by adding a note. Adding a note to a port-in order causes a notification to be sent to Bandwidth Operations, so that they may assist as necessary.
-                        body:
-                            application/xml:
-                                example:
-                                    <?xml version="1.0" encoding="UTF-8"?>
-                                    <Note>
-                                       <UserId>userId</UserId>
-                                       <Description>note text</Description>
-                                    </Note>
-                        responses:
-                            201:
-                                description: CREATED - the note has been created and added to the collection of notes associated with the order.  A link to the note is included in the Location header of the response.  No body is returned
-                            400:
-                                description: Bad Request - the note has not been created because the payload is incomplete or in error.  An error payload is provided in the response.
-                                body:
-                                    application/xml:
-                                        example: |
-                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                            <NoteResponse>
-                                                <ResponseStatus>
-                                                    <ErrorCode>12501</ErrorCode>
-                                                    <Description>Username is required</Description>
-                                                </ResponseStatus>
-                                            </NoteResponse>           
-                    get:
-                        description: Retrieve the set of notes associated with an order.
-                        responses:
-                            200:
-                                description: OK - there are Notes associated with the order, and they have been returned in the response.
-                                body:
-                                    application/xml:
-                                        example: |
-                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                            <Notes>
-                                                <Note>
-                                                    <Id>87037</Id>
-                                                    <UserId>jbm</UserId>
-                                                    <Description>This is a test note</Description>
-                                                    <LastDateModifier>2014-11-16T04:01:10.000Z</LastDateModifier>
-                                                </Note>
-                                                <Note>
-                                                    <Id>87039</Id>
-                                                    <UserId>smckinnon</UserId>
-                                                    <Description>This is a second test note</Description>
-                                                    <LastDateModifier>2014-11-16T04:08:46.000Z</LastDateModifier>
-                                                </Note>
-                                            </Notes>                    
-                            204:
-                                description: No Content - there are no Notes associated with the order.  Since the notes resource is an aggregate rather than addressed resource the generic no content response is used, rather than a 404 as would be used if the resource was addressed with an identifier
-                    /{noteId}: 
-                        description: |
-                            Resource manages a note.
-                        put:
-                            description: Updates single note by it's id.
-                            body:
-                                application/xml:
-                                    example:
-                                        <Note>
-                                           <UserId>userId</UserId>
-                                           <Description>note text</Description>
-                                        </Note>
-                            responses:
-                                200:
-                                    description: OK - note has been updated.  No body is returned
-                                400:
-                                    description: Bad Request - the note has not been updated because the payload is incomplete or in error.  An error payload is provided in the response.
-                                    body:
-                                        application/xml:
-                                            example: |
-                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                                <NoteResponse>
-                                                    <ResponseStatus>
-                                                        <ErrorCode>12501</ErrorCode>
-                                                        <Description>Username is required</Description>
-                                                    </ResponseStatus>
-                                                </NoteResponse>           
+                                        <!-- SNIP -->
+                                    </CsrResponses>
         /discnumbers: 
             description: This API call provides information on numbers that have been disconnected from an account.
             get:
@@ -4657,7 +4122,7 @@ securitySchemes:
                             Default value of <b>PreferredLanguage</b> is 'en'.<br>
                             <strong>Non-PIDF-LO:</strong><br>
                             <b>CallbackNumber</b> is required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters and must be between 6 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters and must be between 6 and 30 characters.<br>
                             <strong>PIDF-LO:</strong><br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.
@@ -4705,7 +4170,7 @@ securitySchemes:
                             <b>DeleteTNSpecificE911Address</b> is required and must be 'true'.<br>
                             <strong>Non-PIDF-LO:</strong><br>
                             <b>CallbackNumber</b> is required.<br>
-                            <b>Identifier</b> can only contain alphanumeric characters 6 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters 6 and 30 characters.<br>
                             <strong>PIDF-LO:</strong><br>
                             <b>PIDFLOEnabled</b> is required and must be 'true'.<br>
                             <b>Identifier</b> can only contain alphanumeric characters and must be between 1 and 30 characters.
@@ -4817,7 +4282,7 @@ securitySchemes:
                           <td><strong>SIMPLE AEUI</strong><br>
                             Non-PIDF-LO endpoint-provisioning order.<br>
                             <b>AlternateEndUserIdentifiers</b>, <b>AlternateEndUserIdentifier</b>, <b>Address</b>, <b>CallbackNumber</b>, and <b>Identifier</b> are required<br>
-                            <b>Identifier</b> can only contain alphanumeric characters, must contain at least one letter, and must be between 6 and 32 characters.<br>
+                            <b>Identifier</b> can only contain alphanumeric characters, must contain at least one letter, and must be between 6 and 30 characters.<br>
                           </td>
                           <td>
                             <pre>
@@ -5205,7 +4670,7 @@ securitySchemes:
                      border="1" cellpadding="2" cellspacing="2">
                       <tbody>
                         <tr>
-                          <td>CustomerOrderID</td>
+                          <td>CustomerOrderId</td>
                           <td>An order ID created by the customer for their tracking purposes. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.</td>
                         </tr>
                         <tr>
@@ -5231,7 +4696,7 @@ securitySchemes:
                         example: |
                             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                             <ExternalTnsOrder>
-                                <CustomerOrderID>ICPA123ABC</CustomerOrderID>
+                                <CustomerOrderId>ICPA123ABC</CustomerOrderId>
                                 <SiteId>743</SiteId>
                                 <SipPeerId>303716</SipPeerId>
                                 <Action>[ IMPORT | REMOVE ]</Action>
@@ -5628,6 +5093,12 @@ securitySchemes:
                         description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find Import Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
                         type: string
                         example: 2013-10-25
+                    loaType:
+                        description: whether or not the results should be restricted to CARRIER or SUBSCRIBER orders.  The Default value is "ALL"
+                        type: string
+                        example: SUBSCRIBER
+                        enum: [CARRIER, SUBSCRIBER]
+                        repeat: false
                 responses:
                     200:
                         description: The descriptive payload for the importTnOrders query provides information about the orders found by the query, including the data associated with the order, the state of the order, and a list of the successfully imported Telephone Numbers, and decriptions of any encountered errors. 
@@ -5666,7 +5137,7 @@ securitySchemes:
                                     </ImportTnOrders>
             post:
                 description: |
-                    Creates a importTnOrders request to add or remove telephone numbers under the given site ID and sippeer ID as specified in the body. Note: the attempt to import a telephone number that is already present in the account will *not* create an error, but will reset all of the  attributes of that telephone number in the Dashboard system as if the telephone number was being imported for the first time
+                    Creates an importTnOrders request to add numbers under the given site ID and sippeer ID as specified in the body.
                     A successfully submitted order will have a status of "RECEIVED". A successfully completed order will have a status of "COMPLETE" if all of the telephone numbers were successfully imported and  "PARTIAL" if some of the telephone numbers were imported. A failed order with will have a staus of "FAILED" and no telephone numbers would have been imported.
                     The elements supplied in the payloads are described in the following table:
                     <table border="1" cellspacing="0" cellpadding="0" width="624">
@@ -5844,6 +5315,23 @@ securitySchemes:
                             <tr>
                                 <td valign="top">
                                     <p>
+                                        LoaType
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p align="center">
+                                        Yes
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        (Optional) Indentify the LoaType on TNs. Allowed values... CARRIER or  SUBSCRIBER. Default value is SUBSCRIBER.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <p>
                                         TelephoneNumber
                                     </p>
                                 </td>
@@ -5913,6 +5401,7 @@ securitySchemes:
                                     </ServiceAddress>
                                 </Subscriber>
                                 <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
+                                <LoaType>CARRIER</LoaType>
                                 <TelephoneNumbers>
                                     <TelephoneNumber>9199918388</TelephoneNumber>
                                     <TelephoneNumber>4158714245</TelephoneNumber>
@@ -5949,6 +5438,7 @@ securitySchemes:
                                                 </ServiceAddress>
                                             </Subscriber>
                                             <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
+                                            <LoaType>CARRIER</LoaType>
                                             <TelephoneNumbers>
                                                 <TelephoneNumber>9199918388</TelephoneNumber>
                                                 <TelephoneNumber>4158714245</TelephoneNumber>
@@ -6008,6 +5498,7 @@ securitySchemes:
                                                 </ServiceAddress>
                                             </Subscriber>
                                             <LoaAuthorizingPerson>The Authguy</LoaAuthorizingPerson>
+                                            <LoaType>CARRIER</LoaType>
                                             <TelephoneNumbers>
                                                 <TelephoneNumber>2106078250</TelephoneNumber>
                                                 <TelephoneNumber>2109678273</TelephoneNumber>
@@ -6152,7 +5643,7 @@ securitySchemes:
                         description: |
                             A GET on the loas file resource will cause the downloading of the file in a manner consistent with typical browser file downloads.
                         get:
-                            description: Retrieves the list of the loa (and other) files associated with the order
+                            description: Retrieves the file associated with the order
                             responses:
                                 200:
                                     description: |
@@ -6208,7 +5699,7 @@ securitySchemes:
                                 404:
                                     description: A 404 indicates that the file was not available for replacement.
                         delete:
-                            description: Retrieves the list of the loa (and other) files associated with the order
+                            description: Deletes the file associated with the order
                             responses:
                                 200:
                                     description: |
@@ -9850,6 +9341,36 @@ securitySchemes:
                                             <NewBillingTelephoneNumber>9175131245</NewBillingTelephoneNumber>
                                             <Triggered>false</Triggered>
                                         </LnpOrderResponse>
+                        400:
+                            description: List of telephone numbers cannot be changed due to validation errors.
+                            body:
+                                application/xml:
+                                    example: |
+                                        <LnpOrderResponse>
+                                            <OrderId>c58fed09-a3fc-49b8-b461-2286146b73c1</OrderId>
+                                            <Status>
+                                                <Code>400</Code>
+                                                <Description>Validation Failed. Please check your input parameters.</Description>
+                                            </Status>
+                                            <Errors>
+                                                <Code>7331</Code>
+                                                <Description>Rate Center Not Present in Bandwidth Dashboard</Description>
+                                                <TelephoneNumbers>
+                                                    <Tn>7138391156</Tn>
+                                                </TelephoneNumbers>
+                                            </Errors>
+                                            <Errors>
+                                                <Code>7495</Code>
+                                                <Description>Unable to change the TNs on this port. Please ensure that the new TNs are from the same losing carrier as the current TNs.</Description>
+                                                <TelephoneNumbers>
+                                                    <Tn>2024551000</Tn>
+                                                    <Tn>2018391156</Tn>
+                                                    <Tn>2018391157</Tn>
+                                                </TelephoneNumbers>
+                                            </Errors>
+                                            <ProcessingStatus>EXCEPTION</ProcessingStatus>
+                                            <BillingTelephoneNumber>4352154438</BillingTelephoneNumber>
+                                        </LnpOrderResponse>
                 delete:
                     description: |
                         If portin is in DRAFT state the order will be deleted. Otherwise the call simply places the existing order in a cancelled state.
@@ -10209,7 +9730,7 @@ securitySchemes:
                         description: |
                             A GET on the loas file resource will cause the downloading of the file in a manner consistent with typical browser file downloads.
                         get:
-                            description: Retrieves the list of the loa (and other) files associated with the order
+                            description: Retrieves the file associated with the order
                             responses:
                                 200:
                                     description: |
@@ -10265,7 +9786,7 @@ securitySchemes:
                                 404:
                                     description: A 404 indicates that the file was not available for replacement.
                         delete:
-                            description: Retrieves the list of the loa (and other) files associated with the order
+                            description: Deletes the file associated with the order
                             responses:
                                 200:
                                     description: |
@@ -12398,6 +11919,22 @@ securitySchemes:
                                         application/xml:
                                             example: |
                                                 None
+                                400:
+                                    description: |
+                                        Bad Request. Possible errors in response:
+                                        <ul>
+                                           <li>Delete not allowed while a SIP Peer has SMS feature</li>
+                                        </ul>
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <SipPeerResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>13613</ErrorCode>
+                                                        <Description>Delete not allowed while a SIP Peer has SMS feature</Description>
+                                                    </ResponseStatus>
+                                                </SipPeerResponse>
                                 404:
                                     description: Sip Peer not found
                                     body:
@@ -12577,7 +12114,14 @@ securitySchemes:
                                             </SipPeerTelephoneNumbers>
                                 responses:
                                     200:
-                                        description: The request has been successfully received. 
+                                        description: The request has been successfully received.
+                                    400:
+                                        description: |
+                                            Bad Request. Possible errors in response:
+                                            <ul>
+                                                <li>Shared TNs with messaging cannot be moved to a sippeer without the SMS feature enabled.</li>
+                                                <li>Shared TNs with voice cannot be moved to a sippeer with the SMS feature enabled.</li>
+                                            </ul>
                         /products: 
                             description:  |
                                 This API will expose products that are associated directly with the SIP Peer.
@@ -12854,9 +12398,9 @@ securitySchemes:
                                                         </SipPeerSmsFeatureResponse>
                                 post:
                                     description: |
-                                        Create sms feature settings.
-                                        Warning: settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer
-                                        Note: In case of using SMPP protocol, it may be not possible to add or delete hosts with large subnet masks.
+                                        Create sms feature settings. <br/>
+                                        <b>Warning</b>: settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer <br/>
+                                        <b>Note</b>: In case of using SMPP protocol, it may be not possible to add or delete hosts with large subnet masks. <br/>
                                         Please refer to the documentation of
                                         accounts/:accountid/sites/:siteid/sippeers/:sippeerid/products/:messaging/features/sms/smpp/hosts
                                         endpoint for information about restrictions and other tips regarding smpp hosts.
@@ -12933,24 +12477,31 @@ securitySchemes:
                                             description: |
                                                 Bad Request. Possible errors in response:
                                                 <ul>
-                                                   <li>Account level settings don`t exist</li>
-                                                   <li>CampaignID shouldn't be present if all of features 'A2pLongCode', 'TollFree' and
-                                                   'ShortCode' are disabled</li>
-                                                   <li>CampaignID is required if at least one of features 'A2pLongCode', 'TollFree' and
-                                                   'ShortCode' is enabled</li>
-                                                   <li>A2P Campaign ID '%s' is not valid. Needs to be between 1 and 64 characters. Only alphanumeric
-                                                   characters, whitespaces, dashes, underscores and dots are allowed.</li>
-                                                   <li>A2P Message Class '%s' is not valid.</li>
-                                                   <li>A2P Message Class is required if at least one of features 'A2pLongCode', 'TollFree' and
-                                                   'ShortCode' is enabled</li>
-                                                   <li>A2P Message Class shouldn't be present if all of features 'A2pLongCode', 'TollFree' and
-                                                   'ShortCode' are disabled</li>
-                                                   <li>Host ip or mask can't be changed</li>
-                                                   <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
-                                                   <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
-                                                   <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
-                                                   <li>The IP address provided: <47.123.17.17> contains a non zero subnet portion. An equivalent IP
-                                                   address such as <47.123.17.16> with a zero subnet value must be provided</li>
+                                                    <li>Account level settings don`t exist</li>
+                                                    <li>CampaignID shouldn't be present if all of features 'A2pLongCode', 'TollFree' and
+                                                    'ShortCode' are disabled</li>
+                                                    <li>CampaignID is required if at least one of features 'A2pLongCode', 'TollFree' and
+                                                    'ShortCode' is enabled</li>
+                                                    <li>Campaign ID '%s' was not found in list of authorized Campaign IDs.</li>
+                                                    <li>A2P Campaign ID '%s' is not valid. Needs to be between 1 and 64 characters. Only alphanumeric
+                                                    characters, whitespaces, dashes, underscores and dots are allowed.</li>
+                                                    <li>A2P Message Class '%s' is not valid.</li>
+                                                    <li>A2P Message Class is required if at least one of features 'A2pLongCode', 'TollFree' and
+                                                    'ShortCode' is enabled</li>
+                                                    <li>A2P Message Class shouldn't be present if all of features 'A2pLongCode', 'TollFree' and
+                                                    'ShortCode' are disabled</li>
+                                                    <li>A2P Message Class '%s' was not found in list of authorized Message Classes.</li>
+                                                    <li>A2P Message Class is required if 'A2pLongCode' is enabled.</li>
+                                                    <li>A2P Message Class shouldn't be present if 'A2pLongCode' is disabled.</li>
+                                                    <li>A2pLongCode value is invalid. Valid values are: 'ON', 'OFF', 'DefaultOn', 'DefaultOff'.</li>
+                                                    <li>Host ip or mask can't be changed</li>
+                                                    <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
+                                                    <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
+                                                    <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
+                                                    <li>The IP address provided: &lt;47.123.17.17&gt; contains a non zero subnet portion. An equivalent IP
+                                                    address such as &lt;47.123.17.16&gt; with a zero subnet value must be provided</li>
+                                                    <li>Account '%s' has no '%s' product feature</li>
+                                                    <li>Can't create sip peer http protocol sms feature without account level http settings.</li>
                                                 </ul>
                                             body:
                                                 application/xml:
@@ -12980,9 +12531,9 @@ securitySchemes:
                                                         </SipPeerSmsFeatureResponse>
                                 put:
                                     description: |
-                                        Update sms feature settings.
-                                        Warning: settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer
-                                        Note: In case of using SMPP protocol, it may be not possible to add or delete hosts with large subnet masks.
+                                        Update sms feature settings. <br/>
+                                        <b>Warning</b>: settings A2pLongCode as 'ON' or 'OFF' will enforce this value for all tns under target sippeer <br/>
+                                        <b>Note</b>: In case of using SMPP protocol, it may be not possible to add or delete hosts with large subnet masks. <br/>
                                         Please refer to the documentation of
                                         accounts/:accountid/sites/:siteid/sippeers/:sippeerid/products/:messaging/features/sms/smpp/hosts
                                         endpoint for information about restrictions and other tips regarding smpp hosts.
@@ -13063,15 +12614,24 @@ securitySchemes:
                                                 <ul>
                                                    <li>CampaignID shouldn't be present if all of features 'A2pLongCode', 'TollFree' and 'ShortCode' are disabled</li>
                                                    <li>CampaignID is required if at least one of features 'A2pLongCode', 'TollFree' and 'ShortCode' is enabled</li>
-                                                   <li>A2P Campaign ID '%s' is not valid. Needs to be between 1 and 64 characters. Only alphanumeric characters, whitespaces, dashes, underscores and dots are allowed.</li>
+                                                   <li>Campaign ID '%s' was not found in list of authorized Campaign IDs.</li>
+                                                   <li>A2P Campaign ID '%s' is not valid. Needs to be between 1 and 64 characters. Only alphanumeric characters,
+                                                   whitespaces, dashes, underscores and dots are allowed.</li>
                                                    <li>A2P Message Class '%s' is not valid.</li>
                                                    <li>A2P Message Class is required if at least one of features 'A2pLongCode', 'TollFree' and 'ShortCode' is enabled</li>
                                                    <li>A2P Message Class shouldn't be present if all of features 'A2pLongCode', 'TollFree' and 'ShortCode' are disabled</li>
+                                                   <li>A2P Message Class '%s' was not found in list of authorized Message Classes.</li>
+                                                   <li>A2P Message Class is required if 'A2pLongCode' is enabled.</li>
+                                                   <li>A2P Message Class shouldn't be present if 'A2pLongCode' is disabled.</li>
+                                                   <li>A2pLongCode value is invalid. Valid values are: 'ON', 'OFF', 'DefaultOn', 'DefaultOff'.</li>
                                                    <li>Host ip or mask can't be changed</li>
                                                    <li>47.0.0.0/12 has invalid mask. Valid mask values: 14-32</li>
                                                    <li>Termination IP 47.123.17.16/30 overlaps with an address that is already in use</li>
                                                    <li>Termination IP 47.123.17.16/30 overlaps with addresses that are already in use: 47.123.17.18</li>
-                                                   <li>The IP address provided: <47.123.17.17> contains a non zero subnet portion. An equivalent IP address such as <47.123.17.16> with a zero subnet value must be provided</li>
+                                                   <li>The IP address provided: &lt;47.123.17.17&gt; contains a non zero subnet portion. An equivalent
+                                                   IP address such as &lt;47.123.17.16&gt; with a zero subnet value must be provided</li>
+                                                   <li>Can not disable shortcode sms settings for a SipPeer if shortcode numbers with messaging enabled
+                                                   are present on this SipPeer</li>
                                                 </ul>
                                             body:
                                                 application/xml:
@@ -13104,6 +12664,23 @@ securitySchemes:
                                     responses:
                                         200:
                                             description: settings have been deleted
+                                        400:
+                                            description: |
+                                                Bad Request. Possible errors in response:
+                                                <ul>
+                                                  <li>SMS feature can't be removed because MMS feature is present, remove it first.</li>
+                                                  <li>Can not disable SMS feature on Sip Peer because it has telephone numbers with messaging enabled.</li>
+                                                </ul>
+                                            body:
+                                                application/xml:
+                                                    example: |
+                                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                        <SipPeerSmsFeatureResponse>
+                                                            <ResponseStatus>
+                                                                <ErrorCode>13673</ErrorCode>
+                                                                <Description>Can not disable SMS feature on Sip Peer because it has telephone numbers with messaging enabled.</Description>
+                                                            </ResponseStatus>
+                                                        </SipPeerSmsFeatureResponse>
                                         404:
                                             description: sms settings do not exist
                                 /smpp/hosts: 
@@ -14393,8 +13970,6 @@ securitySchemes:
                     <li> Protected - [ true | false | <i>unchanged</i> | <i>systemDefault</i>] </li>
                     <li> Sms - [ on | off | <i>unchanged</i>] </li>
                     <li> FinalDestinationURI - [ string | <i>unchanged</i> | <i>systemDefault</i>] </li>
-                    <li> NNID [ integer | <i>unchanged</i> | <i>systemDefault</i> ] </li>
-                    <li> ESPID [ string | <i>unchanged</i> | <i>systemDefault</i> ] </li>
                     <ul>
                       <li>a 10 digit telephone number, or</li>
                       <li>a SIP URI ( without the sip: prefix )
@@ -14407,6 +13982,8 @@ securitySchemes:
                         </ul>
                       </li>
                     </ul>
+                    <li> NNID [ integer | <i>unchanged</i> | <i>systemDefault</i> ] </li>
+                    <li> ESPID [ string | <i>unchanged</i> | <i>systemDefault</i> ] </li>
                     <li> A2pSettings </li>
                     <ul>
                       <li>MessageClass - [ string {1,64} ] </li>
@@ -15262,6 +14839,33 @@ securitySchemes:
                                         </HostedTelephoneNumberDetail>
                                       </HostedTelephoneNumberDetails>
                                     </TelephoneNumberDetails>
+                                    </TelephoneNumberResponse>
+                                    <!-- Non-NAMP details -->
+                                    <TelephoneNumberResponse>
+                                        <TelephoneNumberDetails>
+                                            <FullNumber>+33140289562</FullNumber>
+                                            <Country>FR</Country>
+                                            <TnType>geographic</TnType>
+                                            <VendorId>49</VendorId>
+                                            <VendorName>Bandwidth CLEC</VendorName>
+                                            <OnNetVendor>true</OnNetVendor>
+                                            <Status>Inservice</Status>
+                                            <AccountId>12345678</AccountId>
+                                            <Site>
+                                                <Id>123</Id>
+                                                <Name>site</Name>
+                                            </Site>
+                                            <SipPeer>
+                                                <PeerId>500001</PeerId>
+                                                <PeerName>sippeer</PeerName>
+                                                <IsDefaultPeer>false</IsDefaultPeer>
+                                            </SipPeer>
+                                            <ServiceTypes>
+                                                <ServiceType>Voice</ServiceType>
+                                            </ServiceTypes>
+                                            <LastModified>2020-03-03T15:30:07.000Z</LastModified>
+                                            <InServiceDate>2020-03-03T15:30:07.518Z</InServiceDate>
+                                        </TelephoneNumberDetails>
                                     </TelephoneNumberResponse>
                     400:
                         description: Bad Request - failed to get detailed information about the current phone number.
