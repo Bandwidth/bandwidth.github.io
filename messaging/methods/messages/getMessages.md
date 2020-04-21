@@ -16,7 +16,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 | Parameter | Type | Description | Examples |
 |:--|:--|:--|:--|
-| messageId | string | The ID of the message to search for. Special characters need to be ecoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
+| messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
 
 ### Response Parameters
 
