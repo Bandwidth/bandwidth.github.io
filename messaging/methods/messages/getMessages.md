@@ -14,11 +14,9 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 ### Query Parameters
 
-Some query parameters (such as `messageId`, `sourceTn`, and `destinationTn`) may have special characters like `+` in them. Please make sure to URL encode these values
-
-| Parameter | Type | Description |
-|:--|:--|:--|
-| messageId | string | The ID of the message to search for |
+| Parameter | Type | Description | Examples |
+|:--|:--|:--|:--|
+| messageId | string | The ID of the message to search for. Special characters need to be ecoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
 
 ### Response Parameters
 
