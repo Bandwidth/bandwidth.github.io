@@ -18,14 +18,14 @@ The nested tag `<Conference>` defines the conference the call will join.
 #### Conference attributes
 | Attribute                | Description                                                                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| mute                     | (optional) TODO |
-| hold                     | (optional) TODO |
-| callIdsToCoach           | (optional) TODO |
-| tag                      | (optional) TODO |
-| conferenceEventUrl       | (optional) TODO |
-| conferenceEventMethod    | (optional) TODO |
-| username                 | (optional) TODO |
-| password                 | (optional) TODO |
+| mute                     | (optional) A boolean value to indicate if the member can't speak in the conference. Defaults to false                                                                                                                   |
+| hold                     | (optional) A boolean value to indicate if the member can't hear or speak in the conference. Defaults to false                                                                                                           |
+| callIdsToCoach           | (optional) The list of call ids to coach.                                                                                                                                                                               |
+| conferenceEventUrl       | (optional) URL to send Conference events to and request new BXML.                                                                                                                                                       |
+| conferenceEventMethod    | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.                                                                                                          |
+| username                 | (optional) The username to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
+| password                 | (optional) The password to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
+| tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### Callbacks Received
 | Callbacks                                                 | Can reply with more BXML |
