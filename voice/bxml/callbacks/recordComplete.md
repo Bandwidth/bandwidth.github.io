@@ -56,8 +56,8 @@ POST http://[External server URL]
 	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
 	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
 	"channels"      : 1,
-	"startTime"     : "2019-09-13T16:48:29.235833Z",
-	"endTime"       : "2019-09-13T16:48:48.890016Z",
+	"startTime"     : "2019-09-13T16:48:29.235Z",
+	"endTime"       : "2019-09-13T16:48:48.890Z",
 	"duration"      : "PT20.056S",
 	"fileFormat"    : "wav",
 	"mediaUrl"      : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/media"

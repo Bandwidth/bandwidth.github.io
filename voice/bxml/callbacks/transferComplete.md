@@ -54,7 +54,7 @@ POST http://[External server URL]
 	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
-	"startTime"        : "2019-07-31T13:13:34.859318Z",
+	"startTime"        : "2019-07-31T13:13:34.859Z",
 	"cause"            : "hangup",
 	"errorMessage"     : "",
 	"errorId"          : ""
@@ -79,7 +79,7 @@ POST http://[External server URL]
 	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
-	"startTime"        : "2019-07-31T13:13:34.859318Z",
+	"startTime"        : "2019-07-31T13:13:34.859Z",
 	"cause"            : "busy",
 	"errorMessage"     : "Callee is busy",
 	"errorId"          : "4642074b-7b58-478b-96e4-3a60955c6765"
