@@ -48,9 +48,9 @@ POST http://[External server URL]
     "callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
     "transferCallerId" : "+15551115555",
     "transferTo"       : "+15556667777",
-    "startTime"        : "2019-12-27T19:18:20.721041Z",
-    "answerTime"       : "2019-12-27T19:18:23.320006Z",
-    "endTime"          : "2019-12-27T19:19:27.987148Z",
+    "startTime"        : "2019-12-27T19:18:20.721Z",
+    "answerTime"       : "2019-12-27T19:18:23.320Z",
+    "endTime"          : "2019-12-27T19:19:27.987Z",
     "cause"            : "hangup"
 }
 ```
@@ -72,8 +72,8 @@ POST http://[External server URL]
     "callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
     "transferCallerId" : "+15551115555",
     "transferTo"       : "+15556667777",
-    "startTime"        : "2019-12-27T19:23:38.685115Z",
-    "endTime"          : "2019-12-27T19:23:39.465351Z",
+    "startTime"        : "2019-12-27T19:23:38.685Z",
+    "endTime"          : "2019-12-27T19:23:39.465Z",
     "cause"            : "busy",
     "errorMessage"     : "Callee is busy",
     "errorId"          : "4642074b-7b58-478b-96e4-3a60955c6765"
