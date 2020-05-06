@@ -6,6 +6,8 @@ This guide will cover the different credentials for interacting with Bandwidth's
 
 All of Bandwidth's APIs are protected with Basic Authorization over HTTPS. Basic Authorization requires the credential pair to be encoded with [base64](https://en.wikipedia.org/wiki/Base64) as part of the `Authorization` HTTP header.
 
+⚠️ Usernames, Passwords, Tokens, & Secrets are all **case sensitive**!
+
 ### Credentials Snapshot {#snap-shot}
 
 | Credential Name | Description                                                                                                                                                        | Example                                            |
