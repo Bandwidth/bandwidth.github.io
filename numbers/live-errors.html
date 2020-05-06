@@ -3350,6 +3350,10 @@
     <td>8105</td>
     <td>Specified endpoint(s) are currently associated with different group(s). Endpoint(s) %s</td>
   </tr>
+    <tr>
+    <td>8106</td>
+    <td>Emergency Endpoint Identifier specified for removal is not associated with Emergency Notification Group %s. Identifier(s): %s</td>
+  </tr>
   </table>
 
 
@@ -4189,7 +4193,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRouteList</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4763,6 +4767,14 @@
     <td>12165</td>
     <td>CallbackOrderType value %s is not supported. Supported values are: 'port_in'.</td>
   </tr>
+    <tr>
+    <td>12166</td>
+    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING feature enabled.</td>
+  </tr>
+    <tr>
+    <td>12167</td>
+    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING_E911 feature enabled.</td>
+  </tr>
   </table>
 <h2>AdminValidationError</h2>
 <table class="fixed">
@@ -5296,7 +5308,7 @@
   </tr>
     <tr>
     <td>12648</td>
-    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_API_USER, ABACUS_API_PASSWORD, ABACUS_URL</td>
+    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL</td>
   </tr>
     <tr>
     <td>12649</td>
@@ -6385,6 +6397,26 @@
     <tr>
     <td>13038</td>
     <td>Provided state code is incorrect for zip code</td>
+  </tr>
+    <tr>
+    <td>13039</td>
+    <td>The Account Id '%s' is already undergoing a nnid sync with status '%s'</td>
+  </tr>
+    <tr>
+    <td>13040</td>
+    <td>Valid values for actions are: Retry, Report, InternalReport, Ignore, Exception and Cancel</td>
+  </tr>
+    <tr>
+    <td>13041</td>
+    <td>Specified L3ErrorCode %s is different from url %s</td>
+  </tr>
+    <tr>
+    <td>13042</td>
+    <td>Level3 error code %s already exists.</td>
+  </tr>
+    <tr>
+    <td>13043</td>
+    <td>Bandwidth error code %s already exists.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
