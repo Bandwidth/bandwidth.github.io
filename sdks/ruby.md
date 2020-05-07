@@ -45,7 +45,7 @@ begin
     response = voice_client.create_call(account_id,:body => body)
     puts response.data.call_id #c-d45a41e5-bcb12581-b18e-4bdc-9874-6r3235dfweao
     puts response.status_code #201
-rescue Bandwidth::ErrorResponseException => e
+rescue Bandwidth::ApiErrorResponseException => e
     puts e.description #Invalid to: must be an E164 telephone number
     puts e.response_code #400
 end

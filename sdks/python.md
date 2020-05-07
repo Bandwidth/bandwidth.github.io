@@ -24,7 +24,7 @@ from bandwidth.messaging.exceptions.messaging_exception import MessagingExceptio
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
-from bandwidth.voice.exceptions.error_response_exception import ErrorResponseException
+from bandwidth.voice.exceptions.error_response_exception import ApiErrorResponseException
 from bandwidth.voice.bxml.response import Response
 from bandwidth.voice.bxml.verbs import *
 
@@ -58,7 +58,7 @@ try:
     response = voice_client.create_call(account_id, body=body)
     print(response.body.call_id) #c-3f758f24-a59bb21e-4f23-4d62-afe9-53o2ls3o4saio4l
     print(response.status_code) #201
-except ErrorResponseException as e:
+except ApiErrorResponseException as e:
     print(e.description) #Invalid from: must be an E164 telephone number
     print(e.response_code) #400
 ```
