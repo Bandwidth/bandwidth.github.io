@@ -5,6 +5,7 @@
 | Version | Notes |
 |--|--|
 | 3.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 3.1.0 | Updated Pause and SendDtmf BXML attributes |
 
 ## Download & Install
 
