@@ -21,8 +21,8 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | destinationTn | string | The phone number that received the message | `+15554443333` |
 | messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
-| fromDateTime | string | The start of the date range to search in ISO 8601 format | `2016-09-14T18:20:16Z` |
-| toDateTime | string | The end of the date range to search in ISO 8601 format | `2016-09-14T18:20:16Z` |
+| fromDateTime | string | The start of the date range to search in ISO 8601 format | `2016-09-14T18:20:16.000Z` |
+| toDateTime | string | The end of the date range to search in ISO 8601 format | `2016-09-14T18:20:16.000Z` |
 | before | integer | The index to start the search | `0` |
 | after | integer | The index to end the search | `100` |
 | limit | integer | The maximum number of messages to return. Must be betwee `1` and `10000`. Default `100` <br> The sum of limit and after cannot be more than 10000 | `100` |
@@ -56,7 +56,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 {% sample lang='http' %}
 
 ```http
-GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageId=qwer1234 HTTP/1.1
+GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageId=1589228074636lm4k2je7j7jklbn2 HTTP/1.1
 Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 ```
 
@@ -67,7 +67,7 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
     "totalCount":1,
     "messages":[
         {
-            "messageId":"qwer1234",
+            "messageId":"1589228074636lm4k2je7j7jklbn2",
             "accountId":"12345",
             "sourceTn":"+15554443333",
             "destinationTn":"+15554442222",
