@@ -4,13 +4,21 @@
 * [About](README.md)
 * [Get Started](guides/getStarted.md)
 * [Webhooks / HTTP Callbacks](guides/callbacks/callbacks.md)
-* [Security & Credentials](guides/accountCredentials.md)
+* [API Credentials & Security](guides/accountCredentials.md)
 	* [Voice, Numbers, Account](guides/accountCredentials.md#voice-numbers-account)
 	* [Messaging](guides/accountCredentials.md#messaging)
+* [SDKs & Developer Tools](sdks/about.md)
+	* [Python](sdks/python.md)
+	* [Ruby](sdks/ruby.md)
+	* [C#](sdks/csharp.md)
+	* [Node](sdks/node.md)
+	* [Java](sdks/java.md)
+	* [PHP](sdks/php.md)
+	* [Examples Github](https://github.com/Bandwidth/examples)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
-	* [Automate Account Setup](account/guides/programmaticApplicationSetup.md)
+	* [Automate Application & Location Setup](account/guides/programmaticApplicationSetup.md)
 		* [Create **messaging** application](account/guides/programmaticApplicationSetup.md#create-messaging-application)
 		* [Create **voice** application](account/guides/programmaticApplicationSetup.md#create-voice-application)
 		* [Create subaccount (_site_)](account/guides/programmaticApplicationSetup.md#create-subaccount-site)
@@ -90,7 +98,7 @@
 		* [Create a CSR Order](numbers/guides/csrLookup.md#create-csr-order)
 		* [Receive callback ](numbers/guides/csrLookup.md#receive-callback)
 		* [Fetch Order Status](numbers/guides/csrLookup.md#fetch-order-status)
-* [API Methods](numbers/apiReference.md)
+* [API Reference](numbers/apiReference.md)
 * [Callbacks](numbers/callbacks/about.md)
 	* [Order Notification](numbers/callbacks/orderNotification.md)
 	* [Portout Validation](numbers/callbacks/portoutValidation.md)
@@ -204,16 +212,14 @@
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
 
-## SDKs
-* [Python](sdks/python.md)
-* [Ruby](sdks/ruby.md)
-* [C#](sdks/csharp.md)
-* [Node](sdks/node.md)
-* [Java](sdks/java.md)
-* [PHP](sdks/php.md)
-
-## Developer Tools
-* [Bandwidth Examples Github Repo](https://github.com/Bandwidth/examples)
+## Emergency Services
+* [Overview](emergency-services/about.md)
+* [Guides & Tutorials](emergency-services/guides/about.md)
+* [API Methods](emergency-services/methods/about.md)
+* [Callbacks](emergency-services/callbacks/emergencyEvents.md)
+* [Errors](emergency-services/errors/about.md)
+	* [HTTP Errors](emergency-services/errors/httpErrors.md)
+	* [Messaging Errors](emergency-services/errors/codes.md)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
