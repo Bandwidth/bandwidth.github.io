@@ -31,6 +31,8 @@ The nested tag `<Conference>` defines the conference the call will join.
 When a call joins a conference with the `callIdsToCoach` attribute set, this call will coach the given calls.
 The other calls in the conference will not hear the voice of this call.
 
+Note that other calls will still join the conference without this variable set and that a conference accepts only one coach.
+
 ### Callbacks Received
 | Callbacks                                                 | Can reply with more BXML |
 |:----------------------------------------------------------|:-------------------------|
@@ -99,7 +101,7 @@ This shows how to add a coach in a conference.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <SpeakSentence gender="male">Welcome coach, you are coaching 2 calls, please wait.</SpeakSentence>
+    <SpeakSentence gender="male">Welcome, you are going to coach 2 calls, please wait.</SpeakSentence>
     <Transfer>
         <Conference callIdsToCoach="c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f">my-conference</Conference>
     </Transfer>
