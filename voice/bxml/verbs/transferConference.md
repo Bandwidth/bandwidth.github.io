@@ -28,10 +28,9 @@ The nested tag `<Conference>` defines the conference the call will join.
 | tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### {#callIdsToCoach}
-When a call joins a conference with the `callIdsToCoach` attribute set, this call will coach the given calls.
-The other calls in the conference will not hear the voice of this call.
+When a call joins a conference with the `callIdsToCoach` attribute set, this call will coach the given calls and the calls not in the list will not hear the coach.
 
-Note that other calls will still join the conference without this variable set and that a conference accepts only one coach.
+A conference accepts only one coach.
 
 ### Callbacks Received
 | Callbacks                                                 | Can reply with more BXML |
