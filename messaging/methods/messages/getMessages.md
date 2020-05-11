@@ -17,6 +17,15 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | Parameter | Type | Description | Examples |
 |:--|:--|:--|:--|
 | messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
+| sourceTn | string | The phone number that sent the message | `+15554443333` |
+| destinationTn | string | The phone number that received the message | `+15554443333` |
+| messageStatus | string | The status of the message | TBD |
+| errorCode | integer | The error code of the message | `9902` |
+| fromDateTime | string | The start of the date range to search in ISO 8601 format | `2016-09-14T18:20:16Z` |
+| toDateTime | string | The end of the date range to search in ISO 8601 format | `2016-09-14T18:20:16Z` |
+| before | string | The pagination hash value to start the search | TBD |
+| after | string | The pagination hash value to end the search | TBD |
+| limit | integer | The maximum number of messages to return | `500` |
 
 ### Response Parameters
 
