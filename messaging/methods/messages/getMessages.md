@@ -43,11 +43,11 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messages.segmentCount | integer | The number of segments the message was sent as |
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
-| messages.pageInfo.before | integer | The index of the start of the search |
-| messages.pageInfo.hasBefore | boolean | True if there's more items before the `before` index, false otherwise |
-| messages.pageInfo.after | integer | The index of the end of the search |
-| messages.pageInfo.hasAfter | boolean | True if there's more items after the `after` index, false otherwise |
-| messages.pageInfo.limit | integer | Number of items returned |
+| pageInfo.before | integer | The index of the start of the search |
+| pageInfo.hasBefore | boolean | True if there's more items before the `before` index, false otherwise |
+| pageInfo.after | integer | The index of the end of the search |
+| pageInfo.hasAfter | boolean | True if there's more items after the `after` index, false otherwise |
+| pageInfo.limit | integer | Number of items returned |
 
 {% common %}
 
@@ -58,6 +58,11 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 ```http
 GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageId=1589228074636lm4k2je7j7jklbn2 HTTP/1.1
 Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErrorCode=1&after=after&limit=int>; rel="next"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErrorCode=1&before=before&limit=int>; rel="prev"
 ```
 
 > The above command returns a JSON Response structured like this:
