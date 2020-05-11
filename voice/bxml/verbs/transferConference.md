@@ -20,12 +20,16 @@ The nested tag `<Conference>` defines the conference the call will join.
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | mute                     | (optional) A boolean value to indicate if the member can't speak in the conference. Defaults to false                                                                                                                   |
 | hold                     | (optional) A boolean value to indicate if the member can't hear or speak in the conference. Defaults to false                                                                                                           |
-| callIdsToCoach           | (optional) The list of call ids to coach.                                                                                                                                                                               |
+| callIdsToCoach           | (optional) The list of call ids to [coach](#callIdsToCoach).                                                                                                                                                                               |
 | conferenceEventUrl       | (optional) URL to send Conference events to and request new BXML.                                                                                                                                                       |
 | conferenceEventMethod    | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.                                                                                                          |
 | username                 | (optional) The username to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
 | password                 | (optional) The password to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
 | tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+
+### {#callIdsToCoach}
+When a call joins a conference with the `callIdsToCoach` attribute set, this call will coach the given calls.
+The other calls in the conference will not hear the voice of this call.
 
 ### Callbacks Received
 | Callbacks                                                 | Can reply with more BXML |
@@ -34,7 +38,7 @@ The nested tag `<Conference>` defines the conference the call will join.
 
 {% common %}
 
-### Example 1 of 1: Join Conference
+### Example 1 of 2: Join Conference
 This shows how to use Bandwidth XML to add a call in a conference.
 
 {% sample lang="http" %}
@@ -45,6 +49,59 @@ This shows how to use Bandwidth XML to add a call in a conference.
     <SpeakSentence gender="male">Transferring your call, please wait.</SpeakSentence>
     <Transfer>
         <Conference>my-conference</Conference>
+    </Transfer>
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+// TODO
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// TODO
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+# TODO
+```
+
+{% sample lang="python" %}
+
+```python
+# TODO
+```
+
+{% sample lang="js" %}
+
+```js
+// TODO
+```
+
+{% sample lang="php" %}
+
+```php
+// TODO
+```
+
+{% common %}
+
+### Example 2 of 2: Join Conference as Coach
+This shows how to add a coach in a conference.
+
+{% sample lang="http" %}
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <SpeakSentence gender="male">Welcome coach, you are coaching 2 calls, please wait.</SpeakSentence>
+    <Transfer>
+        <Conference callIdsToCoach="c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f">my-conference</Conference>
     </Transfer>
 </Response>
 ```
