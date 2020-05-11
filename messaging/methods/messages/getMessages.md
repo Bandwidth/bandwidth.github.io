@@ -19,13 +19,13 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
 | sourceTn | string | The phone number that sent the message | `+15554443333` |
 | destinationTn | string | The phone number that received the message | `+15554443333` |
-| messageStatus | string | The status of the message | TBD |
+| messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format | `2016-09-14T18:20:16Z` |
 | toDateTime | string | The end of the date range to search in ISO 8601 format | `2016-09-14T18:20:16Z` |
-| before | string | The pagination hash value to start the search | TBD |
-| after | string | The pagination hash value to end the search | TBD |
-| limit | integer | The maximum number of messages to return | `500` |
+| before | integer | The index to start the search | `0` |
+| after | integer | The index to end the search | `100` |
+| limit | integer | The maximum number of messages to return. Must be betwee `1` and `10000`. Default `100` <br> The sum of limit and after cannot be more than 10000 | `100` |
 
 ### Response Parameters
 
@@ -43,6 +43,11 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messages.segmentCount | integer | The number of segments the message was sent as |
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
+| messages.pageInfo.before | integer | The index of the start of the search |
+| messages.pageInfo.hasBefore | boolean | True if there's more items before the `before` index, false otherwise |
+| messages.pageInfo.after | integer | The index of the end of the search |
+| messages.pageInfo.hasAfter | boolean | True if there's more items after the `after` index, false otherwise |
+| messages.pageInfo.limit | integer | Number of items returned |
 
 {% common %}
 
