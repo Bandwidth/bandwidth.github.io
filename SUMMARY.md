@@ -211,6 +211,7 @@
 		* [POST Voice](mfa/methods/code/voice.md)
 		* [POST Messaging](mfa/methods/code/messaging.md)
 		* [POST Verify](mfa/methods/code/verify.md)
+* [Callbacks](mfa/callbacks.md)
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 
