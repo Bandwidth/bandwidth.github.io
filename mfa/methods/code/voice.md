@@ -15,32 +15,47 @@ Bandwidth's MFA API leverages Basic Authentication with your Dashboard API Crede
 
 ### Supported Parameters
 
-| Parameter | Description |
-|:----------|:------------|
-| None      | None        |
+| Parameter     | Description           |
+|:--------------|:----------------------|
+| to            | To telephone number   |
+| from          | From telephone number |
+| applicationId | Application Id        |
+| scope         | scope                 |
 
 ### Response Attributes
 
-| Property | Description          |
-|:---------|:---------------------|
-| property | property description |
+| Property | Description |
+|:---------|:------------|
+| CallId   | The Call Id |
 
 
 {% common %}
 
-### Example 1 of 1: Authenticate with MFA
+### Example 1 of 1: Authenticate with Voice
 
 {% sample lang="http" %}
 
 ```bash
-curl -X GET \
-    --url "https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/MFA" \
-    -u '{username}:{password}'
+curl -X POST \
+    --url "https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/voice" \
+    -u '{username}:{password}' \
+    --data-raw '
+    {
+        "to"            : "+12345678902",
+        "from"          : "+12345678901",
+        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "scope"         : "scope"
+    }
+  '
 ```
+> The above command returns a JSON Response structured like this:
 
-```json
+```http
+Status: 200
+Content-Type: application/json; charset=utf-8
+
 {
-  "TODO": "TODO"
+  "CallId": "1256-adf14asd-52dfa"
 }
 ```
 

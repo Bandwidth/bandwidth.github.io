@@ -15,15 +15,19 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter | Description |
-|:----------|:------------|
-| None      | None        |
+| Parameter     | Description                |
+|:--------------|:---------------------------|
+| to            | To telephone number        |
+| from          | From telephone number      |
+| applicationId | Application Id             |
+| scope         | scope                      |
+| code          | The code sent to requester |
 
 ### Response Attributes
 
-| Property | Description          |
-|:---------|:---------------------|
-| property | property description |
+| Property | Description        |
+|:---------|:-------------------|
+| valid    | Was the code valid |
 
 
 {% common %}
@@ -33,14 +37,27 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 {% sample lang="http" %}
 
 ```bash
-curl -X GET \
+curl -X POST \
     --url "https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/verify" \
-    -u '{username}:{password}'
+    -u '{username}:{password}' \
+    --data-raw '
+    {
+        "to"            : "+12345678902",
+        "from"          : "+12345678901",
+        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "scope"         : "scope",
+        "code"          : "12598"
+    }
+  '
 ```
+> The above command returns a JSON Response structured like this:
 
-```json
+```http
+Status: 200
+Content-Type: application/json; charset=utf-8
+
 {
-  "TODO": "TODO"
+  "valid": true
 }
 ```
 
