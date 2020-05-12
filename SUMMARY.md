@@ -204,6 +204,17 @@
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
 
+## Multi-Factor Authentication
+* [Overview](mfa/about.md)
+* [API Methods](mfa/methods/about.md)
+	* [Code](mfa/methods/code/about.md)
+		* [POST Voice](mfa/methods/code/voice.md)
+		* [POST Messaging](mfa/methods/code/messaging.md)
+		* [POST Verify](mfa/methods/code/verify.md)
+* [Callbacks](mfa/callbacks.md)
+* [Rate Limits](mfa/rateLimits.md)
+* [Errors](mfa/errors.md)
+
 ## SDKs
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)

@@ -1,0 +1,98 @@
+{% method %}
+
+## Two-Factor Authentication with Messaging
+Two-Factor authentication with Bandwidth MEssaging services
+
+### Request URL
+
+<code class="post">POST</code>`https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/voice`
+
+#### Basic Authentication
+
+Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
+---
+
+### Supported Parameters
+
+| Parameter     | Description           |
+|:--------------|:----------------------|
+| to            | To telephone number   |
+| from          | From telephone number |
+| applicationId | Application Id        |
+| scope         | scope                 |
+
+### Response Attributes
+
+| Property  | Description    |
+|:----------|:---------------|
+| MessageId | The Message Id |
+
+
+{% common %}
+
+### Example 1 of 1: Authenticate with Messaging
+
+{% sample lang="http" %}
+
+```bash
+curl -X POST \
+    --url "https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/messaging" \
+    -u '{username}:{password}' \
+    --data-raw '
+    {
+        "to"            : "+12345678902",
+        "from"          : "+12345678901",
+        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "scope"         : "scope"
+    }
+  '
+```
+> The above command returns a JSON Response structured like this:
+
+```http
+Status: 200
+Content-Type: application/json; charset=utf-8
+
+{
+  "MessageId": "1256-adf14asd-52dfa"
+}
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//Coming Soon
+```
+
+{% sample lang="java" %}
+
+```java
+//Coming Soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+//Coming Soon
+```
+
+{% sample lang="python" %}
+
+```python
+//Coming Soon
+```
+
+{% sample lang="js" %}
+
+```js
+//Coming Soon
+```
+
+{% sample lang="php" %}
+
+```php
+//Coming Soon
+```
+
+{% endmethod %}
