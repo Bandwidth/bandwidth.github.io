@@ -70,7 +70,16 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="java" %}
 
 ```java
-//Coming Soon
+TwoFactorVerifyRequestSchema request = new TwoFactorVerifyRequestSchema();
+request.setApplicationId(applicationId);
+request.setFrom(fromNumber);
+request.setTo(toNumber);
+request.setScope("scope");
+request.setCode("212061");
+
+ApiResponse<TwoFactorVerifyCodeResponse> response = controller.createVerifyTwoFactor(accountId, request);
+
+System.out.println( response.getResult().getValide() );
 ```
 
 {% sample lang="ruby" %}

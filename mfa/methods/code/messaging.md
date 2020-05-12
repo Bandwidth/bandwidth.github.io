@@ -68,7 +68,15 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="java" %}
 
 ```java
-//Coming Soon
+TwoFactorCodeRequestSchema request = new TwoFactorCodeRequestSchema();
+request.setApplicationId(applicationId);
+request.setFrom(fromNumber);
+request.setTo(toNumber);
+request.setScope("scope");
+
+ApiResponse<TwoFactorMessagingResponse> response = controller.createMessagingTwoFactor(accountId, request);
+
+System.out.println( response.getResult().getMessageId().get(0) );
 ```
 
 {% sample lang="ruby" %}
