@@ -31,7 +31,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 | Parameter | Type | Description |
 |:--|:--|
-| totalCount | integer | Total number of messages returned in the search |
+| totalCount | integer | Total number of messages matched by the search |
 | messages | array | The messages returned |
 | messages.messageId | string | The message id |
 | messages.accountId | string | The account id of the message |
