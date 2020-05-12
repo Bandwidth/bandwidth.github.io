@@ -1,15 +1,15 @@
 {% method %}
 
-## Two-Factor Authentication with Voice
-Two-Factor authentication with Bandwidth Voice services
+## Two-Factor Authentication with MFA
+Two-Factor authentication with Bandwidth MFA services
 
 ### Request URL
 
-<code class="post">POST</code>`https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/voice`
+<code class="post">POST</code>`https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/MFA`
 
 #### Basic Authentication
 
-Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's MFA API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 
@@ -28,13 +28,13 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example 1 of 1: Authenticate with Voice
+### Example 1 of 1: Authenticate with MFA
 
 {% sample lang="http" %}
 
 ```bash
 curl -X GET \
-    --url "https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/voice" \
+    --url "https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/MFA" \
     -u '{username}:{password}'
 ```
 
