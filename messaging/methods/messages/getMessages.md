@@ -16,7 +16,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 | Parameter | Type | Description | Examples |
 |:--|:--|:--|:--|
-| messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
+| messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6`, `1589228074636lm4k2je7j7jklbn2` |
 | sourceTn | string | The phone number that sent the message | `+15554443333` |
 | destinationTn | string | The phone number that received the message | `+15554443333` |
 | messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED` | `RECEIVED` |
