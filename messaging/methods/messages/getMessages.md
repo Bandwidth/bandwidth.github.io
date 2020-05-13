@@ -32,7 +32,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | Parameter | Type | Description |
 |:--|:--|
 | totalCount | integer | Total number of messages matched by the search |
-| messages | array | The messages returned |
+| messages | array | The messages returned. The most recent messages are returned sorted by receive time |
 | messages.messageId | string | The message id |
 | messages.accountId | string | The account id of the message |
 | messages.destinationTn | string | The recipient phone number of the message |
