@@ -16,14 +16,23 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 | Parameter | Type | Description | Examples |
 |:--|:--|:--|:--|
-| messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `15874gcjxgggk`, `158748gcj5fe762%2B12345` |
+| messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6`, `1589228074636lm4k2je7j7jklbn2` |
+| sourceTn | string | The phone number that sent the message | `+15554443333` |
+| destinationTn | string | The phone number that received the message | `+15554443333` |
+| messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED` | `RECEIVED` |
+| errorCode | integer | The error code of the message | `9902` |
+| fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
+| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z^` |
+| before | integer | The index to start the search for pagination | `0` |
+| after | integer | The index to end the search for pagination | `100` |
+| limit | integer | The maximum number of messages to return. Must be betwee `1` and `10000`. Default `100` <br> The sum of limit and after cannot be more than 10000 | `100` |
 
 ### Response Parameters
 
 | Parameter | Type | Description |
 |:--|:--|
-| totalCount | integer | Total number of messages returned in the search |
-| messages | array | The messages returned |
+| totalCount | integer | Total number of messages matched by the search |
+| messages | array | The most recent messages are returned sorted by receive time |
 | messages.messageId | string | The message id |
 | messages.accountId | string | The account id of the message |
 | messages.destinationTn | string | The recipient phone number of the message |
@@ -34,6 +43,11 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messages.segmentCount | integer | The number of segments the message was sent as |
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
+| pageInfo.before | integer | The index of the start of the search |
+| pageInfo.hasBefore | boolean | True if there's more items before the `before` index, false otherwise |
+| pageInfo.after | integer | The index of the end of the search |
+| pageInfo.hasAfter | boolean | True if there's more items after the `after` index, false otherwise |
+| pageInfo.limit | integer | Number of items returned |
 
 {% common %}
 
@@ -42,8 +56,13 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 {% sample lang='http' %}
 
 ```http
-GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageId=qwer1234 HTTP/1.1
+GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageId=1589228074636lm4k2je7j7jklbn2 HTTP/1.1
 Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErrorCode=1&after=after&limit=int>; rel="next"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErrorCode=1&before=before&limit=int>; rel="prev"
 ```
 
 > The above command returns a JSON Response structured like this:
@@ -53,7 +72,7 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
     "totalCount":1,
     "messages":[
         {
-            "messageId":"qwer1234",
+            "messageId":"1589228074636lm4k2je7j7jklbn2",
             "accountId":"12345",
             "sourceTn":"+15554443333",
             "destinationTn":"+15554442222",
