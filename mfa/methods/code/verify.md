@@ -64,7 +64,16 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-//Coming Soon
+var response = controller.CreateVerifyTwoFactor(accountId, new TwoFactorVerifyRequestSchema
+{
+    ApplicationId = applicationId,
+    From = fromNumber,
+    To = toNumber,
+    Scope = "scope csharp",
+    Code = "159193"
+});
+
+Console.WriteLine(response.Data.Valid);
 ```
 
 {% sample lang="java" %}

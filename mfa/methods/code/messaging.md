@@ -62,7 +62,15 @@ Content-Type: application/json; charset=utf-8
 {% sample lang="csharp" %}
 
 ```csharp
-//Coming Soon
+var response = controller.CreateMessagingTwoFactor(accountId, new TwoFactorCodeRequestSchema
+{
+    ApplicationId = applicationId,
+    From = fromNumber,
+    To = toNumber,
+    Scope = "scope csharp"
+});
+
+Console.WriteLine( response.Data.MessageId[0] );
 ```
 
 {% sample lang="java" %}
