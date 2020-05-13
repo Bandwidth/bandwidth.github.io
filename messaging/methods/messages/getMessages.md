@@ -22,9 +22,9 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
-| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
-| before | integer | The index to start the search | `0` |
-| after | integer | The index to end the search | `100` |
+| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z^` |
+| before | integer | The index to start the search for pagination | `0` |
+| after | integer | The index to end the search for pagination | `100` |
 | limit | integer | The maximum number of messages to return. Must be betwee `1` and `10000`. Default `100` <br> The sum of limit and after cannot be more than 10000 | `100` |
 
 ### Response Parameters
