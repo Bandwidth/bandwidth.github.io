@@ -102,7 +102,15 @@ System.out.println( response.getResult().getCallId().get(0) );
 {% sample lang="js" %}
 
 ```js
-//Coming Soon
+const payload = new mfa.TwoFactorCodeRequestSchema();
+payload.applicationId = applicationId;
+payload.from = fromNumber;
+payload.to = toNumber;
+payload.scope = 'scope';
+
+const response = await controller.createVoiceTwoFactor(accountId, payload);
+
+console.log(JSON.stringify(response, null, 2));
 ```
 
 {% sample lang="php" %}
