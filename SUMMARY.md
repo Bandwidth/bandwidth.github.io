@@ -215,11 +215,14 @@
 ## Emergency Services
 * [Overview](emergency-services/about.md)
 * [Guides & Tutorials](emergency-services/guides/about.md)
-* [API Methods](emergency-services/methods/about.md)
-* [Callbacks](emergency-services/callbacks/emergencyEvents.md)
-* [Errors](emergency-services/errors/about.md)
-	* [HTTP Errors](emergency-services/errors/httpErrors.md)
-	* [Messaging Errors](emergency-services/errors/codes.md)
+	* [Emergency Notifications](emergency-services/guides/emergencyNotifications.md)
+		* [Overview](emergency-services/guides/emergencyNotifications.md#overview)
+		* [Notification Types](emergency-services/guides/emergencyNotifications.md#notification-types)
+		* [Configuring Emergency Notifications](emergency-services/guides/emergencyNotifications.md#config)
+		* [Relationships and constraints](emergency-services/guides/emergencyNotifications.md#relationships)
+		* [API Endpoint Overview](emergency-services/guides/emergencyNotifications.md#api-overview)
+		* [Key terminology](emergency-services/guides/emergencyNotifications.md#key-terms)
+* [API Reference](numbers/apiReference.md)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)

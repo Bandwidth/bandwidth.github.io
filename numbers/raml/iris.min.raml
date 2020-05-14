@@ -13974,6 +13974,7 @@ securitySchemes:
                     <ul>
                     <li> TelephoneNumber - [ 10digit ] </li>
                     <li> CallingNameDisplay - [ on | off | <i>unchanged</i> | <i>systemDefault</i> ] </li>
+                    <li> PortOutPasscode - [ alphanumeric string 4-10 characters | unchanged | systemDefault ] </li>
                     <li> NumberFormat - [ 10digit | 11digit | e164 | <i>unchanged</i> | <i>systemDefault</i> ] </li>
                     <li> RPIDFormat - [ 10digit | 11digit | e164 | <i>unchanged</i> | <i>systemDefault</i> ] </li>
                     <li> RewriteUser - [ string | <i>unchanged</i> | <i>systemDefault</i>] </li>
@@ -14074,6 +14075,7 @@ securitySchemes:
                                          <RewriteUser>testUser1</RewriteUser>
                                          <CallForward>6042661720</CallForward>
                                          <CallingNameDisplay>on</CallingNameDisplay>
+                                         <PortOutPasscode>a1b2c3</PortOutPasscode>
                                          <Protected>true</Protected>
                                          <Sms>on</Sms>
                                          <FinalDestinationURI>sip:+12345678901@1.2.3.4:5060</FinalDestinationURI>
@@ -18967,67 +18969,6 @@ securitySchemes:
                                           <Description>Telephone number '123456789' is not valid</Description>
                                        </ResponseStatus>
                                     </AvailableNNRoutes>
-/users: 
-    description: |
-        The /users API also enables resetting but not retrieving credential information 
-    /{userid}: 
-        description: reference a specific user in the Bandwidth Dashboard API
-        get:
-            description: Retrieve the information (except the password) for a specific user id
-            responses:
-                200:
-                    body: 
-                        application/xml:
-                            example: |
-                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                <UserResponse>
-                                    <User>
-                                        <Username>testcustomer</Username>
-                                        <FirstName>Jane</FirstName>
-                                        <LastName>Doe</LastName>
-                                        <EmailAddress>janedoe@bandwidth.com</EmailAddress>
-                                        <TelephoneNumber>9199999999</TelephoneNumber>
-                                        <Roles>
-                                            <Role>
-                                                <RoleName>ROLE_BDR</RoleName>
-                                                <Permissions>
-                                                    <Permission>
-                                                        <PermissionName>VIEW</PermissionName>
-                                                    </Permission>
-                                                </Permissions>
-                                            </Role>
-                                        </Roles>
-                                        <Accounts>
-                                            <Account>
-                                                <AccountId>12346095</AccountId>
-                                                <CompanyName>ABC Corp</CompanyName>
-                                            </Account>
-                                        </Accounts>
-                                    </User>
-                                </UserResponse>
-        /password: 
-            description: Allows the manipulation of a user's password.
-            put:
-                description: Update a user's password.   Security is maintained by requiring the user's existing password as part of the authentication for the API call.
-                body:
-                    application/xml:
-                        example: |
-                            <Password>$uper$ecure</Password> <!-- required, min length: 6, max length: 20 -->
-                responses:
-                    200:
-                        body: 
-                            application/xml:
-                                example: empty response
-                    400:
-                        body:
-                            application/xml:
-                                example: |
-                                    <UserResponse>
-                                        <ResponseStatus>
-                                        <ErrorCode>12504</ErrorCode>
-                                        <Description>Password must be at least 6 characters long</Description>
-                                        </ResponseStatus>
-                                    </UserResponse>
 /cities: 
     description: |
         The *+cities+* resource returns all of the Cities in the indicated State that are supported from a coverage perspective, and, if requested, that contain orderable inventory.  The values returned indicate the names of the Cities and, if <b>available</b> is specified, returns the available inventory by City.  Note that the mapping between Rate Center and City is not completely predictable because multiple cities can be served by a single Rate Center and it may take multiple Rate Centers to serve a city.  The Rate Centers results are more predictable because they are defined strictly in telecommunication terms.
