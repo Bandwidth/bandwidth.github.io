@@ -122,6 +122,8 @@
 		* [POST Transcribe recording](voice/methods/recordings/postCallsCallIdRecordingsRecordingIdTranscription.md)
 		* [GET Download Transcription](voice/methods/recordings/getCallsCallIdRecordingsRecordingIdTranscription.md)
 		* [DELETE Delete Transcription](voice/methods/recordings/deleteCallsCallIdRecordingsRecordingIdTranscription.md)
+	* [Conferences](voice/methods/conferences/about.md)
+	    * [PUT Update Conference Member](voice/methods/conferences/putConferenceMember.md)
 * [Call Control (BXML)](voice/bxml/about.md)
 	* [Forward](voice/bxml/verbs/forward.md)
 	* [Gather](voice/bxml/verbs/gather.md)
