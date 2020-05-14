@@ -14,11 +14,11 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter       | Description                                                                                  | Mandatory |
-|:----------------|:---------------------------------------------------------------------------------------------|:----------|
-| mute            | (optional) If true, member can't speak in the conference. Defaults to false                  | No        |
-| hold            | (optional) If true, member can't speak or hear in the conference. Default false              | No        |
-| callIdsToCoach  | (optional) The list of call ids to coach                                                     | No        |
+| Parameter       | Description                                                                  | Mandatory |
+|:----------------|:-----------------------------------------------------------------------------|:----------|
+| mute            | (optional) If true, member can't speak in the conference                     | No        |
+| hold            | (optional) If true, member can't speak or hear in the conference             | No        |
+| callIdsToCoach  | (optional) The list of call ids to coach                                     | No        |
 
 {% common %}
 ### Example 1 of 1 : Put an active conference member on mute

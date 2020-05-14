@@ -1,4 +1,4 @@
-# Calls
+# Conferences
 The Conferences resource lets you retrieve information about conferences and update their settings as well as manage and interact with conference members
 
 <aside class="alert general small">
