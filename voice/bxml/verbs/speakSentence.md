@@ -69,7 +69,7 @@ Attributes:
  * `level`: (optional) defines the strength of emphasis to be applied, accepted values are: `strong`, `moderate` or `reduced`
 
 #### `<lang>`
-Specifies the natural language of the content. If you use a voice with an `en_US` locale, and a `es-MX` lang, it will sound like an American trying to speak Spanish. 
+Specifies the natural language of the content. If you use a voice with an `en_US` locale and an `es-MX` lang, it will sound like an English-speaking American attempting to speak Spanish.
 
 Attributes:
  * `xml:lang`: specifies the language, accepted values are:
