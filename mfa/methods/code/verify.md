@@ -106,7 +106,14 @@ System.out.println( response.getResult().getValide() );
 {% sample lang="js" %}
 
 ```js
-//Coming Soon
+const verify = new mfa.TwoFactorVerifyRequestSchema();
+verify.applicationId = applicationId;
+verify.code = '123456';
+verify.scope = 'scope24';
+
+const response = await controller.createVerifyTwoFactor(accountId, verify);
+
+console.log(JSON.stringify(response, null, 2));
 ```
 
 {% sample lang="php" %}
