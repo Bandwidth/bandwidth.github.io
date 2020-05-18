@@ -10,7 +10,7 @@ Most of the query parameters for this endpoint require URL encoding (exception b
 
 ### Request URL
 
-<code class="post">GET</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/messages`
+<code class="get">GET</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/messages`
 
 #### Basic Authentication
 
