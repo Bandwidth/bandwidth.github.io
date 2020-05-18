@@ -96,7 +96,15 @@ System.out.println( response.getResult().getMessageId().get(0) );
 {% sample lang="python" %}
 
 ```python
-//Coming Soon
+application_id = messaging_application_id
+body = TwoFactorCodeRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = messaging_application_id,
+    scope = 'scope'
+)
+response = auth_client.create_messaging_two_factor(account_id, body)
+message_id = response.body.message_id
 ```
 
 {% sample lang="js" %}

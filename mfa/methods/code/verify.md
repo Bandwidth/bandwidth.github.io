@@ -100,7 +100,16 @@ System.out.println( response.getResult().getValide() );
 {% sample lang="python" %}
 
 ```python
-//Coming Soon
+code = '123456' #This is the user input to verify
+body = TwoFactorVerifyRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = application_id,
+    scope = 'scope',
+    code = code
+)
+response = auth_client.create_verify_two_factor(account_id, body)
+valid = response.body.valid
 ```
 
 {% sample lang="js" %}

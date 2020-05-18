@@ -96,7 +96,14 @@ System.out.println( response.getResult().getCallId().get(0) );
 {% sample lang="python" %}
 
 ```python
-//Coming Soon
+body = TwoFactorCodeRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = voice_application_id,
+    scope = 'scope'
+)
+response = auth_client.create_voice_two_factor(account_id, body)
+call_id = response.body.call_id
 ```
 
 {% sample lang="js" %}
