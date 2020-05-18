@@ -6,7 +6,7 @@ Note: This endpoint is in limited availability and is still in development. Chan
 
 ### URL Encoding For Query Parameters
 
-Most of the query parameters for this endpoint require URL encoding (exception being `messageId`s that include hyphens). Examples shown are the post encoded values, which is what this endpoint expects.
+Most of the query parameters for this endpoint require URL encoding (exception being `messageId`s that include hyphens). Examples shown are the post encoded values, which is what this endpoint expects to receive.
 
 ### Request URL
 
