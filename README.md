@@ -81,7 +81,7 @@ msgReq.setText("Hello World");
 ```csharp
 MessageRequest msgRequest = new MessageRequest();
 msgRequest.ApplicationId = applicationId;
-msgRequest.MFrom = "+18888888888";
+msgRequest.From = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
@@ -171,7 +171,7 @@ try {
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
-callRequest.MFrom="+17777777777";
+callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 voiceController.CreateCall(accountId, callRequest);
@@ -268,7 +268,7 @@ curl -X POST \
 <script>
 $(document).ready(function setup() {
 
-	/* Removed 
+	/* Removed
 	if(gitbook){
 		gitbook.events.bind('page.change', function() { landing(); } );
 	}
@@ -278,7 +278,7 @@ $(document).ready(function setup() {
 });
 
 
-	
+
 function landing(){
   if (window.innerWidth >= 980) {
 

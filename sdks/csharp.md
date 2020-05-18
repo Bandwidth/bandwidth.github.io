@@ -30,7 +30,7 @@ BandwidthClient client = new BandwidthClient.Builder()
                 .MessagingBasicAuthCredentials( token, secret )
                 .Build();
 
-            
+
 //Select namespaced controller.
 Bandwidth.Standard.Voice.Controllers.APIController voiceController = client.Voice.APIController;
 Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Messaging.APIController;
@@ -46,7 +46,7 @@ using Bandwidth.Standard.Voice.Controllers;
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
-callRequest.MFrom="+17777777777";
+callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 try {
@@ -87,7 +87,7 @@ using Bandwidth.Standard.Messaging.Models;
 
 MessageRequest msgRequest = new MessageRequest();
 msgRequest.ApplicationId = applicationId;
-msgRequest.MFrom = "+18888888888";
+msgRequest.From = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
