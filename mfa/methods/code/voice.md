@@ -90,7 +90,15 @@ System.out.println( response.getResult().getCallId().get(0) );
 {% sample lang="ruby" %}
 
 ```ruby
-//Coming Soon
+application_id = voice_application_id
+
+body = TwoFactorCodeRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = application_id
+body.scope = 'scope'
+
+auth_client.create_voice_two_factor(account_id, body)
 ```
 
 {% sample lang="python" %}

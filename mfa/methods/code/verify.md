@@ -94,7 +94,17 @@ System.out.println( response.getResult().getValide() );
 {% sample lang="ruby" %}
 
 ```ruby
-//Coming Soon
+code = '123456' #This is the user input to verify
+
+body = TwoFactorVerifyRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = application_id
+body.scope = 'scope'
+body.code = code
+
+response = auth_client.create_verify_two_factor(account_id, body)
+puts "Auth status: " + response.data.valid.to_s
 ```
 
 {% sample lang="python" %}
@@ -109,7 +119,7 @@ body = TwoFactorVerifyRequestSchema(
     code = code
 )
 response = auth_client.create_verify_two_factor(account_id, body)
-valid = response.body.valid
+print("Auth status: " + str(response.body.valid))
 ```
 
 {% sample lang="js" %}
