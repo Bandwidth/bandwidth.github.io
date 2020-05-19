@@ -24,6 +24,8 @@ $config = new BandwidthLib\Configuration(
         'messagingBasicAuthPassword' => 'secret',
         'voiceBasicAuthUserName' => 'username',
         'voiceBasicAuthPassword' => 'password',
+        'twoFactorAuthBasicAuthUserName' => 'username',
+        'twoFactorAuthBasicAuthPassword' => 'password'
     )
 );
 $client = new BandwidthLib\BandwidthClient($config);
@@ -76,6 +78,39 @@ try {
 } catch (Exception $e) {
     print_r($e);
 }
+```
+
+## Perform A 2FA Request
+
+```php
+$authClient = $client->getTwoFactorAuth()->getClient();
+$accountId = '1';
+
+$fromPhone = '+18888888888';
+$toPhone = '+17777777777';
+$messagingApplicationId = '1-d-b';
+$scope = 'scope';
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $messagingApplicationId;
+$body->scope = $scope;
+
+$authClient->createMessagingTwoFactor($accountId, $body);
+
+$code = "123456"; //This is the user input to validate
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $messagingApplicationId;
+$body->scope = $scope;
+$body->code = $code;
+
+$response = $authClient->createVerifyTwoFactor($accountId, $body);
+$strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
+echo $strn;
 ```
 
 ## Order Phone Number

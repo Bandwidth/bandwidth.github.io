@@ -94,7 +94,17 @@ System.out.println( response.getResult().getValide() );
 {% sample lang="ruby" %}
 
 ```ruby
-//Coming Soon
+code = '123456' #This is the user input to verify
+
+body = TwoFactorVerifyRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = application_id
+body.scope = 'scope'
+body.code = code
+
+response = auth_client.create_verify_two_factor(account_id, body)
+puts "Auth status: " + response.data.valid.to_s
 ```
 
 {% sample lang="python" %}
@@ -109,7 +119,7 @@ body = TwoFactorVerifyRequestSchema(
     code = code
 )
 response = auth_client.create_verify_two_factor(account_id, body)
-valid = response.body.valid
+print("Auth status: " + str(response.body.valid))
 ```
 
 {% sample lang="js" %}
@@ -128,7 +138,19 @@ console.log(JSON.stringify(response, null, 2));
 {% sample lang="php" %}
 
 ```php
-//Coming Soon
+$scope = 'scope';
+$code = '123456'; //the user input to validate
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $applicationId;
+$body->scope = $scope;
+$body->code = $code;
+
+$response = $authClient->createVerifyTwoFactor($accountId, $body);
+$strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
+echo $strn;
 ```
 
 {% endmethod %}
