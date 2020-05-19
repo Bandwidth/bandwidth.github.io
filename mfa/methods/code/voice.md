@@ -90,13 +90,28 @@ System.out.println( response.getResult().getCallId().get(0) );
 {% sample lang="ruby" %}
 
 ```ruby
-//Coming Soon
+application_id = voice_application_id
+
+body = TwoFactorCodeRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = application_id
+body.scope = 'scope'
+
+auth_client.create_voice_two_factor(account_id, body)
 ```
 
 {% sample lang="python" %}
 
 ```python
-//Coming Soon
+body = TwoFactorCodeRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = voice_application_id,
+    scope = 'scope'
+)
+response = auth_client.create_voice_two_factor(account_id, body)
+call_id = response.body.call_id
 ```
 
 {% sample lang="js" %}
@@ -116,7 +131,15 @@ console.log(JSON.stringify(response, null, 2));
 {% sample lang="php" %}
 
 ```php
-//Coming Soon
+$scope = 'scope';
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $voiceApplicationId;
+$body->scope = $scope;
+
+$authClient->createVoiceTwoFactor($accountId, $body);
 ```
 
 {% endmethod %}

@@ -90,13 +90,29 @@ System.out.println( response.getResult().getMessageId().get(0) );
 {% sample lang="ruby" %}
 
 ```ruby
-//Coming Soon
+application_id = messaging_application_id
+
+body = TwoFactorCodeRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = application_id
+body.scope = 'scope'
+
+auth_client.create_messaging_two_factor(account_id, body)
 ```
 
 {% sample lang="python" %}
 
 ```python
-//Coming Soon
+application_id = messaging_application_id
+body = TwoFactorCodeRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = messaging_application_id,
+    scope = 'scope'
+)
+response = auth_client.create_messaging_two_factor(account_id, body)
+message_id = response.body.message_id
 ```
 
 {% sample lang="js" %}
@@ -116,7 +132,15 @@ console.log(JSON.stringify(response, null, 2));
 {% sample lang="php" %}
 
 ```php
-//Coming Soon
+$scope = 'scope';
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $messagingApplicationId;
+$body->scope = $scope;
+
+$authClient->createMessagingTwoFactor($accountId, $body);
 ```
 
 {% endmethod %}
