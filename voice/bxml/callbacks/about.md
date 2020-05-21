@@ -37,4 +37,9 @@ URLs, so POST is the preferred method.
 |-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Disconnect](disconnect.md)                                 | Bandwidth API sends this to the application when a call ends.                                                                                       |
 | [Recording Available](recordingAvailable.md)                | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
-| [Transfer Disconnect](transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
+| [Transfer Disconnect](transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                                      |
+| [Conference Created](conferenceCreated.md)  | Bandwidth API sends this when a new conference is created.                                                                                                          |
+| [Conference Member Join](conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                                                |
+| [Conference Member Exit](conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                                                   |
+| [Conference Completed](conferenceCompleted.md) | Bandwidth API sends this two minutes after the last member leaves the conference.                                                                                |                                                                                                   |
+|
