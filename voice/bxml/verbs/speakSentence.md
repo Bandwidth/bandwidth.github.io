@@ -30,19 +30,19 @@ The table below shows a mapping of our supported voices.  It also maps our voice
 
 | **voice** | **locale** | **gender** | **Provider Name (AWS Polly)** |
 |:----------|:-----------|:-----------|:-----------|
-| julie     | en_us      | female     | Joanna     |
-| kate      | en_us      | female     | Kendra     |
-| susan     | en_us      | female     | Kimberly   |
-| dave      | en_us      | male       | Matthew    |
-| paul      | en_us      | male       | Matthew    |
-| bridget   | en_uk      | female     | Amy        |
-| simon     | en_uk      | male       | Brian      |
+| julie     | en_US      | female     | Joanna     |
+| kate      | en_US      | female     | Kendra     |
+| susan     | en_US      | female     | Kimberly   |
+| dave      | en_US      | male       | Matthew    |
+| paul      | en_US      | male       | Matthew    |
+| bridget   | en_UK      | female     | Amy        |
+| simon     | en_UK      | male       | Brian      |
 | katrin    | de         | female     | Marlene    |
 | stefan    | de         | male       | Hans       |
 | esperanza | es         | female     | Conchita   |
 | violeta   | es         | female     | Lucia      |
 | jorge     | es         | male       | Enrique    |
-| rosa      | es_mx      | female     | Mia        |
+| rosa      | es_MX      | female     | Mia        |
 | jolie     | fr         | female     | Celine     |
 | bernard   | fr         | male       | Mathieu    |
 | paola     | it         | female     | Carla      |
