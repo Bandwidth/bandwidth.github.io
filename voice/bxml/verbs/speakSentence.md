@@ -42,6 +42,7 @@ The table below shows a mapping of our supported voices.  It also maps our voice
 | esperanza | es         | female     | Conchita   |
 | violeta   | es         | female     | Lucia      |
 | jorge     | es         | male       | Enrique    |
+| rosa      | es_mx      | female     | Mia        |
 | jolie     | fr         | female     | Celine     |
 | bernard   | fr         | male       | Mathieu    |
 | paola     | it         | female     | Carla      |
@@ -68,7 +69,7 @@ Attributes:
  * `level`: (optional) defines the strength of emphasis to be applied, accepted values are: `strong`, `moderate` or `reduced`
 
 #### `<lang>`
-Specifies the natural language of the content.
+Specifies the natural language of the content. If you use a voice with an `en_US` locale and an `es-MX` lang, it will sound like an English-speaking American attempting to speak Spanish.
 
 Attributes:
  * `xml:lang`: specifies the language, accepted values are:
