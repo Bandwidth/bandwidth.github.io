@@ -3,45 +3,63 @@
 
 # Searching for Phone Numbers {#top}
 
-There are a number of different resource paths for querying available telephone numbers in the Bandwidth Phone Number inventory. These are:
+Searching for phone numbers can be performed through our Dashboard API. There are many ways to search for phone numbers and this guide covers the various methods and how you perform them.
 
-* Area Code or NPA
-* AvailableNpaNxx (List of NPA NXX quantities)
-* NPA-NXX with Local Calling Area
-* NPA-NXX-X with Local Calling Area
-* Rate Center
-* Toll Free Vanity
-* Toll Free Wild Card
-* State
-* City, State
-* Zip code
-* Lata (Telecom terminology)
+Specific API information can be found on our [Dashboard API docs](https://dev.bandwidth.com/numbers/apiReference.html)
 
-## Search HTTP GET Request Format
+## Base URL
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/availableNumbers`
 
-The Bandwidth Phone Number API allows the overall Bandwidth number inventory to be searched using a variety of approaches.  Our customers can use these searches to guide attempts to order numbers.  The various types of available searches are:
+## Query Parameters
 
-* Area Code / NPA searches
-* NPA-XXX, and NPA-NXX-X searches
-* Rate Center searches
-* State, and City/State searches
-* ZIP Code searches
-* LATA searches
-* Toll free number searches
+| Parameter | Description | Example |
+|--|--|
+| areaCode | The 3 digit area code to search for | 919 |
+| npaNxx | The 3 digits following an area code | 285 |
+| npaNxxx | The 4 digits in a phone?? | 9854 |
+| rateCenter | The rate center to search for | Dan help what is this |
+| state | The 2 letter state code to search for | NC |
+| city | The city to search for | Raleigh |
+| zip | The 5 or 9 digit zip code to search for | 27606, 27606-0007 |
+| lata | Apparently this is 5 digits | ? |
+| localVanity | A 3 to 7 alphanumeric character long string for pattern matching of phone numbers. May also include `*` (to match all) and `_` (to match one) | `81_`, `8*` |
+| tollFreeVanity | A 4 to 7 alphanumeric character long string for pattern matching of toll free numbers  | |
+| tollFreeWildCardPattern | A 3 alphanumeric character long string representing a wild card pattern for toll free numbers | `8**` |
+| quantity | Number of phone numbers to return. Can be 1 to 5000. Defaults to 5000 | 5000 |
+| enableTNDetail | Boolean value to include TN details. Defaults to false | `true` |
+| LCA | Boolean value to include TNs in the local calling area. Defaults to true | `true` |
+| endsIn | Boolean value to include only numbers which end in the `localVanity`. Defaults to false | `true` |
+| orderBy | The field to order the results by. Can be one of `fullNumber`, `npaNxx`, `npaNxxx`, or `areaCode` | `areaCode` |
+| protected | Determines if the search should return only protected numbers (`ONLY`), only not protected numbers (`NONE`), or both protected and not protected numbers (`MIXED`). Can be one of `NONE`, `ONLY`, or `MIXED` | `NONE` |
 
-These different search types have different query parameters that guide the required searches. The search requests are communicated via a <code class="get">GET</code>  API call where the type of search, the search filters, and controlling parameters such as limits on quantity and payload detail are specified as query parameters in the URL.
+## Search Types
 
-The response to the search request provides a list of available numbers, and if requested some details such as Rate Center and Lata, about the numbers that have been returned.
+| Search Type | Required Parameters | Combinational Parameters | Optional Parameters |
+|--|--|--|--|
+| Area Code | areaCode | rateCenter (state required), city (state required), state, lata, zip | quantity, enableTNDetail, protected |
+| NPA-NXX | npaNxx | rateCenter (state required), city (state required), state, lata, zip, orderBy | quantity, enableTNDetail, protected |
+| NPA-NXX with Local Calling Area | npaNxx |  | quantity, LCA, enableTNDetail, protected |
+| NPA-NXX-X	 | npaNxxx | rateCenter (state required), city (state required), state, lata, zip, orderBy | quantity, enableTNDetail, protected |
+| NPA-NXX-X with Local Calling Area | npaNxxx | rateCenter (state required), city (state required), state, lata, zip | quantity, LCA, enableTNDetail, protected |
+| RateCenter | rateCenter, state | city, areaCode/npaNxx/npaNxxx, lata, zip, orderBy | quantity, enableTNDetail, protected |
+| RateCenter with Local Calling Area | rateCenter, state |  | quantity, LCA, enableTNDetail, protected |
+| State | state | rateCenter, city, areaCode/npaNxx/npaNxxx, lata, zip | quantity, enableTNDetail, protected |
+| City | state, city | rateCenter, state, areaCode/npaNxx/npaNxxx, lata, zip, orderBy | quantity, enableTNDetail, protected |
+| Zip Code	 | zip | rateCenter (state required), city (state required), state, areaCode/npaNxx/npaNxxx, lata, orderBy | quantity, enableTNDetail, protected |
+| LATA | lata | rateCenter (state required), city (state required), state, areaCode/npaNxx/npaNxxx, zip | quantity, enableTNDetail, protected |
+| Local Vanity	 | localVanity	 | state, areaCode | endsIn, quantity, protected, enableTNdetails |
+| TollFree Vanity | tollFreeVanity | orderBy | quantity |
+| TollFree WildCard | tollFreeWildCardPattern | orderBy | quantity |
 
-### Search by Area Code
+## Response
 
-```http
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+```xml
 <SearchResult>
-    <ResultCount>2101</ResultCount>
+    <ResultCount>384</ResultCount>
     <TelephoneNumberList>
-        <TelephoneNumber>9192415735</TelephoneNumber>
+        <TelephoneNumber>4354776112</TelephoneNumber>
+        <!---- SNIP ---->
+        <TelephoneNumber>4357095160</TelephoneNumber>
     </TelephoneNumberList>
 </SearchResult>
 ```
-<br>
