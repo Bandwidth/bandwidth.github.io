@@ -21,7 +21,7 @@ Specific API information can be found on our [Dashboard API docs](https://dev.ba
 | state | The 2 letter state code to search for | NC |
 | city | The city to search for | Raleigh |
 | zip | The 5 or 9 digit zip code to search for | 27606, 27606-0007 |
-| lata | TODO | 244 |
+| lata | Local access and transport area. An up to 5 digit number that represents the geographic area in which numbers are routed | 244 |
 | localVanity | A 3 to 7 alphanumeric character long string for pattern matching of phone numbers. May also include `*` (to match all) and `_` (to match one) | `81_`, `8*` |
 | tollFreeVanity | A 4 to 7 alphanumeric character long string for pattern matching of toll free numbers  | `NEWCARS` |
 | tollFreeWildCardPattern | A 3 alphanumeric character long string representing a wild card pattern for toll free numbers | `8**` |
