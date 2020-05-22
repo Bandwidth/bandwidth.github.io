@@ -15,15 +15,15 @@ Specific API information can be found on our [Dashboard API docs](https://dev.ba
 | Parameter | Description | Example |
 |--|--|
 | areaCode | The 3 digit area code to search for | 919 |
-| npaNxx | The 3 digits following an area code | 285 |
-| npaNxxx | The 4 digits in a phone?? | 9854 |
-| rateCenter | The rate center to search for | Dan help what is this |
+| npaNxx | The 6 digits following an area code | 123321 |
+| npaNxxx | The 7 digits following an area code | 1234321  |
+| rateCenter | The rate center to search for | Cary  |
 | state | The 2 letter state code to search for | NC |
 | city | The city to search for | Raleigh |
 | zip | The 5 or 9 digit zip code to search for | 27606, 27606-0007 |
-| lata | Apparently this is 5 digits | ? |
+| lata | TODO | 244 |
 | localVanity | A 3 to 7 alphanumeric character long string for pattern matching of phone numbers. May also include `*` (to match all) and `_` (to match one) | `81_`, `8*` |
-| tollFreeVanity | A 4 to 7 alphanumeric character long string for pattern matching of toll free numbers  | |
+| tollFreeVanity | A 4 to 7 alphanumeric character long string for pattern matching of toll free numbers  | `NEWCARS` |
 | tollFreeWildCardPattern | A 3 alphanumeric character long string representing a wild card pattern for toll free numbers | `8**` |
 | quantity | Number of phone numbers to return. Can be 1 to 5000. Defaults to 5000 | 5000 |
 | enableTNDetail | Boolean value to include TN details. Defaults to false | `true` |
