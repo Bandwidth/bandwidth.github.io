@@ -85,6 +85,7 @@
 		* [Canceling LNP Order](numbers/guides/portingPhoneNumbers.md#cancel-lnp)
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
 	* [Number Utilization Review API](numbers/guides/numberUtilizationReviewAPI.md)
+	* [Portout Passcode Protection](numbers/guides/portoutPasscode.md)
 	* [CSR Lookup API](numbers/guides/csrLookup.md)
 		* [Create Subscriptions](numbers/guides/csrLookup.md#create-subscription)
 		* [Create a CSR Order](numbers/guides/csrLookup.md#create-csr-order)
