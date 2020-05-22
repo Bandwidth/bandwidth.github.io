@@ -30,6 +30,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | hold              | If true, the member is on hold and cannot speak or hear anything in the conference.   |
 | callIdsToCoach    | The list of call ids to coach.                                                        |
 
+{% common %}
+
 ### Example 1 of 1: Retrieve information about a specific conference member
 
 {% sample lang="http" %}

@@ -31,6 +31,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | tag                   | A custom string that will be sent with this and all future callbacks.                                |
 | activeMembers         | The list of active members in the conference.                                                        |
 
+{% common %}
+
 ### Example 1 of 1: Retrieve information about a specific conference
 
 {% sample lang="http" %}
