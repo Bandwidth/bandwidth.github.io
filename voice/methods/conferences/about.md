@@ -13,7 +13,7 @@ Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#vo
 
 ### Capabilities
 
-| HTTP Method                        | Path                                                                                          | Description                                                                  |
-|:-----------------------------------|:----------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| <code class="put">GET</code>       | [`/conferences/{conferenceId}`](/conferences/getConference.md)                                | Retrieve conference information                                              |
-| <code class="put">GET</code>       | [`/conferences/{conferenceId}/members/{memberId}`](/conferences/getConferenceMember.md)       | Retrieve information about a particular conference member                    |
+| HTTP Method                        | Path                                                                             | Description                                                                  |
+|:-----------------------------------|:---------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| <code class="put">GET</code>       | [`/conferences/{conferenceId}`](getConference.md)                                | Retrieve conference information                                              |
+| <code class="put">GET</code>       | [`/conferences/{conferenceId}/members/{memberId}`](getConferenceMember.md)       | Retrieve information about a particular conference member                    |
