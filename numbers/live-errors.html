@@ -917,6 +917,10 @@
     <td>5182</td>
     <td>Only A2P line option may be changed for short code telephone numbers.</td>
   </tr>
+    <tr>
+    <td>5183</td>
+    <td>Ordering is not enabled on the specified account</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -2030,131 +2034,433 @@
     <th>Error Code</th>
     <th>Error Description</th>
   </tr>
-    <tr>
-    <td>7400</td>
-    <td>Error: serviceOrderHeader is required</td>
-  </tr>
-    <tr>
-    <td>7401</td>
-    <td>Error: Could not find valid externalOrderID</td>
-  </tr>
-    <tr>
-    <td>7402</td>
-    <td>Error: Unrecognized product ID</td>
-  </tr>
-    <tr>
-    <td>7403</td>
-    <td>Error: Request does not contains %s.</td>
-  </tr>
-    <tr>
-    <td>7404</td>
-    <td>Error: %s field is missing.</td>
-  </tr>
-    <tr>
-    <td>7405</td>
-    <td>Error: notification is required</td>
-  </tr>
-    <tr>
-    <td>7406</td>
-    <td>Error: Invalid E911CoverageIndicator</td>
-  </tr>
-    <tr>
-    <td>7407</td>
-    <td>The wireless AccountNumber cannot be changed after order submission for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7408</td>
-    <td>The wireless PinNumber cannot be changed after order submission for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7409</td>
-    <td>When changing the subscriber name, both FirstName and LastName must be supplied for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7410</td>
-    <td>BusinessName required when SubscriberType set to Business for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7411</td>
-    <td>Subscriber name cannot be changed when SubscriberType is set to Business for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7413</td>
-    <td>The ListOfPhoneNumbers cannot be changed after order submission for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7414</td>
-    <td>The BusinessName cannot be changed after FOC is assigned for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7415</td>
-    <td>The BillingTelephoneNumber cannot be changed after FOC is assigned for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7416</td>
-    <td>BusinessName cannot be changed when SubscriberType is set to Residential for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7417</td>
-    <td>Both FirstName and LastName are required when SubscriberType set to Residential for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7418</td>
-    <td>The SubscriberType cannot be changed after FOC is assigned for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7419</td>
-    <td>The subscriber name cannot be changed after FOC is assigned for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7420</td>
-    <td>The order address cannot be changed after order submission for automated off-net port-ins.</td>
-  </tr>
-    <tr>
-    <td>7421</td>
-    <td>All ported numbers on an order need to be from the same carrier.</td>
-  </tr>
-    <tr>
-    <td>7422</td>
-    <td>The LocalOrderUpdate query parameter is restricted to Bandwidth internal users only.</td>
-  </tr>
-    <tr>
-    <td>7423</td>
-    <td>The LocalOrderUpdate query parameter can only be specified for orders in FOC status.</td>
-  </tr>
-    <tr>
-    <td>7424</td>
-    <td>The LocalOrderUpdate query parameter requires inclusion of a valid RequestedFocDate in the request payload.</td>
-  </tr>
-    <tr>
-    <td>7425</td>
-    <td>The LocalOrderUpdate query parameter may only be used when it is not possible for the user to change the FOC date using the normal SUPP request.</td>
-  </tr>
-    <tr>
-    <td>7604</td>
-    <td>Activation can only be triggered between the hours of %s and %s on the actual FOC date: %s.</td>
-  </tr>
-    <tr>
-    <td>7605</td>
-    <td>Activation must be scheduled between the hours of %s and %s on the actual FOC date: %s.</td>
-  </tr>
-    <tr>
-    <td>7606</td>
-    <td>Order must be in FOC state to be scheduled for activation.</td>
-  </tr>
-    <tr>
-    <td>7607</td>
-    <td>Unable to sumbit portTN request to Level3.</td>
-  </tr>
-    <tr>
-    <td>7608</td>
-    <td>The requested time can not be updated for non triggered portin order.</td>
-  </tr>
-    <tr>
-    <td>7609</td>
-    <td>The telephone number(s) belongs to unsupported losing carrier.</td>
-  </tr>
-  </table>
+  <tr><td>6100</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (00001)</td></tr>
+  <tr><td>6101</td><td>The order was not found with the carrier. Please cancel and resubmit your request.  (00002)</td></tr>
+  <tr><td>6102</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (00003)</td></tr>
+  <tr><td>6103</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00004)</td></tr>
+  <tr><td>6104</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00005)</td></tr>
+  <tr><td>6105</td><td>An error occurred, preventing processing with our carrier. Please check the address of your request and cancel and resubmit your order. If this error persists, please contact support. (00006)</td></tr>
+  <tr><td>6106</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00007)</td></tr>
+  <tr><td>6107</td><td>The SOAP date field must be in mm/dd/yyyy format. Please revise your format and try again. (00008)</td></tr>
+  <tr><td>6108</td><td>A porting vendor Rate center error occurred, preventing processing, Please cancel and resubmit your request. If this error persists, please contact support. (00009)</td></tr>
+  <tr><td>6109</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00010)</td></tr>
+  <tr><td>6110</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00011)</td></tr>
+  <tr><td>6111</td><td>No telephone number was provided. Please check your port and cancel and resubmit your request. If this error persists, please contact support. (00013)</td></tr>
+  <tr><td>6112</td><td>Not all telephone numbers configured. Please review your request and cancel and resubmit. If the error persists, please contact support. (00014)</td></tr>
+  <tr><td>6113</td><td>The phone number you entered is not portable. Please cancel your request. Contact support if you find this message in error. (00015)</td></tr>
+  <tr><td>6114</td><td>Your port request requires a Letter of Authorization. Please upload the required documentation from the Service Activation page. Once uploaded, please select a new request date and update the order. (00016)</td></tr>
+  <tr><td>6115</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00017)</td></tr>
+  <tr><td>6116</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00018)</td></tr>
+  <tr><td>6117</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00019)</td></tr>
+  <tr><td>6118</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00020)</td></tr>
+  <tr><td>6119</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00021)</td></tr>
+  <tr><td>6120</td><td>The bill stop date can be no sooner than tomorrow (next business day) and no more than 15 days from today. Please revise and cancel and resubmit. (00022)</td></tr>
+  <tr><td>6121</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00023)</td></tr>
+  <tr><td>6122</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00024)</td></tr>
+  <tr><td>6123</td><td>The CRD you provided is invalid. Please revise and cancel and resubmit. (00025)</td></tr>
+  <tr><td>6124</td><td>Mulitple orders were found for the ID specified in your request. Please contact support. (00026)</td></tr>
+  <tr><td>6125</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6126</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6127</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6128</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6129</td><td>A pre-validation error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00100)</td></tr>
+  <tr><td>6130</td><td>A validation error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (00101)</td></tr>
+  <tr><td>6131</td><td>An invalid request was made. Contact support if this error persists. (00102)</td></tr>
+  <tr><td>6132</td><td>An invalid selection was provided on the request. Please create a new request. (00103)</td></tr>
+  <tr><td>6133</td><td>The data provided is inconsistent.  Please enter either NPA NXX or city/state/zip not both.  (00104)</td></tr>
+  <tr><td>6134</td><td>Provided data elements on the request are not valid. (00105)</td></tr>
+  <tr><td>6135</td><td>This number was identified as a geoindependent number. Please cancel the activation and resubmit as 'Do not list, do not publish'. (00106)</td></tr>
+  <tr><td>6136</td><td>The system has identified an error  with your E911 coverage. Please contact support. (00107)</td></tr>
+  <tr><td>6137</td><td>The system has identified a pending Term Group Order. Please contact support. (00108)</td></tr>
+  <tr><td>6138</td><td>Toll Free is not supported. Please contact support. (00110)</td></tr>
+  <tr><td>6139</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (00112)</td></tr>
+  <tr><td>6140</td><td>The system is unable to authenticate this request based on digital signatures and B2B profile. (00200)</td></tr>
+  <tr><td>6141</td><td>Order failed schema validation. Please contact support. (00501)</td></tr>
+  <tr><td>6142</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01002)</td></tr>
+  <tr><td>6143</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (01003)</td></tr>
+  <tr><td>6144</td><td>Directory Listing validation failed. Please submit a new request with correct directory listing information. (01006)</td></tr>
+  <tr><td>6145</td><td>An error occurred, preventing processing with our carrier. Please cancel and resubmit your request. If this error persists, please contact support. (01007)</td></tr>
+  <tr><td>6146</td><td>All required data elements are not provided on the request. (01008)</td></tr>
+  <tr><td>6147</td><td>The telephone number and address of your request are not in the same coverage area. Please contact Support and review your E911 service. (01101)</td></tr>
+  <tr><td>6148</td><td>Telephone number is invalid. Please review and cancel and resubmit. If the number is correct, please contact support. (01102)</td></tr>
+  <tr><td>6149</td><td>The NPA you entered is invalid. Please correct, and cancel and resubmit. If the issue persists, please contact support. (01103)</td></tr>
+  <tr><td>6150</td><td>The NXX you entered is invalid. Please correct, and cancel and resubmit. If the issue persists, please contact support. (01104)</td></tr>
+  <tr><td>6151</td><td>The telephone number of your request is a non-portable toll free number. Please recommend an alternate solution to the subscriber. For more information contact support.(01105)</td></tr>
+  <tr><td>6152</td><td>The number requested is not found in the Local Exchange Routing Guide (LERG) and cannot be ported at this time. (01106)</td></tr>
+  <tr><td>6153</td><td>Porting vendor profile not configured for Wireless porting. Please contact support. (01107)</td></tr>
+  <tr><td>6154</td><td>The telephone number of your request is non-portable due to carrier restrictions. For more information contact support. (01108)</td></tr>
+  <tr><td>6155</td><td>The number requested cannot be ported at this time due to unavailable Rate Center coverage. For more information contact support. (01109)</td></tr>
+  <tr><td>6156</td><td>The number requested cannot be ported at this time due to unavailable Rate Center coverage. For more information contact support. (01110)</td></tr>
+  <tr><td>6157</td><td>The number requested cannot be ported at this time due to unavailable Rate Center coverage. For more information contact support. (01111)</td></tr>
+  <tr><td>6158</td><td>The number requested cannot be ported at this time due to unavailable Rate Center coverage. For more information contact support. (01112)</td></tr>
+  <tr><td>6159</td><td>The number requested cannot be ported at this time due to unavailable Rate Center coverage. For more information contact support. (01113)</td></tr>
+  <tr><td>6160</td><td>The number requested cannot be ported at this time due to an unavailable required feature with porting vendor. Please revise the request and cancel and resubmit. For additional information contact support. (01114)</td></tr>
+  <tr><td>6161</td><td>The number requested cannot be ported at this time due to an uavailable required feature with porting vendor. Please revise the request and cancel and resubmit. For additional information contact support. (01115)</td></tr>
+  <tr><td>6162</td><td>The number requested cannot be ported at this time due to an uavailable required feature with porting vendor. Please revise the request and cancel and resubmit. For additional information contact support. (01116)</td></tr>
+  <tr><td>6163</td><td>The number requested cannot be ported at this time due to an uavailable required feature with porting vendor. Please revise the request and cancel and resubmit. For additional information contact support. (01117)</td></tr>
+  <tr><td>6164</td><td>The number requested cannot be ported at this time due to porting vendor missing RBOC information. Contact Support.(01118)</td></tr>
+  <tr><td>6165</td><td>The number requested is not found in the Local Exchange Routing Guide (LERG) and cannot be ported at this time. (01119)</td></tr>
+  <tr><td>6166</td><td>The number requested is not found in the Local Exchange Routing Guide (LERG) and cannot be ported at this time. (01120)</td></tr>
+  <tr><td>6167</td><td>No porting vendor Interconnection Agreement exists for the carrier. The number requested cannot be ported at this time. Please contact support for additional information. (01121)</td></tr>
+  <tr><td>6168</td><td>The number requested is not found in the Local Exchange Routing Guide (LERG) and cannot be ported at this time. (01122)</td></tr>
+  <tr><td>6169</td><td>The number requested is not found in the Local Exchange Routing Guide (LERG) and cannot be ported at this time. (01123)</td></tr>
+  <tr><td>6170</td><td>The number requested cannot be ported at this time. Please contact support for additional information. (01124)</td></tr>
+  <tr><td>6171</td><td>The number requested cannot be ported at this time. Please contact support for additional information. (01125)</td></tr>
+  <tr><td>6172</td><td>Please open a ticket with Bandwidth support to reschedule or cancel this order. (01126)</td></tr>
+  <tr><td>6173</td><td>The system is unable to process this request because it contains more than 49 TNs. Please contact support. (01127)</td></tr>
+  <tr><td>6174</td><td>Porting vendor replied with generic error response. Please contact support. (01128)</td></tr>
+  <tr><td>6175</td><td>Porting vendor replied with generic error response. Please contact support. (01129)</td></tr>
+  <tr><td>6176</td><td>Porting vendor replied with generic error response. Please contact support. (01130)</td></tr>
+  <tr><td>6177</td><td>Porting vendor replied with generic error response. Please contact support. (01131)</td></tr>
+  <tr><td>6178</td><td>Porting vendor replied with generic error response. Please contact support. (01132)</td></tr>
+  <tr><td>6179</td><td>The system is unable to process this request because all the TNs for the order do not share the same BTN, service address and carrier information. (01133)</td></tr>
+  <tr><td>6180</td><td>Request cannot be processed because the port has already been triggered. Please verify service with a test call. Please correct the TN list and cancel and resubmit. (01134)</td></tr>
+  <tr><td>6181</td><td>Requested action cannot be processed because the port is already scheduled to auto-port at the Activation Time on the day of FOC. (01135)</td></tr>
+  <tr><td>6182</td><td>Requested action cannot be processed because the order was not found. (01136)</td></tr>
+  <tr><td>6183</td><td>Please check the number in your request and try again. (01137)</td></tr>
+  <tr><td>6184</td><td>The Billing Telephone Number is required when multiple Telephone Numbers are specified on the CSR Request. Please update the CSR Request and cancel and resubmit. (01138)</td></tr>
+  <tr><td>6185</td><td>The Address information must be specified on the CSR Request. Please update the CSR Request and cancel and resubmit. (01139)</td></tr>
+  <tr><td>6186</td><td>The Name information must be specified on the CSR Request. Please update the CSR Request and cancel and resubmit. (01140)</td></tr>
+  <tr><td>6187</td><td>The Customer Type Indicator must be populated with a valid value (""B"" for Business or ""R"" for Residential) on the CSR Request. Please update the CSR Request and cancel and resubmit. (01141)</td></tr>
+  <tr><td>6188</td><td>The Requestor Name must be specified on the CSR Request. Please update the CSR Request and cancel and resubmit. (01142)</td></tr>
+  <tr><td>6189</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6190</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6191</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01145)</td></tr>
+  <tr><td>6192</td><td>The Billing Telephone Number specified on the CSR Request is invalid. Please update the CSR Request and cancel and resubmit. (01146)</td></tr>
+  <tr><td>6193</td><td>Porting vendor cannot port the Telephone Number specified on the CSR Request. For more information, contact support. (01147)</td></tr>
+  <tr><td>6194</td><td>A Customer Service Record could not be retrieved automatically for the Telephone Number specified on the CSR Request. Please continue to submit a Customer Order and porting vendor will obtain the CSR information during order processing. (01148)</td></tr>
+  <tr><td>6195</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01149)</td></tr>
+  <tr><td>6196</td><td>The requested Transaction ID is Invalid. (01150)</td></tr>
+  <tr><td>6197</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01152)</td></tr>
+  <tr><td>6198</td><td>The CSR cannot be retrieved at this time. Please wait and try again. (01153)</td></tr>
+  <tr><td>6199</td><td>A CSR was not found for this telephone number. If you are unable to retrieve the CSR please cancel and resubmit the CSR Request. (01154)</td></tr>
+  <tr><td>6200</td><td>The number requested cannot be ported at this time. Contact support. (01155)</td></tr>
+  <tr><td>6201</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6202</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6203</td><td>Please re-submit order with a valid values for Street name suffix or prefix. (01158)</td></tr>
+  <tr><td>6204</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6205</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6206</td><td>The request had wireless and wireline TNs. Wireless and wireline TNs must be submitted separately. (01161)</td></tr>
+  <tr><td>6207</td><td>Required Wireless LNP Fields are missing or incomplete. Please populate the Account Number and PIN fields and cancel and resubmit. (01162)</td></tr>
+  <tr><td>6208</td><td>All wireless specific fields, Wireless Account and PIN on order must be the same for all TNs. You may not submit TNs with different Account Numbers. Please correct the values or submit separate orders. (01163)</td></tr>
+  <tr><td>6209</td><td>TN was submitted with Wireless specific data, but the TN is not wireless. Please remove wireless specific fields and cancel and resubmit. (01164)</td></tr>
+  <tr><td>6210</td><td>Wireless SSN/Tax ID not submitted in correct format. SSN/Tax ID must be entered with 5 leading zeros and last 4 digits of actual number including dashes as follows ??????? SSN: 000-00-1234 - TAX ID: 00-0001234. Correct the Format of the SSN and cancel and resubmit. (01165)</td></tr>
+  <tr><td>6211</td><td>TN is not Portable. Please enter order with a portable TN. (01170)</td></tr>
+  <tr><td>6212</td><td>Internal Port gaining and losing BusOrgs are the same. (01171)</td></tr>
+  <tr><td>6213</td><td>TN is not currently portable. This L3 internal TN is not in ""Assigned"" status and cannot be internally ported. (01172)</td></tr>
+  <tr><td>6214</td><td>Name entered does not match the name currently associated with this TN. Please SUPP, or cancel and resubmit, with correct name and address. (01173)</td></tr>
+  <tr><td>6215</td><td>Address entered does not match the name currently associated with this TN. Please cancel and resubmit with correct name and address. (01174)</td></tr>
+  <tr><td>6216</td><td>Name and Address entered do not match the name currently associated with this TN. Please cancel and resubmit with correct name and address. (01175)</td></tr>
+  <tr><td>6217</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01199)</td></tr>
+  <tr><td>6218</td><td>The entered address failed porting vendor validation. The address you entered was not found in our database. Please confirm the spelling and number of the address or revise your entry and cancel and resubmit. (01201)</td></tr>
+  <tr><td>6219</td><td>The address provided is similar to one or more address and could not be fully validated. Please provide more information in the pre/post direction street city state and/or zip then cancel and resubmit your request. (ex: 101 S. Main St Aurora CO 8xxxx instead of 101 Main Denver CO). (01202)</td></tr>
+  <tr><td>6220</td><td>Multiple addresses were returned for the location specified.  Please correct the address and cancel and resubmit. (01203)</td></tr>
+  <tr><td>6221</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6222</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01205)</td></tr>
+  <tr><td>6223</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6224</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6225</td><td>The address provided is a PO Box and could not be fully validated. Please cancel and resubmit with a physical (street) address. (ex: 101 S. Main St Aurora CO 8xxxx instead of 101 Main Denver CO). (01208)</td></tr>
+  <tr><td>6226</td><td>The address provided is a not a USPS valid address. Please confirm the detailed address information revise and cancel and resubmit request. (01209)</td></tr>
+  <tr><td>6227</td><td>Request address has invalide ZIP-State combination of zipcode and state. Please confirm the detailed address information revise and cancel and resubmit request. (01210)</td></tr>
+  <tr><td>6228</td><td>Porting vendor does not currently offer service in this coverage area. Please confirm the address and revise your entry if necessary. If you find this message in error, please contact support. (01301)</td></tr>
+  <tr><td>6229</td><td>Porting vendor does not currently offer service in this coverage area. Please confirm the address and revise your entry if necessary. If you find this message in error, please contact support. (01302)</td></tr>
+  <tr><td>6230</td><td>Request cannot be processed at this time due to 911 coverage. Please contact your Account Manager for assistance. (01303)</td></tr>
+  <tr><td>6231</td><td>Request cannot be processed at this time due to Rate Center coverage. Please contact your Account Manager for assistance. (01304)</td></tr>
+  <tr><td>6232</td><td>Porting vendor does not currently provide static e911 in this coverage area. Please confirm the address and revise your entry if needed. If you find this message in error, please contact support. (01305)</td></tr>
+  <tr><td>6233</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01306)</td></tr>
+  <tr><td>6234</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01307)</td></tr>
+  <tr><td>6235</td><td>MMAE does not return the TAX_CLLI for the Rate center. No Tax Common Language Location Identifier. (01308)</td></tr>
+  <tr><td>6236</td><td>Porting vendor is not currently configured to support the feature you've requested in this market. Please check the request and contact support. (01309)</td></tr>
+  <tr><td>6237</td><td>The Rate Center of the TN and the Rate Center of the address entered do not match. Please revise your entry, including directory listing settings, and cancel and resubmit your request. (01310)</td></tr>
+  <tr><td>6238</td><td>The telephone number(s) in the request should be within the same coverage area. Please revise the request and cancel and resubmit. (01311)</td></tr>
+  <tr><td>6239</td><td>Request cannot be processed at this time due to customer setup within the requested Market. Please contact support for assistance. (01401)</td></tr>
+  <tr><td>6240</td><td>An error occurred, preventing sucessful completion of your request. The error has been logged and actioned. Please cancel and resubmit your request.  If this error persists, contact support. (01402)</td></tr>
+  <tr><td>6241</td><td>An error occurred, preventing sucessful completion of your request. The error has been logged and actioned. Please cancel and resubmit your request. If this error persists, contact support. (01403)</td></tr>
+  <tr><td>6242</td><td>Request cannot be processed due to the Customer Service Name Specified. Please contact support to have your CSN reviewed, then cancel and resubmit. (01404)</td></tr>
+  <tr><td>6243</td><td>Request cannot be processed due to the Customer Service Name Specified. Please contact support to have your CSN reviewed, then cancel and resubmit. (01405)</td></tr>
+  <tr><td>6244</td><td>Request cannot be processed due to the Customer Service Name Specified. Please contact support to have your CSN reviewed, then cancel and resubmit. (01406)</td></tr>
+  <tr><td>6245</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6246</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6247</td><td>Request cannot be processed due to porting vendor E911 account settings specified. Please contact support to have your E911 services reviewed, then cancel and resubmit. (01409)</td></tr>
+  <tr><td>6248</td><td>Request cannot be processed due to porting vendor E911 account settings specified. Please contact support to have your E911 services reviewed, then cancel and resubmit. (01410)</td></tr>
+  <tr><td>6249</td><td>No valid porting vendor switches found. Please contact support. (01411)</td></tr>
+  <tr><td>6250</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6251</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6252</td><td>Your porting vendor account is not currently set up to allow ordering of this service online. Please contact support. (01414)</td></tr>
+  <tr><td>6253</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6254</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6255</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6256</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6257</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6258</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01421)</td></tr>
+  <tr><td>6259</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6260</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6261</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6262</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6263</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6264</td><td>Porting vendor trunk group already exists for customer. (01491)</td></tr>
+  <tr><td>6265</td><td>Multiple porting vendor trunk groups already exists for customer. (01492)</td></tr>
+  <tr><td>6266</td><td>Porting vendor does not have appropriate telephone numbers reserved for this service. Please contact support. (01501)</td></tr>
+  <tr><td>6267</td><td>Unable to process the order at this time due to a LI phone number issue. Please contact support for assistance. (01502)</td></tr>
+  <tr><td>6268</td><td>Request could not be processed as submitted due to missing information. (01551)</td></tr>
+  <tr><td>6269</td><td>Request could not be processed as submitted due to Telephone Number (TN) quantity specified. (01552)</td></tr>
+  <tr><td>6270</td><td>Request could not be processed as submitted due to a mismatch between Telephone Number (TN) and Rate Center. Contact support. (01553)</td></tr>
+  <tr><td>6271</td><td>Telephone Numbers have already been reserved for this transaction. Request cannot be processed. (01554)</td></tr>
+  <tr><td>6272</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01556)</td></tr>
+  <tr><td>6273</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01601)</td></tr>
+  <tr><td>6274</td><td>Porting vendor does not have appropriate telephone numbers reserved for this service. Verify the TNs and cancel and resubmit your request. If the error persists, please contact support. (01602)</td></tr>
+  <tr><td>6275</td><td>The Customer Request Date for delivery of service is out of range. Please select a later date and SUPP, or cancel and resubmit. (01603)</td></tr>
+  <tr><td>6276</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01604)</td></tr>
+  <tr><td>6277</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6278</td><td>Customer Request Date submitted on the Supplement Customer Order equals the Customer Request Date on the existing Customer Order. (01606)</td></tr>
+  <tr><td>6279</td><td>The Business Transaction ID provided is already in use by another Customer Order. Please cancel and resubmit. (01610)</td></tr>
+  <tr><td>6280</td><td>The Business Transaction ID provided cannot be found for an active Customer Order. (01611)</td></tr>
+  <tr><td>6281</td><td>An order for this telephone number has been received and is processing. Please have the end user contact their current carrier to remove or complete this order.  Once this has been done, open a ticket with Bandwidth Support, and we will push the order back to porting vendor. (01612)</td></tr>
+  <tr><td>6282</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6283</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6284</td><td>The active service information cannot be found for the Telephone Number provided. Please revise the Telephone Number and cancel and resubmit request. (01616)</td></tr>
+  <tr><td>6285</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6286</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6287</td><td>The number on your request is not on your porting vendor account.  Please contact support. (01619)</td></tr>
+  <tr><td>6288</td><td>Active Customer Orders not found for the Telephone Number. Please create a new request. (01620)</td></tr>
+  <tr><td>6289</td><td>The customer account and/or product information provided on this request do not match the existing service information on record. Please revise your request and cancel and resubmit. (01621)</td></tr>
+  <tr><td>6290</td><td>The information submitted on this request matches the information for the subscriber's existing service. Please review your request, make a change and cancel and resubmit. (01622)</td></tr>
+  <tr><td>6291</td><td>The original Customer Order for this request cannot be found for the submitted Telephone Number. (01623)</td></tr>
+  <tr><td>6292</td><td>The Rate Center location on this request must match the Rate Center on record for the subscriber's existing service. (01624)</td></tr>
+  <tr><td>6293</td><td>A Bill Start Date is required to perform the activity. (01625)</td></tr>
+  <tr><td>6294</td><td>The original Customer Order has already been processed and cannot be Cancelled at this time. (01626)</td></tr>
+  <tr><td>6295</td><td>Request cannot be processed due to missing name information. If this is a residential order please make sure that both first and last names are provided. If this is a business order please make sure the business name is provided. Please SUPP, or cancel and resubmit. (01627)</td></tr>
+  <tr><td>6296</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6297</td><td>Request cannot be processed due to missing rate center information. Please make sure that both NPA and NXX are valid. If the problem persists contact support. (01629)</td></tr>
+  <tr><td>6298</td><td>CNAM is not available on Local Inbound. Please correct information and cancel and resubmit your request. (01630)</td></tr>
+  <tr><td>6299</td><td>To change CNAM both the CNAM and CNAM_BLOCK fields must be populated. Please review and cancel and resubmit request. (01631)</td></tr>
+  <tr><td>6300</td><td>To change CNAM, both the CNAM and CNAM_BLOCK fields must be populated. Please review and resubmit request. (01632)</td></tr>
+  <tr><td>6301</td><td>The Telephone Number was not provided for this request. Please review the NPA NXX and TN Start Number fields and cancel and resubmit request. (01633)</td></tr>
+  <tr><td>6302</td><td>Request cannot be processed because an existing service already exists for the Telephone Number provided. (01635)</td></tr>
+  <tr><td>6303</td><td>Address change is not allowed for nomadic E911 option. (01636)</td></tr>
+  <tr><td>6304</td><td>Please SUPP, or cancel and resubmit, this order with a new port requested date that does not coincide with a weekend or holiday. (01637)</td></tr>
+  <tr><td>6305</td><td>The Master Bus Org ID cannot be found for the Order. (01638)</td></tr>
+  <tr><td>6306</td><td>Master Order SCID not Found. (01639)</td></tr>
+  <tr><td>6307</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6308</td><td>CNAM is not available on product selected. Please cancel and resubmit without CNAM. (01641)</td></tr>
+  <tr><td>6309</td><td>Gaining and losing customer must be on the same switch type. Service transfer does not currently support the ability to provision across architecture. Contact support. (01642)</td></tr>
+  <tr><td>6310</td><td>A customer requested date that falls on a Weekend, or Holiday is invalid for this type of porting request. Porting vendor internal port LNP requests must have a customer request date that falls between Monday and Friday. Please select a new date and SUPP, or cancel and resubmit. (01643)</td></tr>
+  <tr><td>6311</td><td>Port requested date cannot fall on a weekend or holiday. (01644)</td></tr>
+  <tr><td>6312</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6313</td><td>The original order for this request has already been installed or completed and therefore cannot be Cancelled or Supplemented. (01701)</td></tr>
+  <tr><td>6314</td><td>This order is not editable because it is within two days of the FOC. Please contact support if a change must be made. (01703)</td></tr>
+  <tr><td>6315</td><td>The Supplemental Customer Order cannot be processed because the telephone number from the original customer order has already ported. (01705)</td></tr>
+  <tr><td>6316</td><td>The Supplemental Customer Order cannot be processed because the Service Commencement Date from the original customer order has already been received. (01706)</td></tr>
+  <tr><td>6317</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6318</td><td>FOC date not in the past. Request can not be processed because the FOC date is not in the past. (01708)</td></tr>
+  <tr><td>6319</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6320</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (01803)</td></tr>
+  <tr><td>6321</td><td>Account is past due. (01805)</td></tr>
+  <tr><td>6322</td><td>Account is over limit. (01806)</td></tr>
+  <tr><td>6323</td><td>Account is past due and over limit. (01807) </td></tr>
+  <tr><td>6324</td><td>BusOrg Unknown. (01808)</td></tr>
+  <tr><td>6325</td><td>Request can not be processed because the your porting vendor account is not Hot Cut enabled. Please contact support. (01900)</td></tr>
+  <tr><td>6326</td><td>Request can not be processed because the order is not ready to port. Please contact Support. (01901)</td></tr>
+  <tr><td>6327</td><td>Request can not be processed because the current date is before the FOC date. (01902)</td></tr>
+  <tr><td>6328</td><td>The port cannot be triggered on this Customer Order due to the current stats of the Order (may have been can completed or pending install). (01903)</td></tr>
+  <tr><td>6329</td><td>Request could not be processed because a failure occurred while initiating the port. (01904)</td></tr>
+  <tr><td>6330</td><td>Request could not be processed because the Customer Order has already been ported. (01905)</td></tr>
+  <tr><td>6331</td><td>Request could not be processed because a cancel request has been submitted for this Customer Order. (01906)</td></tr>
+  <tr><td>6332</td><td>The Customer Order cannot be canceled within an hour of the port. (01907)</td></tr>
+  <tr><td>6333</td><td>Request could not be processed because the porting window is not yet open. (01908)</td></tr>
+  <tr><td>6334</td><td>The port can only be triggered after 4:00 AM mountain time on the FOC date of the Customer Order. Please cancel and resubmit request after this time. (01909)</td></tr>
+  <tr><td>6335</td><td>Port cannot be triggered past the post FOC trigger window. (01910)</td></tr>
+  <tr><td>6336</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (02000)</td></tr>
+  <tr><td>6337</td><td>Request cannot be processed due to porting vendor account configuration. Contact Support. (02004)</td></tr>
+  <tr><td>6338</td><td>Request cannot be processed due to porting vendor account configuration. Contact Support. (02005)</td></tr>
+  <tr><td>6339</td><td>The service package provided in your request is Null. Please cancel and resubmit the order with a valid service package value. (02006)</td></tr>
+  <tr><td>6340</td><td>The service package provided in your request does not match your current service package options. Please cancel and resubmit the order with a valid service package value. (02007)</td></tr>
+  <tr><td>6341</td><td>Your request cannot be processed due to a porting vendor pricing error. Please contact support. (02008)</td></tr>
+  <tr><td>6342</td><td>Your request cannot be processed due to a porting vendor pricing error. Please contact support. (02009)</td></tr>
+  <tr><td>6343</td><td>The E911 option provided in your request does not match your current service package options. Please cancel and resubmit the order with a valid E911 value. (02010)</td></tr>
+  <tr><td>6344</td><td>The E911 option provided in your request is not allowed. Please contact support. (02011)</td></tr>
+  <tr><td>6345</td><td>The E911 option provided in your request is already in use. Please cancel and resubmit the order with a valid E911 value. (02012)</td></tr>
+  <tr><td>6346</td><td>The E911 option provided in your request is already in use. Please cancel and resubmit the order with a valid E911 value. (02013)</td></tr>
+  <tr><td>6347</td><td>The E911 option provided in your request is already in use. Please cancel and resubmit the order with a valid E911 value. (02014)</td></tr>
+  <tr><td>6348</td><td>Bill site id is not set up for the given billng Xref id. (02017)</td></tr>
+  <tr><td>6349</td><td>The LSR Bypass function is not valid in your customer profile. Pleas cancel and resubmit your order with a valid value. (02018)</td></tr>
+  <tr><td>6350</td><td>Billing X ref-ID is required to process the order. Please cancel and resubmit. (02019)</td></tr>
+  <tr><td>6351</td><td>Exernal Order ID is not unique. The external order ID must be unique. (02020)</td></tr>
+  <tr><td>6352</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6353</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6354</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6355</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6356</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6357</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6358</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6359</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6360</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6361</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (02100)</td></tr>
+  <tr><td>6362</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6363</td><td>VPC Carrier ID mismatch. (02102)</td></tr>
+  <tr><td>6364</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6365</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6366</td><td>The Customer Service Record was received, but an issue was encountered during validation. (02207)</td></tr>
+  <tr><td>6367</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6368</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6369</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6370</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (04000)</td></tr>
+  <tr><td>6371</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6372</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6373</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6374</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (04004)</td></tr>
+  <tr><td>6375</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6376</td><td>An error occurred in porting vendor. Contact support. (05001)</td></tr>
+  <tr><td>6377</td><td>An error occurred in porting vendor. Contact support. (05002)</td></tr>
+  <tr><td>6378</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6379</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6380</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6381</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6382</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6383</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6384</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6385</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6386</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6387</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6388</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6389</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6390</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6391</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6392</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6393</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6394</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6395</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6396</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6397</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6398</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6399</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6400</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6401</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6402</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6403</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6404</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6405</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6406</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6407</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6408</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6409</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6410</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6411</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6412</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6413</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6414</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6415</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6416</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6417</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6418</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6419</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6420</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6421</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6422</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6423</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6424</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (99996)</td></tr>
+  <tr><td>6425</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (99997)</td></tr>
+  <tr><td>6426</td><td>A problem has occurred at the porting vendor.  Bandwidth is retrying the operation with the vendor.  If you do not wish to wait for retries, you may cancel and resubmit this order.  Otherwise, no action is required. (99998)</td></tr>
+  <tr><td>6427</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6428</td><td>(message text directly from Level 3)</td></tr>
+  <tr><td>6429</td><td>Porting vendor has determined the number is toll free and cannot be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP001J)</td></tr>
+  <tr><td>6430</td><td>Porting vendor has determined the number is toll free and cannot be ported. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP001W)</td></tr>
+  <tr><td>6431</td><td>Porting vendor has determined that Centrex Service exists on the line. The Centrex feature requires all of the telephone numbers within the Centrex block to be ported simultaneously. Please cancel and resubmit this customer order with all of the telephone numbers associated with the Centrex. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP002J)</td></tr>
+  <tr><td>6432</td><td>Porting vendor has determined that Centrex Service exists on the line. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP002W)</td></tr>
+  <tr><td>6433</td><td>Porting vendor has determined that a Contract exists on the line. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP003J)</td></tr>
+  <tr><td>6434</td><td>Porting vendor has determined that this number is contracted.   At this phase, porting vendor will proceed with the port, but please be aware that if further issues due to this feature are encountered, the order will need to be cancelled. (LNP003W)</td></tr>
+  <tr><td>6435</td><td>Porting vendor has determined that a CustoPak exists on the line and has prevented this TN from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP004J)</td></tr>
+  <tr><td>6436</td><td>Porting vendor has determined that this number is contracted. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP004W)</td></tr>
+  <tr><td>6437</td><td>Porting vendor has determined that DSL exists on the line and has prevented this TN from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for this rejection has been resolved. (LNP005J)</td></tr>
+  <tr><td>6438</td><td>Porting vendor has determined that DSL exists on the line. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP005W)</td></tr>
+  <tr><td>6439</td><td>Porting vendor has determined that a Foreign Exchange exists on the line and has prevented this TN from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP006J)</td></tr>
+  <tr><td>6440</td><td>Porting vendor has determined that a Foreign Exchange exist on the line and may prevent the customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP006W)</td></tr>
+  <tr><td>6441</td><td>Porting vendor has determined that a Hunting feature exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP007J)</td></tr>
+  <tr><td>6442</td><td>Porting vendor has determined that a Hunting feature exists on the line and may prevent this customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP007W)</td></tr>
+  <tr><td>6443</td><td>Porting vendor has determined that an ISDN feature exists on the line. ISDNs are not currently not portable. Please cancel this order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP008J)</td></tr>
+  <tr><td>6444</td><td>Porting vendor has determined that an ISDN feature exists on the line and may prevent this customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP008W)</td></tr>
+  <tr><td>6445</td><td>Porting vendor has determined that an LSP (Local Service Provider) Freeze exists on the line. The end user must remove this feature before the telephone number can be ported. Open a ticket with Bandwidth support to provide the LSP Freeze removal confirmation number and the new CRD. (LNP009J)</td></tr>
+  <tr><td>6446</td><td>Porting vendor has determined that an LSP - Local Service Provider - Freeze exists on the line. The end user must remove this feature before the telephone number can be ported. Please cancel this customer order. (LNP009W)</td></tr>
+  <tr><td>6447</td><td>Porting vendor has determined that Remote Call Forward exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP0101J)</td></tr>
+  <tr><td>6448</td><td>Porting vendor has determined that a Remote Call Forwarding feature exists on the line and may prevent the customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP010W)</td></tr>
+  <tr><td>6449</td><td>Porting vendor has determined that Ring Mate exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP011J) </td></tr>
+  <tr><td>6450</td><td>Porting vendor has determined that Ring Mate exists on the line and may prevent the customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP011W)</td></tr>
+  <tr><td>6451</td><td>Porting vendor has determined that an ISDN-PRI exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP012J)</td></tr>
+  <tr><td>6452</td><td>Porting vendor has determined that an ISDN-PRI feature exists on the line and may prevent this customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP012W)</td></tr>
+  <tr><td>6453</td><td>Porting vendor has determined that an ISDN-BRI feature exists on the line. ISDN - BRIs are not portable please cancel this order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP013J)</td></tr>
+  <tr><td>6454</td><td>Porting vendor has determined that an ISDN-BRI feature exists on the line and may prevent this customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP013W)</td></tr>
+  <tr><td>6455</td><td>Porting vendor has determined that Ring Master exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP014J)</td></tr>
+  <tr><td>6456</td><td>Porting vendor has determined that Ring Master exists on the line and may prevent the customer order from porting. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP014W)</td></tr>
+  <tr><td>6457</td><td>Porting vendor has determined that Distinctive Ring exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP015J)</td></tr>
+  <tr><td>6458</td><td>Porting vendor has determined that Distinctive Ring exists on the line and may prevent the customer order from porting.  (LNP015W)</td></tr>
+  <tr><td>6459</td><td>Porting vendor has determined that a Plexar feature exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP016J)</td></tr>
+  <tr><td>6460</td><td>Porting vendor has determined that the Plexar feature exists on the line and may prevent the customer order from porting.  (LNP016W)</td></tr>
+  <tr><td>6461</td><td>Porting vendor has determined that Line Share exists on the line that has prevented this customer order from porting. The end user must remove this feature before the telephone number can be ported. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP017J)</td></tr>
+  <tr><td>6462</td><td>Porting vendor has determined that the Line Share feature exists on the line and may prevent the customer order from porting.  (LNP017W)</td></tr>
+  <tr><td>6463</td><td>Porting vendor has determined that the service address on the order does not match the Customer Service Record (CSR). At this time the customer order must be cancelled and resubmitted with the corrected service address. Please validate the CSR information with your end user prior to resubmitting a new order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP101J)</td></tr>
+  <tr><td>6464</td><td>Porting vendor is currently proceeding with processing this customer order, however there is an address mis-match on the order. Should additional action be needed by the customer this jeopardy description will be updated. If no additional action is needed by the customer the order status will be updated to FOC Received. Customer action NOT required for order to progress. (LNP101S)</td></tr>
+  <tr><td>6465</td><td>At this time porting vendor is researching an address mismatch on this customer order. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP101W)</td></tr>
+  <tr><td>6466</td><td>Porting vendor is currently researching a BAN discrepancy. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP102J)</td></tr>
+  <tr><td>6467</td><td>Porting vendor has determined that this customer order contains a line that is a Central Office - CO - trunk and cannot be ported. Please cancel this customer order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP102S)</td></tr>
+  <tr><td>6468</td><td>Porting vendor is currently researching a BAN - Billing Account Number - discrepancy. (LNP102W)</td></tr>
+  <tr><td>6469</td><td>Porting vendor has determined that a Customer Service Record -CSR could not be found and the available address for comparison does not match the line address. Porting vendor is currently proceeding with processing this customer order.Should additional action be needed by the customer a jeopardy code will be added. If no additional action is needed by the customer the order status will be updated to FOC Received Customer action NOT required for order to progress. Identify possible subscriber impacts. (LNP103J)</td></tr>
+  <tr><td>6470</td><td>Porting vendor has determined that the line to be ported has already been disconnected. Please cancel and submit a new order once the number is in an active and portable status. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP103S)</td></tr>
+  <tr><td>6471</td><td>Porting vendor has determined that a Customer Service Record (CSR) could not be found and the available address for comparison does not match the line address. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP103W)</td></tr>
+  <tr><td>6472</td><td>Porting vendor has determined that a Customer Service Record -CSR could not be found on this customer order. Porting vendor is currently proceeding with processing this customer order.Should additional action be needed by the customer a jeopardy code will be added. If no additional action is needed by the customer the order status will be updated to FOC Received Customer action NOT required for order to progress. Identify possible subscriber impacts. (LNP104J)</td></tr>
+  <tr><td>6473</td><td>Porting vendor has determined that the line already has a port pending to a competing LEC. Please cancel this customer order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP104S)</td></tr>
+  <tr><td>6474</td><td>Porting vendor has determined that a Customer Service Record (CSR) could not be found on this customer order. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP104W)</td></tr>
+  <tr><td>6475</td><td>Porting vendor has determined that an extension off premise - EOP - issue exists on the line which will prevent porting. Please cancel this customer order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP105J)</td></tr>
+  <tr><td>6476</td><td>Porting vendor has determined that one or more of the working telephone numbers - WTN - cannot be found or  does not exist on the donor LEC Customer Service Record. At this time the customer order must be cancelled and resubmitted with the corrected WTNs. Please validate the WTN information with your end user prior to resubmitting a new order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP105S)</td></tr>
+  <tr><td>6477</td><td>Porting vendor has identified an Extension Off Premise (EOP) on this customer order. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP105W)</td></tr>
+  <tr><td>6478</td><td>Porting vendor has determined that a feature exists on the line which will prevent porting. (LNP106J)</td></tr>
+  <tr><td>6479</td><td>Porting vendor has determined that this customer order cannot be processed because the provided Billing Telephone Number - BTN - and Working Telephone number - WTN - can not be found with the donor LEC. At this time the customer order must be cancelled and resubmitted. Please validate the WTN and BTN information with your end user prior to resubmitting a new order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP106S)</td></tr>
+  <tr><td>6480</td><td>Porting vendor has determined that there is no interconnection agreement - ICA - in place with the donor carrier. This customer order cannot be processed at this time. Please cancel this request. Contact support. Cancel order and resubmit order once the root cause for rejection has been resolved. (LNP107J) </td></tr>
+  <tr><td>6481</td><td>Porting vendor has determined that the requested line to be ported is wireless. Porting vendor cannot support wireless to wireline porting at this time. Please cancel this customer order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP107S)</td></tr>
+  <tr><td>6482</td><td>Porting vendor has determined that there is no interconnection agreement - ICA - in place with the donor carrier. This customer order cannot be processed at this time.  Please cancel this request. (LNP107W)</td></tr>
+  <tr><td>6483</td><td>The donor LEC has requested a LOA (Letter of Authorization).  Please submit the LOA through the Bandwidth portal then select a new date to restart the order. (LNP108J)</td></tr>
+  <tr><td>6484</td><td>The donor LEC has requested a LOA. - Letter of Authorization - An LOA needs to be submitted. Please verify the LOAs end-user name, telephone numbers to port, and a legible signature dated within the last 60 days. (LNP108W)</td></tr>
+  <tr><td>6485</td><td>The donor LEC has rejected the provided LOA (Letter of Authorization).  Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP109J)</td></tr>
+  <tr><td>6486</td><td>The donor LEC has rejected the provided LOA. - Letter of Authorization -  A new LOA needs to be resubmitted. Please verify the LOAs end-user name, telephone numbers to port, and a legible signature dated within the last 60 days. (LNP109W)</td></tr>
+  <tr><td>6487</td><td>Porting vendor has determined that the customer name on the order does not match the Customer Service Record (CSR). Please cancel the port and resubmit with the correct customer name.  (LNP110J)</td></tr>
+  <tr><td>6488</td><td>At this time porting vendor is researching a name mismatch on this customer order. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP110W)</td></tr>
+  <tr><td>6489</td><td>Porting vendor has determined that a bill is owed to the donor carrier. The end user must resolve this billing discrepancy before the telephone number can be ported. Please cancel this customer order. Cancel order and resubmit order once root cause for rejection has been resolved. (LNP112J)</td></tr>
+  <tr><td>6490</td><td>Porting vendor has determined that a bill is owed to the donor carrier. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP112W)</td></tr>
+  <tr><td>6491</td><td>LNP Error. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP113J)</td></tr>
+  <tr><td>6492</td><td>The donor LEC has requested a Copy of the end users bill.  A bill needs to be submitted to Bandwidth support. (LNP113W)</td></tr>
+  <tr><td>6493</td><td>Porting vendor has determined that the Billing Telephone Number - BTN - on the order does not match the Customer Service Record - CSR. The BTN will need to be modified. Please validate the CSR information with your end user prior to resubmitting the order. (LNP114J)</td></tr>
+  <tr><td>6494</td><td>Porting vendor has determined that the Billing Telephone Number (BTN) on the order does not match the Customer Service Record (CSR). Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP114W)</td></tr>
+  <tr><td>6495</td><td>Customer orders with 50 or more telephone numbers assigned to the same Billing Telephone Number and service address are considered a project and must be submitted manually. Please contact support. (LNP115J)</td></tr>
+  <tr><td>6496</td><td>Porting vendor has determined that the Customer Type of Service - Business or Residential - is in error. Please cancel this order and resubmit with the correct type of service. (LNP116J)</td></tr>
+  <tr><td>6497</td><td>Porting vendor has determined that the Customer Type of Service (Business or Residential) is in error. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP116W)</td></tr>
+  <tr><td>6498</td><td>Porting vendor has determined that there is a UNE-P - Unbundled Network Element Platform - issue on the line. In the event that the end user wants to return to the donor carrier a snapback will NOT be possible. A winback will need to be initiated by the end user via the donor LEC. (LNP117J)</td></tr>
+  <tr><td>6499</td><td>Porting vendor has determined that there is a Unbundled Network Element Platform (UNEP) issue on the line.Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP117W)</td></tr>
+  <tr><td>6500</td><td>Porting vendor has determined that there is a Pending Order on the account. This could be due to multiple orders submitted with the same BTN or the end user has made a change to the account. Please cancel this order and resubmit all WTNs under the correct BTN and/or clear the pending order with current LSP. (LNP119J)</td></tr>
+  <tr><td>6501</td><td>Porting vendor has determined that there is a Pending Order on the account. Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP119W)</td></tr>
+  <tr><td>6502</td><td>Porting vendor has determined that the SBU can not find the related order (RPON.  Either the related order has been incorrectly submitted in SBCs system, or is incorrectly referenced in porting vendors system. (LNP123J)</td></tr>
+  <tr><td>6503</td><td>Porting vendor has determined that the TN indicated on the related order (RPON) does not belong to SBC or is not eligible for porting. (LNP124J)</td></tr>
+  <tr><td>6504</td><td>Porting vendor has determined that this customer order has remaining TNs associated that need to be addressed with the losing Local Service Provider. (LNP125J)</td></tr>
+  <tr><td>6505</td><td>This port is currently rejected for "Authorized Name Mismatch".  Please open a ticket with Bandwidth support to provide the authorized name on the account. (LNP126J)</td></tr>
+  <tr><td>6506</td><td>The donor LEC has rejected the provided LOA (Letter of Authorization) because the Authorized Name (Auth Name) submitted is illegible or not present. (LNP127J)</td></tr>
+  <tr><td>6507</td><td>Porting vendor has determined that the service address on the order does not match the Customer Service Record (CSR). (LNP129J)</td></tr>
+  <tr><td>6508</td><td>This port has been rejected for "Company/Subscriber Name Mismatch".  Please cancel the port and resubmit with the correct end user name. (LNP130J)</td></tr>
+  <tr><td>6509</td><td>Porting vendor has determined that the TN associated with your order has been identified as a business type TN and the directory listing cannot migrate. (LNP132J)</td></tr>
+  <tr><td>6510</td><td>Porting vendor has been informed by the LSP (Local Service Provider) that the BTN (Billing Telephone Number) needs to be changed to a number that is to remain on the current customer account. (LNP133J)</td></tr>
+  <tr><td>6511</td><td>Porting vendor has determined that the Covad RPON associated with this LPV order has not been specified. (LNP134J)</td></tr>
+  <tr><td>6512</td><td>Porting vendor has been informed by the current LSP (Local Service Provider) that the FOC received for this order is no longer valid. (LNP135J)</td></tr>
+  <tr><td>6513</td><td>The losing carrier has rejected this order, and they are requesting the last 4 digits of the end user's Social Security Number.  To resolve this Jeop, please verify the last four digits of the End Users Social Security Number, then open a ticket with Bandwidth support to provide this information. (LNP140J)</td></tr>
+  <tr><td>6514</td><td>Porting vendor has determined that the account number and/or PIN provided have been rejected.  Please open a ticket with Bandwidth support to provide the correct account number, PIN, and the full name of the person who is authorized to port these numbers. (The PIN is only required if the customer has this set up in their account). (LNP141J)</td></tr>
+  <tr><td>6515</td><td>This customer's Account#/PIN are either missing or incorrect. Please contact support to provide or correct the information. (LNP142J)</td></tr>
+  <tr><td>6516</td><td>This customer's Account#/PIN are either missing or incorrect. Please contact support to provide or correct the information. (LNP150J)</td></tr>
+  <tr><td>6517</td><td>Porting vendor has determined that the account number and/or PIN provided have been rejected.  Please open a ticket with Bandwidth support to provide the correct account number and PIN (The PIN is only required if the customer has this set up in their account). (LNP151J)</td></tr>
+  <tr><td>6518</td><td>The port has been rejected for "PIN Needed".  Please contact support to provide the PIN. (LNP154J)</td></tr>
+  <tr><td>6519</td><td>Porting vendor has determined that the account is inactive with the current service provider.  To resolve this rejection please have the end user contact their current provider and update their account.  Once this has been complete please update your order with a new port request date to restart the port. (LNP156J)</td></tr>
+  <tr><td>6520</td><td>Porting vendor has been informed by the LSP (Local Service Provider) that the order submitted to them has fallen out of its normal automation processes.  Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP187W)</td></tr>
+  <tr><td>6521</td><td>This number is porting from a different customer from porting vendor.  Porting vendor considers this port to be internal.  Please be aware there may be additional rejections on this port request. Please contact Bandwidth Support to verify the status of the order. (LNP997W)</td></tr>
+  <tr><td>6522</td><td>This port has been rejected for "Unknown Feature on Account".  To resolve this rejection, please have the end user contact the losing carrier to determine what the feature is and next steps to move forward. (LNP998J)</td></tr>
+  <tr><td>6523</td><td>Porting vendor is currently proceeding with processing this order. Should additional action be needed by the customer this jeopardy description will be updated. If no additional action is needed by the customer the order status will be updated to FOC Received Customer action NOT required for order to progress. Identify possible subscriber impacts. (LNP999J)</td></tr>
+  <tr><td>6524</td><td>(message text directly from Level 3)</td></tr>
+
+</table>
 
 <h2>LOA File Upload </h2>
 <table class="fixed">
@@ -2633,6 +2939,10 @@
     <td>9010</td>
     <td>Messaging settings for account does not exist or not enabled</td>
   </tr>
+    <tr>
+    <td>9011</td>
+    <td>Sip Peer doesn't have Sms feature.</td>
+  </tr>
   </table>
 <h2>E911Error</h2>
 <table class="fixed">
@@ -2933,16 +3243,116 @@
     <td>Could not find Emergency Notification Recipient with id: %s</td>
   </tr>
     <tr>
-    <td>8076</td>
-    <td>Emergency notification recipient with identifier %s is being used by emergency notification group with identifier %s. Please remove the recipient reference from the group prior to removing the recipient.</td>
-  </tr>
-    <tr>
-    <td>8077</td>
-    <td>Recipient '%s' not found.</td>
-  </tr>
-    <tr>
     <td>8078</td>
     <td>Received error response %s from EVS when attempting to %s emergency notification.</td>
+  </tr>
+    <tr>
+    <td>8079</td>
+    <td>The ENG identifier does not exist, or does not exist for the specified account id</td>
+  </tr>
+    <tr>
+    <td>8080</td>
+    <td>The Emergency Notification Recipient with identifier %s is already associated with Emergency Notification Group with identifier %s.</td>
+  </tr>
+    <tr>
+    <td>8081</td>
+    <td>Emergency Notification Recipient Identifier %s does not exist.</td>
+  </tr>
+    <tr>
+    <td>8082</td>
+    <td>An Emergency Notification Group must have 1, 2, or 3 Emergency Notification Recipients.</td>
+  </tr>
+    <tr>
+    <td>8083</td>
+    <td>Emergency Notification Group Identifier must be present and non-empty</td>
+  </tr>
+    <tr>
+    <td>8085</td>
+    <td>Order payload must include one of <AddedEmergencyNotificationGroup>, <DeletedEmergencyNotificationGroup>, or <ModifiedEmergencyNotificationGroup>.</td>
+  </tr>
+    <tr>
+    <td>8086</td>
+    <td><AddedEmergencyNotificationRecipients> must be included to indicate that emergency notification recipients are being added.</td>
+  </tr>
+    <tr>
+    <td>8087</td>
+    <td>Emergency Notification Group Identifier %s does not exist.</td>
+  </tr>
+    <tr>
+    <td>8088</td>
+    <td>Emergency Notification Group Description must be present and non-empty</td>
+  </tr>
+    <tr>
+    <td>8089</td>
+    <td>Emergency Notification Recipient Identifier must be present and non-empty</td>
+  </tr>
+    <tr>
+    <td>8090</td>
+    <td>Query parameter(s) %s  not recognized.</td>
+  </tr>
+    <tr>
+    <td>8091</td>
+    <td>Invalid value %s for query parameter %s. Supported values are %s.</td>
+  </tr>
+    <tr>
+    <td>8092</td>
+    <td>Invalid format of date time. You should specify either YYYY-MM-DDTHH:MM:SS.mmmZ or YYYY-MM-DDTHH:MM:SS.mmm-hh:mm date format.</td>
+  </tr>
+    <tr>
+    <td>8093</td>
+    <td>Received error response %s from EVS when attempting to %s emergency notification association.</td>
+  </tr>
+    <tr>
+    <td>8094</td>
+    <td>Order payload must include one of <AddedAssociations> or <DeletedAssociations></td>
+  </tr>
+    <tr>
+    <td>8095</td>
+    <td>Order payload must include at least one Emergency Endpoint value.</td>
+  </tr>
+    <tr>
+    <td>8096</td>
+    <td>Please limit the total number of emergency endpoints to 5000 per request.</td>
+  </tr>
+    <tr>
+    <td>8097</td>
+    <td>Order payload must include only one Emergency Notification Group Identifier.</td>
+  </tr>
+    <tr>
+    <td>8098</td>
+    <td>Emergency Endpoint %s not found.</td>
+  </tr>
+    <tr>
+    <td>8099</td>
+    <td>The Emergency Endpoint with identifier %s is already associated with Emergency Notification Group with identifier %s.</td>
+  </tr>
+    <tr>
+    <td>8100</td>
+    <td>ENG %s cannot be removed until emergency endpoint associations are removed.</td>
+  </tr>
+    <tr>
+    <td>8101</td>
+    <td>Update of ENG did not specify any of: new description, added ENRs, or deleted ENRs.</td>
+  </tr>
+    <tr>
+    <td>8102</td>
+    <td>Emergency notification %s is not assigned to Emergency notification group %s.</td>
+  </tr>
+    <tr>
+    <td>8103</td>
+    <td>Update of ENG supports added ENRs or deleted ENRs, but not both.</td>
+  </tr>
+    <tr>
+    <td>8104</td>
+    <td>Not valid TN(s): %s</td>
+  </tr>
+    <tr>
+    <td>8105</td>
+    <td>Specified endpoint(s) are currently associated with different group(s). Endpoint(s) %s</td>
+  </tr>
+    <tr>
+    <td>8106</td>
+    <td>Emergency Endpoint Identifier specified for removal is not associated with Emergency Notification Group %s. Identifier(s): %s</td>
   </tr>
   </table>
 
@@ -3059,6 +3469,10 @@
     <tr>
     <td>15518</td>
     <td>Invalid 'status'. Valid values: draft, in_progress, needs_attention, partial, completed, cancelled</td>
+  </tr>
+    <tr>
+    <td>15518</td>
+    <td>Invalid 'status'. Valid values: received, processing, action_required, complete, failed, requested_cancel, cancelled</td>
   </tr>
     <tr>
     <td>15519</td>
@@ -3183,6 +3597,10 @@
     <tr>
     <td>15617</td>
     <td>Account ID or Archive ID foes not match actual record</td>
+  </tr>
+    <tr>
+    <td>15618</td>
+    <td>This resource does not exist for this type of telephone number</td>
   </tr>
   </table>
 
@@ -3755,7 +4173,7 @@
   </tr>
     <tr>
     <td>12013</td>
-    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement</td>
+    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement, Analytics</td>
   </tr>
     <tr>
     <td>12015</td>
@@ -3775,7 +4193,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRouteList</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4349,6 +4767,14 @@
     <td>12165</td>
     <td>CallbackOrderType value %s is not supported. Supported values are: 'port_in'.</td>
   </tr>
+    <tr>
+    <td>12166</td>
+    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING feature enabled.</td>
+  </tr>
+    <tr>
+    <td>12167</td>
+    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING_E911 feature enabled.</td>
+  </tr>
   </table>
 <h2>AdminValidationError</h2>
 <table class="fixed">
@@ -4862,7 +5288,7 @@
   </tr>
     <tr>
     <td>12643</td>
-    <td>Invalid RedirectEnabled value, expected True or False</td>
+    <td>Invalid RedirectEnabled value. Expected values are: true, false, or internal_only</td>
   </tr>
     <tr>
     <td>12644</td>
@@ -4882,7 +5308,7 @@
   </tr>
     <tr>
     <td>12648</td>
-    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD</td>
+    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL</td>
   </tr>
     <tr>
     <td>12649</td>
@@ -5137,10 +5563,6 @@
     <td>User information does not match</td>
   </tr>
     <tr>
-    <td>12715</td>
-    <td>You have exceeded the number of login attempts and have been locked out. Please contact your system administrator</td>
-  </tr>
-    <tr>
     <td>12716</td>
     <td>Specified route SPID value '%s' not allowed for '%s' route type.</td>
   </tr>
@@ -5342,7 +5764,7 @@
   </tr>
     <tr>
     <td>12768</td>
-    <td>AUDIT_AVAILABLE_DBS must contain at least one or comma-separated list of valid unique values [IRIS, CORE2, MYBWC, NPAC, PHBOOK]</td>
+    <td>AUDIT_AVAILABLE_DBS must contain at least one or comma-separated list of valid unique values [IRIS, CORE2, MYBWC, NPAC, PHBOOK, MSG_CORE2]</td>
   </tr>
     <tr>
     <td>12769</td>
@@ -5947,6 +6369,54 @@
     <tr>
     <td>13031</td>
     <td>LNP feature is required for LnpFalloutManagement feature</td>
+  </tr>
+    <tr>
+    <td>13032</td>
+    <td>Messaging was assigned to TN, but is disabled at the Location level. Messaging is being disabled for this TN.</td>
+  </tr>
+    <tr>
+    <td>13033</td>
+    <td>Product %s is required in order to enable %s feature.</td>
+  </tr>
+    <tr>
+    <td>13034</td>
+    <td>Latitude and Longitude values must be supplied together.</td>
+  </tr>
+    <tr>
+    <td>13035</td>
+    <td>Latitude must be a numeric value between -90.00000 and 90.000000.</td>
+  </tr>
+    <tr>
+    <td>13036</td>
+    <td>Longitude must be a numeric value between -180.00000 to 180.000000.</td>
+  </tr>
+    <tr>
+    <td>13037</td>
+    <td>Provided zip code is more than 30 miles from the provided latitude and longitude</td>
+  </tr>
+    <tr>
+    <td>13038</td>
+    <td>Provided state code is incorrect for zip code</td>
+  </tr>
+    <tr>
+    <td>13039</td>
+    <td>The Account Id '%s' is already undergoing a nnid sync with status '%s'</td>
+  </tr>
+    <tr>
+    <td>13040</td>
+    <td>Valid values for actions are: Retry, Report, InternalReport, Ignore, Exception and Cancel</td>
+  </tr>
+    <tr>
+    <td>13041</td>
+    <td>Specified L3ErrorCode %s is different from url %s</td>
+  </tr>
+    <tr>
+    <td>13042</td>
+    <td>Level3 error code %s already exists.</td>
+  </tr>
+    <tr>
+    <td>13043</td>
+    <td>Bandwidth error code %s already exists.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -6649,6 +7119,18 @@
     <tr>
     <td>13675</td>
     <td>SMS is already %s or number is in processing.</td>
+  </tr>
+    <tr>
+    <td>13676</td>
+    <td>Shared TNs with messaging (%s) cannot be moved to a sippeer without the SMS feature enabled.</td>
+  </tr>
+    <tr>
+    <td>13677</td>
+    <td>Can not disable shortcode sms settings for a SipPeer if shortcode numbers with messaging enabled are present on this SipPeer</td>
+  </tr>
+    <tr>
+    <td>13678</td>
+    <td>Sip Peer doesn't have SMS feature.</td>
   </tr>
   </table>
 <h2>PotValidationError</h2>

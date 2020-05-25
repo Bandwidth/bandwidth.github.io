@@ -1,6 +1,13 @@
 # Python SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 6.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 6.1.0 | Updated Pause and SendDtmf BXML attributes |
+
+## Download & Install
 
 ℹ️ Note that bandwidth-sdk [`v5.x.x`](https://pypi.org/project/bandwidth-sdk/) and greater will only support Bandwidth's v2 APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate to v2. For v1 installation instructions, please see [old.dev.bandwidth.com](https://old.dev.bandwidth.com/clientLib/python.html).
 
@@ -8,18 +15,17 @@
 pip install bandwidth-sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```python
 from bandwidth.bandwidth_client import BandwidthClient
 
 from bandwidth.messaging.models.message_request import MessageRequest
-from bandwidth.messaging.exceptions.generic_client_exception import GenericClientException
-from bandwidth.messaging.exceptions.path_client_exception import PathClientException
+from bandwidth.messaging.exceptions.messaging_exception import MessagingException
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
-from bandwidth.voice.exceptions.error_response_exception import ErrorResponseException
+from bandwidth.voice.exceptions.error_response_exception import ApiErrorResponseException
 from bandwidth.voice.bxml.response import Response
 from bandwidth.voice.bxml.verbs import *
 
@@ -36,7 +42,7 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_password=messaging_basic_auth_password)
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```python
 voice_client = bandwidth_client.voice_client.client
@@ -53,12 +59,12 @@ try:
     response = voice_client.create_call(account_id, body=body)
     print(response.body.call_id) #c-3f758f24-a59bb21e-4f23-4d62-afe9-53o2ls3o4saio4l
     print(response.status_code) #201
-except ErrorResponseException as e:
+except ApiErrorResponseException as e:
     print(e.description) #Invalid from: must be an E164 telephone number
     print(e.response_code) #400
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```python
 response = Response()
@@ -73,7 +79,7 @@ response.add_verb(speak_sentence)
 print(response.to_bxml())
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```python
 messaging_client = bandwidth_client.messaging_client.client
@@ -89,14 +95,11 @@ try:
     response = messaging_client.create_message(account_id, body=body)
     print(response.body.id) #1570819529611mexbyfr7ugrouuxy
     print(response.status_code) #202
-except GenericClientException as e:
+except MessagingException as e:
     print(e.description) #Your request could not be accepted.
     print(e.response_code) #400
-except PathClientException as e:
-    print(e.message) #Access is denied
-    print(e.response_code) #403
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 Coming soon

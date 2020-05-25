@@ -217,6 +217,12 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4770 | Carrier Rejected as SPAM                         | YES      |
 | 4775 | Carrier Rejected due to user opt out             | YES      |
 | 4780 | Carrier rejected due to P2P volumetric violation | YES      |
+| 4721 | TN on deactivation list                          | YES      |
+| 4790 | Carrier Rejected Due to Short Code Restriction   | YES      |
+| 4791 | Carrier Rejected Short Code Campaign Not Allowed | YES      |
+| 4792 | Carrier Rejected Short Code Not Provisioned      | YES      |
+| 4793 | Carrier Rejected Short Code Expired              | YES      |
+
 
 ### Bandwidth Service Failures {#service-errors}
 

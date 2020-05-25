@@ -25,9 +25,6 @@ Bandwidth will return a `HTTP-400` Error when the request is malformed or invali
 |:------------------------|:---------|:-------------------------------------------------|
 | type                    | `string` | The Type of error.                               |
 | description             | `string` | A detailed description of why the error occurred |
-| fieldErrors             | `array`  | List of errors in fields                         |
-| fieldErrors.fieldName   | `string` | Name of field with error                         |
-| fieldErrors.description | `string` | Description of the error                         |
 
 {% common %}
 
@@ -54,21 +51,7 @@ Content-Type: application/json; charset=utf-8
 
 {
   "type": "request-validation",
-  "description": "Your request could not be accepted",
-  "fieldErrors": [
-    {
-      "fieldName": "from",
-      "description": "'from' must contain exactly one telephone number"
-    },
-    {
-      "fieldName": "text",
-      "description": "'text' is required unless media is included"
-    },
-    {
-      "fieldName": "to",
-      "description": "'to' must contain at least one telephone number"
-    }
-  ]
+  "description": "Your request could not be accepted"
 }
 ```
 
@@ -86,11 +69,8 @@ Bandwidth returns a `HTTP-401` Error when the specified user does not have acces
 
 | Value     | Description          | Example                                |
 |:----------|:---------------------|:---------------------------------------|
-| timestamp | Time error Occurred  | `2019-07-29T17:21:43.751+0000`         |
-| status    | HTTP Status          | `401`                                  |
-| error     | Description of error | `Unauthorized`                         |
-| message   | Any more information | `Bad credentials`                      |
-| path      | API Path             | `/api/v2/users/{{accountId}}/messages` |
+| type                    | `string` | The Type of error.                               |
+| description             | `string` | A detailed description of why the error occurred |
 
 {% common %}
 
@@ -117,11 +97,8 @@ Status: 401 Unauthorized
 Content-Type: application/json; charset=utf-8
 
 {
-  "timestamp" : "2019-06-19T14:46:42.462+0000",
-  "status"    : 401,
-  "error"     : "Unauthorized",
-  "message"   : "Bad credentials",
-  "path"      : "/api/v2/users/{{accountId}}/messages"
+    "type": "unauthorized",
+    "description": "Authentication Failed"
 }
 ```
 
@@ -137,11 +114,8 @@ Bandwidth returns a `HTTP-403` error when the user does not have access to the m
 
 | Value     | Description          | Example                                |
 |:----------|:---------------------|:---------------------------------------|
-| timestamp | Time error Occurred  | `2019-07-29T17:21:43.751+0000`         |
-| status    | HTTP Status          | `403`                                  |
-| error     | Description of error | `Forbidden`                         |
-| message   | Any more information | `Access is denied`                      |
-| path      | API Path             | `/api/v2/users/{{accountId}}/messages` |
+| type                    | `string` | The Type of error.                               |
+| description             | `string` | A detailed description of why the error occurred |
 
 {% common %}
 
@@ -167,12 +141,8 @@ Status: 403 Forbidden
 Content-Type: application/json; charset=utf-8
 
 {
-  "timestamp" : "2019-10-10T19:32:28.236+0000",
-  "status"    : 403,
-  "error"     : "Forbidden",
-  "exception" : "org.springframework.security.access.AccessDeniedException",
-  "message"   : "Access is denied",
-  "path"      : "/api/v2/users/asdf/messages/"
+   "type": "forbidden",
+   "description": "Access Denied"
 }
 ```
 
@@ -288,9 +258,6 @@ For more information about rate limits and queue management, see the [rate limit
 |:------------------------|:---------|:-------------------------------------------------|
 | type                    | `string` | The Type of error.                               |
 | description             | `string` | A detailed description of why the error occurred |
-| fieldErrors             | `array`  | List of errors in fields                         |
-| fieldErrors.fieldName   | `string` | Name of field with error                         |
-| fieldErrors.description | `string` | Description of the error                         |
 
 {% common %}
 

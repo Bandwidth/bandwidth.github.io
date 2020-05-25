@@ -171,6 +171,7 @@
 		* [Managing Messages](messaging/ratelimits.md#managing-messages)
 * [API Methods](messaging/methods/about.md)
 	* [Create Messages](messaging/methods/messages/createMessage.md)
+	* [Get Messages](messaging/methods/messages/getMessages.md)
 	* [Media Management (MMS)](messaging/methods/media/about.md)
 		* [GET List Media](messaging/methods/media/listMedia.md)
 		* [GET Get Media](messaging/methods/media/getMedia.md)
