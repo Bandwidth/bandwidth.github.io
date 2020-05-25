@@ -1,12 +1,19 @@
 # PHP SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 2.1.0 | Updated Pause and SendDtmf BXML attributes |
+
+## Download & Install
 
 ```
 composer require bandwidth/sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```php
 require "vendor/autoload.php";
@@ -22,7 +29,7 @@ $config = new BandwidthLib\Configuration(
 $client = new BandwidthLib\BandwidthClient($config);
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```php
 $voiceClient = $client->getVoice()->getClient();
@@ -40,7 +47,7 @@ try {
     print_r($e);
 }
 ```
-### Generate BXML
+## Generate BXML
 
 ```php
 $speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Hello!");
@@ -52,7 +59,7 @@ $response->addVerb($speakSentence);
 echo $response->toBxml();
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```php
 $messagingClient = $client->getMessaging()->getClient();
@@ -71,7 +78,7 @@ try {
 }
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/php-bandwidth-iris). You can install this package by running the following command
 

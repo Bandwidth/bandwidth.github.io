@@ -1,6 +1,18 @@
 # Node.JS SDK
 
-### Download & Install
+## Release notes
+
+### Messaging
+
+| Version | Notes |
+|--|--|
+| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+
+### Voice
+
+### Numbers
+
+## Download & Install
 
 ```bash
 npm install @bandwidth/messaging
@@ -8,7 +20,7 @@ npm install @bandwidth/voice
 npm install @bandwidth/bxml
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```js
 const BandwidthMessaging = require('@bandwidth/messaging');
@@ -24,7 +36,7 @@ const voiceController = BandwidthVoice.APIController;
 const BandwidthBxml = require('@bandwidth/bxml');
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```js
 var body = new BandwidthVoice.ApiCreateCallRequest({
@@ -39,7 +51,7 @@ var response = await voiceController.createCall(accountId, body);
 console.log(response);
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```js
 var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
@@ -54,7 +66,7 @@ response.addVerb(speakSentence);
 console.log(response.toBxml());
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```js
 var body = new BandwidthMessaging.MessageRequest({
@@ -68,7 +80,7 @@ var response = await messagingController.createMessage(msgUserId, body);
 console.log(response);
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 ```js
 //coming soon

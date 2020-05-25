@@ -100,6 +100,18 @@ var messageApplication = await Application.Create(client, new Application
 });
 ```
 
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :app_name => "BandwidthMsgApplication",
+  :service_type => "Messaging-V2",
+  :msg_callback_url => "https://yourcallback.com"
+}
+application = BandwidthIris::Applications.create_application(data)
+puts application
+```
+
 {% common %}
 
 ### Response
@@ -190,6 +202,18 @@ var voiceApplication = await Application.Create(client, new Application
     ServiceType = "Voice-V2",
     CallInitiatedCallbackUrl = "https://yourcallback.com"
 });
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :app_name => "BandwidthVoiceApplication",
+  :service_type => "Voice-V2",
+  :call_initiated_callback_url => "https://yourcallback.com"
+}
+application = BandwidthIris::Applications.create_application(data)
+puts application
 ```
 
 {% common %}
@@ -285,6 +309,24 @@ Site site = await Site.Create(client, new Site
 });
 ```
 
+{% sample lang="ruby" %}
+
+```ruby
+site = {
+  :name =>"BandwidthApplicationSubAccount",
+  :address => {
+    :city => "Raleigh",
+    :house_number => "900",
+    :state_code =>"NC",
+    :street_name => "Main Campus Dr",
+    :street_suffix => "DR",
+    :zip => "27606",
+    :address_type => "Billing"
+  }
+};
+site = BandwidthIris::Site.create(site)
+```
+
 {% common %}
 
 ### Response
@@ -365,6 +407,18 @@ SipPeer sipPeer = await SipPeer.Create(client, new SipPeer
     Name = "BandwidthApplicationLocation",
     IsDefaultPeer = true
 });
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :site_id => "site_id",
+  :peer_name => "BandwidthApplicationLocation",
+  :is_default_peer => true
+}
+
+BandwidthIris::SipPeer.create(data)
 ```
 
 {% common %}
@@ -452,6 +506,26 @@ var smsMessageFeature = await SipPeer.CreateSMSSettings(client, site.Id, sipPeer
     {
     }
 });
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :sip_peer_sms_feature_settings => {
+    :toll_free => false,
+    :short_code => false,
+    :protocol => "HTTP",
+    :zone_1 => true,
+    :zone_2 => false,
+    :zone_3 => false,
+    :zone_4 => false,
+    :zone_5 => false
+  },
+  :http_settings => {}
+}
+
+puts BandwidthIris::SipPeerProducts.create_sms_feature_settings("site_id", "sippeer_id", data)
 ```
 
 {% common %}
@@ -546,6 +620,23 @@ var mmsMessageFeature = await SipPeer.CreateMMSSettings(client, site.Id, sipPeer
 });
 ```
 
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :mms_settings => {
+    :protocol => "HTTP"
+  },
+  :protocols => {
+    :HTTP => {
+      :http_settings => {}
+    }
+  }
+}
+
+puts BandwidthIris::SipPeerProducts.create_mms_feature_settings("site_id", "sippeer_id", data)
+```
+
 {% common %}
 
 ### Response
@@ -616,6 +707,16 @@ await SipPeer.UpdateApplicationSettings(client, site.Id, sipPeer.Id, new Applica
 {
     HttpMessagingV2AppId = messageApplication.Application.ApplicationId 
 });
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :http_messaging_v2_app_id => "id_value"
+}
+
+puts BandwidthIris::SipPeerProducts.update_messaging_application_settings("site_id", "sippeer_id", data)
 ```
 
 {% common %}
@@ -697,6 +798,18 @@ var voiceFeature = await SipPeer.SetOriginationSettings(client, site.Id, sipPeer
 });
 ```
 
+{% sample lang="ruby" %}
+
+```ruby
+data = {
+  :voice_protocol => "HTTP",
+  :http_settings => {
+    :http_voice_v2_app_id => "id_value"
+  }
+}
+puts BandwidthIris::SipPeerProducts.create_origination_settings("site_id", "sippeer_id", data)
+```
+
 {% common %}
 
 ### Response
@@ -731,6 +844,12 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ```csharp
 var terminationSettings = await SipPeer.GetTerminationSetting(client, site.Id, sipPeer.Id);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+puts BandwidthIris::SipPeerProducts.get_termination_settings("site_id", "sippeer_id")
 ```
 
 {% common %}

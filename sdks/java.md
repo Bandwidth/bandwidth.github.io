@@ -1,6 +1,13 @@
 # Java SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 3.0.0 | Updated Pause and SendDtmf BXML attributes |
+
+## Download & Install
 
 Maven:
 
@@ -13,7 +20,7 @@ Maven:
 </dependency>
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```java
 
@@ -30,7 +37,7 @@ com.bandwidth.voice.controllers.APIController voiceController = client.getVoiceC
 
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```java
 import com.bandwidth.voice.models.ApiCreateCallRequest;
@@ -53,7 +60,7 @@ try {
 
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```java
 import com.bandwidth.sdk.voice.models.verbs.*;
@@ -71,7 +78,7 @@ System.out.println( response.toXml() )
 
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```java
 import com.bandwidth.messaging.models.MessageRequest;
@@ -96,7 +103,7 @@ try {
 }
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 ```java
 //Coming soon

@@ -62,7 +62,8 @@ module.exports = function ($) {
 	function hidePagesFromNav () {
 		var redirects = [
 			'International Overview',
-			'CSR Lookup API'
+			'CSR Lookup API',
+            'Get Messages'
 		];
 
 		redirects.forEach(page => {
