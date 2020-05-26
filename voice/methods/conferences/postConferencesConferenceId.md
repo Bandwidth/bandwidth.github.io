@@ -17,7 +17,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 | Parameter       | Description                                                        | Mandatory |
 |:----------------|:-------------------------------------------------------------------|:----------|
-| status          | Set the conference status as `completed` to end the conference.    | No        |
+| status          | Set the conference status as `completed` to end the conference.    | Yes       |
 
 {% common %}
 
@@ -32,7 +32,7 @@ curl -X POST \
     -H 'Content-type: application/json' \
     --data-raw '
     {
-      "status": "completed"
+      "status" : "completed"
     }'
 ```
 
