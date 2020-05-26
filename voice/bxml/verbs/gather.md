@@ -44,7 +44,7 @@ The following verbs may be nested inside of a `<Gather>` tag.  If using a repeat
 
 {% common %}
 
-#### Example 1 of 2: Gather Verb
+#### Example 1 of 3: Gather Verb
 This example shows how to use the Gather verb to speak a sentence, collect digits input from the phone, and send the
 results to https://gather.url/nextBXML
 
@@ -178,7 +178,7 @@ echo "\n";
 
 {% common %}
 
-#### Example 2 of 2: Gather With Repeated Audio Prompt
+#### Example 2 of 3: Gather With Repeated Audio Prompt
 This example shows the Gather verb being used to repeatedly prompt the user to press a digit. If the
 user presses nothing, the prompt will play five times. If the user presses a digit at any point, the
 Gather will end and send the result to the **gatherUrl**
@@ -298,6 +298,77 @@ $gather->gatherUrl("https://gather.url/nextBXML");
 $gather->maxDigits(1);
 $gather->repeatCount(5);
 $gather->speakSentence($speakSentence);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($gather);
+
+echo $response->toBxml();
+echo "\n";
+```
+
+{% common %}
+
+#### Example 3 of 3: Gather With Multiple Nested Verbs
+This example shows how to nest multiple PlayAudio and SpeakSentence verbs
+
+{% sample lang="http" %}
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Gather gatherUrl="https://gather.url/nextBXML">
+        <SpeakSentence>First Sentence</SpeakSentence>
+        <PlayAudio>https://audio1.com</PlayAudio>
+        <PlayAudio>https://audio2.com</PlayAudio>
+        <SpeakSentence>Second Sentence</SpeakSentence>
+    </Gather>
+</Response>
+```
+
+{% sample lang="java" %}
+
+```java
+//coming soon
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+#coming soon
+```
+
+{% sample lang="js" %}
+
+```js
+//coming soon
+```
+
+{% sample lang="php" %}
+
+```php
+$speakSentence1 = new BandwidthLib\Voice\Bxml\SpeakSentence("First Sentence");
+$playAudio1 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio1.com");
+$playAudio2 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio2.com");
+$speakSentence2 = new BandwidthLib\Voice\Bxml\SpeakSentence("Second Sentence");
+
+$gather = new BandwidthLib\Voice\Bxml\Gather();
+$gather->gatherUrl("https://gather.url/nextBXML");
+$gather->addNestableVerb($speakSentence1);
+$gather->addNestableVerb($playAudio1);
+$gather->addNestableVerb($playAudio2);
+$gather->addNestableVerb($speakSentence2);
 
 $response = new BandwidthLib\Voice\Bxml\Response();
 $response->addVerb($gather);
