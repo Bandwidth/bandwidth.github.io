@@ -2,7 +2,7 @@
 
 ## Transcribe Recording
 
-Generate the transcription for a specific recording.
+Generate the transcription for a specific recording. Transcription can succeed only for recordings of length greater than 500 milliseconds and less than 4 hours.
 
 ### Request URL
 
