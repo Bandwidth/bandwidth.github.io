@@ -13,6 +13,6 @@ Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#vo
 
 ### Capabilities
 
-| HTTP Method                        | Path                                                                 | Description                     |
-|:-----------------------------------|:---------------------------------------------------------------------|:--------------------------------|
-| <code class="get">DELETE</code>    | [`/conferences/{conferenceId}`](deleteConferencesConferenceId.md)    | Delete an active conference.    |
+| HTTP Method                      | Path                                                               | Description                     |
+|:---------------------------------|:-------------------------------------------------------------------|:--------------------------------|
+| <code class="get">POST</code>    | [`/conferences/{conferenceId}`](postConferencesConferenceId.md)    | Update an active conference.    |
