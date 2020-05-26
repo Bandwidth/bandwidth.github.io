@@ -15,9 +15,9 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter       | Description                                                        | Mandatory |
-|:----------------|:-------------------------------------------------------------------|:----------|
-| status          | Set the conference status as `completed` to end the conference.    | Yes       |
+| Parameter       | Description                                                                     | Mandatory |
+|:----------------|:--------------------------------------------------------------------------------|:----------|
+| status          | (optional) Setting the conference status to `completed` ends the conference.    | No        |
 
 {% common %}
 
