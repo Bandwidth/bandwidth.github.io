@@ -21,7 +21,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 {% common %}
 
-### Example 1 of 1: Terminate a conference
+### Example 1 of 1: End a conference
 
 {% sample lang="http" %}
 
