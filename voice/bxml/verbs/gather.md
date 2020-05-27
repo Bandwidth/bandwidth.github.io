@@ -365,10 +365,10 @@ $speakSentence2 = new BandwidthLib\Voice\Bxml\SpeakSentence("Second Sentence");
 
 $gather = new BandwidthLib\Voice\Bxml\Gather();
 $gather->gatherUrl("https://gather.url/nextBXML");
-$gather->addNestableVerb($speakSentence1);
-$gather->addNestableVerb($playAudio1);
-$gather->addNestableVerb($playAudio2);
-$gather->addNestableVerb($speakSentence2);
+$gather->speakSentence($speakSentence1);
+$gather->playAudio($playAudio1);
+$gather->playAudio($playAudio2);
+$gather->speakSentence($speakSentence2);
 
 $response = new BandwidthLib\Voice\Bxml\Response();
 $response->addVerb($gather);
