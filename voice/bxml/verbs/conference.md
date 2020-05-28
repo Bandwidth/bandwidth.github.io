@@ -5,7 +5,7 @@ Used to join the current call into a conference.
 
 Conference names are created and specified by your application.
 
-A maximum of 50 calls may be in a particular conference.
+A maximum of 20 calls may be in a particular conference.
 
 ### Text Content
 | Name        | Description |
