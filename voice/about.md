@@ -16,9 +16,10 @@
 
 | Verb                                                 | Description                                                                                           |
 |:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------|
+| [`<Conference>`](verbs/conference.md)                | The Conference verb is used to add a call to a conference.                                            |
 | [`<Forward>`](bxml/verbs/forward.md)                 | The Forward verb is used to forward an unanswered incoming call to another number.                    |
 | [`<Gather>`](bxml/verbs/gather.md)                   | The Gather verb is used to collect DTMF digits.                                                       |
-| [`<Hangup>`](bxml/verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                   |
+| [`<Hangup>`](bxml/verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                  |
 | [`<Pause>`](bxml/verbs/pause.md)                     | The Pause verb is used to delay verb execution for a period of time.                                  |
 | [`<PauseRecording>`](bxml/verbs/pauseRecording.md)   | The PauseRecording verb is used to pause a recording previously started by a `<StartRecording>` verb. |
 | [`<PlayAudio>`](bxml/verbs/playAudio.md)             | The PlayAudio verb is used to play an audio file in the call.                                         |
