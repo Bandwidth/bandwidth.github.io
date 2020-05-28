@@ -43,7 +43,7 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 | [`<SpeakSentence>`](verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
 | [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
 | [`<StopRecording>`](verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
-| [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number or to join into a conference.        |
+| [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
 
 ### BXML Callbacks
 
