@@ -1,41 +1,36 @@
 {% method %}
 
-## XML: `<Transfer>`
-The Transfer verb with `<Conference>` is used to join the current call into a conference.
+## XML: `<Conference>`
+Used to join the current call into a conference.
 
-### Attributes
-| Attribute | Description |
-|:----------|:------------|
-| None      | None        |
+Conference names are created and specified by your application.
 
-### Nested Tags
-The nested tag `<Conference>` defines the conference the call will join.
+A maximum of 50 calls may be in a particular conference.
 
-| Verb        | Description                                                                                                                     |
-|:------------|:--------------------------------------------------------------------------------------------------------------------------------|
-| Conference  | The name of the conference with alphanumeric characters and the symbols `-`, `_`, and `.` with maximum length of 50 characters. |
+### Text Content
+| Name        | Description |
+|:------------|:------------|
+| name        | The name of the conference with alphanumeric characters and the symbols `-`, `_`, and `.` with maximum length of 50 characters. |
 
 #### Conference attributes
 | Attribute                | Description                                                                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | mute                     | (optional) A boolean value to indicate if the member can't speak in the conference. Defaults to false                                                                                                                   |
 | hold                     | (optional) A boolean value to indicate if the member can't hear or speak in the conference. Defaults to false                                                                                                           |
-| callIdsToCoach           | (optional) The list of call ids to [coach](#callIdsToCoach).                                                                                                                                                                               |
+| callIdsToCoach           | (optional) A comma-separated list of call ids to coach. When a call joins a conference with this attribute set, it will coach the listed calls. Those calls will be able to hear and be heard by the coach, but other calls in the conference will not hear the coach.<br><br>A conference may only have one coach.|
 | conferenceEventUrl       | (optional) URL to send Conference events to and request new BXML.                                                                                                                                                       |
 | conferenceEventMethod    | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.                                                                                                          |
 | username                 | (optional) The username to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
 | password                 | (optional) The password to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
 | tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
-### {#callIdsToCoach}
-When a call joins a conference with the `callIdsToCoach` attribute set, this call will coach the given calls and the calls not in the list will not hear the coach.
-
-A conference accepts only one coach.
-
 ### Callbacks Received
-| Callbacks                                                 | Can reply with more BXML |
-|:----------------------------------------------------------|:-------------------------|
-| [Conference Event](../callbacks/conferenceEvent.md)       | Yes                      |
+| Callbacks                                                      | Can reply with more BXML |
+|:---------------------------------------------------------------|:-------------------------|
+| [Conference Created](../callbacks/conferenceCreated.md)        | Yes                      |
+| [Conference Member Join](../callbacks/conferenceMemberJoin.md) | Yes                      |
+| [Conference Member Exit](../callbacks/conferenceMemberExit.md) | Yes                      |
+| [Conference Completed](../callbacks/conferenceCompleted.md)    | No                       |
 
 {% common %}
 
@@ -47,10 +42,8 @@ This shows how to use Bandwidth XML to add a call in a conference.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <SpeakSentence gender="male">Transferring your call, please wait.</SpeakSentence>
-    <Transfer>
-        <Conference>my-conference</Conference>
-    </Transfer>
+    <SpeakSentence gender="male">You will be added to your conference now.</SpeakSentence>
+    <Conference>my-conference</Conference>
 </Response>
 ```
 
@@ -100,10 +93,8 @@ This shows how to add a coach in a conference.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <SpeakSentence gender="male">Welcome, you are going to coach 2 calls, please wait.</SpeakSentence>
-    <Transfer>
-        <Conference callIdsToCoach="c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f">my-conference</Conference>
-    </Transfer>
+    <SpeakSentence gender="male">Welcome. You are going to coach 2 calls, please wait.</SpeakSentence>
+    <Conference callIdsToCoach="c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f">my-conference</Conference>
 </Response>
 ```
 

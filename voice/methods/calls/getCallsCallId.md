@@ -24,7 +24,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | Property        | Description                                                                                                              |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------|
 | callId          | The call id.                                                                                                             |
-| parentCallId    | (optional) The A-leg call id, set only if this call is the B-leg of a [`<Transfer>`](../../bxml/verbs/transferPhoneNumber.md).      |
+| parentCallId    | (optional) The A-leg call id, set only if this call is the B-leg of a [`<Transfer>`](../../bxml/verbs/transfer.md).      |
 | applicationId   | The application id associated  with the call.                                                                            |
 | accountId       | The account id associated with the call.                                                                                 |
 | to              | The phone number that received the call, in E.164 format (e.g. +15555555555).                                            |
