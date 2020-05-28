@@ -17,7 +17,7 @@ A maximum of 50 calls may be in a particular conference.
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | mute                     | (optional) A boolean value to indicate if the member can't speak in the conference. Defaults to false                                                                                                                   |
 | hold                     | (optional) A boolean value to indicate if the member can't hear or speak in the conference. Defaults to false                                                                                                           |
-| callIdsToCoach           | (optional) A comma-separated list of call ids to coach. When a call joins a conference with this attribute set, it will coach the listed calls. Those calls will be able to hear and be heard by the coach, but other calls in the conference will not hear the coach.<br><br>A conference may only have one coach.|
+| callIdsToCoach           | (optional) A comma-separated list of call ids to coach. When a call joins a conference with this attribute set, it will coach the listed calls. Those calls will be able to hear and be heard by the coach, but other calls in the conference will not hear the coach.<br><br>Calls may be added to the conference in any order - if the matching calls are not already in the conference, then once the matching calls are added, the coach will be able to hear and speak to the matching calls. Note that this will not add the matching calls to the conference; each call must individually execute a `<Conference>` verb to join.<br><br>A conference may only have one coach.|
 | conferenceEventUrl       | (optional) URL to send Conference events to and request new BXML.                                                                                                                                                       |
 | conferenceEventMethod    | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.                                                                                                          |
 | username                 | (optional) The username to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
@@ -25,12 +25,12 @@ A maximum of 50 calls may be in a particular conference.
 | tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### Callbacks Received
-| Callbacks                                                      | Can reply with more BXML |
-|:---------------------------------------------------------------|:-------------------------|
-| [Conference Created](../callbacks/conferenceCreated.md)        | Yes                      |
-| [Conference Member Join](../callbacks/conferenceMemberJoin.md) | Yes                      |
-| [Conference Member Exit](../callbacks/conferenceMemberExit.md) | Yes                      |
-| [Conference Completed](../callbacks/conferenceCompleted.md)    | No                       |
+| Callbacks                                                      | Can reply with BXML |
+|:---------------------------------------------------------------|:--------------------|
+| [Conference Created](../callbacks/conferenceCreated.md)        | No                  |
+| [Conference Member Join](../callbacks/conferenceMemberJoin.md) | No                  |
+| [Conference Member Exit](../callbacks/conferenceMemberExit.md) | No                  |
+| [Conference Completed](../callbacks/conferenceCompleted.md)    | No                  |
 
 {% common %}
 

@@ -16,7 +16,7 @@
 
 | Verb                                                 | Description                                                                                           |
 |:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------|
-| [`<Conference>`](verbs/conference.md)                | The Conference verb is used to add a call to a conference.                                            |
+| [`<Conference>`](bxml/verbs/conference.md)           | The Conference verb is used to add a call to a conference.                                            |
 | [`<Forward>`](bxml/verbs/forward.md)                 | The Forward verb is used to forward an unanswered incoming call to another number.                    |
 | [`<Gather>`](bxml/verbs/gather.md)                   | The Gather verb is used to collect DTMF digits.                                                       |
 | [`<Hangup>`](bxml/verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                  |
@@ -51,6 +51,10 @@
 | [Recording Available](bxml/callbacks/recordingAvailable.md)      | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 | [Transfer Disconnect](bxml/callbacks/transferDisconnect.md)      | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                    |
 | [Transcription Available](bxml/callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                     |
+| [Conference Created](bxml/callbacks/conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                       |
+| [Conference Member Join](bxml/callbacks/conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                   |
+| [Conference Member Exit](bxml/callbacks/conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                      |
+| [Conference Completed](bxml/callbacks/conferenceCompleted.md)    | Bandwidth API sends this after the last member leaves the conference.                                                            |
 
 ## Error Codes
 | Type                         | Description                                                           |

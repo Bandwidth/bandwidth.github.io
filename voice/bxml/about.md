@@ -61,9 +61,13 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | [Transfer Complete](callbacks/transferComplete.md) | Bandwidth API sends this when the `<Transfer>` is complete and the original call needs to continue.                                                                                                                            |
 
 ### Asynchronous Callbacks
-| Callback                                                    | Description                                                                                                                                         |
-|:------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Callback                                                    | Description                                                                                                                      |
+|:------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | [Disconnect](callbacks/disconnect.md)                       | Bandwidth API sends this when a call ends.                                                                                       |
 | [Recording Available](callbacks/recordingAvailable.md)      | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
-| [Transfer Disconnect](callbacks/transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
+| [Transfer Disconnect](callbacks/transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                         |
 | [Transcription Available](callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                     |
+| [Conference Created](callbacks/conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                       |
+| [Conference Member Join](callbacks/conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                   |
+| [Conference Member Exit](callbacks/conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                      |
+| [Conference Completed](callbacks/conferenceCompleted.md)    | Bandwidth API sends this after the last member leaves the conference.                                                            |
