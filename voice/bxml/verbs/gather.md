@@ -346,7 +346,27 @@ This example shows how to nest multiple PlayAudio and SpeakSentence verbs
 {% sample lang="python" %}
 
 ```python
-#coming soon
+speak_sentence_1 = SpeakSentence(
+    sentence="First Sentence"
+)
+play_audio_1 = PlayAudio(
+    url="https://audio1.com"
+)
+play_audio_2 = PlayAudio(
+    url="https://audio2.com"
+)
+speak_sentence_2 = SpeakSentence(
+    sentence="Second Sentence"
+)
+
+gather = Gather(
+    gather_url="https://gather.url/nextBXML",
+    nested_verbs=[speak_sentence_1, play_audio_1, play_audio_2, speak_sentence_2]
+)
+
+response = Response()
+response.add_verb(gather)
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
