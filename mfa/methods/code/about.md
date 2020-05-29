@@ -15,6 +15,6 @@ Read More about Bandwidth's Two-Factor Authentication service <a href="http://de
 
 | HTTP Method                    | Path                              | Description                                                 |
 |:-------------------------------|:----------------------------------|:------------------------------------------------------------|
-| <code class="post">POST</code> | [`/code/voice`](voice.md)         | Two-Factor authentication with Bandwidth Voice servicescall |
-| <code class="post">POST</code> | [`/code/messaging`](messaging.md) | Two-Factor authentication with Bandwidth messaging services |
+| <code class="post">POST</code> | [`/code/voice`](voice.md)         | Two-Factor authentication with Bandwidth Voice services |
+| <code class="post">POST</code> | [`/code/messaging`](messaging.md) | Two-Factor authentication with Bandwidth Messaging services |
 | <code class="post">POST</code> | [`/code/verify`](verify.md)       | Verify a previously sent two-factor authentication code     |

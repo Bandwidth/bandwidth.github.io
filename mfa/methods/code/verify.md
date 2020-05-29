@@ -19,15 +19,15 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:--------------|:---------------------------|
 | to            | To telephone number        |
 | from          | From telephone number      |
-| applicationId | Application Id             |
-| scope         | scope                      |
-| code          | The code sent to requester |
+| applicationId | The voice or messaging application id used to make the initial request |
+| scope         | scope of the request. This value must match the scope of the initial request |
+| code          | The code received to validate |
 
 ### Response Attributes
 
 | Property | Description        |
 |:---------|:-------------------|
-| valid    | Was the code valid |
+| valid    | Boolean value that states if the validation was successful. `true` if the code is valid, `false` otherwise |
 
 
 {% common %}
@@ -58,6 +58,15 @@ Content-Type: application/json; charset=utf-8
 
 {
   "valid": true
+}
+```
+
+```http
+Status: 200
+Content-Type: application/json; charset=utf-8
+
+{
+  "valid": false
 }
 ```
 
