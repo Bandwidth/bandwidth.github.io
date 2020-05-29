@@ -88,7 +88,7 @@ request.setCode("212061");
 
 ApiResponse<TwoFactorVerifyCodeResponse> response = controller.createVerifyTwoFactor(accountId, request);
 
-System.out.println( response.getResult().getValide() );
+System.out.println( response.getResult().getValid() );
 ```
 
 {% sample lang="ruby" %}

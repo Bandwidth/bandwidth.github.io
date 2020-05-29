@@ -70,7 +70,7 @@ var response = controller.CreateMessagingTwoFactor(accountId, new TwoFactorCodeR
     Scope = "scope csharp"
 });
 
-Console.WriteLine( response.Data.MessageId[0] );
+Console.WriteLine( response.Data.MessageId );
 ```
 
 {% sample lang="java" %}
@@ -84,7 +84,7 @@ request.setScope("scope");
 
 ApiResponse<TwoFactorMessagingResponse> response = controller.createMessagingTwoFactor(accountId, request);
 
-System.out.println( response.getResult().getMessageId().get(0) );
+System.out.println( response.getResult().getMessageId() );
 ```
 
 {% sample lang="ruby" %}

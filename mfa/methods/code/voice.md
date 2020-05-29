@@ -70,7 +70,7 @@ var response = controller.CreateVoiceTwoFactor(accountId, new TwoFactorCodeReque
     Scope = "scope csharp"
 });
 
-Console.WriteLine( response.Data.CallId[0] );
+Console.WriteLine( response.Data.CallId );
 ```
 
 {% sample lang="java" %}
@@ -84,7 +84,7 @@ request.setScope("scope");
 
 ApiResponse<TwoFactorVoiceResponse> response = controller.createVoiceTwoFactor(accountId, request);
 
-System.out.println( response.getResult().getCallId().get(0) );
+System.out.println( response.getResult().getCallId() );
 ```
 
 {% sample lang="ruby" %}
