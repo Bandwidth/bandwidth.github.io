@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Completed Event
-The Conference Completed event is fired when the conference is closed two minutes after the last member leaves the conference.  
+The Conference Completed event is fired when the last member leaves the conference.  
 ### Expected response
 ```http
 HTTP/1.1 204
