@@ -6,6 +6,7 @@
 |--|--|
 | 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
 | 2.1.0 | Updated Pause and SendDtmf BXML attributes |
+| 2.2.0 | Added MFA functions and support for multiple nested verbs for a Gather |
 
 ## Download & Install
 
