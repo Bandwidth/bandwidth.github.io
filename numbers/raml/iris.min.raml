@@ -18542,6 +18542,21 @@ securitySchemes:
                                                     </Address>
                                                 </Dlda>
                                             </Features>
+                                            <OriginationRoutePlan>
+                                              <Id>cfa6ef74-4944-47c2-b112-0cf4360b1fa5</Id>
+                                              <Route>
+                                                <Endpoint>6107622689</Endpoint>
+                                                <Priority>1</Priority>
+                                                <Weight>100</Weight>
+                                                <EndpointType>TN</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>sip:abcd@domain.com</Endpoint>
+                                                <Priority>2</Priority>
+                                                <Weight>100</Weight>
+                                                <EndpointType>SIP</EndpointType>
+                                              </Route>
+                                            </OriginationRoutePlan>
                                             <MessagingSettings>
                                                 <SmsEnabled>true</SmsEnabled>
                                                 <AssignedNNRoute>
@@ -18663,7 +18678,7 @@ securitySchemes:
                                       </HostedTelephoneNumberDetails>
                                     </TelephoneNumberDetails>
                                     </TelephoneNumberResponse>
-                                    <!-- Non-NAMP details -->
+                                    <!-- Non-NANP details -->
                                     <TelephoneNumberResponse>
                                         <TelephoneNumberDetails>
                                             <FullNumber>+33140289562</FullNumber>

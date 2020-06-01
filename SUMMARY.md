@@ -36,6 +36,7 @@
 
 ## Numbers
 * [Overview](numbers/about.md)
+* [Rate Limits](numbers/rateLimits.md)
 * [Guides & Tutorials](numbers/guides/index.md)
 	* [Searching Phone Numbers](numbers/guides/searchForNumbers.md)
 	* [Order Phone Numbers - callback](numbers/guides/onDemandNumberSearchAndOrder.md)
