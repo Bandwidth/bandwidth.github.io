@@ -328,13 +328,61 @@ This example shows how to nest multiple PlayAudio and SpeakSentence verbs
 {% sample lang="java" %}
 
 ```java
-//coming soon
+List<AudioProducer> list = new ArrayList<>();
+list.add(SpeakSentence.builder()
+        .text("First Sentence")
+        .build());
+list.add(PlayAudio.builder()
+        .audioUri("https://audio1.com")
+        .build());
+list.add(PlayAudio.builder()
+        .audioUri("https://audio2.com")
+        .build());
+list.add(SpeakSentence.builder()
+        .text("Second Sentence")
+        .build());
+
+Gather gather = Gather.builder()
+        .audioProducer(list)
+        .build();
+
+Response response = Response.builder().build()
+        .add(gather);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+Gather gather = new Gather
+{
+    audioProducer = new List<IAudioProducer>(){ 
+        new SpeakSentence
+        {
+            Sentence = "First Sentence"
+        },
+        new PlayAudio
+        {
+            Url = "https://audio1.com"
+        },
+        new PlayAudio
+        {
+            Url = "https://audio2.com"
+        },
+        new SpeakSentence
+        {
+            Sentence = "Second Sentence"
+        }
+    }
+};
+
+Response response = new Response();
+response.Add(gather);
+
+var output = response.ToBXML();
+
+Console.WriteLine(output);
 ```
 
 {% sample lang="ruby" %}
