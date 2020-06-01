@@ -112,7 +112,7 @@ speak_sentence = Bandwidth::Voice::SpeakSentence.new({
 gather = Bandwidth::Voice::Gather.new({
     :gather_url => "https://gather.url/nextBXML",
     :terminating_digits => "#",
-    :first_digit_timeout => "10"
+    :first_digit_timeout => "10",
     :speak_sentence => speak_sentence
 })
 
@@ -340,7 +340,27 @@ This example shows how to nest multiple PlayAudio and SpeakSentence verbs
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+speak_sentence_1 = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "First Sentence"
+})
+play_audio_1 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio1.com"
+})
+play_audio_2 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio2.com"
+})
+speak_sentence_2 = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Second Sentence"
+})
+
+gather = Bandwidth::Voice::Gather.new({
+    :gather_url => "https://gather.url/nextBXML",
+    :nested_verbs => [speak_sentence_1, play_audio_1, play_audio_2, speak_sentence_2]
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(gather)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
