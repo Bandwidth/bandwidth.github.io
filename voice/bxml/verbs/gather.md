@@ -343,7 +343,7 @@ list.add(SpeakSentence.builder()
         .build());
 
 Gather gather = Gather.builder()
-        .audioProducers(list)
+        .audioProducer(list)
         .build();
 
 Response response = Response.builder().build()
@@ -357,7 +357,7 @@ System.out.println(response.toBXML());
 ```csharp
 Gather gather = new Gather
 {
-    AudioProducers = new List<IAudioProducer>(){ 
+    audioProducer = new List<IAudioProducer>(){ 
         new SpeakSentence
         {
             Sentence = "First Sentence"
