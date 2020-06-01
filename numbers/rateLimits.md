@@ -10,7 +10,7 @@ BaseURL: `https://dashboard.bandwidth.com/api/`
 
 When a rate limit is hit for endpoints on the `https://dashboard.bandwidth.com/api/` API Bandwidth will respond with a `HTTP-429` error indicating that the limit has been reached.
 
-The response includes a `X-RateLimit-Reset` header value with the epoch time **in seconds** when the limit will reset. Bandwidth recommends waiting until the reset-time as indicated before sending any new requests to the same endpoint.
+The response includes a `X-RateLimit-Reset` header value with the epoch time **in seconds** when the limit will reset. Bandwidth recommends waiting until the reset-time has been reached `wait_in_seconds(resetTime - currentTime);` before sending any new requests to the same endpoint.
 
 ```http
 HTTP/1.1 429
