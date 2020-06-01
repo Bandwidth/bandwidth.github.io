@@ -30,9 +30,10 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 
 | Verb                                            | Description                                                                                           |
 |:------------------------------------------------|:------------------------------------------------------------------------------------------------------|
+| [`<Conference>`](verbs/conference.md)           | The Conference verb is used to add a call to a conference.                                            |
 | [`<Forward>`](verbs/forward.md)                 | The Forward verb is used to forward an unanswered incoming call to another number.                    |
 | [`<Gather>`](verbs/gather.md)                   | The Gather verb is used to collect DTMF digits.                                                       |
-| [`<Hangup>`](verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                   |
+| [`<Hangup>`](verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                  |
 | [`<Pause>`](verbs/pause.md)                     | The Pause verb is used to delay verb execution for a period of time.                                  |
 | [`<PauseRecording>`](verbs/pauseRecording.md)   | The PauseRecording verb is used to pause a recording previously started by a `<StartRecording>` verb. |
 | [`<PlayAudio>`](verbs/playAudio.md)             | The PlayAudio verb is used to play an audio file in the call.                                         |
@@ -43,7 +44,7 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 | [`<SpeakSentence>`](verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
 | [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
 | [`<StopRecording>`](verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
-| [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number or to join into a conference.        |
+| [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
 
 ### BXML Callbacks
 
@@ -60,9 +61,13 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | [Transfer Complete](callbacks/transferComplete.md) | Bandwidth API sends this when the `<Transfer>` is complete and the original call needs to continue.                                                                                                                            |
 
 ### Asynchronous Callbacks
-| Callback                                                    | Description                                                                                                                                         |
-|:------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Callback                                                    | Description                                                                                                                      |
+|:------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | [Disconnect](callbacks/disconnect.md)                       | Bandwidth API sends this when a call ends.                                                                                       |
 | [Recording Available](callbacks/recordingAvailable.md)      | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
-| [Transfer Disconnect](callbacks/transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
+| [Transfer Disconnect](callbacks/transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                         |
 | [Transcription Available](callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                     |
+| [Conference Created](callbacks/conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                       |
+| [Conference Member Join](callbacks/conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                   |
+| [Conference Member Exit](callbacks/conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                      |
+| [Conference Completed](callbacks/conferenceCompleted.md)    | Bandwidth API sends this after the last member leaves the conference.                                                            |
