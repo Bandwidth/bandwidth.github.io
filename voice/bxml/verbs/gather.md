@@ -112,7 +112,7 @@ speak_sentence = Bandwidth::Voice::SpeakSentence.new({
 gather = Bandwidth::Voice::Gather.new({
     :gather_url => "https://gather.url/nextBXML",
     :terminating_digits => "#",
-    :first_digit_timeout => "10"
+    :first_digit_timeout => "10",
     :speak_sentence => speak_sentence
 })
 
@@ -388,13 +388,53 @@ Console.WriteLine(output);
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+speak_sentence_1 = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "First Sentence"
+})
+play_audio_1 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio1.com"
+})
+play_audio_2 = Bandwidth::Voice::PlayAudio.new({
+    :url => "https://audio2.com"
+})
+speak_sentence_2 = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Second Sentence"
+})
+
+gather = Bandwidth::Voice::Gather.new({
+    :gather_url => "https://gather.url/nextBXML",
+    :nested_verbs => [speak_sentence_1, play_audio_1, play_audio_2, speak_sentence_2]
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(gather)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-#coming soon
+speak_sentence_1 = SpeakSentence(
+    sentence="First Sentence"
+)
+play_audio_1 = PlayAudio(
+    url="https://audio1.com"
+)
+play_audio_2 = PlayAudio(
+    url="https://audio2.com"
+)
+speak_sentence_2 = SpeakSentence(
+    sentence="Second Sentence"
+)
+
+gather = Gather(
+    gather_url="https://gather.url/nextBXML",
+    nested_verbs=[speak_sentence_1, play_audio_1, play_audio_2, speak_sentence_2]
+)
+
+response = Response()
+response.add_verb(gather)
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
