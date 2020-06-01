@@ -1,7 +1,7 @@
 {% method %}
 
 ## Two-Factor Authentication with Messaging
-Two-Factor authentication with Bandwidth MEssaging services
+Two-Factor authentication with Bandwidth Messaging services
 
 ### Request URL
 
@@ -19,8 +19,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:--------------|:----------------------|
 | to            | To telephone number   |
 | from          | From telephone number |
-| applicationId | Application Id        |
-| scope         | scope                 |
+| applicationId | The messaging application id |
+| scope         | scope of the request. Currently `scope` is the only valid value |
 
 ### Response Attributes
 
@@ -67,7 +67,7 @@ var response = controller.CreateMessagingTwoFactor(accountId, new TwoFactorCodeR
     ApplicationId = applicationId,
     From = fromNumber,
     To = toNumber,
-    Scope = "scope csharp"
+    Scope = "scope"
 });
 
 Console.WriteLine( response.Data.MessageId );

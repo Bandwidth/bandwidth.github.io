@@ -207,11 +207,10 @@
 
 ## Multi-Factor Authentication
 * [Overview](mfa/about.md)
-* [API Methods](mfa/methods/about.md)
-	* [Code](mfa/methods/code/about.md)
-		* [POST Voice](mfa/methods/code/voice.md)
-		* [POST Messaging](mfa/methods/code/messaging.md)
-		* [POST Verify](mfa/methods/code/verify.md)
+* [API Methods](mfa/methods/code/about.md)
+    * [POST Voice](mfa/methods/code/voice.md)
+    * [POST Messaging](mfa/methods/code/messaging.md)
+    * [POST Verify](mfa/methods/code/verify.md)
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 

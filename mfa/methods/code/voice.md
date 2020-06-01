@@ -19,8 +19,8 @@ Bandwidth's MFA API leverages Basic Authentication with your Dashboard API Crede
 |:--------------|:----------------------|
 | to            | To telephone number   |
 | from          | From telephone number |
-| applicationId | Application Id        |
-| scope         | scope                 |
+| applicationId | The voice application id  |
+| scope         | scope of the request. Currently `scope` is the only valid value |
 
 ### Response Attributes
 
@@ -67,7 +67,7 @@ var response = controller.CreateVoiceTwoFactor(accountId, new TwoFactorCodeReque
     ApplicationId = applicationId,
     From = fromNumber,
     To = toNumber,
-    Scope = "scope csharp"
+    Scope = "scope"
 });
 
 Console.WriteLine( response.Data.CallId );
