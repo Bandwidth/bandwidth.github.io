@@ -12,7 +12,7 @@ HTTP/1.1 204
 |:----------   |:----------------------------------------------------------------------------------------------------------------|
 | eventType    | The event type, value is `conferenceMemberJoin`                                                                 |
 | conferenceId | The id for the conference that was joined                                                                       |
-| friendlyName | The custom name used to reference this conference.                                                              |
+| name         | The custom name used to reference this conference.                                                              |
 | callId       | The callId of the member that joined the conference.                                                            |
 | tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
 
