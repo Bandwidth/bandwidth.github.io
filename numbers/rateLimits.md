@@ -26,10 +26,10 @@ Connection: close
 
 Endpoints related to creating & updating Orders.
 
-| Method                           | Path                                     |
-|:---------------------------------|:-----------------------------------------|
-| <code class="post">POST</code>   | `/accounts/{accountId}/orders`           |
-| <code class="patch">PATCH</code> | `/accounts/{accountId}/orders/{orderId}` |
+| Method                         | Path                                     |
+|:-------------------------------|:-----------------------------------------|
+| <code class="post">POST</code> | `/accounts/{accountId}/orders`           |
+| <code class="PUT">PUT</code>   | `/accounts/{accountId}/orders/{orderId}` |
 
 #### SEARCH
 
@@ -69,52 +69,6 @@ Endpoints related to importing phone numbers for use with Hosted Messaging.
 |:-------------------------------|:----------------------------------------|
 | <code class="post">POST</code> | `/accounts/{accountid}/importToAccount` |
 
-#### HISTORY
-
-Endpoints related to pulling historical information.
-
-| Method                       | Path                                                        |
-|:-----------------------------|:------------------------------------------------------------|
-| <code class="get">GET</code> | `/portins`                                                  |
-| <code class="get">GET</code> | `/portins/{orderId}`                                        |
-| <code class="get">GET</code> | `/portins/{orderId}/history`                                |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders`                              |
-| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/orders`               |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/totals`                       |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}`                    |
-| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/orders/{orderId}`     |
-| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/orders/{orderId}/tns` |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/history`            |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/totals`             |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/tns`                |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/areaCodes`          |
-| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/npaNxx`             |
-| <code class="get">GET</code> | `tns/{fullnumber}`                                          |
-| <code class="get">GET</code> | `tns/{fullnumber}/ratecenter`                               |
-| <code class="get">GET</code> | `tns/{fullnumber}/lata`                                     |
-| <code class="get">GET</code> | `/accounts/{accountId}/disconnects`                         |
-| <code class="get">GET</code> | `/accounts/{accountId}/disconnects/{orderId}`               |
-| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount/{orderid}`           |
-| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount/batches`             |
-| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount/batches/{batchId}`   |
-| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount`                     |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins`                             |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}`                   |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/totals`                      |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/status`                      |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/totals`            |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/areaCodes`         |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/npaNxx`            |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/tns`               |
-| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/history`           |
-| <code class="get">GET</code> | `/accounts/{accountId}/portouts`                            |
-| <code class="get">GET</code> | `/accounts/{accountId}/portouts/{orderid}`                  |
-| <code class="get">GET</code> | `/accounts/{accountId}/portouts/totals`                     |
-| <code class="get">GET</code> | `/accounts/{accountId}/portouts/status`                     |
-| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/portins`              |
-| <code class="get">GET</code> | `/bulkPortins`                                              |
-| <code class="get">GET</code> | `/accounts/{accountId}/bulkPortins/{orderId}/{history`      |
-
 #### PORT_IN
 
 Endpoints related to creating and managing Portins
@@ -122,18 +76,25 @@ Endpoints related to creating and managing Portins
 | Method                             | Path                                                                |
 |:-----------------------------------|:--------------------------------------------------------------------|
 | <code class="post">POST</code>     | `/accounts/{accountId}/portins`                                     |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/portins/{orderid}`                           |
+| <code class="put">PUT</code>       | `/accounts/{accountId}/portins/{orderid}`                           |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/portins/{orderid}`                           |
 | <code class="get">GET</code>       | `/accounts/{accountId}/portins/availabilityCheck/{telephonenumber}` |
 | <code class="post">POST</code>     | `/accounts/{accountId}/lnpchecker`                                  |
+
+#### BULK_PORT_IN
+
+Endpoints related to creating and managing Bulk Port orders.
+
+| Method                             | Path                                                                |
+|:-----------------------------------|:--------------------------------------------------------------------|
 | <code class="get">GET</code>       | `/bulkPortins/{orderId}`                                            |
 | <code class="post">POST</code>     | `/accounts/{accountId}/bulkportins`                                 |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/bulkportins/{orderId}`                       |
+| <code class="put">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderId}`                       |
 | <code class="patch">PATCH</code>   | `/accounts/{accountId}/bulkportins/{orderId}`                       |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/bulkportins/{orderId}`                       |
 | <code class="get">GET</code>       | `/accounts/{accountId}/bulkportins/{orderId}/portinList`            |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/bulkportins/{orderId}/portinList`            |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/bulkportins/{orderid}/{tnList}`              |
+| <code class="PUT">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderId}/portinList`            |
+| <code class="PUT">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderid}/{tnList}`              |
 | <code class="get">GET</code>       | `/accounts/{accountId}/bulkportins/{orderid}/{tnList}`              |
 
 #### PORT_OUT
@@ -143,8 +104,8 @@ Endpoints related to creating and managing Portouts
 | Method                             | Path                                       |
 |:-----------------------------------|:-------------------------------------------|
 | <code class="post">POST</code>     | `/accounts/{accountId}/portouts`           |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/portouts`           |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/portouts/{orderId}` |
+| <code class="PUT">PUT</code>       | `/accounts/{accountId}/portouts`           |
+| <code class="PUT">PUT</code>       | `/accounts/{accountId}/portouts/{orderId}` |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/portouts`           |
 
 #### SUBSCRIPTION
@@ -154,7 +115,7 @@ Endpoints related to creating and managing Subscriptions.
 | Method                             | Path                                                   |
 |:-----------------------------------|:-------------------------------------------------------|
 | <code class="post">POST</code>     | `/accounts/{accountId}/subscriptions`                  |
-| <code class="patch">PATCH</code>   | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
+| <code class="PUT">PATCH</code>     | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
 | <code class="get">GET</code>       | `/accounts/{accountId}/subscriptions`                  |
 | <code class="get">GET</code>       | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
@@ -220,3 +181,49 @@ Endpoints related to creating an e911 Order.
 | Method                       | Path         |
 |:-----------------------------|:-------------|
 | <code class="get">GET</code> | `/typeahead` |
+
+#### HISTORY
+
+Endpoints related to pulling historical information.
+
+| Method                       | Path                                                        |
+|:-----------------------------|:------------------------------------------------------------|
+| <code class="get">GET</code> | `/portins`                                                  |
+| <code class="get">GET</code> | `/portins/{orderId}`                                        |
+| <code class="get">GET</code> | `/portins/{orderId}/history`                                |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders`                              |
+| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/orders`               |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/totals`                       |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}`                    |
+| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/orders/{orderId}`     |
+| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/orders/{orderId}/tns` |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/history`            |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/totals`             |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/tns`                |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/areaCodes`          |
+| <code class="get">GET</code> | `/accounts/{accountId}/orders/{orderId}/npaNxx`             |
+| <code class="get">GET</code> | `tns/{fullnumber}`                                          |
+| <code class="get">GET</code> | `tns/{fullnumber}/ratecenter`                               |
+| <code class="get">GET</code> | `tns/{fullnumber}/lata`                                     |
+| <code class="get">GET</code> | `/accounts/{accountId}/disconnects`                         |
+| <code class="get">GET</code> | `/accounts/{accountId}/disconnects/{orderId}`               |
+| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount/{orderid}`           |
+| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount/batches`             |
+| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount/batches/{batchId}`   |
+| <code class="get">GET</code> | `/accounts/{accountId}/importToAccount`                     |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins`                             |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}`                   |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/totals`                      |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/status`                      |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/totals`            |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/areaCodes`         |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/npaNxx`            |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/tns`               |
+| <code class="get">GET</code> | `/accounts/{accountId}/portins/{orderid}/history`           |
+| <code class="get">GET</code> | `/accounts/{accountId}/portouts`                            |
+| <code class="get">GET</code> | `/accounts/{accountId}/portouts/{orderid}`                  |
+| <code class="get">GET</code> | `/accounts/{accountId}/portouts/totals`                     |
+| <code class="get">GET</code> | `/accounts/{accountId}/portouts/status`                     |
+| <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/portins`              |
+| <code class="get">GET</code> | `/bulkPortins`                                              |
+| <code class="get">GET</code> | `/accounts/{accountId}/bulkPortins/{orderId}/{history`      |
