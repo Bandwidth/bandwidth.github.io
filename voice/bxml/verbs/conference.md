@@ -10,7 +10,7 @@ A maximum of 20 calls may be in a particular conference.
 ### Text Content
 | Name        | Description |
 |:------------|:------------|
-| name        | The name of the conference with alphanumeric characters and the symbols `-`, `_`, and `.` with maximum length of 50 characters. |
+| name        | The name of the conference with alphanumeric characters and the symbols `-`, `_`, `/`, `\`, and `.` with maximum length of 100 characters. |
 
 #### Conference attributes
 | Attribute                | Description                                                                                                                                                                                                             |

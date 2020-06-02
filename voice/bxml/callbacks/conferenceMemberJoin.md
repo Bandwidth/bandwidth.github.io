@@ -14,6 +14,8 @@ HTTP/1.1 204
 | conferenceId | The id for the conference that was joined                                                                       |
 | name         | The custom name used to reference this conference.                                                              |
 | callId       | The callId of the member that joined the conference.                                                            |
+| from         | The from number from the original call                                                                          |
+| to           | The to number from the original call                                                                            |
 | tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
 
 {% common %}
