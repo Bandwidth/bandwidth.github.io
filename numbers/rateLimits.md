@@ -29,7 +29,7 @@ Endpoints related to creating & updating Orders.
 | Method                         | Path                                     |
 |:-------------------------------|:-----------------------------------------|
 | <code class="post">POST</code> | `/accounts/{accountId}/orders`           |
-| <code class="PUT">PUT</code>   | `/accounts/{accountId}/orders/{orderId}` |
+| <code class="put">PUT</code>   | `/accounts/{accountId}/orders/{orderId}` |
 
 #### SEARCH
 
@@ -93,8 +93,8 @@ Endpoints related to creating and managing Bulk Port orders.
 | <code class="patch">PATCH</code>   | `/accounts/{accountId}/bulkportins/{orderId}`                       |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/bulkportins/{orderId}`                       |
 | <code class="get">GET</code>       | `/accounts/{accountId}/bulkportins/{orderId}/portinList`            |
-| <code class="PUT">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderId}/portinList`            |
-| <code class="PUT">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderid}/{tnList}`              |
+| <code class="put">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderId}/portinList`            |
+| <code class="put">PUT</code>       | `/accounts/{accountId}/bulkportins/{orderid}/{tnList}`              |
 | <code class="get">GET</code>       | `/accounts/{accountId}/bulkportins/{orderid}/{tnList}`              |
 
 #### PORT_OUT
@@ -104,8 +104,8 @@ Endpoints related to creating and managing Portouts
 | Method                             | Path                                       |
 |:-----------------------------------|:-------------------------------------------|
 | <code class="post">POST</code>     | `/accounts/{accountId}/portouts`           |
-| <code class="PUT">PUT</code>       | `/accounts/{accountId}/portouts`           |
-| <code class="PUT">PUT</code>       | `/accounts/{accountId}/portouts/{orderId}` |
+| <code class="put">PUT</code>       | `/accounts/{accountId}/portouts`           |
+| <code class="put">PUT</code>       | `/accounts/{accountId}/portouts/{orderId}` |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/portouts`           |
 
 #### SUBSCRIPTION
@@ -115,7 +115,7 @@ Endpoints related to creating and managing Subscriptions.
 | Method                             | Path                                                   |
 |:-----------------------------------|:-------------------------------------------------------|
 | <code class="post">POST</code>     | `/accounts/{accountId}/subscriptions`                  |
-| <code class="PUT">PATCH</code>     | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
+| <code class="patch">PATCH</code>     | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
 | <code class="delete">DELETE</code> | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
 | <code class="get">GET</code>       | `/accounts/{accountId}/subscriptions`                  |
 | <code class="get">GET</code>       | `/accounts/{accountId}/subscriptions/{subscriptionId}` |
