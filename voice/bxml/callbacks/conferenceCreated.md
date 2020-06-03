@@ -28,7 +28,6 @@ POST http://[External server URL]
     "confernceId"   : "conf-abcd",
     "fiendlyName"   : "thisConfernece",
     "eventType"     : "conferenceCreated"
-    
 }
 ```
 
