@@ -89,7 +89,7 @@ Content-type: application/xml
 </SearchResult>
 ```
 
-### Example 2 of 5: Search for 2 toll-free numbers {#toll-free}
+### Example 2 of 5: Search for 2 toll-free numbers {#tollfree}
 
 #### Parameters:
 
@@ -117,7 +117,7 @@ Content-type: application/xml
 </SearchResult>
 ```
 
-### Example 3 of 5: Search for 2 phone numbers by localVanity {#local-vanity}
+### Example 3 of 5: Search for 2 phone numbers by localVanity {#localvanity}
 
 #### Parameters:
 
@@ -176,7 +176,7 @@ Content-type: application/xml
 </SearchResult>
 ```
 
-### Example 5 of 5: Search for 5 phone numbers by NPANxxx with LCA true {#npanxxx-lca}
+### Example 5 of 5: Search for 5 phone numbers by NPANxxx with LCA true {#npanxxxlca}
 
 Note the difference between example 4 of 5 with the resulting numbers not exactly matching the pattern sent
 
@@ -308,7 +308,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-IrisClient client = new IrisClient("9900778", "dtolb-API", "mandible_bitter_p0dia_pyjamas");
+IrisClient client = new IrisClient("accountId", "userName", "password");
 Map<String, Object> query = new HashMap<String, Object>();
 query.put("areaCode", "919");
 query.put("quantity", 2);
