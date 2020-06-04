@@ -28,10 +28,13 @@ POST http://[External server URL]
 
 ```json
 {
-    "confernceId"   : "conf-abcd",
-    "fiendlyName"   : "thisConfernece",
+    "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
+    "name"          : "thisConference",
     "eventType"     : "conferenceMemberExit",                                                                                                                                                                                                                                                    
-    "callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d"   
+    "callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    "to"            : "+15551112345",
+    "from"          : "+15559998765",
+    "tag"           : "conferenceTag"
 }
 ```
 
