@@ -25,9 +25,10 @@ POST http://[External server URL]
 
 ```json
 {
-    "confernceId"   : "conf-abcd",
-    "fiendlyName"   : "thisConfernece",
-    "eventType"     : "conferenceCompleted",   
+    "conferenceId"   : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
+    "name"           : "thisConference",
+    "eventType"      : "conferenceCompleted",
+    "tag"            : "conferenceTag"
 }
 ```
 

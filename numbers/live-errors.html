@@ -921,70 +921,6 @@
     <td>5183</td>
     <td>Ordering is not enabled on the specified account</td>
   </tr>
-    <tr>
-    <td>5184</td>
-    <td>Origination route plan cannot be empty</td>
-  </tr>
-    <tr>
-    <td>5185</td>
-    <td>Origination route plan must contain between 1 and %d routes</td>
-  </tr>
-    <tr>
-    <td>5186</td>
-    <td>Endpoints cannot be repeated within same priority: %s</td>
-  </tr>
-    <tr>
-    <td>5187</td>
-    <td>Route weight must be greater than zero</td>
-  </tr>
-    <tr>
-    <td>5188</td>
-    <td>Endpoint must be a valid telephone number, FQDN, ip address, or SIP URI : %s</td>
-  </tr>
-    <tr>
-    <td>5189</td>
-    <td>Route priority must be greater than zero</td>
-  </tr>
-    <tr>
-    <td>5190</td>
-    <td>Route endpoints may not be longer than %s characters</td>
-  </tr>
-    <tr>
-    <td>5191</td>
-    <td>All routes must have an endpoint specified</td>
-  </tr>
-    <tr>
-    <td>5192</td>
-    <td>Too many route plan priorities. There can be no more than %d priorities in a given route plan</td>
-  </tr>
-    <tr>
-    <td>5193</td>
-    <td>Port-Out Passcode is invalid. Passcode should has between 4 and 10 alpha-numeric characters | unchanged | systemDefault</td>
-  </tr>
-    <tr>
-    <td>5194</td>
-    <td>Port-Out Passcode/PIN Protection feature should be enabled on account.</td>
-  </tr>
-    <tr>
-    <td>5195</td>
-    <td>The specified Port-Out Passcode/PIN already exists for particular TN</td>
-  </tr>
-    <tr>
-    <td>5196</td>
-    <td>Only ON-NET TNs can have Port-Out Passcode</td>
-  </tr>
-    <tr>
-    <td>5197</td>
-    <td>Only Voice owner can assign Port-Out Passcode to TN</td>
-  </tr>
-    <tr>
-    <td>5198</td>
-    <td>AreaCodeSearchAndOrderType requires both AreaCode and Quantity values.</td>
-  </tr>
-    <tr>
-    <td>5199</td>
-    <td>TollFreeVanitySearchAndOrderType requires both TollFreeVanity and Quantity values.</td>
-  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -1972,10 +1908,6 @@
     <td>The TN you are requesting to port could require manual handling. An LNP agent will manually update your LSR order within 24 hours. If you have not received an updated response in your order, please email us at portouts@bandwidth.com for more information.</td>
   </tr>
     <tr>
-    <td>7522</td>
-    <td>Customer does migration from one portout validation endpoint to another.</td>
-  </tr>
-    <tr>
     <td>7598</td>
     <td>Invalid Request</td>
   </tr>
@@ -1998,10 +1930,6 @@
     <tr>
     <td>7603</td>
     <td>The requested time %s is outside business hours. FOC time must be within processing hours of %s and %s Eastern Time</td>
-  </tr>
-    <tr>
-    <td>7610</td>
-    <td>PIN does not match the Passcodes on the telephone numbers being ported out.</td>
   </tr>
     <tr>
     <td>7999</td>
@@ -2531,61 +2459,6 @@
   <tr><td>6522</td><td>This port has been rejected for "Unknown Feature on Account".  To resolve this rejection, please have the end user contact the losing carrier to determine what the feature is and next steps to move forward. (LNP998J)</td></tr>
   <tr><td>6523</td><td>Porting vendor is currently proceeding with processing this order. Should additional action be needed by the customer this jeopardy description will be updated. If no additional action is needed by the customer the order status will be updated to FOC Received Customer action NOT required for order to progress. Identify possible subscriber impacts. (LNP999J)</td></tr>
   <tr><td>6524</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6525</td><td>Please wait while the request is being processed. (01001)</td></tr>
-  <tr><td>6526</td><td>The Telephone Number is already being processed under another transaction.  Please cancel this order and resubmit.  Contact Bandwidth for assistance if this error persists. (01555)</td></tr>
-  <tr><td>6527</td><td>The Customer Service Record was received, but an issue was encountered during validation. The porting vendor is trying to resolve the issue. (02205)</td></tr>
-  <tr><td>6528</td><td>The Customer Service Record was received, CSR was validated successfully. (02206)</td></tr>
-  <tr><td>6529</td><td>Request could not be processed because a failure occurred while initiating the port.  Please cancel and resubmit. (02209)</td></tr>
-  <tr><td>6530</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6531</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6532</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6533</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6534</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6535</td><td>(message text directly from Level 3)</td></tr>
-  <tr><td>6536</td><td>To resolve this jeop please provide the BTN in a alpha-numeric format. (LNP019W)</td></tr>
-  <tr><td>6537</td><td>The Customer Service Record was received, CSR was validated successfully. (LNP0206)</td></tr>
-  <tr><td>6538</td><td>The Customer Service Record was received, but an issue was encountered during validation. (LNP0207)</td></tr>
-  <tr><td>6539</td><td>The Customer Service Record was received, but an issue was encountered during validation. (LNP0212)</td></tr>
-  <tr><td>6540</td><td>The Customer Service Record was received, but the Telephone Number could not be located. (LNP0220)</td></tr>
-  <tr><td>6541</td><td>The Customer Service Record was received, but the Working Telephone Number could not be located. (LNP0222)</td></tr>
-  <tr><td>6542</td><td>The Feature indicated prevents porting of this Telephone Number. (LNP0226)</td></tr>
-  <tr><td>6543</td><td>Name and Address Mismatch Error. Both the Name and Service Address on the Local Number Portability (LNP) request do not match the existing Customer Service Record (CSR). (LNP0250)</td></tr>
-  <tr><td>6544</td><td>Name Mismatch Error. The name on the Local Number Portability (LNP) request does not match the existing Customer Service Record (CSR). (LNP0251)</td></tr>
-  <tr><td>6545</td><td>Address Mismatch Error. The Service Address on the Local Number Portability (LNP) request does not match the existing Customer Service Record (CSR). (LNP0252)</td></tr>
-  <tr><td>6546</td><td>Service Commencement Date (FOC Date) was successfully set to the Customer Request Date for delivery of service. (LNP0413)</td></tr>
-  <tr><td>6547</td><td>The Customer Request Date for delivery of service was unable to be fulfilled. (LNP0418)</td></tr>
-  <tr><td>6548</td><td>Due to amount of TNs requesting to be ported on your order, the LSP (Local Service Provider) may have a longer processing time. (LNP1000W)</td></tr>
-  <tr><td>6549</td><td>The Local Service Provider (LSP) has advised that the Directory Listings (DL) associated with your LNP order will not be able to be kept with the LSP. In order to continue processing your LNP order, the DL had to be changed to remove. If you wish to establish a listing for this order please submit a DL/DA order. (LNP1001W)</td></tr>
-  <tr><td>6550</td><td>At this time the losing LSP (Local Service Provider) is not responding to the porting vendor's port out request.  At least 3 escalation attempts have been made.  Please have your end user contact their current LSP and inquire as to why they are experiencing a delay in the porting of their number.  At this time the porting vendor will continue to keep this customer order active with the LSP. (LNP111W)</td></tr>
-  <tr><td>6551</td><td>The donor LEC has rejected the port out request because the TNs service address is in a disaster area. Until the physical facilities have been restored, this order is not portable. Please cancel this customer order. (LNP121J)</td></tr>
-  <tr><td>6552</td><td>The losing carrier your order is porting from is Hawaiian Telecom. To resolve this jeopardy, please provide an hour, in HAST (-10 UTC/GMT), you would like your port to be activated. Hawaiian Telecom requires a specific time in order to ensure translations are removed from their systems. (LNP122J)</td></tr>
-  <tr><td>6553</td><td>The jeopardy code that was applied on your port request has been resolved with the losing carrier. The porting vendor will continue with processing your order. (LNP122W)</td></tr>
-  <tr><td>6554</td><td>Due to the nature of the account with the losing carrier, this order will be worked outside of the normal SLAs. Please monitor this order for further updates. (LNP123W)</td></tr>
-  <tr><td>6555</td><td>To resolve this Jeop please contact the End user to confirm the information on the account with their current service provider and supply to Bandwidth.  Please be sure to get contact info from the service provider agent who the end user speaks to. (LNP128J)</td></tr>
-  <tr><td>6556</td><td>Since this is a full port the T1 for this customer will be disconnected. Please advise the customer and resubmit with a remark of the person authorized to approve the disconnection of the T1. (LNP131J)</td></tr>
-  <tr><td>6557</td><td>The porting vendor has been informed that at least one of your subscriptions to port a TN (telephone number) on your order has been cancelled in SOA (Service Order Activator). The porting vendor will be working with the losing carrier to determine the cause for this cancellation and re-build new subscriptions as needed. (LNP137J)</td></tr>
-  <tr><td>6558</td><td>To resolve this Jeop, please identify all BTNs and telephone numbers associated with them.  This order will need to be canceled and separate orders submitted with the correct BTNs and associated TNs after the original order is in a "Cancelled" status. (LNP138J)</td></tr>
-  <tr><td>6559</td><td>It has been determined that this is a complex port with AT&T and this order is now being handled by the project porting team for the next available date. Please continue to monitor the order for updates. Should you have any questions regarding this order please contact Bandwidth. (LNP143J)</td></tr>
-  <tr><td>6560</td><td>The LSP (Local Service Provider) has advised that the TN (telephone number) you are requesting to port is currently resold to another carrier. This carrier is the customer of record and not the end-user. The LSP will not provide the carrier information. Please contact the end-user to obtain this. The LSP cannot process the port request without this information. (LNP144J)</td></tr>
-  <tr><td>6561</td><td>To resolve this Jeop:  Please request the end-user to contact their service provider and request a CSR or provide account set up.   The account is currently resold and the carrier cannot provide a CSR. (LNP145J)</td></tr>
-  <tr><td>6562</td><td>The losing carrier has advised that the E/U (End User) has decided to remain with them. Please contact your customer to verify the E/Us intentions. If they do not wish to port their TN(s) (Telephone Numbers) anymore, please cancel the order. However if they still want to proceed with their port, the EU will need to contact the LSP and make that known.  The order will have to be SUPPed to a later FOC date. (LNP146J)</td></tr>
-  <tr><td>6563</td><td>The LSP (Local Service Provider) is experiencing a strike of unspecified length, and will not be able to process this order until the strike is resolved. Please cancel this order and re-submit at a later time. (LNP147J)</td></tr>
-  <tr><td>6564</td><td>The LSP (Local Service Provider) is experiencing a strike of unspecified length. The porting vendor will continue to process this order, but it could experience delays. (LNP147W)</td></tr>
-  <tr><td>6565</td><td>The LSP is currently undergoing a system conversion.  At this time, no port out requests are being processed by this LSP. (LNP148J)</td></tr>
-  <tr><td>6566</td><td>To resolve this Jeop: Review the Customer Service Record (CSR).  If the zip code is not the same this order must be canceled and resubmitted with the correct zip code.  If this is a Remote Call Forwarded or resold TN, please open a ticket providing that information. (LNP149J)</td></tr>
-  <tr><td>6567</td><td>Since you submitted this port request, the telephone number(s) you requested to port have transferred to another carrier. If you wish to continue with this port, this order will need to be cancelled and re-issued in order for the port request to be sent to the correct carrier. (LNP152J)</td></tr>
-  <tr><td>6568</td><td>The losing carrier has rejected this order because the BTN provided on this order is disconnected.  Please verify this with your customer and update the order in the portal to continue processing this port. (LNP153J)</td></tr>
-  <tr><td>6569</td><td>Multiple orders were submitted for the same end user name, address, and account. These orders have been rejected by the carrier and need to be submitted under a single order. To resolve this jeop, please cancel these orders and resubmit in a single request. (LNP155J)</td></tr>
-  <tr><td>6570</td><td>The LSP (Local Service Provider) is requiring the BTN (Billing Telephone Number) to be submitted in a Alpha/Numeric format. Please confirm with your end-user the correct Alpha-Numeric BTN.  If the order has not received FOC, SUPP the order to update the BTN, else cancel and resubmit the order. (LNP159W)</td></tr>
-  <tr><td>6571</td><td>The current Local Service Provider is currently backlogged in processing customer orders.  The porting vendor will continue to process this order, but please be aware that porting time intervals will be extended and your customer requested date may be missed. (LNP188W)</td></tr>
-  <tr><td>6572</td><td>A Customer Service Record could not be obtained within an acceptable timeframe.  The porting vendor has decided to bypass the CSR phase on this order.  Should additional action be needed by the customer, a jeopardy code will be added.  However, the CSR information listed in your order entry mechanism will only include the order information that was submitted by your customer. (LNP189W)</td></tr>
-  <tr><td>6573</td><td>The jeop code that was applied on your order in the Customer Service Record (CSR) phase has been resolved. However further jeopardy codes could be applied if the port request is rejected by the losing carrier. (LNP190W)</td></tr>
-  <tr><td>6574</td><td>This customer order is considered a complex order by the LSP. The porting vendor will continue to process this order, but please be aware that new porting time intervals may apply. (LNP196W)</td></tr>
-  <tr><td>6575</td><td>The LSP (Local Service Provider) is currently experiencing a system upgrade or outage. Once the LSPs system is fully functioning the orders will continue to be worked. The CRD (Customer Request Date) asked for on this order could be in jeopardy due to a backlog the LSP might incur. The porting vendor will continue to work with the LSP to try and insure your CRD can be obtained. (LNP197W)</td></tr>
-  <tr><td>6576</td><td>A port activation request is in progress for your order. Currently, 1 or more carriers are experiencing problems updating their databases. This will delay the completion notification. If provisioning and testing of the TN(s) can be accomplished without this completion notification, your company may continue with the normal port activation process. (LNP994W)</td></tr>
-  <tr><td>6577</td><td>The LSP (Local Service Provider) has advised that 100+ TNs (telephone numbers) are associated with the BTN (Billing Telephone Number) submitted for this order. Due to system issues, our vendor is only be able to return 100 of these TNs on the CSR (Customer Service Record). This will not delay your order from being processed and all TNs will be ported. (LNP995W)</td></tr>
-  <tr><td>6578</td><td>The subscription(s) for your port request has been put into conflict by the losing carrier. The porting vendor will contact the losing carrier to remove this conflict, so your order can proceed. There is currently no action that needs to be taken by your organization. (LNP997J)</td></tr>
-  <tr><td>6579</td><td>The order is being processed.  Should additional action be needed by the customer, jeopardy information will be updated. (LNP999W)</td></tr>
 
 </table>
 
@@ -3481,10 +3354,6 @@
     <td>8106</td>
     <td>Emergency Endpoint Identifier specified for removal is not associated with Emergency Notification Group %s. Identifier(s): %s</td>
   </tr>
-    <tr>
-    <td>8107</td>
-    <td>The %s is invalid. Max allowed length %s characters.</td>
-  </tr>
   </table>
 
 
@@ -4324,7 +4193,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRouteList</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -5439,7 +5308,7 @@
   </tr>
     <tr>
     <td>12648</td>
-    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL, VAPOR_URL, MOVE_TNS_TIMEOUT</td>
+    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL</td>
   </tr>
     <tr>
     <td>12649</td>
@@ -6548,14 +6417,6 @@
     <tr>
     <td>13043</td>
     <td>Bandwidth error code %s already exists.</td>
-  </tr>
-    <tr>
-    <td>13044</td>
-    <td>House Prefix '%s' is too long. Max length 6 characters</td>
-  </tr>
-    <tr>
-    <td>13045</td>
-    <td>Street Suffix '%s' is too long. Max length 45 characters</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
