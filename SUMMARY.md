@@ -36,8 +36,19 @@
 
 ## Numbers
 * [Overview](numbers/about.md)
+* [Rate Limits](numbers/rateLimits.md)
 * [Guides & Tutorials](numbers/guides/index.md)
 	* [Searching Phone Numbers](numbers/guides/searchForNumbers.md)
+		* [AreaCode](numbers/guides/searchForNumbers.md#areacode)
+		* [TollFree](numbers/guides/searchForNumbers.md#tollfree)
+		* [localVanity](numbers/guides/searchForNumbers.md#localvanity)
+		* [Npanxxx](numbers/guides/searchForNumbers.md#npanxxx)
+		* [Npanxxx With LCA](numbers/guides/searchForNumbers.md#npanxxxlca)
+		* [Node example](numbers/guides/searchForNumbers.md#node)
+		* [C# example](numbers/guides/searchForNumbers.md#csharp)
+		* [PHP example](numbers/guides/searchForNumbers.md#php)
+		* [Ruby example](numbers/guides/searchForNumbers.md#ruby)
+		* [Java example](numbers/guides/searchForNumbers.md#java)
 	* [Order Phone Numbers - callback](numbers/guides/onDemandNumberSearchAndOrder.md)
 		* [Create Subscription](numbers/guides/onDemandNumberSearchAndOrder.md#create-subscription)
 		* [Search for Phone Numbers](numbers/guides/onDemandNumberSearchAndOrder.md#search-for-phone-numbers)
@@ -85,6 +96,7 @@
 		* [Canceling LNP Order](numbers/guides/portingPhoneNumbers.md#cancel-lnp)
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
 	* [Number Utilization Review API](numbers/guides/numberUtilizationReviewAPI.md)
+	* [Portout Passcode Protection](numbers/guides/portoutPasscode.md)
 	* [CSR Lookup API](numbers/guides/csrLookup.md)
 		* [Create Subscriptions](numbers/guides/csrLookup.md#create-subscription)
 		* [Create a CSR Order](numbers/guides/csrLookup.md#create-csr-order)
@@ -203,6 +215,15 @@
 	* [Callbacks](international/messaging.md#dlrs)
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
+
+## Multi-Factor Authentication
+* [Overview](mfa/about.md)
+* [API Methods](mfa/methods/code/about.md)
+    * [POST Voice](mfa/methods/code/voice.md)
+    * [POST Messaging](mfa/methods/code/messaging.md)
+    * [POST Verify](mfa/methods/code/verify.md)
+* [Rate Limits](mfa/rateLimits.md)
+* [Errors](mfa/errors.md)
 
 ## SDKs
 * [Python](sdks/python.md)
