@@ -10,6 +10,9 @@
 
 ### Voice
 
+| Version | Notes |
+|--|--|
+
 ### BXML
 
 | Version | Notes |
@@ -17,6 +20,9 @@
 | 2.6.0 | Added support for multi nested verbs in Gathers |
 
 ### Numbers
+
+| Version | Notes |
+|--|--|
 
 ## Download & Install
 
