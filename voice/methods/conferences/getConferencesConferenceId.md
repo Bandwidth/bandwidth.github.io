@@ -24,7 +24,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | Property              | Description                                                                                          |
 |:----------------------|:-----------------------------------------------------------------------------------------------------|
 | id                    | The conference id.                                                                                   |
-| friendlyName          | The conference name.                                                                                 |
+| name                  | The conference name.                                                                                 |
 | createdTime           | The time the conference was initiated, in ISO 8601 format.                                           |
 | conferenceEventUrl    | The URL to send the Conference events.                                                               |
 | conferenceEventMethod | The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.  |
@@ -46,7 +46,7 @@ curl -X GET \
 ```json
 {
     "id"                    : "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964",
-    "friendlyName"          : "myconf",
+    "name"                  : "myconf",
     "createdTime"           : "2020-05-21T18:01:45.133Z",
     "conferenceEventUrl"    : "https://www.example.com",
     "conferenceEventMethod" : "POST",
