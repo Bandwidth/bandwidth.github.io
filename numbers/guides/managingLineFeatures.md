@@ -117,6 +117,8 @@ In addition to the name and address information inherent in a DLDA update, the D
 If the `<Status>` of the DLDA order impacting the TN is transient, indicating that there is an order in process and the outcome is inconclusive, the DLDA information will be replaced with a link to the order currently processing a DLDA change for that TN.  This will be the case if the status is `Pending-Editable` or `Pending-Locked`.
 
 ## Set a Failover URI {#set-failover}
+**Please Note that the Failover URI functionality is only available for SIP Voice users at this time.**
+
 Setting a failover URI (Final Destination URI) allows Bandwidth to forward voice traffic to an alternate number in the event of a delivery failure to your original call route. 
 
 To set the Final Destination URI to a SIP address, use the format sip:{address}@{host}
