@@ -61,6 +61,7 @@
 		* [Creating and Managing a DLDA Order](numbers/guides/managingLineFeatures.md#create-dlda)
 		* [Retrieving the history of a DLDA order](numbers/guides/managingLineFeatures.md#get-dlda)
 		* [Checking DLDA information associated with a TN](numbers/guides/managingLineFeatures.md#check-dlda)
+		* [Set a Failover URI](numbers/guides/managingLineFeatures.md#set-failover)
 	* [Managing Orders](numbers/guides/managingOrders.md)
 		* [About](numbers/guides/managingOrders.md#about)
 		* [Associating Notes with Work Orders](numbers/guides/managingOrders.md#notes-with-orders)
