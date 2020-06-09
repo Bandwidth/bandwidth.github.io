@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Member Join Event
-The Conference Member Join event is fired whenever a caller joins a conference that specified a callbackUrl.  
+The Conference Member Join event is fired whenever a caller joins a [conference](../verbs/conference.md) that specified a callbackUrl.
 ### Expected response
 ```http
 HTTP/1.1 204
@@ -11,11 +11,11 @@ HTTP/1.1 204
 | Property     | Description                                                                                                     |
 |:----------   |:----------------------------------------------------------------------------------------------------------------|
 | eventType    | The event type, value is `conferenceMemberJoin`                                                                 |
-| conferenceId | The id for the conference that was joined                                                                       |
-| name         | The custom name used to reference this conference.                                                              |
-| callId       | The callId of the member that joined the conference.                                                            |
-| from         | The from number from the original call                                                                          |
-| to           | The to number from the original call                                                                            |
+| conferenceId | The ID of the new conference that was created |
+| name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag.|
+| callId       | The callId of the member that left the conference |
+| from         | The from number of the call that left the conference |
+| to           | The to number of the call that left the conference |
 | tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
 
 {% common %}
