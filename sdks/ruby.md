@@ -1,12 +1,19 @@
 # Ruby SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 3.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 3.1.0 | Updated Pause and SendDtmf BXML attributes |
+
+## Download & Install
 
 ```
 gem install bandwidth-sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```ruby
 require 'bandwidth'
@@ -23,7 +30,7 @@ bandwidth_client = Bandwidth::Client.new(
 )
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```ruby
 voice_client = bandwidth_client.voice_client.client
@@ -39,13 +46,13 @@ begin
     response = voice_client.create_call(account_id,:body => body)
     puts response.data.call_id #c-d45a41e5-bcb12581-b18e-4bdc-9874-6r3235dfweao
     puts response.status_code #201
-rescue Bandwidth::ErrorResponseException => e
+rescue Bandwidth::ApiErrorResponseException => e
     puts e.description #Invalid to: must be an E164 telephone number
     puts e.response_code #400
 end
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```ruby
 response = Bandwidth::Voice::Response.new()
@@ -55,7 +62,7 @@ response.push(hangup)
 puts response.to_bxml()
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```ruby
 messaging_client = bandwidth_client.messaging_client.client
@@ -71,16 +78,13 @@ begin
     response = messaging_client.create_message(account_id, :body => body)
     puts response.data.id #1570740275373xbn7mbhsfewasdr
     puts response.status_code #202
-rescue Bandwidth::GenericClientException => e
+rescue Bandwidth::MessagingException => e
     puts e.description #Access is denied
     puts e.response_code #403
-rescue Bandwidth::PathClientException => e
-    puts e.message #Your request could not be accepted.
-    puts e.response_code #400
 end
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/ruby-bandwidth-iris). You can install this package by running the following command
 

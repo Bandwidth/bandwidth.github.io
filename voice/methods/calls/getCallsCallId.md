@@ -24,7 +24,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | Property        | Description                                                                                                              |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------|
 | callId          | The call id.                                                                                                             |
-| parentCallId    | (optional) The A-leg call id, set only if this call is the B-leg of a [`<Transfer>`](../../bxml/verbs/transferPhoneNumber.md).      |
+| parentCallId    | (optional) The A-leg call id, set only if this call is the B-leg of a [`<Transfer>`](../../bxml/verbs/transfer.md).      |
 | applicationId   | The application id associated  with the call.                                                                            |
 | accountId       | The account id associated with the call.                                                                                 |
 | to              | The phone number that received the call, in E.164 format (e.g. +15555555555).                                            |
@@ -34,7 +34,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | startTime       | The time the call was initiated, in ISO 8601 format.                                                                     |
 | answerTime      | (optional) Populated once the call has been answered, with the time in ISO 8601 format.                                  |
 | endTime         | (optional) Populated once the call has ended, with the time in ISO 8601 format.                                          |
-| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, or `unknown`.<br>`hangup` indicates the call ended normally. |
+| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`.<br>`hangup` indicates the call ended normally. |
 | errorMessage    | (optional) Populated only if the call ended with an error, with a text explaining the reason.                            |
 | errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
 | lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |
@@ -61,13 +61,13 @@ curl -X GET \
   "from"                : "+15551112222",
   "direction"           : "inbound",
   "state"               : "disconnected",
-  "startTime"           : "2019-10-21T16:45:11.293728Z",
-  "answerTime"          : "2019-10-21T16:45:14.352125Z",
-  "endTime"             : "2019-10-21T16:55:12.950568Z",
+  "startTime"           : "2019-10-21T16:45:11.293Z",
+  "answerTime"          : "2019-10-21T16:45:14.352Z",
+  "endTime"             : "2019-10-21T16:55:12.950Z",
   "disconnectCause"     : "hangup",
   "errorMessage"        : null,
   "errorId"             : null,
-  "lastUpdate"          : "2019-10-21T16:55:12.971571Z"
+  "lastUpdate"          : "2019-10-21T16:55:12.971Z"
 }
 ```
 

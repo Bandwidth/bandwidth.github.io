@@ -1,5 +1,5 @@
 # Conferences
-The Conferences resource lets you retrieve information about conferences and update their settings as well as manage and interact with conference members
+The Conferences resource lets you retrieve information and modify conferences.
 
 <aside class="alert general small">
 <p>
@@ -16,4 +16,5 @@ Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#vo
 | HTTP Method                        | Path                                                                             | Description                                                                  |
 |:-----------------------------------|:---------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
 | <code class="put">GET</code>       | [`/conferences/{conferenceId}`](getConference.md)                                | Retrieve conference information                                              |
+| <code class="get">POST</code>      | [`/conferences/{conferenceId}`](postConferencesConferenceId.md)                  | Update an active conference.                                                 |
 | <code class="put">GET</code>       | [`/conferences/{conferenceId}/members/{memberId}`](getConferenceMember.md)       | Retrieve information about a particular conference member                    |

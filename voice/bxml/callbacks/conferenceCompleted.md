@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Completed Event
-The Conference Completed event is fired when the conference is closed two minutes after the last member leaves the conference.  
+The Conference Completed event is fired when the last member leaves the conference.  
 ### Expected response
 ```http
 HTTP/1.1 204
@@ -12,7 +12,7 @@ HTTP/1.1 204
 |:----------   |:------------------------------------------------------------------------------------------------------------------------------------|
 | eventType    | The event type, value is `conferenceCompleted`                                                                                     |
 | conferenceId | The id for the conference that was joined                                                                                           |
-| friendlyName | The custom name used to reference this conference.                                                                                  |
+| name         | The custom name used to reference this conference.                                                                                  |
 | tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null.                     |
 
 {% common %}
@@ -25,9 +25,10 @@ POST http://[External server URL]
 
 ```json
 {
-    "confernceId"   : "conf-abcd",
-    "fiendlyName"   : "thisConfernece",
-    "eventType"     : "conferenceCompleted",   
+    "conferenceId"   : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
+    "name"           : "thisConference",
+    "eventType"      : "conferenceCompleted",
+    "tag"            : "conferenceTag"
 }
 ```
 

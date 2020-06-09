@@ -12,7 +12,7 @@ HTTP/1.1 204
 |:----------   |:------------------------------------------------------------------------------------------------------------------------------------|
 | eventType    | The event type, value is `conferenceCreated`                                                                                        |
 | conferenceId | The id for the new conference that was created                                                                                      |
-| friendlyName | The custom name used to reference this conference.                                                                                  |
+| name         | The custom name used to reference this conference.                                                                                  |
 | tag          | (optional) The `tag`  specified on conference creation. If no `tag` was specified or it was previously cleared, null.               |
 
 {% common %}
@@ -25,10 +25,10 @@ POST http://[External server URL]
 
 ```json
 {
-    "confernceId"   : "conf-abcd",
-    "fiendlyName"   : "thisConfernece",
-    "eventType"     : "conferenceCreated"
-    
+    "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
+    "name"          : "thisConference",
+    "eventType"     : "conferenceCreated",
+    "tag"           : "conferenceTag"
 }
 ```
 
