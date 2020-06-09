@@ -15,6 +15,6 @@ Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#vo
 
 | HTTP Method                        | Path                                                                             | Description                                                                  |
 |:-----------------------------------|:---------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| <code class="put">GET</code>       | [`/conferences/{conferenceId}`](getConference.md)                                | Retrieve conference information                                              |
-| <code class="get">POST</code>      | [`/conferences/{conferenceId}`](postConferencesConferenceId.md)                  | Update an active conference.                                                 |
+| <code class="put">GET</code>       | [`/conferences/{conferenceId}`](getConferencesConferenceId.md)                   | Retrieve conference information                                              |
+| <code class="get">POST</code>      | [`/conferences/{conferenceId}`](postConferencesConferenceId.md)                  | Update an active conference                                                 |
 | <code class="put">GET</code>       | [`/conferences/{conferenceId}/members/{memberId}`](getConferenceMember.md)       | Retrieve information about a particular conference member                    |
