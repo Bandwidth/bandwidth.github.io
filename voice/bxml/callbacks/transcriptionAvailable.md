@@ -30,12 +30,12 @@ HTTP/1.1 204
 | transcription | Transcription information, see below.                                                                |
 
 ### Transcription Properties
-| Property      | Description                                                                                          |
-|:--------------|:-----------------------------------------------------------------------------------------------------|
-| id            | The unique id of the transcription.                                                                  |
-| url           | URL to retrieve the transcription output.                                                            |
-| status        | The state of the transcription. Can be `available`, `error`, `timeout`, `file-size-too-big`.         |
-| completedTime | Time the transcription was completed (in ISO8601 format).                                            |
+| Property      | Description                                                                                                                 |
+|:--------------|:----------------------------------------------------------------------------------------------------------------------------|
+| id            | The unique id of the transcription.                                                                                         |
+| url           | URL to retrieve the transcription output.                                                                                   |
+| status        | The state of the transcription. Can be `available`, `error`, `timeout`, `file-size-too-big`, `file-size-too-small`.         |
+| completedTime | Time the transcription was completed (in ISO8601 format).                                                                   |
 
 {% common %}
 
