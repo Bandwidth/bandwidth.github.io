@@ -72,50 +72,44 @@ curl -X GET \
 }
 ```
 
-{% sample lang="csharp" %}
-
-```csharp
-var response = voiceClient.GetConference(accountId, conferenceId);
-Console.WriteLine(response.State);
+```
+HTTP/1.1 200
 ```
 
 {% sample lang="java" %}
 
 ```java
-ApiResponse<ApiConferenceResponse> response = null;
-try {
-    response = voiceController.getConference(accountId, conferenceId);
-} catch (IOException | ApiException e) {
-    System.out.println(e.getMessage());
-}
+// TODO
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// TODO
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-result = voice_client.get_conference(account_id, conference_id)
-puts result.data.state
+# TODO
 ```
 
 {% sample lang="python" %}
 
 ```python
-response = voice_client.get_conference(account_id, conference_id)
-print(response.body.state)
+# TODO
 ```
 
 {% sample lang="js" %}
 
 ```js
-var response = await voiceController.getConference(accountId, conferenceId);
-console.log(response.state);
+// TODO
 ```
 
 {% sample lang="php" %}
 
 ```php
-$response = $voiceClient->getConference($accountId, $conferenceId);
-print_r($response->getResult()->state);
+// TODO
 ```
 
 {% endmethod %}
