@@ -76,7 +76,19 @@ This shows how to use Bandwidth XML to add a call in a conference.
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "You will be added to your conference now.",
+    :gender => "male"
+})
+conference = Bandwidth::Voice::Conference.new({
+    :conference_name => 'my-conference'
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(conference)
+
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
@@ -127,7 +139,22 @@ This shows how to add a coach in a conference.
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Welcome. You are going to coach 2 calls, please wait.",
+    :gender => "male"
+})
+conference = Bandwidth::Voice::Conference.new({
+    :conference_name => 'my-conference',
+    :call_ids_to_coach => "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f",
+    #or
+    :call_ids_to_coach => ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(conference)
+
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
