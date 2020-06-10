@@ -64,7 +64,20 @@ This shows how to use Bandwidth XML to add a call in a conference.
 {% sample lang="java" %}
 
 ```java
-// TODO
+SpeakSentence speakSentence = SpeakSentence.builder()
+    .gender("male")
+    .text("You will be added to your conference now.")
+    .build();
+
+Conference conference = Conference.builder()
+    .name("my-conference")
+    .build();
+
+Response response = Response.builder().build()
+    .add(speakSentence)
+    .add(conference);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
@@ -138,7 +151,25 @@ This shows how to add a coach in a conference.
 {% sample lang="java" %}
 
 ```java
-// TODO
+SpeakSentence speakSentence = SpeakSentence.builder()
+    .gender("male")
+    .text("Welcome. You are going to coach 2 calls, please wait.")
+    .build();
+
+List<String> ids = new ArrayList<>();
+ids.add("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d");
+ids.add(("c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"));
+
+Conference conference = Conference.builder()
+    .name("my-conference")
+    .callIdsToCoach(ids)
+    .build();
+
+Response response = Response.builder().build()
+    .add(speakSentence)
+    .add(conference);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
