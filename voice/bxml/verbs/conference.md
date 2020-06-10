@@ -94,7 +94,17 @@ This shows how to use Bandwidth XML to add a call in a conference.
 {% sample lang="php" %}
 
 ```php
-// TODO
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("You will be added to your conference now.");
+$speakSentence->gender("male");
+
+$conference = new BandwidthLib\Voice\Bxml\Conference("my-conference");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($conference);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% common %}
@@ -145,7 +155,20 @@ This shows how to add a coach in a conference.
 {% sample lang="php" %}
 
 ```php
-// TODO
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Welcome. You are going to coach 2 calls, please wait.");
+$speakSentence->gender("male");
+
+$conference = new BandwidthLib\Voice\Bxml\Conference("my-conference");
+$conference->callIdsToCoach("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f");
+//or
+$conference->callIdsToCoachArray(["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($conference);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% common %}
