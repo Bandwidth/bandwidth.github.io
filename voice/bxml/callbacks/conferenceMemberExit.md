@@ -16,7 +16,7 @@ HTTP/1.1 204
 | callId       | The callId of the member that left the conference |
 | from         | The from number of the call that left the conference |
 | to           | The to number of the call that left the conference |
-| tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
+| tag          | (optional) The `tag` that was set at conference creation, if any |
 
 {% common %}
 

@@ -13,7 +13,7 @@ HTTP/1.1 204
 | eventType    | The event type, value is `conferenceCreated` |
 | conferenceId | The ID of the new conference that was created |
 | name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag.|
-| tag          | (optional) The `tag`  specified on conference creation. If no `tag` was specified or it was previously cleared, null. |
+| tag          | (optional) The `tag` that was set at conference creation, if any |
 
 {% common %}
 
