@@ -3,9 +3,23 @@
 ## XML: `<Conference>`
 Used to join the current call into a conference.
 
-Conference names are created and specified by your application.
+Conference names are created and specified by your application. Conferences are implicitly created
+the first time your application uses a conference name, and they are implicitly deleted when the
+last member leaves the conference. We will create a unique ID for the conference, so your conference
+names can be whatever you want. If the conference ends and then you later use the same conference
+name, a new unique ID will be created.
+
+To programmatically end a conference and immediately remove all members, use the
+[update conference](../../methods/conferences/postConferencesConferenceId.md) endpoint. If a
+conference is ended this way, removed members will continue executing their current BXML document,
+starting with the verb right after the `<Conference>`, if any.
+
+To programmatically remove a call from a conference while leaving other conference members in the
+conference, use the [update call](../../methods/calls/postCallsCallId.md) endpoint.
 
 A maximum of 20 calls may be in a particular conference.
+
+A conference may last for at most 24 hours.
 
 ### Text Content
 | Name        | Description |
@@ -15,14 +29,14 @@ A maximum of 20 calls may be in a particular conference.
 #### Conference attributes
 | Attribute                | Description                                                                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| mute                     | (optional) A boolean value to indicate if the member can't speak in the conference. Defaults to false                                                                                                                   |
-| hold                     | (optional) A boolean value to indicate if the member can't hear or speak in the conference. Defaults to false                                                                                                           |
+| mute                     | (optional) A boolean value to indicate whether the member should be on mute in the conference. When muted, a member can hear others speak, but others cannot hear them speak. Defaults to false                          |
+| hold                     | (optional) A boolean value to indicate whether the member should be on hold in the conference. When on hold, a member cannot hear others, and they cannot be heard. Defaults to false                                    |
 | callIdsToCoach           | (optional) A comma-separated list of call ids to coach. When a call joins a conference with this attribute set, it will coach the listed calls. Those calls will be able to hear and be heard by the coach, but other calls in the conference will not hear the coach.<br><br>Calls may be added to the conference in any order - if the matching calls are not already in the conference, then once the matching calls are added, the coach will be able to hear and speak to the matching calls. Note that this will not add the matching calls to the conference; each call must individually execute a `<Conference>` verb to join.<br><br>A conference may only have one coach.|
 | conferenceEventUrl       | (optional) URL to send Conference events to. The URL, method, username, and password are set by the BXML document that creates the conference, and all events related to that conference will be delivered to that same endpoint. If more calls join afterwards and also have this property (or any other callback related properties like `username` and `password`), they will be ignored and the original callback information will be used. |
 | conferenceEventMethod    | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.                                                                                                          |
 | username                 | (optional) The username to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
 | password                 | (optional) The password to send in the HTTP request to `conferenceEventUrl`.                                                                                                                                            |
-| tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| tag                      | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.<br><br>The tag that is set for the call that creates the conference is the tag that will be sent with all callbacks related to the conference. For example, if the call that creates the conference has a tag set, and another call with a different tag joins the same conference, the first call's tag will be sent with both `conferenceMemberJoin` events. |
 
 ### Callbacks Received
 | Callbacks                                                      | Can reply with BXML |

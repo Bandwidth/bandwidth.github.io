@@ -27,9 +27,9 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
 | toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z^` |
-| before | integer | The index to start the search for pagination | `0` |
-| after | integer | The index to end the search for pagination | `100` |
-| limit | integer | The maximum number of messages to return. Must be betwee `1` and `10000`. Default `100` <br> The sum of limit and after cannot be more than 10000 | `100` |
+| before | integer | The record number indicates that search result returned have records before the given position number in a order of sorted received timestamp | `before=10 indicates that search result will have the records from 1 - 10 postion in sorted received timestamp` |
+| after | integer | The record number indicates that search result will have records after the given position number in a order of sorted received timestamp | `after=10 indicates that search result will have the records after 10th postion in a order of sorted received timestamp` |
+| limit | integer | The maximum records requested in search result . Default `100`. <br> The sum of limit and after cannot be more than 10000 | `limit=100` |
 
 ### Response Parameters
 
@@ -74,6 +74,13 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErr
 ```http
 {
     "totalCount":1,
+    "pageInfo": {
+        "before": 0,
+        "hasBefore": false,
+        "after": 100,
+        "hasAfter": false,
+        "limit": 100
+    },
     "messages":[
         {
             "messageId":"1589228074636lm4k2je7j7jklbn2",
@@ -86,6 +93,63 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErr
             "segmentCount":1,
             "errorCode":0,
             "receiveTime":"2020-04-07T14:03:07.000Z"
+        }
+    ]
+}
+```
+
+
+### Example: Search with pagination parameters
+
+{% sample lang='http' %}
+
+```http
+GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&after=50&limit=10 HTTP/1.1
+Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&after=60&limit=10>; rel="next"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&before=50&limit=10>; rel="prev"
+```
+
+> The above command returns a records from 50 - 60 position in a order of sorted received timestamp :
+
+```http
+{
+    "totalCount":100,
+    "pageInfo": {
+        "before": 50,
+        "hasBefore": true,
+        "after": 60,
+        "hasAfter": true,
+        "limit": 10
+    },
+    "messages":[
+        {
+            "messageId":"1589228074636lm4k2je7j7jklbn2",
+            "accountId":"12345",
+            "sourceTn":"+15554443333",
+            "destinationTn":"+15554442222",
+            "messageStatus":"DLR_EXPIRED",
+            "messageDirection":"OUTBOUND",
+            "messageType":"sms",
+            "segmentCount":1,
+            "errorCode":9902,
+            "receiveTime":"2020-04-07T14:03:07.000Z"
+        },
+        {
+            ...
+        },
+        {
+            ...
+        },
+
+        :    
+        :
+
+        {
+            ...
         }
     ]
 }

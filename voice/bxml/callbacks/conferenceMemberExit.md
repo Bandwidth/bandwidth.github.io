@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Member Exit Event
-The Conference Member Exit event is fired whenever a caller exits a conference that specified a callbackUrl.  
+The Conference Member Exit event is fired whenever a caller exits a [conference](../verbs/conference.md) that specified a callbackUrl.
 ### Expected response
 ```http
 HTTP/1.1 204
@@ -8,15 +8,15 @@ HTTP/1.1 204
 
 ### Properties
 
-| Property     | Description                                                                                                     |
-|:----------   |:----------------------------------------------------------------------------------------------------------------|
-| eventType    | The event type, value is `conferenceMemberExit`                                                                 |
-| conferenceId | The id for the conference that was joined                                                                       |
-| name         | The custom name used to reference this conference.                                                              |
-| callId       | The callId of the member that left the conference.                                                              |
-| from         | The from number from the original call                                                                          |
-| to           | The to number from the original call                                                                            |
-| tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
+| Property     | Description |
+|:----------   |:------------|
+| eventType    | The event type, value is `conferenceMemberExit` |
+| conferenceId | The ID of the new conference that was created |
+| name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag.|
+| callId       | The callId of the member that left the conference |
+| from         | The from number of the call that left the conference |
+| to           | The to number of the call that left the conference |
+| tag          | (optional) The `tag` that was set at conference creation, if any |
 
 {% common %}
 

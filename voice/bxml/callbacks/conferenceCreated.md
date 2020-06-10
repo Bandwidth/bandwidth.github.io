@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Created Event
-The Conference Created event is fired whenever a new conference that specified a callbackUrl is created.  
+The Conference Created event is fired whenever a new [conference](../verbs/conference.md) that specified a callbackUrl is created.
 ### Expected response
 ```http
 HTTP/1.1 204
@@ -8,12 +8,12 @@ HTTP/1.1 204
 
 ### Properties
 
-| Property     | Description                                                                                                                         |
-|:----------   |:------------------------------------------------------------------------------------------------------------------------------------|
-| eventType    | The event type, value is `conferenceCreated`                                                                                        |
-| conferenceId | The id for the new conference that was created                                                                                      |
-| name         | The custom name used to reference this conference.                                                                                  |
-| tag          | (optional) The `tag`  specified on conference creation. If no `tag` was specified or it was previously cleared, null.               |
+| Property     | Description |
+|:----------   |:------------|
+| eventType    | The event type, value is `conferenceCreated` |
+| conferenceId | The ID of the new conference that was created |
+| name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag.|
+| tag          | (optional) The `tag` that was set at conference creation, if any |
 
 {% common %}
 
