@@ -111,7 +111,7 @@
 		* [GET Call Information](voice/methods/calls/getCallsCallId.md)
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
-	* [Update Conferences](voice/methods/conferences/about.md)
+	* [Conferences](voice/methods/conferences/about.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
 	* [Recording Management](voice/methods/recordings/about.md)
 		* [GET Account Recordings](voice/methods/recordings/getRecordings.md)

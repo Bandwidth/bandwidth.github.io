@@ -17,7 +17,7 @@ HTTP/1.1 204
 
 {% common %}
 
-#### Example: Member joins the conference
+#### Example: The last member leaves the conference
 
 ```
 POST http://[External server URL]
