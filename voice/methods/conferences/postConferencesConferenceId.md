@@ -55,13 +55,25 @@ HTTP/1.1 204
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+account_id = "123"
+conference_id = "456"
+
+body = CallEngineModifyConferenceRequest.new
+body.status = "completed"
+
+voice_client.modify_conference(account_id, conference_id, :body => body)
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+account_id = "123"
+conference_id = "456"
+
+body = CallEngineModifyConferenceRequest()
+body.status = "completed"
+
+voice_client.modify_conference(account_id, conference_id, body)
 ```
 
 {% sample lang="js" %}
@@ -73,7 +85,13 @@ HTTP/1.1 204
 {% sample lang="php" %}
 
 ```php
-// TODO
+$accountId = "123";
+$conferenceId = "456";
+
+$body = new BandwidthLib\Voice\Models\CallEngineModifyConferenceRequest();
+$body->status = "completed";
+
+$voiceClient->modifyConference($accountId, $conferenceId, $body);
 ```
 
 {% endmethod %}
