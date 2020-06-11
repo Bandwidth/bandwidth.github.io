@@ -9,6 +9,14 @@
 | 3.1.0 | Added MFA functions |
 | 3.2.0 | Added support for multi nested verbs in Gathers |
 
+## Links
+
+[Github](https://github.com/Bandwidth/java-sdk)
+
+[Maven](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk)
+
+[Code Examples](https://github.com/Bandwidth/examples/tree/master/java)
+
 ## Download & Install
 
 Maven:
