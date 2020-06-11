@@ -119,7 +119,7 @@ If the `<Status>` of the DLDA order impacting the TN is transient, indicating th
 ## Set a Failover URI {#set-failover}
 **Please Note that the Failover URI functionality is only available for SIP Voice users at this time.**
 
-Setting a failover URI (Final Destination URI) allows Bandwidth to forward voice traffic to an alternate number in the event of a delivery failure to your original call route. 
+Setting a failover URI (Final Destination URI) allows Bandwidth to forward voice traffic to an alternate number in the event of a delivery failure to your original call route.
 
 To set the Final Destination URI to a SIP address, use the format sip:{address}@{host}
 
@@ -128,10 +128,10 @@ To set the Final Destination URI to a PSTN address, use the format +13332221111@
 More detailed informaion on setting a Final Destination URI can be found [here](https://www.bandwidth.com/blog/establishing-automatic-failover-for-routing-calls-in-case-of-failure-final-destination-uri/).
 
 ### How to Establish Automatic Failover for a Location (Sip Peer)
-To enable a Final Destination URI on a location, you can make a `PUT` request to `accounts/{accountId}/sites/{siteId}/sippeers/{sippeerId}`. 
+To enable a Final Destination URI on a location, you can make a `PUT` request to `accounts/{accountId}/sites/{siteId}/sippeers/{sippeerId}`.
 
 ```http
-PUT https://dashboard.bandwidth.com/api/account/{accountId}/sites/{siteId}/sippeers/{sippeerId}
+PUT https://dashboard.bandwidth.com/api/account/{accountId}/sites/{siteId}/sippeers/{sippeerId} HTTP/1.1
 
 Authorization: Basic {base64_encoded_credentials)
 Content-Type: application/xml
@@ -144,8 +144,8 @@ Content-Type: application/xml
 
 ```
 
-### How to Establish Automatic Failover for a Phone Number 
-To enable a Final Destination URI on an individual number, you can create a `TnOptions` order to update the line features. Other `TnOptionGroup` features can be included when adding a Final Destination URI. You may update up to 5,000 numbers at a time. 
+### How to Establish Automatic Failover for a Phone Number
+To enable a Final Destination URI on an individual number, you can create a `TnOptions` order to update the line features. Other `TnOptionGroup` features can be included when adding a Final Destination URI. You may update up to 5,000 numbers at a time.
 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions HTTP/1.1
@@ -159,10 +159,7 @@ Content-Type: application/xml
             <FinalDestinationURI>{final_destination}</FinalDestinationURI>
             <TelephoneNumbers>
                 <TelephoneNumber>{TN_1}</TelephoneNumber>
-                <TelephoneNumber>{TN_2}</TelephoneNumber> 
-                                                             .
-                                                             .
-                                                             .
+                <TelephoneNumber>{TN_N}</TelephoneNumber>
                 <TelephoneNumber>{TN_last}</TelephoneNumber>
             </TelephoneNumbers>
         </TnOptionGroup>
