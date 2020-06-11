@@ -11,11 +11,11 @@
 
 ## Links
 
-[Github](https://github.com/Bandwidth/python-sdk)
+* [Github](https://github.com/Bandwidth/python-sdk)
 
-[PyPi](https://pypi.org/project/bandwidth-sdk/)
+* [PyPi](https://pypi.org/project/bandwidth-sdk/)
 
-[Code Examples](https://github.com/Bandwidth/examples/tree/master/python)
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/python)
 
 ## Download & Install
 

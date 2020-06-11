@@ -10,11 +10,11 @@
 
 ## Links
 
-[Github](https://github.com/Bandwidth/php-sdk)
+* [Github](https://github.com/Bandwidth/php-sdk)
 
-[Packagist](https://packagist.org/packages/bandwidth/sdk)
+* [Packagist](https://packagist.org/packages/bandwidth/sdk)
 
-[Code Examples](https://github.com/Bandwidth/examples/tree/master/php)
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/php)
 
 ## Download & Install
 

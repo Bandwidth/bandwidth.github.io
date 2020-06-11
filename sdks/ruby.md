@@ -11,11 +11,11 @@
 
 ## Links
 
-[Github](https://github.com/Bandwidth/ruby-sdk)
+* [Github](https://github.com/Bandwidth/ruby-sdk)
 
-[Rubygems](https://rubygems.org/gems/bandwidth-sdk)
+* [Rubygems](https://rubygems.org/gems/bandwidth-sdk)
 
-[Code Examples](https://github.com/Bandwidth/examples/tree/master/ruby)
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/ruby)
 
 
 ## Download & Install
