@@ -130,7 +130,7 @@ More detailed informaion on setting a Final Destination URI can be found [here](
 ### How to Establish Automatic Failover for a Location (Sip Peer)
 To enable a Final Destination URI on a location, you can make a `PUT` request to `accounts/{accountId}/sites/{siteId}/sippeers/{sippeerId}`. 
 
-```
+```http
 PUT https://dashboard.bandwidth.com/api/account/{accountId}/sites/{siteId}/sippeers/{sippeerId}
 
 Authorization: Basic {base64_encoded_credentials)
@@ -147,7 +147,7 @@ Content-Type: application/xml
 ### How to Establish Automatic Failover for a Phone Number 
 To enable a Final Destination URI on an individual number, you can create a `TnOptions` order to update the line features. Other `TnOptionGroup` features can be included when adding a Final Destination URI. You may update up to 5,000 numbers at a time. 
 
-```
+```http
 POST https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions HTTP/1.1
 
 Authorization: Basic {base64_encoded_credentials}
