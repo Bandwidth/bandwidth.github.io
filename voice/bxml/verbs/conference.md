@@ -83,7 +83,21 @@ System.out.println(response.toBXML());
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Gender = "male",
+    Sentence = "You will be added to your conference now."
+};
+
+Conference conference = new Conference {
+    Name = "my-conference"
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(conference);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
@@ -192,7 +206,22 @@ System.out.println(response.toBXML());
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Gender = "male",
+    Sentence = "Welcome. You are going to coach 2 calls, please wait."
+};
+
+Conference conference = new Conference {
+    CallIdsToCoach = "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f",
+    Name = "my-conference"
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(conference);
+
+ Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
