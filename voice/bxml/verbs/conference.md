@@ -107,7 +107,14 @@ puts response.to_bxml()
 {% sample lang="python" %}
 
 ```python
-# TODO
+speak_sentence = SpeakSentence("You will be added to your conference now.", gender="male")
+conference = Conference("my-conference")
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(conference)
+
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
@@ -212,7 +219,16 @@ puts response.to_bxml()
 {% sample lang="python" %}
 
 ```python
-# TODO
+speak_sentence = SpeakSentence("Welcome. You are going to coach 2 calls, please wait.", gender="male")
+conference = Conference("my-conference", call_ids_to_coach = "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f")
+#or
+conference = Conference("my-conference", call_ids_to_coach = ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d","c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"])
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(conference)
+
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
