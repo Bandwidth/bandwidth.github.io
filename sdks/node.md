@@ -12,6 +12,22 @@
 
 ### Numbers
 
+### Links 
+
+[Github Voice](https://github.com/Bandwidth/node-voice)
+<br/>
+[Github Messaging](https://github.com/Bandwidth/node-messaging)
+<br/>
+[Github Numbers](https://github.com/Bandwidth/node-numbers)
+
+[NPM Voice](https://www.npmjs.com/package/@bandwidth/voice)
+<br/>
+[NPM Messaging](https://www.npmjs.com/package/@bandwidth/messaging)
+<br/>
+[NPM Numbers](https://www.npmjs.com/package/@bandwidth/numbers)
+
+[Code Examples](https://github.com/Bandwidth/examples/tree/master/nodejs)
+
 ## Download & Install
 
 ```bash

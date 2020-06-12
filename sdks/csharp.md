@@ -9,6 +9,15 @@
 | 3.1.0 | Added MFA functions |
 | 3.2.0 | Added support for multi nested verbs in Gathers |
 
+## Links
+
+[Github](https://github.com/Bandwidth/csharp-sdk)
+
+[Nuget](https://www.nuget.org/packages/Bandwidth.Sdk/)
+
+[Code Examples](https://github.com/Bandwidth/examples/tree/master/csharp)
+
+
 ## Download & Install
 
 ```
