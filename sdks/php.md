@@ -8,6 +8,14 @@
 | 2.1.0 | Updated Pause and SendDtmf BXML attributes |
 | 2.2.0 | Added MFA functions and support for multiple nested verbs for a Gather |
 
+## Links
+
+* [Github](https://github.com/Bandwidth/php-sdk)
+
+* [Packagist](https://packagist.org/packages/bandwidth/sdk)
+
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/php)
+
 ## Download & Install
 
 ```
