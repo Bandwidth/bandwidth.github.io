@@ -23,7 +23,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6`, `1589228074636lm4k2je7j7jklbn2` |
 | sourceTn | string | The phone number that sent the message | `%2B15554443333` |
 | destinationTn | string | The phone number that received the message | `%2B15554443333` |
-| messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED` | `RECEIVED` |
+| messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED`, `DLR_EXPIRED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
 | toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z^` |
