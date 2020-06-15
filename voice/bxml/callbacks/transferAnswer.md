@@ -5,24 +5,17 @@ When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent 
   executed for the called party only. Afterward, the called party will be bridged to the original
   call.
  
- | Verb            | Allowed? |
- |-----------------|----------|
- | [Conference](../verbs/conference.md)      | No       |
- | [Forward](../verbs/forward.md)         | No       |
- | [Gather](../verbs/gather.md)          | Yes      |
- | [Hangup](../verbs/hangup.md)          | Yes      |
- | [Pause](../verbs/pause.md)           | Yes      |
- | [PauseRecording](../verbs/pauseRecording.md)  | Yes      |
- | [PlayAudio](../verbs/playAudio.md)       | Yes      |
- | [Record](../verbs/record.md)          | Yes      |
- | [Redirect](../verbs/redirect.md)        | Yes      |
- | [ResumeRecording](../verbs/resumeRecording.md) | Yes      |
- | [SendDtmf](../verbs/sendDtmf.md)        | Yes      |
- | [SpeakSentence](../verbs/speakSentence.md)   | Yes      |
- | [StartRecording](../verbs/startRecording.md)  | Yes      |
- | [StopRecording](../verbs/stopRecording.md)   | Yes      |
- | [Transfer](../verbs/transfer.md)        | No       |
-  
+| Verb           | Accepted | Verb            | Accepted |
+|----------------|----------|-----------------|----------|
+| Conference     | No       | Redirect        | Yes      |
+| Forward        | No       | ResumeRecording | Yes      |
+| Gather         | Yes      | SendDtmf        | Yes      |
+| Hangup         | Yes      | SpeakSentence   | Yes      |
+| Pause          | Yes      | StartRecording  | Yes      |
+| PauseRecording | Yes      | StopRecording   | Yes      |
+| PlayAudio      | Yes      | Transfer        | No       |
+| Record         | Yes      |                 |          |
+
 It is important to note that no other BXML verbs may be specified after a Transfer Answer Event is called.
 
 ### Expected response
