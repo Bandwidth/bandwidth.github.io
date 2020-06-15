@@ -8,6 +8,7 @@
 | 6.1.0 | Updated Pause and SendDtmf BXML attributes |
 | 6.2.0 | Added MFA functions |
 | 6.3.0 | Added support for multi nested verbs in Gathers |
+| 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
 
 ## Download & Install
 
