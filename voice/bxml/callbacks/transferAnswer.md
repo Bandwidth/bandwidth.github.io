@@ -3,14 +3,27 @@
 When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent when a called party (B-leg) answers.  The event is sent to
   the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered. Verbs returned by this callback will be
   executed for the called party only. Afterward, the called party will be bridged to the original
-  call. Allowed verbs are [Gather](../verbs/gather.md), [Hangup](../verbs/hangup.md), [Pause](../verbs/pause.md),
-  [PauseRecording](../verbs/pauseRecording.md), [PlayAudio](../verbs/playAudio.md), [Record](../verbs/record.md), 
-  [Redirect](../verbs/redirect.md), [ResumeRecording](../verbs/resumeRecording.md), [SendDtmf](../verbs/sendDtmf.md), 
-  [SpeakSentence](../verbs/speakSentence.md), [StartRecording](../verbs/startRecording.md), and [StopRecording](../verbs/stopRecording.md). 
-  Verbs not allowed during this event are [Conference](../verbs/conference.md), [Forward](../verbs/forward.md), and [Transfer](../verbs/transfer.md).
+  call.
+ 
+ | Verb            | Allowed? |
+ |-----------------|----------|
+ | [Conference](../verbs/conference.md)      | No       |
+ | [Forward](../verbs/forward.md)         | No       |
+ | [Gather](../verbs/gather.md)          | Yes      |
+ | [Hangup](../verbs/hangup.md)          | Yes      |
+ | [Pause](../verbs/pause.md)           | Yes      |
+ | [PauseRecording](../verbs/pauseRecording.md)  | Yes      |
+ | [PlayAudio](../verbs/playAudio.md)       | Yes      |
+ | [Record](../verbs/record.md)          | Yes      |
+ | [Redirect](../verbs/redirect.md)        | Yes      |
+ | [ResumeRecording](../verbs/resumeRecording.md) | Yes      |
+ | [SendDtmf](../verbs/sendDtmf.md)        | Yes      |
+ | [SpeakSentence](../verbs/speakSentence.md)   | Yes      |
+ | [StartRecording](../verbs/startRecording.md)  | Yes      |
+ | [StopRecording](../verbs/stopRecording.md)   | Yes      |
+ | [Transfer](../verbs/transfer.md)        | No       |
   
-  
-  It is important to note that no other BXML verbs may be specified after a Transfer Answer Event is called.
+It is important to note that no other BXML verbs may be specified after a Transfer Answer Event is called.
 
 ### Expected response
 ```http
