@@ -1,9 +1,14 @@
 {% method %}
 ##  Transfer Answer Event – <Transfer> verb
 When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent when a called party (B-leg) answers.  The event is sent to
-  the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered.  [`<PlayAudio>`](../verbs/playAudio.md) and/or [`<SpeakSentence>`](../verbs/speakSentence.md) verbs returned by this callback will be
+  the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered. Allowed verbs returned by this callback will be
   executed for the called party only. Afterward, the called party will be bridged to the original
-  call.
+  call. Allowed verbs are [`<Gather>`](../verbs/gather.md), [`<Hangup>`](../verbs/hangup.md), [`<Pause>`](../verbs/pause.md),
+  [`<PauseRecording>`](../verbs/pauseRecording.md), [`<PlayAudio>`](../verbs/playAudio.md), [`<Record>`](../verbs/record.md), 
+  [`<Redirect>`](../verbs/redirect.md), [`<ResumeRecording>`](../verbs/resumeRecording.md), [`<SendDtmf>`](../verbs/sendDtmf.md), 
+  [`<SpeakSentence>`](../verbs/speakSentence.md), [`<StartRecording>`](../verbs/startRecording.md), and [`<StopRecording>`](../verbs/stopRecording.md). 
+  Verbs not allowed during this event are [`<Conference>`](../verbs/conference.md), [`<Forward>`](../verbs/forward.md), and [`<Transfer>`](../verbs/transfer.md).
+  
   
   It is important to note that no other BXML verbs may be specified after a Transfer Answer Event is called.
 
