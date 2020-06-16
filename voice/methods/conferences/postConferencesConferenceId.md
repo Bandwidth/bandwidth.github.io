@@ -43,37 +43,80 @@ HTTP/1.1 204
 {% sample lang="java" %}
 
 ```java
-// TODO
+String accountId = "123";
+String conferenceId = "456";
+
+CallEngineModifyConferenceRequest request = new CallEngineModifyConferenceRequest();
+request.setStatus(StatusEnum.COMPLETED);
+
+ApiResponse<Void> response = null;
+try {
+    response = controller.modifyConference(accountId, conferenceId, request);
+} catch (IOException | ApiException e) {
+    // Handle error
+}
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+var accountId = "123";
+var conferenceId = "456";
+
+var request = new CallEngineModifyConferenceRequest
+{
+    Status = StatusEnum.Completed
+};
+
+controller.ModifyConference(accountId, conferenceId, request);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+account_id = "123"
+conference_id = "456"
+
+body = CallEngineModifyConferenceRequest.new
+body.status = "completed"
+
+voice_client.modify_conference(account_id, conference_id, :body => body)
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+account_id = "123"
+conference_id = "456"
+
+body = CallEngineModifyConferenceRequest()
+body.status = "completed"
+
+voice_client.modify_conference(account_id, conference_id, body)
 ```
 
 {% sample lang="js" %}
 
 ```js
-// TODO
+var accountId = '123';
+var conferenceId = '456';
+var body = new CallEngineModifyConferenceRequest({"status":"completed"});
+
+controller.modifyConference(accountId, conferenceId, body, function(error, response, context) {
+    // Handle callback
+});
 ```
 
 {% sample lang="php" %}
 
 ```php
-// TODO
+$accountId = "123";
+$conferenceId = "456";
+
+$body = new BandwidthLib\Voice\Models\CallEngineModifyConferenceRequest();
+$body->status = "completed";
+
+$voiceClient->modifyConference($accountId, $conferenceId, $body);
 ```
 
 {% endmethod %}

@@ -4,15 +4,65 @@
 
 ### Messaging
 
+https://www.npmjs.com/package/@bandwidth/messaging
+
 | Version | Notes |
 |--|--|
 | 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
 
-### Voice
+### Voice API
+
+https://www.npmjs.com/package/@bandwidth/voice
+
+| Version | Notes |
+|--|--|
+| 1.2.0 | Added Conferencing API endpoints |
+
+### BXML
+
+https://www.npmjs.com/package/@bandwidth/bxml
+
+| Version | Notes |
+|--|--|
+| 2.0.0 | Renamed `toXml()` to `toBxml()` |
+| 2.1.0 | Added support for Record verb, and SSML in SpeakSentence |
+| 2.2.0 | Added StartRecording, PauseRecording, ResumeRecording, and StopRecording verbs |
+| 2.3.0 | Added support for transcriptions to Record and StartRecording verbs |
+| 2.3.1 | Fixed startRecording init |
+| 2.4.0 | Added transferDisconnectUrl and transferDisconnectMethod to PhoneNumber |
+| 2.5.0 | Updated Pause (changed code comment to floats instead of ints), SendDtmf (added toneInterval and toneDuration attributes), and Record (added silenceTimeout attribute) verbs |
+| 2.6.0 | Multiple nested verbs with Gather verb |
+| 2.7.0 | Added Conferencing BXML |
+
 
 ### Numbers
 
-### Links 
+https://www.npmjs.com/package/@bandwidth/numbers
+
+| Version | Notes |
+|--|--|
+| 1.1.0   | Added import tn functionality, added promise based `Async` functions                                                                      |
+| 1.2.0   | Added CSR lookup functionality                                                                                                            |
+| 1.2.1   | Fixed Subscription List functionality. Example code at: [examples/subscription_list_and_delete](examples/subscription_list_and_delete.js) |
+| 1.2.2   | Readme Typo for `RemoveImportedTnOrder`                                                                                                   |
+
+### MFA
+
+https://www.npmjs.com/package/@bandwidth/mfa
+
+| Version | Notes |
+|--|--|
+| 1.0.0 | First release |
+
+### WebRTC
+
+https://www.npmjs.com/package/@bandwidth/webrtc
+
+| Version | Notes |
+|--|--|
+| 0.1.0 | Alpha release |
+
+## Links 
 
 [Github Voice](https://github.com/Bandwidth/node-voice)
 <br/>

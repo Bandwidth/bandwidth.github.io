@@ -64,37 +64,104 @@ This shows how to use Bandwidth XML to add a call in a conference.
 {% sample lang="java" %}
 
 ```java
-// TODO
+SpeakSentence speakSentence = SpeakSentence.builder()
+    .gender("male")
+    .text("You will be added to your conference now.")
+    .build();
+
+Conference conference = Conference.builder()
+    .name("my-conference")
+    .build();
+
+Response response = Response.builder().build()
+    .add(speakSentence)
+    .add(conference);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Gender = "male",
+    Sentence = "You will be added to your conference now."
+};
+
+Conference conference = new Conference {
+    Name = "my-conference"
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(conference);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "You will be added to your conference now.",
+    :gender => "male"
+})
+conference = Bandwidth::Voice::Conference.new({
+    :conference_name => 'my-conference'
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(conference)
+
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+speak_sentence = SpeakSentence("You will be added to your conference now.", gender="male")
+conference = Conference("my-conference")
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(conference)
+
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
 
 ```js
-// TODO
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("You will be added to your conference now.");
+speakSentence.setGender("male");
+
+var conference = new BxmlBuilder.Verbs.Conference();
+conference.setName('my-conference');
+
+var response = new BxmlBuilder.Response();
+response.addVerb(speakSentence);
+response.addVerb(conference);
+
+console.log(response.toBxml());
 ```
 
 {% sample lang="php" %}
 
 ```php
-// TODO
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("You will be added to your conference now.");
+$speakSentence->gender("male");
+
+$conference = new BandwidthLib\Voice\Bxml\Conference("my-conference");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($conference);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% common %}
@@ -115,37 +182,119 @@ This shows how to add a coach in a conference.
 {% sample lang="java" %}
 
 ```java
-// TODO
+SpeakSentence speakSentence = SpeakSentence.builder()
+    .gender("male")
+    .text("Welcome. You are going to coach 2 calls, please wait.")
+    .build();
+
+List<String> ids = new ArrayList<>();
+ids.add("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d");
+ids.add(("c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"));
+
+Conference conference = Conference.builder()
+    .name("my-conference")
+    .callIdsToCoach(ids)
+    .build();
+
+Response response = Response.builder().build()
+    .add(speakSentence)
+    .add(conference);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Gender = "male",
+    Sentence = "Welcome. You are going to coach 2 calls, please wait."
+};
+
+Conference conference = new Conference {
+    CallIdsToCoach = "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f",
+    Name = "my-conference"
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(conference);
+
+ Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Welcome. You are going to coach 2 calls, please wait.",
+    :gender => "male"
+})
+conference = Bandwidth::Voice::Conference.new({
+    :conference_name => 'my-conference',
+    :call_ids_to_coach => "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f",
+    #or
+    :call_ids_to_coach => ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(conference)
+
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+speak_sentence = SpeakSentence("Welcome. You are going to coach 2 calls, please wait.", gender="male")
+conference = Conference("my-conference", call_ids_to_coach = "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f")
+#or
+conference = Conference("my-conference", call_ids_to_coach = ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d","c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"])
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(conference)
+
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
 
 ```js
-// TODO
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("You will be added to your conference now.");
+speakSentence.setGender("male");
+
+var conference = new BxmlBuilder.Verbs.Conference();
+conference.setCallIdsToCoach('c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f');
+conference.setName('my-conference');
+
+var response = new BxmlBuilder.Response();
+response.addVerb(speakSentence);
+response.addVerb(conference);
+
+console.log(response.toBxml());
 ```
 
 {% sample lang="php" %}
 
 ```php
-// TODO
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Welcome. You are going to coach 2 calls, please wait.");
+$speakSentence->gender("male");
+
+$conference = new BandwidthLib\Voice\Bxml\Conference("my-conference");
+$conference->callIdsToCoach("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f");
+//or
+$conference->callIdsToCoachArray(["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($conference);
+
+echo $response->toBxml();
+echo "\n";
 ```
 
 {% common %}
