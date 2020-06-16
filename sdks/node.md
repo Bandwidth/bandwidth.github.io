@@ -105,6 +105,8 @@ const BandwidthBxml = require('@bandwidth/bxml');
 ## Create Phone Call
 
 ```js
+var accountId = '1234';
+
 var body = new BandwidthVoice.ApiCreateCallRequest({
     "from"          : "+19999999999",
     "to"            : "+18888888888",
