@@ -5,7 +5,7 @@ Two-Factor authentication with Bandwidth Messaging services
 
 ### Request URL
 
-<code class="post">POST</code>`https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/voice`
+<code class="post">POST</code>`https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/messaging`
 
 #### Basic Authentication
 
