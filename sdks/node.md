@@ -135,6 +135,8 @@ console.log(response.toBxml());
 ## Send Text Message
 
 ```js
+var accountId = '1234';
+
 var body = new BandwidthMessaging.MessageRequest({
     "applicationId" : applicationId ,
     "to"            : ["+19999999999"],
@@ -142,7 +144,7 @@ var body = new BandwidthMessaging.MessageRequest({
     "text"          : "The quick brown fox jumps over a lazy dog."
 });
 
-var response = await messagingController.createMessage(msgUserId, body);
+var response = await messagingController.createMessage(accountId, body);
 console.log(response);
 ```
 
