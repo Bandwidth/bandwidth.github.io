@@ -58,8 +58,8 @@ Console.WriteLine(response.ToBXML());
 {% sample lang="ruby" %}
 
 ```ruby
-response = BandwidthSdk::Voice::Response.new()
-pause = BandwidthSdk::Voice::Pause.new({
+response = Bandwidth::Voice::Response.new()
+pause = Bandwidth::Voice::Pause.new({
     :duration => 2
 })
 
