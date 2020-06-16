@@ -16,6 +16,7 @@ HTTP/1.1 204
 | accountId     | The account id associated with the event.                                                            |
 | applicationId | The application id associated with the event.                                                        |
 | callId        | The call id associated with the event.                                                               |
+| parentCallId     | (optional) The call id of the original call leg that contained the `<Transfer>` tag. Only set on B-leg callbacks.|
 | recordingId   | The unique id for this recording.                                                                    |
 | to            | The phone number that received the call, in E.164 format (e.g. +15555555555).                        |
 | from          | The phone number that made the call, in E.164 format (e.g. +15555555555).                            |
@@ -28,6 +29,8 @@ HTTP/1.1 204
 | callUrl       | The URL of the call associated with the event.                                                       |
 | mediaUrl      | URL to retrieve the contents of the recording.                                                       |
 | transcription | Transcription information, see below.                                                                |
+| transferCallerId | (optional) The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Only set on B-leg callbacks.|
+| transferTo       | (optional) The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555). Only set on B-leg callbacks.|
 
 ### Transcription Properties
 | Property      | Description                                                                                                                 |

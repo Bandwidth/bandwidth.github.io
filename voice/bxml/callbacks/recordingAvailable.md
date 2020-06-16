@@ -13,12 +13,13 @@ HTTP/1.1 204
 | Property    | Description                                                                                                                                                                                        |
 |:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | eventType   | The event type, value is `recordingAvailable`.                                                                                                                                                     |
-| accountId     | The user account associated with the call.                                                                                                                                                         |
-| applicationId | The id of the application associated with the call.                                                                                                                                                |
+| accountId     | The user account associated with the call.                                                                                                                                                       |
+| applicationId | The id of the application associated with the call.                                                                                                                                              |
 | to          | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                                                                                      |
 | from        | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                                          |
 | direction   | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                                                                                  |
 | callId      | The call id associated with the event.                                                                                                                                                             |
+| parentCallId     | (optional) The call id of the original call leg that contained the `<Transfer>` tag. Only set on B-leg callbacks.|
 | recordingId | The unique id for this recording.                                                                                                                                                                  |
 | channels    | Number of channels in the recording (1 or 2).                                                                                                                                                      |
 | startTime   | The time that the recording started (in ISO8601 format).                                                                                                                                           |
@@ -29,6 +30,8 @@ HTTP/1.1 204
 | mediaUrl    | The URL of the recording media.                                                                                                                                                                    |
 | tag         | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                                                                  |
 | status      | The state of the recording. Can be `complete`, `partial`, or `error`. A `partial` status indicates that, although the recording is available to be downloaded, parts of the recording are missing. |
+| transferCallerId | (optional) The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Only set on B-leg callbacks.                                                     |
+| transferTo       | (optional) The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555). Only set on B-leg callbacks.                                                       |
 
 {% common %}
 

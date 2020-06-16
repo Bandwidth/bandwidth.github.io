@@ -4,17 +4,25 @@ When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent 
   the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered. Accepted verbs returned by this callback will be
   executed for the called party only. Afterward, the called party will be bridged to the original
   call.
- 
-| Verb           | Accepted | Verb            | Accepted |
-|----------------|----------|-----------------|----------|
-| [Conference](../verbs/conference.md)     | No       | [Redirect](../verbs/redirect.md)        | Yes      |
-| [Forward](../verbs/forward.md)        | No       | [ResumeRecording](../verbs/resumeRecording.md) | Yes      |
-| [Gather](../verbs/gather.md)         | Yes      | [SendDtmf](../verbs/sendDtmf.md)        | Yes      |
-| [Hangup](../verbs/hangup.md)         | Yes      | [SpeakSentence](../verbs/speakSentence.md)   | Yes      |
-| [Pause](../verbs/pause.md)          | Yes      | [StartRecording](../verbs/startRecording.md)  | Yes      |
-| [PauseRecording](../verbs/pauseRecording.md) | Yes      | [StopRecording](../verbs/stopRecording.md)   | Yes      |
-| [PlayAudio](../verbs/playAudio.md)      | Yes      | [Transfer](../verbs/transfer.md)        | No       |
-| [Record](../verbs/record.md)         | Yes      |                 |          |
+
+| Verb            | Accepted |
+|-----------------|----------|
+| [Conference](../verbs/conference.md)      | No       |
+| [Forward](../verbs/forward.md)         | No       |
+| [Gather](../verbs/gather.md)          | Yes      |
+| [Hangup](../verbs/hangup.md)          | Yes      |
+| [Pause](../verbs/pause.md)           | Yes      |
+| [PauseRecording](../verbs/pauseRecording.md)  | Yes      |
+| [PlayAudio](../verbs/playAudio.md)       | Yes      |
+| [Record](../verbs/record.md)          | Yes      |
+| [Redirect](../verbs/redirect.md)        | Yes      |
+| [ResumeRecording](../verbs/resumeRecording.md) | Yes      |
+| [SendDtmf](../verbs/sendDtmf.md)        | Yes      |
+| [SpeakSentence](../verbs/speakSentence.md)   | Yes      |
+| [StartRecording](../verbs/startRecording.md)  | Yes      |
+| [StopRecording](../verbs/stopRecording.md)   | Yes      |
+| [Transfer](../verbs/transfer.md)        | No       |
+
 
 It is important to note that no other BXML verbs may be specified after a Transfer Answer Event is called.
 
@@ -24,7 +32,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- BXML verbs to play to the called party -->
+    <!-- Accepted BXML verbs to play to the called party -->
 </Response>
 ```
 
