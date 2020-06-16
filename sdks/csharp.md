@@ -10,6 +10,15 @@
 | 3.2.0 | Added support for multi nested verbs in Gathers |
 | 3.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
 
+## Links
+
+[Github](https://github.com/Bandwidth/csharp-sdk)
+
+[Nuget](https://www.nuget.org/packages/Bandwidth.Sdk/)
+
+[Code Examples](https://github.com/Bandwidth/examples/tree/master/csharp)
+
+
 ## Download & Install
 
 ```

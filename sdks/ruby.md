@@ -10,6 +10,15 @@
 | 3.3.0 | Added support for multi nested verbs in Gathers |
 | 3.4.0 | Added support for Conference BXMl and Conference API Endpoints |
 
+## Links
+
+* [Github](https://github.com/Bandwidth/ruby-sdk)
+
+* [Rubygems](https://rubygems.org/gems/bandwidth-sdk)
+
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/ruby)
+
+
 ## Download & Install
 
 ```

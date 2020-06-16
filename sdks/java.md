@@ -10,6 +10,14 @@
 | 3.2.0 | Added support for multi nested verbs in Gathers |
 | 3.3.0 | Added support for Conference BXMl and Conference API Endpoints |
 
+## Links
+
+[Github](https://github.com/Bandwidth/java-sdk)
+
+[Maven](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk)
+
+[Code Examples](https://github.com/Bandwidth/examples/tree/master/java)
+
 ## Download & Install
 
 Maven:
