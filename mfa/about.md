@@ -1,5 +1,7 @@
 # Bandwidth MFA API
 
+⚠️ Your account must be activated to use the MFA product. Please contact [sales support](https://www.bandwidth.com/talk-to-an-expert/) to learn how to get access!
+
 ## Base API URL
 `https://mfa.bandwidth.com/api/v1/accounts/{accountId}`
 

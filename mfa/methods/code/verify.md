@@ -3,6 +3,8 @@
 ## Two-Factor Verify Code
 Two-Factor authentication with Bandwidth services
 
+⚠️ Your account must be activated to use the MFA product. Please contact [sales support](https://www.bandwidth.com/talk-to-an-expert/) to learn how to get access!
+
 ### Request URL
 
 <code class="post">POST</code>`https://mfa.bandwidth.com/api/v1/accounts/{accountId}/code/verify`
