@@ -1,7 +1,8 @@
 {% method %}
 ##  Bridge Complete Event
-This event is sent to the `bridgeCompleteUrl` if the target call leaves the [bridge](../verbs/bridge.md#bridgeComplete),
-and the BXML returned in this callback is executed on the call.
+If the target call leaves the [&lt;Bridge&gt;](../verbs/bridge.md),
+then this callback is sent to the `bridgeCompleteUrl`,
+and the BXML returned in it is executed on the call.
 
 This callback is also sent if any problem occurs that prevents the calls to be bridged.
 
