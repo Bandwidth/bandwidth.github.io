@@ -3,53 +3,45 @@
 ## XML: `<Bridge>`
 The Bridge verb is used to bridge another party onto the current call.
 
-### Attributes
-| Attribute                     | Description                                                                                                                                                                                                                                                 |
-|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bridgeCompleteUrl             | (optional) URL to send the [Bridge Complete](../callbacks/bridgeComplete.md) event to and request new BXML. [See below](#bridgeCompleteUrl) for further details.                                                                                            |
-| bridgeCompleteMethod          | (optional) The HTTP method to use for the request to `bridgeCompleteUrl`. GET or POST. Default value is POST.                                                                                                                                               |
-| bridgeTargetCompleteUrl       | (optional) URL to send the [Bridge Target Complete](../callbacks/bridgeTargetComplete.md) event to and request new BXML to be executed on the target call. [See below](#bridgeTargetCompleteUrl) for further details.                                       |
-| bridgeTargetCompleteMethod    | (optional) The HTTP method to use for the request to `bridgeTargetCompleteUrl`. GET or POST. Default value is POST.                                                                                                                                         |
-| username                      | (optional) The username to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`.                                                                                                                                                |
-| password                      | (optional) The password to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`.                                                                                                                                                |
-| tag                           | (optional) A custom string that will be sent with the `bridgeComplete` callback and all future callbacks of the call unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
-
-#### bridgeCompleteUrl {#bridgeCompleteUrl}
-If the called party (target call) is the first to leave the bridge, then the [BridgeComplete](../callbacks/bridgeComplete.md) callback is sent to the `bridgeCompleteUrl`.
+The bridge ends when one of the calls leave the bridge.
 
 A call leaves the bridge when it is hung up or when it gets [redirected](../../methods/calls/postCallsCallId.md) to another BXML.
 
-Verbs following the `<Bridge>` will be ignored when the `bridgeCompleteUrl` attribute is specified,
-and the BXML returned in this callback is executed on the call.
-If the `bridgeCompleteUrl` attribute is not specified, then no callback will be sent,
-and execution of the verbs following the `<Bridge>` tag continues.
-
-This callback is also sent if any problem occurs that prevents the calls to be bridged, such as the target call was not answered yet, or it was already hung up.
-
-#### bridgeTargetCompleteUrl {#bridgeTargetCompleteUrl}
-If the caller is the first to leave the bridge, then the [BridgeTargetComplete](../callbacks/bridgeTargetComplete.md) callback is sent to the `bridgeTargetCompleteUrl`,
-and the BXML returned in this callback is executed on the target call.
-
-If the `bridgeTargetCompleteUrl` attribute is not specified, then no event will be sent and the target call will be hung up.
+### Attributes
+| Attribute                     | Description                                                                                                                                                                                                                                                       |
+|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| bridgeCompleteUrl             | (optional) URL to send the [Bridge Complete](../callbacks/bridgeComplete.md) event to and request new BXML.<br/> Verbs following the `<Bridge>` will be ignored when the this attribute is specified, and the BXML returned in this callback is executed on the call.<br/> If this attribute is not specified, then no callback will be sent, and execution of the verbs following the `<Bridge>` tag continues. |
+| bridgeCompleteMethod          | (optional) The HTTP method to use for the request to `bridgeCompleteUrl`. GET or POST. Default value is POST.                                                                                                                                                     |
+| bridgeTargetCompleteUrl       | (optional) URL to send the [Bridge Target Complete](../callbacks/bridgeTargetComplete.md) event to and request new BXML to be executed on the target call. If this attribute is not specified, then no event will be sent and the target call will be hung up.    |
+| bridgeTargetCompleteMethod    | (optional) The HTTP method to use for the request to `bridgeTargetCompleteUrl`. GET or POST. Default value is POST.                                                                                                                                               |
+| username                      | (optional) The username to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`.                                                                                                                                                      |
+| password                      | (optional) The password to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`.                                                                                                                                                      |
+| tag                           | (optional) A custom string that will be sent with the `bridgeComplete` callback and all future callbacks of the call unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.       |
 
 ### Text Content
 | Name        | Description                                               |
 |:------------|:----------------------------------------------------------|
 | Target call | String containing the `callId` of the call to be bridged. |
 
-If the target call is an outbound call, then it must be active (answered).
-Unanswered outbound calls or calls already hung up cannot be bridged and will result in a [Bridge Complete](../callbacks/bridgeComplete.md) event to be send with a failure message.
+When the target call is bridged, any BXML being executed in it will be cancelled. 
 
-When a target call is bridged, any BXML being executed in it will be cancelled. 
+The target call cannot be bridged under certain circumstances:
+* It is an unanswered outbound call.
+* It is already bridged with another call.
+* It is a Forwarded call.
+* It is already hung up.
 
-<aside class="alert general small"><p>A target call cannot be bridged by multiple callers, so a target call that is already bridged with another call cannot be bridged again until the bridge is completed.</p></aside>
+In any of those cases a [Bridge Complete](../callbacks/bridgeComplete.md) event is sent with an error message.
 
 ### Callbacks Received
-
 | Callbacks                                                      | Can reply with more BXML |
 |:---------------------------------------------------------------|:-------------------------|
 | [Bridge Complete](../callbacks/bridgeComplete.md)              | Yes                      |
 | [Bridge Target Complete](../callbacks/bridgeTargetComplete.md) | Yes                      |
+
+#### Bridge Target Complete {#bridgeTargetCompleteUrl}
+If the caller is the first to leave the bridge, then the [BridgeTargetComplete](../callbacks/bridgeTargetComplete.md) callback is sent to the `bridgeTargetCompleteUrl`,
+and the BXML returned in this callback is executed on the target call.
 
 {% common %}
 

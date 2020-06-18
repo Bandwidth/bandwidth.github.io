@@ -1,10 +1,9 @@
 {% method %}
 ##  Bridge Complete Event
-This event is sent to the `bridgeCompleteUrl` when the target call leaves the bridge.
+This event is sent to the `bridgeCompleteUrl` if the target call leaves the [bridge](../verbs/bridge.md#bridgeComplete),
+and the BXML returned in this callback is executed on the call.
 
-If the target call cannot be bridged, then this callback is sent with an error message.
-
-For more information see the [Bridge verb](../verbs/bridge.md).
+This callback is also sent if any problem occurs that prevents the calls to be bridged.
 
 ### Expected response
 ```http
@@ -58,7 +57,7 @@ POST http://[External server URL]
 }
 ```
 
-#### Example: Failed bridge to busy number
+#### Example: Failed bridge
 
 ```
 POST http://[External server URL]

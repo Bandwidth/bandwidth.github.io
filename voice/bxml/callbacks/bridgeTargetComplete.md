@@ -1,8 +1,7 @@
 {% method %}
-##  Bridge Complete Event
-This event is sent to the `bridgeTargetCompleteUrl` when the originating call leaves the bridge.
-
-For more information see the [Bridge verb](../verbs/bridge.md).
+##  Bridge Target Complete Event
+This event is sent to the `bridgeTargetCompleteUrl` if the originating call leaves the [bridge](../verbs/bridge.md),
+and the BXML returned in this callback is executed on the target call.
 
 ### Expected response
 ```http
