@@ -2,7 +2,7 @@
 ##  Bridge Complete Event
 This event is sent to the `bridgeCompleteUrl` when the target call leaves the bridge.
 
-If the target call cannot be bridged, then this callback is sent with a failure message.
+If the target call cannot be bridged, then this callback is sent with an error message.
 
 For more information see the [Bridge verb](../verbs/bridge.md).
 
@@ -29,7 +29,7 @@ Content-Type: application/xml; charset=utf-8
 | callUrl          | The URL of the call associated with the event.                                                            |
 | startTime        | Time the call was started, in ISO 8601 format.                                                            |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.    |
-| cause            | Reason the bridge failed - `busy`, `rejected`, `invalid-bxml` or `unknown`.                               |
+| cause            | Reason the bridge failed - `busy`, `rejected`, or `unknown`.                               |
 | errorMessage     | Text explaining the reason that caused the bridge to fail in case of errors.                              |
 | errorId          | Bandwidth internal id that references the error event.                                                    |
 

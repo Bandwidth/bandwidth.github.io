@@ -17,18 +17,18 @@ The Bridge verb is used to bridge another party onto the current call.
 #### bridgeCompleteUrl {#bridgeCompleteUrl}
 If the called party (target call) is the first to leave the bridge, then the [BridgeComplete](../callbacks/bridgeComplete.md) callback is sent to the `bridgeCompleteUrl`.
 
-<aside class="alert general small"><p>A call leaves the bridge when it hangs up or when it gets [redirected](../../methods/calls/postCallsCallId.md) to another BXML.</p></aside>
+A call leaves the bridge when it is hung up or when it gets [redirected](../../methods/calls/postCallsCallId.md) to another BXML.
 
-Verbs following the `<Bridge>` will be ignored when the `bridgeCompleteUrl` attribute is specified, and the BXML returned by this callback is executed on the call.
-If the `bridgeCompleteUrl` attribute is not specified, then no callback will be sent and execution of verbs following the `<Bridge>` tag continues.
+Verbs following the `<Bridge>` will be ignored when the `bridgeCompleteUrl` attribute is specified,
+and the BXML returned in this callback is executed on the call.
+If the `bridgeCompleteUrl` attribute is not specified, then no callback will be sent,
+and execution of the verbs following the `<Bridge>` tag continues.
 
-This callback is also sent if any problem occurs with the bridge, such as the target call was not answered yet, or it was already hung up.
-
-A call leaves the bridge when it hangs up or when it gets [redirected](../../methods/calls/postCallsCallId.md) to another BXML.
+This callback is also sent if any problem occurs that prevents the calls to be bridged, such as the target call was not answered yet, or it was already hung up.
 
 #### bridgeTargetCompleteUrl {#bridgeTargetCompleteUrl}
 If the caller is the first to leave the bridge, then the [BridgeTargetComplete](../callbacks/bridgeTargetComplete.md) callback is sent to the `bridgeTargetCompleteUrl`,
-and the BXML returned by this callback is executed on the target call.
+and the BXML returned in this callback is executed on the target call.
 
 If the `bridgeTargetCompleteUrl` attribute is not specified, then no event will be sent and the target call will be hung up.
 
@@ -37,7 +37,8 @@ If the `bridgeTargetCompleteUrl` attribute is not specified, then no event will 
 |:------------|:----------------------------------------------------------|
 | Target call | String containing the `callId` of the call to be bridged. |
 
-If the target call is an outbound call, then it must be active (answered). Unanswered outbound calls or calls already hung up cannot be bridged and will result in a [Bridge Complete](../callbacks/bridgeComplete.md) event to be send with a failure message.
+If the target call is an outbound call, then it must be active (answered).
+Unanswered outbound calls or calls already hung up cannot be bridged and will result in a [Bridge Complete](../callbacks/bridgeComplete.md) event to be send with a failure message.
 
 When a target call is bridged, any BXML being executed in it will be cancelled. 
 
