@@ -138,6 +138,7 @@
 		* [GET Download Transcription](voice/methods/recordings/getCallsCallIdRecordingsRecordingIdTranscription.md)
 		* [DELETE Delete Transcription](voice/methods/recordings/deleteCallsCallIdRecordingsRecordingIdTranscription.md)
 * [Call Control (BXML)](voice/bxml/about.md)
+	* [Bridge](voice/bxml/verbs/bridge.md)
 	* [Conference](voice/bxml/verbs/conference.md)
 	* [Forward](voice/bxml/verbs/forward.md)
 	* [Gather](voice/bxml/verbs/gather.md)
