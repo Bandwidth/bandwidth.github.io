@@ -6,25 +6,28 @@ The Bridge verb is used to bridge another party onto the current call.
 ### Attributes
 | Attribute                     | Description                                                                                                                                                                                                                                                 |
 |:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bridgeCompleteUrl             | (optional) URL to send the [Bridge Complete](../callbacks/bridgeComplete.md) event to and request new BXML. [See below](#bridgeComplete) for further details.                                                                                               |
+| bridgeCompleteUrl             | (optional) URL to send the [Bridge Complete](../callbacks/bridgeComplete.md) event to and request new BXML. [See below](#bridgeCompleteUrl) for further details.                                                                                            |
 | bridgeCompleteMethod          | (optional) The HTTP method to use for the request to `bridgeCompleteUrl`. GET or POST. Default value is POST.                                                                                                                                               |
-| bridgeTargetCompleteUrl       | (optional) URL to send the [Bridge Target Complete](../callbacks/bridgeTargetComplete.md) event to and request new BXML to be executed on the target call.                                                                                                  |
+| bridgeTargetCompleteUrl       | (optional) URL to send the [Bridge Target Complete](../callbacks/bridgeTargetComplete.md) event to and request new BXML to be executed on the target call. [See below](#bridgeTargetCompleteUrl) for further details.                                       |
 | bridgeTargetCompleteMethod    | (optional) The HTTP method to use for the request to `bridgeTargetCompleteUrl`. GET or POST. Default value is POST.                                                                                                                                         |
 | username                      | (optional) The username to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`.                                                                                                                                                |
 | password                      | (optional) The password to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`.                                                                                                                                                |
 | tag                           | (optional) A custom string that will be sent with the `bridgeComplete` callback and all future callbacks of the call unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
-#### BridgeComplete event {#bridgeComplete}
-If the called party (target call) is the first to hang up or leave the bridge, then the [BridgeComplete](../callbacks/bridgeComplete.md) callback is sent.
+#### bridgeCompleteUrl {#bridgeCompleteUrl}
+If the called party (target call) is the first to leave the bridge, then the [BridgeComplete](../callbacks/bridgeComplete.md) callback is sent to the `bridgeCompleteUrl`.
 
-Verbs following the `<Bridge>` will be ignored when the `bridgeCompleteUrl` attribute is specified, and the BXML returned by this callback is executed on the original call.
+<aside class="alert general small"><p>A call leaves the bridge when it hangs up or when it gets [redirected](../../methods/calls/postCallsCallId.md) to another BXML.</p></aside>
 
-If the `bridgeCompleteUrl` attribute is not specified, then no event will be sent and execution of verbs following the `<Bridge>` tag continues.
+Verbs following the `<Bridge>` will be ignored when the `bridgeCompleteUrl` attribute is specified, and the BXML returned by this callback is executed on the call.
+If the `bridgeCompleteUrl` attribute is not specified, then no callback will be sent and execution of verbs following the `<Bridge>` tag continues.
 
 This callback is also sent if any problem occurs with the bridge, such as the target call was not answered yet, or it was already hung up.
 
-#### BridgeTargetComplete event {#bridgeTargetComplete}
-If the caller is the first to hang up or leave the bridge, then the [BridgeTargetComplete](../callbacks/bridgeTargetComplete.md) callback is sent,
+A call leaves the bridge when it hangs up or when it gets [redirected](../../methods/calls/postCallsCallId.md) to another BXML.
+
+#### bridgeTargetCompleteUrl {#bridgeTargetCompleteUrl}
+If the caller is the first to leave the bridge, then the [BridgeTargetComplete](../callbacks/bridgeTargetComplete.md) callback is sent to the `bridgeTargetCompleteUrl`,
 and the BXML returned by this callback is executed on the target call.
 
 If the `bridgeTargetCompleteUrl` attribute is not specified, then no event will be sent and the target call will be hung up.
@@ -36,9 +39,7 @@ If the `bridgeTargetCompleteUrl` attribute is not specified, then no event will 
 
 If the target call is an outbound call, then it must be active (answered). Unanswered outbound calls or calls already hung up cannot be bridged and will result in a [Bridge Complete](../callbacks/bridgeComplete.md) event to be send with a failure message.
 
-Any BXML being executed in the target call will be cancelled when that call is bridged.
-
-A target call cannot be bridged by multiple callers, so a target call that is already bridged with another call cannot be bridged again until the bridge is completed.
+When a target call is bridged, any BXML being executed in it will be cancelled. 
 
 <aside class="alert general small"><p>A target call cannot be bridged by multiple callers, so a target call that is already bridged with another call cannot be bridged again until the bridge is completed.</p></aside>
 
