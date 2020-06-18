@@ -156,6 +156,8 @@
 	* [Transfer](voice/bxml/verbs/transfer.md)
 * [Callbacks](voice/bxml/callbacks/about.md)
 	 * [Answer](voice/bxml/callbacks/answer.md)
+	 * [BridgeComplete](voice/bxml/callbacks/bridgeComplete.md)
+	 * [BridgeTargetComplete](voice/bxml/callbacks/bridgeTargetComplete.md)
 	 * [Conference Created](voice/bxml/callbacks/conferenceCreated.md)
 	 * [Conference Member Join](voice/bxml/callbacks/conferenceMemberJoin.md)
 	 * [Conference Member Exit](voice/bxml/callbacks/conferenceMemberExit.md)
