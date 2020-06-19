@@ -233,6 +233,24 @@
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 
+## WebRTC
+* [Overview](webrtc/about.md)
+* [API Methods](webrtc/methods/about.md)
+    * [Participants](webrtc/methods/participants/about.md)
+        * [POST Create Participant](webrtc/methods/participants/createParticipant.md)
+        * [DELETE Delete Participant](webrtc/methods/participants/deleteParticipant.md)
+        * [GET Get Participant](webrtc/methods/participants/getParticipant.md)
+    * [Sessions](webrtc/methods/sessions/about.md)
+        * [PUT Add Participant](webrtc/methods/sessions/addParticipantToSession.md)
+        * [POST Create Session](webrtc/methods/sessions/createSession.md)
+        * [DELETE Delete Session](webrtc/methods/sessions/deleteSession.md)
+        * [GET Get Participant Subscriptions](webrtc/methods/sessions/getParticipantSubscriptions.md)
+        * [GET Get Session](webrtc/methods/sessions/getSession.md)
+        * [DELETE Remove Participant From Session](webrtc/methods/sessions/removeParticipantFromSession.md)
+        * [PUT Update Participant Subscriptions](webrtc/methods/sessions/updateParticipantSubscriptions.md)
+* [Rate Limits](webrtc/rateLimits.md)
+* [Errors](webrtc/errors.md)
+
 ## SDKs
 * [Python](sdks/python.md)
 * [Ruby](sdks/ruby.md)
