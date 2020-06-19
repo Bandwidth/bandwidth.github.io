@@ -6,29 +6,28 @@ Participants are idempotent, so relevant parameters must be set in this function
 
 
 ### Request URL
-
-<code class="post">POST</code>`https://api.webrtc.bandwidth.com/accounts/{accountId}/accounts/{accountId}/participants`
+<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/participants`
 
 #### Basic Authentication
 
-WebRtc leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
+
 ### Request Body Parameters
-| Parameter                     | Description                                                                                         
-|:------------------------------|:----------------------------------------------------------------------------------------------------
-| callbackUrl                   | Full callback url to use for notifications about this participant                                   
-| publishPermissions            | None                                                                                                
-| subscriptions                 | None                                                                                                
-| tag                           | User defined tag to associate with the participant                                                  
+| Parameter                   | Description                                                                                       
+|:----------------------------|:--------------------------------------------------------------------------------------------------
+| callbackUrl                 | Full callback url to use for notifications about this participant                                 
+| publishPermissions          | Defines if this participant can publish audio or video                                            
+| subscriptions               | Subscription information for this participant                                                     
+| tag                         | User defined tag to associate with the participant                                                
 
 
 ### Response Attributes
-| Property                      | Description                                                                                         
-|:------------------------------|:----------------------------------------------------------------------------------------------------
-| participant                   | None                                                                                                
-| token                         | Auth token for the returned participant                                                             
-
+| Property                    | Description                                                                                       
+|:----------------------------|:--------------------------------------------------------------------------------------------------
+| participant                 | A participant object                                                                              
+| token                       | Auth token for the returned participant                                                           
 
 
 
@@ -38,20 +37,21 @@ WebRtc leverages Basic Authentication with your Dashboard API Credentials. Read 
 
 {% sample lang="http" %}
 ```bash
-curl -X POST \
-  --url 'https://api.webrtc.bandwidth.com' \
-  -u '{username}:{password}' \
-  -H 'Content-type: application/json' \
-  --data-raw '
-  {
-    "callbackUrl": "https://example.com/callback",
-    "publishPermissions": ['AUDIO', 'VIDEO'],
-    "tag": "Participant Patrick"
-  }'
-
+curl -X POST 
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants' 
+  -u '{username}:{password}' 
+  -H 'Content-type: application/json' 
+	 --data-raw '
+{
+  "callbackUrl": "https://example.com/callback",
+  "publishPermissions": [
+    "VIDEO",
+    "AUDIO"
+  ],
+  "subscriptions": null,
+  "tag": "participant1"
+}'
 ```
-
-
 
 > Responds
 
@@ -79,4 +79,5 @@ Content-Type: application/json
 HTTP/1.1 50x (Unexpected Error)
 Content-Type: application/json
 ```
+
 {% endmethod %}

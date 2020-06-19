@@ -6,27 +6,26 @@ Sessions are idempotent, so relevant parameters must be set in this function if 
 
 
 ### Request URL
-
-<code class="post">POST</code>`https://api.webrtc.bandwidth.com/accounts/{accountId}/accounts/{accountId}/sessions`
+<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions`
 
 #### Basic Authentication
 
-WebRtc leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
+
 ### Request Body Parameters
-| Parameter                     | Description                                                                                         
-|:------------------------------|:----------------------------------------------------------------------------------------------------
-| tag                           | User defined tag to associate with the session                                                      
+| Parameter                   | Description                                                                                       
+|:----------------------------|:--------------------------------------------------------------------------------------------------
+| tag                         | User defined tag to associate with the session                                                    
 
 
 ### Response Attributes
-| Property                      | Description                                                                                         
-|:------------------------------|:----------------------------------------------------------------------------------------------------
-| id                            | None                                                                                                
-| participants                  | The list of participants associated with this session                                               
-| tag                           | User defined tag to associate with the session                                                      
-
+| Property                    | Description                                                                                       
+|:----------------------------|:--------------------------------------------------------------------------------------------------
+| id                          | Unique id of the session                                                                          
+| participants                | The list of participants associated with this session                                             
+| tag                         | User defined tag to associate with the session                                                    
 
 
 
@@ -34,7 +33,17 @@ WebRtc leverages Basic Authentication with your Dashboard API Credentials. Read 
 
 ### Example: Create a new session
 
-
+{% sample lang="http" %}
+```bash
+curl -X POST 
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions' 
+  -u '{username}:{password}' 
+  -H 'Content-type: application/json' 
+	 --data-raw '
+{
+  "tag": "session1"
+}'
+```
 
 > Responds
 
@@ -62,4 +71,5 @@ Content-Type: application/json
 HTTP/1.1 50x (Unexpected Error)
 Content-Type: application/json
 ```
+
 {% endmethod %}
