@@ -24,6 +24,8 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | applicationId | The voice or messaging application id used to make the initial request |
 | scope         | scope of the request. This value must match the scope of the initial request |
 | code          | The code received to validate |
+| digits | The number of digits for your 2fa code. The valid number ranges from 2 to 8, inclusively. |
+| expirationTimeInMinutes | The time period, in minutes, to validate the 2fa code. By setting this to 3 minutes, it will mean any code generated within the last 3 minutes are still valid. The valid range for expirationTimeInMinutes is between 0 and 15 minutes, exclusively and inclusively, respectively. |
 
 ### Response Attributes
 
@@ -44,11 +46,13 @@ curl -X POST \
     -u '{username}:{password}' \
     --data-raw '
     {
-        "to"            : "+12345678902",
-        "from"          : "+12345678901",
-        "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-        "scope"         : "scope",
-        "code"          : "12598"
+        "to"                      : "+12345678902",
+        "from"                    : "+12345678901",
+        "applicationId"           : "93de2206-9669-4e07-948d-329f4b722ee2",
+        "scope"                   : "scope",
+        "code"                    : "12598",
+        "digits"                  : 5,
+        "expirationTimeInMinutes" : 3
     }
   '
 ```

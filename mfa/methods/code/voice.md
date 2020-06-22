@@ -22,7 +22,9 @@ Bandwidth's MFA API leverages Basic Authentication with your Dashboard API Crede
 | to            | To telephone number   |
 | from          | From telephone number |
 | applicationId | The voice application id  |
-| scope         | scope of the request. Currently `scope` is the only valid value |
+| scope         | An optional field to denote what scope or action the 2fa code is addressing. If not supplied, defaults to "2FA". |
+| message | The message format of the 2fa code. There are three values that the system will replace "{CODE}", "{NAME}", "{SCOPE}". The "{SCOPE}" and "{NAME} value template are optional, while "{CODE}" must be supplied. As the name would suggest, code will be replace with the actual 2fa code. Name is replaced with the application name, configured during provisioning of 2fa. The scope value is the same value sent during the call and partitioned by the server. |
+| digits | The number of digits for your 2fa code. The valid number ranges from 2 to 8, inclusively. |
 
 ### Response Attributes
 
@@ -46,7 +48,9 @@ curl -X POST \
         "to"            : "+12345678902",
         "from"          : "+12345678901",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-        "scope"         : "scope"
+        "scope"         : "scope",
+        "digits"        : 5,
+        "message"       : "Your temporary {NAME} {SCOPE} code is {CODE}"
     }
   '
 ```
