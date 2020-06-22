@@ -248,7 +248,6 @@
         * [GET Get Session](webrtc/methods/sessions/getSession.md)
         * [DELETE Remove Participant From Session](webrtc/methods/sessions/removeParticipantFromSession.md)
         * [PUT Update Participant Subscriptions](webrtc/methods/sessions/updateParticipantSubscriptions.md)
-* [Rate Limits](webrtc/rateLimits.md)
 * [Errors](webrtc/errors.md)
 
 ## SDKs
