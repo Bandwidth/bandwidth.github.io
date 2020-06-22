@@ -12,6 +12,8 @@ HTTP GET requests may be used for callbacks by setting the appropriate `*Method`
 callback's URL.  If the GET method is used, the properties are passed as query parameters.  This can cause very long
 URLs, so POST is the preferred method.
 
+We use a 15s request timeout when trying to deliver all callbacks, retrying once if we receive a connect error.
+
 | Callback                                 | Description                                                                                                                                                                                                  |
 |:-----------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Answer](answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
