@@ -73,7 +73,9 @@ var response = controller.CreateVoiceTwoFactor(accountId, new TwoFactorCodeReque
     ApplicationId = applicationId,
     From = fromNumber,
     To = toNumber,
-    Scope = "scope"
+    Scope = "scope",
+    Digits = 5,
+    Message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 });
 
 Console.WriteLine( response.Data.CallId );
@@ -87,6 +89,8 @@ request.setApplicationId(applicationId);
 request.setFrom(fromNumber);
 request.setTo(toNumber);
 request.setScope("scope");
+request.setDigits(5);
+request.setMessage("Your temporary {NAME} {SCOPE} code is {CODE}");
 
 ApiResponse<TwoFactorVoiceResponse> response = controller.createVoiceTwoFactor(accountId, request);
 
@@ -103,6 +107,8 @@ body.from = from_phone
 body.to = to_phone
 body.application_id = application_id
 body.scope = 'scope'
+body.digits = 5
+body.message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 
 auth_client.create_voice_two_factor(account_id, body)
 ```
@@ -114,7 +120,9 @@ body = TwoFactorCodeRequestSchema(
     mfrom = from_phone,
     to = to_phone,
     application_id = voice_application_id,
-    scope = 'scope'
+    scope = 'scope',
+    digits = 5,
+    message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 )
 response = auth_client.create_voice_two_factor(account_id, body)
 call_id = response.body.call_id
@@ -128,6 +136,8 @@ payload.applicationId = applicationId;
 payload.from = fromNumber;
 payload.to = toNumber;
 payload.scope = 'scope';
+payload.digits = 5;
+payload.message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 const response = await controller.createVoiceTwoFactor(accountId, payload);
 
@@ -144,6 +154,8 @@ $body->from = $fromPhone;
 $body->to = $toPhone;
 $body->applicationId = $voiceApplicationId;
 $body->scope = $scope;
+$body->digits = 5;
+$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 $authClient->createVoiceTwoFactor($accountId, $body);
 ```

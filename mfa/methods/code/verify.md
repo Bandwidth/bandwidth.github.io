@@ -51,7 +51,7 @@ curl -X POST \
         "applicationId"           : "93de2206-9669-4e07-948d-329f4b722ee2",
         "scope"                   : "scope",
         "code"                    : "12598",
-        "digits"                  : 5,
+        "digits"                  : 6,
         "expirationTimeInMinutes" : 3
     }
   '
@@ -85,7 +85,9 @@ var response = controller.CreateVerifyTwoFactor(accountId, new TwoFactorVerifyRe
     From = fromNumber,
     To = toNumber,
     Scope = "scope csharp",
-    Code = "159193"
+    Code = "159193",
+    Digits = 6,
+    ExpirationTimeInMinutes = 3
 });
 
 Console.WriteLine(response.Data.Valid);
@@ -100,6 +102,8 @@ request.setFrom(fromNumber);
 request.setTo(toNumber);
 request.setScope("scope");
 request.setCode("212061");
+request.setDigits(6);
+request.setExpirationTimeInMinutes(3);
 
 ApiResponse<TwoFactorVerifyCodeResponse> response = controller.createVerifyTwoFactor(accountId, request);
 
@@ -117,6 +121,8 @@ body.to = to_phone
 body.application_id = application_id
 body.scope = 'scope'
 body.code = code
+body.digits = 6
+body.expiration_time_in_minutes = 3
 
 response = auth_client.create_verify_two_factor(account_id, body)
 puts "Auth status: " + response.data.valid.to_s
@@ -131,7 +137,9 @@ body = TwoFactorVerifyRequestSchema(
     to = to_phone,
     application_id = application_id,
     scope = 'scope',
-    code = code
+    code = code,
+    digits = 6,
+    expiration_time_in_minutes = 3
 )
 response = auth_client.create_verify_two_factor(account_id, body)
 print("Auth status: " + str(response.body.valid))
@@ -144,6 +152,8 @@ const verify = new mfa.TwoFactorVerifyRequestSchema();
 verify.applicationId = applicationId;
 verify.code = '123456';
 verify.scope = 'scope24';
+verify.digits = 6;
+verify.expirationTimeInMinutes = 3;
 
 const response = await controller.createVerifyTwoFactor(accountId, verify);
 
@@ -162,6 +172,8 @@ $body->to = $toPhone;
 $body->applicationId = $applicationId;
 $body->scope = $scope;
 $body->code = $code;
+$body->digits = 6;
+$body->expirationTimeInMinutes = 3;
 
 $response = $authClient->createVerifyTwoFactor($accountId, $body);
 $strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
