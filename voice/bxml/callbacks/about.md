@@ -12,15 +12,18 @@ HTTP GET requests may be used for callbacks by setting the appropriate `*Method`
 callback's URL.  If the GET method is used, the properties are passed as query parameters.  This can cause very long
 URLs, so POST is the preferred method.
 
-| Callback                                 | Description                                                                                                                                                                                                  |
-|:-----------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Answer](answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
-| [Gather](gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                     |
-| [Initiate](initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                    |
-| [Record Complete](recordComplete.md)     | Bandwidth API sends this to the application when a `<Record>` is completed. The recording is not available to download until the [Recording Available](recordingAvailable.md) event is received.             |
-| [Redirect](redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
-| [Transfer Answer](transferAnswer.md)     | Bandwidth API sends this to the application when a `<Transfer>` is answered.                                                                                                                                 |
-| [Transfer Complete](transferComplete.md) | Bandwidth API sends this to the application when a `<Transfer>` is complete and the original call needs to continue.                                                                                         |
+| Callback                                          | Description                                                                                                                                                                                                  |
+| :------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Answer](answer.md)                               | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
+| [Gather](gather.md)                               | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                     |
+| [Initiate](initiate.md)                           | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                    |
+| [Record Complete](recordComplete.md)              | Bandwidth API sends this to the application when a `<Record>` is completed. The recording is not available to download until the [Recording Available](recordingAvailable.md) event is received.             |
+| [Redirect](redirect.md)                           | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
+| [Transfer Answer](transferAnswer.md)              | Bandwidth API sends this to the application when a `<Transfer>` is answered.                                                                                                                                 |
+| [Transfer Complete](transferComplete.md)          | Bandwidth API sends this to the application when a `<Transfer>` is complete and the original call needs to continue.                                                                                         |
+| [Conference Created](conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                                                                                                   |
+| [Conference Member Join](conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                                                                                               |
+| [Conference Member Exit](conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                                                                                                  |
 
 ## Asynchronous Callbacks
 
@@ -33,12 +36,9 @@ HTTP GET requests may be used for callbacks by setting the appropriate `*Method`
 callback's URL.  If the GET method is used, the properties are passed as query parameters.  This can cause very long
 URLs, so POST is the preferred method.
 
-| Callback                                                    | Description                                                                                                                                         |
-|:------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Disconnect](disconnect.md)                                 | Bandwidth API sends this to the application when a call ends.                                                                                       |
-| [Recording Available](recordingAvailable.md)                | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
-| [Transfer Disconnect](transferDisconnect.md) | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                                      |
-| [Conference Created](conferenceCreated.md)  | Bandwidth API sends this when a new conference is created.                                                                                                          |
-| [Conference Member Join](conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                                                |
-| [Conference Member Exit](conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                                                   |
-| [Conference Completed](conferenceCompleted.md) | Bandwidth API sends this after the last member leaves the conference.                                                                                            |
+| Callback                                       | Description                                                                                                                                         |
+| :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Disconnect](disconnect.md)                    | Bandwidth API sends this to the application when a call ends.                                                                                       |
+| [Recording Available](recordingAvailable.md)   | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| [Transfer Disconnect](transferDisconnect.md)   | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
+| [Conference Completed](conferenceCompleted.md) | Bandwidth API sends this after the last member leaves the conference.                                                                               |
