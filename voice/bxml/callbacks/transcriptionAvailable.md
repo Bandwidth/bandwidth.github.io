@@ -10,27 +10,27 @@ HTTP/1.1 204
 ```
 
 ### Properties
-| Property          | Description                                                                                                                                                                                          |
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| eventType         | The event type, value is `transcriptionAvailable`.                                                                                                                                                   |
-| accountId         | The account id associated with the event.                                                                                                                                                            |
-| applicationId     | The application id associated with the event.                                                                                                                                                        |
-| callId            | The call id associated with the event.                                                                                                                                                               |            
-| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the call id of the original call leg that contained the `<Transfer>` tag. Otherwise, null.                         |
-| recordingId       | The unique id for this recording.                                                                                                                                                                    | 
-| to                | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                                                                                        |
-| from              | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                                            |
-| direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                                                                                    |
-| tag               | (optional) The `tag` specified earlier in the call.                                                                                                                                                  |
-| startTime         | Time the recording started (in ISO8601 format).                                                                                                                                                      |
-| endTime           | Time the recording ended (in ISO8601 format).                                                                                                                                                        |
-| duration          | Length of the recording (in ISO8601 format).                                                                                                                                                         |
-| fileFormat        | The format that the recording was saved in - `mp3` or `wav`.                                                                                                                                         |
-| callUrl           | The URL of the call associated with the event.                                                                                                                                                       |
-| mediaUrl          | URL to retrieve the contents of the recording.                                                                                                                                                       |
-| transcription     | Transcription information, see below.                                                                                                                                                                |
-| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                          |
-| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.   |
+| Property          | Description                                                                                                                                                                           |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| eventType         | The event type, value is `transcriptionAvailable`.                                                                                                                                    |
+| accountId         | The account id associated with the event.                                                                                                                                             |
+| applicationId     | The application id associated with the event.                                                                                                                                         |
+| callId            | The call id associated with the event.                                                                                                                                                |            
+| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that initiated the `<Transfer>`. Otherwise, null.                             |
+| recordingId       | The unique id for this recording.                                                                                                                                                     | 
+| to                | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                                                                         |
+| from              | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                             |
+| direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                                                                     |
+| tag               | (optional) The `tag` specified earlier in the call.                                                                                                                                   |
+| startTime         | Time the recording started (in ISO8601 format).                                                                                                                                       |
+| endTime           | Time the recording ended (in ISO8601 format).                                                                                                                                         |
+| duration          | Length of the recording (in ISO8601 format).                                                                                                                                          |
+| fileFormat        | The format that the recording was saved in - `mp3` or `wav`.                                                                                                                          |
+| callUrl           | The URL of the call associated with the event.                                                                                                                                        |
+| mediaUrl          | URL to retrieve the contents of the recording.                                                                                                                                        |
+| transcription     | Transcription information, see below.                                                                                                                                                 |
+| transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.  |
+| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.     |
 
 ### Transcription Properties
 | Property      | Description                                                                                                                 |

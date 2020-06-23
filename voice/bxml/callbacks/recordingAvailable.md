@@ -19,7 +19,7 @@ HTTP/1.1 204
 | from              | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                                             |   
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                                                                                     |
 | callId            | The call id associated with the event.                                                                                                                                                                |
-| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the call id of the original call leg that contained the `<Transfer>` tag. Otherwise, null.                          |
+| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that initiated the `<Transfer>`. Otherwise, null.                                             |
 | recordingId       | The unique id for this recording.                                                                                                                                                                     |
 | channels          | Number of channels in the recording (1 or 2).                                                                                                                                                         |
 | startTime         | The time that the recording started (in ISO8601 format).                                                                                                                                              |
@@ -30,8 +30,8 @@ HTTP/1.1 204
 | mediaUrl          | The URL of the recording media.                                                                                                                                                                       |
 | tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                                                                     |
 | status            | The state of the recording. Can be `complete`, `partial`, or `error`. A `partial` status indicates that, although the recording is available to be downloaded, parts of the recording are missing.    |
-| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                           |
-| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.    |
+| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                 |
+| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.                    |
 
 {% common %}
 
