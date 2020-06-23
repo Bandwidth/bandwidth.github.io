@@ -4,7 +4,7 @@ Errors are based on the [Voice API Errors](../voice/errors.md) and the [Messagin
 
 ## Error Responses
 
-As of the current version, all responses from MFA will result in a HTTP 200, with a body message stating any errors. This will be changing with the next release, to use the appropriate HTTP response codes.
+All 4XX errors on the MFA API return a simple JSON object that contains a string with the description of the error. These errors should help users understand why the request made was invalid.
 
 ### Example
 
