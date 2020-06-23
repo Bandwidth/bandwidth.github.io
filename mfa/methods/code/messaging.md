@@ -22,7 +22,9 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | to            | To telephone number   |
 | from          | From telephone number |
 | applicationId | The messaging application id |
-| scope         | scope of the request. Currently `scope` is the only valid value |
+| scope         | An optional field to denote what scope or action the 2fa code is addressing. If not supplied, defaults to "2FA". |
+| message | The message format of the 2fa code. There are three values that the system will replace "{CODE}", "{NAME}", "{SCOPE}". The "{SCOPE}" and "{NAME} value template are optional, while "{CODE}" must be supplied. As the name would suggest, code will be replace with the actual 2fa code. Name is replaced with the application name, configured during provisioning of 2fa. The scope value is the same value sent during the call and partitioned by the server. |
+| digits | The number of digits for your 2fa code. The valid number ranges from 2 to 8, inclusively. |
 
 ### Response Attributes
 
@@ -46,7 +48,9 @@ curl -X POST \
         "to"            : "+12345678902",
         "from"          : "+12345678901",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
-        "scope"         : "scope"
+        "scope"         : "scope",
+        "digits"        : 5,
+        "message"       : "Your temporary {NAME} {SCOPE} code is {CODE}"
     }
   '
 ```
@@ -69,7 +73,9 @@ var response = controller.CreateMessagingTwoFactor(accountId, new TwoFactorCodeR
     ApplicationId = applicationId,
     From = fromNumber,
     To = toNumber,
-    Scope = "scope"
+    Scope = "scope",
+    Digits = 5,
+    Message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 });
 
 Console.WriteLine( response.Data.MessageId );
@@ -83,6 +89,8 @@ request.setApplicationId(applicationId);
 request.setFrom(fromNumber);
 request.setTo(toNumber);
 request.setScope("scope");
+request.setDigits(5);
+request.setMessage("Your temporary {NAME} {SCOPE} code is {CODE}");
 
 ApiResponse<TwoFactorMessagingResponse> response = controller.createMessagingTwoFactor(accountId, request);
 
@@ -99,6 +107,8 @@ body.from = from_phone
 body.to = to_phone
 body.application_id = application_id
 body.scope = 'scope'
+body.digits = 5
+body.message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 
 auth_client.create_messaging_two_factor(account_id, body)
 ```
@@ -111,7 +121,9 @@ body = TwoFactorCodeRequestSchema(
     mfrom = from_phone,
     to = to_phone,
     application_id = messaging_application_id,
-    scope = 'scope'
+    scope = 'scope',
+    digits = 5,
+    message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 )
 response = auth_client.create_messaging_two_factor(account_id, body)
 message_id = response.body.message_id
@@ -125,6 +137,8 @@ payload.applicationId = applicationId;
 payload.from = fromNumber;
 payload.to = toNumber;
 payload.scope = 'scope';
+payload.digits = 5;
+payload.message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 const response = await controller.createMessagingTwoFactor(accountId, payload);
 
@@ -141,6 +155,8 @@ $body->from = $fromPhone;
 $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
+$body->digits = 5;
+$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 $authClient->createMessagingTwoFactor($accountId, $body);
 ```
