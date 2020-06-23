@@ -37,17 +37,17 @@ curl -X GET
 > Responds
 
 ```http
-HTTP/1.1 200 (Success)
-Content-Type: application/json
 {
-  "id": "75c21163-e110-41bc-bd76-1bb428ec85d5",
-  "participants": [
-    "c0c0dcfd-4ce4-4752-a8d9-b6ddeb72bead",
-    "320e2af6-13ec-498d-8b51-daba52c37853"
-  ],
-  "tag": "session1"
+  "id"                  : "75c21163-e110-41bc-bd76-1bb428ec85d5",
+  "participants"        : [
+      "c0c0dcfd-4ce4-4752-a8d9-b6ddeb72bead",
+      "320e2af6-13ec-498d-8b51-daba52c37853"
+ ],
+  "tag"                 : "session1"
 }
 ```
+
+### Potential Error Responses
 
 ```http
 HTTP/1.1 400 (Bad Request)

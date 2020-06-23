@@ -11,6 +11,7 @@
 | [`/sessions`](methods/sessions/about.md)        | Sessions allow you to create media connections between participants                               
 
 
+
 ## Error Codes
 | Type                         | Description                                                           |
 |:-----------------------------|:----------------------------------------------------------------------|

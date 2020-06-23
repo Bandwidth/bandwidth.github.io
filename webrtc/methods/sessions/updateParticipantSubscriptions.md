@@ -46,10 +46,11 @@ curl -X PUT
 > Responds
 
 ```http
-HTTP/1.1 204 (No Content)
-Content-Type: application/json
-{}
+
+}
 ```
+
+### Potential Error Responses
 
 ```http
 HTTP/1.1 400 (Bad Request)
