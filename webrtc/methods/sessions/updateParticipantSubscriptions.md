@@ -48,6 +48,7 @@ curl -X PUT
 ```http
 HTTP/1.1 204 (No Content)
 Content-Type: application/json
+{}
 ```
 
 ```http

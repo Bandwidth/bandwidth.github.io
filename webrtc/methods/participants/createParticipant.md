@@ -48,7 +48,13 @@ curl -X POST
     "VIDEO",
     "AUDIO"
   ],
-  "subscriptions": null,
+  "subscriptions": {
+    "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    "participants": [
+      "568749d5-04d5-483d-adf5-deac7dd3d521",
+      "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+    ]
+  },
   "tag": "participant1"
 }'
 ```
@@ -58,6 +64,28 @@ curl -X POST
 ```http
 HTTP/1.1 200 (Success)
 Content-Type: application/json
+{
+  "participant": {
+    "id": "320e2af6-13ec-498d-8b51-daba52c37853",
+    "callbackUrl": "https://example.com/callback",
+    "publishPermissions": [
+      "VIDEO",
+      "AUDIO"
+    ],
+    "sessions": [
+      "75c21163-e110-41bc-bd76-1bb428ec85d5"
+    ],
+    "subscriptions": {
+      "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+      "participants": [
+        "568749d5-04d5-483d-adf5-deac7dd3d521",
+        "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+      ]
+    },
+    "tag": "participant1"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.L8i6g3PfcHlioHCCPURC9pmXT7gdJpx3kOoyAfNUwCc"
+}
 ```
 
 ```http
