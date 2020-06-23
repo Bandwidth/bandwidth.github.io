@@ -33,7 +33,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- Accepted BXML verbs to play to the called party -->
+    <!-- Valid, executable BXML verbs to play to the called party -->
 </Response>
 ```
 
@@ -80,4 +80,3 @@ POST http://[External server URL]
 ```
 
 {% endmethod %}
-
