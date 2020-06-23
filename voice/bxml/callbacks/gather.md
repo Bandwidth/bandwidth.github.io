@@ -32,7 +32,7 @@ Content-Type: application/xml; charset=utf-8
 | digits           | (optional) The digits collected from user.  Null if a timeout occurred before any digits were pressed.                                                                                             |
 | terminatingDigit | (optional) The digit the user pressed to end the gather.  Null if no terminating digit was pressed.                                                                                                |
 | transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                        |
-| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, this is set to the phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null. |
+| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.                 |
 
 {% common %}
 
