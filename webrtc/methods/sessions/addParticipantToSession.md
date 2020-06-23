@@ -45,7 +45,7 @@ curl -X PUT
 
 > Responds
 
-```http
+```json
 
 }
 ```

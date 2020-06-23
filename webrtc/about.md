@@ -3,7 +3,6 @@
 ## Base API URL
 `https://api.webrtc.bandwidth.com/v1/accounts/{accountId}`
 
-
 ## REST API Reference Index
 | Resource                                        | Description                                                                                       
 |:------------------------------------------------|:--------------------------------------------------------------------------------------------------

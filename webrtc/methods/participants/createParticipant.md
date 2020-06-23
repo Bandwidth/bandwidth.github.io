@@ -61,7 +61,7 @@ curl -X POST
 
 > Responds
 
-```http
+```json
 {
   "participant"         : {
       "id"                  : "320e2af6-13ec-498d-8b51-daba52c37853",

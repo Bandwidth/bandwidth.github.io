@@ -29,7 +29,7 @@ curl -X DELETE
 
 > Responds
 
-```http
+```json
 
 }
 ```

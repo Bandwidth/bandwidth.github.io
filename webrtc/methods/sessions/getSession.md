@@ -36,7 +36,7 @@ curl -X GET
 
 > Responds
 
-```http
+```json
 {
   "id"                  : "75c21163-e110-41bc-bd76-1bb428ec85d5",
   "participants"        : [

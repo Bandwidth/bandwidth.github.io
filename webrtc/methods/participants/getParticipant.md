@@ -39,7 +39,7 @@ curl -X GET
 
 > Responds
 
-```http
+```json
 {
   "id"                  : "320e2af6-13ec-498d-8b51-daba52c37853",
   "callbackUrl"         : "https://example.com/callback",

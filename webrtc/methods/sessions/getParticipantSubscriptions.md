@@ -35,7 +35,7 @@ curl -X GET
 
 > Responds
 
-```http
+```json
 {
   "sessionId"           : "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
   "participants"        : [
