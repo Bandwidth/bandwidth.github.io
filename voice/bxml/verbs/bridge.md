@@ -115,9 +115,35 @@ puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
-
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```python
-# TODO
+speak_sentence = SpeakSentence(
+    sentence="Wait until the second call answers"
+)
+pause = Pause(
+    duration=60
+)
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(pause)
+print(response.to_bxml())
+```
+
+Second call:
+```python
+speak_sentence = SpeakSentence(
+    sentence="The bridge will start now"
+)
+bridge = Bridge("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    bridge_complete_url="https://bridge.url/nextBXMLForSecondCall",
+    bridge_target_complete_url="https://bridge.url/nextBXMLForFirstCall"
+)
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(bridge)
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
