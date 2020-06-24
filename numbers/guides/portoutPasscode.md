@@ -143,7 +143,24 @@ hello world
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+var order = new TnOptionOrder
+{
+    CustomerOrderId = "TnOptionOrder1",
+    TnOptionGroups = new List<TnOptionGroup>
+    {
+        new TnOptionGroup {
+            PortOutPasscode = "a1b2c3",
+            TelephoneNumbers = new List<string>
+            {
+                "2018551020"
+            }
+        }
+    }
+};
+
+var response = await TnOptions.Create(client, order);
+
+Console.WriteLine(response.TnOptionOrder.OrderCreateDate);//"2016-01-15T12:01:14.324Z"
 ```
 
 > Output
@@ -249,7 +266,26 @@ hello world
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+var order = new TnOptionOrder
+{
+    CustomerOrderId = "TnOptionOrder1",
+    TnOptionGroups = new List<TnOptionGroup>
+    {
+        new TnOptionGroup {
+            PortOutPasscode = "a1b2c3",
+            TelephoneNumbers = new List<string>
+            {
+                "2018551020",
+                "2018551022",
+                "2018551023"
+            }
+        }
+    }
+};
+
+var response = await TnOptions.Create(client, order);
+
+Console.WriteLine(response.TnOptionOrder.OrderCreateDate);//"2016-01-15T12:01:14.324Z"
 ```
 
 > Output
