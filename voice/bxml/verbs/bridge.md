@@ -82,8 +82,36 @@ Second call:
 
 {% sample lang="ruby" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```ruby
-# TODO
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Wait until the second call answers"
+})
+pause = Bandwidth::Voice::Pause.new({
+    :duration => 60
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(pause)
+puts response.to_bxml()
+```
+
+Second call:
+```ruby
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "The bridge will start now"
+})
+bridge = response = Bandwidth::Voice::Bridge.new({
+    :call_id => "c-c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    :bridge_complete_url => "https://bridge.url/nextBXMLForSecondCall",
+    :bridge_target_complete_url => "https://bridge.url/nextBXMLForFirstCall"
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(bridge)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
