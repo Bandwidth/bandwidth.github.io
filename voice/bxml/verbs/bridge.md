@@ -100,8 +100,28 @@ Second call:
 
 {% sample lang="php" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```php
-// TODO
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Wait until the second call answers");
+$pause = new BandwidthLib\Voice\Bxml\Pause();
+$pause->duration(60);
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($pause);
+
+echo $response->toBxml();
+```
+
+Second call:
+```php
+$bridge = new BandwidthLib\Voice\Bxml\Bridge("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d");
+$bridge->bridgeCompleteUrl("https://bridge.url/nextBXMLForSecondCall");
+$bridge->bridgeTargetCompleteUrl("https://bridge.url/nextBXMLForFirstCall");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($bridge);
+
+echo $response->toBxml();
 ```
 
 {% common %}
