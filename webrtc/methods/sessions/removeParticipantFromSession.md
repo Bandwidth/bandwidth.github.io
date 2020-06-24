@@ -10,7 +10,7 @@ This will automatically remove any subscriptions the participant has associated 
 
 #### Basic Authentication
 
-Bandwidth's WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 

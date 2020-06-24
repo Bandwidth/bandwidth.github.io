@@ -10,7 +10,7 @@ This is a full update that will replace the participant's subscriptions. First c
 
 #### Basic Authentication
 
-Bandwidth's WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 

@@ -10,7 +10,7 @@ Sessions are idempotent, so relevant parameters must be set in this function if 
 
 #### Basic Authentication
 
-Bandwidth's WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 

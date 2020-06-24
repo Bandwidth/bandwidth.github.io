@@ -1,6 +1,6 @@
-# Bandwidth's WebRTC API
+# Bandwidth WebRTC API
 
-Bandwidth's WebRTC API
+Bandwidth WebRTC API
 
 ## Base URL
 `https://api.webrtc.bandwidth.com/v1/accounts/{accountId}`

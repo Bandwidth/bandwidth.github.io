@@ -6,10 +6,6 @@
 `https://api.webrtc.bandwidth.com/v1/accounts/{accountId}`
 
 
-## Guides
-|:------------------------------------------------|:--------------------------------------------------------------------------------------------------
-| [`Quickstart`](guides/quickstart.md)            | A few quick examples to get you going
-
 
 ## REST API Reference Index
 | Resource                                        | Description                                                                                       
