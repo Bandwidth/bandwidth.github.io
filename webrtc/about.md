@@ -1,5 +1,5 @@
 # Bandwidth's WebRTC API
-⚠️ Your account must be activated to use WebRTC. Please contact [`sales support`](https://www.bandwidth.com/talk-to-an-expert/) to learn how to get access!
+⚠️ Your account must be activated to use WebRTC. Please contact [sales support](https://www.bandwidth.com/talk-to-an-expert/) to learn how to get access!
 
 
 ## Base API URL
