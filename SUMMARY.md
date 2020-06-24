@@ -126,6 +126,7 @@
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Conferences](voice/methods/conferences/about.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
+		* [PUT Update Conference Member](voice/methods/conferences/putConferencesConferenceIdMembersMemberId.md)
 	* [Recording Management](voice/methods/recordings/about.md)
 		* [GET Account Recordings](voice/methods/recordings/getRecordings.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
