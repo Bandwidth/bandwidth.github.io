@@ -1,12 +1,29 @@
 # PHP SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 2.1.0 | Updated Pause and SendDtmf BXML attributes |
+| 2.2.0 | Added MFA functions and support for multiple nested verbs for a Gather |
+| 2.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+
+## Links
+
+* [Github](https://github.com/Bandwidth/php-sdk)
+
+* [Packagist](https://packagist.org/packages/bandwidth/sdk)
+
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/php)
+
+## Download & Install
 
 ```
 composer require bandwidth/sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```php
 require "vendor/autoload.php";
@@ -17,12 +34,14 @@ $config = new BandwidthLib\Configuration(
         'messagingBasicAuthPassword' => 'secret',
         'voiceBasicAuthUserName' => 'username',
         'voiceBasicAuthPassword' => 'password',
+        'twoFactorAuthBasicAuthUserName' => 'username',
+        'twoFactorAuthBasicAuthPassword' => 'password'
     )
 );
 $client = new BandwidthLib\BandwidthClient($config);
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```php
 $voiceClient = $client->getVoice()->getClient();
@@ -40,7 +59,7 @@ try {
     print_r($e);
 }
 ```
-### Generate BXML
+## Generate BXML
 
 ```php
 $speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Hello!");
@@ -52,7 +71,7 @@ $response->addVerb($speakSentence);
 echo $response->toBxml();
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```php
 $messagingClient = $client->getMessaging()->getClient();
@@ -71,7 +90,40 @@ try {
 }
 ```
 
-### Order Phone Number
+## Perform A 2FA Request
+
+```php
+$authClient = $client->getTwoFactorAuth()->getClient();
+$accountId = '1';
+
+$fromPhone = '+18888888888';
+$toPhone = '+17777777777';
+$messagingApplicationId = '1-d-b';
+$scope = 'scope';
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $messagingApplicationId;
+$body->scope = $scope;
+
+$authClient->createMessagingTwoFactor($accountId, $body);
+
+$code = "123456"; //This is the user input to validate
+
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema();
+$body->from = $fromPhone;
+$body->to = $toPhone;
+$body->applicationId = $messagingApplicationId;
+$body->scope = $scope;
+$body->code = $code;
+
+$response = $authClient->createVerifyTwoFactor($accountId, $body);
+$strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
+echo $strn;
+```
+
+## Order Phone Number
 
 Phone number ordering is done using the [Bandwidth Iris SDK](https://github.com/Bandwidth/php-bandwidth-iris). You can install this package by running the following command
 

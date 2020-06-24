@@ -30,12 +30,12 @@ HTTP/1.1 204
 | transcription | Transcription information, see below.                                                                |
 
 ### Transcription Properties
-| Property      | Description                                                                                          |
-|:--------------|:-----------------------------------------------------------------------------------------------------|
-| id            | The unique id of the transcription.                                                                  |
-| url           | URL to retrieve the transcription output.                                                            |
-| status        | The state of the transcription. Can be `available`, `error`, `timeout`, `file-size-too-big`.         |
-| completedTime | Time the transcription was completed (in ISO8601 format).                                            |
+| Property      | Description                                                                                                                 |
+|:--------------|:----------------------------------------------------------------------------------------------------------------------------|
+| id            | The unique id of the transcription.                                                                                         |
+| url           | URL to retrieve the transcription output.                                                                                   |
+| status        | The state of the transcription. Can be `available`, `error`, `timeout`, `file-size-too-big`, `file-size-too-small`.         |
+| completedTime | Time the transcription was completed (in ISO8601 format).                                                                   |
 
 {% common %}
 
@@ -55,8 +55,8 @@ POST http://[External server URL]
 	"direction"     : "outbound",
 	"from"          : "+15551112222",
 	"to"            : "+15553334444",
-	"startTime"     : "2019-09-13T16:48:29.235833Z",
-	"endTime"       : "2019-09-13T16:48:48.890016Z",
+	"startTime"     : "2019-09-13T16:48:29.235Z",
+	"endTime"       : "2019-09-13T16:48:48.890Z",
 	"duration"      : "PT20.056S",
 	"fileFormat"    : "wav",
 	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
@@ -65,7 +65,7 @@ POST http://[External server URL]
 		"id"            : "t-1a68a908-544f-48ae-b30d-d1747dca3723",
 		"url"           : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/transcription",
 		"status"        : "available",
-		"completedTime" : "2019-09-13T16:49:28.883159Z"
+		"completedTime" : "2019-09-13T16:49:28.883Z"
 	}
 }
 ```

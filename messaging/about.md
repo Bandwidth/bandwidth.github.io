@@ -56,6 +56,8 @@ This indicates the number of segments the original message from the user is brok
 
 The value `segmentCount` is returned in the callback events and the response when creating the message.
 
+For mored detailed information on segment counts, please see our [character limits and concatenation practices](https://support.bandwidth.com/hc/en-us/articles/360010235373-What-Are-Bandwidth-s-SMS-Character-Limits-Concatenation-Practices-).
+
 ## MMS and Group Message Delivery Receipts {#mms-dlr}
 
 MMS and Group messages **don’t** currently support delivery receipts. However, you will still receive a message delivered event when the message is sent. For _only MMS and Group Messages_ this means that your message has been handed off to the Bandwidth core network, but has not been confirmed at the downstream carrier. We are actively working to support true delivery receipts for the v2 Messaging API.

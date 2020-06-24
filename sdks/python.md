@@ -1,6 +1,24 @@
 # Python SDK
 
-### Download & Install
+## Release Notes
+
+| Version | Notes |
+|--|--|
+| 6.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 6.1.0 | Updated Pause and SendDtmf BXML attributes |
+| 6.2.0 | Added MFA functions |
+| 6.3.0 | Added support for multi nested verbs in Gathers |
+| 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+
+## Links
+
+* [Github](https://github.com/Bandwidth/python-sdk)
+
+* [PyPi](https://pypi.org/project/bandwidth-sdk/)
+
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/python)
+
+## Download & Install
 
 ℹ️ Note that bandwidth-sdk [`v5.x.x`](https://pypi.org/project/bandwidth-sdk/) and greater will only support Bandwidth's v2 APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate to v2. For v1 installation instructions, please see [old.dev.bandwidth.com](https://old.dev.bandwidth.com/clientLib/python.html).
 
@@ -8,35 +26,41 @@
 pip install bandwidth-sdk
 ```
 
-### Initialize Bandwidth Client
+## Initialize Bandwidth Client
 
 ```python
 from bandwidth.bandwidth_client import BandwidthClient
 
 from bandwidth.messaging.models.message_request import MessageRequest
-from bandwidth.messaging.exceptions.generic_client_exception import GenericClientException
-from bandwidth.messaging.exceptions.path_client_exception import PathClientException
+from bandwidth.messaging.exceptions.messaging_exception import MessagingException
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
-from bandwidth.voice.exceptions.error_response_exception import ErrorResponseException
+from bandwidth.voice.exceptions.error_response_exception import ApiErrorResponseException
 from bandwidth.voice.bxml.response import Response
 from bandwidth.voice.bxml.verbs import *
+
+from bandwidth.twofactorauth.models.two_factor_code_request_schema import TwoFactorCodeRequestSchema
+from bandwidth.twofactorauth.models.two_factor_verify_request_schema import TwoFactorVerifyRequestSchema
 
 ##Initialize client
 voice_basic_auth_user_name = 'username'
 voice_basic_auth_password = 'password'
 messaging_basic_auth_user_name = 'token'
 messaging_basic_auth_password = 'secret'
+two_factor_auth_basic_auth_user_name = 'username'
+two_factor_auth_basic_auth_password = 'password'
 
 bandwidth_client = BandwidthClient(
     voice_basic_auth_user_name=voice_basic_auth_user_name,
     voice_basic_auth_password=voice_basic_auth_password,
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
-    messaging_basic_auth_password=messaging_basic_auth_password)
+    messaging_basic_auth_password=messaging_basic_auth_password,
+    two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
+    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password)
 ```
 
-### Create Phone Call
+## Create Phone Call
 
 ```python
 voice_client = bandwidth_client.voice_client.client
@@ -53,12 +77,12 @@ try:
     response = voice_client.create_call(account_id, body=body)
     print(response.body.call_id) #c-3f758f24-a59bb21e-4f23-4d62-afe9-53o2ls3o4saio4l
     print(response.status_code) #201
-except ErrorResponseException as e:
+except ApiErrorResponseException as e:
     print(e.description) #Invalid from: must be an E164 telephone number
     print(e.response_code) #400
 ```
 
-### Generate BXML
+## Generate BXML
 
 ```python
 response = Response()
@@ -73,7 +97,7 @@ response.add_verb(speak_sentence)
 print(response.to_bxml())
 ```
 
-### Send Text Message
+## Send Text Message
 
 ```python
 messaging_client = bandwidth_client.messaging_client.client
@@ -89,14 +113,43 @@ try:
     response = messaging_client.create_message(account_id, body=body)
     print(response.body.id) #1570819529611mexbyfr7ugrouuxy
     print(response.status_code) #202
-except GenericClientException as e:
+except MessagingException as e:
     print(e.description) #Your request could not be accepted.
     print(e.response_code) #400
-except PathClientException as e:
-    print(e.message) #Access is denied
-    print(e.response_code) #403
 ```
 
-### Order Phone Number
+## Order Phone Number
 
 Coming soon
+
+## Perform A 2FA Request
+
+```python
+auth_client = bandwidth_client.two_factor_auth_client.client
+account_id = "1"
+
+from_phone = "+18888888888"
+to_phone = "+17777777777"
+messaging_application_id = "1-d-b"
+scope = "scope"
+
+body = TwoFactorCodeRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = messaging_application_id,
+    scope = scope
+)
+auth_client.create_messaging_two_factor(account_id, body)
+
+code = "123456" #This is the user input to validate
+
+body = TwoFactorVerifyRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = application_id,
+    scope = scope,
+    code = code
+)
+response = auth_client.create_verify_two_factor(account_id, body)
+print("Auth status: " + str(response.body.valid))
+```

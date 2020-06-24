@@ -45,7 +45,8 @@ module.exports = function ($) {
 			"accountCredentials.html",
 			"hostedMessaging.html",
 			"programmaticApplicationSetup.html",
-			"csrLookup.html"
+			"csrLookup.html",
+			"searchForNumbers.html"
 		];
 
 		$('li.chapter a').each(function(i, elem) {
@@ -62,7 +63,8 @@ module.exports = function ($) {
 	function hidePagesFromNav () {
 		var redirects = [
 			'International Overview',
-			'CSR Lookup API'
+			'CSR Lookup API',
+            'Get Messages'
 		];
 
 		redirects.forEach(page => {

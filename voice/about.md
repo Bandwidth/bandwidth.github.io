@@ -5,20 +5,21 @@
 
 ## REST API Reference Index
 
-| Resource                                       | Description                                                           |
-|:-----------------------------------------------|:----------------------------------------------------------------------|
-| [`/calls`](methods/calls/about.md)             | The Calls resource lets you make phone calls and modify active calls. |
-| [`/recordings`](methods/recordings/about.md)   | The Recordings resource lets you retrieve information about recordings created during calls as well as manage recordings on a live call. |
-| [`/conferences`](methods/conferences/about.md) | The Conferences resource lets you retrieve information about conferences and manage them as well as manage conference members. |
+| Resource                                          | Description                                                                       |
+|:--------------------------------------------------|:----------------------------------------------------------------------------------|
+| [`/calls`](methods/calls/about.md)                | The Calls resource lets you make phone calls and modify active calls.             |
+| [`/conferences`](methods/conferences/about.md)    | The Conferences resource lets you retrieve information and modify conferences.    |
+| [`/recordings`](methods/recordings/about.md)      | The Recordings resource lets you retrieve information about recordings created during calls as well as manage recordings on a live call. |
 
 
 ## BXML verbs
 
 | Verb                                                 | Description                                                                                           |
 |:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------|
+| [`<Conference>`](bxml/verbs/conference.md)           | The Conference verb is used to add a call to a conference.                                            |
 | [`<Forward>`](bxml/verbs/forward.md)                 | The Forward verb is used to forward an unanswered incoming call to another number.                    |
 | [`<Gather>`](bxml/verbs/gather.md)                   | The Gather verb is used to collect DTMF digits.                                                       |
-| [`<Hangup>`](bxml/verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                   |
+| [`<Hangup>`](bxml/verbs/hangup.md)                   | The Hangup verb is used to hang up or reject a call.                                                  |
 | [`<Pause>`](bxml/verbs/pause.md)                     | The Pause verb is used to delay verb execution for a period of time.                                  |
 | [`<PauseRecording>`](bxml/verbs/pauseRecording.md)   | The PauseRecording verb is used to pause a recording previously started by a `<StartRecording>` verb. |
 | [`<PlayAudio>`](bxml/verbs/playAudio.md)             | The PlayAudio verb is used to play an audio file in the call.                                         |
@@ -29,7 +30,7 @@
 | [`<SpeakSentence>`](bxml/verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
 | [`<StartRecording>`](bxml/verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
 | [`<StopRecording>`](bxml/verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
-| [`<Transfer>`](bxml/verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number or to join into a conference.        |
+| [`<Transfer>`](bxml/verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
 
 ## BXML Callbacks
 
@@ -50,6 +51,10 @@
 | [Recording Available](bxml/callbacks/recordingAvailable.md)      | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 | [Transfer Disconnect](bxml/callbacks/transferDisconnect.md)      | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                    |
 | [Transcription Available](bxml/callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                     |
+| [Conference Created](bxml/callbacks/conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                       |
+| [Conference Member Join](bxml/callbacks/conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                   |
+| [Conference Member Exit](bxml/callbacks/conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                      |
+| [Conference Completed](bxml/callbacks/conferenceCompleted.md)    | Bandwidth API sends this after the last member leaves the conference.                                                            |
 
 ## Error Codes
 | Type                         | Description                                                           |
