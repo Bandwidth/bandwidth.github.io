@@ -148,8 +148,34 @@ print(response.to_bxml())
 
 {% sample lang="js" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```js
-// TODO
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Wait until the second call answers");
+var pause = new BandwidthBxml.Verbs.Pause();
+pause.setDuration(60);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(pause);
+
+console.log(response.toBxml());
+```
+
+Second call:
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("The bridge will start now");
+var bridge = new BandwidthBxml.Verbs.Bridge();
+bridge.setCallId("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d");
+bridge.setBridgeCompleteUrl("https://bridge.url/nextBXMLForSecondCall");
+bridge.setBridgeTargetCompleteUrl("https://bridge.url/nextBXMLForFirstCall");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(bridge);
+
+console.log(response.toBxml());
 ```
 
 {% sample lang="php" %}
