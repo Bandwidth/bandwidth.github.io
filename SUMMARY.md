@@ -125,7 +125,9 @@
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Conferences](voice/methods/conferences/about.md)
+		* [GET Conference Information](voice/methods/conferences/getConferencesConferenceId.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
+		* [GET Member Information](voice/methods/conferences/getConferenceMember.md)
 	* [Recording Management](voice/methods/recordings/about.md)
 		* [GET Account Recordings](voice/methods/recordings/getRecordings.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
@@ -235,6 +237,23 @@
     * [POST Verify](mfa/methods/code/verify.md)
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
+
+## WebRTC
+* [Overview](webrtc/about.md)
+* [API Methods](webrtc/methods/about.md)
+    * [Participants](webrtc/methods/participants/about.md)
+        * [POST Create Participant](webrtc/methods/participants/createParticipant.md)
+        * [DELETE Delete Participant](webrtc/methods/participants/deleteParticipant.md)
+        * [GET Get Participant](webrtc/methods/participants/getParticipant.md)
+    * [Sessions](webrtc/methods/sessions/about.md)
+        * [PUT Add Participant](webrtc/methods/sessions/addParticipantToSession.md)
+        * [POST Create Session](webrtc/methods/sessions/createSession.md)
+        * [DELETE Delete Session](webrtc/methods/sessions/deleteSession.md)
+        * [GET Get Participant Subscriptions](webrtc/methods/sessions/getParticipantSubscriptions.md)
+        * [GET Get Session](webrtc/methods/sessions/getSession.md)
+        * [DELETE Remove Participant From Session](webrtc/methods/sessions/removeParticipantFromSession.md)
+        * [PUT Update Participant Subscriptions](webrtc/methods/sessions/updateParticipantSubscriptions.md)
+* [Errors](webrtc/errors.md)
 
 ## SDKs
 * [Python](sdks/python.md)
