@@ -4,10 +4,9 @@ When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent 
   the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered. Valid BXML returned by this callback will be executed for the called party only. Afterward, the called party will be bridged to the original
   call. 
   
-  Valid Bxml must be made up of executable verbs. The list of verbs that are executable when returned from this callback is as follows: 
+Most BXML verbs are allowed in response to a `transferAnswer` event, but some are not allowed. A full list of verbs and whether or not they are allowed:
 
-
-| Verb                                              | Executable    |
+| Verb                                              | Allowed       |
 |---------------------------------------------------|---------------|
 | [Conference](../verbs/conference.md)              | No            |
 | [Forward](../verbs/forward.md)                    | No            |

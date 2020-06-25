@@ -16,7 +16,7 @@ HTTP/1.1 204
 | accountId         | The account id associated with the event.                                                                                                                                             |
 | applicationId     | The application id associated with the event.                                                                                                                                         |
 | callId            | The call id associated with the event.                                                                                                                                                |            
-| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that initiated the `<Transfer>`. Otherwise, null.                             |
+| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, null.                              |
 | recordingId       | The unique id for this recording.                                                                                                                                                     | 
 | to                | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                                                                         |
 | from              | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                             |
