@@ -148,26 +148,127 @@ Console.WriteLine(response.ToBXML());
 
 {% sample lang="ruby" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```ruby
-# TODO
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "Wait until the second call answers"
+})
+pause = Bandwidth::Voice::Pause.new({
+    :duration => 60
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(pause)
+puts response.to_bxml()
+```
+
+Second call:
+```ruby
+speak_sentence = Bandwidth::Voice::SpeakSentence.new({
+    :sentence => "The bridge will start now"
+})
+bridge = response = Bandwidth::Voice::Bridge.new({
+    :call_id => "c-c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    :bridge_complete_url => "https://bridge.url/nextBXMLForSecondCall",
+    :bridge_target_complete_url => "https://bridge.url/nextBXMLForFirstCall"
+})
+
+response = Bandwidth::Voice::Response.new()
+response.push(speak_sentence)
+response.push(bridge)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```python
-# TODO
+speak_sentence = SpeakSentence(
+    sentence="Wait until the second call answers"
+)
+pause = Pause(
+    duration=60
+)
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(pause)
+print(response.to_bxml())
+```
+
+Second call:
+```python
+speak_sentence = SpeakSentence(
+    sentence="The bridge will start now"
+)
+bridge = Bridge("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    bridge_complete_url="https://bridge.url/nextBXMLForSecondCall",
+    bridge_target_complete_url="https://bridge.url/nextBXMLForFirstCall"
+)
+
+response = Response()
+response.add_verb(speak_sentence)
+response.add_verb(bridge)
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```js
-// TODO
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("Wait until the second call answers");
+var pause = new BandwidthBxml.Verbs.Pause();
+pause.setDuration(60);
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(pause);
+
+console.log(response.toBxml());
+```
+
+Second call:
+```js
+var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
+speakSentence.setSentence("The bridge will start now");
+var bridge = new BandwidthBxml.Verbs.Bridge();
+bridge.setCallId("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d");
+bridge.setBridgeCompleteUrl("https://bridge.url/nextBXMLForSecondCall");
+bridge.setBridgeTargetCompleteUrl("https://bridge.url/nextBXMLForFirstCall");
+
+var response = new BandwidthBxml.Response();
+response.addVerb(speakSentence);
+response.addVerb(bridge);
+
+console.log(response.toBxml());
 ```
 
 {% sample lang="php" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```php
-// TODO
+$speakSentence = new BandwidthLib\Voice\Bxml\SpeakSentence("Wait until the second call answers");
+$pause = new BandwidthLib\Voice\Bxml\Pause();
+$pause->duration(60);
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($speakSentence);
+$response->addVerb($pause);
+
+echo $response->toBxml();
+```
+
+Second call:
+```php
+$bridge = new BandwidthLib\Voice\Bxml\Bridge("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d");
+$bridge->bridgeCompleteUrl("https://bridge.url/nextBXMLForSecondCall");
+$bridge->bridgeTargetCompleteUrl("https://bridge.url/nextBXMLForFirstCall");
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($bridge);
+
+echo $response->toBxml();
 ```
 
 {% common %}
