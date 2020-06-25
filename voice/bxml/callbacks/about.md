@@ -14,15 +14,17 @@ URLs, so POST is the preferred method.
 
 We use a 15s request timeout when trying to deliver all callbacks, retrying once if we receive a connect error.
 
-| Callback                                 | Description                                                                                                                                                                                                  |
-|:-----------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Answer](answer.md)                      | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
-| [Gather](gather.md)                      | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                     |
-| [Initiate](initiate.md)                  | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                    |
-| [Record Complete](recordComplete.md)     | Bandwidth API sends this to the application when a `<Record>` is completed. The recording is not available to download until the [Recording Available](recordingAvailable.md) event is received.             |
-| [Redirect](redirect.md)                  | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
-| [Transfer Answer](transferAnswer.md)     | Bandwidth API sends this to the application when a `<Transfer>` is answered.                                                                                                                                 |
-| [Transfer Complete](transferComplete.md) | Bandwidth API sends this to the application when a `<Transfer>` is complete and the original call needs to continue.                                                                                         |
+| Callback                                          | Description                                                                                                                                                                                                  |
+|:--------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Answer](answer.md)                               | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
+| [Bridge Complete](bridgeComplete.md)              | Bandwidth API sends this to the application when a `<Bridge>` is complete and the original call needs to continue.                                                                                           |
+| [Bridge Target Complete](bridgeTargetComplete.md) | Bandwidth API sends this to the application when a `<Bridge>` is complete and the target call needs to continue.                                                                                             |
+| [Gather](gather.md)                               | Bandwidth API sends this when a `<Gather>` is completed.                                                                                                                                                     |
+| [Initiate](initiate.md)                           | Bandwidth API sends this to the application when an inbound call arrives.                                                                                                                                    |
+| [Record Complete](recordComplete.md)              | Bandwidth API sends this to the application when a `<Record>` is completed. The recording is not available to download until the [Recording Available](recordingAvailable.md) event is received.             |
+| [Redirect](redirect.md)                           | Bandwidth API sends this to the application when a `<Redirect>` is requested or when a POST request is made to the [/calls/{callId}](../../methods/calls/postCallsCallId.md) endpoint requesting a redirect. |
+| [Transfer Answer](transferAnswer.md)              | Bandwidth API sends this to the application when a `<Transfer>` is answered.                                                                                                                                 |
+| [Transfer Complete](transferComplete.md)          | Bandwidth API sends this to the application when a `<Transfer>` is complete and the original call needs to continue.                                                                                         |
 
 ## Asynchronous Callbacks
 
