@@ -131,7 +131,18 @@ hello world
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+TnOptionOrder order = new TnOptionOrder();
+order.setTnOptionGroups(new ArrayList<>());
+order.setCustomerOrderId("TnOptionOrder1");
+
+TnOptionGroup optionGroup = new TnOptionGroup();
+optionGroup.setPortOutPasscode("a1b2c3");// PortOutPasscode set here
+optionGroup.setTelephoneNumbers(new ArrayList<>());
+optionGroup.getTelephoneNumbers().add("2018551020");
+
+order.getTnOptionGroups().add(optionGroup);
+
+TnOptionOrderResponse response = TnOptions.create(client, order);
 ```
 
 > Output
@@ -254,7 +265,20 @@ hello world
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+TnOptionOrder order = new TnOptionOrder();
+order.setTnOptionGroups(new ArrayList<>());
+order.setCustomerOrderId("TnOptionOrder1");
+
+TnOptionGroup optionGroup = new TnOptionGroup();
+optionGroup.setPortOutPasscode("a1b2c3");// PortOutPasscode set here
+optionGroup.setTelephoneNumbers(new ArrayList<>());
+optionGroup.getTelephoneNumbers().add("2018551020");
+optionGroup.getTelephoneNumbers().add("2018551022");
+optionGroup.getTelephoneNumbers().add("2018551023");
+
+order.getTnOptionGroups().add(optionGroup);
+
+TnOptionOrderResponse response = TnOptions.create(client, order);
 ```
 
 > Output
