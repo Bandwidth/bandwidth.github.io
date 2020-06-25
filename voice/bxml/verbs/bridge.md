@@ -70,8 +70,37 @@ Second call:
 
 {% sample lang="java" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```java
-// TODO
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("Wait until the second call answers").build();
+
+Pause pause = Pause.builder()
+        .duration(60.0).build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(pause);
+
+System.out.println(response.toBXML());
+```
+
+Second call:
+```java
+SpeakSentence speakSentence = SpeakSentence.builder()
+        .text("The bridge will start now").build();
+
+Bridge bridge = Bridge.builder()
+        .callId("c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d")
+        .bridgeCompleteUrl("https://bridge.url/nextBXMLForSecondCall")
+        .bridgeTargetCompleteUrl("https://bridge.url/nextBXMLForFirstCall")
+        .build();
+
+Response response = Response.builder().build()
+        .add(speakSentence)
+        .add(bridge);
+
+System.out.println(response.toBXML());
 ```
 
 {% sample lang="csharp" %}
