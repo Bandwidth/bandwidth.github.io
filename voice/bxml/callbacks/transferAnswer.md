@@ -24,8 +24,6 @@ Most BXML verbs are allowed in response to a `transferAnswer` event, but some ar
 | [StopRecording](../verbs/stopRecording.md)        | Yes           |
 | [Transfer](../verbs/transfer.md)                  | No            |
 
-It is important to note that no other BXML verbs may be specified after a Transfer Answer Event is called.
-
 ### Expected response
 ```http
 HTTP/1.1 200
