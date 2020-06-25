@@ -76,8 +76,45 @@ Second call:
 
 {% sample lang="csharp" %}
 
+First call (c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d):
 ```csharp
-// TODO
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Sentence = "Wait until the second call answers"
+};
+
+Pause pause = new Pause
+{
+    Duration = 60
+};
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(pause);
+
+Console.WriteLine(response.ToBXML());
+```
+
+Second call:
+```csharp
+SpeakSentence speakSentence = new SpeakSentence
+{
+    Sentence = "The bridge will start now"
+};
+
+Bridge bridge = new Bridge
+{
+    CallId = "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    BridgeCompleteUrl = "https://bridge.url/nextBXMLForSecondCall",
+    BridgeTargetCompleteUrl = "https://bridge.url/nextBXMLForFirstCall"
+};
+
+
+Response response = new Response();
+response.Add(speakSentence);
+response.Add(bridge);
+
+Console.WriteLine(response.ToBXML());
 ```
 
 {% sample lang="ruby" %}
