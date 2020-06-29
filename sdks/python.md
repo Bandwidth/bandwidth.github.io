@@ -41,7 +41,7 @@ from bandwidth.messaging.exceptions.messaging_exception import MessagingExceptio
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
-from bandwidth.voice.exceptions.error_response_exception import ApiErrorResponseException
+from bandwidth.voice.exceptions.api_error_response_exception import ApiErrorResponseException
 from bandwidth.voice.bxml.response import Response
 from bandwidth.voice.bxml.verbs import *
 
