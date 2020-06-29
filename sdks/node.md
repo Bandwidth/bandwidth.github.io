@@ -33,6 +33,7 @@ https://www.npmjs.com/package/@bandwidth/bxml
 | 2.5.0 | Updated Pause (changed code comment to floats instead of ints), SendDtmf (added toneInterval and toneDuration attributes), and Record (added silenceTimeout attribute) verbs |
 | 2.6.0 | Multiple nested verbs with Gather verb |
 | 2.7.0 | Added Conferencing BXML |
+| 2.8.0 | Added Bridge verb |
 
 
 ### Numbers
@@ -53,6 +54,7 @@ https://www.npmjs.com/package/@bandwidth/mfa
 | Version | Notes |
 |--|--|
 | 1.0.0 | First release |
+| 1.1.0 | Updated schema with digits and expirationTimeInMinutes |
 
 ### WebRTC
 
@@ -61,6 +63,8 @@ https://www.npmjs.com/package/@bandwidth/webrtc
 | Version | Notes |
 |--|--|
 | 0.1.0 | Alpha release |
+| 0.2.0 | Updated Permission schema |
+| 0.3.0 | Updated server to fix URL encoding |
 
 ## Links 
 
