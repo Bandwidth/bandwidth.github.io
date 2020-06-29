@@ -9,6 +9,11 @@
 | 6.2.0 | Added MFA functions |
 | 6.3.0 | Added support for multi nested verbs in Gathers |
 | 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+| 6.5.0 | Updated WebRTC Permissions schema |
+| 6.6.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
+| 6.7.0 | Added BXML Bridge verb |
+| 6.8.0 | Updated WebRTC base URL |
+
 
 ## Links
 
