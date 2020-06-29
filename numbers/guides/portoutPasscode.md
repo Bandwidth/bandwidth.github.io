@@ -107,25 +107,52 @@ Location: https://dashboard.bandwidth.com:443/v1.0/accounts/{{accountId}}/tnopti
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+$tnoptions = $account->tnoptions();
+$data = array(
+    "TnOptionGroups" => array(
+        "TnOptionGroup" => array(
+            "PortOutPasscode" => "a1b2c3",
+            "TelephoneNumbers" => array(
+                "TelephoneNumber" => "2018551020"
+            )
+        ),
+    )
+);
+$response = $tnoptions->create($data);
+print_r($response->OrderCreateDate);
 ```
 
 > Output
 
 ```
-hello world
+2020-05-22T18:22:34.391Z
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-puts("hello world")
+data = {
+  :customer_order_id => "custom order",
+  :tn_option_groups => {
+    :tn_option_group => [
+      {
+        :port_out_passcode => "a1b2c3",
+        :telephone_numbers => {
+          :telephone_number => ["2018551020"]
+        }
+      }
+    ]
+  }
+}
+
+order = BandwidthIris::TnOptions.create_tn_option_order(data)
+puts order[:order_create_date]
 ```
 
 > Output
 
 ```
-hello world
+2020-05-22T18:22:34.391Z
 ```
 
 {% sample lang="java" %}
@@ -241,25 +268,56 @@ Location: https://dashboard.bandwidth.com:443/v1.0/accounts/{{accountId}}/tnopti
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+$tnoptions = $account->tnoptions();
+$data = array(
+    "TnOptionGroups" => array(
+        "TnOptionGroup" => array(
+            "PortOutPasscode" => "a1b2c3",
+            "TelephoneNumbers" => array(
+                "TelephoneNumber" => array(
+                    "2018551020",
+                    "2018551022",
+                    "2018551023"
+                )
+            )
+        ),
+    )
+);
+$response = $tnoptions->create($data);
+print_r($response->OrderCreateDate);
 ```
 
 > Output
 
 ```
-hello world
+2020-05-22T18:22:34.391Z
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-puts("hello world")
+data = {
+  :customer_order_id => "custom order",
+  :tn_option_groups => {
+    :tn_option_group => [
+      {
+        :port_out_passcode => "a1b2c3",
+        :telephone_numbers => {
+          :telephone_number => ["2018551020", "2018551022", "2018551023"]
+        }
+      }
+    ]
+  }
+}
+
+order = BandwidthIris::TnOptions.create_tn_option_order(data)
+puts order[:order_create_date]
 ```
 
 > Output
 
 ```
-hello world
+2020-05-22T18:22:34.391Z
 ```
 
 {% sample lang="java" %}
