@@ -36,6 +36,7 @@ This shows how to use Bandwidth XML to redirect the response to a new url.
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
    <Redirect redirectUrl="http://flow.url/newFlow" username='username' password='password'/>
+   <!--Username and Password are not required, but are included to demonstrate adding multiple attributes to the redirect tag-->
 </Response>
 ```
 
