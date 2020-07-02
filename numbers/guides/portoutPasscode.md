@@ -131,7 +131,18 @@ hello world
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+TnOptionOrder order = new TnOptionOrder();
+order.setTnOptionGroups(new ArrayList<>());
+order.setCustomerOrderId("TnOptionOrder1");
+
+TnOptionGroup optionGroup = new TnOptionGroup();
+optionGroup.setPortOutPasscode("a1b2c3");// PortOutPasscode set here
+optionGroup.setTelephoneNumbers(new ArrayList<>());
+optionGroup.getTelephoneNumbers().add("2018551020");
+
+order.getTnOptionGroups().add(optionGroup);
+
+TnOptionOrderResponse response = TnOptions.create(client, order);
 ```
 
 > Output
@@ -143,7 +154,24 @@ hello world
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+var order = new TnOptionOrder
+{
+    CustomerOrderId = "TnOptionOrder1",
+    TnOptionGroups = new List<TnOptionGroup>
+    {
+        new TnOptionGroup {
+            PortOutPasscode = "a1b2c3",
+            TelephoneNumbers = new List<string>
+            {
+                "2018551020"
+            }
+        }
+    }
+};
+
+var response = await TnOptions.Create(client, order);
+
+Console.WriteLine(response.TnOptionOrder.OrderCreateDate);//"2016-01-15T12:01:14.324Z"
 ```
 
 > Output
@@ -237,7 +265,20 @@ hello world
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+TnOptionOrder order = new TnOptionOrder();
+order.setTnOptionGroups(new ArrayList<>());
+order.setCustomerOrderId("TnOptionOrder1");
+
+TnOptionGroup optionGroup = new TnOptionGroup();
+optionGroup.setPortOutPasscode("a1b2c3");// PortOutPasscode set here
+optionGroup.setTelephoneNumbers(new ArrayList<>());
+optionGroup.getTelephoneNumbers().add("2018551020");
+optionGroup.getTelephoneNumbers().add("2018551022");
+optionGroup.getTelephoneNumbers().add("2018551023");
+
+order.getTnOptionGroups().add(optionGroup);
+
+TnOptionOrderResponse response = TnOptions.create(client, order);
 ```
 
 > Output
@@ -249,7 +290,26 @@ hello world
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+var order = new TnOptionOrder
+{
+    CustomerOrderId = "TnOptionOrder1",
+    TnOptionGroups = new List<TnOptionGroup>
+    {
+        new TnOptionGroup {
+            PortOutPasscode = "a1b2c3",
+            TelephoneNumbers = new List<string>
+            {
+                "2018551020",
+                "2018551022",
+                "2018551023"
+            }
+        }
+    }
+};
+
+var response = await TnOptions.Create(client, order);
+
+Console.WriteLine(response.TnOptionOrder.OrderCreateDate);//"2016-01-15T12:01:14.324Z"
 ```
 
 > Output
