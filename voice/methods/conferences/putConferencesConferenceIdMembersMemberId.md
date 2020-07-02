@@ -18,7 +18,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:----------------|:-----------------------------------------------------------------------------|:----------|
 | mute            | (optional) If true, member can't speak in the conference                     | No        |
 | hold            | (optional) If true, member can't speak or hear in the conference             | No        |
-| callIdsToCoach  | (optional) If not null, updates the list of calls to be coached by this member.<br><aside class="alert general small">If an empty list is sent, then the member will no longer be the coach and can be heard by everyone.</aside><br>Note that a conference may only have one coach, so trying to set `callIdsToCoach` on a conference that already has a coach results in an error. | No        | 
+| callIdsToCoach  | (optional) If not null, updates the list of calls to be coached by this member.<br><ul><li>If the member being updated is the coach, updates the calls being coached.</li><li>If there is no coach in the conference, sets the member being updated as the coach of the given calls.</li></ul><aside class="alert alert-warning">If an empty list is sent, then the member will no longer be the coach and will be heard by everyone.</aside><br>Note that a conference may only have one coach, so trying to set `callIdsToCoach` on a member when there is already a coach in the conference results in an error. | No        | 
 
 {% common %}
 
@@ -103,7 +103,8 @@ curl -X PUT \
 
 ```json
 {
-    "mute" : true
+    "mute" : false,
+    "callIdsToCoach" : ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]
 }
 ```
 
