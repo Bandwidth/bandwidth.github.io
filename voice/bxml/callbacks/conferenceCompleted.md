@@ -10,12 +10,12 @@ HTTP/1.1 204
 
 ### Properties
 
-| Property     | Description                                                                                                                                             |
-| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| eventType    | The event type, value is `conferenceCompleted`.                                                                                                         |
-| conferenceId | The ID of the new conference that was created.                                                                                                          |
+| Property     | Description |
+|:-------------| :-----------|
+| eventType    | The event type, value is `conferenceCompleted`. |
+| conferenceId | The ID of the new conference that was created. |
 | name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag. |
-| tag          | (optional) The `tag` that was set at conference creation, if any.                                                                                       |
+| tag          | (optional) The `tag` that was set at conference creation, if any. |
 
 {% common %}
 

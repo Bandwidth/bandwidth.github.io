@@ -15,7 +15,7 @@ URLs, so POST is the preferred method.
 We use a 15s request timeout when trying to deliver all callbacks, retrying once if we receive a connect error.
 
 | Callback                                          | Description                                                                                                                                                                                                  |
-| :------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:--------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Answer](answer.md)                               | Bandwidth API sends this to the application when the call is answered.                                                                                                                                       |
 | [Bridge Complete](bridgeComplete.md)              | Bandwidth API sends this to the application when a `<Bridge>` is complete and the original call needs to continue.                                                                                           |
 | [Bridge Target Complete](bridgeTargetComplete.md) | Bandwidth API sends this to the application when a `<Bridge>` is complete and the target call needs to continue.                                                                                             |
@@ -41,7 +41,7 @@ callback's URL.  If the GET method is used, the properties are passed as query p
 URLs, so POST is the preferred method.
 
 | Callback                                       | Description                                                                                                                                         |
-| :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Disconnect](disconnect.md)                    | Bandwidth API sends this to the application when a call ends.                                                                                       |
 | [Recording Available](recordingAvailable.md)   | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 | [Transfer Disconnect](transferDisconnect.md)   | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
