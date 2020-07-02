@@ -18,7 +18,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:----------------|:-----------------------------------------------------------------------------|:----------|
 | mute            | (optional) If true, member can't speak in the conference                     | No        |
 | hold            | (optional) If true, member can't speak or hear in the conference             | No        |
-| callIdsToCoach  | (optional) If a `callId` list is given, updates the list of calls to be coached by this member.<br><ul><li>If the member being updated is the coach, updates the calls being coached.</li><li>If there is no coach in the conference, sets the member being updated as the coach of the given calls.</li><li>A conference may only have one coach, so setting `callIdsToCoach` on a member when there is already a coach in the conference results in an error.</li></ul><div class="general">If an empty list is sent, then the member will no longer be the coach and will be heard by everyone.</div> | No        | 
+| callIdsToCoach  | (optional) If a list of members is given, updates the list of calls to be coached by this member.<br><ul><li>If the member being updated is already the coach of the conference, updates the calls being coached.</li><li>If there is no coach in the conference, sets the member being updated as the coach of the given calls.</li><li>A conference may only have one coach, so setting `callIdsToCoach` on a member when there is already a coach in the conference results in an error.</li></ul>If an empty list is given, then the member will no longer be the coach and will be heard by everyone. | No        | 
 
 {% common %}
 
@@ -99,13 +99,6 @@ curl -X PUT \
       "mute"           : false,
       "callIdsToCoach" : ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]
     }'
-```
-
-```json
-{
-    "mute" : false,
-    "callIdsToCoach" : ["c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d", "c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f"]
-}
 ```
 
 ```
