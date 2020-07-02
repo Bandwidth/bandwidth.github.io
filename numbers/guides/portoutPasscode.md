@@ -151,6 +151,34 @@ TnOptionOrderResponse response = TnOptions.create(client, order);
 hello world
 ```
 
+{% sample lang="NodeJS" %}
+```js
+const order = {
+  customerOrderId: 'TnOptionOrder1',
+  tnOptionGroups: [
+    {
+      portOutPasscode: 'a1b2c3',
+      telephoneNumbers: ['2018551020']
+    }
+  ]
+}
+numbers.TnOption.create(order, (err, res) => {
+  if (err) {
+    return console.log(err)
+  }
+  console.log(res.orderId)
+  return console.log(res.processingStatus)
+});
+```
+
+> Output
+
+```
+ddbdc72e-dc27-490c-904e-d0c11291b095
+RECEIVED
+```
+
+
 {% sample lang="csharp" %}
 
 ```csharp
@@ -319,4 +347,3 @@ hello world
 ```
 
 {% endextendmethod %}
-
