@@ -11,7 +11,7 @@ HTTP/1.1 204
 ### Properties
 
 | Property     | Description |
-|:-------------| :-----------|
+|:-------------|:------------|
 | eventType    | The event type, value is `conferenceCompleted`. |
 | conferenceId | The ID of the new conference that was created. |
 | name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag. |
