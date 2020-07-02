@@ -18,7 +18,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:----------------|:-----------------------------------------------------------------------------|:----------|
 | mute            | (optional) If true, member can't speak in the conference                     | No        |
 | hold            | (optional) If true, member can't speak or hear in the conference             | No        |
-| callIdsToCoach  | (optional) If not null, updates the list of calls to be coached by this member.<br><aside class="alert general">If an empty list is sent, then the member will no longer be the coach and can be heard by everyone.</aside><br>Note that a conference may only have one coach, so trying to set `callIdsToCoach` on a conference that already has a coach results in an error. | No        | 
+| callIdsToCoach  | (optional) If not null, updates the list of calls to be coached by this member.<br><aside class="alert general small">If an empty list is sent, then the member will no longer be the coach and can be heard by everyone.</aside><br>Note that a conference may only have one coach, so trying to set `callIdsToCoach` on a conference that already has a coach results in an error. | No        | 
 
 {% common %}
 
@@ -83,6 +83,8 @@ HTTP/1.1 204
 // TODO
 ```
 
+{% common %}
+
 ### Example 2 of 2 : Unmute a conference member and set it as coach
 
 {% sample lang="http" %}
@@ -144,5 +146,7 @@ HTTP/1.1 204
 ```php
 // TODO
 ```
+
+{% common %}
 
 {% endmethod %}
