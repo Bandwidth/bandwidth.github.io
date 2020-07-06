@@ -265,6 +265,7 @@
 
 ## Developer Tools
 * [Bandwidth Examples Github Repo](https://github.com/Bandwidth/examples)
+* [Bandwidth OpenAPI/Swagger Specs](https://github.com/Bandwidth/examples/tree/master/public-specs)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
