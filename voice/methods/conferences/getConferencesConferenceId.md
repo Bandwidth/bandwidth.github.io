@@ -92,13 +92,21 @@ HTTP/1.1 200
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+account_id = "12345"
+conference_id = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964"
+response = voice_client.get_conference_by_id(account_id, conference_id)
+puts response.data.id
+puts response.data.active_members[0].call_id
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+account_id = "12345"
+conference_id = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964"
+response = voice_client.get_conference_by_id(account_id, conference_id)
+print(response.body.id)
+print(response.body.active_members[0].call_id)
 ```
 
 {% sample lang="js" %}
@@ -110,7 +118,11 @@ HTTP/1.1 200
 {% sample lang="php" %}
 
 ```php
-// TODO
+$accountId = "12345";
+$conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+$response = $voiceClient->getConferenceById($accountId, $conferenceId);
+echo $response->getResult()->id . "\n";
+echo $response->getResult()->activeMembers[0]->callId . "\n";
 ```
 
 {% endmethod %}
