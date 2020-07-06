@@ -17,7 +17,6 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 * You will get a callback for any event related to that message.
   * For example, you will get an HTTP callback when your message is delivered, or blocked. In addition, you will get an event for any kind of Delivery Receipt that the destination carrier sends back, regarding the delivery of your message.
 * For each message sent, you **will** receive either (but not both) a [Message Delivered](msgDelivered.md) or [Message Failed](messageFailed.md) event.
-* ⚠️ Important note about MMS and Group Messages. MMS and Group messages **don’t** currently support delivery receipts. However, you will still receive a message delivered event when the message is sent. For _only MMS and Group Messages_ this means that your message has been handed off to the Bandwidth core network, but has not been confirmed at the downstream carrier. We are actively working to support true delivery receipts for the v2 Messaging API.
 
 | Event                                      | Direction | Description                                                                      |
 |:-------------------------------------------|:----------|:---------------------------------------------------------------------------------|
@@ -25,3 +24,4 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 | [Incoming Text Message](incomingSingle.md) | `in`      | Bandwidth sends this event for each incoming text message                        |
 | [Message Delivered](msgDelivered.md)       | `out`     | Bandwidth sends this event when the text is delivered to the downstream carrier. |
 | [Message Failed](messageFailed.md)         | `out`     | Bandwidth sends this event when the message contains was unable to be delivered  |
+| [Message Queued (MMS only)](messageQueued.md) | `out` | Bandwidth sents this event when the MMS message is between received and sent. |
