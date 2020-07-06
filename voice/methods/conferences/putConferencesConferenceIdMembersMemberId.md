@@ -4,7 +4,7 @@ Update properties of an active conference member.
 
 ### Request URL
 
-<code class="post">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/conferences/{conferenceId}/members/{memberId}`
+<code class="put">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/conferences/{conferenceId}/members/{memberId}`
 
 #### Basic Authentication
 
@@ -14,10 +14,10 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter       | Description                                                                  | Mandatory |
-|:----------------|:-----------------------------------------------------------------------------|:----------|
-| mute            | (optional) If true, member can't speak in the conference                     | No        |
-| hold            | (optional) If true, member can't speak or hear in the conference             | No        |
+| Parameter       | Description                                                                                                          | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------|:----------|
+| mute            | (optional) If true, member can't speak in the conference. If omitted, the parameter will not be modified.            | No        |
+| hold            | (optional) If true, member can't speak or hear in the conference. If omitted, the parameter will not be modified.    | No        |
 
 {% common %}
 
@@ -32,14 +32,8 @@ curl -X PUT \
     -H 'Content-type: application/json' \
     --data-raw '
     {
-      "mute"       : "true"
+      "mute"       : true
     }'
-```
-
-```json
-{
-    "mute" : true
-}
 ```
 
 ```
