@@ -86,6 +86,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
     <ServiceType>Voice-V2</ServiceType>
     <AppName>Production Server</AppName>
     <CallInitiatedCallbackUrl>https://yourSecureSite.com/callbacks/voice</CallInitiatedCallbackUrl>
+    <CallStatusCallbackUrl>https://yourSecureSite.com/callbacks/voice/status</CallStatusCallbackUrl>
     <CallbackCreds>
       <UserId>Your-User-id</UserId>
       <Password>Your-Password</Password>
