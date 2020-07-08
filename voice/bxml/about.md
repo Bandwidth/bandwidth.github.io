@@ -41,6 +41,7 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 | [`<Record>`](verbs/record.md)                   | The Record verb allows a segment of audio to be recorded during a call.                               |
 | [`<Redirect>`](verbs/redirect.md)               | The Redirect verb is used to redirect the current XML execution to another URL.                       |
 | [`<ResumeRecording>`](verbs/resumeRecording.md) | The ResumeRecording verb is used to resume a recording previously paused by a `<PauseRecording>` verb.|
+| [`<Ring>`](verbs/ring.md)                       | The Ring verb is used to play ringing audio on a call.                                                |
 | [`<SendDtmf>`](verbs/sendDtmf.md)               | The SendDtmf verb is used to play DTMF digits in the call.                                            |
 | [`<SpeakSentence>`](verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
 | [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
