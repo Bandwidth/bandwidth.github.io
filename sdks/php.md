@@ -8,6 +8,10 @@
 | 2.1.0 | Updated Pause and SendDtmf BXML attributes |
 | 2.2.0 | Added MFA functions and support for multiple nested verbs for a Gather |
 | 2.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+| 2.4.0 | Updated WebRTC Permissions schema |
+| 2.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
+| 2.6.0 | Added BXML Bridge verb |
+| 2.7.0 | Updated WebRTC base URL |
 
 ## Links
 

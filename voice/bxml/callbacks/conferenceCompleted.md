@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Completed Event
-The Conference Completed event is fired when the last member leaves the [conference](../verbs/conference.md).  
+The Conference Completed event is fired when the last member leaves the [conference](../verbs/conference.md).
 ### Expected response
 ```http
 HTTP/1.1 204

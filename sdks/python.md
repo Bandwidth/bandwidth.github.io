@@ -9,6 +9,11 @@
 | 6.2.0 | Added MFA functions |
 | 6.3.0 | Added support for multi nested verbs in Gathers |
 | 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+| 6.5.0 | Updated WebRTC Permissions schema |
+| 6.6.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
+| 6.7.0 | Added BXML Bridge verb |
+| 6.8.0 | Updated WebRTC base URL |
+
 
 ## Links
 
@@ -36,7 +41,7 @@ from bandwidth.messaging.exceptions.messaging_exception import MessagingExceptio
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
-from bandwidth.voice.exceptions.error_response_exception import ApiErrorResponseException
+from bandwidth.voice.exceptions.api_error_response_exception import ApiErrorResponseException
 from bandwidth.voice.bxml.response import Response
 from bandwidth.voice.bxml.verbs import *
 

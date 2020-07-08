@@ -4,7 +4,7 @@ Update properties of an active conference member.
 
 ### Request URL
 
-<code class="post">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/conferences/{conferenceId}/members/{memberId}`
+<code class="put">PUT</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/conferences/{conferenceId}/members/{memberId}`
 
 #### Basic Authentication
 
@@ -14,10 +14,10 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter       | Description                                                                  | Mandatory |
-|:----------------|:-----------------------------------------------------------------------------|:----------|
-| mute            | (optional) If true, member can't speak in the conference                     | No        |
-| hold            | (optional) If true, member can't speak or hear in the conference             | No        |
+| Parameter       | Description                                                                                                          | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------|:----------|
+| mute            | (optional) If true, member can't speak in the conference. If omitted, the parameter will not be modified.            | No        |
+| hold            | (optional) If true, member can't speak or hear in the conference. If omitted, the parameter will not be modified.    | No        |
 | callIdsToCoach  | (optional) If a list of members is given, updates the list of calls to be coached by this member.<br><ul><li>If the member being updated is already the coach of the conference, updates the calls being coached.</li><li>If there is no coach in the conference, sets the member being updated as the coach of the given calls.</li><li>A conference may only have one coach, so setting `callIdsToCoach` on a member when there is already a coach in the conference results in an error.</li></ul><aside class="text-only general">If an empty list is given, then the member will no longer be the coach and will be heard by everyone.</aside> | No        | 
 
 {% common %}
@@ -33,14 +33,8 @@ curl -X PUT \
     -H 'Content-type: application/json' \
     --data-raw '
     {
-      "mute"       : "true"
+      "mute"       : true
     }'
-```
-
-```json
-{
-    "mute" : true
-}
 ```
 
 ```
