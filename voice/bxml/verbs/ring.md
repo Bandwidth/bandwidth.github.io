@@ -7,7 +7,7 @@ The Ring verb is used to play ringing audio on a call.
 
 | ATTRIBUTE | Description                                                                                            |
 |:----------|:-------------------------------------------------------------------------------------------------------|
-| duration  | (optional) How many seconds to play ringing on the call. Default value is 5. Accepts values between 0.1 - 86400.
+| duration  | (optional) How many seconds to play ringing on the call. Default value is 5. Range: decimal values between 0.1 - 86400.
 
 ### Callbacks Received
 
