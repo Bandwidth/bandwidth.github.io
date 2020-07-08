@@ -152,6 +152,7 @@
 	* [Record](voice/bxml/verbs/record.md)
 	* [Redirect](voice/bxml/verbs/redirect.md)
 	* [ResumeRecording](voice/bxml/verbs/resumeRecording.md)
+	* [Ring](voice/bxml/verbs/ring.md)
 	* [SendDtmf](voice/bxml/verbs/sendDtmf.md)
 	* [SpeakSentence](voice/bxml/verbs/speakSentence.md)
 	* [StartRecording](voice/bxml/verbs/startRecording.md)
