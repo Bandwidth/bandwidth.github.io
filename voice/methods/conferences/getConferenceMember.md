@@ -80,25 +80,46 @@ Console.WriteLine(response.Data.MemberUrl);
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+account_id = "12345"
+conference_id = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964"
+member_id = "c-95ac8d8d-b81437f5-4586-4d5b-9b46-29f8b3fe0aaf"
+response = voice_client.get_conference_member(account_id, conference_id, member_id)
+puts response.data.call_id
+puts response.data.call_ids_to_coach[0]
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+account_id = "12345"
+conference_id = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964"
+member_id = "c-95ac8d8d-b81437f5-4586-4d5b-9b46-29f8b3fe0aaf"
+response = voice_client.get_conference_member(account_id, conference_id, member_id)
+print(response.body.call_id)
+print(response.body.call_ids_to_coach[0])
 ```
 
 {% sample lang="js" %}
 
 ```js
-// TODO
+var accountId = "12345";
+var conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+var memberId = "c-95ac8d8d-b81437f5-4586-4d5b-9b46-29f8b3fe0aaf";
+
+var response = await voiceController.getConferenceMember(accountId, conferenceId, memberId);
+console.log(response.callId);
+console.log(response.callIdsToCoach[0]);
 ```
 
 {% sample lang="php" %}
 
 ```php
-// TODO
+$accountId = "12345";
+$conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+$memberId = "c-95ac8d8d-b81437f5-4586-4d5b-9b46-29f8b3fe0aaf";
+$response = $voiceClient->getConferenceMember($accountId, $conferenceId, $memberId);
+echo $response->getResult()->callId . "\n";
+echo $response->getResult()->callIdsToCoach[0] . "\n";
 ```
 
 {% endmethod %}
