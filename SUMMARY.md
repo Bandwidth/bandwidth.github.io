@@ -128,6 +128,7 @@
 		* [GET Conference Information](voice/methods/conferences/getConferencesConferenceId.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
 		* [GET Member Information](voice/methods/conferences/getConferenceMember.md)
+		* [PUT Update Conference Member](voice/methods/conferences/putConferencesConferenceIdMembersMemberId.md)
 	* [Recording Management](voice/methods/recordings/about.md)
 		* [GET Account Recordings](voice/methods/recordings/getRecordings.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
@@ -265,6 +266,7 @@
 
 ## Developer Tools
 * [Bandwidth Examples Github Repo](https://github.com/Bandwidth/examples)
+* [Bandwidth OpenAPI/Swagger Specs](https://github.com/Bandwidth/examples/tree/master/public-specs)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)

@@ -878,10 +878,6 @@
     <td>International customer segment cannot import NANP telephone numbers.</td>
   </tr>
     <tr>
-    <td>5173</td>
-    <td>SMS is already %s or number is in processing.</td>
-  </tr>
-    <tr>
     <td>5174</td>
     <td>A purge disconnect type is required for Short Code TNs</td>
   </tr>
@@ -985,6 +981,14 @@
     <td>5199</td>
     <td>TollFreeVanitySearchAndOrderType requires both TollFreeVanity and Quantity values.</td>
   </tr>
+    <tr>
+    <td>5200</td>
+    <td>Origination route plan is not enabled for the account</td>
+  </tr>
+    <tr>
+    <td>5201</td>
+    <td>Tn endpoints must be valid NANP tns: %s</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -998,7 +1002,7 @@
   </tr>
     <tr>
     <td>25010</td>
-    <td>The customer provided telephone numbers capability is not allowed on this account.</td>
+    <td>The account does not have permission to use the endpoint requested, please contact support if you believe you should have permission.</td>
   </tr>
     <tr>
     <td>25020</td>
@@ -3663,7 +3667,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -4324,7 +4328,7 @@
   </tr>
     <tr>
     <td>12019</td>
-
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -5439,7 +5443,7 @@
   </tr>
     <tr>
     <td>12648</td>
-    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL, VAPOR_URL, MOVE_TNS_TIMEOUT</td>
+    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL, VAPOR_URL, MOVE_TNS_TIMEOUT, TERM_MIGRATION_TIMEOUT</td>
   </tr>
     <tr>
     <td>12649</td>
@@ -6557,6 +6561,22 @@
     <td>13045</td>
     <td>Street Suffix '%s' is too long. Max length 45 characters</td>
   </tr>
+    <tr>
+    <td>13046</td>
+    <td>Some of role(s) '%s' cannot be associated to user %s</td>
+  </tr>
+    <tr>
+    <td>13047</td>
+    <td>CallbackTimeout must be an integer between 1 and 25</td>
+  </tr>
+    <tr>
+    <td>13048</td>
+    <td>Fallback URL is required for Fallback Method</td>
+  </tr>
+    <tr>
+    <td>13049</td>
+    <td>CallbackTimeout needs to be an integer.</td>
+  </tr>
   </table>
 <h2>TerminationError</h2>
 <table class="fixed">
@@ -7254,10 +7274,6 @@
     <tr>
     <td>13674</td>
     <td>Configuring subnet values larger than %s requires Bandwidth staff intervention</td>
-  </tr>
-    <tr>
-    <td>13675</td>
-    <td>SMS is already %s or number is in processing.</td>
   </tr>
     <tr>
     <td>13676</td>

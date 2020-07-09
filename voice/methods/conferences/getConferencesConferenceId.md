@@ -80,13 +80,21 @@ HTTP/1.1 200
 {% sample lang="java" %}
 
 ```java
-// TODO
+ApiResponse<ConferenceDetail> response = null;
+try {
+    response = controller.getConferenceById(accountId, conferenceId);
+    System.out.println(response.getResult().getActiveMembers().get(0).getMemberUrl());
+} catch (IOException | ApiException e) {
+    // Handle Error
+}
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+var response = controller.GetConferenceById(accountId, conferenceId);
+
+Console.WriteLine(response.Data.ActiveMembers[0].MemberUrl);
 ```
 
 {% sample lang="ruby" %}
