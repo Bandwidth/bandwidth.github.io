@@ -120,7 +120,6 @@ print(response.body.active_members[0].call_id)
 {% sample lang="js" %}
 
 ```js
-var voiceController = BandwidthVoice.APIController;
 var accountId = "12345";
 var conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
 
