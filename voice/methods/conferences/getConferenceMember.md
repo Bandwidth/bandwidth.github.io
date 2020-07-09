@@ -92,7 +92,13 @@ Console.WriteLine(response.Data.MemberUrl);
 {% sample lang="js" %}
 
 ```js
-// TODO
+var accountId = "12345";
+var conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+var memberId = "c-95ac8d8d-b81437f5-4586-4d5b-9b46-29f8b3fe0aaf";
+
+var response = await voiceController.getConferenceMember(accountId, conferenceId, memberId);
+console.log(response.callId);
+console.log(response.callIdsToCoach[0]);
 ```
 
 {% sample lang="php" %}

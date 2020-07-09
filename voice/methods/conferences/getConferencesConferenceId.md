@@ -112,7 +112,13 @@ Console.WriteLine(response.Data.ActiveMembers[0].MemberUrl);
 {% sample lang="js" %}
 
 ```js
-// TODO
+var voiceController = BandwidthVoice.APIController;
+var accountId = "12345";
+var conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+
+var response = await voiceController.getConferenceById(accountId, conferenceId);
+console.log(response.id);
+console.log(response.activeMembers[0].callId);
 ```
 
 {% sample lang="php" %}
