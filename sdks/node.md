@@ -17,6 +17,7 @@ https://www.npmjs.com/package/@bandwidth/voice
 | Version | Notes |
 |--|--|
 | 1.2.0 | Added Conferencing API endpoints |
+| 1.3.0 | Added get conference API endpoints |
 
 ### BXML
 

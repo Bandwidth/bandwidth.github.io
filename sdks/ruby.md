@@ -12,6 +12,7 @@
 | 3.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
 | 3.6.0 | Added BXML Bridge verb |
 | 3.7.0 | Added WebRTC |
+| 3.8.0 | Added get conference API endpoints |
 
 ## Links
 
