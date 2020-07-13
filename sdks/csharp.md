@@ -108,7 +108,7 @@ msgRequest.From = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
-var response = msgController.CreateMessage(msgUserId, msgRequest);
+var response = msgController.CreateMessage(accountId, msgRequest);
 ```
 
 ## Order Phone Number
