@@ -4,9 +4,18 @@
 * [About](README.md)
 * [Get Started](guides/getStarted.md)
 * [Webhooks / HTTP Callbacks](guides/callbacks/callbacks.md)
-* [Security & Credentials](guides/accountCredentials.md)
+* [API Credentials & Security](guides/accountCredentials.md)
 	* [Voice, Numbers, Account](guides/accountCredentials.md#voice-numbers-account)
 	* [Messaging](guides/accountCredentials.md#messaging)
+* [SDKs & Developer Tools](sdks/about.md)
+	* [Python](sdks/python.md)
+	* [Ruby](sdks/ruby.md)
+	* [C#](sdks/csharp.md)
+	* [Node](sdks/node.md)
+	* [Java](sdks/java.md)
+	* [PHP](sdks/php.md)
+	* [Examples on Github](https://github.com/Bandwidth/examples)
+	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
@@ -256,17 +265,16 @@
         * [PUT Update Participant Subscriptions](webrtc/methods/sessions/updateParticipantSubscriptions.md)
 * [Errors](webrtc/errors.md)
 
-## SDKs
-* [Python](sdks/python.md)
-* [Ruby](sdks/ruby.md)
-* [C#](sdks/csharp.md)
-* [Node](sdks/node.md)
-* [Java](sdks/java.md)
-* [PHP](sdks/php.md)
-
-## Developer Tools
-* [Bandwidth Examples Github Repo](https://github.com/Bandwidth/examples)
-* [Bandwidth OpenAPI/Swagger Specs](https://github.com/Bandwidth/examples/tree/master/public-specs)
+## Emergency Services
+* [Overview](emergency-services/about.md)
+* [Guides & Tutorials](emergency-services/guides/about.md)
+	* [Emergency Notifications](emergency-services/guides/emergencyNotifications.md)
+		* [Overview](emergency-services/guides/emergencyNotifications.md#overview)
+		* [Notification Types](emergency-services/guides/emergencyNotifications.md#notification-types)
+		* [Configuring Emergency Notifications](emergency-services/guides/emergencyNotifications.md#config)
+		* [Relationships and constraints](emergency-services/guides/emergencyNotifications.md#relationships)
+		* [API Endpoint Overview](emergency-services/guides/emergencyNotifications.md#api-overview)
+		* [Key terminology](emergency-services/guides/emergencyNotifications.md#key-terms)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
