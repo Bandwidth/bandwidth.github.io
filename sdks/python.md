@@ -6,6 +6,22 @@
 |--|--|
 | 6.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
 | 6.1.0 | Updated Pause and SendDtmf BXML attributes |
+| 6.2.0 | Added MFA functions |
+| 6.3.0 | Added support for multi nested verbs in Gathers |
+| 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+| 6.5.0 | Updated WebRTC Permissions schema |
+| 6.6.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
+| 6.7.0 | Added BXML Bridge verb |
+| 6.8.0 | Updated WebRTC base URL |
+
+
+## Links
+
+* [Github](https://github.com/Bandwidth/python-sdk)
+
+* [PyPi](https://pypi.org/project/bandwidth-sdk/)
+
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/python)
 
 ## Download & Install
 
@@ -25,21 +41,28 @@ from bandwidth.messaging.exceptions.messaging_exception import MessagingExceptio
 
 from bandwidth.voice.models.api_create_call_request import ApiCreateCallRequest
 from bandwidth.voice.models.modify_call_recording_state import ModifyCallRecordingState
-from bandwidth.voice.exceptions.error_response_exception import ApiErrorResponseException
+from bandwidth.voice.exceptions.api_error_response_exception import ApiErrorResponseException
 from bandwidth.voice.bxml.response import Response
 from bandwidth.voice.bxml.verbs import *
+
+from bandwidth.twofactorauth.models.two_factor_code_request_schema import TwoFactorCodeRequestSchema
+from bandwidth.twofactorauth.models.two_factor_verify_request_schema import TwoFactorVerifyRequestSchema
 
 ##Initialize client
 voice_basic_auth_user_name = 'username'
 voice_basic_auth_password = 'password'
 messaging_basic_auth_user_name = 'token'
 messaging_basic_auth_password = 'secret'
+two_factor_auth_basic_auth_user_name = 'username'
+two_factor_auth_basic_auth_password = 'password'
 
 bandwidth_client = BandwidthClient(
     voice_basic_auth_user_name=voice_basic_auth_user_name,
     voice_basic_auth_password=voice_basic_auth_password,
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
-    messaging_basic_auth_password=messaging_basic_auth_password)
+    messaging_basic_auth_password=messaging_basic_auth_password,
+    two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
+    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password)
 ```
 
 ## Create Phone Call
@@ -103,3 +126,35 @@ except MessagingException as e:
 ## Order Phone Number
 
 Coming soon
+
+## Perform A 2FA Request
+
+```python
+auth_client = bandwidth_client.two_factor_auth_client.client
+account_id = "1"
+
+from_phone = "+18888888888"
+to_phone = "+17777777777"
+messaging_application_id = "1-d-b"
+scope = "scope"
+
+body = TwoFactorCodeRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = messaging_application_id,
+    scope = scope
+)
+auth_client.create_messaging_two_factor(account_id, body)
+
+code = "123456" #This is the user input to validate
+
+body = TwoFactorVerifyRequestSchema(
+    mfrom = from_phone,
+    to = to_phone,
+    application_id = application_id,
+    scope = scope,
+    code = code
+)
+response = auth_client.create_verify_two_factor(account_id, body)
+print("Auth status: " + str(response.body.valid))
+```

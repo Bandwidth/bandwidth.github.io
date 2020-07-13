@@ -6,6 +6,22 @@
 |--|--|
 | 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
 | 3.0.0 | Updated Pause and SendDtmf BXML attributes |
+| 3.1.0 | Added MFA functions |
+| 3.2.0 | Added support for multi nested verbs in Gathers |
+| 3.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
+| 3.4.0 | Updated WebRTC Permissions schema |
+| 3.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
+| 3.6.0 | Added BXML Bridge verb |
+| 3.7.0 | Updated WebRTC base URL |
+
+## Links
+
+[Github](https://github.com/Bandwidth/csharp-sdk)
+
+[Nuget](https://www.nuget.org/packages/Bandwidth.Sdk/)
+
+[Code Examples](https://github.com/Bandwidth/examples/tree/master/csharp)
+
 
 ## Download & Install
 
@@ -30,7 +46,7 @@ BandwidthClient client = new BandwidthClient.Builder()
                 .MessagingBasicAuthCredentials( token, secret )
                 .Build();
 
-            
+
 //Select namespaced controller.
 Bandwidth.Standard.Voice.Controllers.APIController voiceController = client.Voice.APIController;
 Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Messaging.APIController;
@@ -46,7 +62,7 @@ using Bandwidth.Standard.Voice.Controllers;
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
-callRequest.MFrom="+17777777777";
+callRequest.From="+17777777777";
 
 //Be aware that the Voice Client can throw exceptions
 try {
@@ -87,7 +103,7 @@ using Bandwidth.Standard.Messaging.Models;
 
 MessageRequest msgRequest = new MessageRequest();
 msgRequest.ApplicationId = applicationId;
-msgRequest.MFrom = "+18888888888";
+msgRequest.From = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 

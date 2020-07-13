@@ -6,6 +6,21 @@
 |--|--|
 | 3.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
 | 3.1.0 | Updated Pause and SendDtmf BXML attributes |
+| 3.2.0 | Added MFA functions |
+| 3.3.0 | Added support for multi nested verbs in Gathers |
+| 3.4.0 | Added support for Conference BXMl and Conference API Endpoints |
+| 3.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
+| 3.6.0 | Added BXML Bridge verb |
+| 3.7.0 | Added WebRTC |
+
+## Links
+
+* [Github](https://github.com/Bandwidth/ruby-sdk)
+
+* [Rubygems](https://rubygems.org/gems/bandwidth-sdk)
+
+* [Code Examples](https://github.com/Bandwidth/examples/tree/master/ruby)
+
 
 ## Download & Install
 
@@ -21,12 +36,15 @@ require 'bandwidth'
 include Bandwidth
 include Bandwidth::Voice
 include Bandwidth::Messaging
+include Bandwidth::TwoFactorAuth
 
 bandwidth_client = Bandwidth::Client.new(
     voice_basic_auth_user_name: 'username',
     voice_basic_auth_password: 'password',
     messaging_basic_auth_user_name: 'token',
     messaging_basic_auth_password: 'secret',
+    two_factor_auth_basic_auth_user_name: 'username',
+    two_factor_auth_basic_auth_password: 'password'
 )
 ```
 
@@ -82,6 +100,38 @@ rescue Bandwidth::MessagingException => e
     puts e.description #Access is denied
     puts e.response_code #403
 end
+```
+
+## Perform A 2FA Request
+
+```ruby
+auth_client = bandwidth_client.two_factor_auth_client.client
+account_id = "1"
+
+from_phone = "+18888888888"
+to_phone = "+17777777777"
+messaging_application_id = "1-d-b"
+scope = "scope"
+
+body = TwoFactorCodeRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = messaging_application_id
+body.scope = scope
+
+auth_client.create_messaging_two_factor(account_id, body)
+
+code = "123456" #This is the user input to validate
+
+body = TwoFactorVerifyRequestSchema.new
+body.from = from_phone
+body.to = to_phone
+body.application_id = application_id
+body.scope = scope
+body.code = code
+
+response = auth_client.create_verify_two_factor(account_id, body)
+puts "Auth status: " + response.data.valid.to_s
 ```
 
 ## Order Phone Number

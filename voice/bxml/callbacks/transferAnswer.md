@@ -1,9 +1,28 @@
 {% method %}
 ##  Transfer Answer Event – <Transfer> verb
 When processing a [`<Transfer>`](../verbs/transfer.md) verb, this event is sent when a called party (B-leg) answers.  The event is sent to
-  the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered.  [`<PlayAudio>`](../verbs/playAudio.md) and/or [`<SpeakSentence>`](../verbs/speakSentence.md) verbs returned by this callback will be
-  executed for the called party only.  No other BXML verbs may be specified.  Afterward, the called party will be bridged to the original
-  call.
+  the endpoint specified in the `transferAnswerUrl` attribute of the `<PhoneNumber>` tag that answered. BXML returned by this callback will be executed for the called party only. After all BXML has been executed, the called party will be bridged to the original
+  call. 
+  
+Most BXML verbs are allowed in response to a `transferAnswer` event, but some are not allowed. A full list of verbs and whether or not they are allowed:
+
+| Verb                                              | Allowed       |
+|---------------------------------------------------|---------------|
+| [Conference](../verbs/conference.md)              | No            |
+| [Forward](../verbs/forward.md)                    | No            |
+| [Gather](../verbs/gather.md)                      | Yes           |
+| [Hangup](../verbs/hangup.md)                      | Yes           |
+| [Pause](../verbs/pause.md)                        | Yes           |
+| [PauseRecording](../verbs/pauseRecording.md)      | Yes           |
+| [PlayAudio](../verbs/playAudio.md)                | Yes           |
+| [Record](../verbs/record.md)                      | Yes           |
+| [Redirect](../verbs/redirect.md)                  | Yes           |
+| [ResumeRecording](../verbs/resumeRecording.md)    | Yes           |
+| [SendDtmf](../verbs/sendDtmf.md)                  | Yes           |
+| [SpeakSentence](../verbs/speakSentence.md)        | Yes           |
+| [StartRecording](../verbs/startRecording.md)      | Yes           |
+| [StopRecording](../verbs/stopRecording.md)        | Yes           |
+| [Transfer](../verbs/transfer.md)                  | No            |
 
 ### Expected response
 ```http
@@ -11,7 +30,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- <PlayAudio> or <SpeakSentence> BXML verbs to play to the called party -->
+    <!-- Valid, executable BXML verbs to play to the called party -->
 </Response>
 ```
 
@@ -25,7 +44,7 @@ Content-Type: application/xml; charset=utf-8
 | to               | The phone number used in the `to` field of the original call, in E.164 format (e.g. +15555555555).                |
 | direction        | The direction of the call. Always `outbound` for this event.                                                      |
 | callId           | The call id of the newly-created B leg.                                                                           |
-| parentCallId     | The call id of the original call leg that contained the `<Transfer>` tag.                                         |
+| parentCallId     | The call id of the original call leg that executed the `<Transfer>` tag.                                         |
 | callUrl          | The URL of the call associated with the event.                                                                    |
 | startTime        | Time the call was started, in ISO 8601 format.                                                                    |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
