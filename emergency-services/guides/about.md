@@ -1,12 +1,9 @@
-# Bandwidth Emergency Services API
-
-## Base API URL
-
-`https://dashboard.bandwidth.com/api/`
+# Bandwidth Emergency Services API Tutorials & Guides
 
 ## Emergency Services Guides
 
-| Guide                                                | Description                                          |
-|:-----------------------------------------------------|:-----------------------------------------------------|
-| [Emergency Notifications](emergencyNotifications.md) | Learn about how to configure Emergency Notifications |
+| Guide                                                               | Description                                               |
+|:--------------------------------------------------------------------|:----------------------------------------------------------|
+| [About Emergency Notifications](./emergencyNotifications.md)        | Learn about Emergency Notifications                       |
+| [Config Emergency Notifications](./configEmergencyNotifications.md) | Walk through configuring an Emergency Notifications setup |
 

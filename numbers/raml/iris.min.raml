@@ -13174,7 +13174,7 @@ securitySchemes:
                         </ul>
                         Note: If the order ProcessingStatus is DRAFT, the rules about what can be changed are much more relaxed. Validation is performed when the ProcessingStatus is changed from DRAFT to SUBMITTED.
                         <p>The AltSpid element can be modified if it is not configured at the system level.
-                        <p>List of phone numbers can not be modified if order status was/is in FOC or complete state. Doesn't apply for internal port type.
+                        <p>List of phone numbers can be modified only for Automated on-net port type.
                         <p><b>ProcessingStatus</b> - you can only provide this field with a value of SUBMITTED and only if the current ProcessingStatus of the port-in is DRAFT.
                         <p><b>ResetAddressFields -</b> As stated above the general approach to handling <i>this</i> API call is to replace the elements included in the request body, and leave other preexisting elements in an unmodified condition.  This is typical of a PATCH method, but because of our commitment to backwards compatibility we have elected not to "Fix" this behavior.
                         As a result, providing only a few fields in the street address will result in an update to just those fields. This prevents removal of an element of the address.  The ResetAddressFields element is provided to resolve this issue.  The default setting of 'false' is to consistency with the initial implementation.
@@ -17374,6 +17374,14 @@ securitySchemes:
                                  <td>csrs</td>
                                  <td>COMPLETE, FAILED</td>
                               </tr>
+                              <tr>
+                                 <td>emergencyNotificationGroup</td>
+                                 <td>COMPLETE, FAILED</td>
+                              </tr>
+                              <tr>
+                                 <td>emergencyEndpointGroup</td>
+                                 <td>COMPLETE, FAILED</td>
+                              </tr>
                            </table>
                 Notified events: MESSAGING_LOST
                 The event notifications occur when TNs in your account are impacted due to orders outside of your account. For example, a MESSAGING_LOST event is reported on a TN with hosted messaging service in your account when a port in order placed by another account on the same TN is executed. An order placed in your account to remove the TN will NOT report a MESSAGING_LOST event. 
@@ -17448,7 +17456,7 @@ securitySchemes:
                     For email subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders] </OrderType> <!-- required -->
+                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup] </OrderType> <!-- required -->
                         <OrderId> [ UUID ] </OrderId> <!-- optional, if provided notifications will only be sent for events regarding this specific order, if omitted notifications regarding events for all orders of the specified type will be sent -->
                         <EmailSubscription>
                             <Email> [ email address] </Email>
@@ -17469,7 +17477,7 @@ securitySchemes:
                     For callback subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders] </OrderType> <!-- same rules and values as above -->
+                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders| emergencyNotificationGroup | emergencyEndpointGroup] </OrderType> <!-- same rules and values as above -->
                         <OrderId> [UUID]</OrderId> <!-- same rules and value as above -->
                         <CallbackSubscription>
                             <URL> [valid publically addressable URL] </URL> <!-- the URL that notifications should get POSTed to, HTTPS is highly recommended -->
@@ -17669,7 +17677,7 @@ securitySchemes:
                         application/xml:
                             example:
                                 <Subscription>
-                                    <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | importtnorders | removeImportedTnOrders] </OrderType>
+                                    <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | importtnorders | removeImportedTnOrders| emergencyNotificationGroup | emergencyEndpointGroup] </OrderType>
                                     <OrderId> [UUID] </OrderId>
                                     <EventType> [MESSAGING_LOST] </EventType>
                                     <CallbackSubscription>
@@ -18516,7 +18524,17 @@ securitySchemes:
             description: Retrieves the telephone number's information.
             responses:
                 200:
-                    description: The information has been successfully retrieved and displayed.
+                    description: |
+                        OK - The information has been successfully retrieved and displayed.<br>
+                        <h3>TN Attributes</h3>
+                        <h4>status</h4>
+                        <ul>
+                            <li>Inservice: The TN is currently in use by the customer that owns the TN.</li>
+                            <li>Available: The TN is available to be ordered. If the TN is "protected" only the account owning the TN can order it, otherwise it should be generally available.</li>
+                            <li>Aging: The TN is disconnected by the customer owning the TN. At this time, the TN will go into aging for some period of time (typically 30 days) and the customer owning the TN can order it again. If the allotted time has passed and the TN is not ordered by the owning customer, the TN will go back to Available.</li>
+                            <li>PortInPendingFoc: TN is in FOC and waiting for the FOC date.</li>
+                            <li>Reserved: A TN is reserved by a customer to order at a later time.</li>
+                        </ul>
                     body:
                         application/xml:
                             example:
@@ -18895,7 +18913,20 @@ securitySchemes:
                 description: Retrieves the history associated with that telephone number.
                 responses:
                     200:
-                        description: OK - the history has been successfully retrieved and displayed.
+                        description: |
+                            OK - the history has been successfully retrieved and displayed.<br>
+                            <h3>TN Attributes</h3>
+                            <h4>status</h4>
+                            <ul>
+                                <li>Inservice: The TN is currently in use by the customer that owns the TN.</li>
+                                <li>Available: The TN is available to be ordered. If the TN is "protected" only the account owning the TN can order it, otherwise it should be generally available.</li>
+                                <li>Aging: The TN is disconnected by the customer owning the TN. At this time, the TN will go into aging for some period of time (typically 30 days) and the customer owning the TN can order it again. If the allotted time has passed and the TN is not ordered by the owning customer, the TN will go back to Available.</li>
+                                <li>PortInPendingFoc: TN is in FOC and waiting for the FOC date.</li>
+                                <li>PortOut: A TN has been ported out of an account.</li>
+                                <li>Reserved: A TN is reserved by a customer to order at a later time.</li>
+                                <li>Removed: Bandwidth will show this for TNs that have been soft-removed.</li>
+                                <li>Eliminated: This status will shown for external TNs that are removed from Bandwidth.</li>
+                            </ul>
                         body:
                             application/xml:
                                 example: 
@@ -19852,7 +19883,7 @@ securitySchemes:
             <li>a list of telephone numbers to be ported out</li>
             <li>a subscriber name for information purposes</li>
             <li>a zip code associated with the subscriber, presumably relating to a billing or service address</li>
-            <li>an account code, presumably related to an account used to reflect&nbsp; the commercial or billing relationship with the subscriber</li>
+            <li>an account code, presumably related to an account used to reflect the commercial or billing relationship with the subscriber</li>
             <li>a PIN established by the end user that helps to identify that end user / subscriber</li>
           </ul>
           <p>One of two responses are valid:</p>
@@ -19864,12 +19895,11 @@ securitySchemes:
                 <ul>
                   <li>this information will be passed back to the requesting party to allow them to attempt to improve the request.</li>
                 </ul>
-                <li>In this case the response<span>&nbsp;</span><em><b>should</b></em><span>&nbsp;</span>contain data that would have allowed to port-out to be considered valid,
+                <li>In this case the response<span>&nbsp;</span><em><b>should</b></em><span>&nbsp;</span>contain data that would have allowed to port-out to be considered valid
                   <ul>
                     <li>this data is intended for dispute resolution, and for review by Bandwidth to see if the port appears to be valid based on the available data.</li>
                     <li>all fields are considered optional.</li>
-                    <li>failure to return any data<span>&nbsp;</span><em>may</em>
-                    <span>&nbsp;</span>be considered to be equivalent to approving the port-out request.</li>
+                    <li>failure to return any data<span>&nbsp;</span><em>may</em> be considered to be equivalent to approving the port-out request.</li>
                     <li>subsequent submission of the data provided in the response should cause acceptance of the port-out request.</li>
                     <li>this information will not be passed directly on to the requesting party</li>
                   </ul>
@@ -19947,7 +19977,7 @@ securitySchemes:
                     </tr>
                     <tr>
                         <td>7598</td>
-                        <td>Invalid Request - <explanatory text></td>
+                        <td>Invalid Request</td>
                         <td>Request placed in Exception</td>
                     </tr>
                     <tr>
@@ -19964,14 +19994,14 @@ securitySchemes:
                 </table>
           </div>
           <h4>Configuration</h4>
-          <p>The configuration of the call-back API used for port-out validation is done by Bandwidth development staff. &nbsp;Configuration of this service is performed on the submission of a Ticket, and on completion of the required contract extensions.</p>
+          <p>The configuration of the callback API used for port-out validation is done by Bandwidth development staff. &nbsp;Configuration of this service is performed on the submission of a Ticket, and on completion of the required contract extensions.</p>
           <ul>
             <li>the configured URL provided by the customer that will be invoked by Bandwidth in order to validate a port-out request.</li>
-            <li>the suecurity of the exchange can be protected within an https exchange, and can be authenticated with userid / password credentials, or with certificates. The setup of the callback will be covered in the ticketing process.</li>
+            <li>the security of the exchange can be protected within an https exchange, and can be authenticated with userid / password credentials, or with certificates. The setup of the callback will be covered in the ticketing process.</li>
           </ul>
           <br>
           <h4>Responsibilities</h4>
-          Accounts using the Poprt-out verification API will likely be required to extend the contractual relationship with Bandwidth to ensure clarity around the responsibilities of our customers in the use of the API, and the rights of Bandwidth to withhold this capability if we believe that the capability is being used in contravention of FCC best practices, guidelines and recommendations. Please review these requirements with your Bandwidth representative.<br>
+          Accounts using the Port-out verification API will likely be required to extend the contractual relationship with Bandwidth to ensure clarity around the responsibilities of our customers in the use of the API, and the rights of Bandwidth to withhold this capability if we believe that the capability is being used in contravention of FCC best practices, guidelines and recommendations. Please review these requirements with your Bandwidth representative.<br>
         post:
           description: |
             The initial request for validation is a post to the pre-configured URL defined by the customer.

@@ -989,6 +989,34 @@
     <td>5201</td>
     <td>Tn endpoints must be valid NANP tns: %s</td>
   </tr>
+    <tr>
+    <td>5202</td>
+    <td>SMS should be 'ON' before NNID assignment</td>
+  </tr>
+    <tr>
+    <td>5203</td>
+    <td>Origination Route Plan Error: TN cannot have Call-forwarding along with Origination Route Plan</td>
+  </tr>
+    <tr>
+    <td>5204</td>
+    <td>Origination Route Plan Error: TN cannot have Rewrite-user along with Origination Route Plan </td>
+  </tr>
+    <tr>
+    <td>5205</td>
+    <td>Call-Forwarding Error: TN cannot have Origination Route Plan along with Call-forwarding</td>
+  </tr>
+    <tr>
+    <td>5206</td>
+    <td>Rewrite-user Error: TN cannot have Origination Route Plan along with Rewrite-user</td>
+  </tr>
+    <tr>
+    <td>5207</td>
+    <td>Specified Route Plan Action was invalid, must be one of 'asSpecified', 'unchanged' or 'off'</td>
+  </tr>
+    <tr>
+    <td>5208</td>
+    <td>Route Plan must be empty for 'off' action</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -3794,7 +3822,7 @@
   </tr>
     <tr>
     <td>14500</td>
-    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs</td>
+    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup</td>
   </tr>
     <tr>
     <td>14501</td>
@@ -4328,7 +4356,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4908,7 +4936,11 @@
   </tr>
     <tr>
     <td>12167</td>
-    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING_E911 feature enabled.</td>
+    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING_911 feature enabled.</td>
+  </tr>
+    <tr>
+    <td>12168</td>
+    <td>A call to the message search service has failed. Please try again later. If this problem continues please contact Bandwidth support.</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -6576,6 +6608,10 @@
     <tr>
     <td>13049</td>
     <td>CallbackTimeout needs to be an integer.</td>
+  </tr>
+    <tr>
+    <td>130450</td>
+    <td>A call to the %s service has failed. Please try again later. If this problem continues please contact Bandwidth support.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
