@@ -5,6 +5,9 @@
 ## Base API URL
 `https://api.webrtc.bandwidth.com/v1/accounts/{accountId}`
 
+| Guide                                               | Description                                                                                                                     |
+|:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
+| [Getting started](guides/quickstart.md)             | Learn how to the WebRTC "Hello World" sample app works
 
 
 ## REST API Reference Index
