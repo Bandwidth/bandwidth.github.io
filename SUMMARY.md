@@ -134,6 +134,7 @@
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Conferences](voice/methods/conferences/about.md)
+		* [GET Account's Conferences](voice/methods/conferences/getConferences.md)
 		* [GET Conference Information](voice/methods/conferences/getConferencesConferenceId.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
 		* [GET Member Information](voice/methods/conferences/getConferenceMember.md)
