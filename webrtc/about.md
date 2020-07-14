@@ -7,12 +7,8 @@
 
 
 ## WebRTC Browser SDK
-[`https://github.com/Bandwidth/webrtc-browser`](https://github.com/Bandwidth/webrtc-browser)
+[https://github.com/Bandwidth/webrtc-browser](https://github.com/Bandwidth/webrtc-browser)
 
-```javascript
-import BandwidthRtc from "@bandwidth/webrtc-browser";
-const bandwidthRtc = new BandwidthRtc();
-````
 
 ## WebRTC Guides
 | Guide                                               | Description                                                                                                                     |
