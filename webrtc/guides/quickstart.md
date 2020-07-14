@@ -128,6 +128,16 @@ Once that's all done, the `createParticipant` call from `/connectionInfo` (remem
 returns a `token` and some other info to our frontend.
 
 
+### A word about "subscriptions"
+
+In the example above, you may have noticed that we pass in `sessionId` when we add the participant to the session. But `sessionId` is already a path param in the REST URL, so what gives?
+
+By doing that, you're telling Bandwidth WebRTC to _subscribe_ this participant to everyone else in the session, and _subscribe_ everyone in the session to this participant! You could also include a
+list of explicit participants, if you wanted to only subscribe them to one or two other people.
+
+This gives you lots of flexibility and control over what each participants receives and sends in a session. You can [read more about sessions in our API documentation](https://dev.bandwidth.com/webrtc/methods/sessions/about.html).
+
+
 ### Connecting the WebRTC browser SDK and publishing media
 
 Once the frontend has a valid device token, we can use this to connect our WebRTC Browser SDK to the session:

@@ -5,6 +5,14 @@
 ## Base API URL
 `https://api.webrtc.bandwidth.com/v1/accounts/{accountId}`
 
+
+## WebRTC Browser SDK
+`https://github.com/Bandwidth/webrtc-browser`
+```javascript
+import BandwidthRtc from "@bandwidth/webrtc-browser";
+const bandwidthRtc = new BandwidthRtc();
+````
+
 | Guide                                               | Description                                                                                                                     |
 |:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | [Getting started](guides/quickstart.md)             | Learn how to the WebRTC "Hello World" sample app works
