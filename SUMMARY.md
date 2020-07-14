@@ -250,6 +250,7 @@
 
 ## WebRTC
 * [Overview](webrtc/about.md)
+* [Quickstart Guide](webrtc/guides/quickstart.md)
 * [API Methods](webrtc/methods/about.md)
     * [Participants](webrtc/methods/participants/about.md)
         * [POST Create Participant](webrtc/methods/participants/createParticipant.md)
