@@ -1,6 +1,6 @@
 {% method %}
 ## Conference Member Exit Event
-The Conference Member Exit event is fired whenever a caller exits a [conference](../verbs/conference.md) that specified a callbackUrl.  
+The Conference Member Exit event is fired whenever a caller exits a [conference](../verbs/conference.md) that specified a callbackUrl.
 ### Expected response
 ```http
 HTTP/1.1 204

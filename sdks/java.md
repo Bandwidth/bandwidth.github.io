@@ -1,22 +1,26 @@
 # Java SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 3.0.0 | Updated Pause and SendDtmf BXML attributes |
-| 3.1.0 | Added MFA functions |
-| 3.2.0 | Added support for multi nested verbs in Gathers |
-| 3.3.0 | Added support for Conference BXMl and Conference API Endpoints |
-
 ## Links
 
-[Github](https://github.com/Bandwidth/java-sdk)
+The Java SDK(s) are available via [Maven](https://mvnrepository.com/) & Github
 
-[Maven](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk)
+| Links                                                                                                                       | Description                                                                     | Github                                                                                               |
+|:----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
+| [`com.bandwidth.sdk/bandwidth-sdk`](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk)                     | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/java-sdk)                  |
+| [`com.bandwidth.sdk/bandwidth-java-iris-sdk`](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-java-iris-sdk) | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/java-bandwidth-iris)       |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/java)                                                     | Java code examples                                                              | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/java) |
 
-[Code Examples](https://github.com/Bandwidth/examples/tree/master/java)
+## Release Notes
+
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 2.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 3.0.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 3.1.0   | Added MFA functions                                                             |
+| 3.2.0   | Added support for multi nested verbs in Gathers                                 |
+| 3.3.0   | Added support for Conference BXMl and Conference API Endpoints                  |
+| 3.4.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 3.5.0   | Added BXML Bridge verb                                                          |
 
 ## Download & Install
 
@@ -27,7 +31,7 @@ Maven:
 <dependency>
     <groupId>com.bandwidth.sdk</groupId>
     <artifactId>bandwidth-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>version</version>
 </dependency>
 ```
 

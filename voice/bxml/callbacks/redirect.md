@@ -15,18 +15,21 @@ Content-Type: application/xml; charset=utf-8
 ```
 
 ### Properties
-| Property  | Description                                                                                                       |
-|:----------|:------------------------------------------------------------------------------------------------------------------|
-| eventType | The event type, value is `redirect`.                                                                              |
-| accountId     | The user account associated with the call.                                                                        |
-| applicationId | The id of the application associated with the call.                                                               |
-| to        | The phone number that received the call, in E.164 format (e.g. +15555555555).                                     |
-| from      | The phone number that made the call, in E.164 format (e.g. +15555555555).                                         |
-| direction | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                 |
-| callId    | The call id associated with the event.                                                                            |
-| callUrl   | The URL of the call associated with the event.                                                                    |
-| startTime | Time the call was started, in ISO 8601 format.                                                                    |
-| tag       | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
+| Property          | Description                                                                                                                                                                           |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| eventType         | The event type, value is `redirect`.                                                                                                                                                  |
+| accountId         | The user account associated with the call.                                                                                                                                            |
+| applicationId     | The id of the application associated with the call.                                                                                                                                   |
+| to                | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                                                                         |
+| from              | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                                             |
+| direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                                                                     | 
+| callId            | The call id associated with the event.                                                                                                                                                |
+| parentCallId     | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, null.                               |
+| callUrl           | The URL of the call associated with the event.                                                                                                                                        |
+| startTime         | Time the call was started, in ISO 8601 format.                                                                                                                                        |
+| tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                                                     |
+| transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.  |
+| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.     |
 
 {% common %}
 
