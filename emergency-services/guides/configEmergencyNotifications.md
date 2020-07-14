@@ -54,7 +54,11 @@ The emergency notification recipients resource is authenticated with your [API C
 
 ##### Note
 
-Oneof: `EmailAddress`, `Sms TelephoneNumber`, `Tts TelephoneNumber`, `Callback Url` must be provided to match the `Type` as specified.
+Oneof the following must be provided to match the `Type` as specified.
+* `EmailAddress`
+* `Sms TelephoneNumber`
+* `Tts TelephoneNumber`
+* `Callback Url`
 
 #### Request Parameters
 
