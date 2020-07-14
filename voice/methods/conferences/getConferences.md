@@ -15,12 +15,12 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-| Parameter      | Description                                                                                                           | Mandatory |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| pageSize       | Specifies the max number of conferences that will be returned. Default value is 1000                                  | No        |
-| name           | Filter results by the `name` field.                                                                                   | No        |
-| minCreatedTime | Filter results to conferences which have a `createdTime` after or including `minCreatedTime` (in ISO8601 format).     | No        |
-| maxCreatedTime | Filter results to conferences which have a `createdTime` before `maxCreatedTime` (in ISO8601 format).                 | No        |
+| Parameter      | Description                                                                                                                      | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| pageSize       | Specifies the max number of conferences that will be returned. Range: integer numbers from 1 to 1000. Default value is 1000.     | No        |
+| name           | Filter results by the `name` field.                                                                                              | No        |
+| minCreatedTime | Filter results to conferences which have a `createdTime` after or including `minCreatedTime` (in ISO8601 format).                | No        |
+| maxCreatedTime | Filter results to conferences which have a `createdTime` before `maxCreatedTime` (in ISO8601 format).                            | No        |
 
 ### Response Attributes
 
