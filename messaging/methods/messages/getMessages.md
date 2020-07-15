@@ -39,7 +39,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | QUEUED | Message has been queued prior to sending. |
 | SENDING | Message is in the process of being sent. This is a temporary status. |
 | SENT | Message has been sent. |
-| DLR_TIMEOUT | |
+| DLR_TIMEOUT | Message was forwarded and then did not receive any DLR within a certain amount of time that it would have expected to get one. |
 | FAILED | Message was rejected by a downstream provider. Please review error code for more information about why. |
 
 ### Response Parameters
