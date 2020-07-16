@@ -73,6 +73,8 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 HTTP/1.1 200 OK
 Content-Type: application/json
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&prevPage=GL83PD3C>; rel="next"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&nextPage=DLAPE902>; rel="prev"
 ```
 
 > The above command returns a JSON Response structured like this:
@@ -96,7 +98,7 @@ Content-Type: application/json
             "segmentCount":1,
             "errorCode":0,
             "receiveTime":"2020-04-07T14:03:07.000Z",
-            "carrierName":"unknown"
+            "carrierName":"other"
         }
     ]
 }
@@ -113,6 +115,8 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 HTTP/1.1 200 OK
 Content-Type: application/json
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&prevPage=GL83PD3C>; rel="next"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&nextPage=DLAPE902>; rel="prev"
 ```
 
 > The above command returns records in this format:
@@ -136,7 +140,7 @@ Content-Type: application/json
             "segmentCount":1,
             "errorCode":9902,
             "receiveTime":"2020-04-07T14:03:07.000Z",
-            "carrierName":"unknown"
+            "carrierName":"other"
         },
         {
             ...
