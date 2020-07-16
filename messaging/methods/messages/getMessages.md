@@ -73,8 +73,6 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&prevPage=GL83PD3C>; rel="next"
-Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&nextPage=DLAPE902>; rel="prev"
 ```
 
 > The above command returns a JSON Response structured like this:
@@ -82,10 +80,7 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?message
 ```http
 {
     "totalCount":1,
-    "pageInfo": {
-        "prevPage": "",
-        "nextPage": ""
-    },
+    "pageInfo": {},
     "messages":[
         {
             "messageId":"1589228074636lm4k2je7j7jklbn2",
