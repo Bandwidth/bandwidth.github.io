@@ -113,12 +113,15 @@ from_phone = "+18888888888"
 to_phone = "+17777777777"
 messaging_application_id = "1-d-b"
 scope = "scope"
+digits = 6
 
 body = TwoFactorCodeRequestSchema.new
 body.from = from_phone
 body.to = to_phone
 body.application_id = messaging_application_id
 body.scope = scope
+body.digits = digits
+body.message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 
 auth_client.create_messaging_two_factor(account_id, body)
 
@@ -130,6 +133,8 @@ body.to = to_phone
 body.application_id = application_id
 body.scope = scope
 body.code = code
+body.digits = digits
+body.expiration_time_in_minutes = 3
 
 response = auth_client.create_verify_two_factor(account_id, body)
 puts "Auth status: " + response.data.valid.to_s
