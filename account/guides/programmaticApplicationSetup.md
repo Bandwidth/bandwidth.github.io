@@ -266,6 +266,24 @@ This endpoint can be used to create a subaccount (AKA site) on your account
 | `CustomerProvidedID`      | No        | Optional custom ID to assign to your application. Max length of 10 characters                                                                                                                                                            |
 | `CustomerName`            | No        | Optional custom name to assign to your application. Max length of 50 characters                                                                                                                                                          |
 
+#### Address Object Values
+
+| Name | Type | Description |
+|:--|:--|:--|
+| HouseNumber | String | The number of the house |
+| HousePrefix | String | The prefix of the house |
+| HouseSuffix | String | The suffix of the house |
+| StreetName | String | The name of the street |
+| StreetSuffix | String | The suffix of the street |
+| AddressLine2 | String | The optional second line of the address (apartment, extension, etc) |
+| City | String | The city of the address |
+| StateCode | String | The 2 character state code |
+| Zip | String | The 6 digit zip code |
+| PlusFour | String | The 4 digit zip code extension |
+| County | String | The county of the address |
+| Country | String | The country of the address |
+| AddressType | String | The type of the address. Must be `Billing` or `Service` |
+
 {% common %}
 
 ### Create Sub-Account (site)
