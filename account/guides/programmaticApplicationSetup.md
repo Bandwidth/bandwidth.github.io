@@ -5,6 +5,8 @@
 
 This walks through how to programmatically setup and configure your Bandwidth account _via APIs_ for use with [HTTP Voice](../../voice/about.md) and [HTTP Messaging](../../messaging/about.md)
 
+The full API reference for these endpoints can be found at [our Numbers API reference](../../numbers/apiReference.md)
+
 ## Assumptions
 
 * Familiarity with [Account API Credentials](../../guides/accountCredentials.md)
