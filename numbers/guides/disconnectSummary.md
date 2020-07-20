@@ -16,7 +16,7 @@ Disconnecting a phone number leaves it in all applicable inventories, but makes 
 
 ## Disconnecting a Phone Number {#disconnect-phone-number}
 
-Disconnecting a phone number leaves it in all applicable inventories, but makes it available for activation with a new subscriber.
+When a phone number is disconnected from your account it will remain available for you to reconnect to for a short period of time before being released back into Bandwidth's public inventory pool. You will not be charged for calls made to this number during the holding period. The duration of the holding period depends on demand for numbers from that area. 
 
 ### Base URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/disconnects`

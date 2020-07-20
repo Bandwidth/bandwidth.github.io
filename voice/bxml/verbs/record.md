@@ -2,6 +2,8 @@
 ## XML: `<Record>`
 The Record verb allows a segment of audio to be recorded during a call. At the end of the recording, a [Record Complete](../callbacks/recordComplete.md) event is generated.
 
+Bandwidth will keep recordings for up to 30 days. After 30 days the recordings will be deleted from Bandwidth's servers.
+
 ### Attributes
 | Attribute                    | Description                                                                                                                                                                                                            |
 |:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -1,27 +1,28 @@
 # Python SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 6.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 6.1.0 | Updated Pause and SendDtmf BXML attributes |
-| 6.2.0 | Added MFA functions |
-| 6.3.0 | Added support for multi nested verbs in Gathers |
-| 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
-| 6.5.0 | Updated WebRTC Permissions schema |
-| 6.6.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
-| 6.7.0 | Added BXML Bridge verb |
-| 6.8.0 | Updated WebRTC base URL |
-
-
 ## Links
 
-* [Github](https://github.com/Bandwidth/python-sdk)
+The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 
-* [PyPi](https://pypi.org/project/bandwidth-sdk/)
+| Links                                                                     | Description                                                                     | Github                                                                                                 |
+|:--------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| [`bandwidth-sdk`](https://pypi.org/project/bandwidth-sdk/)                | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/python-sdk)                  |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/python) | Python code examples                                                            | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/python) |
 
-* [Code Examples](https://github.com/Bandwidth/examples/tree/master/python)
+## Release Notes
+
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 6.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 6.1.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 6.2.0   | Added MFA functions                                                             |
+| 6.3.0   | Added support for multi nested verbs in Gathers                                 |
+| 6.4.0   | Added support for Conference BXMl, Conference API Endpoints, and WebRTC         |
+| 6.5.0   | Updated WebRTC Permissions schema                                               |
+| 6.6.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 6.7.0   | Added BXML Bridge verb                                                          |
+| 6.8.0   | Updated WebRTC base URL                                                         |
+
 
 ## Download & Install
 
