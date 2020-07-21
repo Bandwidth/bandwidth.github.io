@@ -31,6 +31,17 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | after | integer | The record number indicates that search result will have records after the given position number in a order of sorted received timestamp | `after=10 indicates that search result will have the records after 10th postion in a order of sorted received timestamp` |
 | limit | integer | The maximum records requested in search result . Default `100`. <br> The sum of limit and after cannot be more than 10000 | `limit=100` |
 
+### Message Statuses
+
+| Status | Description |
+|:--|:--|
+| RECEIVED | Message has been received by bandwidth. |
+| QUEUED | Message has been queued prior to sending. |
+| SENDING | Message is in the process of being sent. This is a temporary status. |
+| SENT | Message has been sent. |
+| DLR_TIMEOUT | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window. |
+| FAILED | Message was rejected by a downstream provider. Please review error code for more information about why. |
+
 ### Response Parameters
 
 | Parameter | Type | Description |

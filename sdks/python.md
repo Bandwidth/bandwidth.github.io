@@ -138,12 +138,15 @@ from_phone = "+18888888888"
 to_phone = "+17777777777"
 messaging_application_id = "1-d-b"
 scope = "scope"
+digits = 6
 
 body = TwoFactorCodeRequestSchema(
     mfrom = from_phone,
     to = to_phone,
     application_id = messaging_application_id,
-    scope = scope
+    scope = scope,
+    digits = digits,
+    message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 )
 auth_client.create_messaging_two_factor(account_id, body)
 
@@ -154,7 +157,9 @@ body = TwoFactorVerifyRequestSchema(
     to = to_phone,
     application_id = application_id,
     scope = scope,
-    code = code
+    code = code,
+    digits = digits,
+    expiration_time_in_minutes = 3
 )
 response = auth_client.create_verify_two_factor(account_id, body)
 print("Auth status: " + str(response.body.valid))

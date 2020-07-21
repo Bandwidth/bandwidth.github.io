@@ -106,12 +106,15 @@ $fromPhone = '+18888888888';
 $toPhone = '+17777777777';
 $messagingApplicationId = '1-d-b';
 $scope = 'scope';
+$digits = 6
 
 $body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
 $body->from = $fromPhone;
 $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
+$body->digits = $digits;
+$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 $authClient->createMessagingTwoFactor($accountId, $body);
 
@@ -123,6 +126,8 @@ $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
 $body->code = $code;
+$body->digits = $digits;
+$body->expirationTimeInMinutes = 3;
 
 $response = $authClient->createVerifyTwoFactor($accountId, $body);
 $strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
