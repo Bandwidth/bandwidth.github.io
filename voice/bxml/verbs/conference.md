@@ -23,7 +23,15 @@ A conference may last for at most 24 hours.
 
 BXML returned by callbacks will be queued and executed in the conference in the order they are received, never overlapping. If an error happens when executing a verb, it will continue to the next verb normally.
 
-Only `<PlayAudio>` and `<SpeakSentence>` are supported for conferences. BXML containing unsupported verbs will be rejected completely.
+Only the following verbs are valid for conferences:
+* [`PlayAudio`](playAudio.md)
+* [`SpeakSentence`](speakSentence.md)
+* [`StartRecording`](startRecording.md)
+* [`StopRecording`](stopRecording.md)
+* [`PauseRecording`](pauseRecording.md)
+* [`ResumeRecording`](resumeRecording.md)
+
+BXML containing unsupported verbs will be rejected completely.
 
 ### Text Content
 | Name        | Description |

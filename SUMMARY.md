@@ -174,6 +174,7 @@
 	 * [Conference Member Join](voice/bxml/callbacks/conferenceMemberJoin.md)
 	 * [Conference Member Exit](voice/bxml/callbacks/conferenceMemberExit.md)
 	 * [Conference Completed](voice/bxml/callbacks/conferenceCompleted.md)
+	 * [Conference Recording Available](voice/bxml/callbacks/conferenceRecordingAvailable.md)
 	 * [Disconnect](voice/bxml/callbacks/disconnect.md)
 	 * [Gather](voice/bxml/callbacks/gather.md)
 	 * [Initiate](voice/bxml/callbacks/initiate.md)
