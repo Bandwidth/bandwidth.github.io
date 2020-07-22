@@ -28,6 +28,7 @@ We use a 15s request timeout when trying to deliver all callbacks, retrying once
 | [Conference Created](conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                                                                                                   |
 | [Conference Member Join](conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                                                                                               |
 | [Conference Member Exit](conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                                                                                                  |
+| [Conference Redirect](conferenceRedirect.md)      | Bandwidth API sends this to the application when a POST request is made to the [/conferences/{conferenceId}](../../methods/conferences/postConferencesConferenceId.md) endpoint requesting to modify a conference |
 
 ## Asynchronous Callbacks
 
