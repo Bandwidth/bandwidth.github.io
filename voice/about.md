@@ -53,8 +53,9 @@
 ## Asynchronous Callbacks
 | Callback                                                            | Description                                                                                                                      |
 |:--------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| [Conference Recording Available](bxml/callbacks/conferenceRecordingAvailable.md) | Bandwidth API sends this when a recording started by a `<StartRecording>`in a conference is available for download. |
 | [Disconnect](bxml/callbacks/disconnect.md)                          | Bandwidth API sends this  when a call ends.                                                                                      |
-| [Recording Available](bxml/callbacks/recordingAvailable.md)         | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
+| [Recording Available](bxml/callbacks/recordingAvailable.md)         | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb in a call is available for download. |
 | [Transfer Disconnect](bxml/callbacks/transferDisconnect.md)         | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                    |
 | [Transcription Available](bxml/callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                        |
 | [Conference Completed](bxml/callbacks/conferenceCompleted.md)       | Bandwidth API sends this after the last member leaves the conference.                                                            |

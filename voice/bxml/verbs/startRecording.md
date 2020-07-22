@@ -1,8 +1,9 @@
 {% method %}
 ## XML: `<StartRecording>`
-The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.
+The StartRecording verb allows a segment of a call or conference to be recorded while other verbs are executing.
 
-When used on a call, all audio on both sides of the call will be recorded. When used on a conference, all members and all audio clips played will be recorded.
+When used on a call, all audio on both sides of the call will be recorded.
+When used on a conference, all members who are not on mute or hold will be recorded, as well as all audio clips played.
 The recording will continue until the call or conference ends, the [`<StopRecording>`](stopRecording.md) verb is used, or the [`<PauseRecording>`](pauseRecording.md) verb is used.
 
 ### Attributes
