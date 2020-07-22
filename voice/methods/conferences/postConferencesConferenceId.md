@@ -21,7 +21,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | redirectUrl     | (optional) The URL to send the Redirect event which will provide new BXML. Not allowed if `state` is `completed`, but required if `state` is `active`    | No        |
 | redirectMethod  | (optional) The HTTP method to use for the request to `redirectUrl` Not allowed if `state` is `completed`    | No        |
 | username        | (optional) The username to send in the HTTP request to `answerUrl` and `diconnectUrl`    | No        |
-| password        | (optional) The password to send in the HTTP request to `answerUrl` and `diconnectUrl`    | No        |
+| password        | (optional) The password to send in the HTTP request to `redirectUrl`    | No        |
 
 {% common %}
 
