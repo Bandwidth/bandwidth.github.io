@@ -1,7 +1,7 @@
 {% method %}
 
 ## Retrieve Account's Conferences
-Returns a max of 1000 conferences, sorted by createdTime from oldest to newest
+Returns a max of 1000 conferences, sorted by `createdTime` from oldest to newest.
 
 ### Request URL
 
@@ -17,7 +17,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 | Parameter      | Description                                                                                                                      | Mandatory |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| pageSize       | Specifies the max number of conferences that will be returned. Range: integer numbers from 1 to 1000. Default value is 1000.     | No        |
+| pageSize       | Specifies the max number of conferences that will be returned. Range: integer values between 1 - 1000. Default value is 1000.    | No        |
 | name           | Filter results by the `name` field.                                                                                              | No        |
 | minCreatedTime | Filter results to conferences which have a `createdTime` after or including `minCreatedTime` (in ISO8601 format).                | No        |
 | maxCreatedTime | Filter results to conferences which have a `createdTime` before or including `maxCreatedTime` (in ISO8601 format).               | No        |
@@ -34,7 +34,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | conferenceEventMethod | The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.  |
 | tag                   | A custom string that will be sent with this and all future callbacks.                                |
 
-**NOTE:** If the number of conferences in the account is bigger than `pageSize`, a `Link` header (format `<https://voice.bandwidth.com/api/v2/accounts/{accountId}/conferences?pageSize={pageSize}&pageToken={pageToken}&minCreatedTime={minCreatedTime}>; rel="next"`) will be returned in the response. The header contains a link which can be used to retrieve the next page of conference records.
+**NOTE:** If the number of conferences in the account is bigger than `pageSize`, a `Link` header (with format `<{url}>; rel="next"`) will be returned in the response. The {url} can be used to retrieve the next page of conference records.
 
 {% common %}
 
