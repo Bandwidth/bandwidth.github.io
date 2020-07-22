@@ -16,6 +16,7 @@
 	* [PHP](sdks/php.md)
 	* [Examples on Github](https://github.com/Bandwidth/examples)
 	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs)
+    * [Postman Collections](https://github.com/Bandwidth/examples/tree/master/postman-collections)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
