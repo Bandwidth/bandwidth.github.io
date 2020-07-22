@@ -65,7 +65,6 @@ BXML callbacks are HTTP messages that are sent to your application server to not
 | [Conference Created](callbacks/conferenceCreated.md)        | Bandwidth API sends this when a new conference is created.                                                                                                                                 |
 | [Conference Member Join](callbacks/conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                                                                             |
 | [Conference Member Exit](callbacks/conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                                                                                |
-| [Conference Redirect](callbacks/conferenceRedirect.md)      | Bandwidth API sends this to the application when a POST request is made to the [/conferences/{conferenceId}](../methods/conferences/postConferencesConferenceId.md) endpoint requesting to modify a conference |
 
 ### Asynchronous Callbacks
 | Callback                                                       | Description                                                                                                                      |
