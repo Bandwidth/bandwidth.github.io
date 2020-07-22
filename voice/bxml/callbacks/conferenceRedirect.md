@@ -31,6 +31,15 @@ Content-Type: application/xml; charset=utf-8
 #### Example: Conference redirect
 
 ```
+POST http://[External server URL]
+```
+
+```json
+   {
+       "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
+       "name"          : "thisConference",
+       "eventType"     : "conferenceRedirect",
+   }
 
 ```
 
