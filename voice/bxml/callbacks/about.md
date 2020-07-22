@@ -43,7 +43,8 @@ URLs, so POST is the preferred method.
 
 | Callback                                       | Description                                                                                                                                         |
 |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Conference Completed](conferenceCompleted.md) | Bandwidth API sends this after the last member leaves the conference.                                                                               |
+| [Conference Recording Available](bxml/callbacks/conferenceRecordingAvailable.md) | Bandwidth API sends this when a recording started by a `<StartRecording>`in a conference is available for download. |
 | [Disconnect](disconnect.md)                    | Bandwidth API sends this to the application when a call ends.                                                                                       |
 | [Recording Available](recordingAvailable.md)   | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 | [Transfer Disconnect](transferDisconnect.md)   | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
-| [Conference Completed](conferenceCompleted.md) | Bandwidth API sends this after the last member leaves the conference.                                                                               |

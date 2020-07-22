@@ -2,7 +2,16 @@
 ## Conference Member Exit Event
 The Conference Member Exit event is fired whenever a caller exits a [conference](../verbs/conference.md) that specified a `callbackUrl`.  
 
-The response may be either empty or a BXML. Only `<PlayAudio>` and `<SpeakSentence>` are supported, which will be heard by all members still in the conference.
+The response may be either empty or a BXML document. Only the following verbs are valid for conferences:
+* [`PlayAudio`](../verbs/playAudio.md)
+* [`SpeakSentence`](../verbs/speakSentence.md)
+* [`StartRecording`](../verbs/startRecording.md)
+* [`StopRecording`](../verbs/stopRecording.md)
+* [`PauseRecording`](../verbs/pauseRecording.md)
+* [`ResumeRecording`](../verbs/resumeRecording.md)
+
+Audio verbs will be heard by all members of the conference. Recordings capture audio from all members
+who are not muted or on hold, as well as any audio verbs that are played into the conference.
 
 ### Expected response
 
@@ -15,7 +24,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- <PlayAudio> or <SpeakSentence> BXML verbs to play in the conference -->
+    <!-- BXML verbs to execute in the conference -->
 </Response>
 ```
 
