@@ -2,6 +2,8 @@
 
 The Messages resource lets you send both single SMS/MMS messages as well as Group SMS/MMS Messages.
 
+Phone numbers used on this API are expected to be in E164 format (`+1XXXYYYZZZZ`)
+
 <img src="../../images/send_sms.png" style="max-width:95%">
 
 #### Receive Incoming Messages

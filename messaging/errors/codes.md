@@ -189,6 +189,7 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4406 | Unallocated to number                                                         | NO       |
 | 4410 | Could not download media                                                      | NO       |
 | 4411 | Combined size of media too large                                              | NO       |
+| 4412 | Failed to parse Content-Type for media                                        | NO       |
 | 4420 | No Route to Destination Carrier                                               | NO       |
 | 4421 | No Route to Destination Carrier                                               | NO       |
 | 4431 | Messaging on shortcode forbidden                                              | NO       |

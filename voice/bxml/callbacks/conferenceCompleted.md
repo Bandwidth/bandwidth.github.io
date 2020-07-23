@@ -1,7 +1,11 @@
 {% method %}
 ## Conference Completed Event
 The Conference Completed event is fired when the last member leaves the [conference](../verbs/conference.md).
+
+The response to this event may not contain BXML.
+
 ### Expected response
+
 ```http
 HTTP/1.1 204
 ```
@@ -9,11 +13,11 @@ HTTP/1.1 204
 ### Properties
 
 | Property     | Description |
-|:----------   |:------------|
-| eventType    | The event type, value is `conferenceCompleted` |
-| conferenceId | The ID of the new conference that was created |
+|:-------------|:------------|
+| eventType    | The event type, value is `conferenceCompleted`. |
+| conferenceId | The ID of the new conference that was created. |
 | name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag. |
-| tag          | (optional) The `tag` that was set at conference creation, if any |
+| tag          | (optional) The `tag` that was set at conference creation, if any. |
 
 {% common %}
 

@@ -1,25 +1,27 @@
 # PHP SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 2.1.0 | Updated Pause and SendDtmf BXML attributes |
-| 2.2.0 | Added MFA functions and support for multiple nested verbs for a Gather |
-| 2.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
-| 2.4.0 | Updated WebRTC Permissions schema |
-| 2.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
-| 2.6.0 | Added BXML Bridge verb |
-| 2.7.0 | Updated WebRTC base URL |
-
 ## Links
 
-* [Github](https://github.com/Bandwidth/php-sdk)
+The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 
-* [Packagist](https://packagist.org/packages/bandwidth/sdk)
+| Module                                                                 | Description                                                                     | Github                                                                                              |
+|:-----------------------------------------------------------------------|:--------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| [`bandwidth/sdk`](https://packagist.org/packages/bandwidth/sdk)        | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/php-sdk)                  |
+| [`bandwidth/iris`](https://packagist.org/packages/bandwidth/iris)      | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/php-bandwidth-iris)       |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/php) | PHP code examples                                                               | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/php) |
 
-* [Code Examples](https://github.com/Bandwidth/examples/tree/master/php)
+## Release Notes
+
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 2.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 2.1.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 2.2.0   | Added MFA functions and support for multiple nested verbs for a Gather          |
+| 2.3.0   | Added support for Conference BXMl, Conference API Endpoints, and WebRTC         |
+| 2.4.0   | Updated WebRTC Permissions schema                                               |
+| 2.5.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 2.6.0   | Added BXML Bridge verb                                                          |
+| 2.7.0   | Updated WebRTC base URL                                                         |
 
 ## Download & Install
 
@@ -104,12 +106,15 @@ $fromPhone = '+18888888888';
 $toPhone = '+17777777777';
 $messagingApplicationId = '1-d-b';
 $scope = 'scope';
+$digits = 6
 
 $body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
 $body->from = $fromPhone;
 $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
+$body->digits = $digits;
+$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 $authClient->createMessagingTwoFactor($accountId, $body);
 
@@ -121,6 +126,8 @@ $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
 $body->code = $code;
+$body->digits = $digits;
+$body->expirationTimeInMinutes = 3;
 
 $response = $authClient->createVerifyTwoFactor($accountId, $body);
 $strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";

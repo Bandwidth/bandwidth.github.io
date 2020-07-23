@@ -21,16 +21,16 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Response Attributes
 
-| Property              | Description                                                                                          |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|
-| id                    | The conference id.                                                                                   |
-| name                  | The conference name.                                                                                 |
-| createdTime           | The time the conference was initiated, in ISO 8601 format.                                           |
-| completedTime         | The time the conference was terminated, in ISO 8601 format.                                          |
-| conferenceEventUrl    | The URL to send the Conference events.                                                               |
-| conferenceEventMethod | The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.  |
-| tag                   | A custom string that will be sent with this and all future callbacks.                                |
-| activeMembers         | The list of active members in the conference.                                                        |
+| Property              | Description                                                                     |
+|:----------------------|:--------------------------------------------------------------------------------|
+| id                    | The conference id.                                                              |
+| name                  | The conference name.                                                            |
+| createdTime           | The time the conference was initiated, in ISO 8601 format.                      |
+| completedTime         | The time the conference was terminated, in ISO 8601 format.                     |
+| conferenceEventUrl    | The URL to send the Conference events.                                          |
+| conferenceEventMethod | The HTTP method used for the requests to `conferenceEventUrl`.                  |
+| tag                   | The custom string attached to the conference that will be sent with callbacks.  |
+| activeMembers         | The list of active members in the conference.                                   |
 
 {% common %}
 
@@ -80,37 +80,62 @@ HTTP/1.1 200
 {% sample lang="java" %}
 
 ```java
-// TODO
+ApiResponse<ConferenceDetail> response = null;
+try {
+    response = controller.getConferenceById(accountId, conferenceId);
+    System.out.println(response.getResult().getActiveMembers().get(0).getMemberUrl());
+} catch (IOException | ApiException e) {
+    // Handle Error
+}
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-// TODO
+var response = controller.GetConferenceById(accountId, conferenceId);
+
+Console.WriteLine(response.Data.ActiveMembers[0].MemberUrl);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-# TODO
+account_id = "12345"
+conference_id = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964"
+response = voice_client.get_conference_by_id(account_id, conference_id)
+puts response.data.id
+puts response.data.active_members[0].call_id
 ```
 
 {% sample lang="python" %}
 
 ```python
-# TODO
+account_id = "12345"
+conference_id = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964"
+response = voice_client.get_conference_by_id(account_id, conference_id)
+print(response.body.id)
+print(response.body.active_members[0].call_id)
 ```
 
 {% sample lang="js" %}
 
 ```js
-// TODO
+var accountId = "12345";
+var conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+
+var response = await voiceController.getConferenceById(accountId, conferenceId);
+console.log(response.id);
+console.log(response.activeMembers[0].callId);
 ```
 
 {% sample lang="php" %}
 
 ```php
-// TODO
+$accountId = "12345";
+$conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
+$response = $voiceClient->getConferenceById($accountId, $conferenceId);
+echo $response->getResult()->id . "\n";
+echo $response->getResult()->activeMembers[0]->callId . "\n";
 ```
 
 {% endmethod %}

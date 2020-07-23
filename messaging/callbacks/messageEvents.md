@@ -17,6 +17,9 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 * You will get a callback for any event related to that message.
   * For example, you will get an HTTP callback when your message is delivered, or blocked. In addition, you will get an event for any kind of Delivery Receipt that the destination carrier sends back, regarding the delivery of your message.
 * For each message sent, you **will** receive either (but not both) a [Message Delivered](msgDelivered.md) or [Message Failed](messageFailed.md) event.
+  * It is essential to check the direction of the message in the callback you receive. For example, if your use case depends on responding to inbound messages, you do not want to respond to an outbound message callback. This could create a loop of messages being sent from your account as you continuously respond to outbound message callbacks.
+
+* ⚠️  Delivery receipts are now supported for MMS & Group Messaging. During this beta phase, you will need to request this functionality to be enabled on your account. Once enabled you will need to support all three possible callback events for MMS (Message Delivered, Message Failed, & Message Queued callbacks)
 
 | Event                                      | Direction | Description                                                                      |
 |:-------------------------------------------|:----------|:---------------------------------------------------------------------------------|
