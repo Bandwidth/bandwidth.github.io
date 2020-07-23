@@ -24,17 +24,17 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Response Attributes
 
-| Property              | Description                                                                                          |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|
-| id                    | The conference id.                                                                                   |
-| name                  | The conference name.                                                                                 |
-| createdTime           | The time the conference was initiated, in ISO 8601 format.                                           |
-| completedTime         | (optional) The time the conference was terminated, in ISO 8601 format.                               |
-| conferenceEventUrl    | The URL to send the Conference events.                                                               |
-| conferenceEventMethod | The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.  |
-| tag                   | A custom string that will be sent with this and all future callbacks.                                |
+| Property              | Description                                                                     |
+|:----------------------|:--------------------------------------------------------------------------------|
+| id                    | The conference id.                                                              |
+| name                  | The conference name.                                                            |
+| createdTime           | The time the conference was initiated, in ISO 8601 format.                      |
+| completedTime         | (optional) The time the conference was terminated, in ISO 8601 format.          |
+| conferenceEventUrl    | The URL to send the Conference events.                                          |
+| conferenceEventMethod | The HTTP method used for the requests to `conferenceEventUrl`.                  |
+| tag                   | The custom string attached to the conference that will be sent with callbacks.  |
 
-**NOTE:** If the number of conferences in the account is bigger than `pageSize`, a `Link` header (with format `<{url}>; rel="next"`) will be returned in the response. The {url} can be used to retrieve the next page of conference records.
+**NOTE:** If the number of conferences in the account is bigger than `pageSize`, a `Link` header (with format `<{url}>; rel="next"`) will be returned in the response. The url can be used to retrieve the next page of conference records.
 
 {% common %}
 
@@ -44,7 +44,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ```bash
 curl -X GET \
-    --url "https://voice.bandwidth.com/api/v2/accounts/{accountId}/conferences?name={name}&minCreatedTime={minCreatedTime}&maxCreatedTime={maxCreatedTime}" \
+    --url "https://voice.bandwidth.com/api/v2/accounts/1122334/conferences?name=myConf&minCreatedTime=2020-07-15T14:00:00.130Z&maxCreatedTime=2020-07-15T15:00:00.519Z" \
     -u '{username}:{password}'
 ```
 
