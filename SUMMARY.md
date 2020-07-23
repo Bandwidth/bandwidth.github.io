@@ -16,6 +16,7 @@
 	* [PHP](sdks/php.md)
 	* [Examples on Github](https://github.com/Bandwidth/examples)
 	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs)
+    * [Postman Collections](https://github.com/Bandwidth/examples/tree/master/postman-collections)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
@@ -134,6 +135,7 @@
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Conferences](voice/methods/conferences/about.md)
+		* [GET Account Conferences](voice/methods/conferences/getConferences.md)
 		* [GET Conference Information](voice/methods/conferences/getConferencesConferenceId.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
 		* [GET Member Information](voice/methods/conferences/getConferenceMember.md)
