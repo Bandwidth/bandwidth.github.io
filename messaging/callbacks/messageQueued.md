@@ -2,7 +2,7 @@
 # Message Queued Event (MMS only)
 In order to receive message events, you need to ensure you have set up your application to send callbacks to your server's URL.
 
-You will receive this callback between message received and message sent events for MMS only if you have the `Feature_MMS_DLR` feature flag enabled.
+You will receive this callback between message received by Bandwidth events and terminal events (message sent, message failed) for MMS only if you have the `Feature_MMS_DLR` feature flag enabled.
 
 ## Parameters
 
