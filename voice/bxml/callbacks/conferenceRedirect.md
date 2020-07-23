@@ -20,7 +20,7 @@ HTTP/1.1 200
 Content-Type: application/xml; charset=utf-8
 
 <Response>
-    <!-- BXML verbs to play in the conference -->
+    <!-- BXML verbs to execute in the conference -->
 </Response>
 ```
 
