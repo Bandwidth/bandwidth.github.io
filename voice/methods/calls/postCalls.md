@@ -29,7 +29,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | callTimeout        | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30                                                           | No        |
 | tag                | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.  | No        |
 | answerFallbackUrl  | (optional) A fallback url which, if provided, will be used to retry the answer callback delivery in case `answerUrl` fails to respond | No |
-| answerFallbackMethod | (optional) The HTTP method to use to deliver the answer callback to `answerFallbackUrl` | No |
+| answerFallbackMethod | (optional) The HTTP method to use to deliver the answer callback to `answerFallbackUrl`. GET or POST. Default value is POST. | No |
 | fallbackUsername   | (optional) The username to send in the HTTP request to `answerFallbackUrl` | No |
 | fallbackPassword   | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
 | callbackTimeout    | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
