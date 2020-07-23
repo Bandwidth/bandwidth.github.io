@@ -21,16 +21,16 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Response Attributes
 
-| Property              | Description                                                                                          |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|
-| id                    | The conference id.                                                                                   |
-| name                  | The conference name.                                                                                 |
-| createdTime           | The time the conference was initiated, in ISO 8601 format.                                           |
-| completedTime         | The time the conference was terminated, in ISO 8601 format.                                          |
-| conferenceEventUrl    | The URL to send the Conference events.                                                               |
-| conferenceEventMethod | The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST.  |
-| tag                   | A custom string that will be sent with this and all future callbacks.                                |
-| activeMembers         | The list of active members in the conference.                                                        |
+| Property              | Description                                                                     |
+|:----------------------|:--------------------------------------------------------------------------------|
+| id                    | The conference id.                                                              |
+| name                  | The conference name.                                                            |
+| createdTime           | The time the conference was initiated, in ISO 8601 format.                      |
+| completedTime         | The time the conference was terminated, in ISO 8601 format.                     |
+| conferenceEventUrl    | The URL to send the Conference events.                                          |
+| conferenceEventMethod | The HTTP method used for the requests to `conferenceEventUrl`.                  |
+| tag                   | The custom string attached to the conference that will be sent with callbacks.  |
+| activeMembers         | The list of active members in the conference.                                   |
 
 {% common %}
 
