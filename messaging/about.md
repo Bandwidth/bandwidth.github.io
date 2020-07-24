@@ -60,5 +60,5 @@ For mored detailed information on segment counts, please see our [character limi
 
 ## MMS and Group Message Delivery Receipts {#mms-dlr}
 
-MMS and Group messages **don’t** currently support delivery receipts. However, you will still receive a message delivered event when the message is sent. For _only MMS and Group Messages_ this means that your message has been handed off to the Bandwidth core network, but has not been confirmed at the downstream carrier. We are actively working to support true delivery receipts for the v2 Messaging API.
+MMS and Group messages delivery receipts are currently in beta and you will need to enable them to receive them.
 
