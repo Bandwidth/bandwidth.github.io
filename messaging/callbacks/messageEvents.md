@@ -6,6 +6,7 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 
 * All Message callbacks are sent as a list/array `[ {} ]` to the webhook url in the application.
 * You **MUST** Reply with a `HTTP 2xx` status code for _every_ callback/delivery receipt.  Bandwidth will retry _every_ callback over the next 24 hours until a `HTTP 2xx` code is received for the callback.  After 24 hours, Bandwidth will no longer try to send the callback
+* Bandwidth's Messaging platform has a 10 second timeout for callbacks. This means your server must respond to the callback request within 10 seconds, otherwise the platform will try again.
 * Because we guarantee "at least once delivery" of events, it is possible (but not common) to receive duplicate message events. Your server should be able to handle duplicates.
 
 ## Incoming Message Concepts
