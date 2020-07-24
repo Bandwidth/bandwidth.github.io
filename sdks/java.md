@@ -21,6 +21,9 @@ The Java SDK(s) are available via [Maven](https://mvnrepository.com/) & Github
 | 3.3.0   | Added support for Conference BXMl and Conference API Endpoints                  |
 | 3.4.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
 | 3.5.0   | Added BXML Bridge verb                                                          |
+| 3.6.0 | Added get conference endpoint |
+| 3.7.0 | Added WebRTC API |
+| 3.8.0 | Added conference management endpoints |
 
 ## Download & Install
 

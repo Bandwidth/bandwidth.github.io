@@ -22,6 +22,8 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 | 2.5.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
 | 2.6.0   | Added BXML Bridge verb                                                          |
 | 2.7.0   | Updated WebRTC base URL                                                         |
+| 2.8.0 | Added get conference endpoint |
+| 2.9.0 | Added conference management endpoints |
 
 ## Download & Install
 
