@@ -30,7 +30,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 If there are further pages for your request, the API will return a Link header containing the URL for the next page. The Link header will look like:
 
 ```$xslt
-<https://voice.bandwidth.com/api/v2/accounts/5555555/calls?pageSize=100&minStartTime=2020-07-10T12:15:18.957Z>; rel="next"
+<https://voice.bandwidth.com/api/v2/accounts/5555555/calls?pageSize=100&cursor=Yy0yYTkxM2Y5NC02YTQ4NmYzYS0zY2FlLTQwMzQtYmNjMy1mMGM5ZmE3NzMyZGU>; rel="next"
 ```
 
 {% common %}
