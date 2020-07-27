@@ -1,7 +1,7 @@
 {% method %}
-  
+
 ## Get Messages
- 
+
 Note: This endpoint is in limited availability and is still in development. Changes should be expected.
 
 ### URL Encoding For Query Parameters
@@ -38,7 +38,8 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | QUEUED | Message has been queued prior to sending. |
 | SENDING | Message is in the process of being sent. This is a temporary status. |
 | SENT | Message has been sent. |
-| DLR_TIMEOUT | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window. |
+| DELIVERED | The message was successfully delivered to the downstream carrier. |
+| DLR_EXPIRED | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window. |
 | FAILED | Message was rejected by a downstream provider. Please review error code for more information about why. |
 
 ### Response Parameters
