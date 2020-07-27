@@ -104,7 +104,36 @@ It is often useful to attach additional data to an order in the form of an attac
 
 ## Modifying an LNP Order (Supp LNP Order) {#modify-lnp}
 
-The API allows a user to modify an existing LNP order. The order number that was generated in the create LNP order request must be provided. Modifications are only allowed for orders that are not yet complete or cancelled. After the FOC date has been received, the billing telephone number and subscriber information cannot be modified, only the FOC date/time can be updated.
+The API allows a user to modify an existing LNP order. To do so, the order Id that was generated in the create LNP order request must be provided. Modifications are only allowed for orders that are not yet complete or cancelled. LNP orders can be modified with a <code class="put">PUT</code> to `accounts/{accountId}/portins/{orderId}`. Since many of the entries in an LNP Order cannot be changed after the initial order is placed, the <code class="put">PUT</code> on a porting order-id does not require that the full order payload is included. Items that can be included in a SUPP request include:
+
+* CustomerOrderId
+* RequestedFocDate
+* BillingTelephoneNumber
+* NewBillingTelephoneNumber
+* AccountNumber
+* PinNumber
+* TnAttributes elements
+* Subscriber elements
+* SiteId
+* PeerId
+* PartialPort, and
+* LoaAuthorizingPerson
+* ListOfPhoneNumbers
+* Triggered
+* Immediately
+
+If the order ProcessingStatus is DRAFT, the rules about what can be changed are much more relaxed. Validation is performed when the ProcessingStatus is changed from DRAFT to SUBMITTED. The AltSpid element can be modified if it is not configured at the system level.
+<br><br>
+<b>ProcessingStatus</b> - you can only provide this field with a value of SUBMITTED if the current ProcessingStatus of the port-in is DRAFT.
+<br><br>
+When a port-in is being processed by off-net partner Level 3 (you can tell this because /lnpchecker indicates a Port Type of AUTOMATEDOFFNET), the rules for what can be changed in a SUPP operation are more restrictive. If the order has NOT yet received FOC, you may change the following:
+
+* RequestedFocDate
+* BillingTelephoneNumber
+* SubscriberType
+* Subscriber name elements or BusinessName, provided that SubscriberType is provided
+
+After the FOC date has been received, the billing telephone number and subscriber information cannot be modified, only the FOC date/time can be updated.
 
 ## Canceling LNP Order {#cancel-lnp}
 
