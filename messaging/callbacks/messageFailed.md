@@ -2,6 +2,8 @@
 # Message Failed Event
 In order to receive message events, you need to ensure you have set up your application to send callbacks to your server's URL.
 
+For MMS and Group Messages, you will only receive this callback if you have enabled delivery receipts on MMS.
+
 ### Parameters
 | Parameter             | Type      | Description                                                                                                                                                                                                                                                                                                                                                         |
 |:----------------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
