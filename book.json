@@ -69,15 +69,15 @@
         "saveUrls": {
           "urls": [
             {
-              "url": "https://admin.test.dashboard.bandwidth.com/apidocs/errors.html",
+              "url": "https://test.dashboard.bandwidth.com/apidocs/errors.html",
               "dest": "numbers/live-errors.html"
             },
             {
-              "url": "https://admin.test.dashboard.bandwidth.com/apidocs/raml/iris.min.raml",
+              "url": "https://test.dashboard.bandwidth.com/apidocs/raml/iris.min.raml",
               "dest": "numbers/raml/iris.min.raml"
             },
             {
-              "url": "https://admin.test.dashboard.bandwidth.com/apidocs/scripts/toc.js",
+              "url": "https://test.dashboard.bandwidth.com/apidocs/scripts/toc.js",
               "dest": "scripts/toc.js"
             }
           ]
