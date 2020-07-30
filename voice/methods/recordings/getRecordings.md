@@ -17,10 +17,10 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 | Parameter    | Description                                                                                                                    | Mandatory |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------|
-| from         | Filter results by the `from` field (E.164 format and URL encoded).                                                                                            | No        |
-| to           | Filter results by the `to` field (E.164 format and URL encoded).                                                                                             | No        |
-| minStartTime | Filter results to recordings which have a `startTime` after or including `minStartTime` (in ISO8601 format).   | No        |
-| maxStartTime | Filter results to recordings which have a `startTime` before `maxStartTime` (in ISO8601 format).               | No        |
+| from         | Filter results by the `from` field (E.164 format and URL encoded).                                                             | No        |
+| to           | Filter results by the `to` field (E.164 format and URL encoded).                                                               | No        |
+| minStartTime | Filter results to recordings which have a `startTime` after or including `minStartTime` (in ISO8601 format and URL encoded).   | No        |
+| maxStartTime | Filter results to recordings which have a `startTime` before `maxStartTime` (in ISO8601 format and URL encoded).               | No        |
 
 {% common %}
 
