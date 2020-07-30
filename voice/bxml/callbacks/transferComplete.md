@@ -27,6 +27,7 @@ Content-Type: application/xml; charset=utf-8
 | callId           | The call id associated with the event.                                                                                                |
 | callUrl          | The URL of the call associated with the event.                                                                                        |
 | startTime        | Time the call was started, in ISO 8601 format.                                                                                        |
+| answerTime       | Time the call was answered, in ISO 8601 format.                                                                                       |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                     |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                       |

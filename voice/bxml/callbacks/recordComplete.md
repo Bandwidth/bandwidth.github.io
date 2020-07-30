@@ -29,6 +29,7 @@ Content-Type: application/xml; charset=utf-8
 | parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, null.                                              |
 | recordingId       | The unique id for this recording.                                                                                                                                                                     |
 | callUrl           | The URL of the call associated with the event.                                                                                                                                                        |
+| answerTime        | Time the call was answered, in ISO 8601 format.                                                                                                                                                       |
 | mediaUrl          | URL to retrieve the contents of the recording.                                                                                                                                                        |
 | startTime         | Time the recording was started, in ISO 8601 format.                                                                                                                                                   |
 | endTime           | Time the recording ended, in ISO 8601 format.                                                                                                                                                         |
@@ -36,8 +37,8 @@ Content-Type: application/xml; charset=utf-8
 | channels          | Number of channels in the recording.                                                                                                                                                                  |
 | fileFormat        | The audio format that the recording was saved as (`wav` or `mp3`).                                                                                                                                    |
 | tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                                                                     |
-| transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                  |
-| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.                     |
+| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                 |
+| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.                    |
 
 {% common %}
 

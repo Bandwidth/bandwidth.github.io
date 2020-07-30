@@ -28,8 +28,9 @@ Content-Type: application/xml; charset=utf-8
 | callId           | The call id associated with the event.                                                                    |
 | callUrl          | The URL of the call associated with the event.                                                            |
 | startTime        | Time the call was started, in ISO 8601 format.                                                            |
+| answerTime 	   | Time the call was answered, in ISO 8601 format.                                                           |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.    |
-| cause            | Reason the bridge failed - `busy`, `rejected`, or `unknown`.                               |
+| cause            | Reason the bridge failed - `busy`, `rejected`, or `unknown`.                               			   |
 | errorMessage     | Text explaining the reason that caused the bridge to fail in case of errors.                              |
 | errorId          | Bandwidth internal id that references the error event.                                                    |
 

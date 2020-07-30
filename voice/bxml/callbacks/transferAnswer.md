@@ -44,9 +44,10 @@ Content-Type: application/xml; charset=utf-8
 | to               | The phone number used in the `to` field of the original call, in E.164 format (e.g. +15555555555).                |
 | direction        | The direction of the call. Always `outbound` for this event.                                                      |
 | callId           | The call id of the newly-created B leg.                                                                           |
-| parentCallId     | The call id of the original call leg that executed the `<Transfer>` tag.                                         |
+| parentCallId     | The call id of the original call leg that executed the `<Transfer>` tag.                                          |
 | callUrl          | The URL of the call associated with the event.                                                                    |
 | startTime        | Time the call was started, in ISO 8601 format.                                                                    |
+| answerTime       | Time the call was answered, in ISO 8601 format.                                                                   |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                 |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                   |

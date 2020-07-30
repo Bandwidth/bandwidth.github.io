@@ -26,6 +26,7 @@ Content-Type: application/xml; charset=utf-8
 | callId           | The bridge target call id.                                                                                |
 | callUrl          | The URL of the call associated with the event.                                                            |
 | startTime        | Time the call was started, in ISO 8601 format.                                                            |
+| answerTime       | Time the call was answered, in ISO 8601 format.                                                           |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.    |
 
 {% common %}
