@@ -29,8 +29,8 @@ Content-Type: application/xml; charset=utf-8
 | parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, null.                                              |
 | recordingId       | The unique id for this recording.                                                                                                                                                                     |
 | callUrl           | The URL of the call associated with the event.                                                                                                                                                        |
-| answerTime        | Time the call was answered, in ISO 8601 format.                                                                                                                                                       |
 | mediaUrl          | URL to retrieve the contents of the recording.                                                                                                                                                        |
+| answerTime        | Time the call was answered, in ISO 8601 format.                                                                                                                                                       |
 | startTime         | Time the recording was started, in ISO 8601 format.                                                                                                                                                   |
 | endTime           | Time the recording ended, in ISO 8601 format.                                                                                                                                                         |
 | duration          | Duration of the recording, in ISO 8601 format.                                                                                                                                                        |
@@ -60,6 +60,7 @@ POST http://[External server URL]
 	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
 	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
 	"channels"      : 1,
+	"answerTime"    : "2019-09-13T16:48:26.665Z",
 	"startTime"     : "2019-09-13T16:48:29.235Z",
 	"endTime"       : "2019-09-13T16:48:48.890Z",
 	"duration"      : "PT20.056S",
