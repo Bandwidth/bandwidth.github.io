@@ -191,6 +191,25 @@ Console.WriteLine(createdSubscription.Id);
 390-f-42-89-40
 ```
 
+{% sample lang="js" %}
+
+```js
+var subscription = {
+  orderType:"importtnorders",
+  callbackSubscription: {
+    URL:"http://mycallbackurl.com"
+  }
+};
+numbers.Subscription.create(subscription, function(err, response) {
+    console.log(response.id);
+});
+```
+
+> Output
+
+```
+390-f-42-89-40
+```
 
 {% endextendmethod %}
 
@@ -349,6 +368,30 @@ var response = await ImportTnChecker.Create(client, payload);
 Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].Code);
 Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].Description);
 Console.WriteLine(response.ImportTnCheckerPayload.ImportTnErrors[0].TelephoneNumbers[0]);
+```
+
+> Output
+
+```
+19005
+Messaging route of External Third Party TNs is not configured.
+5554443333
+```
+
+{% sample lang="js" %}
+
+```js
+const numbersToCheck = ["5554443333"];
+
+try {
+  const importResults = await numbers.ImportTnChecker.checkAsync(numbersToCheck);
+  console.log(importResults.importTnCheckerPayload.importTnErrors.importTnError.code);
+  console.log(importResults.importTnCheckerPayload.importTnErrors.importTnError.description);
+  console.log(importResults.importTnCheckerPayload.importTnErrors.importTnError.telephoneNumbers.telephoneNumber);
+}
+catch (e) {
+  console.log(e)
+}
 ```
 
 > Output
@@ -594,6 +637,45 @@ Console.WriteLine(response.ImportTnOrder.ProcessingStatus);
 RECEIVED
 ```
 
+{% sample lang="js" %}
+
+```js
+const numbersToCheck = ["5554443333", "5554442222"];
+
+const data = {
+  customerOrderId: "1111",
+  siteId: "30511",
+  loaAuthorizingPerson: "LoaAuthorizingPerson",
+  subscriber: {
+    name: "ABC Inc.",
+    serviceAddress: {
+      houseNumber: "900",
+      streetName: "Main Campus Drive",
+      stateCode: "NC",
+      city: "Raleigh",
+      county: "Wake",
+      zip: "27606"
+    }
+  }
+};
+
+try {
+  const response = await numbers.ImportTnOrder.createAsync(data, numbersToCheck);
+  console.log(response.orderId);
+  console.log(response.processingStatus);
+}
+catch (e) {
+  console.log(e)
+}
+```
+
+> Output
+
+```
+8-3-4-9-a
+RECEIVED
+```
+
 
 {% endextendmethod %}
 
@@ -787,6 +869,20 @@ Console.WriteLine(response.ProcessingStatus);
 COMPLETE
 ```
 
+{% sample lang="js" %}
+
+```js
+numbers.ImportTnOrder.get("id", function(err, response) {
+    console.log(response.processingStatus);
+});
+```
+
+> Output
+
+```
+COMPLETE
+```
+
 {% endextendmethod %}
 
 ---
@@ -882,6 +978,18 @@ Content-Type: application/xml; charset=utf-8
 ```csharp
 //TODO
 ;
+```
+
+> Output
+
+```
+//coming soon
+```
+
+{% sample lang="js" %}
+
+```js
+//TODO
 ```
 
 > Output
@@ -1010,6 +1118,21 @@ Cosnole.WriteLine(tns[0]);
 ```
 5554443333
 ```
+
+{% sample lang="js" %}
+
+```js
+numbers.InServiceNumber.list({"page": 1, "size":5}, function(err, response) {
+    console.log(response.telephoneNumbers.telephoneNumber[0]);
+});
+```
+
+> Output
+
+```
+5554443333
+```
+
 
 {% endextendmethod %}
 
