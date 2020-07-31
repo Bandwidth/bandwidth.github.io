@@ -1,6 +1,6 @@
 Errors that may arise when performing tasks like searching for phone numbers or ordering phone numbers have specific error codes associated with them. These error codes and a human readable description are listed on this page.
 
-XML tags `<Code>` and `<Description>` will be included in the response body. Refer to the API endpoints for specific formats. Below is an example for a response when trying to order a malformed phone number.
+XML tags `<Code>` and `<Description>` will be included in the response body. Refer to the [API endpoints](apiReference.md) for specific formats. Below is an example for a response when trying to order a malformed phone number.
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
