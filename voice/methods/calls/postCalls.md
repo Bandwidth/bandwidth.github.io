@@ -11,6 +11,8 @@ Creates a new outbound phone call.
 
 Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
+You should not include sensitive or personally-identifiable information in any url field! Always use the proper username and password fields for authorization.
+
 ---
 
 ### Supported Parameters
