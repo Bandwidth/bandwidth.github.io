@@ -21,7 +21,7 @@ header is set on the response, media will not be cached.
 ### Text Content
 | Name     | Description                                                                                                                                  |
 |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| audioUri | The URL of the audio file realative to the endpoint that returned the BXML <br> ⚠️ **ONLY** .wav files encoded as PCM or G711 are supported. |
+| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** .wav files encoded as PCM or G711 are supported. |
 
 
 ### Callbacks Received
