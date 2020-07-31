@@ -40,6 +40,8 @@ Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [numb
 | `importtnorders`         | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
 | `removeImportedTnOrders` | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
 | `csrs`                   | `COMPLETE`, `FAILED`, `ACTION_REQUIRED`                                                                             |
+| `emergencyNotificationGroup` | `COMPLETE`, `FAILED` |
+| `emergencyEndpointGroup` | `COMPLETE`, `FAILED` |
 
 ### Event Types
 
