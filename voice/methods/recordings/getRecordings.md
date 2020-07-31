@@ -157,4 +157,3 @@ try {
 The resource returned in the "mediaUrl" field can be used to retrieve the recording, see [`/calls/{callId}/recordings/{recordingId}/media`](getCallsCallIdRecordingsRecordingIdMedia.md).
 
 {% endmethod %}
-
