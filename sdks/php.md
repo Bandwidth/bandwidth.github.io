@@ -43,7 +43,9 @@ $config = new BandwidthLib\Configuration(
         'voiceBasicAuthUserName' => 'username',
         'voiceBasicAuthPassword' => 'password',
         'twoFactorAuthBasicAuthUserName' => 'username',
-        'twoFactorAuthBasicAuthPassword' => 'password'
+        'twoFactorAuthBasicAuthPassword' => 'password',
+        'webRtcBasicAuthUserName' => 'username',
+        'webRtcBasicAuthPassword' => 'password',
     )
 );
 $client = new BandwidthLib\BandwidthClient($config);
@@ -162,4 +164,38 @@ $order = $account->orders()->create([
 ]);
 $response = $account->orders()->order($order->id, true);
 print_r($response);
+```
+
+## Create A WebRtc Participant
+
+```php
+$webRtcClient = $client->getWebRtc()->getClient();
+$accountId = "1";
+
+$participantSubscription1 = new BandwidthLib\WebRtc\Models\ParticipantSubscription();
+$participantSubscription1->participantId = "568749d5-04d5-483d-adf5-deac7dd3d521";
+
+$participantSubscription2 = new BandwidthLib\WebRtc\Models\ParticipantSubscription();
+$participantSubscription2->participantId = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7";
+
+$subscriptions = new BandwidthLib\WebRtc\Models\Subscriptions();
+$subscriptions->sessionId = "d8886aad-b956-4e1b-b2f4-d7c9f8162772";
+$subscriptions->participants = array(
+    $participantSubscription1,
+    $participantSubscription2
+);
+
+$body = new BandwidthLib\WebRtc\Models\Participant();
+$body->callbacUrl = "https://example.com/callback";
+$body->publishPermissions = array(
+    BandwidthLib\WebRtc\Models\PublishPermissionEnum::AUDIO,
+    BandwidthLib\WebRtc\Models\PublishPermissionEnum::VIDEO
+);
+$body->subscriptions = $subscriptions;
+$body->tag = "participant1";
+
+$response = $webRtcClient->createParticipant($accountId, $body);
+print_r($response->getResult()->participant->id);
+echo "\n";
+print_r($response->getResult()->token);
 ```
