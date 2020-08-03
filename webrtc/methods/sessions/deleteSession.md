@@ -71,7 +71,7 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+web_rtc_client.delete_session(account_id, session_id)
 ```
 
 {% sample lang="python" %}

@@ -84,7 +84,9 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = web_rtc_client.get_session(account_id, session_id)
+puts response.data.id
+#puts response.data.participants[0].participant_id #todo: fix openapi spec
 ```
 
 {% sample lang="python" %}

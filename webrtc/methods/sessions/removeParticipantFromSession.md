@@ -73,7 +73,7 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+web_rtc_client.remove_participant_from_session(account_id, participant_id, session_id)
 ```
 
 {% sample lang="python" %}

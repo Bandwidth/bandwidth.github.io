@@ -102,7 +102,9 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = web_rtc_client.get_participant(account_id, participant_id)
+puts response.data.id
+puts response.data.callback_url
 ```
 
 {% sample lang="python" %}
