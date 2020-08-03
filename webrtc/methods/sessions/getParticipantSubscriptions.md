@@ -67,4 +67,40 @@ HTTP/1.1 50x (Unexpected Error)
 Content-Type: application/json
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+//coming soon
+```
+
+{% sample lang="java" %}
+
+```java
+//coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+#coming soon
+```
+
+{% sample lang="python" %}
+
+```python
+#coming soon
+```
+
+{% sample lang="js" %}
+
+```js
+//coming soon
+```
+
+{% sample lang="php" %}
+
+```php
+//coming soon
+```
+
 {% endmethod %}
