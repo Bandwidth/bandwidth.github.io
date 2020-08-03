@@ -64,8 +64,8 @@ messaging_basic_auth_user_name = 'token'
 messaging_basic_auth_password = 'secret'
 two_factor_auth_basic_auth_user_name = 'username'
 two_factor_auth_basic_auth_password = 'password'
-web_rtc_auth_user_name = 'username'
-web_rtc_auth_password = 'password'
+web_rtc_basic_auth_user_name = 'username'
+web_rtc_basic_auth_password = 'password'
 
 bandwidth_client = BandwidthClient(
     voice_basic_auth_user_name=voice_basic_auth_user_name,
@@ -74,8 +74,8 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_password=messaging_basic_auth_password,
     two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
     two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password,
-    web_rtc_auth_user_name=web_rtc_auth_user_name
-    web_rtc_auth_password=web_rtc_auth_password
+    web_rtc_basic_auth_user_name=web_rtc_basic_auth_user_name,
+    web_rtc_basic_auth_password=web_rtc_basic_auth_password
 )
 ```
 
