@@ -51,6 +51,12 @@ from bandwidth.voice.bxml.verbs import *
 from bandwidth.twofactorauth.models.two_factor_code_request_schema import TwoFactorCodeRequestSchema
 from bandwidth.twofactorauth.models.two_factor_verify_request_schema import TwoFactorVerifyRequestSchema
 
+from bandwidth.webrtc.models.participant import Participant
+from bandwidth.webrtc.models.participant_subscription import ParticipantSubscription
+from bandwidth.webrtc.models.publish_permission_enum import PublishPermissionEnum
+from bandwidth.webrtc.models.session import Session
+from bandwidth.webrtc.models.subscriptions import Subscriptions
+
 ##Initialize client
 voice_basic_auth_user_name = 'username'
 voice_basic_auth_password = 'password'
@@ -58,6 +64,8 @@ messaging_basic_auth_user_name = 'token'
 messaging_basic_auth_password = 'secret'
 two_factor_auth_basic_auth_user_name = 'username'
 two_factor_auth_basic_auth_password = 'password'
+web_rtc_auth_user_name = 'username'
+web_rtc_auth_password = 'password'
 
 bandwidth_client = BandwidthClient(
     voice_basic_auth_user_name=voice_basic_auth_user_name,
@@ -65,7 +73,10 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
     messaging_basic_auth_password=messaging_basic_auth_password,
     two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
-    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password)
+    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password,
+    web_rtc_auth_user_name=web_rtc_auth_user_name
+    web_rtc_auth_password=web_rtc_auth_password
+)
 ```
 
 ## Create Phone Call
@@ -165,4 +176,39 @@ body = TwoFactorVerifyRequestSchema(
 )
 response = auth_client.create_verify_two_factor(account_id, body)
 print("Auth status: " + str(response.body.valid))
+```
+
+## Create A WebRtc Participant
+
+```python
+web_rtc_client = bandwidth_client.web_rtc_client.client
+account_id = "1"
+
+participant_subscription_1 = ParticipantSubscription(
+    participant_id = "568749d5-04d5-483d-adf5-deac7dd3d521"
+)
+participant_subscription_2 = ParticipantSubscription(
+    participant_id = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+)
+subscriptions = Subscriptions(
+    session_id = "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    participants = [
+        participant_subscription_1,
+        participant_subscription_2,
+    ]
+)
+
+body = Participant(
+    callback_url = "https://example.com/callback",
+    publish_permissions = [
+        PublishPermissionEnum.AUDIO,
+        PublishPermissionEnum.VIDEO
+    ],
+    subscriptions = subscriptions,
+    tag = "participant1"
+)
+
+response = web_rtc_client.create_participant(account_id, body)
+print(response.body.participant.id)
+print(response.body.token)
 ```
