@@ -108,7 +108,7 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-response = web_rtc_client.get_participant(account_id, participant_id)
+response = webrtc_client.get_participant(account_id, participant_id)
 print(response.body.id)
 print(response.body.callback_url)
 ```

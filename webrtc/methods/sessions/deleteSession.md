@@ -77,7 +77,7 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-web_rtc_client.delete_session(account_id, session_id)
+webrtc_client.delete_session(account_id, session_id)
 ```
 
 {% sample lang="js" %}

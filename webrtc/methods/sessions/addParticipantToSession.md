@@ -107,7 +107,7 @@ body = Subscriptions(
     ]
 )
 
-web_rtc_client.add_participant_to_session(account_id, session_id, participant_id)
+webrtc_client.add_participant_to_session(account_id, session_id, participant_id)
 ```
 
 {% sample lang="js" %}

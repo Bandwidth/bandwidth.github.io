@@ -88,7 +88,7 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-response = web_rtc_client.get_participant_subscriptions(account_id, participant_id, session_id)
+response = webrtc_client.get_participant_subscriptions(account_id, participant_id, session_id)
 print(response.body.session_id)
 print(response.body.participants[0].participant_id)
 ```
