@@ -89,7 +89,7 @@ web_rtc_client.delete_participant(account_id, participant_id)
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$webRtcClient->deleteParticipant($accountId, $participantId);
 ```
 
 {% endmethod %}
