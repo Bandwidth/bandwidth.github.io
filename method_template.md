@@ -142,5 +142,28 @@ Console.WriteLine("hello world");
 hello world
 ```
 
+{% sample lang="js" %}
+
+```js
+console.log("hello world");
+```
+
+> Output
+
+```
+hello world
+```
+
+{% sample lang="python" %}
+
+```csharp
+print("hello world");
+```
+
+> Output
+
+```
+hello world
+```
 
 {% endmethod %}

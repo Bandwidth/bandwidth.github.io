@@ -4,11 +4,11 @@
 The Transfer verb is used to bridge another party onto the current call.
 
 ### Attributes
-| Attribute                      | Description                                             |
-|:-------------------------------|:--------------------------------------------------------|
+| Attribute                      | Description |
+|:-------------------------------|:------------|
 | transferCallerId               | (optional) The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555).<br><br> Note: Leave blank to pass along the number of the remote party. |
 | callTimeout                    | (optional) This is the timeout (in seconds) for the callee to answer the call. Range: decimal values between 1 - 300.  Default value is 30 seconds. |
-| transferCompleteUrl            | (optional) URL to send the [Transfer Complete](../callbacks/transferComplete.md) event to and request new BXML. Optional but recommended. [See below](#transferCompleteUrl) for further details. |
+| transferCompleteUrl            | (optional) URL to send the [Transfer Complete](../callbacks/transferComplete.md) event to and request new BXML. Optional but recommended. [See below](#transferCompleteUrl) for further details. May be a relative URL. |
 | transferCompleteMethod         | (optional) The HTTP method to use for the request to `transferCompleteUrl`. GET or POST. Default value is POST. |
 | transferCompleteFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Complete](../callbacks/transferComplete.md) callback delivery in case `transferCompleteUrl` fails to respond. |
 | transferCompleteFallbackMethod | (optional) The HTTP method to use to deliver the [Transfer Complete](../callbacks/transferComplete.md) callback to `transferCompleteFallbackUrl`. GET or POST. Default value is POST. |
@@ -41,11 +41,11 @@ to the original call:
 #### PhoneNumber attributes
 | Attribute                    | Description |
 |:-----------------------------|:------------|
-| transferAnswerUrl            | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. |
+| transferAnswerUrl            | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
 | transferAnswerMethod         | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
 | transferAnswerFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
 | transferAnswerFallbackMethod | (optional) The HTTP method to use to deliver the [Transfer Answer](../callbacks/transferAnswer.md) callback to `transferAnswerFallbackUrl`. GET or POST. Default value is POST. |
-| transferDisconnectUrl        | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML. |
+| transferDisconnectUrl        | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML. May be a relative URL.|
 | transferDisconnectMethod     | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST. |
 | username                     | (optional) The username to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
 | password                     | (optional) The password to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |

@@ -14,6 +14,7 @@ If a previous recording was paused, <StopRecording> will end it.
 
 | Callbacks                                                         | Can reply with more BXML |
 |:------------------------------------------------------------------|:-------------------------|
+| [Conference Recording Available](../callbacks/recordingAvailable.md) | No                    |
 | [Recording Available](../callbacks/recordingAvailable.md)         | No                       |
 
 {% common %}

@@ -1,7 +1,7 @@
 {% method %}
-  
+
 ## Get Messages
- 
+
 Note: This endpoint is in limited availability and is still in development. Changes should be expected.
 
 ### URL Encoding For Query Parameters
@@ -27,8 +27,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
 | toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z^` |
-| before | integer | The record number indicates that search result returned have records before the given position number in a order of sorted received timestamp | `before=10 indicates that search result will have the records from 1 - 10 postion in sorted received timestamp` |
-| after | integer | The record number indicates that search result will have records after the given position number in a order of sorted received timestamp | `after=10 indicates that search result will have the records after 10th postion in a order of sorted received timestamp` |
+| pageToken | string | A base64 encoded value used for pagination of results | gdEewhcJLQRB5 |
 | limit | integer | The maximum records requested in search result . Default `100`. <br> The sum of limit and after cannot be more than 10000 | `limit=100` |
 
 ### Message Statuses
@@ -39,7 +38,8 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | QUEUED | Message has been queued prior to sending. |
 | SENDING | Message is in the process of being sent. This is a temporary status. |
 | SENT | Message has been sent. |
-| DLR_TIMEOUT | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window. |
+| DELIVERED | The message was successfully delivered to the downstream carrier. |
+| DLR_EXPIRED | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window. |
 | FAILED | Message was rejected by a downstream provider. Please review error code for more information about why. |
 
 ### Response Parameters
@@ -58,11 +58,9 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messages.segmentCount | integer | The number of segments the message was sent as |
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
-| pageInfo.before | integer | The index of the start of the search |
-| pageInfo.hasBefore | boolean | True if there's more items before the `before` index, false otherwise |
-| pageInfo.after | integer | The index of the end of the search |
-| pageInfo.hasAfter | boolean | True if there's more items after the `after` index, false otherwise |
-| pageInfo.limit | integer | Number of items returned |
+| messages.carrierName | string | The name of the carrier |
+| pageInfo.prevPage | string | The link to the previous page for pagination |
+| pageInfo.nextPage | string | The link to the next page for pagination |
 
 {% common %}
 
@@ -76,8 +74,6 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErrorCode=1&after=after&limit=int>; rel="next"
-Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErrorCode=1&before=before&limit=int>; rel="prev"
 ```
 
 > The above command returns a JSON Response structured like this:
@@ -85,13 +81,7 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErr
 ```http
 {
     "totalCount":1,
-    "pageInfo": {
-        "before": 0,
-        "hasBefore": false,
-        "after": 100,
-        "hasAfter": false,
-        "limit": 100
-    },
+    "pageInfo": {},
     "messages":[
         {
             "messageId":"1589228074636lm4k2je7j7jklbn2",
@@ -103,7 +93,8 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErr
             "messageType":"sms",
             "segmentCount":1,
             "errorCode":0,
-            "receiveTime":"2020-04-07T14:03:07.000Z"
+            "receiveTime":"2020-04-07T14:03:07.000Z",
+            "carrierName":"other"
         }
     ]
 }
@@ -115,26 +106,23 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?fromErr
 {% sample lang='http' %}
 
 ```http
-GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&after=50&limit=10 HTTP/1.1
+GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED HTTP/1.1
 Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&after=60&limit=10>; rel="next"
-Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&before=50&limit=10>; rel="prev"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&prevPage=GL83PD3C>; rel="next"
+Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&nextPage=DLAPE902>; rel="prev"
 ```
 
-> The above command returns a records from 50 - 60 position in a order of sorted received timestamp :
+> The above command returns records in this format:
 
 ```http
 {
     "totalCount":100,
     "pageInfo": {
-        "before": 50,
-        "hasBefore": true,
-        "after": 60,
-        "hasAfter": true,
-        "limit": 10
+        "prevPage": "https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&nextPage=DLAPE902",
+        "nextPage": "https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED&prevPage=GL83PD3C"
     },
     "messages":[
         {
@@ -147,7 +135,8 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?message
             "messageType":"sms",
             "segmentCount":1,
             "errorCode":9902,
-            "receiveTime":"2020-04-07T14:03:07.000Z"
+            "receiveTime":"2020-04-07T14:03:07.000Z",
+            "carrierName":"other"
         },
         {
             ...

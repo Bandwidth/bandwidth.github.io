@@ -4,9 +4,9 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 
 ### Attributes
 
-| Attribute              | Description                                                           |
-|:-----------------------|:----------------------------------------------------------------------|
-| redirectUrl            | (required) URL to request new BXML from. A [Redirect](../callbacks/redirect.md) event will be sent to this endpoint. |
+| Attribute              | Description |
+|:-----------------------|:------------|
+| redirectUrl            | (required) URL to request new BXML from. A [Redirect](../callbacks/redirect.md) event will be sent to this endpoint. May be a relative URL. |
 | redirectMethod         | (optional) The HTTP method to use for the request to `redirectUrl`. GET or POST. Default Value is POST. |
 | redirectFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Redirect](../callbacks/redirect.md) callback delivery in case `redirectUrl` fails to respond. |
 | redirectFallbackMethod | (optional) The HTTP method to use to deliver the [Redirect](../callbacks/redirect.md) callback to `redirectFallbackUrl`. GET or POST. Default value is POST. |

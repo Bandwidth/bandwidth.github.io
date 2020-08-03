@@ -23,7 +23,15 @@ A conference may last for at most 24 hours.
 
 BXML returned by callbacks will be queued and executed in the conference in the order they are received, never overlapping. If an error happens when executing a verb, it will continue to the next verb normally.
 
-Only `<PlayAudio>` and `<SpeakSentence>` are supported for conferences. BXML containing unsupported verbs will be rejected completely.
+Only the following verbs are valid for conferences:
+* [`PlayAudio`](playAudio.md)
+* [`SpeakSentence`](speakSentence.md)
+* [`StartRecording`](startRecording.md)
+* [`StopRecording`](stopRecording.md)
+* [`PauseRecording`](pauseRecording.md)
+* [`ResumeRecording`](resumeRecording.md)
+
+BXML containing unsupported verbs will be rejected completely.
 
 ### Text Content
 | Name        | Description |
@@ -31,21 +39,20 @@ Only `<PlayAudio>` and `<SpeakSentence>` are supported for conferences. BXML con
 | name        | The name of the conference with alphanumeric characters and the symbols `-`, `_`, and `.` with maximum length of 100 characters. |
 
 #### Conference attributes
-| Attribute                      | Description |
-|:-------------------------------|:------------|
-| mute                           | (optional) A boolean value to indicate whether the member should be on mute in the conference. When muted, a member can hear others speak, but others cannot hear them speak. Defaults to false |
-| hold                           | (optional) A boolean value to indicate whether the member should be on hold in the conference. When on hold, a member cannot hear others, and they cannot be heard. Defaults to false |
-| callIdsToCoach                 | (optional) A comma-separated list of call ids to coach. When a call joins a conference with this attribute set, it will coach the listed calls. Those calls will be able to hear and be heard by the coach, but other calls in the conference will not hear the coach.<br><br>Calls may be added to the conference in any order - if the matching calls are not already in the conference, then once the matching calls are added, the coach will be able to hear and speak to the matching calls. Note that this will not add the matching calls to the conference; each call must individually execute a `<Conference>` verb to join.<br><br>A conference may only have one coach. |
-| conferenceEventUrl             | (optional) URL to send Conference events to. The URL, method, username, and password are set by the BXML document that creates the conference, and all events related to that conference will be delivered to that same endpoint. If more calls join afterwards and also have this property (or any other callback related properties like `username` and `password`), they will be ignored and the original callback information will be used. |
-| conferenceEventMethod          | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST. |
-| conferenceEventFallbackUrl     | (optional) A fallback url which, if provided, will be used to retry the conference callback deliveries in case `conferenceEventUrl` fails to respond. |
-| conferenceEventFallbackMethod  | (optional) The HTTP method to use to deliver the conference callbacks to `conferenceEventFallbackUrl`. GET or POST. Default value is POST. |
-| username                       | (optional) The username to send in the HTTP request to `conferenceEventUrl`. |
-| password                       | (optional) The password to send in the HTTP request to `conferenceEventUrl`. |
-| fallbackUsername               | (optional) The username to send in the HTTP request to `conferenceEventFallbackUrl`. |
-| fallbackPassword               | (optional) The password to send in the HTTP request to `conferenceEventFallbackUrl`. |
-| tag                            | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.<br><br>The tag that is set for the call that creates the conference is the tag that will be sent with all callbacks related to the conference. For example, if the call that creates the conference has a tag set, and another call with a different tag joins the same conference, the first call's tag will be sent with both `conferenceMemberJoin` events. |
-| callbackTimeout                | (optional) This is the timeout (in seconds) to use when delivering callbacks for the conference. Can be any numeric value (including decimals) between 1 and 25. |
+| Attribute                     | Description |
+|:------------------------------|:------------|
+| mute                          | (optional) A boolean value to indicate whether the member should be on mute in the conference. When muted, a member can hear others speak, but others cannot hear them speak. Defaults to false. |
+| hold                          | (optional) A boolean value to indicate whether the member should be on hold in the conference. When on hold, a member cannot hear others, and they cannot be heard. Defaults to false. |
+| callIdsToCoach                | (optional) A comma-separated list of call ids to coach. When a call joins a conference with this attribute set, it will coach the listed calls. Those calls will be able to hear and be heard by the coach, but other calls in the conference will not hear the coach.<br><br>Calls may be added to the conference in any order - if the matching calls are not already in the conference, then once the matching calls are added, the coach will be able to hear and speak to the matching calls. Note that this will not add the matching calls to the conference; each call must individually execute a `<Conference>` verb to join.<br><br>The coach can leave and rejoin the conference, but the conference may only have one coach at a time. |
+| conferenceEventUrl            | (optional) URL to send Conference events to. The URL, method, username, and password are set by the BXML document that creates the conference, and all events related to that conference will be delivered to that same endpoint. If more calls join afterwards and also have this property (or any other callback related properties like `username` and `password`), they will be ignored and the original callback information will be used. This URL may be a relative endpoint. |
+| conferenceEventMethod         | (optional) The HTTP method to use for the request to `conferenceEventUrl`. GET or POST. Default value is POST. |
+| conferenceEventFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the conference callback deliveries in case `conferenceEventUrl` fails to respond. |
+| conferenceEventFallbackMethod | (optional) The HTTP method to use to deliver the conference callbacks to `conferenceEventFallbackUrl`. GET or POST. Default value is POST. |
+| username                      | (optional) The username to send in the HTTP request to `conferenceEventUrl`. |
+| password                      | (optional) The password to send in the HTTP request to `conferenceEventUrl`. |
+| fallbackUsername              | (optional) The username to send in the HTTP request to `conferenceEventFallbackUrl`. |
+| fallbackPassword              | (optional) The password to send in the HTTP request to `conferenceEventFallbackUrl`. |
+| tag                           | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.<br><br>The tag that is set for the call that creates the conference is the tag that will be sent with all callbacks related to the conference. For example, if the call that creates the conference has a tag set, and another call with a different tag joins the same conference, the first call's tag will be sent with both `conferenceMemberJoin` events. |
 
 ### Callbacks Received
 | Callbacks                                                      | Can reply with BXML |

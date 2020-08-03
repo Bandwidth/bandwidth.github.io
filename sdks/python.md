@@ -22,6 +22,8 @@ The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 | 6.6.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
 | 6.7.0   | Added BXML Bridge verb                                                          |
 | 6.8.0   | Updated WebRTC base URL                                                         |
+| 6.9.0 | Added get conference endpoint |
+| 6.10.0 | Added conference management endpoints |
 
 
 ## Download & Install

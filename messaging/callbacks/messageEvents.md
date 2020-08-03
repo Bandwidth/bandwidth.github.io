@@ -6,6 +6,7 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 
 * All Message callbacks are sent as a list/array `[ {} ]` to the webhook url in the application.
 * You **MUST** Reply with a `HTTP 2xx` status code for _every_ callback/delivery receipt.  Bandwidth will retry _every_ callback over the next 24 hours until a `HTTP 2xx` code is received for the callback.  After 24 hours, Bandwidth will no longer try to send the callback
+* Bandwidth's Messaging platform has a 10 second timeout for callbacks. This means your server must respond to the callback request within 10 seconds, otherwise the platform will try again at a later time.
 * Because we guarantee "at least once delivery" of events, it is possible (but not common) to receive duplicate message events. Your server should be able to handle duplicates.
 
 ## Incoming Message Concepts
@@ -17,7 +18,9 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 * You will get a callback for any event related to that message.
   * For example, you will get an HTTP callback when your message is delivered, or blocked. In addition, you will get an event for any kind of Delivery Receipt that the destination carrier sends back, regarding the delivery of your message.
 * For each message sent, you **will** receive either (but not both) a [Message Delivered](msgDelivered.md) or [Message Failed](messageFailed.md) event.
-* ⚠️ Important note about MMS and Group Messages. MMS and Group messages **don’t** currently support delivery receipts. However, you will still receive a message delivered event when the message is sent. For _only MMS and Group Messages_ this means that your message has been handed off to the Bandwidth core network, but has not been confirmed at the downstream carrier. We are actively working to support true delivery receipts for the v2 Messaging API.
+  * It is essential to check the direction of the message in the callback you receive. For example, if your use case depends on responding to inbound messages, you do not want to respond to an outbound message callback. This could create a loop of messages being sent from your account as you continuously respond to outbound message callbacks.
+
+* ⚠️  Delivery receipts are now supported for MMS & Group Messaging. During this beta phase, you will need to request this functionality to be enabled on your account. Once enabled you will need to support all three possible callback events for MMS (Message Delivered, Message Failed, & Message Queued callbacks)
 
 | Event                                      | Direction | Description                                                                      |
 |:-------------------------------------------|:----------|:---------------------------------------------------------------------------------|
@@ -25,3 +28,4 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 | [Incoming Text Message](incomingSingle.md) | `in`      | Bandwidth sends this event for each incoming text message                        |
 | [Message Delivered](msgDelivered.md)       | `out`     | Bandwidth sends this event when the text is delivered to the downstream carrier. |
 | [Message Failed](messageFailed.md)         | `out`     | Bandwidth sends this event when the message contains was unable to be delivered  |
+| [Message Queued (MMS only)](messageQueued.md) | `out` | Bandwidth sents this event when the MMS message is between received and sent. |

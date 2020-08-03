@@ -24,6 +24,8 @@ When an order changes OR when numbers in customer account are impacted due to or
 | `bulkPortins`            | `DRAFT`, `IN_PROGRESS`, `NEEDS_ATTENTION`, `PARTIAL`, `COMPLETED`, `CANCELLED`                                      |
 | `importtnorders`         | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
 | `removeImportedTnOrders` | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
+| `emergencyNotificationGroup` | `COMPLETE`, `FAILED` |
+| `emergencyEndpointGroup` | `COMPLETE`, `FAILED` |
 
 {% extendmethod %}
 

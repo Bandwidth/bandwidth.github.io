@@ -5,16 +5,16 @@ The Record verb allows a segment of audio to be recorded during a call. At the e
 Bandwidth will keep recordings for up to 30 days. After 30 days the recordings will be deleted from Bandwidth's servers.
 
 ### Attributes
-| Attribute                    | Description                |
-|:-----------------------------|:---------------------------|
-| recordCompleteUrl            | (optional) URL to send the [Record Complete](../callbacks/recordComplete.md) event to once it has ended. Accepts BXML. |
+| Attribute                    | Description |
+|:-----------------------------|:------------|
+| recordCompleteUrl            | (optional) URL to send the [Record Complete](../callbacks/recordComplete.md) event to once it has ended. Accepts BXML, and may be a relative URL. |
 | recordCompleteMethod         | (optional) The HTTP method to use for the request to `recordCompleteUrl`. GET or POST. Default value is POST. |
 | recordCompleteFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Record Complete](../callbacks/recordComplete.md) callback delivery in case `recordCompleteUrl` fails to respond. |
 | recordCompleteFallbackMethod | (optional) The HTTP method to use to deliver the [Record Complete](../callbacks/recordComplete.md) callback to `recordCompleteFallbackUrl`. GET or POST. Default value is POST. |
-| recordingAvailableUrl        | (optional) URL to send the [Recording Available](../callbacks/recordingAvailable.md) event to once it has been processed. Does not accept BXML. |
+| recordingAvailableUrl        | (optional) URL to send the [Recording Available](../callbacks/recordingAvailable.md) event to once it has been processed. Does not accept BXML. May be a relative URL. |
 | recordingAvailableMethod     | (optional) The HTTP method to use for the request to `recordingAvailableUrl`. GET or POST. Default value is POST. |
 | transcribe                   | (optional) A boolean value to indicate that recording should be transcribed. Transcription can succeed only for recordings of length greater than 500 milliseconds and less than 4 hours. Default is `false`. |
-| transcriptionAvailableUrl    | (optional) URL to send the [Transcription Available](../callbacks/transcriptionAvailable.md) event to once it has been processed. Does not accept BXML. |
+| transcriptionAvailableUrl    | (optional) URL to send the [Transcription Available](../callbacks/transcriptionAvailable.md) event to once it has been processed. Does not accept BXML. May be a relative URL. |
 | transcriptionAvailableMethod | (optional) The HTTP method to use for the request to `transcriptionAvailableUrl`. GET or POST. Default value is POST. |
 | username                     | (optional) The username to send in the HTTP request to `recordCompleteUrl`, `recordingAvailableUrl` or `transcriptionAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`). |
 | password                     | (optional) The password to send in the HTTP request to `recordCompleteUrl`, `recordingAvailableUrl` or `transcriptionAvailableUrl`. If specified, the URLs must be TLS-encrypted (i.e., `https`). |

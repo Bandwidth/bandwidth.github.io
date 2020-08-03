@@ -1,6 +1,6 @@
 {% method %}
-## Conference Created Event
-The Conference Created event is fired whenever a new [conference](../verbs/conference.md) that specified a `callbackUrl` is created.
+## Conference Redirect Event
+The Conference Redirect event is fired whenever an existing [conference](../verbs/conference.md) is modified via a POST request made to the [/conferences/{conferenceId}](../../methods/conferences/postConferencesConferenceId.md) endpoint
 
 The response may be either empty or a BXML document. Only the following verbs are valid for conferences:
 * [`PlayAudio`](../verbs/playAudio.md)
@@ -9,10 +9,6 @@ The response may be either empty or a BXML document. Only the following verbs ar
 * [`StopRecording`](../verbs/stopRecording.md)
 * [`PauseRecording`](../verbs/pauseRecording.md)
 * [`ResumeRecording`](../verbs/resumeRecording.md)
-
-Audio verbs will be heard by all members of the conference. Recordings capture audio from all members
-who are not muted or on hold, as well as any audio verbs that are played into the conference.
-
 ### Expected response
 
 ```http
@@ -32,26 +28,25 @@ Content-Type: application/xml; charset=utf-8
 
 | Property     | Description |
 |:-------------|:------------|
-| eventType    | The event type, value is `conferenceCreated`. |
+| eventType    | The event type, value is `conferenceRedirect`. |
 | conferenceId | The ID of the new conference that was created. |
 | name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag. |
-| tag          | (optional) The `tag` that was set at conference creation, if any. |
 
 {% common %}
 
-#### Example: Conference created 
+#### Example: Conference redirect
 
 ```
 POST http://[External server URL]
 ```
 
 ```json
-{
-    "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
-    "name"          : "thisConference",
-    "eventType"     : "conferenceCreated",
-    "tag"           : "conferenceTag"
-}
+   {
+       "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
+       "name"          : "thisConference",
+       "eventType"     : "conferenceRedirect",
+   }
+
 ```
 
 {% endmethod %}

@@ -4,9 +4,9 @@ The Gather verb is used to collect digits for some period of time.
 
 ### Attributes
 
-| Attribute            | Description                                                             |
-|:---------------------|:------------------------------------------------------------------------|
-| gatherUrl            | (optional) URL to send [Gather event](../callbacks/gather.md) to and request new BXML. |
+| Attribute            | Description |
+|:---------------------|:------------|
+| gatherUrl            | (optional) URL to send [Gather event](../callbacks/gather.md) to and request new BXML. May be a relative URL. |
 | gatherMethod         | (optional) The HTTP method to use for the request to `gatherUrl`. GET or POST. Default value is POST. |
 | gatherFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Gather event](../callbacks/gather.md) callback delivery in case `gatherUrl` fails to respond. |
 | gatherFallbackMethod | (optional) The HTTP method to use to deliver the [Gather event](../callbacks/gather.md) callback to `gatherFallbackUrl`. GET or POST. Default value is POST. |

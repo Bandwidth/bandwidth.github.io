@@ -16,6 +16,7 @@
 	* [PHP](sdks/php.md)
 	* [Examples on Github](https://github.com/Bandwidth/examples)
 	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs)
+    * [Postman Collections](https://github.com/Bandwidth/examples/tree/master/postman-collections)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
@@ -134,6 +135,7 @@
 		* [POST Update Call](voice/methods/calls/postCallsCallId.md)
 		* [PUT Pause/Resume Recording](voice/methods/recordings/putCallsCallIdRecording.md)
 	* [Conferences](voice/methods/conferences/about.md)
+		* [GET Account Conferences](voice/methods/conferences/getConferences.md)
 		* [GET Conference Information](voice/methods/conferences/getConferencesConferenceId.md)
 		* [POST Update Conference](voice/methods/conferences/postConferencesConferenceId.md)
 		* [GET Member Information](voice/methods/conferences/getConferenceMember.md)
@@ -174,6 +176,8 @@
 	 * [Conference Member Join](voice/bxml/callbacks/conferenceMemberJoin.md)
 	 * [Conference Member Exit](voice/bxml/callbacks/conferenceMemberExit.md)
 	 * [Conference Completed](voice/bxml/callbacks/conferenceCompleted.md)
+	 * [Conference Redirect](voice/bxml/callbacks/conferenceRedirect.md)
+	 * [Conference Recording Available](voice/bxml/callbacks/conferenceRecordingAvailable.md)
 	 * [Disconnect](voice/bxml/callbacks/disconnect.md)
 	 * [Gather](voice/bxml/callbacks/gather.md)
 	 * [Initiate](voice/bxml/callbacks/initiate.md)
@@ -215,6 +219,7 @@
 	* [Incoming Group Message](messaging/callbacks/incomingGroup.md)
 	* [Message Delivered](messaging/callbacks/msgDelivered.md)
 	* [Message Failed](messaging/callbacks/messageFailed.md)
+    * [Message Queued (MMS only)](messaging/callbacks/messageQueued.md)
 * [Errors](messaging/errors/about.md)
 	* [HTTP Errors](messaging/errors/httpErrors.md)
 		* [400 - Bad Request](messaging/errors/httpErrors.md#http-400)
@@ -269,13 +274,18 @@
 ## Emergency Services
 * [Overview](emergency-services/about.md)
 * [Guides & Tutorials](emergency-services/guides/about.md)
-	* [Emergency Notifications](emergency-services/guides/emergencyNotifications.md)
+	* [About Emergency Notifications](emergency-services/guides/emergencyNotifications.md)
 		* [Overview](emergency-services/guides/emergencyNotifications.md#overview)
 		* [Notification Types](emergency-services/guides/emergencyNotifications.md#notification-types)
-		* [Configuring Emergency Notifications](emergency-services/guides/emergencyNotifications.md#config)
 		* [Relationships and constraints](emergency-services/guides/emergencyNotifications.md#relationships)
 		* [API Endpoint Overview](emergency-services/guides/emergencyNotifications.md#api-overview)
 		* [Key terminology](emergency-services/guides/emergencyNotifications.md#key-terms)
+	* [Setup Emergency Notifications](emergency-services/guides/configEmergencyNotifications.md)
+		* [Create Recipients](emergency-services/guides/configEmergencyNotifications.md#create-enr)
+		* [Create Groups](emergency-services/guides/configEmergencyNotifications.md#create-eng)
+		* [Associate Groups & Endpoints](emergency-services/guides/configEmergencyNotifications.md#associate-eng-enr)
+		* [Updating Configuration](emergency-services/guides/configEmergencyNotifications.md#updating-eng)
+		* [Removing Configuration](emergency-services/guides/configEmergencyNotifications.md#removing)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)

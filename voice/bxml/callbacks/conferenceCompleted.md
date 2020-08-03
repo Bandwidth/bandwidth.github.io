@@ -1,6 +1,8 @@
 {% method %}
 ## Conference Completed Event
-The Conference Completed event is fired when the last member leaves the [conference](../verbs/conference.md).  
+The Conference Completed event is fired when the last member leaves the [conference](../verbs/conference.md).
+
+The response to this event may not contain BXML.
 
 ### Expected response
 

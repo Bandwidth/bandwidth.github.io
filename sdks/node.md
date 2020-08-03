@@ -27,6 +27,8 @@ The NodeJS SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40band
 | Version | Notes                            |
 |:--------|:---------------------------------|
 | 1.2.0   | Added Conferencing API endpoints |
+| 1.3.0 | Added conference detail endpoints |
+| 1.4.0 | Added conference management endpoints |
 
 ### [BXML](https://www.npmjs.com/package/@bandwidth/bxml)
 
