@@ -4,13 +4,17 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 
 ### Attributes
 
-| Attribute      | Description                                                                                                                                                                                                            |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| redirectUrl    | (required) URL to request new BXML from. A [Redirect](../callbacks/redirect.md) event will be sent to this endpoint.                                                                                                   |
-| redirectMethod | (optional) The HTTP method to use for the request to `redirectUrl`. GET or POST. Default Value is POST.                                                                                                                |
-| username       | (optional) The username to send in the HTTP request to `redirectUrl`.                                                                                                                                                  |
-| password       | (optional) The password to send in the HTTP request to `redirectUrl`.                                                                                                                                                  |
-| tag            | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| Attribute              | Description                                                           |
+|:-----------------------|:----------------------------------------------------------------------|
+| redirectUrl            | (required) URL to request new BXML from. A [Redirect](../callbacks/redirect.md) event will be sent to this endpoint. |
+| redirectMethod         | (optional) The HTTP method to use for the request to `redirectUrl`. GET or POST. Default Value is POST. |
+| redirectFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Redirect](../callbacks/redirect.md) callback delivery in case `redirectUrl` fails to respond. |
+| redirectFallbackMethod | (optional) The HTTP method to use to deliver the [Redirect](../callbacks/redirect.md) callback to `redirectFallbackUrl`. GET or POST. Default value is POST. |
+| username               | (optional) The username to send in the HTTP request to `redirectUrl`. |
+| password               | (optional) The password to send in the HTTP request to `redirectUrl`. |
+| fallbackUsername       | (optional) The username to send in the HTTP request to `redirectFallbackUrl`. |
+| fallbackPassword       | (optional) The password to send in the HTTP request to `redirectFallbackUrl`. |
+| tag                    | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 <aside class="alert general small">
 <p>
