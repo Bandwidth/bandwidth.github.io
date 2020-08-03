@@ -101,7 +101,13 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-#coming soon
+body = Session(
+    tag = "session1"
+)
+
+response = web_rtc_client.create_session(account_id, body)
+print(response.body.id)
+#print(response.body.participants[0].participant_id) #todo: fix openapi spec
 ```
 
 {% sample lang="js" %}

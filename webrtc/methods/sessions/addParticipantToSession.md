@@ -93,7 +93,21 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-#coming soon
+participant_subscription_1 = ParticipantSubscription(
+    participant_id = "568749d5-04d5-483d-adf5-deac7dd3d521"
+)
+participant_subscription_2 = ParticipantSubscription(
+    participant_id = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+)
+body = Subscriptions(
+    session_id = "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    participants = [
+        participant_subscription_1,
+        participant_subscription_2,
+    ]
+)
+
+web_rtc_client.add_participant_to_session(account_id, session_id, participant_id)
 ```
 
 {% sample lang="js" %}

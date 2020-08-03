@@ -90,7 +90,9 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-#coming soon
+response = web_rtc_client.get_session(account_id, session_id)
+print(response.body.id)
+#print(response.body.participants[0].participant_id) #todo: fix openapi spec
 ```
 
 {% sample lang="js" %}
