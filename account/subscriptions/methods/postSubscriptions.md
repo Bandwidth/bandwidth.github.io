@@ -46,6 +46,8 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 | `importtnorders`         | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
 | `removeImportedTnOrders` | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
 | `csrs`                   | `COMPLETE`, `FAILED`, `ACTION_REQUIRED`                                                                             |
+| `emergencyNotificationGroup` | `COMPLETE`, `FAILED` |
+| `emergencyEndpointGroup` | `COMPLETE`, `FAILED` |
 
 ### Event Types
 
