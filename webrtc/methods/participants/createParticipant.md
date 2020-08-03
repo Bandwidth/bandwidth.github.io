@@ -131,7 +131,31 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+participant_subscription_1 = ParticipantSubscription.new
+participant_subscription_1.participant_id = "568749d5-04d5-483d-adf5-deac7dd3d521"
+
+participant_subscription_2 = ParticipantSubscription.new
+participant_subscription_2.participant_id = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+
+subscriptions = Subscriptions.new
+subscriptions.session_id = "d8886aad-b956-4e1b-b2f4-d7c9f8162772"
+subscriptions.participants = [
+    participant_subscription_1,
+    participant_subscription_2
+]
+
+body = Participant.new
+body.callback_url = "https://example.com/callback"
+body.publish_permissions = [
+    PublishPermissionEnum::AUDIO,
+    PublishPermissionEnum::VIDEO
+]
+body.subscriptions = subscriptions
+body.tag = "participant1"
+
+response = web_rtc_client.create_participant(account_id, :body => body)
+puts response.data.participant.id
+puts response.data.token
 ```
 
 {% sample lang="python" %}
