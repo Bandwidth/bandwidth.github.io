@@ -1,15 +1,9 @@
-# Emergency Notifications {#top}
+# About Emergency Notifications {#top}
 
 ## Table of Contents
 
 * [Overview](#overview)
 * [Notification Types](#notification-types)
-* [Configuring Emergency Notifications](#config)
-  * [Create "emergency notification recipients"](#create-enr)
-  * [Create "emergency notification groups"](#create-eng)
-  * [Associate "emergency endpoints" with "emergency notification groups"](#associate-eng-enr)
-  * [Updating Configuration](#updating-eng)
-  * [Removing Configuration](#removing)
 * [Relationships and constraints](#relationships)
 * [API Endpoint Overview](#api-overview)
 * [Key terminology](#key-terms)
@@ -31,54 +25,6 @@ Notification Types supported (up to **3 notifications** to be sent for a single 
 * Email notification
 * HTTP Callback / Webhook
 
-## Configuring Emergency Notifications {#config}
-
-In order to configure emergency notifications in the Bandwidth Dashboard, the following steps must be performed:
-
-### Create "emergency notification recipients" {#create-enr}
-
-This defines the details of a specific notification.
-
-An emergency notification recipient has a:
-* Description
-* Type (EMAIL, SMS, TTS, or CALLBACK)
-* Target data for delivery of the notification.
-
-| Type       | Target                     |
-|:-----------|:---------------------------|
-| EMAIL      | email address              |
-| SMS or TTS | telephone number           |
-| CALLBACK   | HTTPS URL and credentials. |
-
-### Create "emergency notification groups". {#create-eng}
-
-This allows you to create groups that should use the same set of emergency notification recipients.
-
-For example, if you want to notify the front desk and the security gate for everyone in a building, you can create a group to represent everyone in the building, and associate the group with the two emergency notification recipients.
-
-A group has a:
-* Description
-* one to three notification recipients.
-
-### Associate "emergency endpoints" with "emergency notification groups". {#associate-eng-enr}
-
-This step allows you to assign emergency endpoints (either telephone numbers or alternate end-user identifiers - AEUIs) to a group.
-
-For example, if you want everyone in a given building to trigger the same set of notifications in the event that they place an emergency call, just add those callers to the group that has the desired notification recipients.
-
-### Updating Configuration {#updating-eng}
-
-* Emergency notification groups may be updated by adding or removing recipients, provided that the group always has from one to three recipients.
-* Emergency notification recipients may be updated at any time.
-* Emergency endpoints may be added to or removed from an emergency notification group at any time.
-
-### Removing Configuration {#removing}
-
-Removal of configuration is essentially the reverse of the above:
-
-* An emergency notification group cannot be removed if at least one emergency endpoint is still associated with that group.
-* An emergency notification recipient cannot be removed if that recipient belongs to a group.
-
 ## Relationships and constraints between emergency notification concepts {#relationships}
 
 * An emergency notification group may have from 1 to 3 emergency notification recipients.
@@ -86,6 +32,7 @@ Removal of configuration is essentially the reverse of the above:
 
 * An emergency endpoint may be associated with at most 1 emergency notification group.
 * An emergency notification group may be associated with any number of emergency endpoints.
+
 
 ## API Endpoint Overview {#api-overview}
 
