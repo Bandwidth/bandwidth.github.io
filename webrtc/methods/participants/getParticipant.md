@@ -108,7 +108,9 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-#coming soon
+response = web_rtc_client.get_participant(account_id, participant_id)
+print(response.body.id)
+print(response.body.callback_url)
 ```
 
 {% sample lang="js" %}

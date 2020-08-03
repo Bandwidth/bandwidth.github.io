@@ -77,7 +77,7 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-#coming soon
+web_rtc_client.delete_participant(account_id, participant_id)
 ```
 
 {% sample lang="js" %}

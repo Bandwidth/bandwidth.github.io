@@ -137,7 +137,33 @@ Content-Type: application/json
 {% sample lang="python" %}
 
 ```python
-#coming soon
+participant_subscription_1 = ParticipantSubscription(
+    participant_id = "568749d5-04d5-483d-adf5-deac7dd3d521"
+)
+participant_subscription_2 = ParticipantSubscription(
+    participant_id = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+)
+subscriptions = Subscriptions(
+    session_id = "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    participants = [
+        participant_subscription_1,
+        participant_subscription_2,
+    ]
+)
+
+body = Participant(
+    callback_url = "https://example.com/callback",
+    publish_permissions = [
+        PublishPermissionEnum.AUDIO,
+        PublishPermissionEnum.VIDEO
+    ],
+    subscriptions = subscriptions,
+    tag = "participant1"
+)
+
+response = web_rtc_client.create_participant(account_id, body)
+print(response.body.participant.id)
+print(response.body.token)
 ```
 
 {% sample lang="js" %}
