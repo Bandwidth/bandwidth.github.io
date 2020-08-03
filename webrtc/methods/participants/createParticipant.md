@@ -161,7 +161,7 @@ body = Participant(
     tag = "participant1"
 )
 
-response = webrtc_client.create_participant(account_id, body)
+response = web_rtc_client.create_participant(account_id, body)
 print(response.body.participant.id)
 print(response.body.token)
 ```

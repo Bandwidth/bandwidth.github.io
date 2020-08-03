@@ -107,7 +107,7 @@ body = Subscriptions(
     ]
 )
 
-webrtc_client.update_participant_subscriptions(account_id, participant_id, session_id, body)
+web_rtc_client.update_participant_subscriptions(account_id, participant_id, session_id, body)
 ```
 
 {% sample lang="js" %}
