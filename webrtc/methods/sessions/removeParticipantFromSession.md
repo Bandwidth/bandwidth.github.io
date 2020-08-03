@@ -91,7 +91,7 @@ web_rtc_client.remove_participant_from_session(account_id, participant_id, sessi
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$webRtcClient->removeParticipantFromSession($accountId, $participantId, $sessionId);
 ```
 
 {% endmethod %}
