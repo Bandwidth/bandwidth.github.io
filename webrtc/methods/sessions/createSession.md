@@ -124,7 +124,13 @@ print(response.body.id)
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$body = new BandwidthLib\WebRtc\Models\Session();
+$body->tag = "session1";
+
+$response = $webRtcClient->createSession($accountId, $body);
+print_r($response->getResult()->id);
+echo "\n";
+//print_r($response->getResult()->participants[0]->participantId): //todo: fix OpenAPI spec
 ```
 
 {% endmethod %}

@@ -89,7 +89,7 @@ web_rtc_client.delete_session(account_id, session_id)
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$webRtcClient->deleteSession($accountId, $sessionId);
 ```
 
 {% endmethod %}

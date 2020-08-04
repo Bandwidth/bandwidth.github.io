@@ -124,7 +124,10 @@ print(response.body.callback_url)
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$response = $webRtcClient->getParticipant($accountId, $participantId);
+print_r($response->getResult()->id);
+echo "\n";
+print_r($response->getResult()->callbackUrl);
 ```
 
 {% endmethod %}

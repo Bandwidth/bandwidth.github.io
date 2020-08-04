@@ -132,7 +132,20 @@ web_rtc_client.update_participant_subscriptions(account_id, participant_id, sess
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$participantSubscription1 = new BandwidthLib\WebRtc\Models\ParticipantSubscription();
+$participantSubscription1->participantId = "568749d5-04d5-483d-adf5-deac7dd3d521";
+
+$participantSubscription2 = new BandwidthLib\WebRtc\Models\ParticipantSubscription();
+$participantSubscription2->participantId = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7";
+
+$body = new BandwidthLib\WebRtc\Models\Subscriptions();
+$body->sessionId = "d8886aad-b956-4e1b-b2f4-d7c9f8162772";
+$body->participants = array(
+    $participantSubscription1,
+    $participantSubscription2
+);
+
+$webRtcClient->updateParticipantSubscriptions($accountId, $participantId, $sessionId, $body);
 ```
 
 {% endmethod %}

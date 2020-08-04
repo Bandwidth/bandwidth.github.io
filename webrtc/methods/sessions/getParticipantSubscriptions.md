@@ -104,7 +104,10 @@ print(response.body.participants[0].participant_id)
 {% sample lang="php" %}
 
 ```php
-//coming soon
+$response = $webRtcClient->getParticipantSubscriptions($accountId, $participantId, $sessionId);
+print_r($response->getResult()->sessionId);
+echo "\n";
+print_r($response->getResult()->participants[0]->sessionId);
 ```
 
 {% endmethod %}
