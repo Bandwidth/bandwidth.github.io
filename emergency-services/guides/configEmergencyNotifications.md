@@ -153,7 +153,20 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+data = {
+  :description => "Email to Bldg. 3 Front Desk",
+  :type => "CALLBACK",
+  :callback => {
+    :url => "https://foo.bar/baz",
+    :credentials => {
+      :username => "jgilmore",
+      :password => "x23388%SLHss"
+    }
+  }
+}
+
+enr = BandwidthIris::EmergencyNotificationRecipients.create_emergency_notification_recipient(data)
+puts enr
 ```
 
 > Output
@@ -348,7 +361,28 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+data = {
+  :customer_order_id => "UbOxhMnp",
+  :added_emergency_notification_group => {
+    :description => "JgHzUzIchD",
+    :added_emergency_notification_recipients => {
+      :emergency_notification_recipient => [
+        {
+          :identifier => "c7f74671edd8410d9a4c0f8e985e0a"
+        },
+        {
+          :identifier => "74ac30535b414d29bc36d50572f553"
+        },
+        {
+          :identifier => "b910df3245ce4192aee052f583259f"
+        }
+      ]
+    }
+  }
+}
+
+order = BandwidthIris::EmergencyNotificationGroups.create_emergency_notification_group_order(data)
+puts order
 ```
 
 > Output
@@ -544,7 +578,27 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+data = {
+  :customer_order_id => "ALG-31233884",
+  :emergency_notification_endpoint_associations => {
+    :emergency_notification_group => {
+      :identifier => "3e9a852e-2d1d-4e2d-84c3-04595ba2eb93"
+    },
+    :added_associations => {
+      :eep_to_eng_associations => {
+        :eep_tns => {
+          :telephone_number => [
+            "2248838829",
+            "4052397735"
+          ]
+        }
+      }
+    }
+  }
+}
+
+order = BandwidthIris::EmergencyNotificationEndpoints.create_emergency_notification_endpoint_order(data)
+puts order
 ```
 
 > Output
@@ -678,7 +732,23 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+data = {
+  :customer_order_id => "UbOxhMnp",
+  :modified_emergency_notification_group => {
+    :identifier => "a6d00a2d-94ee-4ecb-9bd8-7c2dde258863",
+    :added_emergency_notification_recipients => {
+      :added_emergency_notification_recipient => [
+        {
+          :emergency_notification_recipient => {
+            :identifier => "d81dcc9526d54cad9dbf076c4e6461"
+        }
+      ]
+    }
+  }
+}
+
+order = BandwidthIris::EmergencyNotificationGroups.create_emergency_notification_group_order(data)
+puts order
 ```
 
 > Output
@@ -791,7 +861,14 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+data = {
+  :description => "Text message to guard shack",
+  :type => "SMS",
+  :telephone_number => "12015551212"
+}
+
+enr = BandwidthIris::EmergencyNotificationRecipients.replace_emergency_notification_recipient("id", data)
+puts enr
 ```
 
 > Output
@@ -927,7 +1004,22 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+data = {
+  :customer_order_id => "value",
+  :deleted_emergency_notification_group => {
+    :identifier => "a97149dc-586c-419d-a054-6b3d352ea8af"
+    :deleted_emergency_notification_recipients => {
+      :emergency_notification_recipient => [
+        {
+          :identifier => "ebce6adfb6e94a8a80bc16841b4697"
+        }
+      ]
+    }
+  }
+}
+
+order = BandwidthIris::EmergencyNotificationGroups.create_emergency_notification_group_order(data)
+puts order
 ```
 
 > Output
@@ -1015,7 +1107,7 @@ hello world
 {% sample lang="ruby" %}
 
 ```ruby
-puts "hello world"
+BandwidthIris::EmergencyNotificationRecipients.delete_emergency_notification_recipient("id")
 ```
 
 > Output
