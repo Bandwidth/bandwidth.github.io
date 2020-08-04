@@ -15,7 +15,7 @@ You should not include sensitive or personally-identifiable information in any t
 
 ---
 
-### Supported Parameters
+### Supported Parameters 
 
 | Parameter          | Description                                                                                                                                                                                                             | Mandatory |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     |:----------|
