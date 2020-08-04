@@ -141,13 +141,13 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -172,55 +172,55 @@ puts enr
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% endextendmethod %}
@@ -349,13 +349,13 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -388,55 +388,55 @@ puts order
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% endextendmethod %}
@@ -566,13 +566,13 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -604,55 +604,55 @@ puts order
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% endextendmethod %}
@@ -720,13 +720,13 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -754,55 +754,55 @@ puts order
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% common %}
@@ -849,13 +849,13 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -874,55 +874,55 @@ puts enr
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 
@@ -992,13 +992,13 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -1025,55 +1025,55 @@ puts order
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% common %}
@@ -1095,13 +1095,13 @@ HTTP/1.1 200
 {% sample lang="php" %}
 
 ```php
-print_r("hello world");
+print_r("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="ruby" %}
@@ -1113,55 +1113,55 @@ BandwidthIris::EmergencyNotificationRecipients.delete_emergency_notification_rec
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="java" %}
 
 ```java
-System.out.println("hello world");
+System.out.println("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("hello world");
+Console.WriteLine("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="js" %}
 
 ```js
-console.log("hello world");
+console.log("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% sample lang="python" %}
 
 ```csharp
-print("hello world");
+print("");
 ```
 
 > Output
 
 ```
-hello world
+
 ```
 
 {% endextendmethod %}
