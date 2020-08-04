@@ -154,7 +154,7 @@ print_r("");
 
 ```ruby
 data = {
-  :description => "Email to Bldg. 3 Front Desk",
+  :description => "Callback to property management system",
   :type => "CALLBACK",
   :callback => {
     :url => "https://foo.bar/baz",
@@ -733,14 +733,12 @@ print_r("");
 
 ```ruby
 data = {
-  :customer_order_id => "UbOxhMnp",
   :modified_emergency_notification_group => {
     :identifier => "a6d00a2d-94ee-4ecb-9bd8-7c2dde258863",
     :added_emergency_notification_recipients => {
-      :added_emergency_notification_recipient => [
+      :emergency_notification_recipient => [
         {
-          :emergency_notification_recipient => {
-            :identifier => "d81dcc9526d54cad9dbf076c4e6461"
+          :identifier => "d81dcc9526d54cad9dbf076c4e6461"
         }
       ]
     }
@@ -864,7 +862,9 @@ print_r("");
 data = {
   :description => "Text message to guard shack",
   :type => "SMS",
-  :telephone_number => "12015551212"
+  :sms => {
+    :telephone_number => "12015551212"
+  }
 }
 
 enr = BandwidthIris::EmergencyNotificationRecipients.replace_emergency_notification_recipient("id", data)
@@ -1005,9 +1005,8 @@ print_r("");
 
 ```ruby
 data = {
-  :customer_order_id => "value",
   :deleted_emergency_notification_group => {
-    :identifier => "a97149dc-586c-419d-a054-6b3d352ea8af"
+    :identifier => "a97149dc-586c-419d-a054-6b3d352ea8af",
     :deleted_emergency_notification_recipients => {
       :emergency_notification_recipient => [
         {
