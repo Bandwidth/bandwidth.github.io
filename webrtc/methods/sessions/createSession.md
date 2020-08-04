@@ -95,7 +95,12 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+body = Session.new
+body.tag = "session1"
+
+response = web_rtc_client.create_session(account_id, :body => body)
+puts response.data.id
+#puts response.data.participants[0].participant_id #todo: fix openapi spec
 ```
 
 {% sample lang="python" %}

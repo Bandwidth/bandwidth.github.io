@@ -40,6 +40,7 @@ include Bandwidth
 include Bandwidth::Voice
 include Bandwidth::Messaging
 include Bandwidth::TwoFactorAuth
+include Bandwidth::WebRtc
 
 bandwidth_client = Bandwidth::Client.new(
     voice_basic_auth_user_name: 'username',
@@ -47,7 +48,9 @@ bandwidth_client = Bandwidth::Client.new(
     messaging_basic_auth_user_name: 'token',
     messaging_basic_auth_password: 'secret',
     two_factor_auth_basic_auth_user_name: 'username',
-    two_factor_auth_basic_auth_password: 'password'
+    two_factor_auth_basic_auth_password: 'password',
+    web_rtc_basic_auth_user_name: 'username',
+    web_rtc_basic_auth_password: 'password'
 )
 ```
 
@@ -176,4 +179,37 @@ order_data = {
 order_response = BandwidthIris::Order.create(order_data)
 order_info = BandwidthIris::Order.get(order_response.id)
 puts order_info.name
+```
+
+## Create A WebRtc Participant
+
+```ruby
+web_rtc_client = bandwidth_client.web_rtc_client.client
+account_id = "1"
+
+participant_subscription_1 = ParticipantSubscription.new
+participant_subscription_1.participant_id = "568749d5-04d5-483d-adf5-deac7dd3d521"
+
+participant_subscription_2 = ParticipantSubscription.new
+participant_subscription_2.participant_id = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+
+subscriptions = Subscriptions.new
+subscriptions.session_id = "d8886aad-b956-4e1b-b2f4-d7c9f8162772"
+subscriptions.participants = [
+    participant_subscription_1,
+    participant_subscription_2
+]
+
+body = Participant.new
+body.callback_url = "https://example.com/callback"
+body.publish_permissions = [
+    PublishPermissionEnum::AUDIO,
+    PublishPermissionEnum::VIDEO
+]
+body.subscriptions = subscriptions
+body.tag = "participant1"
+
+response = web_rtc_client.create_participant(account_id, :body => body)
+puts response.data.participant.id
+puts response.data.token
 ```

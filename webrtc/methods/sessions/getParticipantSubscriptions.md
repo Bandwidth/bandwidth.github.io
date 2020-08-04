@@ -82,7 +82,9 @@ Content-Type: application/json
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+response = web_rtc_client.get_participant_subscriptions(account_id, participant_id, session_id)
+puts response.data.session_id
+puts response.data.participants[0].participant_id
 ```
 
 {% sample lang="python" %}
