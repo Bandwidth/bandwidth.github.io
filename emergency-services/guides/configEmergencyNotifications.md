@@ -178,7 +178,25 @@ puts enr
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+EmergencyNotificationRecipient enr = new EmergencyNotificationRecipient();
+enr.setDescription(" Callback to property management system ");
+enr.setType("CALLBACK");
+
+EmergencyNotificationCallback callback = new EmergencyNotificationCallback();
+Credentials credentials = new Credentials();
+credentials.setPassword("x23388%SLHss");
+credentials.setUsername("jgilmore");
+callback.setUrl("https://foo.bar/baz");
+callback.setCredentials(credentials);
+
+enr.setCallback(callback);
+
+EmergencyNotificationRecipientsResponse response;
+try {
+    response = EmergencyNotification.createRecipients(client, enr);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 > Output
@@ -190,7 +208,27 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.CreateRecipients(client, new EmergencyNotificationRecipient
+    {
+        Description = " Callback to property management system ",
+        Type = "CALLBACK", 
+        Callback = new Callback
+        {
+            Url = "https://foo.bar/baz",
+            Credentials = new Credentials
+            {
+                Username = "jgilmore",
+                Password = "x23388%SLHss"
+            }
+        }
+    });
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -213,7 +251,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
@@ -394,7 +432,29 @@ puts order
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+EmergencyNotificationGroupOrder engo = new EmergencyNotificationGroupOrder();
+engo.setCustomerOrderId("UBOxhMnp");
+
+AddedEmergencyNotificationGroup addedENGs = new AddedEmergencyNotificationGroup();
+addedENGs.setDescription("JgHzUzIchD");
+
+EmergencyNotificationRecipient enr1 = new EmergencyNotificationRecipient();
+enr1.setIdentifer("c7f74671edd8410d9a4c0f8e985e0a");
+EmergencyNotificationRecipient enr2 = new EmergencyNotificationRecipient();
+enr2.setIdentifer("74ac30535b414d29bc36d50572f553");
+EmergencyNotificationRecipient enr3 = new EmergencyNotificationRecipient();
+enr3.setIdentifer("b910df3245ce4192aee052f583259f");
+
+addedENGs.setAddedEmergencyNotificationRecipients(Arrays.asList(enr1, enr2, enr3));
+
+engo.setAddedEmergencyNotificationGroup(addedENGs);
+
+EmergencyNotificationGroupOrderResponse response;
+try {
+    response = EmergencyNotification.createGroupOrders(client, engo);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 > Output
@@ -406,7 +466,36 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.CreateGroupOrders(client, new EmergencyNotificationGroupOrder
+    {
+        CustomerOrderId = "UbOxhMnp",
+        AddedEmergencyNotificationGroup = new EmergencyNotificationGroup
+        {
+            Description = "JgHzUzIchD",
+            AddedEmergencyNotificationRecipients = new EmergencyNotificationRecipient[]
+            {
+                new EmergencyNotificationRecipient
+                {
+                    Identifier = "c7f74671edd8410d9a4c0f8e985e0a"
+                },
+                new EmergencyNotificationRecipient
+                {
+                    Identifier = "74ac30535b414d29bc36d50572f553"
+                },
+                new EmergencyNotificationRecipient
+                {
+                    Identifier = "b910df3245ce4192aee052f583259f"
+                }
+            }
+        }
+    });
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -429,7 +518,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
@@ -610,7 +699,26 @@ puts order
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+EmergencyNotificationEndpointOrder eneo = new EmergencyNotificationEndpointOrder();
+eneo.setCustomerOrderId("ALG-31233884");
+
+EmergencyNotificationEndpointAssociation enea = new EmergencyNotificationEndpointAssociation();
+enea.setEmergencyNotificationGroupId("3e9a852e-2d1d-4e2d-84c3-04595ba2eb93");
+
+EepToEngAssociations ete1 = new EepToEngAssociations();
+ete1.setEepTns(Arrays.asList("2248838829", "4052397735"));
+ete1.setEepAeuiIds(Arrays.asList("Fred992834", "Bob00359"));
+
+enea.setAddedEepToEngAssociations(Arrays.asList(ete1));
+
+eneo.setEmergencyNotificationEndpointAssociations(enea);
+
+EmergencyNotificationEndpointOrderResponse response;
+try {
+    response = EmergencyNotification.createEndpointOrder(client, eneo);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 > Output
@@ -622,7 +730,32 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.CreateEndpointOrders(client, new EmergencyNotificationEndpointOrder
+    {
+        CustomerOrderId = "ALG-31233884",
+        EmergencyNotificationEndpointAssociations = new EmergencyNotificationEndpointAssociations
+        {
+            EmergencyNotificationGroup = new EmergencyNotificationGroup
+            {
+                Identifier = "3e9a852e-2d1d-4e2d-84c3-04595ba2eb93",
+            },
+            AddedEepToEngAssociations = new EepToEngAssociations[]
+            {
+                new EepToEngAssociations
+                {
+                    EepTns = new string[]{ "2248838829", "4052397735" },
+                    EepAeuiIds = new string[]{ "Fred992834", "Bob00359" }
+                }
+            }
+        }
+    });
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -645,7 +778,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
@@ -758,7 +891,24 @@ puts order
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+EmergencyNotificationGroupOrder engo = new EmergencyNotificationGroupOrder();
+
+ModifiedEmergencyNotificationGroup modifiedEng = new ModifiedEmergencyNotificationGroup();
+modifiedEng.setIdentifier("a6d00a2d-94ee-4ecb-9bd8-7c2dde258863");
+
+EmergencyNotificationRecipient enr1 = new EmergencyNotificationRecipient();
+enr1.setIdentifer("d81dcc9526d54cad9dbf076c4e6461");
+
+modifiedEng.setAddedEmergencyNotificationRecipients(Arrays.asList(enr1));
+
+engo.setModifiedEmergencyNotificationGroup(modifiedEng);
+
+EmergencyNotificationGroupOrderResponse response;
+try {
+    response = EmergencyNotification.createGroupOrders(client, engo);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 > Output
@@ -770,7 +920,26 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.CreateGroupOrders(client, new EmergencyNotificationGroupOrder { 
+        ModifiedEmergencyNotificationGroup = new EmergencyNotificationGroup
+        {
+            Identifier = "a6d00a2d-94ee-4ecb-9bd8-7c2dde258863",
+            AddedEmergencyNotificationRecipients = new EmergencyNotificationRecipient[]
+            {
+                new EmergencyNotificationRecipient
+                {
+                    Identifier = "d81dcc9526d54cad9dbf076c4e6461"
+                }
+            }
+        }
+    });
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -793,7 +962,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
@@ -880,7 +1049,17 @@ puts enr
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+EmergencyNotificationRecipient enr = new EmergencyNotificationRecipient();
+enr.setDescription(" Text message to guard shack ");
+enr.setType("SMS");
+enr.setSmsTelephoneNumbers(Arrays.asList("12015551212"));
+
+EmergencyNotificationRecipientsResponse response;
+try {
+    response = EmergencyNotification.replaceRecipients(client, enr, "enrId");
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 > Output
@@ -892,7 +1071,21 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.UpdateRecipients(client, "enrId", new EmergencyNotificationRecipient { 
+        Description = " Text message to guard shack ",
+        Type = "SMS",
+        Sms = new Sms
+        {
+            TelephoneNumber = "12015551212"
+        }
+    });
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -915,7 +1108,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
@@ -1030,7 +1223,24 @@ puts order
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+EmergencyNotificationGroupOrder engo = new EmergencyNotificationGroupOrder();
+
+ModifiedEmergencyNotificationGroup deletedENG = new ModifiedEmergencyNotificationGroup();
+deletedENG.setIdentifier("a6d00a2d-94ee-4ecb-9bd8-7c2dde258863");
+
+EmergencyNotificationRecipient enr1 = new EmergencyNotificationRecipient();
+enr1.setIdentifer("d81dcc9526d54cad9dbf076c4e6461");
+
+deletedENG.setDeletedEmergencyNotificationRecipients(Arrays.asList(enr1));
+
+engo.setModifiedEmergencyNotificationGroup(deletedENG);
+
+EmergencyNotificationGroupOrderResponse response;
+try {
+    response = EmergencyNotification.createGroupOrders(client, engo);
+} catch(Exception ex){
+    // Hanlde Exception
+}
 ```
 
 > Output
@@ -1042,7 +1252,27 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.CreateGroupOrders(client, new EmergencyNotificationGroupOrder
+    {
+        ModifiedEmergencyNotificationGroup = new EmergencyNotificationGroup
+        {
+            Identifier = "a97149dc-586c-419d-a054-6b3d352ea8af",
+            DeletedEmergencyNotificationRecipients = new EmergencyNotificationRecipient[]
+            {
+                new EmergencyNotificationRecipient
+                {
+                    Identifier = "ebce6adfb6e94a8a80bc16841b4697"
+                }
+            }
+        }
+    });
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -1065,7 +1295,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
@@ -1118,7 +1348,11 @@ BandwidthIris::EmergencyNotificationRecipients.delete_emergency_notification_rec
 {% sample lang="java" %}
 
 ```java
-System.out.println("");
+try {
+    IrisResponse response = EmergencyNotification.deleteRecipients(client, "enrId");
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 > Output
@@ -1130,7 +1364,14 @@ System.out.println("");
 {% sample lang="csharp" %}
 
 ```csharp
-Console.WriteLine("");
+try
+{
+    var response = EmergencyNotification.DeleteRecipients(client, "enrId");
+}
+catch (Exception ex)
+{
+    // Handle Exception
+}
 ```
 
 > Output
@@ -1153,7 +1394,7 @@ console.log("");
 
 {% sample lang="python" %}
 
-```csharp
+```python
 print("");
 ```
 
