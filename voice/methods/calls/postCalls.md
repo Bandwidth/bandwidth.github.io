@@ -11,12 +11,16 @@ Creates a new outbound phone call.
 
 Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
+{% raw %}
+
 <aside class="alert general">
 <p><b>
 IMPORTANT NOTE ABOUT AUTHORIZATION!
 </p></b>
 You should not include sensitive or personally-identifiable information in any tag or url field! Always use the proper username and password fields for authorization.
 </aside>
+
+{% endraw %}
 
 
 ---
