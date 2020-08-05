@@ -1,25 +1,25 @@
 {% method %}
 ## XML: `<StartGather>`
-The `StartGather` verb is used to get asynchronous notifications of digits detected while other verbs are executed.
+The StartGather verb is used to get asynchronous notifications of digits detected while other verbs are executed.
 
 It can, for instance, listen for DTMFs while a call is in a [`<Conference>`](conference.md) or in a [`<Bridge>`](bridge.md), or during the execution of any other verb.
 
-The only exception is the [`<Gather>`](gather.md) verb. When a [`<Gather>`](gather.md) is executed, the `<StartGather>` is paused until the [`<Gather>`](gather.md) verb ends, after that it is automatically resumed.
+The only exception is the [`<Gather>`](gather.md) verb. When a [`<Gather>`](gather.md) is executed, the StartGather is paused until the [`<Gather>`](gather.md) verb ends, after that it is automatically resumed.
 
-The `<StartGather>` verb can be cancelled by the [`<StopGather>`](stopGather.md) verb.
+The StartGather verb can be cancelled by the [`<StopGather>`](stopGather.md) verb.
 
 ### Attributes
-| Attribute           | Description                                                                                                                                                                                                             |
-|:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dtmfUrl             | URL to send the [dtmf event](../callbacks/dtmf.md) to. May be a relative URL.                                                                                                                                           |
-| dtmfMethod          | (optional) The HTTP method to use for the request to `dtmfUrl`. GET or POST. Default value is POST.                                                                                                                     |
-| username            | (optional) The username to send in the HTTP request to `dtmfUrl`.                                                                                                                                                       |
-| password            | (optional) The password to send in the HTTP request to `dtmfUrl`.                                                                                                                                                       |
-| dtmfFallbackUrl     | (optional) URL to send the [dtmf event](../callbacks/dtmf.md) to. May be a relative URL.                                                                                                                                |
-| dtmfFallbackMethod  | (optional) The HTTP method to use for the request to `dtmfFallbackUrl`. GET or POST. Default value is POST.                                                                                                             |
-| fallbackUsername    | (optional) The username to send in the HTTP request to `dtmfFallbackUrl`.                                                                                                                                               |
-| fallbackpassword    | (optional) The password to send in the HTTP request to `dtmfFallbackUrl`.                                                                                                                                               |
-| tag                 | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.  |
+| Attribute           | Description |
+|:--------------------|:------------|
+| dtmfUrl             | URL to send the [dtmf](../callbacks/dtmf.md) event to. May be a relative URL. |
+| dtmfMethod          | (optional) The HTTP method to use for the request to `dtmfUrl`. GET or POST. Default value is POST. |
+| username            | (optional) The username to send in the HTTP request to `dtmfUrl`. |
+| password            | (optional) The password to send in the HTTP request to `dtmfUrl`. |
+| dtmfFallbackUrl     | (optional) A fallback url which, if provided, will be used to retry the [dtmf](../callbacks/dtmf.md) callback delivery in case `dtmfUrl` fails to respond. |
+| dtmfFallbackMethod  | (optional) The HTTP method to use for the request to `dtmfFallbackUrl`. GET or POST. Default value is POST. |
+| fallbackUsername    | (optional) The username to send in the HTTP request to `dtmfFallbackUrl`. |
+| fallbackpassword    | (optional) The password to send in the HTTP request to `dtmfFallbackUrl`. |
+| tag                 | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### Callbacks Received
 | Callback                      | Can reply with more BXML |
@@ -29,8 +29,8 @@ The `<StartGather>` verb can be cancelled by the [`<StopGather>`](stopGather.md)
 {% common %}
 
 #### Example 1 of 1: Gather digits during a Conference
-This example shows how to use the `StartGather` verb to listen for digits pressed while the call is in a `Conference`.
-Whenever a digit is entered, a [dtmf](../callbacks/dtmf.md) event is sent with the detected digit.
+This example shows how to use the StartGather verb to listen for digits pressed while the call is in a Conference.
+Whenever a digit is entered, a [dtmf](../callbacks/dtmf.md) event is sent with the digit detected.
 
 {% sample lang="http" %}
 
