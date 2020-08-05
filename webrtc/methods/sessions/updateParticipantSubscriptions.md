@@ -75,13 +75,40 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+var subscriptions = new Subscriptions
+{
+    SessionId = "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    Participants = new List<ParticipantSubscription>
+    {
+        new ParticipantSubscription
+        {
+            ParticipantId = "568749d5-04d5-483d-adf5-deac7dd3d521"
+        },
+        new ParticipantSubscription
+        {
+            ParticipantId = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+        }
+    }
+};
+
+controller.UpdateParticipantSubscriptions(accountId, "participantId", "sessionId", subscriptions);
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+Subscriptions subscriptions = new Subscriptions().toBuilder()
+        .sessionId("d8886aad-b956-4e1b-b2f4-d7c9f8162772")
+        .participants(Arrays.asList(
+                new ParticipantSubscription().toBuilder().participantId("568749d5-04d5-483d-adf5-deac7dd3d521").build(),
+                new ParticipantSubscription().toBuilder().participantId("0275e47f-dd21-4cf0-a1e1-dfdc719e73a7").build()
+        ))
+        .build();
+try {
+    ApiResponse<Void> response = controller.updateParticipantSubscriptions(accountId, "sessionId", "participantId", subscriptions);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}
