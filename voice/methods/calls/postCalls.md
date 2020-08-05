@@ -14,7 +14,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 <aside class="alert general">
 <p>IMPORTANT NOTE ABOUT AUTHORIZATION!</p>
-You should not include sensitive or personally-identifiable information in any tag or url field! Always use the proper username and password fields for authorization.
+You should not include sensitive or personally-identifiable information in any tag or URL field! Always use the proper username and password fields for authorization.
 </aside>
 
 
