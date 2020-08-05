@@ -1005,7 +1005,7 @@ print_r("");
 
 ```ruby
 data = {
-  :deleted_emergency_notification_group => {
+  :modified_emergency_notification_group => {
     :identifier => "a97149dc-586c-419d-a054-6b3d352ea8af",
     :deleted_emergency_notification_recipients => {
       :emergency_notification_recipient => [
