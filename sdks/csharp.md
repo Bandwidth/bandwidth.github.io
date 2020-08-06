@@ -46,14 +46,17 @@ using Bandwidth.Standard;
 BandwidthClient client = new BandwidthClient.Builder()
                 .Environment(Bandwidth.Standard.Environment.Production)
                 .VoiceBasicAuthCredentials( username, password )
-                .MessagingBasicAuthCredentials( token, secret )
+                .MessagingBasicAuthCredentials( username, password )
+                .WebRtcBasicAuthCredentials( username, password )
+                .TwoFactorAuthBasicAuthCredentials( token, secret )
                 .Build();
 
 
 //Select namespaced controller.
 Bandwidth.Standard.Voice.Controllers.APIController voiceController = client.Voice.APIController;
 Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Messaging.APIController;
-
+Bandwidth.Standard.WebRtc.Controllers.APIController webRtcController = client.WebRtc.APIController;
+Bandwidth.Standard.TwoFactorAuth.Controllers.APIController twoFactorAuthController = client.TwoFactorAuth.APIController;
 
 ```
 
@@ -62,14 +65,16 @@ Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Me
 ```csharp
 using Bandwidth.Standard.Voice.Controllers;
 
-callRequest.ApplicationId = "3-d-4-b-5";
-callRequest.To="+19999999999";
-callRequest.AnswerUrl= "https://test.com";
-callRequest.From="+17777777777";
+ApiCreateCallRequest callRequest = new ApiCreateCallRequest {
+    From = "+17049092002",
+    To = "+1918214697",
+    ApplicationId = "6987a4d0-f925-4e5a-8f2e-d2029a30766c",
+    AnswerUrl = "https://example.com/"
+};
 
 //Be aware that the Voice Client can throw exceptions
 try {
-    var response = voiceController.CreateCall("account.id", callRequest);
+    var response = voiceController.CreateCall("accountId", callRequest);
 } catch (APIException e) {
     WriteLine( e.Message );
 } catch (IOException e) {
@@ -104,11 +109,12 @@ using Bandwidth.Standard.Messaging;
 using Bandwidth.Standard.Messaging.Controllers;
 using Bandwidth.Standard.Messaging.Models;
 
-MessageRequest msgRequest = new MessageRequest();
-msgRequest.ApplicationId = applicationId;
-msgRequest.From = "+18888888888";
-msgRequest.To = new string[1] {"9199199999"};
-msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
+MessageRequest msgRequest = new MessageRequest{
+    ApplicationId = applicationId,
+    From = "+18888888888",
+    To = new string[1] {"9199199999"},
+    Text = "The quick brown fox jumps over a lazy dog."
+}
 
 var response = msgController.CreateMessage(accountId, msgRequest);
 ```
@@ -117,4 +123,36 @@ var response = msgController.CreateMessage(accountId, msgRequest);
 
 ```csharp
 //Coming soon
+```
+
+## Create A WebRtc Participant
+
+```csharp
+var participant = new Participant
+{
+    Tag = "participant1",
+    CallbackUrl = "https://example.com/callback",
+    PublishPermissions = new List<PublishPermissionEnum>
+    {
+        PublishPermissionEnum.AUDIO,
+        PublishPermissionEnum.VIDEO
+    },
+    Subscriptions = new Subscriptions
+    {
+        SessionId = "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+        Participants = new List<ParticipantSubscription>
+        {
+            new ParticipantSubscription
+            {
+                ParticipantId = "568749d5-04d5-483d-adf5-deac7dd3d521"
+            },
+            new ParticipantSubscription
+            {
+                ParticipantId = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+            }
+        }
+    }
+};
+
+var response = controller.CreateParticipant(accountId, participant);
 ```

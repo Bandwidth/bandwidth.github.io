@@ -44,14 +44,18 @@ Maven:
 
 //Set the voice client configuration with credentials
 BandwidthClient client = new BandwidthClient.Builder()
-            .messagingBasicAuthCredentials("MESSAGING_API_TOKEN", "MESSAGING_API_SECRET")
-            .voiceBasicAuthCredentials("VOICE_API_USERNAME", "VOICE_API_PASSWORD")
+            .messagingBasicAuthCredentials(token, secret)
+            .voiceBasicAuthCredentials(username, password)
+            .webRtcBasicAuthCredentials( username, password )
+            .twoFactorAuthBasicAuthCredentials( username, password )
             .environment(Environment.PRODUCTION)
             .build();
 
 //Fully qualified name to remove confilicts
 com.bandwidth.messaging.controllers.APIController messagingController = client.getMessagingClient().getAPIController();
 com.bandwidth.voice.controllers.APIController voiceController = client.getVoiceClient().getAPIController();
+com.bandwidth.webRtc.controllers.APIController webRTCController = client.getWebRtcClent().getAPIController();
+com.bandwidth.twoFactorAuth.controllers.APIController twoFactorAuthController = client.getTwoFactorAuthClient().getAPIController();
 
 ```
 
@@ -125,4 +129,27 @@ try {
 
 ```java
 //Coming soon
+```
+
+## Create A WebRtc Participant
+
+```java
+Participant participant = new Participant().toBuilder()
+    .id("")
+    .callbackUrl("")
+    .publishPermissions(Arrays.asList(PublishPermissionEnum.AUDIO, PublishPermissionEnum.VIDEO))
+    .subscriptions(new Subscriptions().toBuilder()
+        .participants(
+                Arrays.asList(
+                    new ParticipantSubscription("0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"),
+                    new ParticipantSubscription("568749d5-04d5-483d-adf5-deac7dd3d521")
+                )
+        )
+        .build())
+    .build();
+try {
+    ApiResponse<AccountsParticipantsResponse> response = controller.createParticipant(accountId, participant);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
