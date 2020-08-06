@@ -39,7 +39,7 @@ POST http://[External server URL]
 	"accountId"        : "55555555",
 	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"startTime"        : "2019-06-20T15:54:22.234Z",
-    "answerTime"       : "2019-06-20T15:54:25.432Z",
+	"answerTime"       : "2019-06-20T15:54:25.432Z",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",
