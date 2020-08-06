@@ -3,11 +3,9 @@
 The StartGather verb is used to get asynchronous notifications of DTMF digits collected in the call while other verbs are executed.
 
 It can, for instance, listen for DTMF digits while a call is in a [`<Conference>`](conference.md),
-in a [`<Transfer>`](transfer.md), in a [`<Bridge>`](bridge.md), or executing other verbs.
+in a [`<Transfer>`](transfer.md), in a [`<Bridge>`](bridge.md), or while executing other verbs.
 
-It cannot be used with the [`<Forward>`](forward.md) verb, which does not accept execution with other verbs.
-
-When a [`<Gather>`](gather.md) is executed, the StartGather is paused until verb ends, after that it is automatically resumed.
+It cannot be used with the [`<Forward>`](forward.md) verb, and it is paused during the execution of a [`<Gather>`](gather.md) verb.
 
 The StartGather verb can be cancelled by the [`<StopGather>`](stopGather.md) verb.
 
