@@ -122,7 +122,8 @@ print(response.body.callback_url)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var response = await webRtcController.getParticipant(accountId, participantId);
+console.log(response);
 ```
 
 {% sample lang="php" %}

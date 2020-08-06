@@ -102,7 +102,8 @@ print(response.body.participants[0].participant_id)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var response = await webRtcController.getParticipantSubscriptions(accountId, participantId, sessionId);
+console.log(response);
 ```
 
 {% sample lang="php" %}

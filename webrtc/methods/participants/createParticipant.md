@@ -236,7 +236,32 @@ print(response.body.token)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var participantSubscription1 = new BandwidthWebRtc.ParticipantSubscription({
+    "participantId": "568749d5-04d5-483d-adf5-deac7dd3d521"
+});
+
+var participantSubscription2 = new BandwidthWebRtc.ParticipantSubscription({
+    "participantId": "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+});
+
+var subscriptions = new BandwidthWebRtc.Subscriptions({
+    "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    "participants": [
+        participantSubscription1,
+        participantSubscription2
+    ]
+});
+
+var body = new BandwidthWebRtc.Participant({
+    "callbackUrl": "https://example.com/callback",
+    "publishPermissions": [
+        BandwidthWebRtc.PublishPermissionEnum.AUDIO,
+        BandwidthWebRtc.PublishPermissionEnum.VIDEO
+    ]
+});
+
+var response = await webRtcController.createParticipant(accountId, body);
+console.log(response);
 ```
 
 {% sample lang="php" %}
@@ -256,7 +281,7 @@ $subscriptions->participants = array(
 );
 
 $body = new BandwidthLib\WebRtc\Models\Participant();
-$body->callbacUrl = "https://example.com/callback";
+$body->callbackUrl = "https://example.com/callback";
 $body->publishPermissions = array(
     BandwidthLib\WebRtc\Models\PublishPermissionEnum::AUDIO,
     BandwidthLib\WebRtc\Models\PublishPermissionEnum::VIDEO

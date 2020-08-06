@@ -154,7 +154,23 @@ web_rtc_client.add_participant_to_session(account_id, session_id, participant_id
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var participantSubscription1 = new BandwidthWebRtc.ParticipantSubscription({
+    "participantId": "568749d5-04d5-483d-adf5-deac7dd3d521"
+});
+
+var participantSubscription2 = new BandwidthWebRtc.ParticipantSubscription({
+    "participantId": "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+});
+
+var body = new BandwidthWebRtc.Subscriptions({
+    "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+    "participants": [
+        participantSubscription1,
+        participantSubscription2
+    ]
+});
+
+await webRtcController.addParticipantToSession(accountId, sessionId, participantId, body);
 ```
 
 {% sample lang="php" %}

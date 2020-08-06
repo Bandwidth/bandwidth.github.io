@@ -104,7 +104,8 @@ print(response.body.id)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var response = await webRtcController.getSession(accountId, sessionId);
+console.log(response);
 ```
 
 {% sample lang="php" %}

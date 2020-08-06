@@ -89,7 +89,7 @@ web_rtc_client.remove_participant_from_session(account_id, participant_id, sessi
 {% sample lang="js" %}
 
 ```js
-//coming soon
+await webRtcController.removeParticipantFromSession(accountId, participantId, sessionId);
 ```
 
 {% sample lang="php" %}

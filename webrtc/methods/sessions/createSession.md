@@ -131,7 +131,12 @@ print(response.body.id)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var body = new BandwidthWebRtc.Session({
+    "tag": "session1"
+});
+
+var response = await webRtcController.createSession(accountId, body);
+console.log(response);
 ```
 
 {% sample lang="php" %}
