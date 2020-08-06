@@ -21,9 +21,9 @@ Most BXML verbs are allowed in response to a `transferAnswer` event, but some ar
 | [ResumeRecording](../verbs/resumeRecording.md)    | Yes           |
 | [SendDtmf](../verbs/sendDtmf.md)                  | Yes           |
 | [SpeakSentence](../verbs/speakSentence.md)        | Yes           |
-| [StartGather](../verbs/startGather.md)            | No            |
+| [StartGather](../verbs/startGather.md)            | Yes           |
 | [StartRecording](../verbs/startRecording.md)      | Yes           |
-| [StopGather](../verbs/stopGather.md)              | No            |
+| [StopGather](../verbs/stopGather.md)              | Yes           |
 | [StopRecording](../verbs/stopRecording.md)        | Yes           |
 | [Transfer](../verbs/transfer.md)                  | No            |
 
