@@ -44,7 +44,9 @@ URLs, so POST is the preferred method.
 | Callback                                       | Description                                                                                                                                         |
 |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Conference Completed](conferenceCompleted.md) | Bandwidth API sends this after the last member leaves the conference.                                                                               |
-| [Conference Recording Available](bxml/callbacks/conferenceRecordingAvailable.md) | Bandwidth API sends this when a recording started by a `<StartRecording>`in a conference is available for download. |
+| [Conference Recording Available](conferenceRecordingAvailable.md) | Bandwidth API sends this when a recording started by a `<StartRecording>`in a conference is available for download. |
 | [Disconnect](disconnect.md)                    | Bandwidth API sends this to the application when a call ends.                                                                                       |
+| [DTMF](dtmf.md)                                | Bandwidth API sends this for every digit detected after a `<StartGather>` is executed. |
 | [Recording Available](recordingAvailable.md)   | Bandwidth API sends this to the application when a recording started by either a `<StartRecording>` or a `<Record>` verb is available for download. |
 | [Transfer Disconnect](transferDisconnect.md)   | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
+| [Transcription Available](transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                        |
