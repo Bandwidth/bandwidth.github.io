@@ -30,7 +30,7 @@ The StartGather verb can be cancelled by the [`<StopGather>`](stopGather.md) ver
 
 #### Example 1 of 1: Gather digits during a Conference
 This example shows how to use the StartGather verb to listen for digits pressed while the call is in a Conference.
-Whenever a digit is entered, a [dtmf](../callbacks/dtmf.md) event is sent with the digit detected.
+Whenever a digit is entered, a [dtmf](../callbacks/dtmf.md) event is sent with the detected digit.
 
 {% sample lang="http" %}
 
