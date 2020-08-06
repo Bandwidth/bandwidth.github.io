@@ -15,10 +15,6 @@ The StartGather verb can be cancelled by the [`<StopGather>`](stopGather.md) ver
 | dtmfMethod          | (optional) The HTTP method to use for the request to `dtmfUrl`. GET or POST. Default value is POST. |
 | username            | (optional) The username to send in the HTTP request to `dtmfUrl`. |
 | password            | (optional) The password to send in the HTTP request to `dtmfUrl`. |
-| dtmfFallbackUrl     | (optional) A fallback url which, if provided, will be used to retry the [dtmf](../callbacks/dtmf.md) callback delivery in case `dtmfUrl` fails to respond. |
-| dtmfFallbackMethod  | (optional) The HTTP method to use for the request to `dtmfFallbackUrl`. GET or POST. Default value is POST. |
-| fallbackUsername    | (optional) The username to send in the HTTP request to `dtmfFallbackUrl`. |
-| fallbackpassword    | (optional) The password to send in the HTTP request to `dtmfFallbackUrl`. |
 | tag                 | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### Callbacks Received
