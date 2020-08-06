@@ -59,13 +59,17 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+controller.DeleteParticipant(accountId, "participantId");
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+try {
+    ApiResponse<Void> response = controller.deleteParticipant(accountId, "participantId");
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}

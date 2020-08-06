@@ -119,13 +119,56 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+var participant = new Participant
+{
+    Tag = "participant1",
+    CallbackUrl = "https://example.com/callback",
+    PublishPermissions = new List<PublishPermissionEnum>
+    {
+        PublishPermissionEnum.AUDIO,
+        PublishPermissionEnum.VIDEO
+    },
+    Subscriptions = new Subscriptions
+    {
+        SessionId = "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
+        Participants = new List<ParticipantSubscription>
+        {
+            new ParticipantSubscription
+            {
+                ParticipantId = "568749d5-04d5-483d-adf5-deac7dd3d521"
+            },
+            new ParticipantSubscription
+            {
+                ParticipantId = "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+            }
+        }
+    }
+};
+
+var response = controller.CreateParticipant(accountId, participant);
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+Participant participant = new Participant().toBuilder()
+        .id("320e2af6-13ec-498d-8b51-daba52c37853")
+        .callbackUrl("https://example.com/callback")
+        .publishPermissions(Arrays.asList(PublishPermissionEnum.AUDIO, PublishPermissionEnum.VIDEO))
+        .subscriptions(new Subscriptions().toBuilder()
+            .participants(
+                    Arrays.asList(
+                        new ParticipantSubscription("0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"),
+                        new ParticipantSubscription("568749d5-04d5-483d-adf5-deac7dd3d521")
+                    )
+            )
+            .build())
+        .build();
+try {
+    ApiResponse<AccountsParticipantsResponse> response = controller.createParticipant(accountId, participant);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}

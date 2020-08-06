@@ -59,13 +59,17 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+controller.DeleteSession(accountId, "sessionId");
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+try {
+    ApiResponse<Void> response = controller.deleteSession(accountId, "sessionId");
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}

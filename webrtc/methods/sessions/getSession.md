@@ -72,13 +72,17 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+var response = controller.GetSession(accountId, "sessionId");
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+try {
+    ApiResponse<Session> response = controller.getSession(accountId, "sessionId");
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}

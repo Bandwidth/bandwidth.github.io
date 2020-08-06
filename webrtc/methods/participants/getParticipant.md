@@ -90,13 +90,17 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+var response = controller.GetParticipant(accountId, "participantId");
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+try {
+    ApiResponse<Participant> response = controller.getParticipant(accountId, "participantId");
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}

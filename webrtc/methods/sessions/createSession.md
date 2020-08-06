@@ -83,13 +83,26 @@ Content-Type: application/json
 {% sample lang="csharp" %}
 
 ```csharp
-//coming soon
+var session = new Session
+{
+    Tag = "session1"
+};
+
+var response = controller.CreateSession(accountId, session);
 ```
 
 {% sample lang="java" %}
 
 ```java
-//coming soon
+Session session = new Session().toBuilder()
+        .tag("session1")
+        .build();
+
+try {
+    ApiResponse<Session> response = controller.createSession(accountId, session);
+} catch(Exception ex){
+    // Handle Exception
+}
 ```
 
 {% sample lang="ruby" %}
