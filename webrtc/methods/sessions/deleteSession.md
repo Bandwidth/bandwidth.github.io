@@ -87,7 +87,7 @@ web_rtc_client.delete_session(account_id, session_id)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+await webRtcController.deleteSession(accountId, sessionId);
 ```
 
 {% sample lang="php" %}

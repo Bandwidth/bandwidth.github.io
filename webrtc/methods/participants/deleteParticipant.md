@@ -87,7 +87,7 @@ web_rtc_client.delete_participant(account_id, participant_id)
 {% sample lang="js" %}
 
 ```js
-//coming soon
+await webRtcController.deleteParticipant(accountId, participantId);
 ```
 
 {% sample lang="php" %}
