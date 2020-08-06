@@ -141,7 +141,19 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$data = array(
+  "Description" => "Callback to property management system",
+  "Type" => "CALLBACK",
+  "Callback" => array(
+    "Url" => "https://foo.bar/baz",
+    "Credentials" => array(
+      "Username" => "jgilmore",
+      "Password" => "x23388%SLHss"
+    )
+  )
+);
+
+$response = $account->createEmergencyNotificationRecipient($data);
 ```
 
 > Output
@@ -387,7 +399,26 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$data = array(
+  "CustomerOrderId" => "UbOxhMnp",
+  "AddedEmergenyNotificationGroup" => array(
+    "Description" => "JgHzUzIchD",
+    "AddedEmergencyNotificationRecipients" => array(
+      "EmergencyNotificationRecipient" => array(
+        array(
+          "Identifier" => "c7f74671edd8410d9a4c0f8e985e0a"
+        ),
+        array(
+          "Identifier" => "74ac30535b414d29bc36d50572f553"
+        ),
+        array(
+          "Identifier" => "b910df3245ce4192aee052f583259f"
+        )
+      )
+    )
+  )
+);
+$response = $account->createEmergencyNotificationGroupOrder($data);
 ```
 
 > Output
@@ -655,7 +686,25 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$data = array(
+  "CustomerOrderId" => "ALG-31233884",
+  "EmergencyNotificationEndpointAssociations" => array(
+    "EmergenyNotificationGroup" => array(
+      "Identifier" => "3e9a852e-2d1d-4e2d-84c3-04595ba2eb93",
+    ),
+    "AddedAssociations" => array(
+      "EepToEngAssociations" => array(
+        "EepTns" => array(
+          "TelephoneNumber" => array(
+            "2248838829",
+            "4052397735"
+          )
+        )
+      )
+    )
+  ) 
+);
+$response = $account->createEmergencyNotificationEndpointOrder($data);
 ```
 
 > Output
@@ -853,7 +902,20 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$data = array(
+  "ModifiedEmergenyNotificationGroup" => array(
+    "Identifier" => "a6d00a2d-94ee-4ecb-9bd8-7c2dde258863",
+    "AddedEmergencyNotificationRecipients" => array(
+      "EmergencyNotificationRecipient" => array(
+        array(
+          "Identifier" => "d81dcc9526d54cad9dbf076c4e6461"
+        )
+      )
+    )
+  )
+);
+
+$response = $account->createEmergencyNotificationGroupOrder($data);
 ```
 
 > Output
@@ -1016,7 +1078,14 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$data = array(
+  "Description" => "Text message to guard shack",
+  "Type" => "SMS",
+  "Sms" => array(
+    "TelephoneNumber" => "12015551212"
+  )
+);
+$response = $account->replaceEmergencyNotificationRecipient("id", $data);
 ```
 
 > Output
@@ -1185,7 +1254,20 @@ Content-type: application/xml
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$data = array(
+  "ModifiedEmergenyNotificationGroup" => array(
+    "Identifier" => "a97149dc-586c-419d-a054-6b3d352ea8af",
+    "DeletedEmergencyNotificationRecipients" => array(
+      "EmergencyNotificationRecipient" => array(
+        array(
+          "Identifier" => "ebce6adfb6e94a8a80bc16841b4697"
+        )
+      )
+    )
+  )
+);
+
+$response = $account->createEmergencyNotificationGroupOrder($data);
 ```
 
 > Output
@@ -1324,7 +1406,7 @@ HTTP/1.1 200
 {% sample lang="php" %}
 
 ```php
-print_r("");
+$account->deleteEmergencyNotificationRecipient("id");
 ```
 
 > Output
