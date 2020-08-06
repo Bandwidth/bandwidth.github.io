@@ -21,8 +21,9 @@ HTTP/1.1 204
 | callId           | The call id associated with the event. |
 | callUrl          | The URL of the call associated with the event. |
 | startTime        | Time the call was started, in ISO 8601 format. |
+| answerTime       | Time the call was answered, in ISO 8601 format. |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
-| digit            | The digit collected from user. |
+| digit            | The digit collected in the call. |
 
 {% common %}
 
@@ -38,6 +39,7 @@ POST http://[External server URL]
 	"accountId"        : "55555555",
 	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"startTime"        : "2019-06-20T15:54:22.234Z",
+    "answerTime"       : "2019-06-20T15:54:25.432Z",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",
