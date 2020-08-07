@@ -22,10 +22,10 @@ The Gather verb is used to collect digits for some period of time.
 | repeatCount          | (optional) The number of times the audio prompt should be played if no digits are pressed. For example, if this value is `3`, the nested audio clip will be played a maximum of three times. The delay between repetitions will be equal to `firstDigitTimeout`. Default value is 1. `repeatCount` * number of verbs must not be greater than 20. |
 
 The gather is terminated when one of these conditions is met:
- 1. The user presses a terminating digit (if specified)
- 2. The user has pressed at least one key and more than `interDigitTimeout` seconds have elapsed
- 3. Any nested audio has ended and `firstDigitTimeout` seconds have elapsed without the user pressing any digits
- 4. The user presses `maxDigits` digits
+ * The user presses a terminating digit (if specified)
+ * The user has pressed at least one key and more than `interDigitTimeout` seconds have elapsed
+ * Any nested audio has ended and `firstDigitTimeout` seconds have elapsed without the user pressing any digits
+ * The user presses `maxDigits` digits
 
 If the `gatherUrl` attribute is specified, the [Gather event](../callbacks/gather.md) is sent to the `gatherUrl` upon
 completion of the gather. BXML returned by that callback are then executed. If `gatherUrl` is specified, verbs following the `<Gather>` will be ignored.
