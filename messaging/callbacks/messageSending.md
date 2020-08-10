@@ -37,7 +37,7 @@ You will receive this callback between when the message is received by Bandwidth
         "time": "2020-06-25T18:42:36.979Z",
         "type": "message-sending",
         "to": "+19842397270",
-        "description": "Message sending for delivery",
+        "description": "Message is sending to carrier",
         "message": {
             "id": "1593110555875xo7watq5px6rbe5d",
             "owner": "+19196494865",
