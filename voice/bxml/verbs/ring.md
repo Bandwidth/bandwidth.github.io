@@ -43,7 +43,7 @@ This example shows how to use the Ring verb to play ringing audio on a call for 
 {% sample lang="ruby" %}
 
 ```ruby
-// Coming soon
+# Coming soon
 ```
 
 {% sample lang="python" %}
