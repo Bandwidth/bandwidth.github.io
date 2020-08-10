@@ -30,75 +30,38 @@ This example shows how to use the Ring verb to play ringing audio on a call for 
 {% sample lang="java" %}
 
 ```java
-Ring ring = Ring.builder()
-        .duration(10.0)
-        .build();
-
-Response response = Response.builder().build()
-        .add(ring);
-
-System.out.println(response.toBXML());
+// Coming soon
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-Response response = new Response();
-
-Ring ring = new Ring();
-ring.Duration = 10;
-
-response.Add(ring);
-
-Console.WriteLine(response.ToBXML());
+// Coming soon
 ```
 
 
 {% sample lang="ruby" %}
 
 ```ruby
-response = Bandwidth::Voice::Response.new()
-ring = Bandwidth::Voice::Ring.new({
-    :duration => 10
-})
-
-response.push(ring)
-puts response.to_bxml()
+// Coming soon
 ```
 
 {% sample lang="python" %}
 
 ```python
-response = Response()
-ring = Ring(duration=10)
-
-response.add_verb(ring)
-print(response.to_bxml())
+# Coming soon
 ```
 
 {% sample lang="js" %}
 
 ```js
-var ring = new BandwidthBxml.Verbs.Ring();
-ring.setDuration(10);
-
-var response = new BandwidthBxml.Response();
-response.addVerb(ring);
-
-console.log(response.toBxml());
+// Coming soon
 ```
 
 {% sample lang="php" %}
 
 ```php
-ring = new BandwidthLib\Voice\Bxml\Ring();
-ring->duration(10);
-
-$response = new BandwidthLib\Voice\Bxml\Response();
-$response->addVerb($ring);
-
-echo $response->toBxml();
-echo "\n";
+// Coming soon
 ```
 
 {% endmethod %}
