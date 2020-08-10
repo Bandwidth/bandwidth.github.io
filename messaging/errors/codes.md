@@ -208,25 +208,21 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 
 ### Carrier Reported Client Errors {#carrier-client}
 
-| Code | Description                                                                           | Billable |
-|:-----|:--------------------------------------------------------------------------------------|:---------|
-| 4700 | Carrier Rejected as Invalid Service Type                                              | YES      |
-| 4701 | Destination is not reachable and SMS service is not available.                        | YES      |
-| 4702 | Destination subscriber is unavailable.                                                | YES      |
-| 4720 | Carrier Rejected as Invalid Destination Address                                       | YES      |
-| 4730 | No route to destination carrier or no roaming route exists.                           | YES      |
-| 4740 | Carrier Rejected as Invalid Source Address                                            | YES      |
-| 4750 | Carrier Rejected Message                                                              | YES      |
-| 4751 | Message is too long or message length is invalid for the carrier.                     | YES      |
-| 4752 | Message is malformed for the carrier.                                                 | YES      |
-| 4770 | Carrier Rejected as SPAM                                                              | YES      |
-| 4775 | Carrier Rejected due to user opt out                                                  | YES      |
-| 4780 | Carrier rejected due to P2P volumetric violation                                      | YES      |
-| 4721 | TN on deactivation list                                                               | YES      |
-| 4790 | Carrier Rejected Due to Short Code Restriction                                        | YES      |
-| 4791 | Carrier Rejected Short Code Campaign Not Allowed                                      | YES      |
-| 4792 | Carrier Rejected Short Code Not Provisioned                                           | YES      |
-| 4793 | Carrier Rejected Short Code Expired                                                   | YES      |
+| Code | Description                                      | Billable |
+|:-----|:-------------------------------------------------|:---------|
+| 4700 | Carrier Rejected as Invalid Service Type         | YES      |
+| 4720 | Carrier Rejected as Invalid Destination Address  | YES      |
+| 4740 | Carrier Rejected as Invalid Source Address       | YES      |
+| 4750 | Carrier Rejected Message                         | YES      |
+| 4751 | Message too long for carrier                     | YES      |
+| 4770 | Carrier Rejected as SPAM                         | YES      |
+| 4775 | Carrier Rejected due to user opt out             | YES      |
+| 4780 | Carrier rejected due to P2P volumetric violation | YES      |
+| 4721 | TN on deactivation list                          | YES      |
+| 4790 | Carrier Rejected Due to Short Code Restriction   | YES      |
+| 4791 | Carrier Rejected Short Code Campaign Not Allowed | YES      |
+| 4792 | Carrier Rejected Short Code Not Provisioned      | YES      |
+| 4793 | Carrier Rejected Short Code Expired              | YES      |
 
 
 ### Bandwidth Service Failures {#service-errors}
