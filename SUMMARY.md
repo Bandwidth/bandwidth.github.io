@@ -219,7 +219,7 @@
 	* [Incoming Group Message](messaging/callbacks/incomingGroup.md)
 	* [Message Delivered](messaging/callbacks/msgDelivered.md)
 	* [Message Failed](messaging/callbacks/messageFailed.md)
-    * [Message Queued (MMS only)](messaging/callbacks/messageQueued.md)
+	* [Message Sending (MMS only)](messaging/callbacks/messageSending.md)
 * [Errors](messaging/errors/about.md)
 	* [HTTP Errors](messaging/errors/httpErrors.md)
 		* [400 - Bad Request](messaging/errors/httpErrors.md#http-400)
