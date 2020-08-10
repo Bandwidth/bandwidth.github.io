@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "meta",
         "theme-bandwidth@1.9.14",
         "header",
         "sharing",
@@ -17,10 +16,6 @@
         "bandwidth-toggle-chapters-stopgap"
     ],
     "pluginsConfig": {
-        "meta": {
-            "name": "description",
-            "content": "Bandwidth API Reference, documentation, SDKs, guides, examples and more. Get everything you need to build with Bandwidth."
-        },
         "theme-bandwidth": {
             "languages": [
                 {
