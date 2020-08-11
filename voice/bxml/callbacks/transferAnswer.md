@@ -18,6 +18,7 @@ Most BXML verbs are allowed in response to a `transferAnswer` event, but some ar
 | [Record](../verbs/record.md)                      | Yes           |
 | [Redirect](../verbs/redirect.md)                  | Yes           |
 | [ResumeRecording](../verbs/resumeRecording.md)    | Yes           |
+| [Ring](../verbs/ring.md)                          | Yes           |
 | [SendDtmf](../verbs/sendDtmf.md)                  | Yes           |
 | [SpeakSentence](../verbs/speakSentence.md)        | Yes           |
 | [StartRecording](../verbs/startRecording.md)      | Yes           |
