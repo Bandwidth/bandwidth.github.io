@@ -100,12 +100,74 @@ module.exports = function ($) {
 		}
 	}
 
+    function addSeo() {
+        /*
+         * This function is to add our SEO tags to the docsite. Unfortunately this was not as
+         * straight forward as we hoped. The raw tags in the markdown files don't add the meta
+         * tags to the head tag, but you can use the raw tags to add unused section tags, and
+         * then use the section tag identifier to add the seo tag to the head in this script.
+         *
+         * For some reason looping did not work. If someone knows how to get looping to work
+         * that would be great.
+         */
+
+        $('meta[name="description"]').remove();
+
+        $('section.homePage').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Bandwidth API Reference, documentation, SDKs, guides, examples and more. Get everything you need to build with Bandwidth.">');
+        });
+
+        $('section.getStarted').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Get started with Bandwidth APIs. Setup account credentials, understand the basics, and jump into overviews of the Voice, Messaging, and Phone Numbers APIs.">');
+        });
+
+        $('section.accountCredentials').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Understand the different credentials for interacting with Bandwidth\'s APIs, and how to authenticate on each API.">');
+        });
+
+        $('section.callbacksOverview').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Bandwidth\'s APIs operate on a system of callbacks. Most API requests send callbacks, and notices of incoming events (phone call, text message) are sent via callbacks as well.">');
+        });
+
+        $('section.sdksAbout').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Access Bandwidth SDKs for Node.JS, C#, Ruby, Python, PHP, and Java, plus example applications and demos.">');
+        });
+
+        $('section.accountManagementGuides').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Learn how to configure your account with Bandwidth\'s account management APIs. Setup subaccounts, locations and applications via API.">');
+        });
+
+        $('section.applicationsConfigurationGuide').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Learn how to configure an Application for Bandwidth\'s Voice API and Messaging AP to send and receive messages and phone calls.">');
+        });
+
+        $('section.subscriptionsConfigurationGuide').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Learn how to configure a Subscription to get started with Bandwidth\'s Number Ordering and Porting APIs.">');
+        });
+
+        $('section.messagingAbout').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Get everything you need to send and receive SMS, MMS, and group messages with Bandwidth. API Reference, SDKs, guides, examples and more.">');
+        });
+
+        $('section.voiceAbout').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Get everything you need to send and receive phone calls with Bandwidth. API Reference, SDKs, guides, examples and more.">');
+        });
+
+        $('section.emergencyServicesAbout').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Learn about how to configure Emergency Notifications with the Bandwidth Emergency Services API.">');
+        });
+
+        $('section.numbersAbout').each(function(i, elem) {
+            $('head').append('<meta name="description" content="Get everything you need to manage, order, and port phone numbers with Bandwidth. API Reference, SDKs, guides, examples and more.">');
+        });
+    }
+
 	fixHTTPMethodStyling();
 	addTopToSummaryPages();
 	addExternalIconForNewTabLinks();
 	removeGitbookBranding();
 	hidePagesFromNav();
-
+    addSeo();
 
 	return $.html();
 }

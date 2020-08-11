@@ -7471,68 +7471,225 @@ securitySchemes:
                                             <Description>Access Denied</Description>
                                         </ResponseStatus>
                                     </EmergencyNotificationGroupOrderResponse>
-            /{engId}:
-              get:
+            /{engId}: 
                 description: |
-                  This endpoint allows you to fetch the configuration of a current emergency notification group by identifier.
-                  URI parameters:
-                  <ul>
-                    <li>
-                    <b>accountId</b> - the account id of the account to which the emergency notification recipient belongs.
-                    </li>
-                    <li>
-                    <b>engId</b> - the emergency notification group identifier assigned to the emergency notification group when it was created.
-                    </li>
-                  </ul>
-                responses:
-                    200:
-                        description: Successful response <br>
-                        body:
-                            application/xml:
-                                example:
-                                    <EmergencyNotificationGroupsResponse>
-                                        <EmergencyNotificationGroup>
-                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
-                                            <CreatedDate>2020-01-23T18:34:17.284Z</CreatedDate>
-                                            <ModifiedBy>jgilmore</ModifiedBy>
-                                            <ModifiedDate>2020-01-23T18:34:17.284Z</ModifiedDate>
-                                            <Description>This is a description of the emergency notification group.</Description>
-                                            <EmergencyNotificationRecipients>
-                                                <EmergencyNotificationRecipient>
-                                                    <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
-                                                </EmergencyNotificationRecipient>
-                                                <EmergencyNotificationRecipient>
-                                                    <Identifier>ef47eb61-e3b1-449d-834b-0fbc5a11da30</Identifier>
-                                                </EmergencyNotificationRecipient>
-                                            </EmergencyNotificationRecipients>
-                                        </EmergencyNotificationGroup>
-                                    </EmergencyNotificationGroupsResponse>
-                    404:
-                        description: The resource does not exist <br>
-                            <p><b>Condition:</b> Specified emergency notification group id does not exist for this account <br>
-                            <b>Error Description:</b> The resource does not exist </p> <br>
-                        body:
-                            application/xml:
-                                example:
-                                    <EmergencyNotificationGroupsResponse>
-                                        <ResponseStatus>
-                                            <ErrorCode>nnnn</ErrorCode>
-                                            <Description>The resource does not exist</Description>
-                                        </ResponseStatus>
-                                    </EmergencyNotificationGroupsResponse>
-                    403:
-                        description: Access Denied <br>
-                            <p> <b>Condition:</b> User does not have permission to view emergency notification groups, either due to Role/Permission or because the account is not configured for Emergency Notification Config. <br>
-                            <b>Error Description:</b> Access Denied </p>
-                        body:
-                            application/xml:
-                                example:
-                                    <EmergencyNotificationGroupsResponse>
-                                        <ResponseStatus>
-                                            <ErrorCode>1001</ErrorCode>
-                                            <Description>Access Denied </Description>
-                                        </ResponseStatus>
-                                    </EmergencyNotificationGroupsResponse>
+                    <p> This endpoint provides a way to fetch current emergency notification group configured on
+                    the account, including various ways to filter the results.  This endpoint examines the current configuration.  If you are interested in emergency notification group order history, use the /accounts/{accountId}/emergencyNotificationGroupOrders/{engOrderId} endpoint.
+                    </p>
+                get:
+                    description: |
+                      This endpoint allows you to fetch the configuration of a current emergency notification group by identifier.
+                      URI parameters:
+                      <ul>
+                        <li>
+                        <b>accountId</b> - the account id of the account to which the emergency notification recipient belongs.
+                        </li>
+                        <li>
+                        <b>engId</b> - the emergency notification group identifier assigned to the emergency notification group when it was created.
+                        </li>
+                      </ul>
+                      Query parameters:
+                                  <table>
+                                          <tr>
+                                            <th>Parameter Name</th>
+                                            <th>Example</th>
+                                            <th>Default</th>
+                                            <th>Usage</th>
+                                          </tr>
+                                          <tr>
+                                              <td valign="top">
+                                                  <p>
+                                                      IncludeEepTns
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      IncludeEepTns=true
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      false
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                        Set this optional parameter to true if you wish to include a list
+                                                        of all Emergency Endpoint TNs associated with this Emergency Notification Group.
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td valign="top">
+                                                  <p>
+                                                      IncludeEepAeuis
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      IncludeEepAeuis=true
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      false
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      Set this optional parameter to true if you wish to include a list
+                                                      of all Emergency Endpoint AEUIs associated with this Emergency Notification Group.
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td valign="top">
+                                                  <p>
+                                                      StartWithEepTn
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      StartWithEepTn=203208110
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      No filter
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      This parameter, which may only be specified if the IncludeEepTns parameter is set to true,
+                                                      indicates the starting digits of the emergency endpoint TN that you wish to begin with in the
+                                                      list of emergency endpoints associated with the emergency notification group. At least 3 digits
+                                                      must be supplied, and up to 10 digits may be included.
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td valign="top">
+                                                  <p>
+                                                      EepTnSize
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      EepTnSize=200
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      20
+                                                  </p>
+                                              </td>
+                                              <td valign="top">
+                                                  <p>
+                                                      This parameter, which may only be specified if the IncludeEepTns parameter is set to true,
+                                                       indicates the maximum number of associated emergency endpoint TNs you wish to include for
+                                                       each emergency notification group that is returned in the query results. The value may range from 1 to 5000
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td  valign="top">
+                                                  <p>
+                                                      StartWithEepAeui
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      StartWithEepAeui=Frank
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      No filter
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      This parameter, which may only be specified if the IncludeEepAeuis parameter is set to true,
+                                                       indicates the starting characters of the emergency endpoint AEUI that you wish to begin with
+                                                        in the list of emergency endpoints associated with the emergency notification group.
+                                                        At least 3 characters must be supplied, and up to 50 characters may be included.
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td  valign="top">
+                                                  <p>
+                                                      EepAeuiSize
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      EepAeuiSize=50
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      20
+                                                  </p>
+                                              </td>
+                                              <td  valign="top">
+                                                  <p>
+                                                      This parameter, which may only be specified if the IncludeEepAeuis parameter is set to true,
+                                                      indicates the maximum number of associated emergency endpoint AEUIs you wish to include for
+                                                      each emergency notification group that is returned in the query results. The value may range from 1 to 5000.
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                  </table>
+                    responses:
+                        200:
+                            description: Successful response <br>
+                            body:
+                                application/xml:
+                                    example:
+                                        <EmergencyNotificationGroupsResponse>
+                                            <EmergencyNotificationGroup>
+                                                <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
+                                                <CreatedDate>2020-01-23T18:34:17.284Z</CreatedDate>
+                                                <ModifiedBy>jgilmore</ModifiedBy>
+                                                <ModifiedDate>2020-01-23T18:34:17.284Z</ModifiedDate>
+                                                <Description>This is a description of the emergency notification group.</Description>
+                                                <EmergencyNotificationRecipients>
+                                                    <EmergencyNotificationRecipient>
+                                                        <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
+                                                    </EmergencyNotificationRecipient>
+                                                    <EmergencyNotificationRecipient>
+                                                        <Identifier>ef47eb61-e3b1-449d-834b-0fbc5a11da30</Identifier>
+                                                    </EmergencyNotificationRecipient>
+                                                </EmergencyNotificationRecipients>
+                                            </EmergencyNotificationGroup>
+                                        </EmergencyNotificationGroupsResponse>
+                        404:
+                            description: The resource does not exist <br>
+                                <p><b>Condition:</b> Specified emergency notification group id does not exist for this account <br>
+                                <b>Error Description:</b> The resource does not exist </p> <br>
+                            body:
+                                application/xml:
+                                    example:
+                                        <EmergencyNotificationGroupsResponse>
+                                            <ResponseStatus>
+                                                <ErrorCode>nnnn</ErrorCode>
+                                                <Description>The resource does not exist</Description>
+                                            </ResponseStatus>
+                                        </EmergencyNotificationGroupsResponse>
+                        403:
+                            description: Access Denied <br>
+                                <p> <b>Condition:</b> User does not have permission to view emergency notification groups, either due to Role/Permission or because the account is not configured for Emergency Notification Config. <br>
+                                <b>Error Description:</b> Access Denied </p>
+                            body:
+                                application/xml:
+                                    example:
+                                        <EmergencyNotificationGroupsResponse>
+                                            <ResponseStatus>
+                                                <ErrorCode>1001</ErrorCode>
+                                                <Description>Access Denied </Description>
+                                            </ResponseStatus>
+                                        </EmergencyNotificationGroupsResponse>
         /emergencyNotificationEndpointOrders: 
             description: |
                 <p> This endpoint allows you to create an order to associate or dissociate emergency endpoints and an emergency notification group.  This is the last step in setting up your emergency notifications.  The first step was creating emergency notification recipients.  The seconds step was creating emergency notification groups and associating them with emergency notification recipients.  The third and final step is associating emergency endpoints with emergency notification groups. <br><br>
@@ -8437,6 +8594,7 @@ securitySchemes:
                                     </EmergencyNotificationEndpointOrderResponse>
         /externalTns: 
             description: |
+                <strong>Note - this API is being replaced with the /importTnOrders API - we strongly recommend using that endpoint</strong><br>
                 The externalTns order resource represents the requests made to the Bandwidth Dashboard API to add or remove customer owned or managed telephone numbers into or from the Bandwidth Dashboard API.  This API request will create an order record specific to the request that can be used to understand and track the outcome of the request once complete
                 <br><br>
                 The information below captures the REST endpoint URL and Payloads that are used to install or remove customer provided external telephone numbers from the Bandwidth Dashboard API.
@@ -8447,7 +8605,7 @@ securitySchemes:
                 <br><br>
                 This single API controls both the installation and removal of telephone numbers.  The action is controlled by the use of an element in the payload, allowing a simple model for managing both addition and removal of telephone numbers.  Additionally, if the status of an existing telephone number needs to be reset within the Bandwidth Dashboard API, possibly as the result of an ownership change (port) of the telephone number, the API can be called to re-add the number to the Bandwidth Dashboard API, which will perform a reset on that number without removing it from service first.
                 <br><br>
-                The externalTns order tracks the orders related to customer-provided numbers into the customer's account. 
+                The externalTns order tracks the orders related to customer-provided numbers into the customer's account.
                 <br><br>
                 This Import/Delete request reflects a customer-executed import or removal of numbers that they own and/or control.  The telephone numbers in question cannot be Bandwidth CLEC numbers, and are not subject to the normal telephone number life-cycle.<br><br>
             get:
@@ -8503,7 +8661,7 @@ securitySchemes:
                 responses:
                     200:
                         description: |
-                            The descriptive payload for the externalTns Orders query provides information about the externalTns Orders found by the query, including the data associated with the order, the state of the order, and a list of the successfully uploaded Telephone Numbers, and decriptions of any encountered errors. 
+                            The descriptive payload for the externalTns Orders query provides information about the externalTns Orders found by the query, including the data associated with the order, the state of the order, and a list of the successfully uploaded Telephone Numbers, and decriptions of any encountered errors.
                         body:
                             application/xml:
                                 example: 
@@ -11302,7 +11460,6 @@ securitySchemes:
                         type: string
                         example: cbdcfc94-81b1-4ce9-8b6d-f8d6b85381ba
                         required: true
-                        default: 1
                     size:
                         description: The size parameter indicates the number of orders to return in the payload
                         type: integer
@@ -15345,7 +15502,7 @@ securitySchemes:
                             </tr>
                             <tr>
                                 <td>SiteId</td>
-                                <td>The internally allocated SIP Peer ID</td>
+                                <td>The internally allocated Site ID</td>
                                 <td>12345</td>
                             </tr>
                             <tr>
@@ -17923,6 +18080,22 @@ securitySchemes:
                       <li>CampaignId - [ string {1,64} ] </li>
                       <li>Action - [ <i>asSpecified</i> | <i>off</i> | <i>unchanged</i> | <i>systemDefault</i> ] </li>
                     </ul>
+                    <li> Origination Route Plan </li>
+                    <ul>
+                      <li>Route List</li>
+                        <ul>
+                        <li>Endpoint</li>
+                          <ul>
+                            <li>a NANP telephone number, or</li>
+                            <li>a SIP URI, or</li>
+                            <li>a IPv4 address, or </li>
+                            <li>a Fully Qualified Domain name(FQDN) </li>
+                          </ul>
+                        <li>Priority</li>
+                        <li>Weight</li>
+                        </ul>
+                      <li>Action - [ <i>asSpecified</i> | <i>off</i> | <i>unchanged</i>] </li>
+                    </ul>
                     </ul>
                     Where:
                       <ul>
@@ -17977,6 +18150,35 @@ securitySchemes:
                             </tr>
                             </tbody>
                         </table>
+                        <li>for Origination Route plan attribute</li>
+                        <table style="text-align: left; width: 80%;"
+                               border="1" cellpadding="2" cellspacing="0">
+                            <tbody>
+                            <tr>
+                              <th>Action value</th>
+                              <th>Describe of action</th>
+                            </tr>
+                            <tr>
+                              <td>asSpecified</td>
+                              <td>Creates/updates the origination route plan for the TN with route plan details provided in the request </td>
+                            </tr>
+                            <tr>
+                              <td>off</td>
+                              <td>Removes the origination route plan for the TN. Route list is the request must be empty</td>
+                            </tr>
+                            <tr>
+                              <td>unchanged</td>
+                              <td>Doesn't update/create the origination route plan, even when route plan details exist in the request</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <ul>
+                          <li> Origination route plan is validated against CallForward and RewriteUser</li>
+                            <ul>
+                              <li type="square">Route plan and CallForward cannot co-exist. Order is accepted but will respond with error messages on GET.</li>
+                              <li type="square">Route plan and RewriteUser cannot co-exist. Order is accepted but will respond with error messages on GET.</li>
+                            </ul>
+                        </ul>
                         <li>for other attribute</li>
                         <ul>
                           <li type="square"> <i>systemDefault</i> - implies that the element profile value should be removed so that the TN changes back to the default system behavior;</li>
@@ -18013,6 +18215,34 @@ securitySchemes:
                                          <CallingNameDisplay>off</CallingNameDisplay>
                                          <Protected>false</Protected>
                                          <Sms>off</Sms>
+                                         <OriginationRoutePlan>
+                                             <Route>
+                                                 <Endpoint>+16107622502</Endpoint>
+                                                 <Priority>1</Priority>
+                                                 <Weight>100</Weight>
+                                             </Route>
+                                             <Route>
+                                                 <Endpoint>sip:clarkkent@dailyplanet.com</Endpoint>
+                                                 <Priority>2</Priority>
+                                                 <Weight>100</Weight>
+                                             </Route>
+                                             <Route>
+                                                 <Endpoint>192.168.20.21</Endpoint>
+                                                 <Priority>3</Priority>
+                                                 <Weight>50</Weight>
+                                             </Route>
+                                             <Route>
+                                                 <Endpoint>+17077622509</Endpoint>
+                                                 <Priority>3</Priority>
+                                                 <Weight>50</Weight>
+                                             </Route>
+                                             <Route>
+                                                  <Endpoint>myhost.bandwidth.com</Endpoint>
+                                                  <Priority>4</Priority>
+                                                  <Weight>100</Weight>
+                                             </Route>
+                                             <Action>asSpecified</Action>
+                                         </OriginationRoutePlan>
                                          <TelephoneNumbers>
                                              <TelephoneNumber>2018551025</TelephoneNumber>
                                          </TelephoneNumbers>
@@ -18072,6 +18302,20 @@ securitySchemes:
                                         <ResponseStatus>
                                             <ErrorCode>5081</ErrorCode>
                                             <Description>Number Format 'wrong' is invalid.</Description>
+                                        </ResponseStatus>
+                                    </TnOptionOrderResponse>
+                    409:
+                        description: |
+                            Conflict <br> A 409 response indicates that order could not be created.
+                            Error text and an error code will be provided in the ErrorList element.
+                        body:
+                            application/xml:
+                                example: 
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TnOptionOrderResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>5200</ErrorCode>
+                                            <Description>Origination route plan is not enabled for the account.</Description>
                                         </ResponseStatus>
                                     </TnOptionOrderResponse>
             /{orderid}: 
@@ -18226,6 +18470,137 @@ securitySchemes:
                     responses:
                         200:
                             description: A reservation has been successfully deleted.
+        /tnPortoutPasscodes: 
+            description: This Api allows a user to view all TNs (with Passcodes) and their Passcodes for an account.<br> The results will be restricted to the account that the requesting user has access to.
+            get:
+                description: |
+                    Retrieve information about one or more Telephone Numbers (TNs) with port out passcode.
+                queryParameters:
+                    page:
+                        description: An ID of the first element in a page.  This value will indicate the first value, not the count, of the initial entry in the page being requested.  Note in the example that the page is the TN that begins the page. The initial page is tagged with the ID '1'
+                        type: string
+                        example: 9199918388
+                        default: 1
+                        required: true
+                    size:
+                        description: The number of items to include in a page
+                        type: integer
+                        example: 250
+                        default: 500
+                        required: true
+                responses:
+                    200:
+                        description: |
+                            The descriptive payload provides information about the TN(s) and their Passcode.
+                            Links to assist in pagination are also provided.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0"?>
+                                    <TelephoneNumbersResponse>
+                                        <Links>
+                                            <first>Link=&lt;https://dashboard.bandwidth.com:443/v1.0/accounts/9500012/tnPortoutPasscodes?page=1&amp;size=500&gt;;rel="first";</first>
+                                            <next>Link=&lt;https://dashboard.bandwidth.com:443/v1.0//accounts/9500012/tnPortoutPasscodes?page=2012082912&amp;size=500&gt;;rel="next";</next>
+                                        </Links>
+                                        <TelephoneNumbers>
+                                             <TelephoneNumber>
+                                                  <FullNumber>2018391000</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                             <TelephoneNumber>
+                                                  <FullNumber>2024551000</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                        </TelephoneNumbers>
+                                    </TelephoneNumbersResponse>
+                    400:
+                        description: |
+                            Bad Request - any syntax error in the parameters will cause a 400 error with a payload similar to the payload in the example, with an error code and text description.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TelephoneNumbersResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>15610</ErrorCode>
+                                            <Description>Telephone Numbers cannot be found on account(s) 2002013</Description>
+                                                <TelephoneNumbers>
+                                                     <TelephoneNumber>2012035088</TelephoneNumber>
+                                                </TelephoneNumbers>
+                                        </ResponseStatus>
+                                    </TelephoneNumbersResponse>
+            post:
+                description: |
+                    Retrieve information about one or more Telephone Numbers (TNs), where the TNs are specified in POST body.
+                body:
+                            application/xml:
+                                example: |
+                                    <TnList>
+                                        <Tn>3172000285</Tn>
+                                        <Tn>3172000207</Tn>
+                                        <Tn>3172000000</Tn>
+                                        <Tn>3172000100</Tn>
+                                        <Tn>3172110285</Tn>
+                                        <Tn>3172100285</Tn>
+                                        <Tn>99999999999</Tn>
+                                        <Tn>111111111111</Tn>
+                                    </TnList>
+                responses:
+                    200:
+                        description: |
+                            The descriptive payload provides information about the TN(s) and their Passcode.
+                            The Payload also can contain <ErrorList> where invalid or non-existing  on account(s) TNs are specified.
+                            Pagination doesn't work in this case.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TelephoneNumbersResponse>
+                                        <TelephoneNumberCount>4</TelephoneNumberCount>
+                                        <Links>
+                                            <first>Link=&lt;http://localhost:8080/v1.0/tns&gt;;rel="first";</first>
+                                        </Links>
+                                        <TelephoneNumbers>
+                                             <TelephoneNumber>
+                                                  <FullNumber>3172000285</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                             <TelephoneNumber>
+                                                  <FullNumber>3172000207</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                        </TelephoneNumbers>
+                                        <ErrorList>
+                                            <Error>
+                                                <Code>15619</Code>
+                                                <Description>Passcode was not found on tn(s)</Description>
+                                                <TelephoneNumbers>
+                                                    <TelephoneNumber>3172000000</TelephoneNumber>
+                                                </TelephoneNumbers>
+                                            </Error>
+                                            <Error>
+                                                <Code>15610</Code>
+                                                <Description>Telephone Numbers cannot be found on accounts</Description>
+                                                <TelephoneNumbers>
+                                                    <TelephoneNumber>3172110285</TelephoneNumber>
+                                                    <TelephoneNumber>3172100285</TelephoneNumber>
+                                                </TelephoneNumbers>
+                                            </Error>
+                                        </ErrorList>
+                                    </TelephoneNumbersResponse>
+                    400:
+                        description: |
+                            Bad Request - when in the POST body specified more then {pagination.maxsize} TNs.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TelephoneNumbersResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>15607</ErrorCode>
+                                            <Description>The count of Telephone numbers in POST body exceeds the maximum size of 2500</Description>
+                                        </ResponseStatus>
+                                    </TelephoneNumbersResponse>
 /tns: 
     description: Telephone Numbers (TNs) are similarly central to Bandwidth Dashboard API provisioning.  TNs can be queried on a system-wide basis, returning information based on a wide range of search parameters.<br> The results will be restricted to the account(s) that the requesting user has access to.
     get:
@@ -18649,6 +19024,24 @@ securitySchemes:
                                                 <Priority>2</Priority>
                                                 <Weight>100</Weight>
                                                 <EndpointType>SIP</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>7610762269</Endpoint>
+                                                <Priority>3</Priority>
+                                                <Weight>50</Weight>
+                                                <EndpointType>TN</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>192.0.2.0/24</Endpoint>
+                                                <Priority>3</Priority>
+                                                <Weight>50</Weight>
+                                                <EndpointType>Ipv4</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>myhost.bandwidth.example</Endpoint>
+                                                <Priority>4</Priority>
+                                                <Weight>100</Weight>
+                                                <EndpointType>FQDN</EndpointType>
                                               </Route>
                                             </OriginationRoutePlan>
                                             <MessagingSettings>

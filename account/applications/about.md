@@ -1,3 +1,7 @@
+{% raw %}
+<section class="applicationsConfigurationGuide">
+{% endraw %}
+
 # Applications
 
 Bandwidth uses HTTP Callbacks (also known as [webhooks](../../guides/callbacks/callbacks.md)) to send [message events](../../messaging/callbacks/messageEvents.md) & [voice events](../../voice/bxml/callbacks/about.md) to any publicly addressable url.
