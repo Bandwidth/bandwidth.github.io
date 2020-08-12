@@ -20,7 +20,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 |:----------|:------------|
 | None      | None        |
 
-Note: After the deletion is requested and a `204` is returned, the recording will not be accessible anymore. However, the media of the specified recording is not deleted immediately. The deletion process can take from 24 to 48 hours after it was requested.
+Note: After the deletion is requested and a `204` is returned, the media will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
 
 {% common %}
 
