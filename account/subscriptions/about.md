@@ -1,3 +1,7 @@
+{% raw %}
+<section class="subscriptionsConfigurationGuide">
+{% endraw %}
+
 # Subscriptions
 
 Bandwidth uses HTTP Callbacks (also known as [webhooks](../../guides/callbacks/callbacks.md)) to send [number ordering & porting events](../../numbers/callbacks/about.md) to any publicly addressable url.
