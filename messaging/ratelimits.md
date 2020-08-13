@@ -43,7 +43,11 @@ At Bandwidth, we want to help our customers follow [best practices for toll-free
 
 ## Default Messaging Rate Limits and Queues {#default-rate-limit}
 
-All Bandwidth messaging products are rate limited in some fashion and messages will be queued internally to send out. For more information about rate limits and queues, please visit the links below:
+All Bandwidth messaging products are rate limited in some fashion and messages will be queued internally to send out.
+
+Rate limits on messages are applied to segment count, not API request. This means that a 2 segment message would count as 2 messages against your rate limit.
+
+For more information about rate limits and queues, please visit the links below:
 
 * [What are Bandwidth’s default rate limits for messaging?](https://support.bandwidth.com/hc/en-us/articles/360014169214-What-are-Bandwidth-s-default-rate-limits-for-messaging-)
 * [How does Bandwidth message queuing work?](https://support.bandwidth.com/hc/en-us/articles/360014275073-How-does-Bandwidth-message-queuing-work-)

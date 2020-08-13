@@ -12,13 +12,14 @@ Generate the transcription for a specific recording. Transcription can succeed o
 
 Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
+
 ---
 
 ### Supported Parameters
 
 | Parameter      | Description                                                                                            | Mandatory |
 |:---------------|:-------------------------------------------------------------------------------------------------------|:----------|
-| callbackUrl    | The URL to send the [TranscriptionAvailable](../../bxml/callbacks/transcriptionAvailable.md) event to. | No        |
+| callbackUrl    | The URL to send the [TranscriptionAvailable](../../bxml/callbacks/transcriptionAvailable.md) event to. You should not include sensitive or personally-identifiable information in the callbackUrl field! Always use the proper username and password fields for authorization. | No        |
 | callbackMethod | The HTTP method to use for the request to `callbackUrl`. GET or POST. Default value is POST.           | No        |
 | username       | The username to send in the HTTP request to `callbackUrl`.                                             | No        |
 | password       | The password to send in the HTTP request to `callbackUrl`.                                             | No        |

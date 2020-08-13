@@ -9271,7 +9271,7 @@ securitySchemes:
                                 </td>
                                 <td width="351" valign="top">
                                     <p>
-                                        Subscriber business / customer name.
+                                        Subscriber business / customer name. Max length is 45 characters.
                                     </p>
                                 </td>
                             </tr>
@@ -18470,6 +18470,137 @@ securitySchemes:
                     responses:
                         200:
                             description: A reservation has been successfully deleted.
+        /tnPortoutPasscodes: 
+            description: This Api allows a user to view all TNs (with Passcodes) and their Passcodes for an account.<br> The results will be restricted to the account that the requesting user has access to.
+            get:
+                description: |
+                    Retrieve information about one or more Telephone Numbers (TNs) with port out passcode.
+                queryParameters:
+                    page:
+                        description: An ID of the first element in a page.  This value will indicate the first value, not the count, of the initial entry in the page being requested.  Note in the example that the page is the TN that begins the page. The initial page is tagged with the ID '1'
+                        type: string
+                        example: 9199918388
+                        default: 1
+                        required: true
+                    size:
+                        description: The number of items to include in a page
+                        type: integer
+                        example: 250
+                        default: 500
+                        required: true
+                responses:
+                    200:
+                        description: |
+                            The descriptive payload provides information about the TN(s) and their Passcode.
+                            Links to assist in pagination are also provided.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0"?>
+                                    <TelephoneNumbersResponse>
+                                        <Links>
+                                            <first>Link=&lt;https://dashboard.bandwidth.com:443/v1.0/accounts/9500012/tnPortoutPasscodes?page=1&amp;size=500&gt;;rel="first";</first>
+                                            <next>Link=&lt;https://dashboard.bandwidth.com:443/v1.0//accounts/9500012/tnPortoutPasscodes?page=2012082912&amp;size=500&gt;;rel="next";</next>
+                                        </Links>
+                                        <TelephoneNumbers>
+                                             <TelephoneNumber>
+                                                  <FullNumber>2018391000</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                             <TelephoneNumber>
+                                                  <FullNumber>2024551000</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                        </TelephoneNumbers>
+                                    </TelephoneNumbersResponse>
+                    400:
+                        description: |
+                            Bad Request - any syntax error in the parameters will cause a 400 error with a payload similar to the payload in the example, with an error code and text description.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TelephoneNumbersResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>15610</ErrorCode>
+                                            <Description>Telephone Numbers cannot be found on account(s) 2002013</Description>
+                                                <TelephoneNumbers>
+                                                     <TelephoneNumber>2012035088</TelephoneNumber>
+                                                </TelephoneNumbers>
+                                        </ResponseStatus>
+                                    </TelephoneNumbersResponse>
+            post:
+                description: |
+                    Retrieve information about one or more Telephone Numbers (TNs), where the TNs are specified in POST body.
+                body:
+                            application/xml:
+                                example: |
+                                    <TnList>
+                                        <Tn>3172000285</Tn>
+                                        <Tn>3172000207</Tn>
+                                        <Tn>3172000000</Tn>
+                                        <Tn>3172000100</Tn>
+                                        <Tn>3172110285</Tn>
+                                        <Tn>3172100285</Tn>
+                                        <Tn>99999999999</Tn>
+                                        <Tn>111111111111</Tn>
+                                    </TnList>
+                responses:
+                    200:
+                        description: |
+                            The descriptive payload provides information about the TN(s) and their Passcode.
+                            The Payload also can contain <ErrorList> where invalid or non-existing  on account(s) TNs are specified.
+                            Pagination doesn't work in this case.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TelephoneNumbersResponse>
+                                        <TelephoneNumberCount>4</TelephoneNumberCount>
+                                        <Links>
+                                            <first>Link=&lt;http://localhost:8080/v1.0/tns&gt;;rel="first";</first>
+                                        </Links>
+                                        <TelephoneNumbers>
+                                             <TelephoneNumber>
+                                                  <FullNumber>3172000285</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                             <TelephoneNumber>
+                                                  <FullNumber>3172000207</FullNumber>
+                                                  <Passcode>1234</Passcode>
+                                             </TelephoneNumber>
+                                        </TelephoneNumbers>
+                                        <ErrorList>
+                                            <Error>
+                                                <Code>15619</Code>
+                                                <Description>Passcode was not found on tn(s)</Description>
+                                                <TelephoneNumbers>
+                                                    <TelephoneNumber>3172000000</TelephoneNumber>
+                                                </TelephoneNumbers>
+                                            </Error>
+                                            <Error>
+                                                <Code>15610</Code>
+                                                <Description>Telephone Numbers cannot be found on accounts</Description>
+                                                <TelephoneNumbers>
+                                                    <TelephoneNumber>3172110285</TelephoneNumber>
+                                                    <TelephoneNumber>3172100285</TelephoneNumber>
+                                                </TelephoneNumbers>
+                                            </Error>
+                                        </ErrorList>
+                                    </TelephoneNumbersResponse>
+                    400:
+                        description: |
+                            Bad Request - when in the POST body specified more then {pagination.maxsize} TNs.
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <TelephoneNumbersResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>15607</ErrorCode>
+                                            <Description>The count of Telephone numbers in POST body exceeds the maximum size of 2500</Description>
+                                        </ResponseStatus>
+                                    </TelephoneNumbersResponse>
 /tns: 
     description: Telephone Numbers (TNs) are similarly central to Bandwidth Dashboard API provisioning.  TNs can be queried on a system-wide basis, returning information based on a wide range of search parameters.<br> The results will be restricted to the account(s) that the requesting user has access to.
     get:
@@ -18893,6 +19024,24 @@ securitySchemes:
                                                 <Priority>2</Priority>
                                                 <Weight>100</Weight>
                                                 <EndpointType>SIP</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>7610762269</Endpoint>
+                                                <Priority>3</Priority>
+                                                <Weight>50</Weight>
+                                                <EndpointType>TN</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>192.0.2.0/24</Endpoint>
+                                                <Priority>3</Priority>
+                                                <Weight>50</Weight>
+                                                <EndpointType>Ipv4</EndpointType>
+                                              </Route>
+                                              <Route>
+                                                <Endpoint>myhost.bandwidth.example</Endpoint>
+                                                <Priority>4</Priority>
+                                                <Weight>100</Weight>
+                                                <EndpointType>FQDN</EndpointType>
                                               </Route>
                                             </OriginationRoutePlan>
                                             <MessagingSettings>

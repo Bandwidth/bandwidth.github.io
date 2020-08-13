@@ -1,5 +1,5 @@
 {% method %}
-# Message Queued Event (MMS only)
+# Message Sending Event (MMS only)
 In order to receive message events, you need to ensure you have set up your application to send callbacks to your server's URL.
 
 You will receive this callback between when the message is received by Bandwidth and the terminal events (message delivered, message failed) for MMS only if you have the `Feature_MMS_DLR` feature flag enabled.
@@ -27,7 +27,7 @@ You will receive this callback between when the message is received by Bandwidth
 
 {% common %}
 
-## Example: MMS Queued 
+## Example: MMS Sending
 
 {% sample lang='http' %}
 
@@ -35,9 +35,9 @@ You will receive this callback between when the message is received by Bandwidth
 [
     {
         "time": "2020-06-25T18:42:36.979Z",
-        "type": "message-queued",
+        "type": "message-sending",
         "to": "+19842397270",
-        "description": "Message queued for delivery",
+        "description": "Message is sending to carrier",
         "message": {
             "id": "1593110555875xo7watq5px6rbe5d",
             "owner": "+19196494865",

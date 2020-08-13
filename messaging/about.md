@@ -1,3 +1,7 @@
+{% raw %}
+<section class="messagingAbout">
+{% endraw %}
+
 # Bandwidth Messaging API
 
 ## Base API URL

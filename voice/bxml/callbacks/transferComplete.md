@@ -27,6 +27,7 @@ Content-Type: application/xml; charset=utf-8
 | callId           | The call id associated with the event.                                                                                                |
 | callUrl          | The URL of the call associated with the event.                                                                                        |
 | startTime        | Time the call was started, in ISO 8601 format.                                                                                        |
+| answerTime       | Time the call was answered, in ISO 8601 format.                                                                                       |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                     |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                       |
@@ -55,6 +56,7 @@ POST http://[External server URL]
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
 	"startTime"        : "2019-07-31T13:13:34.859Z",
+	"answerTime"       : "2019-07-31T13:13:40.644Z",
 	"cause"            : "hangup",
 	"errorMessage"     : "",
 	"errorId"          : ""
@@ -80,6 +82,7 @@ POST http://[External server URL]
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
 	"startTime"        : "2019-07-31T13:13:34.859Z",
+	"answerTime"       : "2019-07-31T13:13:40.644Z",
 	"cause"            : "busy",
 	"errorMessage"     : "Callee is busy",
 	"errorId"          : "4642074b-7b58-478b-96e4-3a60955c6765"
