@@ -116,7 +116,7 @@ The API allows a user to modify an existing LNP order. To do so, the order Id th
 * Subscriber elements
 * SiteId
 * PeerId
-* PartialPort, and
+* PartialPort
 * LoaAuthorizingPerson
 * ListOfPhoneNumbers
 * Triggered
@@ -134,6 +134,26 @@ When a port-in is being processed by off-net partner Level 3 (you can tell this 
 * Subscriber name elements or BusinessName, provided that SubscriberType is provided
 
 After the FOC date has been received, the billing telephone number and subscriber information cannot be modified, only the FOC date/time can be updated.
+
+The general approach to handling this API call is to replace the elements included in the request body, and leave other preexisting elements in an unmodified condition. This is typical of a PATCH method, but because of our commitment to backwards compatibility we have elected not to "Fix" this behavior. As a result, there are some elements that cannot be modified using the <code class="put">PUT</code> method. The elements affected vary by Port-In Order type. Please refer to the matrix below to see which elements can be modified and replaced.
+
+|----------------------------------------------------------|----------------|---------------|------------------|--------------------------------------------------------------------------------|--------------------------------------|---------------------------|----------------------------|----------|
+| billingTelephoneNumber                                   | Editable       | Editable      | Disabled         | Editable                                                                       | Disabled                             | Editable                  | Disabled                   | Editable |
+| newBillingTelephoneNumber                                | Editable       | Editable      | Disabled         | Editable                                                                       | Disabled                             | Disabled                  | Disabled                   | Editable |
+| partialPort                                              | Editable       | Editable      | Disabled         | Editable                                                                       | Disabled                             | Disabled - Use Note       | Disabled - Use Note        | Editable |
+| subscriber.subscriberType                                | Editable       | Editable      | Editable         | Editable                                                                       | Disabled                             | Editable                  | Disabled                   | Editable |
+| subscriber.businessName/firstName/middleInitial/lastName | Editable       | Editable      | Editable         | Editable                                                                       | Disabled                             | Editable                  | Disabled                   | Editable |
+| loaAuthorizingPerson                                     | Editable       | Editable      | Editable         | Editable                                                                       | Disabled                             | Disabled - Use Note       | Disabled - Use Note        | Editable |
+| wirelessInfo.accountNumber                               | Editable       | Editable      | Editable         | Editable                                                                       | Editable                             | Disabled - Use Note       | Disabled - Use Note        | Editable |
+| wirelessInfo.pinNumber                                   | Editable       | Editable      | Disabled         | Editable                                                                       | Editable                             | Disabled - Use Note       | Disabled - Use Note        | Editable |
+| subscriber.serviceAddress                                | Editable       | Editable      | Editable         | Editable                                                                       | Disabled                             | Disabled                  | Disabled                   | Editable |
+| requestedFocDate                                         | Editable       | Editable      | Editable         | Editable                                                                       | Editable                             | Editable                  | Editable                   | Editable |
+| listOfPhoneNumbers                                       | Disabled       | Disabled      | Disabled         | Editable                                                                       | Editable                             | Disabled                  | Disabled                   | Disabled |
+| siteId                                                   | Editable       | Editable      | Editable         | Editable                                                                       | Editable                             | Editable                  | Editable                   | Editable |
+| peerId                                                   | Editable       | Editable      | Editable         | Editable                                                                       | Editable                             | Editable                  | Editable                   | Editable |
+| customerOrderId                                          | Editable       | Editable      | Editable         | Editable                                                                       | Editable                             | Editable                  | Editable                   | Editable |
+| TnAttributes elements                                    | Editable       | Editable      | Editable         | Editable                                                                       | Editable                             | Editable                  | Editable                   | Editable |
+| Immediately                                              | Disabled       | Disabled      | Disabled         | Disabled                                                                       | Disabled                             | Disabled                  | Disabled                   | Editable |
 
 ## Canceling LNP Order {#cancel-lnp}
 
