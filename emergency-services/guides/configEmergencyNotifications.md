@@ -252,7 +252,19 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotificationRecipient = {
+    description: "Callback to property management system",
+    type: "CALLBACK",
+    callback : {
+        url: "https://foo.bar/baz",
+        credentials: {
+            username: "jgilmore",
+            password: "x23388%SLHss"
+        }
+    }
+};
+
+var response = await EmergencyNotification.createRecipientAsync(helper.createClient(), emergencyNotificationRecipient);
 ```
 
 > Output
@@ -538,7 +550,31 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotificationGroupOrder = {
+    customerOrderid: "UbOxhMnp",
+    addedEmergencyNotificationGroup: {
+        description: "JgHzUzIchD",
+        addedEmergencyNotificationRecipients:[
+            {
+                emergencyNotificationRecipient :{
+                    identifier: "c7f74671edd8410d9a4c0f8e985e0a"
+                }
+            },
+            {
+                emergencyNotificationRecipient :{
+                    identifier: "74ac30535b414d29bc36d50572f553"
+                }
+            },
+            {
+                emergencyNotificationRecipient :{
+                    identifier: "b910df3245ce4192aee052f583259f"
+                }
+            }
+        ]
+    }
+};
+
+var response = await EmergencyNotification.createGroupOrderAsync(client, emergencyNotificationGroupOrder);
 ```
 
 > Output
@@ -816,7 +852,28 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotificationEndpointOrder = {
+    customerOrderId: "ALG-31233884",
+    emergencyNotificationEndpointAssociations : {
+        emergencyNotificationGroup:{
+            identifier: "3e9a852e-2d1d-4e2d-84c3-04595ba2eb93"
+        },
+        addedAssociations: {
+            eepToEngAssociations: {
+                eepTns: [
+                    {telephoneNumber: "2248838829"},
+                    {telephoneNumber: "4052397735"}
+                ],
+                eepAeuiIds: [
+                    {identifier: "Fred992834"},
+                    {identifier: "Bob00359"}
+                ]
+            }
+        }
+    }
+};
+
+var response = await EmergencyNotification.createEndpointOrderAsync(client, emergencyNotificationEndpointOrder);
 ```
 
 > Output
@@ -1013,7 +1070,20 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotificationGroupOrder = {
+    modifiedEmergencyNotificationGroup: {
+        identifier: "a6d00a2d-94ee-4ecb-9bd8-7c2dde258863",
+        addedEmergencyNotificationRecipients:[
+            {
+                emergencyNotificationRecipient :{
+                    identifier: "d81dcc9526d54cad9dbf076c4e6461"
+                }
+            }
+        ]
+    }
+};
+
+var response = await EmergencyNotification.createGroupOrderAsync(client, emergencyNotificationGroupOrder);
 ```
 
 > Output
@@ -1166,7 +1236,18 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotificationRecipient = {
+    description: "Text message to guard shack",
+    type: "SMS",
+    sms: {
+        telephoneNumber: "12015551212"
+    }
+}
+
+var emergencyNotification = new EmergencyNotification();
+emergencyNotification.enrid = "enrId";
+
+var response = await emergencyNotification.replaceRecipientAsync(client, emergencyNotificationRecipient);
 ```
 
 > Output
@@ -1366,7 +1447,23 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotificationGroupOrder = {
+    modifiedEmergencyNotificationGroup: {
+        identifier: "a97149dc-586c-419d-a054-6b3d352ea8af",
+        deletedEmergencyNotificationRecipients: {
+            emergencyNotificationRecipients : [
+                {
+                    emergencyNotificationRecipient: {
+                            identifier: "ebce6adfb6e94a8a80bc16841b4697"
+                    }
+                }
+            ]
+            }
+        }
+    }
+};
+
+var response = await EmergencyNotification.createGroupOrderAsync(client, emergencyNotificationGroupOrder);
 ```
 
 > Output
@@ -1465,7 +1562,10 @@ catch (Exception ex)
 {% sample lang="js" %}
 
 ```js
-console.log("");
+var emergencyNotification = new EmergencyNotification();
+emergencyNotification.enrid = "enrId";
+
+var response = await emergencyNotification.deleteRecipient(client);
 ```
 
 > Output
