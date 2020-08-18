@@ -15,8 +15,6 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 ### Supported Parameters
 
-All query parameters must be URL encoded.
-
 | Parameter      | Description                                                                                                                      | Mandatory |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | pageSize       | Specifies the max number of conferences that will be returned. Range: integer values between 1 - 1000. Default value is 1000.    | No        |
