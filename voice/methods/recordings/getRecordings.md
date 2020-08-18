@@ -19,8 +19,8 @@ All query parameters must be URL encoded.
 
 | Parameter    | Description                                                                                                    | Mandatory |
 |:-------------|:---------------------------------------------------------------------------------------------------------------|:----------|
-| from         | Filter results by the `from` field (in E.164 format).                                                             | No        |
-| to           | Filter results by the `to` field (in E.164 format).                                                               | No        |
+| from         | Filter results by the `from` field.                                                                            | No        |
+| to           | Filter results by the `to` field.                                                                              | No        |
 | minStartTime | Filter results to recordings which have a `startTime` after or including `minStartTime` (in ISO8601 format).   | No        |
 | maxStartTime | Filter results to recordings which have a `startTime` before `maxStartTime` (in ISO8601 format).               | No        |
 
