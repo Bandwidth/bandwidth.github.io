@@ -2,7 +2,7 @@
 
 ## Get Messages
 
-Note: This endpoint is in limited availability and is still in development. Changes should be expected.
+Note: Message Search is in limited availability.  We will continue to make improvements so you may see changes. 
 
 ### URL Encoding For Query Parameters
 
@@ -25,8 +25,8 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | destinationTn | string | The phone number that received the message | `%2B15554443333` |
 | messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED`, `DLR_EXPIRED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
-| fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z` |
-| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time | `2016-09-14T18:20:16.000Z^` |
+| fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z` |
+| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z^` |
 | pageToken | string | A base64 encoded value used for pagination of results | gdEewhcJLQRB5 |
 | limit | integer | The maximum records requested in search result . Default `100`. <br> The sum of limit and after cannot be more than 10000 | `limit=100` |
 
@@ -34,13 +34,13 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 | Status | Description |
 |:--|:--|
-| RECEIVED | Message has been received by bandwidth. |
-| QUEUED | Message has been queued prior to sending. |
-| SENDING | Message is in the process of being sent. This is a temporary status. |
-| SENT | Message has been sent. |
-| DELIVERED | The message was successfully delivered to the downstream carrier. |
-| DLR_EXPIRED | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The end-users' device did not communicate back to the network indicating the message was received during the DLR timeout window. |
-| FAILED | Message was rejected by a downstream provider. Please review error code for more information about why. |
+| RECEIVED | Bandwidth has received your request to send a message. This is the initial status when sending a message. |
+| QUEUED |Bandwidth has successfully received the message and queued the message prior to being sent downstream. |
+| SENDING | Bandwidth is in the process of sending your messages to the downstream carrier. |
+| SENT | Bandwidth has sent the message. The downstream carrier has accepted the message. |
+| DELIVERED | Bandwidth has received a delivery receipt from the downstream carrier confirming successful delivery to the carrier or handset (when available). |
+| DLR_EXPIRED | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The mobile operator or end-user device did not communicate back to the network indicating the message delivery. Currently, Bandwidth waits 2 hours for delivery receipts. |
+| FAILED | The message could not be sent or the delivery receipt received from the downstream carrier indicated the message was not deliverable. Review error codes for more information. |
 
 ### Response Parameters
 

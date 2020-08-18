@@ -64,8 +64,7 @@ module.exports = function ($) {
 
 	function hidePagesFromNav () {
 		var redirects = [
-			'International Overview',
-      'Get Messages'
+			'International Overview'
 		];
 
 		redirects.forEach(page => {
