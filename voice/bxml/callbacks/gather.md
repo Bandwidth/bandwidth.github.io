@@ -28,6 +28,7 @@ Content-Type: application/xml; charset=utf-8
 | parentCallId     | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, null.                                           |
 | callUrl          | The URL of the call associated with the event.                                                                                                                                                     |
 | startTime        | Time the call was started, in ISO 8601 format.                                                                                                                                                     |
+| answerTime       | Time the call was answered, in ISO 8601 format.                                                                                                                                                    |
 | tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                                                                  |
 | digits           | (optional) The digits collected from user.  Null if a timeout occurred before any digits were pressed.                                                                                             |
 | terminatingDigit | (optional) The digit the user pressed to end the gather.  Null if no terminating digit was pressed.                                                                                                |
@@ -48,6 +49,7 @@ POST http://[External server URL]
 	"accountId"        : "55555555",
 	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"startTime"        : "2019-06-20T15:54:22.234Z",
+	"answerTime"   	   : "2019-06-20T15:54:25.432Z",
 	"from"             : "+15551112222",
 	"to"               : "+15553334444",
 	"direction"        : "outbound",
@@ -75,6 +77,7 @@ POST http://[External server URL]
 	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"startTime"        : "2019-06-20T15:54:22.234Z",
+	"answerTime"       : "2019-06-20T15:54:25.432Z",
 	"digits"           : "123",
 	"terminatingDigit" : "#"
 }

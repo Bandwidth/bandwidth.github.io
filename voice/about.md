@@ -1,3 +1,7 @@
+{% raw %}
+<section class="voiceAbout">
+{% endraw %}
+
 # Bandwidth Voice API
 
 ## Base API URL
@@ -27,6 +31,7 @@
 | [`<Record>`](bxml/verbs/record.md)                   | The Record verb allows a segment of audio to be recorded during a call.                               |
 | [`<Redirect>`](bxml/verbs/redirect.md)               | The Redirect verb is used to redirect the current XML execution to another URL.                       |
 | [`<ResumeRecording>`](bxml/verbs/resumeRecording.md) | The ResumeRecording verb is used to resume a recording previously paused by a `<PauseRecording>` verb.|
+| [`<Ring>`](bxml/verbs/ring.md)                       | The Ring verb is used to play ringing audio on a call.                                                |
 | [`<SendDtmf>`](bxml/verbs/sendDtmf.md)               | The SendDtmf verb is used to play DTMF digits in the call.                                            |
 | [`<SpeakSentence>`](bxml/verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
 | [`<StartGather>`](bxml/verbs/startGather.md)         | The StartGather verb is used to collect DTMF digits during the execution of other verbs. |

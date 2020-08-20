@@ -1,3 +1,7 @@
+{% raw %}
+<section class="accountCredentials">
+{% endraw %}
+
 # Account Credentials {#top}
 
 This guide will cover the different credentials for interacting with Bandwidth's APIs, and how to authenticate on each API.

@@ -1,3 +1,7 @@
+{% raw %}
+<section class="getStarted">
+{% endraw %}
+
 # Get Started with Bandwidth APIs
 
 Welcome to the Bandwidth developer docs!

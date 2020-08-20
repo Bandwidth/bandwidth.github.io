@@ -116,7 +116,7 @@ The API allows a user to modify an existing LNP order. To do so, the order Id th
 * Subscriber elements
 * SiteId
 * PeerId
-* PartialPort, and
+* PartialPort
 * LoaAuthorizingPerson
 * ListOfPhoneNumbers
 * Triggered
@@ -126,7 +126,7 @@ If the order ProcessingStatus is DRAFT, the rules about what can be changed are 
 <br><br>
 <b>ProcessingStatus</b> - you can only provide this field with a value of SUBMITTED if the current ProcessingStatus of the port-in is DRAFT.
 <br><br>
-When a port-in is being processed by off-net partner Level 3 (you can tell this because /lnpchecker indicates a Port Type of AUTOMATEDOFFNET), the rules for what can be changed in a SUPP operation are more restrictive. If the order has NOT yet received FOC, you may change the following:
+When a port-in is being processed by off-net partner Level 3 (you can retrieve this information using a <code class="get">GET</code> request to `/portins/{orderId}` indicates a Port Type of AUTOMATEDOFFNET and a VendorName of "Level 3"), the rules for what can be changed in a SUPP operation are more restrictive. If the order has NOT yet received FOC, you may change the following:
 
 * RequestedFocDate
 * BillingTelephoneNumber
@@ -134,6 +134,27 @@ When a port-in is being processed by off-net partner Level 3 (you can tell this 
 * Subscriber name elements or BusinessName, provided that SubscriberType is provided
 
 After the FOC date has been received, the billing telephone number and subscriber information cannot be modified, only the FOC date/time can be updated.
+
+The general approach to handling this API call is to replace the elements included in the request body, and leave other preexisting elements in an unmodified condition. This is typical of a PATCH method, but because of our commitment to backwards compatibility we have elected not to "Fix" this behavior. As a result, there are some elements that cannot be modified using the <code class="put">PUT</code> method. The elements affected vary by Port-In Order type, which can be determined using a <code class="get">GET</code> request to the `/portins/{orderId}` endpoint. Please refer to the matrix below to see which elements can be modified and replaced.
+
+| Payload Field                                            | Manual Off-Net | Manual On-Net | Manual Toll Free | Automated On-Net  | Automated Off-Net Pre FOC | Automated Off-Net Post FOC | Internal |
+|----------------------------------------------------------|----------------|---------------|------------------|-------------------|---------------------------|----------------------------|----------|
+| billingTelephoneNumber                                   | Editable       | Editable      | Disabled         | Editable          | Editable                  | Disabled                   | Editable |
+| newBillingTelephoneNumber                                | Editable       | Editable      | Disabled         | Editable          | Disabled                  | Disabled                   | Editable |
+| partialPort                                              | Editable       | Editable      | Disabled         | Editable          | Disabled                  | Disabled                   | Editable |
+| subscriber.subscriberType                                | Editable       | Editable      | Editable         | Editable          | Editable                  | Disabled                   | Editable |
+| subscriber.businessName/firstName/middleInitial/lastName | Editable       | Editable      | Editable         | Editable          | Editable                  | Disabled                   | Editable |
+| loaAuthorizingPerson                                     | Editable       | Editable      | Editable         | Editable          | Disabled                  | Disabled                   | Editable |
+| wirelessInfo.accountNumber                               | Editable       | Editable      | Editable         | Editable          | Disabled                  | Disabled                   | Editable |
+| wirelessInfo.pinNumber                                   | Editable       | Editable      | Disabled         | Editable          | Disabled                  | Disabled                   | Editable |
+| subscriber.serviceAddress                                | Editable       | Editable      | Editable         | Editable          | Disabled                  | Disabled                   | Editable |
+| requestedFocDate                                         | Editable       | Editable      | Editable         | Editable          | Editable                  | Editable                   | Editable |
+| listOfPhoneNumbers                                       | Disabled       | Disabled      | Disabled         | Editable          | Disabled                  | Disabled                   | Disabled |
+| siteId                                                   | Editable       | Editable      | Editable         | Editable          | Editable                  | Editable                   | Editable |
+| peerId                                                   | Editable       | Editable      | Editable         | Editable          | Editable                  | Editable                   | Editable |
+| customerOrderId                                          | Editable       | Editable      | Editable         | Editable          | Editable                  | Editable                   | Editable |
+| TnAttributes elements                                    | Editable       | Editable      | Editable         | Editable          | Editable                  | Editable                   | Editable |
+| Immediately                                              | Disabled       | Disabled      | Disabled         | Disabled          | Disabled                  | Disabled                   | Editable |
 
 ## Canceling LNP Order {#cancel-lnp}
 

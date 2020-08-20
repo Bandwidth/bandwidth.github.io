@@ -22,6 +22,10 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | username        | (optional) The username to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                                                             | No        |
 | password        | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                                                             | No        |
 | tag             | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.<br><br>Not allowed if `state` is `completed` | No        |
+| redirectFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the redirect callback delivery in case `redirectUrl` fails to respond | No |
+| redirectFallbackMethod | (optional) The HTTP method to use to deliver the redirect callback to `redirectFallbackUrl`. GET or POST. Default value is POST. | No |
+| fallbackUsername   | (optional) The username to send in the HTTP request to `redirectFallbackUrl` | No |
+| fallbackPassword   | (optional) The password to send in the HTTP request to `redirectFallbackUrl` | No |
 
 {% common %}
 ### Example 1 of 2 : Redirect an existing phone call to a new URL
