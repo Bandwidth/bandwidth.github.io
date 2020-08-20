@@ -1,12 +1,6 @@
 # PHP SDK
 
-## Breaking Changes For bandwidth/sdk v4.0.0
-
-Please go to our [PHP bandwidth/sdk v4.0.0 migration guide](php-v4.md) for information on updating to v4.0.0 of the `bandwidth/sdk` package.
-
-## v3.0.0 bandwidth/sdk Docs
-
-Please go to our [PHP bandwidth/sdk v3.0.0 guide](php-v3.md) for information on the older versions of the `bandwidth/sdk` package.
+Note: This page is for older (v3.x.y and below) versions of the `bandwidth/sdk` package. These versions do not include the Iris namespace.
 
 ## Links
 

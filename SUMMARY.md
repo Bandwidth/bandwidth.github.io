@@ -14,6 +14,8 @@
 	* [Node](sdks/node.md)
 	* [Java](sdks/java.md)
 	* [PHP](sdks/php.md)
+    * [PHP V4](sdks/php-v4.md)
+    * [PHP V3](sdks/php-v3.md)
 	* [Examples on Github](https://github.com/Bandwidth/examples)
 	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs)
     * [Postman Collections](https://github.com/Bandwidth/examples/tree/master/postman-collections)
