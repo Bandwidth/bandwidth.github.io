@@ -277,6 +277,7 @@
 
 ## Emergency Services
 * [Overview](emergency-services/about.md)
+* [911 Dashboard API Guide](https://support.bandwidth.com/hc/en-us/articles/115006226067-911-Dashboard-API-Guide)
 * [Guides & Tutorials](emergency-services/guides/about.md)
 	* [About Emergency Notifications](emergency-services/guides/emergencyNotifications.md)
 		* [Overview](emergency-services/guides/emergencyNotifications.md#overview)
