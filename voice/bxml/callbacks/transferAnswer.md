@@ -8,6 +8,7 @@ Most BXML verbs are allowed in response to a `transferAnswer` event, but some ar
 
 | Verb                                              | Allowed       |
 |---------------------------------------------------|---------------|
+| [Bridge](../verbs/bridge.md)                      | No            |
 | [Conference](../verbs/conference.md)              | No            |
 | [Forward](../verbs/forward.md)                    | No            |
 | [Gather](../verbs/gather.md)                      | Yes           |
@@ -21,7 +22,9 @@ Most BXML verbs are allowed in response to a `transferAnswer` event, but some ar
 | [Ring](../verbs/ring.md)                          | Yes           |
 | [SendDtmf](../verbs/sendDtmf.md)                  | Yes           |
 | [SpeakSentence](../verbs/speakSentence.md)        | Yes           |
+| [StartGather](../verbs/startGather.md)            | Yes           |
 | [StartRecording](../verbs/startRecording.md)      | Yes           |
+| [StopGather](../verbs/stopGather.md)              | Yes           |
 | [StopRecording](../verbs/stopRecording.md)        | Yes           |
 | [Transfer](../verbs/transfer.md)                  | No            |
 

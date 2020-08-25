@@ -34,7 +34,9 @@
 | [`<Ring>`](bxml/verbs/ring.md)                       | The Ring verb is used to play ringing audio on a call.                                                |
 | [`<SendDtmf>`](bxml/verbs/sendDtmf.md)               | The SendDtmf verb is used to play DTMF digits in the call.                                            |
 | [`<SpeakSentence>`](bxml/verbs/speakSentence.md)     | The SpeakSentence verb converts text into audible speech.                                             |
+| [`<StartGather>`](bxml/verbs/startGather.md)         | The StartGather verb is used to collect DTMF digits during the execution of other verbs. |
 | [`<StartRecording>`](bxml/verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
+| [`<StopGather>`](bxml/verbs/stopGather.md)           | The StopGather verb stops the DTMF collection initiated by `<StartGather>`. |
 | [`<StopRecording>`](bxml/verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
 | [`<Transfer>`](bxml/verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
 
@@ -59,12 +61,13 @@
 ## Asynchronous Callbacks
 | Callback                                                            | Description                                                                                                                      |
 |:--------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| [Conference Completed](bxml/callbacks/conferenceCompleted.md)       | Bandwidth API sends this after the last member leaves the conference. |
 | [Conference Recording Available](bxml/callbacks/conferenceRecordingAvailable.md) | Bandwidth API sends this when a recording started by a `<StartRecording>`in a conference is available for download. |
-| [Disconnect](bxml/callbacks/disconnect.md)                          | Bandwidth API sends this  when a call ends.                                                                                      |
+| [Disconnect](bxml/callbacks/disconnect.md)                          | Bandwidth API sends this when a call ends. |
+| [DTMF](bxml/callbacks/dtmf.md)                                      | Bandwidth API sends this for every digit detected after a `<StartGather>` is executed. |
 | [Recording Available](bxml/callbacks/recordingAvailable.md)         | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb in a call is available for download. |
 | [Transfer Disconnect](bxml/callbacks/transferDisconnect.md)         | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                    |
 | [Transcription Available](bxml/callbacks/transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download.                                        |
-| [Conference Completed](bxml/callbacks/conferenceCompleted.md)       | Bandwidth API sends this after the last member leaves the conference.                                                            |
 
 ## Error Codes
 | Type                         | Description                                                           |
