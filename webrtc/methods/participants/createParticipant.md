@@ -6,7 +6,7 @@ Participants are idempotent, so relevant parameters must be set in this function
 
 
 ### Request URL
-<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/participants`
+<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants`
 
 #### Basic Authentication
 

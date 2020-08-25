@@ -6,7 +6,7 @@ Sessions are idempotent, so relevant parameters must be set in this function if 
 
 
 ### Request URL
-<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions`
+<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions`
 
 #### Basic Authentication
 

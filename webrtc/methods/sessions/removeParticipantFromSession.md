@@ -6,7 +6,7 @@ This will automatically remove any subscriptions the participant has associated 
 
 
 ### Request URL
-<code class="delete">DELETE</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}`
+<code class="delete">DELETE</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}`
 
 #### Basic Authentication
 

@@ -4,7 +4,7 @@
 
 
 ### Request URL
-<code class="delete">DELETE</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/participants/{participantId}`
+<code class="delete">DELETE</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants/{participantId}`
 
 #### Basic Authentication
 

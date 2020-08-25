@@ -6,7 +6,7 @@ Subscriptions can optionally be provided as part of this call
 
 
 ### Request URL
-<code class="put">PUT</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}`
+<code class="put">PUT</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}`
 
 #### Basic Authentication
 

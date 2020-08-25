@@ -6,7 +6,7 @@ This is a full update that will replace the participant's subscriptions. First c
 
 
 ### Request URL
-<code class="put">PUT</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}/subscriptions`
+<code class="put">PUT</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}/subscriptions`
 
 #### Basic Authentication
 
