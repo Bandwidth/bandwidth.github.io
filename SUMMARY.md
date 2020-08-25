@@ -182,7 +182,7 @@
 	 * [Conference Redirect](voice/bxml/callbacks/conferenceRedirect.md)
 	 * [Conference Recording Available](voice/bxml/callbacks/conferenceRecordingAvailable.md)
 	 * [Disconnect](voice/bxml/callbacks/disconnect.md)
-	 * [Dtmf](voice/bxml/callbacks/dtmf.md)
+	 * [DTMF](voice/bxml/callbacks/dtmf.md)
 	 * [Gather](voice/bxml/callbacks/gather.md)
 	 * [Initiate](voice/bxml/callbacks/initiate.md)
 	 * [RecordComplete](voice/bxml/callbacks/recordComplete.md)
