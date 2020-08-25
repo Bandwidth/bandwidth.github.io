@@ -7,7 +7,7 @@ Bandwidth will keep recordings for up to 30 days. After 30 days the recordings w
 ### Attributes
 | Attribute                    | Description |
 |:-----------------------------|:------------|
-| recordCompleteUrl            | (optional) URL to send the [Record Complete](../callbacks/recordComplete.md) event to once it has ended. Accepts BXML, and may be a relative URL. |
+| recordCompleteUrl            | (optional) URL to send the [Record Complete](../callbacks/recordComplete.md) event to once the recording has ended. Accepts BXML, and may be a relative URL. This callback will not be sent if the recording ended because of a `hangup` event. |
 | recordCompleteMethod         | (optional) The HTTP method to use for the request to `recordCompleteUrl`. GET or POST. Default value is POST. |
 | recordCompleteFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Record Complete](../callbacks/recordComplete.md) callback delivery in case `recordCompleteUrl` fails to respond. |
 | recordCompleteFallbackMethod | (optional) The HTTP method to use to deliver the [Record Complete](../callbacks/recordComplete.md) callback to `recordCompleteFallbackUrl`. GET or POST. Default value is POST. |
