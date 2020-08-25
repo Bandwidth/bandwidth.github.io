@@ -14,6 +14,13 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 
 ---
 
+<aside class="alert general">
+<p>IMPORTANT NOTE ABOUT SESSION TAGS!</p>
+You should not include sensitive or personally-identifiable information in any tag!
+</aside>
+
+---
+
 ### Request Body Parameters
 | Parameter                   | Description                                                                                       
 |:----------------------------|:--------------------------------------------------------------------------------------------------
