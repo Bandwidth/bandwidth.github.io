@@ -4,7 +4,7 @@
 
 
 ### Request URL
-<code class="get">GET</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions/{sessionId}`
+<code class="get">GET</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}`
 
 #### Basic Authentication
 

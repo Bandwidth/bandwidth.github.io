@@ -6,11 +6,18 @@ Sessions are idempotent, so relevant parameters must be set in this function if 
 
 
 ### Request URL
-<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/sessions`
+<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions`
 
 #### Basic Authentication
 
 Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
+---
+
+<aside class="alert general">
+<p>IMPORTANT NOTE ABOUT SESSION TAGS!</p>
+You should not include sensitive or personally-identifiable information in any tag!
+</aside>
 
 ---
 
