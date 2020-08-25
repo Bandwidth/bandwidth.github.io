@@ -14,7 +14,7 @@ The StartGather verb can be cancelled by the [`<StopGather>`](stopGather.md) ver
 ### Attributes
 | Attribute           | Description |
 |:--------------------|:------------|
-| dtmfUrl             | URL to send the [dtmf](../callbacks/dtmf.md) event to. May be a relative URL. |
+| dtmfUrl             | URL to send the [DTMF](../callbacks/dtmf.md) event to. May be a relative URL. |
 | dtmfMethod          | (optional) The HTTP method to use for the request to `dtmfUrl`. GET or POST. Default value is POST. |
 | username            | (optional) The username to send in the HTTP request to `dtmfUrl`. |
 | password            | (optional) The password to send in the HTTP request to `dtmfUrl`. |
