@@ -214,11 +214,12 @@ console.log(response);
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Messaging\Models\MessageRequest();
-$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
-$body->to = array("+12345678902");
-$body->from = "+12345678901";
-$body->text = "Hey, check this out!";
+$body = new BandwidthLib\Messaging\Models\MessageRequest(
+    "93de2206-9669-4e07-948d-329f4b722ee2", //applicationId
+    array("+12345678902"), //to
+    "+12345678901", //from
+    "Hey, check this out!" //text
+);
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -414,12 +415,13 @@ console.log(response);
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Messaging\Models\MessageRequest();
-$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
-$body->to = array("+12345678902");
-$body->from = "+12345678901";
-$body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+$body = new BandwidthLib\Messaging\Models\MessageRequest(
+    "93de2206-9669-4e07-948d-329f4b722ee2", //applicationId
+    array("+12345678902"), //to
+    "+12345678901", //from
+    "Hey, check this out!" //text
+);
+$body->setMedia(array("https://s3.amazonaws.com/bw-v2-api/demo.jpg"));
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -616,12 +618,13 @@ console.log(response);
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Messaging\Models\MessageRequest();
-$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
-$body->to = array("+12345678902");
-$body->from = "+12345678901";
-$body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+$body = new BandwidthLib\Messaging\Models\MessageRequest(
+    "93de2206-9669-4e07-948d-329f4b722ee2", //applicationId
+    array("+12345678902"), //to
+    "+12345678901", //from
+    "Hey, check this out!" //text
+);
+$body->setMedia(array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"));
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -808,11 +811,12 @@ console.log(response);
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Messaging\Models\MessageRequest();
-$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
-$body->to = array("+12345678902", "+12345678903");
-$body->from = "+12345678901";
-$body->text = "Hey, check this out!";
+$body = new BandwidthLib\Messaging\Models\MessageRequest(
+    "93de2206-9669-4e07-948d-329f4b722ee2", //applicationId
+    array("+12345678902", "+12345678903"), //to
+    "+12345678901", //from
+    "Hey, check this out!" //text
+);
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -1014,12 +1018,13 @@ console.log(response);
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Messaging\Models\MessageRequest();
-$body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
-$body->to = array("+12345678902", "+12345678903");
-$body->from = "+12345678901";
-$body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+$body = new BandwidthLib\Messaging\Models\MessageRequest(
+    "93de2206-9669-4e07-948d-329f4b722ee2", //applicationId
+    array("+12345678902", "+12345678903"), //to
+    "+12345678901", //from
+    "Hey, check this out!" //text
+);
+$body->setMedia(array("https://s3.amazonaws.com/bw-v2-api/demo.jpg"));
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
