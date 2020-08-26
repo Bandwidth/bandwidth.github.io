@@ -190,7 +190,7 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4433 | rejected-forbidden-tollfree | Messaging on Toll Free Number Forbidden | The account associated with this message is not enabled for toll free messaging | NO | 
 | 4434 | rejected-forbidden-tollfree-for-recipient | Messaging to Toll Free Number Forbidden | Messaging to this toll free number is not allowed. Number is likely not enabled for messaging or not active.  | NO | 
 | 4451 | rejected-wrong-user-id | Invalid User Id | The user id is not a valid id. Verify the user ID and retry the message | NO | 
-| 4452 | rejected-wrong-application-id | The application id specified is not a valid Application Id, or the application id is not associated with the account | NO | 
+| 4452 | rejected-wrong-application-id | Invalid Application Id | The application id specified is not an invalid Application Id or the application id is not associated with the account | NO | 
 | 4470 | rejected-spam-detected | Rejected as SPAM (future) | This message has been filtered and blocked by a downstream carrier for spam. Messages can be blocked for a variety of reason, including but not limited to  volumetric filtering, content blocking, SHAFT violation, A2P | YES | 
 | 4481 | rejected-from-number-in-blacklist | From Number in black list | The From number has been flagged by Bandwidth as prohibited from sending messages. This is typically because Bandwidth or a downstream carriers has several violations; reports of spam, P2P violations, associated with this number. | NO | 
 | 4482 | rejected-to-number-in-blacklist | To Number in black list | The number you are attempting to send to is blocked from receiving messages.  | YES | 
