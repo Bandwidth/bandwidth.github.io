@@ -9,7 +9,7 @@
 | HTTP Method                 | Path                                            | Description                                                                                       
 |:----------------------------|:------------------------------------------------|:--------------------------------------------------------------------------------------------------
 | <code class="post">POST</code>| [`/sessions`](createSession.md)                 | Create a new session                                                                              
-| <code class="get">GET</code>| [`/sessions{sessionId}`](getSession.md)                    | Get session by ID                                                                                 
+| <code class="get">GET</code>| [`/sessions/{sessionId}`](getSession.md)                    | Get session by ID                                                                                 
 | <code class="delete">DELETE</code>| [`/sessions/{sessionId}`](deleteSession.md)                 | Delete session by ID                                                                              
 | <code class="put">PUT</code>| [`/sessions/{sessionId}/participants/{participantId}`](addParticipantToSession.md)       | Add a participant to a session                                                                    
 | <code class="delete">DELETE</code>| [`/sessions/{sessionId}/participants/{participantId}`](removeParticipantFromSession.md)  | Remove a participant from a session                                                               
