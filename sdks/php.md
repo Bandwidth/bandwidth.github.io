@@ -32,6 +32,8 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 | 2.7.0   | Updated WebRTC base URL                                                         |
 | 2.8.0 | Added get conference endpoint |
 | 2.9.0 | Added conference management endpoints |
+| 3.0.0 | Breaking changes for the original sdk. Will probably be minor class name changes |
+| 4.0.0 | Breaking changes for the updated sdk. Information can be found on our [PHP bandwidth/sdk v4.0.0 migration guide](php-v4.md) |
 
 ## Download & Install
 
@@ -44,35 +46,33 @@ composer require bandwidth/sdk
 ```php
 require "vendor/autoload.php";
 
-$config = new BandwidthLib\Configuration(
-    array(
-        'messagingBasicAuthUserName' => 'token',
-        'messagingBasicAuthPassword' => 'secret',
-        'voiceBasicAuthUserName' => 'username',
-        'voiceBasicAuthPassword' => 'password',
-        'twoFactorAuthBasicAuthUserName' => 'username',
-        'twoFactorAuthBasicAuthPassword' => 'password'
-    )
-);
-$client = new BandwidthLib\BandwidthClient($config);
+$client = new BandwidthLib\BandwidthClient(array(
+    'messagingBasicAuthUserName' => 'token',
+    'messagingBasicAuthPassword' => 'secret',
+    'voiceBasicAuthUserName' => 'username',
+    'voiceBasicAuthPassword' => 'password',
+    'twoFactorAuthBasicAuthUserName' => 'username',
+    'twoFactorAuthBasicAuthPassword' => 'password'
+));
 ```
 
 ## Create Phone Call
 
 ```php
-$voiceClient = $client->getVoice()->getClient();
+$voiceClient = $client->getVoice()->getAPIController();
 
-$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
-$body->from = "+15554443333";
-$body->to = "+15554442222";
-$body->answerUrl = "https://test.com";
-$body->applicationId = "3-d-4-b-5";
+$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest(
+    "+15554443333", //from
+    "+15554442222", //to
+    "https://test.com", //answerUrl
+    "9-b-4-b-f" //applicationId
+);
 
 try {
     $response = $voiceClient->createCall($voiceAccountId, $body);
-    print_r($response->getResult()->callId);
-} catch (Exception $e) {
-    print_r($e);
+    print_r($response->getResult()->getCallId());
+} catch (BandwidthLib\Exceptions\ApiException $e) {
+    print_r($e->getHttpResponse()->getStatusCode());
 }
 ```
 ## Generate BXML
@@ -90,18 +90,19 @@ echo $response->toBxml();
 ## Send Text Message
 
 ```php
-$messagingClient = $client->getMessaging()->getClient();
+$messagingClient = $client->getMessaging()->getAPIController();
 
-$body = new BandwidthLib\Messaging\Models\MessageRequest();
-$body->from = "+12345678901";
-$body->to = array("+12345678902");
-$body->applicationId = "1234-ce-4567-de";
-$body->text = "Greetings!";
+$body = new BandwidthLib\Messaging\Models\MessageRequest(
+    "93de2206-9669-4e07-948d-329f4b722ee2", //applicationId
+    array("+12345678902"), //to
+    "+12345678901", //from
+    "Hey, check this out!" //text
+);
 
 try {
-    $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response->getResult()->id);
-} catch (Exception $e) {
+    $response = $messagingClient->createMessage($accountId, $body);
+    print_r($response->getResult()->getId());
+} catch (BandwidthLib\Exceptions\ApiException $e) {
     print_r($e);
 }
 ```
@@ -109,38 +110,41 @@ try {
 ## Perform A 2FA Request
 
 ```php
-$authClient = $client->getTwoFactorAuth()->getClient();
+$authClient = $client->getTwoFactorAuth()->getAPIController();
 $accountId = '1';
 
-$fromPhone = '+18888888888';
 $toPhone = '+17777777777';
+$fromPhone = '+18888888888';
 $messagingApplicationId = '1-d-b';
 $scope = 'scope';
 $digits = 6
 
-$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
-$body->from = $fromPhone;
-$body->to = $toPhone;
-$body->applicationId = $messagingApplicationId;
-$body->scope = $scope;
-$body->digits = $digits;
-$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema(
+    $toPhone,
+    $fromPhone,
+    $messagingApplicationId,
+    "Your temporary {NAME} {SCOPE} code is {CODE}", //message
+    5 //digits
+);
+$body->setScope($scope);
 
 $authClient->createMessagingTwoFactor($accountId, $body);
 
 $code = "123456"; //This is the user input to validate
 
-$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema();
-$body->from = $fromPhone;
-$body->to = $toPhone;
-$body->applicationId = $messagingApplicationId;
-$body->scope = $scope;
-$body->code = $code;
-$body->digits = $digits;
-$body->expirationTimeInMinutes = 3;
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema(
+    $toPhone,
+    $fromPhone,
+    $applicationId,
+    5, //digits
+    3, //expirationTimeInMinutes
+    $code
+);
+
+$body->setScope($scope);
 
 $response = $authClient->createVerifyTwoFactor($accountId, $body);
-$strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
+$strn = "Auth status: " . var_export($response->getResult()->getValid(), true) . "\n";
 echo $strn;
 ```
 

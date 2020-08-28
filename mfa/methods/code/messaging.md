@@ -148,15 +148,14 @@ console.log(JSON.stringify(response, null, 2));
 {% sample lang="php" %}
 
 ```php
-$scope = 'scope';
-
-$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
-$body->from = $fromPhone;
-$body->to = $toPhone;
-$body->applicationId = $messagingApplicationId;
-$body->scope = $scope;
-$body->digits = 5;
-$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema(
+    $toPhone,
+    $fromPhone,
+    $messagingApplicationId,
+    "Your temporary {NAME} {SCOPE} code is {CODE}", //message
+    5 //digits
+);
+$body->setScope("scope");
 
 $authClient->createMessagingTwoFactor($accountId, $body);
 ```

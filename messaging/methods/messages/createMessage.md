@@ -222,9 +222,9 @@ $body = new BandwidthLib\Messaging\Models\MessageRequest(
 );
 
 try {
-    $response = $messagingClient->createMessage($messagingAccountId, $body);
-    print_r($response->getResult());
-} catch (Exception $e) {
+    $response = $messagingClient->createMessage($accountId, $body);
+    print_r($response->getResult()->getId());
+} catch (BandwidthLib\Exceptions\ApiException $e) {
     print_r($e);
 }
 ```

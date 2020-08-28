@@ -166,17 +166,19 @@ console.log(JSON.stringify(response, null, 2));
 $scope = 'scope';
 $code = '123456'; //the user input to validate
 
-$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema();
-$body->from = $fromPhone;
-$body->to = $toPhone;
-$body->applicationId = $applicationId;
-$body->scope = $scope;
-$body->code = $code;
-$body->digits = 6;
-$body->expirationTimeInMinutes = 3;
+$body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema(
+    $toPhone,
+    $fromPhone,
+    $applicationId,
+    5, //digits
+    3, //expirationTimeInMinutes
+    $code
+);
+
+$body->setScope($scope);
 
 $response = $authClient->createVerifyTwoFactor($accountId, $body);
-$strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
+$strn = "Auth status: " . var_export($response->getResult()->getValid(), true) . "\n";
 echo $strn;
 ```
 
