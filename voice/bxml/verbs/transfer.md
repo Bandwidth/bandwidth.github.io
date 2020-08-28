@@ -32,15 +32,32 @@ Note that the [TransferComplete](../callbacks/transferComplete.md) callback is o
 ### Nested Tags
 Between 1 and 8 `<PhoneNumber>` tags must be nested within the `<Transfer>` tag to define the called parties.  If more than
 one `<PhoneNumber>` is specified, called parties will ring simultaneously and the first to answer will be bridged
-to the original call:
+to the original call. Only one `<SipUri>` tag (without any `<PhoneNumber>`s) may be nested within a `<Transfer>`.
 
 | Verb        | Description                                                                                     |
 |:------------|:------------------------------------------------------------------------------------------------|
 | PhoneNumber | A collection of phone numbers to transfer the call to. The first to answer will be transferred. |
+| SipUri      | The Bandwidth WebRTC sip endpoint.                                                              |
 
 #### PhoneNumber attributes
 | Attribute                    | Description |
 |:-----------------------------|:------------|
+| transferAnswerUrl            | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
+| transferAnswerMethod         | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
+| transferAnswerFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
+| transferAnswerFallbackMethod | (optional) The HTTP method to use to deliver the [Transfer Answer](../callbacks/transferAnswer.md) callback to `transferAnswerFallbackUrl`. GET or POST. Default value is POST. |
+| transferDisconnectUrl        | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML. May be a relative URL.|
+| transferDisconnectMethod     | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST. |
+| username                     | (optional) The username to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
+| password                     | (optional) The password to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
+| fallbackUsername             | (optional) The username to send in the HTTP request to `transferAnswerFallbackUrl`. |
+| fallbackPassword             | (optional) The password to send in the HTTP request to `transferAnswerFallbackUrl`. |
+| tag                          | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+
+#### SipUri attributes
+| Attribute                    | Description |
+|:-----------------------------|:------------|
+| uui                          | (optional) The value of the `User-To-User` header to send within the initial `INVITE`. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only the `jwt` encoding for WebRTC is currently permitted. This value, including the encoding specifier, may not exceed 256 characters. |
 | transferAnswerUrl            | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
 | transferAnswerMethod         | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
 | transferAnswerFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
