@@ -117,7 +117,7 @@ $toPhone = '+17777777777';
 $fromPhone = '+18888888888';
 $messagingApplicationId = '1-d-b';
 $scope = 'scope';
-$digits = 6
+$digits = 6;
 
 $body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema(
     $toPhone,
@@ -135,7 +135,7 @@ $code = "123456"; //This is the user input to validate
 $body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorVerifyRequestSchema(
     $toPhone,
     $fromPhone,
-    $applicationId,
+    $messagingApplicationId,
     5, //digits
     3, //expirationTimeInMinutes
     $code
