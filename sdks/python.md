@@ -38,6 +38,7 @@ pip install bandwidth-sdk
 
 ```python
 from bandwidth.bandwidth_client import BandwidthClient
+from bandwidth.configuration import Environment #Optional - Used for custom base URLs
 
 from bandwidth.messaging.models.message_request import MessageRequest
 from bandwidth.messaging.exceptions.messaging_exception import MessagingException
@@ -65,7 +66,10 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
     messaging_basic_auth_password=messaging_basic_auth_password,
     two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
-    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password)
+    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password,
+    environment=Environment.CUSTOM, #Optional - Used for custom base URLs
+    base_url="https://test.com" #Optional - Custom base URL set here
+)
 ```
 
 ## Create Phone Call
