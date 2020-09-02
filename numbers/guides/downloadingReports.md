@@ -13,22 +13,22 @@
 ## About {#about}
 The Bandwidth numbers API allows you to automate the creation and download of certain reports related to account usage. This is handled through various requests to our `/billingReports` endpoint. The available reports are as follows:
 
-| Report Type          | Description                                                                                                           |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------|
-| BDR                  | Billing Detail Records for Voice Services - per call information, available on day to day basis                       |
-| MDR                  | Message Detail Records - per message information                                                                      |
-| INVOICE              | A copy of the invoice file or files for the specified date range                                                      |
-| STMTBDR              | BDR records that are aligned with the invoice for Voice Services                                                      |
-| DIDSNAP              | A list of telephone numbers, aligned with invoice                                                                     |
-| DIDSNAP_MSG          | A list of telephone numbers that are enabled for messaging, aligned with invoice                                      |
-| RECORDINGBDR         | Billing Detail Records for Recording Services - per recording information, available on day to day basis              |
-| RECORDINGSTMTBDR     | BDR records that are aligned with the invoice for Recording Services                                                  |
-| TRANSCRIPTIONBDR     | Billing Detail Records for Transcription Services - per call transcription information, available on day to day basis |
-| TRANSCRIPTIONSTMTBDR | BDR records that are aligned with the invoice for Recording Services                                                  |
-| CNAMBDR              | Record of CNAM Subscribe and Notify queries/dips, available on day to day basis                                       |
-| CNAMSTMTBDR          | Record of CNAM Subscribe and Notify queries/dips, aligns with invoices                                                |
-| CONFBDR              | Billing Detail Records for Transcription Services - per conference information, available on day to day basis         |
-| CONFSTMTBDR          | BDR records that are aligned with the invoice for Conferencing Services                                               |
+| Report Type          | Description                                                                                                                                          |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| BDR                  | Billing Detail Records for Voice Services - per call information, available on day to day basis - may not reflect final invoice                      |
+| MDR                  | Message Detail Records - per message information - may not reflect final invoice                                                                     |
+| INVOICE              | A copy of the invoice file or files for the specified date range                                                                                     |
+| STMTBDR              | BDR records that are aligned with the invoice for Voice Services                                                                                     |
+| DIDSNAP              | A list of telephone numbers, aligned with invoice                                                                                                    |
+| DIDSNAP_MSG          | A list of telephone numbers that are enabled for messaging, aligned with invoice                                                                     |
+| RECORDINGBDR         | Billing Detail Records for Recording Services - per recording information, available on day to day basis                                             |
+| RECORDINGSTMTBDR     | BDR records that are aligned with the invoice for Recording Services                                                                                 |
+| TRANSCRIPTIONBDR     | Billing Detail Records for Transcription Services - per call transcription information, available on day to day basis                                |
+| TRANSCRIPTIONSTMTBDR | BDR records that are aligned with the invoice for Recording Services                                                                                 |
+| CNAMBDR              | Record of CNAM Subscribe and Notify queries/dips, available on day to day basis                                                                      |
+| CNAMSTMTBDR          | Record of CNAM Subscribe and Notify queries/dips, aligns with invoices                                                                               |
+| CONFBDR              | Billing Detail Records for Transcription Services - per conference information, available on day to day basis                                        |
+| CONFSTMTBDR          | BDR records that are aligned with the invoice for Conferencing Services                                                                              |
 
 {% extendmethod %}
 ## Request a Report {#request-report}
