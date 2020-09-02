@@ -89,7 +89,7 @@
 		* [Order Change Notifications](numbers/guides/managingOrders.md#change)
 		* [Email Notifications](numbers/guides/managingOrders.md#email-notifications)
 		* [Callback URL Notifications](numbers/guides/managingOrders.md#callback-notifications)
-	* [Downloading Reports](numbers/guides/downloadingReports.md#about)
+	* [Downloading Reports](numbers/guides/downloadingReports.md)
 		* [About](numbers/guides/downloadingReports.md#about)
 		* [Request a Report](numbers/guides/downloadingReports.md#request-report)
 		* [Query Report Status](numbers/guides/downloadingReports.md#status)
