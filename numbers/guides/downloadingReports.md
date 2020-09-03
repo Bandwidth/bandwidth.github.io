@@ -89,7 +89,7 @@ Content-Type: application/xml; charset=utf-8
 
 {% extendmethod %}
 ## Download the Report {#download}
-Once the report status query returns `COMPLETED`, we are ready to download the requested report. This can be done performed by making a <code class="get">GET</code> request to the URI received in the location header and appending it with `/file` . The 200 response will include a `Content-Disposition` header indicating the filename and a download of the .zip file will begin.
+Once the report status query returns `COMPLETED`, we are ready to download the requested report. This can be done performed by making a <code class="get">GET</code> request to the URI received in the location header of the response to our originial <code class="post">POST</code> request, and appending it with `/file` . The 200 response will include a `Content-Disposition` header indicating the filename, and a download of the .zip file will begin.
 
 {% common %}
 ### Request
