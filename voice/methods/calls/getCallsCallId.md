@@ -6,6 +6,20 @@ Retrieve the current state of a specific call.
 **Note**: Call information is kept for 7 days after the calls are hung up. If you attempt to
 retrieve information for a call that is older than 7 days, you will get an HTTP 404 response.
 
+The `disconnectCause` for a call can be:
+- `hangup`: there was no more BXML to execute in it; it indicates that the call ended normally.
+- `busy`: the callee was busy.
+- `timeout`: the call wasn't answered before the `callTimeout` was reached.
+- `cancel`: while the call was ringing, it was cancelled by its originator.
+- `rejected`: the call was rejected by the callee.
+- `callback-error`: a BXML callback couldn't be delivered.
+- `invalid-bxml`: an invalid bxml was tried to be played in the call.
+- `application-error`: some non-supported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the rate limits on the account were reached.
+- `node-capacity-exceeded`: the system itself reached its maximum capacity.
+- `error`: some error not described in any of the other causes happened on the call.
+- `unknown`: some unknown error happened on the call.
+
 ### Request URL
 
 <code class="get">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls/{callId}`
@@ -37,7 +51,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | startTime       | The time the call was initiated, in ISO 8601 format.                                                                     |
 | answerTime      | (optional) Populated once the call has been answered, with the time in ISO 8601 format.                                  |
 | endTime         | (optional) Populated once the call has ended, with the time in ISO 8601 format.                                          |
-| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`.<br>`hangup` indicates the call ended normally. |
+| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. |
 | errorMessage    | (optional) Populated only if the call ended with an error, with a text explaining the reason.                            |
 | errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
 | lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |

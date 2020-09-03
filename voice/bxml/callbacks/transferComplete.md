@@ -4,6 +4,20 @@ This event is sent to the `transferCompleteUrl` of the A-leg's `<Transfer>` verb
 In a simultaneous ringing scenario, only one B-leg succeeds and this event corresponds to that successful leg.
 If none of the calls were answered, the `transferComplete` event corresponds to one of the legs.
 
+The `cause` for a `transferComplete` event on a call can be:
+- `hangup`: there was no more BXML to execute in it; it indicates that the call ended normally.
+- `busy`: the callee was busy.
+- `timeout`: the call wasn't answered before the `callTimeout` was reached.
+- `cancel`: while the call was ringing, it was cancelled by its originator.
+- `rejected`: the call was rejected by the callee.
+- `callback-error`: a BXML callback couldn't be delivered.
+- `invalid-bxml`: an invalid bxml was tried to be played in the call.
+- `application-error`: some non-supported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the rate limits on the account were reached.
+- `node-capacity-exceeded`: the system itself reached its maximum capacity.
+- `error`: some error not described in any of the other causes happened on the call.
+- `unknown`: some unknown error happened on the call.
+
 ### Expected response
 ```http
 HTTP/1.1 200
@@ -31,7 +45,7 @@ Content-Type: application/xml; charset=utf-8
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                     |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                       |
-| cause            | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. `hangup` indicates the call has ended normally. |
+| cause            | Reason the call ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. |
 | errorMessage     | Text explaining the reason that caused the call to be ended in case of errors.                                                        |
 | errorId          | Bandwidth internal id that references the error event.                                                                                |
 

@@ -1,6 +1,19 @@
 {% method %}
 ## Disconnect Event
-The Disconnect event is fired when a call ends, for any reason.
+
+The Disconnect event is fired when a call ends, for any reason. The `cause` for a disconnect event on a call can be:
+- `hangup`: there was no more BXML to execute in it; it indicates that the call ended normally.
+- `busy`: the callee was busy.
+- `timeout`: the call wasn't answered before the `callTimeout` was reached.
+- `cancel`: while the call was ringing, it was cancelled by its originator.
+- `rejected`: the call was rejected by the callee.
+- `callback-error`: a BXML callback couldn't be delivered.
+- `invalid-bxml`: an invalid bxml was tried to be played in the call.
+- `application-error`: some non-supported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the rate limits on the account were reached.
+- `node-capacity-exceeded`: the system itself reached its maximum capacity.
+- `error`: some error not described in any of the other causes happened on the call.
+- `unknown`: some unknown error happened on the call.
 
 ### Expected response
 ```http
@@ -9,23 +22,23 @@ HTTP/1.1 204
 
 ### Properties
 
-| Property     | Description                                                                                                                         |
-|:----------   |:------------------------------------------------------------------------------------------------------------------------------------|
-| eventType    | The event type, value is `disconnect`                                                                                               |
-| accountId     | The user account associated with the call.                                                                                          |
-| applicationId | The id of the application associated with the call.                                                                                 |
-| to           | The phone number that received the call, in E.164 format (e.g. +15555555555).                                                       |
-| from         | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                           |
-| direction    | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes.                                   |
-| callId       | The call id associated with the event.                                                                                              |
-| callUrl      | The URL of the call associated with the event.                                                                                      |
-| startTime    | Time the call was started, in ISO 8601 format.                                                                                      |
-| answerTime   | (optional) Time the call was answered, in ISO 8601 format.                                                                          |
-| endTime      | Time the call ended, in ISO 8601 format.                                                                                            |
-| cause        | Reason the call ended<br> `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. `hangup` indicates the call has ended normally. |
-| errorMessage | (optional) Text explaining the reason that caused the call to be ended in case of errors.                                           |
-| errorId      | (optional) Bandwidth internal id that references the error event.                                                                   |
-| tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null.                     |
+| Property      | Description |
+|:----------    |:------------|
+| eventType     | The event type, value is `disconnect`. |
+| accountId     | The user account associated with the call. |
+| applicationId | The id of the application associated with the call. |
+| to            | The phone number that received the call, in E.164 format (e.g. +15555555555). |
+| from          | The phone number that made the call, in E.164 format (e.g. +15555555555). |
+| direction     | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
+| callId        | The call id associated with the event. |
+| callUrl       | The URL of the call associated with the event. |
+| startTime     | Time the call was started, in ISO 8601 format. |
+| answerTime    | (optional) Time the call was answered, in ISO 8601 format. |
+| endTime       | Time the call ended, in ISO 8601 format. |
+| cause         | Reason the call ended<br> `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. |
+| errorMessage | (optional) Text explaining the reason that caused the call to be ended in case of errors. |
+| errorId      | (optional) Bandwidth internal id that references the error event. |
+| tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
 
 {% common %}
 
