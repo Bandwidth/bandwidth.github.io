@@ -46,7 +46,9 @@ Maven:
 BandwidthClient client = new BandwidthClient.Builder()
             .messagingBasicAuthCredentials("MESSAGING_API_TOKEN", "MESSAGING_API_SECRET")
             .voiceBasicAuthCredentials("VOICE_API_USERNAME", "VOICE_API_PASSWORD")
-            .environment(Environment.PRODUCTION)
+            .twoFactorAuthBasicAuthCredentials("username", "password")
+            .environment(com.bandwidth.Environment.CUSTOM) // Optional - sets the enviroment to a custom base URL
+            .baseUrl("https://test.com") // Optional - sets the base Url
             .build();
 
 //Fully qualified name to remove confilicts

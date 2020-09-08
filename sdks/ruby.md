@@ -47,7 +47,9 @@ bandwidth_client = Bandwidth::Client.new(
     messaging_basic_auth_user_name: 'token',
     messaging_basic_auth_password: 'secret',
     two_factor_auth_basic_auth_user_name: 'username',
-    two_factor_auth_basic_auth_password: 'password'
+    two_factor_auth_basic_auth_password: 'password',
+    environment: Environment::CUSTOM, #Optional - Used for custom base URLs
+    base_url: "https://test.com" #Optional - Custom base URL set here
 )
 ```
 

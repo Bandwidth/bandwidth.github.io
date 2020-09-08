@@ -44,9 +44,11 @@ using Bandwidth.Standard;
 
 //create Configuration with credentials
 BandwidthClient client = new BandwidthClient.Builder()
-                .Environment(Bandwidth.Standard.Environment.Production)
                 .VoiceBasicAuthCredentials( username, password )
                 .MessagingBasicAuthCredentials( token, secret )
+                .TwoFactorAuthBasicAuthCredentials( username, password)
+                .Environment(Bandwidth.Standard.Environment.Custom) // Optional - sets the base URL to Custom
+                .BaseUrl("https://test.com") // Optional - sets the base URL
                 .Build();
 
 

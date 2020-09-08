@@ -43,7 +43,9 @@ $config = new BandwidthLib\Configuration(
         'voiceBasicAuthUserName' => 'username',
         'voiceBasicAuthPassword' => 'password',
         'twoFactorAuthBasicAuthUserName' => 'username',
-        'twoFactorAuthBasicAuthPassword' => 'password'
+        'twoFactorAuthBasicAuthPassword' => 'password',
+        'environment' => BandwidthLib\Environments::CUSTOM, //Optional - Used for custom base URLs
+        'baseUrl' => 'https://test.com' //Optional - Custom base URL set here
     )
 );
 $client = new BandwidthLib\BandwidthClient($config);
