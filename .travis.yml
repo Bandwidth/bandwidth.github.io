@@ -16,7 +16,7 @@ before_script:
 script: bash ./deploy.sh
 after_success:
 - rm -rf _book/my_project
-- pip install git+https://github.com/dtolb/s3-deploy-website.git
+- pip install git+https://github.com/jmulford-bw/s3-deploy-website.git
 - s3-deploy-website "bw-dev"
 env:
   global:
