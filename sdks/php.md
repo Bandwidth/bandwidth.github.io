@@ -41,6 +41,34 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 composer require bandwidth/sdk
 ```
 
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `BandwidthLib\Exceptions\ApiException`.
+
+### Error Handling Example: Messaging
+
+```php
+<require and include statements>
+
+<client initialization code>
+
+try {
+    $response = $messagingClient->createMessage($accountId, $body);
+} catch (BandwidthLib\Messaging\Exceptions\MessagingException $e) {
+    print_r($e->getHttpResponse()->getStatusCode()); //http status code
+    echo "\n";
+    print_r($e->getHttpResponse()->getRawBody()); //raw response from api
+} catch (BandwidthLib\Exceptions\ApiException $e) {
+    print_r($e->getHttpResponse()->getStatusCode()); //http status code
+    echo "\n";
+    print_r($e->getHttpResponse()->getRawBody()); //raw response from api
+}
+```
+
 ## Initialize Bandwidth Client
 
 ```php
