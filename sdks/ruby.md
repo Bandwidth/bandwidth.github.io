@@ -42,7 +42,7 @@ The second type of exceptions are unexpected endpoint responses. The exception t
 ### Error Handling Example: Messaging
 
 ```ruby
-<require and include statements
+<require and include statements>
 
 <client initialization code>
 
