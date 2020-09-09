@@ -170,3 +170,30 @@ body = TwoFactorVerifyRequestSchema(
 response = auth_client.create_verify_two_factor(account_id, body)
 print("Auth status: " + str(response.body.valid))
 ```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be an `APIException`.
+
+### Error Handling Example: Messaging
+
+```python
+<Other SDK import statements>
+from bandwidth.messaging.exceptions.messaging_exception import MessagingException
+from bandwidth.exceptions.api_exception import APIException
+
+<client initialization code>
+
+try:
+    response = messaging_client.create_message(account_id, body=body)
+except MessagingException as e:
+    print(e.response_code) #http status code
+    print(e.response.text) #raw response from api
+except APIException as e:
+    print(e.response_code) #http status code
+    print(e.response.text) #raw response from api
+```

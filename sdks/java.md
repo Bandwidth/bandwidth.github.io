@@ -128,3 +128,30 @@ try {
 ```java
 //Coming soon
 ```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `ApiException`.
+
+### Error Handling Example: Messaging
+
+```java
+<import statements>
+
+<client initialization code>
+
+ApiResponse<BandwidthMessage> response = null;
+try {
+    response = controller.createMessage(accountId, messageRequest);
+} catch (MessagingException ex){
+    System.out.println(ex.getDescription());
+    System.out.println(ex.getType());
+} catch (ApiException  ex){
+    System.out.println(ex.getResponseCode());
+    System.out.println(ex.getHttpContext().getResponse().getRawBody());
+}
+```

@@ -120,3 +120,35 @@ var response = msgController.CreateMessage(accountId, msgRequest);
 ```csharp
 //Coming soon
 ```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `ApiException`.
+
+### Error Handling Example: Messaging
+
+```csharp
+<using statements>
+
+<client initialization code>
+
+ApiResponse<BandwidthMessage> response = null;
+try
+{
+    response = controller.CreateMessage(accountId, messageRequest);
+} 
+catch (MessagingException ex)
+{
+    Console.WriteLine(ex.Type);
+    Console.WriteLine(ex.Description);
+} 
+catch (ApiException ex)
+{
+    Console.WriteLine(ex.ResponseCode);
+    Console.WriteLine(ex.Message);
+}
+```
