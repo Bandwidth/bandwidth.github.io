@@ -4,6 +4,7 @@
 * [About](README.md)
 * [Get Started](guides/getStarted.md)
 * [Webhooks / HTTP Callbacks](guides/callbacks/callbacks.md)
+	* [Authenticated Callbacks](guides/callbacks/callbacks.md#authenticatedCallbacks)
 * [API Credentials & Security](guides/accountCredentials.md)
 	* [Voice, Numbers, Account](guides/accountCredentials.md#voice-numbers-account)
 	* [Messaging](guides/accountCredentials.md#messaging)
