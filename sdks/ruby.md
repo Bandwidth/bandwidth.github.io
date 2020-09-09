@@ -31,32 +31,6 @@ The Ruby SDK(s) are available via [RubyGems](https://rubygems.org/) & Github
 gem install bandwidth-sdk
 ```
 
-## Error Handling
-
-All SDK methods can raise 2 types of exceptions based on the API response received.
-
-The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
-
-The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `Bandwidth::APIException`.
-
-### Error Handling Example: Messaging
-
-```ruby
-<require and include statements>
-
-<client initialization code>
-
-begin
-    response = messaging_client.create_message(account_id, :body => body)
-rescue Bandwidth::MessagingException => e
-    puts e.response_code #http status code
-    puts e.response.raw_body #raw response from api
-rescue Bandwidth::APIException => e
-    puts e.response_code #http status code
-    puts e.response.raw_body #raw response from api
-end
-```
-
 ## Initialize Bandwidth Client
 
 ```ruby
@@ -202,4 +176,30 @@ order_data = {
 order_response = BandwidthIris::Order.create(order_data)
 order_info = BandwidthIris::Order.get(order_response.id)
 puts order_info.name
+```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `Bandwidth::APIException`.
+
+### Error Handling Example: Messaging
+
+```ruby
+<require and include statements>
+
+<client initialization code>
+
+begin
+    response = messaging_client.create_message(account_id, :body => body)
+rescue Bandwidth::MessagingException => e
+    puts e.response_code #http status code
+    puts e.response.raw_body #raw response from api
+rescue Bandwidth::APIException => e
+    puts e.response_code #http status code
+    puts e.response.raw_body #raw response from api
+end
 ```
