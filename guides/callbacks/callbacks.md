@@ -44,8 +44,6 @@ Bandwidth allows you to enable basic authentication on the webhooks received fro
 
 Essentially, if you have basic authentication enabled for a webhook, Bandwidth will send a request with no authorization header attached and expect a 401 response that includes a `WWW-AUTHENTICATE` header containing a challenge. Once received, Bandwidth will send a second request that includes the authorization header and webhook body.
 
-Bandwidth uses basic authentication, so an example of that header could look like this:
+Bandwidth uses basic authentication, so an example of that header could look like `WWW-AUTHENTICATE: Basic realm=""`.
 
-`WWW-AUTHENTICATE: Basic realm=""`
-
-It is important to note that if the `WWW-AUTHENTICATE` header is not received alongside the 401 response, Bandwidth will not try a second response including the authorization header. More information about this pracice can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
+It is important to note that if the `WWW-AUTHENTICATE` header is not received alongside the 401 response, Bandwidth will not try a second request and your the callback will not be received by your server. More information about this pracice can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
