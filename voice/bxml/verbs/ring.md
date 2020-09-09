@@ -43,13 +43,26 @@ This example shows how to use the Ring verb to play ringing audio on a call for 
 {% sample lang="ruby" %}
 
 ```ruby
-# Coming soon
+response = Bandwidth::Voice::Response.new()
+ring = Bandwidth::Voice::Ring.new({
+    :duration => 10
+})
+
+response.push(ring)
+puts response.to_bxml()
 ```
 
 {% sample lang="python" %}
 
 ```python
-# Coming soon
+ring = Ring(
+    duration=10
+)
+
+response = Response()
+response.add_verb(ring)
+
+print(response.to_bxml())
 ```
 
 {% sample lang="js" %}
@@ -61,7 +74,13 @@ This example shows how to use the Ring verb to play ringing audio on a call for 
 {% sample lang="php" %}
 
 ```php
-// Coming soon
+$ring = new BandwidthLib\Voice\Bxml\Ring();
+$ring->duration(10);
+
+$response = new BandwidthLib\Voice\Bxml\Response();
+$response->addVerb($ring);
+
+echo $response->toBxml();
 ```
 
 {% endmethod %}
