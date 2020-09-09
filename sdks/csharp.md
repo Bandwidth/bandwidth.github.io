@@ -130,7 +130,7 @@ The second type of exceptions are unexpected endpoint responses. The exception t
 ### Error Handling Example: Messaging
 
 ```csharp
-<require and include statements>
+<using statements>
 
 <client initialization code>
 

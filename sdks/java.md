@@ -138,7 +138,7 @@ The second type of exceptions are unexpected endpoint responses. The exception t
 ### Error Handling Example: Messaging
 
 ```java
-<require and include statements>
+<import statements>
 
 <client initialization code>
 
