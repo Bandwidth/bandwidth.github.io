@@ -7,18 +7,20 @@ Retrieve the current state of a specific call.
 retrieve information for a call that is older than 7 days, you will get an HTTP 404 response.
 
 The `disconnectCause` for a call can be:
-- `hangup`: there was no more BXML to execute in it; it indicates that the call ended normally.
+- `hangup`: one party hung up the call, a [`<Hangup>`](../../bxml/verbs/hangup.md) verb was executed, or there was no more BXML to execute; it indicates that the call ended normally.
 - `busy`: the callee was busy.
 - `timeout`: the call wasn't answered before the `callTimeout` was reached.
-- `cancel`: while the call was ringing, it was cancelled by its originator.
+- `cancel`: the call was cancelled by its originator while it was ringing.
 - `rejected`: the call was rejected by the callee.
-- `callback-error`: a BXML callback couldn't be delivered.
-- `invalid-bxml`: an invalid bxml was tried to be played in the call.
-- `application-error`: some non-supported action was tried on the call, e.g. trying to play a .ogg audio.
-- `account-limit`: the rate limits on the account were reached.
-- `node-capacity-exceeded`: the system itself reached its maximum capacity.
+- `callback-error`: a BXML callback couldn't be delivered to your callback server.
+- `invalid-bxml`: invalid BXML was returned in response to a callback.
+- `application-error`: an unsupported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the account rate limits were reached.
+- `node-capacity-exceeded`: the system maximum capacity was reached.
 - `error`: some error not described in any of the other causes happened on the call.
 - `unknown`: some unknown error happened on the call.
+
+Note: this list is not exhaustive and other values can appear in the future.
 
 ### Request URL
 
@@ -51,7 +53,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | startTime       | The time the call was initiated, in ISO 8601 format.                                                                     |
 | answerTime      | (optional) Populated once the call has been answered, with the time in ISO 8601 format.                                  |
 | endTime         | (optional) Populated once the call has ended, with the time in ISO 8601 format.                                          |
-| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended: `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. |
+| disconnectCause | (optional) Populated once the call has ended, with the reason the call ended. See above for possible values. |
 | errorMessage    | (optional) Populated only if the call ended with an error, with a text explaining the reason.                            |
 | errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
 | lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |

@@ -5,18 +5,20 @@ The event is sent in the normal case, when the transferred leg is answered and l
 was never answered in the first place, if it was rejected, and if the original call leg hung up before the transferred leg.
 
 The `cause` for a `transferDisconnect` event on a call can be:
-- `hangup`: there was no more BXML to execute in it; it indicates that the call ended normally.
+- `hangup`: one party hung up the call, a [`<Hangup>`](../../bxml/verbs/hangup.md) verb was executed, or there was no more BXML to execute; it indicates that the call ended normally.
 - `busy`: the callee was busy.
 - `timeout`: the call wasn't answered before the `callTimeout` was reached.
-- `cancel`: while the call was ringing, it was cancelled by its originator.
+- `cancel`: the call was cancelled by its originator while it was ringing.
 - `rejected`: the call was rejected by the callee.
-- `callback-error`: a BXML callback couldn't be delivered.
-- `invalid-bxml`: an invalid bxml was tried to be played in the call.
-- `application-error`: some non-supported action was tried on the call, e.g. trying to play a .ogg audio.
-- `account-limit`: the rate limits on the account were reached.
-- `node-capacity-exceeded`: the system itself reached its maximum capacity.
+- `callback-error`: a BXML callback couldn't be delivered to your callback server.
+- `invalid-bxml`: invalid BXML was returned in response to a callback.
+- `application-error`: an unsupported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the account rate limits were reached.
+- `node-capacity-exceeded`: the system maximum capacity was reached.
 - `error`: some error not described in any of the other causes happened on the call.
 - `unknown`: some unknown error happened on the call.
+
+Note: this list is not exhaustive and other values can appear in the future.
 
 ### Expected response
 ```http
@@ -39,7 +41,7 @@ HTTP/1.1 204
 | endTime          | Time the transferred leg ended, in ISO 8601 format.                                                                                                                                                                                       |
 | transferCallerId | The phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555).                                                                                                                                         |
 | transferTo       | The phone number used as the `to` field of the B-leg call, in E.164 format (e.g. +15555555555).                                                                                                                                           |
-| cause            | Reason the transferred leg ended - `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. |
+| cause            | Reason the transferred leg ended. See above for possible values. |
 | errorMessage     | Text explaining the reason that caused the transferred leg to be ended in case of errors.                                                                                                                                                 |
 | errorId          | Bandwidth internal id that references the error event.                                                                                                                                                                                    |
 

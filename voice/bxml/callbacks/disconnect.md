@@ -2,18 +2,20 @@
 ## Disconnect Event
 
 The Disconnect event is fired when a call ends, for any reason. The `cause` for a disconnect event on a call can be:
-- `hangup`: there was no more BXML to execute in it; it indicates that the call ended normally.
+- `hangup`: one party hung up the call, a [`<Hangup>`](../../bxml/verbs/hangup.md) verb was executed, or there was no more BXML to execute; it indicates that the call ended normally.
 - `busy`: the callee was busy.
 - `timeout`: the call wasn't answered before the `callTimeout` was reached.
-- `cancel`: while the call was ringing, it was cancelled by its originator.
+- `cancel`: the call was cancelled by its originator while it was ringing.
 - `rejected`: the call was rejected by the callee.
-- `callback-error`: a BXML callback couldn't be delivered.
-- `invalid-bxml`: an invalid bxml was tried to be played in the call.
-- `application-error`: some non-supported action was tried on the call, e.g. trying to play a .ogg audio.
-- `account-limit`: the rate limits on the account were reached.
-- `node-capacity-exceeded`: the system itself reached its maximum capacity.
+- `callback-error`: a BXML callback couldn't be delivered to your callback server.
+- `invalid-bxml`: invalid BXML was returned in response to a callback.
+- `application-error`: an unsupported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the account rate limits were reached.
+- `node-capacity-exceeded`: the system maximum capacity was reached.
 - `error`: some error not described in any of the other causes happened on the call.
 - `unknown`: some unknown error happened on the call.
+
+Note: this list is not exhaustive and other values can appear in the future.
 
 ### Expected response
 ```http
@@ -35,10 +37,10 @@ HTTP/1.1 204
 | startTime     | Time the call was started, in ISO 8601 format. |
 | answerTime    | (optional) Time the call was answered, in ISO 8601 format. |
 | endTime       | Time the call ended, in ISO 8601 format. |
-| cause         | Reason the call ended<br> `busy`, `timeout`, `hangup`, `cancel`, `rejected`, `callback-error`, `invalid-bxml`, `account-limit`, `node-capacity-exceeded`, `error`, `unknown` or `application-error`. |
-| errorMessage | (optional) Text explaining the reason that caused the call to be ended in case of errors. |
-| errorId      | (optional) Bandwidth internal id that references the error event. |
-| tag          | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
+| cause         | Reason the call ended. See above for possible values. |
+| errorMessage  | (optional) Text explaining the reason that caused the call to be ended in case of errors. |
+| errorId       | (optional) Bandwidth internal id that references the error event. |
+| tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
 
 {% common %}
 
