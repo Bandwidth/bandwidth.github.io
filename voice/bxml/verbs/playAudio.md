@@ -1,7 +1,7 @@
 {% method %}
 ## XML: `<PlayAudio>`
-The PlayAudio verb is used to play an audio file in the call. The URL of an audio file should be
-included in the body of the `<PlayAudio>` tag. If a relative URL is given, it is resolved relative
+The PlayAudio verb is used to play an audio file in the call.  The URL of an audio file should be
+included in the body of the `<PlayAudio>` tag.  If a relative URL is given, it is resolved relative
 to the endpoint that returned the BXML.
 
 Audio is cached according to [RFC 7234](https://tools.ietf.org/html/rfc7234). Our system may cache
@@ -10,13 +10,6 @@ if none is present, until the time given in an `Expires` header. In either case,
 always cache for a shorter amount of time or not cache at all. If no `Cache-Control` or `Expires`
 header is set on the response, media will not be cached.
 
-The audio format is determined by the HTTP `Content-Type` header in the response. Our system supports:
-- `audio/wav` and `audio/x-wav` for .wav files encoded as PCM or G711
-- `audio/mpeg`, `audio/mpeg3` and `audio/mp3` for .mp3 files
-
-If no `Content-Type` is found, we still try to determine the format by looking at the file extension.
-If no `Content-Type` is found and the file extension is missing or it is something other than `.mp3` or `.wav`,
-we assume the media is `.wav` and it will be tried as such.
 
 ### Attributes
 | ATTRIBUTE | Description                                                        |
@@ -26,9 +19,10 @@ we assume the media is `.wav` and it will be tried as such.
 
 
 ### Text Content
-| Name     | Description |
-|:---------|:------------|
-| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** .wav files encoded as PCM or G711 and .mp3 files are supported |
+| Name     | Description                                                                                                                                  |
+|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** .wav files encoded as PCM or G711 are supported. |
+
 
 ### Callbacks Received
 
@@ -40,7 +34,7 @@ None
 
 This shows how to use Bandwidth XML to play two audio clips into a phone call.
 
-⚠️ **ONLY** .wav files encoded as PCM or G711 and .mp3 files are supported.
+⚠️ **ONLY** .wav files encoded as PCM or G711 are supported.
 
 {% sample lang="http" %}
 
@@ -49,7 +43,7 @@ This shows how to use Bandwidth XML to play two audio clips into a phone call.
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
    <PlayAudio>https://audio.url/audio1.wav</PlayAudio>
-   <PlayAudio>https://audio.url/audio2.mp3</PlayAudio>
+   <PlayAudio>https://audio.url/audio2.wav</PlayAudio>
 </Response>
 ```
 
@@ -61,7 +55,7 @@ PlayAudio playAudio1 = PlayAudio.builder()
         .build();
 
 PlayAudio playAudio2 = PlayAudio.builder()
-        .audioUri("https://audio.url/audio2.mp3")
+        .audioUri("https://audio.url/audio2.wav")
         .build();
 
 Response response = Response.builder().build()
@@ -80,7 +74,7 @@ PlayAudio playAudio1 = new PlayAudio();
 playAudio1.Url = "https://audio.url/audio1.wav";
 
 PlayAudio playAudio2 = new PlayAudio();
-playAudio2.Url = "https://audio.url/audio2.mp3";
+playAudio2.Url = "https://audio.url/audio2.wav";
 
 response.Add(playAudio1);
 response.Add(playAudio2);
@@ -97,7 +91,7 @@ play_audio_1 = Bandwidth::Voice::PlayAudio.new({
     :url => "https://audio.url/audio1.wav"
 })
 play_audio_2 = Bandwidth::Voice::PlayAudio.new({
-    :url => "https://audio.url/audio2.mp3"
+    :url => "https://audio.url/audio2.wav"
 })
 
 response.push(play_audio_1)
@@ -113,7 +107,7 @@ play_audio_1 = PlayAudio(
     url="https://audio.url/audio1.wav"
 )
 play_audio_2 = PlayAudio(
-    url="https://audio.url/audio2.mp3"
+    url="https://audio.url/audio2.wav"
 )
 
 response.add_verb(play_audio_1)
@@ -127,7 +121,7 @@ print(response.to_bxml())
 var playAudio1 = new BandwidthBxml.Verbs.PlayAudio();
 playAudio1.setUrl("https://audio.url/audio1.wav");
 var playAudio2 = new BandwidthBxml.Verbs.PlayAudio();
-playAudio2.setUrl("https://audio.url/audio2.mp3");
+playAudio2.setUrl("https://audio.url/audio2.wav");
 
 var response = new BandwidthBxml.Response();
 response.addVerb(playAudio1);
@@ -140,7 +134,7 @@ console.log(response.toBxml());
 
 ```php
 $playAudio1 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio1.wav");
-$playAudio2 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio2.mp3");
+$playAudio2 = new BandwidthLib\Voice\Bxml\PlayAudio("https://audio.url/audio2.wav");
 
 $response = new BandwidthLib\Voice\Bxml\Response();
 $response->addVerb($playAudio1);
