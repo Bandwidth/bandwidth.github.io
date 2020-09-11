@@ -21,7 +21,7 @@ header is set on the response, media will not be cached.
 ### Text Content
 | Name     | Description                                                                                                                                  |
 |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** .wav files encoded as PCM or G711 are supported. |
+| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** .wav files encoded as `G.711 a-law`, `G.711 μ-law`, `G.729`, `pcm_s16le` (signed, 16-bit, little-endian, PCM-encoded `.wav` file), or `G.722` are supported. |
 
 
 ### Callbacks Received
@@ -34,7 +34,7 @@ None
 
 This shows how to use Bandwidth XML to play two audio clips into a phone call.
 
-⚠️ **ONLY** .wav files encoded as PCM or G711 are supported.
+⚠️ **ONLY** .wav files encoded as `G.711 a-law`, `G.711 μ-law`, `G.729`, `pcm_s16le` (signed, 16-bit, little-endian, PCM-encoded `.wav` file), or `G.722` are supported.
 
 {% sample lang="http" %}
 
