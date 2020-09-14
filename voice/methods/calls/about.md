@@ -1,6 +1,8 @@
 # Calls
 The Calls resource lets you make and manage phone calls as well as retrieve information about recordings created during calls
 
+Phone numbers used on this API are expected to be in E164 format (`+1XXXYYYZZZZ`)
+
 <aside class="alert general small">
 <p>
 Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>

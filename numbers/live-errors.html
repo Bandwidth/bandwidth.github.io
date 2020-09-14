@@ -283,7 +283,7 @@
   </tr>
     <tr>
     <td>5009</td>
-    <td>Invalid Order Quantity</td>
+    <td>The quantity specified %s is invalid.</td>
   </tr>
     <tr>
     <td>5010</td>
@@ -989,6 +989,162 @@
     <td>5201</td>
     <td>Tn endpoints must be valid NANP tns: %s</td>
   </tr>
+    <tr>
+    <td>5202</td>
+    <td>SMS should be 'ON' before NNID assignment</td>
+  </tr>
+    <tr>
+    <td>5203</td>
+    <td>Origination Route Plan Error: TN cannot have Call-forwarding along with Origination Route Plan</td>
+  </tr>
+    <tr>
+    <td>5204</td>
+    <td>Origination Route Plan Error: TN cannot have Rewrite-user along with Origination Route Plan </td>
+  </tr>
+    <tr>
+    <td>5205</td>
+    <td>Call-Forwarding Error: TN cannot have Origination Route Plan along with Call-forwarding</td>
+  </tr>
+    <tr>
+    <td>5206</td>
+    <td>Rewrite-user Error: TN cannot have Origination Route Plan along with Rewrite-user</td>
+  </tr>
+    <tr>
+    <td>5207</td>
+    <td>Specified Route Plan Action was invalid, must be one of 'asSpecified', 'unchanged' or 'off'</td>
+  </tr>
+    <tr>
+    <td>5208</td>
+    <td>Route Plan must be empty for 'off' action</td>
+  </tr>
+    <tr>
+    <td>5209</td>
+    <td>Origination route plan failed to be provisioned</td>
+  </tr>
+    <tr>
+    <td>5210</td>
+    <td>The accountId in the order is not valid.</td>
+  </tr>
+    <tr>
+    <td>5211</td>
+    <td>The quantity of telephone numbers requested has exceeded the max limit for an order.</td>
+  </tr>
+    <tr>
+    <td>5212</td>
+    <td>The input list of telephone numbers is null or empty.</td>
+  </tr>
+    <tr>
+    <td>5213</td>
+    <td>The telephone number is not valid for ordering.</td>
+  </tr>
+    <tr>
+    <td>5214</td>
+    <td>The total number of valid telephone numbers in the input list is zero.</td>
+  </tr>
+    <tr>
+    <td>5215</td>
+    <td>The quantity specified in the order is not valid or exceeds the maximum value of 5000</td>
+  </tr>
+    <tr>
+    <td>5216</td>
+    <td>There is no default NNID configured on account %s for this tn type</td>
+  </tr>
+    <tr>
+    <td>5214</td>
+    <td>The search criteria '%s' cannot be empty</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The length of the search criteria '%s' is not valid, the acceptable length is %s characters.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The ratecenter abbreviation %s is not valid</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The value specified for the search criteria '%s' cannot be parsed.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The state abbreviation %s is not valid.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The lata %s is not valid</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The area code of telephone numbers cannot begin with 0,1 or 37 or 96.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The area Code of telephone numbers can not have a 9 as the second digit.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The area code of telephone numbers can not end with 11.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The Nxx cannot begin with a 0 or 1</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>%s should be alphanumeric.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The zip code  %s is not valid.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The city value %s is not valid.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>Please also specify %s to search by current criteria.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>Tollfree Wild Card search invalid format.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The combination of search criteria is unsupported.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The localVanity value %s is invalid.</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>The localVanity value should contain 3 or more digits</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>%s should contain only alphanumerics or glob wildcards(*,?).</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>Telephone number should not contain toll free %s</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>Ends In is meaningless without Local Vanity</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>LCA search is not supported for specified search criteria</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>Unable to perform search. Please, provide some search criteria</td>
+  </tr>
+    <tr>
+    <td>5002</td>
+    <td>TelephoneNumber: %s The telephone number is not valid for ordering.</td>
+  </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
 <table class="fixed">
@@ -1051,6 +1207,10 @@
     <tr>
     <td>25130</td>
     <td>Telephone numbers do not have Messaging settings defined.</td>
+  </tr>
+    <tr>
+    <td>25131</td>
+    <td>The Subscriber Name is too long. Maximum length is 45 characters.</td>
   </tr>
   </table>
 <h2>ReservationErrors</h2>
@@ -3737,6 +3897,10 @@
     <td>15618</td>
     <td>This resource does not exist for this type of telephone number</td>
   </tr>
+    <tr>
+    <td>15619</td>
+    <td>Passcode was not found for tn(s)</td>
+  </tr>
   </table>
 
 
@@ -3794,7 +3958,7 @@
   </tr>
     <tr>
     <td>14500</td>
-    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs</td>
+    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup</td>
   </tr>
     <tr>
     <td>14501</td>
@@ -4328,7 +4492,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4908,7 +5072,11 @@
   </tr>
     <tr>
     <td>12167</td>
-    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING_E911 feature enabled.</td>
+    <td>The operation could not be performed because Account %d does not have the LATITUDE_LONGITUDE_PROVISIONING_911 feature enabled.</td>
+  </tr>
+    <tr>
+    <td>12168</td>
+    <td>A call to the message search service has failed. Please try again later. If this problem continues please contact Bandwidth support.</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -6199,7 +6367,7 @@
   </tr>
     <tr>
     <td>12953</td>
-    <td>Incorrect Tn Type specified with NNID %s. It should be one from 'OnNetTns, OffNetTns, OffNetCanadianTns, ExternalCustomerOwnedTns, ExternalThirdPartyTns, ExternalCanadianTns, TollFreeTns, ExternalTollFreeTns'</td>
+    <td>Incorrect Tn Type specified with NNID %s. It should be one from 'OnNetTns, OffNetTns, OffNetCanadianTns, ExternalCustomerOwnedTns, ExternalThirdPartyTns, ExternalCanadianTns, TollFreeTns, ExternalTollFreeTns, A2pOnNetTns, A2pOffNetTns'</td>
   </tr>
     <tr>
     <td>12954</td>
@@ -6576,6 +6744,18 @@
     <tr>
     <td>13049</td>
     <td>CallbackTimeout needs to be an integer.</td>
+  </tr>
+    <tr>
+    <td>13050</td>
+    <td>A call to the %s service has failed. Please try again later. If this problem continues please contact Bandwidth support.</td>
+  </tr>
+    <tr>
+    <td>13051</td>
+    <td>'%s' is not a valid value for attribute 'TrafficType'. The permitted values are: P2P, A2P, BOTH</td>
+  </tr>
+    <tr>
+    <td>13052</td>
+    <td>The PlusFour field value %s does not match the plus four extension %s provided in the Zip field.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -7285,7 +7465,11 @@
   </tr>
     <tr>
     <td>13678</td>
-    <td>Sip Peer doesn't have SMS feature.</td>
+    <td>Sip Peer doesn't have SMS feature</td>
+  </tr>
+    <tr>
+    <td>13679</td>
+    <td>Delete not allowed; the SIP Peer is used as a proxy peer for the HTTP feature</td>
   </tr>
   </table>
 <h2>PotValidationError</h2>
@@ -7668,6 +7852,10 @@
     <tr>
     <td>201</td>
     <td>Order request received. Please use the order id to check the status of your order later.</td>
+  </tr>
+    <tr>
+    <td>200</td>
+    <td>Order processing has started.</td>
   </tr>
     <tr>
     <td>200</td>

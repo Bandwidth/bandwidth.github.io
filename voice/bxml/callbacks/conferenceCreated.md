@@ -1,19 +1,41 @@
 {% method %}
 ## Conference Created Event
-The Conference Created event is fired whenever a new [conference](../verbs/conference.md) that specified a callbackUrl is created.
+The Conference Created event is fired whenever a new [conference](../verbs/conference.md) that specified a `callbackUrl` is created.
+
+The response may be either empty or a BXML document. Only the following verbs are valid for conferences:
+* [`PlayAudio`](../verbs/playAudio.md)
+* [`SpeakSentence`](../verbs/speakSentence.md)
+* [`StartRecording`](../verbs/startRecording.md)
+* [`StopRecording`](../verbs/stopRecording.md)
+* [`PauseRecording`](../verbs/pauseRecording.md)
+* [`ResumeRecording`](../verbs/resumeRecording.md)
+
+Audio verbs will be heard by all members of the conference. Recordings capture audio from all members
+who are not muted or on hold, as well as any audio verbs that are played into the conference.
+
 ### Expected response
+
 ```http
 HTTP/1.1 204
+```
+
+```http
+HTTP/1.1 200
+Content-Type: application/xml; charset=utf-8
+
+<Response>
+    <!-- BXML verbs to execute in the conference -->
+</Response>
 ```
 
 ### Properties
 
 | Property     | Description |
-|:----------   |:------------|
-| eventType    | The event type, value is `conferenceCreated` |
-| conferenceId | The ID of the new conference that was created |
-| name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag.|
-| tag          | (optional) The `tag` that was set at conference creation, if any |
+|:-------------|:------------|
+| eventType    | The event type, value is `conferenceCreated`. |
+| conferenceId | The ID of the new conference that was created. |
+| name         | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag. |
+| tag          | (optional) The `tag` that was set at conference creation, if any. |
 
 {% common %}
 

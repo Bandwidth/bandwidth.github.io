@@ -178,7 +178,7 @@ TnOptionOrderResponse response = TnOptions.create(client, order);
 hello world
 ```
 
-{% sample lang="NodeJS" %}
+{% sample lang="js" %}
 ```js
 const order = {
   customerOrderId: 'TnOptionOrder1',
@@ -372,6 +372,34 @@ TnOptionOrderResponse response = TnOptions.create(client, order);
 ```
 hello world
 ```
+
+{% sample lang="js" %}
+```js
+const order = {
+  customerOrderId: 'TnOptionOrder1',
+  tnOptionGroups: [
+    {
+      portOutPasscode: 'a1b2c3',
+      telephoneNumbers: ['2018551020', '2018551022', '2018551023']
+    }
+  ]
+}
+numbers.TnOption.create(order, (err, res) => {
+  if (err) {
+    return console.log(err)
+  }
+  console.log(tnOptionGroups[0].telephoneNumbers[1])
+  return console.log(res.processingStatus)
+});
+```
+
+> Output
+
+```
+2018551022
+RECEIVED
+```
+
 
 {% sample lang="csharp" %}
 

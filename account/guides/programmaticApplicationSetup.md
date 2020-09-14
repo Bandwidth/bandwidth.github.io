@@ -5,6 +5,8 @@
 
 This walks through how to programmatically setup and configure your Bandwidth account _via APIs_ for use with [HTTP Voice](../../voice/about.md) and [HTTP Messaging](../../messaging/about.md)
 
+The full API reference for these endpoints can be found at [our Numbers API reference](../../numbers/apiReference.md)
+
 ## Assumptions
 
 * Familiarity with [Account API Credentials](../../guides/accountCredentials.md)
@@ -263,6 +265,24 @@ This endpoint can be used to create a subaccount (AKA site) on your account
 | `Address`                 | Yes       | The address of the site                                                                                                                                                                                                                  |
 | `CustomerProvidedID`      | No        | Optional custom ID to assign to your application. Max length of 10 characters                                                                                                                                                            |
 | `CustomerName`            | No        | Optional custom name to assign to your application. Max length of 50 characters                                                                                                                                                          |
+
+#### Address Object Values
+
+| Name | Type | Description |
+|:--|:--|:--|
+| HouseNumber | String | The number of the house |
+| HousePrefix | String | The prefix of the house |
+| HouseSuffix | String | The suffix of the house |
+| StreetName | String | The name of the street |
+| StreetSuffix | String | The suffix of the street |
+| AddressLine2 | String | The optional second line of the address (apartment, extension, etc) |
+| City | String | The city of the address |
+| StateCode | String | The 2 character state code |
+| Zip | String | The 6 digit zip code |
+| PlusFour | String | The 4 digit zip code extension |
+| County | String | The county of the address |
+| Country | String | The country of the address |
+| AddressType | String | The type of the address. Must be `Billing` or `Service` |
 
 {% common %}
 

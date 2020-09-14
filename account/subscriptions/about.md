@@ -1,3 +1,7 @@
+{% raw %}
+<section class="subscriptionsConfigurationGuide">
+{% endraw %}
+
 # Subscriptions
 
 Bandwidth uses HTTP Callbacks (also known as [webhooks](../../guides/callbacks/callbacks.md)) to send [number ordering & porting events](../../numbers/callbacks/about.md) to any publicly addressable url.
@@ -40,6 +44,8 @@ Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [numb
 | `importtnorders`         | `COMPLETE`, `PARTIAL`, `FAILED`, `EXCEPTION`                                                                        |
 | `removeImportedTnOrders` | `PROCESSING`, `COMPLETE`, `PARTIAL`, `FAILED`                                                                       |
 | `csrs`                   | `COMPLETE`, `FAILED`, `ACTION_REQUIRED`                                                                             |
+| `emergencyNotificationGroup` | `COMPLETE`, `FAILED` |
+| `emergencyEndpointGroup` | `COMPLETE`, `FAILED` |
 
 ### Event Types
 

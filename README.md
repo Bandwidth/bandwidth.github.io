@@ -1,5 +1,7 @@
 {% raw %}
 
+<section class="homePage">
+
 <div id="hero">
   <h1 class="remove4mobile">Welcome to Bandwidth's Developer Docs</h1>
   <h2 class="mobileShow">Welcome to Bandwidth's Developer Docs</h2>

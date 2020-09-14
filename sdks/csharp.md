@@ -1,27 +1,30 @@
 # C# SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 3.0.0 | Updated Pause and SendDtmf BXML attributes |
-| 3.1.0 | Added MFA functions |
-| 3.2.0 | Added support for multi nested verbs in Gathers |
-| 3.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
-| 3.4.0 | Updated WebRTC Permissions schema |
-| 3.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
-| 3.6.0 | Added BXML Bridge verb |
-| 3.7.0 | Updated WebRTC base URL |
-
 ## Links
 
-[Github](https://github.com/Bandwidth/csharp-sdk)
+The C# SDK(s) are available via [NuGet](https://www.nuget.org/) & Github
 
-[Nuget](https://www.nuget.org/packages/Bandwidth.Sdk/)
+| Links                                                                     | Description                                                                     | Github                                                                                                 |
+|:--------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| [`Bandwidth.Sdk`](https://www.nuget.org/packages/Bandwidth.Sdk/)          | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/csharp-sdk)                  |
+| [`Bandwidth.Iris`](https://www.nuget.org/packages/Bandwidth.Iris/)        | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/csharp-bandwidth-iris)       |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/csharp) | C# Code Examples                                                                | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/csharp) |
 
-[Code Examples](https://github.com/Bandwidth/examples/tree/master/csharp)
+## Release Notes
 
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 2.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 3.0.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 3.1.0   | Added MFA functions                                                             |
+| 3.2.0   | Added support for multi nested verbs in Gathers                                 |
+| 3.3.0   | Added support for Conference BXMl, Conference API Endpoints, and WebRTC         |
+| 3.4.0   | Updated WebRTC Permissions schema                                               |
+| 3.5.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 3.6.0   | Added BXML Bridge verb                                                          |
+| 3.7.0   | Updated WebRTC base URL                                                         |
+| 3.8.0 | Added get conference endpoint |
+| 3.9.0 | Added conference management endpoints |
 
 ## Download & Install
 
@@ -41,9 +44,11 @@ using Bandwidth.Standard;
 
 //create Configuration with credentials
 BandwidthClient client = new BandwidthClient.Builder()
-                .Environment(Bandwidth.Standard.Environment.Production)
                 .VoiceBasicAuthCredentials( username, password )
                 .MessagingBasicAuthCredentials( token, secret )
+                .TwoFactorAuthBasicAuthCredentials( username, password)
+                .Environment(Bandwidth.Standard.Environment.Custom) // Optional - sets the base URL to Custom
+                .BaseUrl("https://test.com") // Optional - sets the base URL
                 .Build();
 
 
@@ -107,11 +112,43 @@ msgRequest.From = "+18888888888";
 msgRequest.To = new string[1] {"9199199999"};
 msgRequest.Text = "The quick brown fox jumps over a lazy dog.";
 
-var response = msgController.CreateMessage(msgUserId, msgRequest);
+var response = msgController.CreateMessage(accountId, msgRequest);
 ```
 
 ## Order Phone Number
 
 ```csharp
 //Coming soon
+```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `ApiException`.
+
+### Error Handling Example: Messaging
+
+```csharp
+<using statements>
+
+<client initialization code>
+
+ApiResponse<BandwidthMessage> response = null;
+try
+{
+    response = controller.CreateMessage(accountId, messageRequest);
+} 
+catch (MessagingException ex)
+{
+    Console.WriteLine(ex.Type);
+    Console.WriteLine(ex.Description);
+} 
+catch (ApiException ex)
+{
+    Console.WriteLine(ex.ResponseCode);
+    Console.WriteLine(ex.Message);
+}
 ```

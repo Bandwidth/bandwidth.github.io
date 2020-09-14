@@ -1,25 +1,29 @@
 # PHP SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 2.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 2.1.0 | Updated Pause and SendDtmf BXML attributes |
-| 2.2.0 | Added MFA functions and support for multiple nested verbs for a Gather |
-| 2.3.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
-| 2.4.0 | Updated WebRTC Permissions schema |
-| 2.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
-| 2.6.0 | Added BXML Bridge verb |
-| 2.7.0 | Updated WebRTC base URL |
-
 ## Links
 
-* [Github](https://github.com/Bandwidth/php-sdk)
+The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 
-* [Packagist](https://packagist.org/packages/bandwidth/sdk)
+| Module                                                                 | Description                                                                     | Github                                                                                              |
+|:-----------------------------------------------------------------------|:--------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| [`bandwidth/sdk`](https://packagist.org/packages/bandwidth/sdk)        | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/php-sdk)                  |
+| [`bandwidth/iris`](https://packagist.org/packages/bandwidth/iris)      | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/php-bandwidth-iris)       |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/php) | PHP code examples                                                               | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/php) |
 
-* [Code Examples](https://github.com/Bandwidth/examples/tree/master/php)
+## Release Notes
+
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 2.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 2.1.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 2.2.0   | Added MFA functions and support for multiple nested verbs for a Gather          |
+| 2.3.0   | Added support for Conference BXMl, Conference API Endpoints, and WebRTC         |
+| 2.4.0   | Updated WebRTC Permissions schema                                               |
+| 2.5.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 2.6.0   | Added BXML Bridge verb                                                          |
+| 2.7.0   | Updated WebRTC base URL                                                         |
+| 2.8.0 | Added get conference endpoint |
+| 2.9.0 | Added conference management endpoints |
 
 ## Download & Install
 
@@ -39,7 +43,9 @@ $config = new BandwidthLib\Configuration(
         'voiceBasicAuthUserName' => 'username',
         'voiceBasicAuthPassword' => 'password',
         'twoFactorAuthBasicAuthUserName' => 'username',
-        'twoFactorAuthBasicAuthPassword' => 'password'
+        'twoFactorAuthBasicAuthPassword' => 'password',
+        'environment' => BandwidthLib\Environments::CUSTOM, //Optional - Used for custom base URLs
+        'baseUrl' => 'https://test.com' //Optional - Custom base URL set here
     )
 );
 $client = new BandwidthLib\BandwidthClient($config);
@@ -104,12 +110,15 @@ $fromPhone = '+18888888888';
 $toPhone = '+17777777777';
 $messagingApplicationId = '1-d-b';
 $scope = 'scope';
+$digits = 6
 
 $body = new BandwidthLib\TwoFactorAuth\Models\TwoFactorCodeRequestSchema();
 $body->from = $fromPhone;
 $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
+$body->digits = $digits;
+$body->message = "Your temporary {NAME} {SCOPE} code is {CODE}";
 
 $authClient->createMessagingTwoFactor($accountId, $body);
 
@@ -121,6 +130,8 @@ $body->to = $toPhone;
 $body->applicationId = $messagingApplicationId;
 $body->scope = $scope;
 $body->code = $code;
+$body->digits = $digits;
+$body->expirationTimeInMinutes = 3;
 
 $response = $authClient->createVerifyTwoFactor($accountId, $body);
 $strn = "Auth status: " . var_export($response->getResult()->valid, true) . "\n";
@@ -153,4 +164,32 @@ $order = $account->orders()->create([
 ]);
 $response = $account->orders()->order($order->id, true);
 print_r($response);
+```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `BandwidthLib\APIException`.
+
+### Error Handling Example: Messaging
+
+```php
+<require and include statements>
+
+<client initialization code>
+
+try {
+    $response = $messagingClient->createMessage($accountId, $body);
+} catch (BandwidthLib\Messaging\Exceptions\MessagingException $e) {
+    print_r($e->getResponseCode()); //http status code
+    echo "\n";
+    print_r($e->getResponseBody()); //raw response from api
+} catch (BandwidthLib\APIException $e) {
+    print_r($e->getResponseCode()); //http status code
+    echo "\n";
+    print_r($e->getResponseBody()); //raw response from api
+}
 ```

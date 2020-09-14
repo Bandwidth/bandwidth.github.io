@@ -1,3 +1,7 @@
+{% raw %}
+<section class="callbacksOverview">
+{% endraw %}
+
 # Bandwidth Callbacks
 
 ## Bandwidth Callbacks Overview
@@ -20,12 +24,26 @@ If you need static IPs for your callbacks, feel free to open up a ticket on our 
 
 ### Voice Callbacks
 
-Specifics for voice callbacks can be found on our [voice callbacks page](../../voice/bxml/callbacks/about.md)
+Specifics for voice callbacks can be found on our [voice callbacks page](../../voice/bxml/callbacks/about.md).
 
-Bandwidth expects to receive valid [BXML](../../voice/bxml/about.md) as a response for BXML callbacks
+Bandwidth expects to receive valid [BXML](../../voice/bxml/about.md) as a response for BXML callbacks.
 
 ### Messaging Callbacks
 
-Specifics for messaging callbacks can be found on our [messaging callbacks page](../../messaging/callbacks/messageEvents.md)
+Specifics for messaging callbacks can be found on our [messaging callbacks page](../../messaging/callbacks/messageEvents.md).
+
+### Subscription Callbacks
+
+Specifics for subscription callbacks for order notifications can be found on our [subscriptions page](../../account/subscriptions/about,md).
 
 <br>
+
+## Authenticated Callbacks {#authenticatedCallbacks}
+
+Bandwidth allows you to enable basic authentication on the webhooks received from the different services. For messaging and voice, credentials would be set on the messaging or voice application created in the Bandwidth Dashboard. In a subscription, the basic authentication credentials would be set in the <code class="post">POST</code> request to create each specific subscription type. To authenticate, Bandwidth follows the basic HTTP authentication framework outlined in [RFC 7235](https://tools.ietf.org/html/rfc7235).
+
+Essentially, if you have basic authentication enabled for a webhook, Bandwidth will send a request with no authorization header attached and expect a 401 response that includes a `WWW-AUTHENTICATE` header containing a challenge. An example of that header could look like `WWW-AUTHENTICATE: Basic realm=""`.
+
+Once the proper 401 HTTP response is received, Bandwidth will send a second request that includes an authorization header and webhook body. The authorization header will include the credentials given in either the application settings or subscription creation, encoded in base64. 
+
+It is important to note that if the `WWW-AUTHENTICATE` header is not received alongside the 401 response, Bandwidth will not try a second request and your the callback will not be received by your server. More information about this pracice can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).

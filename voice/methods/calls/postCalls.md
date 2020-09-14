@@ -11,6 +11,13 @@ Creates a new outbound phone call.
 
 Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
+
+<aside class="alert general">
+<p>IMPORTANT NOTE ABOUT AUTHORIZATION!</p>
+You should not include sensitive or personally-identifiable information in any tag or URL field! Always use the proper username and password fields for authorization.
+</aside>
+
+
 ---
 
 ### Supported Parameters
@@ -28,6 +35,11 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | password           | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                 | No        |
 | callTimeout        | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30                                                           | No        |
 | tag                | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.  | No        |
+| answerFallbackUrl  | (optional) A fallback url which, if provided, will be used to retry the answer callback delivery in case `answerUrl` fails to respond | No |
+| answerFallbackMethod | (optional) The HTTP method to use to deliver the answer callback to `answerFallbackUrl`. GET or POST. Default value is POST. | No |
+| fallbackUsername   | (optional) The username to send in the HTTP request to `answerFallbackUrl` | No |
+| fallbackPassword   | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
+| callbackTimeout    | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
 
@@ -65,21 +77,26 @@ Content-type: application/json
 Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d
 
 {
-    "accountId"        : "55555555",
-    "from"             : "+19195551212",
-    "to"               : "+19195551313",
-    "applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
-    "callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-    "startTime"        : "2019-06-20T15:54:22.234Z",
-    "callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
-    "callTimeout"      : 30.0,
-    "answerUrl"        : "http://www.myapp.com/hello",
-    "answerMethod"     : "POST",
-    "disconnectUrl"    : null,
-    "disconnectMethod" : "POST",
-    "username"         : null,
-    "password"         : null,
-    "tag"              : null
+    "accountId"            : "55555555",
+    "from"                 : "+19195551212",
+    "to"                   : "+19195551313",
+    "applicationId"        : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+    "callId"               : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    "startTime"            : "2019-06-20T15:54:22.234Z",
+    "callUrl"              : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+    "callTimeout"          : 30,
+    "callbackTimeout"      : 15,
+    "answerUrl"            : "http://www.myapp.com/hello",
+    "answerMethod"         : "POST",
+    "answerFallbackUrl"    : null,
+    "answerFallbackMethod" : "POST",
+    "disconnectUrl"        : null,
+    "disconnectMethod"     : "POST",
+    "username"             : null,
+    "password"             : null,
+    "fallbackUsername"     : null,
+    "fallbackPassword"     : null,
+    "tag"                  : null
 }
 ```
 

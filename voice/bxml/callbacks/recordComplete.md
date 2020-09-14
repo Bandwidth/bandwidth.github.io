@@ -1,7 +1,7 @@
 {% method %}
 ##  Record Complete event
 
-The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb has executed and the BXML returned by this callback is executed next.
+The Record Complete event is sent after a [`<Record>`](../verbs/record.md) verb has executed if the call is still active. The BXML returned by this callback is executed next.
 
 When the recording is available for download, a [Recording Available](recordingAvailable.md) event will be sent.
 
@@ -30,14 +30,15 @@ Content-Type: application/xml; charset=utf-8
 | recordingId       | The unique id for this recording.                                                                                                                                                                     |
 | callUrl           | The URL of the call associated with the event.                                                                                                                                                        |
 | mediaUrl          | URL to retrieve the contents of the recording.                                                                                                                                                        |
+| answerTime        | Time the call was answered, in ISO 8601 format.                                                                                                                                                       |
 | startTime         | Time the recording was started, in ISO 8601 format.                                                                                                                                                   |
 | endTime           | Time the recording ended, in ISO 8601 format.                                                                                                                                                         |
 | duration          | Duration of the recording, in ISO 8601 format.                                                                                                                                                        |
 | channels          | Number of channels in the recording.                                                                                                                                                                  |
 | fileFormat        | The audio format that the recording was saved as (`wav` or `mp3`).                                                                                                                                    |
 | tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.                                                                                     |
-| transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                  |
-| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.                     |
+| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null.                 |
+| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null.                    |
 
 {% common %}
 
@@ -59,6 +60,7 @@ POST http://[External server URL]
 	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
 	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
 	"channels"      : 1,
+	"answerTime"    : "2019-09-13T16:48:26.665Z",
 	"startTime"     : "2019-09-13T16:48:29.235Z",
 	"endTime"       : "2019-09-13T16:48:48.890Z",
 	"duration"      : "PT20.056S",

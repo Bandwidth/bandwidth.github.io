@@ -6,11 +6,18 @@ Participants are idempotent, so relevant parameters must be set in this function
 
 
 ### Request URL
-<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/accounts/{accountId}/participants`
+<code class="post">POST</code>`https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants`
 
 #### Basic Authentication
 
 Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Credentials. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+
+---
+
+<aside class="alert general">
+<p>IMPORTANT NOTE ABOUT PARTICIPANT TAGS!</p>
+You should not include sensitive or personally-identifiable information in any tag!
+</aside>
 
 ---
 

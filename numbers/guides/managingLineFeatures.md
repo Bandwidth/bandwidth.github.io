@@ -40,7 +40,7 @@ The path for managing these options is: `/accounts/{accountId>/sites/{siteId}/si
 
 In addition to setting Calling Name Display information on a per-TN basis as described above, the Bandwidth Phone Number Phone Number API allows the establishment of Calling Name Display settings for a collection of TNs at a time.  Bandwidth provides this API as a convenience to enable provisioning collections of TNs.  It can support the configuration of up to 1000 TNs in a single call.
 
-The Calling Line Display is associated with TNs using a <code class="post">POST</code> to the `lineOptionOrders` resource with a payload that describes the option and its disposition.
+The Calling Line Display is associated with TNs using a <code class="post">POST</code> to the `tnOptions` resource with a payload that describes the option and its disposition.
 
 The key elements of the XML payload are:
 

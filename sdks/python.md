@@ -1,27 +1,30 @@
 # Python SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 6.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 6.1.0 | Updated Pause and SendDtmf BXML attributes |
-| 6.2.0 | Added MFA functions |
-| 6.3.0 | Added support for multi nested verbs in Gathers |
-| 6.4.0 | Added support for Conference BXMl, Conference API Endpoints, and WebRTC |
-| 6.5.0 | Updated WebRTC Permissions schema |
-| 6.6.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
-| 6.7.0 | Added BXML Bridge verb |
-| 6.8.0 | Updated WebRTC base URL |
-
-
 ## Links
 
-* [Github](https://github.com/Bandwidth/python-sdk)
+The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 
-* [PyPi](https://pypi.org/project/bandwidth-sdk/)
+| Links                                                                     | Description                                                                     | Github                                                                                                 |
+|:--------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| [`bandwidth-sdk`](https://pypi.org/project/bandwidth-sdk/)                | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/python-sdk)                  |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/python) | Python code examples                                                            | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/python) |
 
-* [Code Examples](https://github.com/Bandwidth/examples/tree/master/python)
+## Release Notes
+
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 6.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 6.1.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 6.2.0   | Added MFA functions                                                             |
+| 6.3.0   | Added support for multi nested verbs in Gathers                                 |
+| 6.4.0   | Added support for Conference BXMl, Conference API Endpoints, and WebRTC         |
+| 6.5.0   | Updated WebRTC Permissions schema                                               |
+| 6.6.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 6.7.0   | Added BXML Bridge verb                                                          |
+| 6.8.0   | Updated WebRTC base URL                                                         |
+| 6.9.0 | Added get conference endpoint |
+| 6.10.0 | Added conference management endpoints |
+
 
 ## Download & Install
 
@@ -35,6 +38,7 @@ pip install bandwidth-sdk
 
 ```python
 from bandwidth.bandwidth_client import BandwidthClient
+from bandwidth.configuration import Environment #Optional - Used for custom base URLs
 
 from bandwidth.messaging.models.message_request import MessageRequest
 from bandwidth.messaging.exceptions.messaging_exception import MessagingException
@@ -62,7 +66,10 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
     messaging_basic_auth_password=messaging_basic_auth_password,
     two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
-    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password)
+    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password,
+    environment=Environment.CUSTOM, #Optional - Used for custom base URLs
+    base_url="https://test.com" #Optional - Custom base URL set here
+)
 ```
 
 ## Create Phone Call
@@ -137,12 +144,15 @@ from_phone = "+18888888888"
 to_phone = "+17777777777"
 messaging_application_id = "1-d-b"
 scope = "scope"
+digits = 6
 
 body = TwoFactorCodeRequestSchema(
     mfrom = from_phone,
     to = to_phone,
     application_id = messaging_application_id,
-    scope = scope
+    scope = scope,
+    digits = digits,
+    message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 )
 auth_client.create_messaging_two_factor(account_id, body)
 
@@ -153,8 +163,37 @@ body = TwoFactorVerifyRequestSchema(
     to = to_phone,
     application_id = application_id,
     scope = scope,
-    code = code
+    code = code,
+    digits = digits,
+    expiration_time_in_minutes = 3
 )
 response = auth_client.create_verify_two_factor(account_id, body)
 print("Auth status: " + str(response.body.valid))
+```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be an `APIException`.
+
+### Error Handling Example: Messaging
+
+```python
+<Other SDK import statements>
+from bandwidth.messaging.exceptions.messaging_exception import MessagingException
+from bandwidth.exceptions.api_exception import APIException
+
+<client initialization code>
+
+try:
+    response = messaging_client.create_message(account_id, body=body)
+except MessagingException as e:
+    print(e.response_code) #http status code
+    print(e.response.text) #raw response from api
+except APIException as e:
+    print(e.response_code) #http status code
+    print(e.response.text) #raw response from api
 ```

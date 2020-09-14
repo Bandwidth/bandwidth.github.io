@@ -4,24 +4,28 @@ The Gather verb is used to collect digits for some period of time.
 
 ### Attributes
 
-| Attribute         | Description                                                                                                                                                                                                                                                                                                                                     |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gatherUrl         | (optional) URL to send [Gather event](../callbacks/gather.md) to and request new BXML.                                                                                                                                                                                                                                                          |
-| gatherMethod      | (optional) The HTTP method to use for the request to `gatherUrl`. GET or POST. Default value is POST.                                                                                                                                                                                                                                           |
-| username          | (optional) The username to send in the HTTP request to `gatherUrl`.                                                                                                                                                                                                                                                                             |
-| password          | (optional) The password to send in the HTTP request to `gatherUrl`.                                                                                                                                                                                                                                                                             |
-| tag               | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.                                                                                                                          |
-| terminatingDigits | (optional) When any of these digits are pressed, it will terminate the Gather. Default value is `""`, which disables this feature.                                                                                                                                                                                                              |
-| maxDigits         | (optional) Max number of digits to collect. Default value is 50. Range: decimal values between 1 - 50.                                                                                                                                                                                                                                          |
-| interDigitTimeout | (optional) Time (in seconds) allowed between digit presses before automatically terminating the Gather. Default value is 5. Range: decimal values between 1 - 60.                                                                                                                                                                               |
-| firstDigitTimeout | (optional) Time (in seconds) to pause after any audio from nested `<SpeakSentence>` or `<PlayAudio>` verb is played (in seconds) before terminating the Gather. Default value is 5. Range: decimal values between 0 - 60.                                                                                                                       |
-| repeatCount       | (optional) The number of times the audio prompt should be played if no digits are pressed. For example, if this value is `3`, the nested audio clip will be played a maximum of three times. The delay between repetitions will be equal to `firstDigitTimeout`. Default value is 1. `repeatCount` * number of verbs must not be greater than 20|
+| Attribute            | Description |
+|:---------------------|:------------|
+| gatherUrl            | (optional) URL to send [Gather event](../callbacks/gather.md) to and request new BXML. May be a relative URL. |
+| gatherMethod         | (optional) The HTTP method to use for the request to `gatherUrl`. GET or POST. Default value is POST. |
+| gatherFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Gather event](../callbacks/gather.md) callback delivery in case `gatherUrl` fails to respond. |
+| gatherFallbackMethod | (optional) The HTTP method to use to deliver the [Gather event](../callbacks/gather.md) callback to `gatherFallbackUrl`. GET or POST. Default value is POST. |
+| username             | (optional) The username to send in the HTTP request to `gatherUrl`. |
+| password             | (optional) The password to send in the HTTP request to `gatherUrl`. |
+| fallbackUsername     | (optional) The username to send in the HTTP request to `gatherFallbackUrl`. |
+| fallbackPassword     | (optional) The password to send in the HTTP request to `gatherFallbackUrl`. |
+| tag                  | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| terminatingDigits    | (optional) When any of these digits are pressed, it will terminate the Gather. Default value is `""`, which disables this feature. |
+| maxDigits            | (optional) Max number of digits to collect. Default value is 50. Range: decimal values between 1 - 50. |
+| interDigitTimeout    | (optional) Time (in seconds) allowed between digit presses before automatically terminating the Gather. Default value is 5. Range: decimal values between 1 - 60. |
+| firstDigitTimeout    | (optional) Time (in seconds) to pause after any audio from nested `<SpeakSentence>` or `<PlayAudio>` verb is played (in seconds) before terminating the Gather. Default value is 5. Range: decimal values between 0 - 60. |
+| repeatCount          | (optional) The number of times the audio prompt should be played if no digits are pressed. For example, if this value is `3`, the nested audio clip will be played a maximum of three times. The delay between repetitions will be equal to `firstDigitTimeout`. Default value is 1. `repeatCount` * number of verbs must not be greater than 20. |
 
 The gather is terminated when one of these conditions is met:
- 1. The user presses a terminating digit (if specified)
- 1. The user has pressed at least one key and more than `interDigitTimeout` seconds have elapsed
- 1. Any nested audio has ended and `firstDigitTimeout` seconds have elapsed without the user pressing any digits
- 1. The user presses `maxDigits` digits
+ * The user presses a terminating digit (if specified)
+ * The user has pressed at least one key and more than `interDigitTimeout` seconds have elapsed
+ * Any nested audio has ended and `firstDigitTimeout` seconds have elapsed without the user pressing any digits
+ * The user presses `maxDigits` digits
 
 If the `gatherUrl` attribute is specified, the [Gather event](../callbacks/gather.md) is sent to the `gatherUrl` upon
 completion of the gather. BXML returned by that callback are then executed. If `gatherUrl` is specified, verbs following the `<Gather>` will be ignored.

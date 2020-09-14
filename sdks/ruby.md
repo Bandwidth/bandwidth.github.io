@@ -1,26 +1,29 @@
 # Ruby SDK
 
-## Release Notes
-
-| Version | Notes |
-|--|--|
-| 3.0.0 | Removed all messaging exceptions and normalized them under `MessagingException` |
-| 3.1.0 | Updated Pause and SendDtmf BXML attributes |
-| 3.2.0 | Added MFA functions |
-| 3.3.0 | Added support for multi nested verbs in Gathers |
-| 3.4.0 | Added support for Conference BXMl and Conference API Endpoints |
-| 3.5.0 | Updated MFA schema to include digits and expirationTimeInMinutes |
-| 3.6.0 | Added BXML Bridge verb |
-| 3.7.0 | Added WebRTC |
-
 ## Links
 
-* [Github](https://github.com/Bandwidth/ruby-sdk)
+The Ruby SDK(s) are available via [RubyGems](https://rubygems.org/) & Github
 
-* [Rubygems](https://rubygems.org/gems/bandwidth-sdk)
+| Links                                                                   | Description                                                                     | Github                                                                                               |
+|:------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
+| [`bandwidth-sdk`](https://rubygems.org/gems/bandwidth-sdk)              | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/ruby-sdk)                  |
+| [`ruby-bandwidth-iris`](https://rubygems.org/gems/ruby-bandwidth-iris)  | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/ruby-bandwidth-iris)       |
+| [Code Examples](https://github.com/Bandwidth/examples/tree/master/ruby) | Ruby code examples                                                              | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/ruby) |
 
-* [Code Examples](https://github.com/Bandwidth/examples/tree/master/ruby)
+## Release Notes
 
+| Version | Notes                                                                           |
+|:--------|:--------------------------------------------------------------------------------|
+| 3.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
+| 3.1.0   | Updated Pause and SendDtmf BXML attributes                                      |
+| 3.2.0   | Added MFA functions                                                             |
+| 3.3.0   | Added support for multi nested verbs in Gathers                                 |
+| 3.4.0   | Added support for Conference BXMl and Conference API Endpoints                  |
+| 3.5.0   | Updated MFA schema to include digits and expirationTimeInMinutes                |
+| 3.6.0   | Added BXML Bridge verb                                                          |
+| 3.7.0   | Added WebRTC                                                                    |
+| 3.8.0 | Added get conference endpoint |
+| 3.9.0 | Added conference management endpoints |
 
 ## Download & Install
 
@@ -44,7 +47,9 @@ bandwidth_client = Bandwidth::Client.new(
     messaging_basic_auth_user_name: 'token',
     messaging_basic_auth_password: 'secret',
     two_factor_auth_basic_auth_user_name: 'username',
-    two_factor_auth_basic_auth_password: 'password'
+    two_factor_auth_basic_auth_password: 'password',
+    environment: Environment::CUSTOM, #Optional - Used for custom base URLs
+    base_url: "https://test.com" #Optional - Custom base URL set here
 )
 ```
 
@@ -112,12 +117,15 @@ from_phone = "+18888888888"
 to_phone = "+17777777777"
 messaging_application_id = "1-d-b"
 scope = "scope"
+digits = 6
 
 body = TwoFactorCodeRequestSchema.new
 body.from = from_phone
 body.to = to_phone
 body.application_id = messaging_application_id
 body.scope = scope
+body.digits = digits
+body.message = "Your temporary {NAME} {SCOPE} code is {CODE}"
 
 auth_client.create_messaging_two_factor(account_id, body)
 
@@ -129,6 +137,8 @@ body.to = to_phone
 body.application_id = application_id
 body.scope = scope
 body.code = code
+body.digits = digits
+body.expiration_time_in_minutes = 3
 
 response = auth_client.create_verify_two_factor(account_id, body)
 puts "Auth status: " + response.data.valid.to_s
@@ -168,4 +178,30 @@ order_data = {
 order_response = BandwidthIris::Order.create(order_data)
 order_info = BandwidthIris::Order.get(order_response.id)
 puts order_info.name
+```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be a `Bandwidth::APIException`.
+
+### Error Handling Example: Messaging
+
+```ruby
+<require and include statements>
+
+<client initialization code>
+
+begin
+    response = messaging_client.create_message(account_id, :body => body)
+rescue Bandwidth::MessagingException => e
+    puts e.response_code #http status code
+    puts e.response.raw_body #raw response from api
+rescue Bandwidth::APIException => e
+    puts e.response_code #http status code
+    puts e.response.raw_body #raw response from api
+end
 ```

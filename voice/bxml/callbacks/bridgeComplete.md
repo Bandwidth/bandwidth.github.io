@@ -28,8 +28,9 @@ Content-Type: application/xml; charset=utf-8
 | callId           | The call id associated with the event.                                                                    |
 | callUrl          | The URL of the call associated with the event.                                                            |
 | startTime        | Time the call was started, in ISO 8601 format.                                                            |
+| answerTime 	   | Time the call was answered, in ISO 8601 format.                                                           |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null.    |
-| cause            | Reason the bridge failed - `busy`, `rejected`, or `unknown`.                               |
+| cause            | Reason the bridge failed - `busy`, `rejected`, or `unknown`.                               			   |
 | errorMessage     | Text explaining the reason that caused the bridge to fail in case of errors.                              |
 | errorId          | Bandwidth internal id that references the error event.                                                    |
 
@@ -52,6 +53,7 @@ POST http://[External server URL]
 	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"startTime"        : "2019-07-31T13:13:34.859Z",
+	"answerTime"       : "2019-07-31T13:13:40.644Z",
 	"cause"            : "",
 	"errorMessage"     : "",
 	"errorId"          : ""
@@ -77,6 +79,7 @@ POST http://[External server URL]
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
 	"startTime"        : "2019-07-31T13:13:34.859Z",
+	"answerTime"       : "2019-07-31T13:13:40.644Z",
 	"cause"            : "busy",
 	"errorMessage"     : "Call c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f is already bridged with another call",
 	"errorId"          : "4642074b-7b58-478b-96e4-3a60955c6765"
