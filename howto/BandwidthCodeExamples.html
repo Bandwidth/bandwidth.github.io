@@ -1,0 +1,1304 @@
+
+<!DOCTYPE HTML>
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Bandwidth Code Examples &#xB7; Bandwidth API Developer Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content>
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-fonts/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0029/8291.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+    
+    
+    
+    <meta name="title" content="Bandwidth API Developer Docs">
+    
+    <meta name="description" content="See the API reference documentation for Bandwidth&apos;s Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tnbp.html">
+    
+    
+    <link rel="prev" href="hostedMessaging.html">
+    
+
+    <meta name="google-site-verification" content="zCASWBBoL4U7H-I0oVhlzfdosxVxPEK1dIxD4GqsW9E">
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2JT7Z');
+    </script>
+
+
+
+    </head>
+    <body>
+        
+    
+    
+<div class="book"><link href="../styles/styles.min.css" type="text/css">
+<div class="head">
+     <div id="banner">
+       <div class="bannerContainer">
+         <p>Are you looking for Bandwidth&apos;s V2 API docsite? Please visit our <a href="https://new.dev.bandwidth.com">V2 API docsite</a> for more information.</p>
+         <p id="bannerClose"><i class="fa fa-close"></i></p>
+       </div>
+     </div>
+   <a href="https://www.bandwidth.com" class="aimg"><div class="headerLogo"></div></a>
+   <h2>Docs for Developers</h2>
+   <!-- <aside class="alert general small" style="margin: 15px 0px 0px 0px !important; position: fixed;left: 440px;">
+   <p>
+   Due to a change in Github Pages, the API reference requires you to accept an invalid certificate.
+   </p>
+   </aside> -->
+   <ul>
+   	<li class="headerButton"><a href="https://catapult.inetwork.com/portal/signup" target="_blank" style="border-bottom: 0px;"><button class="free-trial">Free trial</button></a></li>
+   	<li><a href="https://app.bandwidth.com" class="headerLink" target="_blank" id="loginTab">Login</a></li>
+    <!-- <li><a href="#" class="headerLink hasSecondary" id="loginTab">Login</a></li> -->
+    <!-- <div class="headerDropdown">
+      <ul>
+         <li><a href="https://app.bandwidth.com" class="headerLink" target="_blank">Voice & Messaging Dashboard</a></li>
+         <li><a href="https://dashboard.bandwidth.com" class="headerLink" target="_blank">Phone Number Dashboard</a></li>
+      </ul>
+    </div> -->
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" class="headerLink" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../about.html">
+            
+                <a href="../about.html" class="hide">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3">
+            
+                <a target="_blank" href="https://www.bandwidth.com/pricing">
+            
+                    
+                    Pricing
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4">
+            
+                <a target="_blank" href="https://github.com/Bandwidth">
+            
+                    
+                    GitHub
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5">
+            
+                <a target="_blank" href="https://simulator.bandwidth.com/">
+            
+                    
+                    Bandwidth Sandbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../guideToGuides.html">
+            
+                <a href="../guideToGuides.html" class="hide">
+            
+                    
+                    About the Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getStarted.html">
+            
+                <a href="../getStarted.html">
+            
+                    
+                    Get Started
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../getStartedSetupGuide.html">
+            
+                <a href="../getStartedSetupGuide.html">
+            
+                    
+                    Voice &amp; Messaging Setup Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../getStartedProgGuide.html">
+            
+                <a href="../getStartedProgGuide.html">
+            
+                    
+                    Voice &amp; Messaging Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="howto.html">
+            
+                <a href="howto.html">
+            
+                    
+                    Building Blocks
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="incomingCallandMessaging.html">
+            
+                <a href="incomingCallandMessaging.html">
+            
+                    
+                    Receive Messages and Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="phonenumbers.html">
+            
+                <a href="phonenumbers.html">
+            
+                    
+                    Phone Numbers
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.2.1" data-path="buytn.html">
+            
+                <a href="buytn.html">
+            
+                    
+                    Get a Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2.2" data-path="importDashboard.html">
+            
+                <a href="importDashboard.html">
+            
+                    
+                    Import Dashboard Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="voice.html">
+            
+                <a href="voice.html">
+            
+                    
+                    Voice
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.3.1" data-path="outboundCall.html">
+            
+                <a href="outboundCall.html">
+            
+                    
+                    Create outbound call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.2" data-path="playAudio.html">
+            
+                <a href="playAudio.html">
+            
+                    
+                    Play Audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.3" data-path="speakSentence.html">
+            
+                <a href="speakSentence.html">
+            
+                    
+                    Speak Sentence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.4" data-path="recordCall.html">
+            
+                <a href="recordCall.html">
+            
+                    
+                    Record a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.5" data-path="createGather.html">
+            
+                <a href="createGather.html">
+            
+                    
+                    Collect digits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.6" data-path="forwardACall.html">
+            
+                <a href="forwardACall.html">
+            
+                    
+                    Forward a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.7" data-path="callScreen.html">
+            
+                <a href="callScreen.html#top">
+            
+                    
+                    Call Screening
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.8" data-path="conferenceCall.html">
+            
+                <a href="conferenceCall.html">
+            
+                    
+                    Conference Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.9" data-path="voicemail.html">
+            
+                <a href="voicemail.html">
+            
+                    
+                    Voicemail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.10" data-path="sip.html">
+            
+                <a href="sip.html">
+            
+                    
+                    Configure SIP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.11" data-path="webrtc.html">
+            
+                <a href="webrtc.html">
+            
+                    
+                    WebRTC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.12" data-path="acrobits.html">
+            
+                <a href="acrobits.html">
+            
+                    
+                    For Mobile Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.13" data-path="networkBridge.html">
+            
+                <a href="networkBridge.html">
+            
+                    
+                    Network Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="messaging.html">
+            
+                <a href="messaging.html">
+            
+                    
+                    Messaging
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.4.1" data-path="sendSMSMMS.html">
+            
+                <a href="sendSMSMMS.html">
+            
+                    
+                    Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.2" data-path="smsDLR.html">
+            
+                <a href="smsDLR.html">
+            
+                    
+                    Send SMS with Delivery Receipt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.3" data-path="hostedMessaging.html">
+            
+                <a href="hostedMessaging.html">
+            
+                    
+                    Hosted Messaging Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="BandwidthCodeExamples.html">
+            
+                <a href="BandwidthCodeExamples.html">
+            
+                    
+                    Bandwidth Code Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../tnbp.html">
+            
+                <a href="../tnbp.html">
+            
+                    
+                    Termination Network Bridge Provisioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Security</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../security.html">
+            
+                <a href="../security.html">
+            
+                    
+                    Security
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../callbackSecurity.html">
+            
+                <a href="../callbackSecurity.html">
+            
+                    
+                    Secure your callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1">
+            
+                <a href="https://dev.bandwidth.com/ap-docs/methods/restApi.html">
+            
+                    
+                    Voice &amp; Messaging API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2">
+            
+                <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html">
+            
+                    
+                    BXML Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3">
+            
+                <a href="https://dev.bandwidth.com/v2-messaging">
+            
+                    
+                    Messaging v2 Reference (NEW)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4">
+            
+                <a href="https://dev.bandwidth.com/docs/phone-numbers/">
+            
+                    
+                    Phone Numbers Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SDKs</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../getStartedVMDKS.html">
+            
+                <a href="../getStartedVMDKS.html">
+            
+                    
+                    Voice &amp; Messaging SDKs
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../clientLib/node.html">
+            
+                <a href="../clientLib/node.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../clientLib/csharp.html">
+            
+                <a href="../clientLib/csharp.html">
+            
+                    
+                    C#
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../clientLib/ruby.html">
+            
+                <a href="../clientLib/ruby.html">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../clientLib/python.html">
+            
+                <a href="../clientLib/python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../clientLib/java.html">
+            
+                <a href="../clientLib/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="../clientLib/php.html">
+            
+                <a href="../clientLib/php.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../getStartedPNSDKS.html">
+            
+                <a href="../getStartedPNSDKS.html">
+            
+                    
+                    Phone Numbers SDKs
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/node-bandwidth-iris">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/csharp-bandwidth-iris">
+            
+                    
+                    C#
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/ruby-bandwidth-iris">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/python-bandwidth-iris">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.5">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/java-bandwidth-iris">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.6">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/php-bandwidth-iris">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1">
+            
+                <a target="_blank" href="https://dev.bandwidth.com/faq">
+            
+                    
+                    FAQ
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2">
+            
+                <a target="_blank" href="https://support.bandwidth.com">
+            
+                    
+                    Support
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="..">Bandwidth Code Examples</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="bandwidth-code-examples">Bandwidth Code Examples</h2>
+<p><a href="#Python">Python</a>. <a href="#JavaScript">JavaScript</a>. <a href="#CSharp">CSharp</a>. <a href="#PHP">PHP</a>. <a href="#Java">Java</a>. <a href="#Swift">Swift</a>. <a href="#Ruby">Ruby</a>. <a href="#C">C</a>. <a href="#HTML">HTML</a>. <a href="#TypeScript">TypeScript</a>. <a href="#Go">Go</a>. <a href="#Vue">Vue</a>. <a id="Python"></a></p><h3 id="python">Python</h3><p></p>
+<hr>
+<h3 id="email-and-sms-integration"><a href="#Email%20and%20SMS%20Integration"></a><a href="https://github.com/BandwidthExamples/Email-SMS-Integration" target="_blank">Email and SMS Integration</a></h3>
+<p>Integration between Bandwidth&apos;s API and Mailgun&apos;s API to provide email-sms communication</p>
+<h3 id="keypad-ivr"><a href="#Keypad%20IVR"></a><a href="https://github.com/BandwidthExamples/python-flask-ivr-example" target="_blank">Keypad IVR</a></h3>
+<p>An example of a keypad IVR system using Python and Flask</p>
+<h3 id="two-factor-authentication"><a href="#Two-Factor%20Authentication"></a><a href="https://github.com/BandwidthExamples/python-flask-two-factor-auth-example" target="_blank">Two-Factor Authentication</a></h3>
+<p>An example of a basic two factor authentication system using python, flask, and Bandwidth&apos;s API</p>
+<p><a id="JavaScript"></a></p><h3 id="javascript">JavaScript</h3><p></p>
+<hr>
+<h3 id="messaging-reference-app"><a href="#Messaging%20Reference%20App"></a><a href="https://github.com/BandwidthExamples/node-messaging-reference-app" target="_blank">Messaging Reference App</a></h3>
+<p>Sample application of using node.js to send and receive Bandwidth text messages</p>
+<h3 id="click-to-call-example"><a href="#Click-To-Call%20Example"></a><a href="https://github.com/BandwidthExamples/node-click-to-call" target="_blank">Click-To-Call Example</a></h3>
+<p>node.js click to call example</p>
+<h3 id="assisted-transfer-flow"><a href="#Assisted%20Transfer%20Flow"></a><a href="https://github.com/BandwidthExamples/node-assisted-transfer" target="_blank">Assisted Transfer Flow</a></h3>
+<p>Assisted transfer flow</p>
+<h3 id="call-tracking-example"><a href="#Call%20Tracking%20Example"></a><a href="https://github.com/BandwidthExamples/node-call-tracking" target="_blank">Call Tracking Example</a></h3>
+<p>Call Tracking Example for Bandwidth Voice and Messaging APIs</p>
+<h3 id="call-tracking-example-using-bxml"><a href="#Call%20Tracking%20Example%20Using%20BXML"></a><a href="https://github.com/BandwidthExamples/node-call-tracking-bxml-express" target="_blank">Call Tracking Example Using BXML</a></h3>
+<p>NodeJS Call Tracking Application written with BXML and express framework</p>
+<h3 id="sample-app-for-early-media"><a href="#Sample%20App%20for%20Early%20Media"></a><a href="https://github.com/BandwidthExamples/node-earlymedia-example" target="_blank">Sample App for Early Media</a></h3>
+<p> Bandwidth Call &amp; Conference API Sample App for early media written in node.js</p>
+<h3 id="bandcast"><a href="#Bandcast"></a><a href="https://github.com/BandwidthExamples/Bandcast" target="_blank">Bandcast</a></h3>
+<p>SMS Broadcast System for Events</p>
+<h3 id="phone-number-display-example"><a href="#Phone%20Number%20Display%20Example"></a><a href="https://github.com/BandwidthExamples/csharp-iris-numbers-app" target="_blank">Phone Number Display Example</a></h3>
+<p>Shows Phone Numbers in catapult by application</p>
+<h3 id="web-based-message-chat-application"><a href="#Web-based%20Message%20Chat%20Application"></a><a href="https://github.com/BandwidthExamples/node-web-sms-chat" target="_blank">Web-based Message Chat Application</a></h3>
+<p>NodeJS backend for web-based chat application that features Catapult SMS and MMS capabilities.</p>
+<h3 id="text-phrase-example"><a href="#Text%20Phrase%20Example"></a><a href="https://github.com/BandwidthExamples/heart-text" target="_blank">Text Phrase Example</a></h3>
+<p>text a number, get a sweet heart phrase</p>
+<h3 id="web-based-phone-application"><a href="#Web-based%20Phone%20Application"></a><a href="https://github.com/BandwidthExamples/node-web-phone" target="_blank">Web-based Phone Application</a></h3>
+<p>NodeJS backend for web-based phone application</p>
+<h3 id="phone-number-verification"><a href="#Phone%20Number%20Verification"></a><a href="https://github.com/BandwidthExamples/node-phone-verify" target="_blank">Phone Number Verification</a></h3>
+<p>Catapult API demo app to verify a phone number by sending to it a SMS or phone call with confirm code</p>
+<h3 id="get-all-user-messages"><a href="#Get%20All%20User%20Messages"></a><a href="https://github.com/BandwidthExamples/node-example-get-all-messages" target="_blank">Get All User Messages</a></h3>
+<p>Get all messages with paginated results</p>
+<h3 id="wikipedia-cat-facts"><a href="#Wikipedia%20Cat%20Facts"></a><a href="https://github.com/BandwidthExamples/WPcatfacts" target="_blank">Wikipedia Cat Facts</a></h3>
+<p>SMS-based interface for English Wikipedia</p>
+<h3 id="opkit-example"><a href="#Opkit%20Example"></a><a href="https://github.com/BandwidthExamples/opkit-example" target="_blank">Opkit Example</a></h3>
+<p>Example OPKIT bot</p>
+<h3 id="airtng-example"><a href="#AirTNG%20Example"></a><a href="https://github.com/BandwidthExamples/airtng-node" target="_blank">AirTNG Example</a></h3>
+<p>AirTNG - Rental-by-owner properties fit for a Captain, implemented with Node.js and Express</p>
+<h3 id="bandwidth-slack-bot"><a href="#Bandwidth%20Slack%20Bot"></a><a href="https://github.com/BandwidthExamples/bandwidth-slack-bot" target="_blank">Bandwidth Slack Bot</a></h3>
+<p>Demo of integration Slack with Bandwidth Messaging</p>
+<h3 id="bandwidth-zapier-integration"><a href="#Bandwidth%20Zapier%20Integration"></a><a href="https://github.com/BandwidthExamples/bandwidth-zapier-integration" target="_blank">Bandwidth Zapier Integration</a></h3>
+<p>Demo of integration Zapier with Catapult Messaging</p>
+<h3 id="bandwidth-zapier-integration-using-a-proxy"><a href="#Bandwidth%20Zapier%20Integration%20Using%20a%20Proxy"></a><a href="https://github.com/BandwidthExamples/bandwidth-zapier-integration-proxy" target="_blank">Bandwidth Zapier Integration Using a Proxy</a></h3>
+<p>Proxy web application to handle incoming webhooks from Catapult and make right requests to Zapier appplication</p>
+<h3 id="slack-lobby-bot"><a href="#Slack%20Lobby%20Bot"></a><a href="https://github.com/BandwidthExamples/lobby-bot" target="_blank">Slack Lobby Bot</a></h3>
+<p>Slack bot for lobby</p>
+<h3 id="sms-to-google-spreadsheet-example"><a href="#SMS%20to%20Google%20Spreadsheet%20Example"></a><a href="https://github.com/BandwidthExamples/bandwidth-sheet" target="_blank">SMS to Google Spreadsheet Example</a></h3>
+<p>Redirect you incoming SMS to Google Spreadsheet</p>
+<h3 id="node-template-generator-for-bandwidth"><a href="#Node%20Template%20Generator%20for%20Bandwidth"></a><a href="https://github.com/BandwidthExamples/generator-node-bandwidth" target="_blank">Node Template Generator for Bandwidth</a></h3>
+<p>Generator of simple web application which uses Bandwidth API on Node JS</p>
+<h3 id="appointment-reminder"><a href="#Appointment%20Reminder"></a><a href="https://github.com/BandwidthExamples/node-appointment-reminder" target="_blank">Appointment Reminder</a></h3>
+<p>Bandwidth API Sample App for Appointment Reminder</p>
+<h3 id="bandwidth-messaging-dashboard"><a href="#Bandwidth%20Messaging%20Dashboard"></a><a href="https://github.com/BandwidthExamples/bandwidth-messaging-dashboard" target="_blank">Bandwidth Messaging Dashboard</a></h3>
+<p>Sample of Bandwidth&apos;s messaging dashboard</p>
+<h3 id="report-sexual-assault"><a href="#Report%20Sexual%20Assault"></a><a href="https://github.com/BandwidthExamples/sexaul-assault-reporting-app" target="_blank">Report Sexual Assault</a></h3>
+<p>Defines a hotline number that serves to make sexual assault survivors feel more comfortable when reporting their assault</p>
+<h3 id="wakeup-call-example"><a href="#Wakeup%20Call%20Example"></a><a href="https://github.com/BandwidthExamples/morning-glorious" target="_blank">Wakeup Call Example</a></h3>
+<p>Creates an alarm clock through a phone call</p>
+<h3 id="collect-and-show-statistics-on-a-users-github-projects"><a href="#Collect%20and%20Show%20Statistics%20on%20a%20user%27s%20github%20projects"></a><a href="https://github.com/BandwidthExamples/github-stats" target="_blank">Collect and Show Statistics on a user&apos;s github projects</a></h3>
+<p>Collect statistics about githb repositories</p>
+<h3 id="unknown-caller-notification"><a href="#Unknown%20Caller%20Notification"></a><a href="https://github.com/BandwidthExamples/context-call" target="_blank">Unknown Caller Notification</a></h3>
+<p>Announce unknown callers via text message before calling. [Call me maybe]</p>
+<h3 id="export-phone-number-transaction-data"><a href="#Export%20Phone%20Number%20Transaction%20Data"></a><a href="https://github.com/BandwidthExamples/node-per-number-transactions" target="_blank">Export Phone Number Transaction Data</a></h3>
+<p>Export transactions data for each user number for given time interval</p>
+<h3 id="text-messenger-example-app"><a href="#Text%20Messenger%20Example%20App"></a><a href="https://github.com/BandwidthExamples/simple-text-messenger" target="_blank">Text Messenger Example App</a></h3>
+<p>Simple text messenger</p>
+<h3 id="sip-credential-generator-using-bxml"><a href="#SIP%20credential%20generator%20using%20BXML"></a><a href="https://github.com/BandwidthExamples/sip-handler-bxml" target="_blank">SIP credential generator using BXML</a></h3>
+<p>Super simple application to generate SIP creds and route calls with BXML</p>
+<h3 id="react-phone-example"><a href="#React%20Phone%20Example"></a><a href="https://github.com/BandwidthExamples/react-native-phone" target="_blank">React Phone Example</a></h3>
+<p>Simple phone application for mobile phones which written with react-native</p>
+<h3 id="appointment-reminder-application"><a href="#Appointment%20Reminder%20Application"></a><a href="https://github.com/BandwidthExamples/appointmentReminder" target="_blank">Appointment Reminder Application</a></h3>
+<p> A simple appointment reminder app using Bandwidth&apos;s Messaging API, Node.JS, and Express</p>
+<h3 id="masked-number-application"><a href="#Masked%20Number%20Application"></a><a href="https://github.com/BandwidthExamples/maskedNumberSample" target="_blank">Masked Number Application</a></h3>
+<p>A simple masked number example using both Voice and Messaging as well as Node.JS and Express</p>
+<p><a id="CSharp"></a></p><h3 id="csharp">CSharp</h3><p></p>
+<hr>
+<h3 id="messaging-example"><a href="#Messaging%20Example"></a><a href="https://github.com/BandwidthExamples/csharp-messaging-reference-app" target="_blank">Messaging Example</a></h3>
+<p>Sample application using C# to send and receive Bandwidth text messages</p>
+<h3 id="click-to-call"><a href="#Click%20To%20Call"></a><a href="https://github.com/BandwidthExamples/csharp-click-to-call" target="_blank">Click To Call</a></h3>
+<p>Catapult .NET app demos click to call</p>
+<h3 id="assisted-transfer"><a href="#Assisted%20Transfer"></a><a href="https://github.com/BandwidthExamples/csharp-assisted-transfer" target="_blank">Assisted Transfer</a></h3>
+<p>This example shows how to implement assisted transfer using the csharp SDK</p>
+<h3 id="dynamic-bxml-voicemail-generator"><a href="#Dynamic%20BXML%20Voicemail%20Generator"></a><a href="https://github.com/BandwidthExamples/csharp-bxml-voicemail" target="_blank">Dynamic BXML Voicemail Generator</a></h3>
+<p>This repo is an example of generating dynamic BXML for a voicemail app</p>
+<h3 id="call-tracking-example"><a href="#Call%20Tracking%20Example"></a><a href="https://github.com/BandwidthExamples/csharp-call-tracking" target="_blank">Call Tracking Example</a></h3>
+<p>Call Tracking Example for Bandwidth Voice and Messaging APIs</p>
+<h3 id="create-calls-from-a-list-of-contacts"><a href="#Create%20Calls%20From%20a%20List%20of%20Contacts"></a><a href="https://github.com/BandwidthExamples/csharp-call-contacts-example" target="_blank">Create Calls From a List of Contacts</a></h3>
+<p>This examples shows how to create outbound calls from a list of contacts</p>
+<h3 id="web-based-message-chat-application"><a href="#Web-based%20Message%20Chat%20Application"></a><a href="https://github.com/BandwidthExamples/csharp-web-sms-chat" target="_blank">Web-based Message Chat Application</a></h3>
+<p>C# backend for web-based chat application that features Catapult SMS and MMS capabilities.</p>
+<h3 id="web-based-phone-application"><a href="#Web-based%20Phone%20Application"></a><a href="https://github.com/BandwidthExamples/csharp-web-phone" target="_blank">Web-based Phone Application</a></h3>
+<p>C# backend for web-based phone application</p>
+<h3 id="phone-number-verification"><a href="#Phone%20Number%20Verification"></a><a href="https://github.com/BandwidthExamples/csharp-phone-verify" target="_blank">Phone Number Verification</a></h3>
+<p>Catapult API demo app to verify a phone number by sending to it a SMS or phone call with confirm code</p>
+<h3 id="bandwidth-csharp-web-application-templates"><a href="#Bandwidth%20CSharp%20Web%20Application%20Templates"></a><a href="https://github.com/BandwidthExamples/csharp-templates" target="_blank">Bandwidth CSharp Web Application Templates</a></h3>
+<p>Templates of simple web applications which uses Bandwidth API on .Net</p>
+<h3 id="appointment-reminder"><a href="#Appointment%20Reminder"></a><a href="https://github.com/BandwidthExamples/csharp-appointment-reminder" target="_blank">Appointment Reminder</a></h3>
+<p>Bandwidth API Sample App for Appointment Reminder</p>
+<h3 id="bxml-voice-call"><a href="#BXML%20Voice%20Call"></a><a href="https://github.com/BandwidthExamples/BXMLsample" target="_blank">BXML Voice Call</a></h3>
+<p>A simple Voice app that demonstrates the use of BXML using Bandwidth&apos;s Voice API, C#, and ASP.NET</p>
+<p><a id="PHP"></a></p><h3 id="php">PHP</h3><p></p>
+<hr>
+<h3 id="voice-appointment-reminders"><a href="#Voice%20Appointment%20Reminders"></a><a href="https://github.com/BandwidthExamples/php-voice-appt-reminder" target="_blank">Voice Appointment Reminders</a></h3>
+<p>Bandwidth Example app for PHP Voice Appointment Reminders</p>
+<h3 id="simple-assisted-transfer-flow-using-bxml"><a href="#Simple%20Assisted%20Transfer%20Flow%20Using%20BXML"></a><a href="https://github.com/BandwidthExamples/php-assisted-transfer-with-BXML" target="_blank">Simple Assisted Transfer Flow Using BXML</a></h3>
+<p>This example app shows how to implement a simple assisted transfer flow using BXML</p>
+<h3 id="automatically-reply-to-an-inbound-sms"><a href="#Automatically%20Reply%20to%20an%20Inbound%20SMS"></a><a href="https://github.com/BandwidthExamples/php-auto-reply" target="_blank">Automatically Reply to an Inbound SMS</a></h3>
+<p>Simple starter app for doing an auto-reply to an inbound SMS message</p>
+<h3 id="voice-conferencing-using-php"><a href="#Voice%20Conferencing%20Using%20PHP"></a><a href="https://github.com/BandwidthExamples/voice-conferencing-php" target="_blank">Voice Conferencing Using PHP</a></h3>
+<p>An example of basic conferencing in PHP</p>
+<p><a id="Java"></a></p><h3 id="java">Java</h3><p></p>
+<hr>
+<h3 id="voice-reference-app-for-android"><a href="#Voice%20Reference%20App%20for%20Android"></a><a href="https://github.com/BandwidthExamples/catapult-reference-app-voice-android" target="_blank">Voice Reference App for Android</a></h3>
+<p>Android app that leverages the Acrobits SDK to register users and makes calls using Bandwidth Voice and Messaging APIs </p>
+<h3 id="java-appointment-reminders"><a href="#Java%20Appointment%20Reminders"></a><a href="https://github.com/BandwidthExamples/java-appointment-reminders" target="_blank">Java Appointment Reminders</a></h3>
+<p>Appointment reminder example using java and Bandwidth&apos;s API</p>
+<h3 id="sms-delivery-receipt-example"><a href="#SMS%20Delivery%20Receipt%20Example"></a><a href="https://github.com/BandwidthExamples/java-bandwidth-sms-dlr-example" target="_blank">SMS Delivery Receipt Example</a></h3>
+<p>Bandwidth - SMS Delivery Receipt SDK Example</p>
+<h3 id="bxml-examples"><a href="#BXML%20Examples"></a><a href="https://github.com/BandwidthExamples/java-bandwidth-bxml-examples" target="_blank">BXML Examples</a></h3>
+<p>Samples for the bandwidth java sdk</p>
+<h3 id="java-call-tracking"><a href="#Java%20Call%20Tracking"></a><a href="https://github.com/BandwidthExamples/java-call-tracking" target="_blank">Java Call Tracking</a></h3>
+<p>This example show how to use the java and BXML to implement a simple call tracking scenario. It uses Java servlets and JSP for a MVC2 approach without a frameworks. </p>
+<h3 id="conference-management-using-bxml"><a href="#Conference%20Management%20Using%20BXML"></a><a href="https://github.com/BandwidthExamples/java-conference-with-bxml" target="_blank">Conference Management Using BXML</a></h3>
+<p>This is an example of creating and  managing conferences and using BXML for call flow</p>
+<h3 id="bandwidth-voice-and-messaging-api-android-reference"><a href="#Bandwidth%20Voice%20and%20Messaging%20API%20Android%20Reference"></a><a href="https://github.com/BandwidthExamples/catapult-reference-app-voice-android-advanced" target="_blank">Bandwidth Voice and Messaging API Android Reference</a></h3>
+<p>Bandwidth Voice and Messaging APIs android reference application using Acrobits&apos; SDK with push notifications</p>
+<h3 id="basic-text-to-speech-service"><a href="#Basic%20Text-to-Speech%20Service"></a><a href="https://github.com/BandwidthExamples/tts-sample-service" target="_blank">Basic Text-to-Speech Service</a></h3>
+<p> A bare-bones functional service meant to provide a basic framework for building a Text-to-Speech (TTS) Service backed by Amazon Polly and other vendors</p>
+<p><a id="Swift"></a></p><h3 id="swift">Swift</h3><p></p>
+<hr>
+<h3 id="voice-reference-app-for-ios"><a href="#Voice%20Reference%20App%20for%20iOS"></a><a href="https://github.com/BandwidthExamples/catapult-reference-app-voice-ios" target="_blank">Voice Reference App for iOS</a></h3>
+<p>Voice Reference app for Bandwidth Voice and Messaging APIs</p>
+<p><a id="Ruby"></a></p><h3 id="ruby">Ruby</h3><p></p>
+<hr>
+<h3 id="messaging-app-example"><a href="#Messaging%20App%20Example"></a><a href="https://github.com/BandwidthExamples/ruby-messaging-reference-app" target="_blank">Messaging App Example</a></h3>
+<p>Sample application using ruby to send and receive Bandwidth text messages</p>
+<h3 id="click-to-call-example"><a href="#Click%20To%20Call%20Example"></a><a href="https://github.com/BandwidthExamples/ruby-click-to-call" target="_blank">Click To Call Example</a></h3>
+<p>ruby click to call example</p>
+<h3 id="call-tracking-example"><a href="#Call%20Tracking%20Example"></a><a href="https://github.com/BandwidthExamples/ruby-call-tracking" target="_blank">Call Tracking Example</a></h3>
+<p>Call Tracking Example for Bandwidth Voice and Messaging APIs</p>
+<h3 id="assisted-transfer-flow"><a href="#Assisted%20Transfer%20Flow"></a><a href="https://github.com/BandwidthExamples/ruby-assisted-transfer" target="_blank">Assisted Transfer Flow</a></h3>
+<p>This example shows how to implement an assisted transfer flow using the ruby SDK</p>
+<h3 id="web-sms-chat-example"><a href="#Web%20SMS%20Chat%20Example"></a><a href="https://github.com/BandwidthExamples/ruby-web-sms-chat" target="_blank">Web SMS Chat Example</a></h3>
+<p> Ruby backend for web-based chat application that features Bandwidth&apos;s SMS and MMS API capabilities</p>
+<h3 id="appointment-reminder"><a href="#Appointment%20Reminder"></a><a href="https://github.com/BandwidthExamples/ruby-appointment-reminder" target="_blank">Appointment Reminder</a></h3>
+<p>Bandwidth API Sample App for Appointment Reminders</p>
+<h3 id="mms-upload-to-amazon-s3-example"><a href="#MMS%20Upload%20to%20Amazon%20S3%20Example"></a><a href="https://github.com/BandwidthExamples/ruby-media-to-s3" target="_blank">MMS Upload to Amazon S3 Example</a></h3>
+<p>Upload all incoming MMS attachments to Amazon S3</p>
+<p><a id="C"></a></p><h3 id="c">C</h3><p></p>
+<hr>
+<h3 id="ios-catapult-reference-app"><a href="#iOS%20Catapult%20Reference%20App"></a><a href="https://github.com/BandwidthExamples/ios-messaging-reference-app" target="_blank">iOS Catapult Reference App</a></h3>
+<p>This repo is for the catapult reference app in ios</p>
+<p><a id="HTML"></a></p><h3 id="html">HTML</h3><p></p>
+<hr>
+<h3 id="podcall"><a href="#PodCall"></a><a href="https://github.com/BandwidthExamples/PodCall" target="_blank">PodCall</a></h3>
+<p>Call your favorite Podcasts</p>
+<h3 id="simple-masked-numbers-example"><a href="#Simple%20Masked%20Numbers%20Example"></a><a href="https://github.com/BandwidthExamples/masked-number-api" target="_blank">Simple Masked Numbers Example</a></h3>
+<p>Stupid simple masked numbers</p>
+<p><a id="TypeScript"></a></p><h3 id="typescript">TypeScript</h3><p></p>
+<hr>
+<h3 id="web-based-sms-and-mms-chat-application"><a href="#Web-based%20SMS%20and%20MMS%20Chat%20Application"></a><a href="https://github.com/BandwidthExamples/web-sms-chat-frontend" target="_blank">Web-based SMS and MMS Chat Application</a></h3>
+<p>Frontend for web-based chat application that features Catapult SMS and MMS capabilities.</p>
+<h3 id="web-based-phone-application"><a href="#Web-based%20Phone%20Application"></a><a href="https://github.com/BandwidthExamples/web-phone-frontend" target="_blank">Web-based Phone Application</a></h3>
+<p>Frontend for web phone application</p>
+<p><a id="Go"></a></p><h3 id="go">Go</h3><p></p>
+<hr>
+<h3 id="proxy-example-using-messaging-v2"><a href="#Proxy%20Example%20Using%20Messaging%20V2"></a><a href="https://github.com/BandwidthExamples/message-proxy-mqtt" target="_blank">Proxy Example Using Messaging V2</a></h3>
+<p>MQTT/Websocket/etc proxy for MessagingV2 API with message storage</p>
+<h3 id="bandwidth-api-command-line-interface"><a href="#Bandwidth%20API%20Command%20Line%20Interface"></a><a href="https://github.com/BandwidthExamples/bandwidth-cli" target="_blank">Bandwidth API Command Line Interface</a></h3>
+<p>Bandwidth Voice and Message API command line interface</p>
+<p><a id="Vue"></a></p><h3 id="vue">Vue</h3><p></p>
+<hr>
+<h3 id="bxml-editor"><a href="#BXML%20Editor"></a><a href="https://github.com/BandwidthExamples/bxml-maker" target="_blank">BXML Editor</a></h3>
+<p>BandwidthXML web ui editor</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            <p><div id="page-footer" class="localized-footer"><ul class="footerUnorderedList">
+<span class="footerLabel">LEARN MORE</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/voice/">Voice</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/messaging/">Messaging</a></li><span class="remove4mobile"><span class="remove4mobile">&#x2022;</span></span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/9-1-1/">9-1-1 Access</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/phone-numbers/">Phone Numbers</a></li>
+</ul>
+<ul class="footerUnorderedList">
+<span class="footerLabel">QUICK LINKS</span>
+  <li class="footerListItem"><a href="https://status.bandwidth.com">Service Status</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/glossary/">Glossary</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/news/">News</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/contact/">Contact</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/resources/">Resources</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/blog/">Blog</a></li>
+</ul>
+</div></p>
+</div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Bandwidth Code Examples","level":"2.4","depth":1,"next":{"title":"Termination Network Bridge Provisioning","level":"2.5","depth":1,"path":"tnbp.md","ref":"tnbp.md","articles":[]},"previous":{"title":"Hosted Messaging Getting Started","level":"2.3.4.3","depth":3,"path":"howto/hostedMessaging.md","ref":"howto/hostedMessaging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","parse-from-url@1.0.4","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"parse-from-url":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"parseUrls":{"urls":[{"url":"https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100","dest":"howto/BandwidthCodeExamples.md","mapping":"github-names.json"}]},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"howto/BandwidthCodeExamples.md","mtime":"2019-08-26T15:40:44.356Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T15:42:38.560Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P2JT7Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+	<!-- begin usabilla live embed code -->
+	<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+	window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/73009503da29.js");
+	/*]]>{/literal}*/</script>
+	<!-- end usabilla live embed code -->
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-bandwidth-fonts/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

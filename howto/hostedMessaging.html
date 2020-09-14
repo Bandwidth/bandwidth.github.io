@@ -1,0 +1,1457 @@
+
+<!DOCTYPE HTML>
+<html lang>
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Hosted Messaging Getting Started &#xB7; Bandwidth API Developer Docs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content>
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-fonts/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0029/8291.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+    
+    
+    
+    <meta name="title" content="Bandwidth API Developer Docs">
+    
+    <meta name="description" content="See the API reference documentation for Bandwidth&apos;s Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="BandwidthCodeExamples.html">
+    
+    
+    <link rel="prev" href="smsDLR.html">
+    
+
+    <meta name="google-site-verification" content="zCASWBBoL4U7H-I0oVhlzfdosxVxPEK1dIxD4GqsW9E">
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2JT7Z');
+    </script>
+
+
+
+    </head>
+    <body>
+        
+    
+    
+<div class="book"><link href="../styles/styles.min.css" type="text/css">
+<div class="head">
+     <div id="banner">
+       <div class="bannerContainer">
+         <p>Are you looking for Bandwidth&apos;s V2 API docsite? Please visit our <a href="https://new.dev.bandwidth.com">V2 API docsite</a> for more information.</p>
+         <p id="bannerClose"><i class="fa fa-close"></i></p>
+       </div>
+     </div>
+   <a href="https://www.bandwidth.com" class="aimg"><div class="headerLogo"></div></a>
+   <h2>Docs for Developers</h2>
+   <!-- <aside class="alert general small" style="margin: 15px 0px 0px 0px !important; position: fixed;left: 440px;">
+   <p>
+   Due to a change in Github Pages, the API reference requires you to accept an invalid certificate.
+   </p>
+   </aside> -->
+   <ul>
+   	<li class="headerButton"><a href="https://catapult.inetwork.com/portal/signup" target="_blank" style="border-bottom: 0px;"><button class="free-trial">Free trial</button></a></li>
+   	<li><a href="https://app.bandwidth.com" class="headerLink" target="_blank" id="loginTab">Login</a></li>
+    <!-- <li><a href="#" class="headerLink hasSecondary" id="loginTab">Login</a></li> -->
+    <!-- <div class="headerDropdown">
+      <ul>
+         <li><a href="https://app.bandwidth.com" class="headerLink" target="_blank">Voice & Messaging Dashboard</a></li>
+         <li><a href="https://dashboard.bandwidth.com" class="headerLink" target="_blank">Phone Number Dashboard</a></li>
+      </ul>
+    </div> -->
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" class="headerLink" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../about.html">
+            
+                <a href="../about.html" class="hide">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3">
+            
+                <a target="_blank" href="https://www.bandwidth.com/pricing">
+            
+                    
+                    Pricing
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4">
+            
+                <a target="_blank" href="https://github.com/Bandwidth">
+            
+                    
+                    GitHub
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5">
+            
+                <a target="_blank" href="https://simulator.bandwidth.com/">
+            
+                    
+                    Bandwidth Sandbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../guideToGuides.html">
+            
+                <a href="../guideToGuides.html" class="hide">
+            
+                    
+                    About the Docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../getStarted.html">
+            
+                <a href="../getStarted.html">
+            
+                    
+                    Get Started
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../getStartedSetupGuide.html">
+            
+                <a href="../getStartedSetupGuide.html">
+            
+                    
+                    Voice &amp; Messaging Setup Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../getStartedProgGuide.html">
+            
+                <a href="../getStartedProgGuide.html">
+            
+                    
+                    Voice &amp; Messaging Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="howto.html">
+            
+                <a href="howto.html">
+            
+                    
+                    Building Blocks
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="incomingCallandMessaging.html">
+            
+                <a href="incomingCallandMessaging.html">
+            
+                    
+                    Receive Messages and Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="phonenumbers.html">
+            
+                <a href="phonenumbers.html">
+            
+                    
+                    Phone Numbers
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.2.1" data-path="buytn.html">
+            
+                <a href="buytn.html">
+            
+                    
+                    Get a Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2.2" data-path="importDashboard.html">
+            
+                <a href="importDashboard.html">
+            
+                    
+                    Import Dashboard Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="voice.html">
+            
+                <a href="voice.html">
+            
+                    
+                    Voice
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.3.1" data-path="outboundCall.html">
+            
+                <a href="outboundCall.html">
+            
+                    
+                    Create outbound call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.2" data-path="playAudio.html">
+            
+                <a href="playAudio.html">
+            
+                    
+                    Play Audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.3" data-path="speakSentence.html">
+            
+                <a href="speakSentence.html">
+            
+                    
+                    Speak Sentence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.4" data-path="recordCall.html">
+            
+                <a href="recordCall.html">
+            
+                    
+                    Record a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.5" data-path="createGather.html">
+            
+                <a href="createGather.html">
+            
+                    
+                    Collect digits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.6" data-path="forwardACall.html">
+            
+                <a href="forwardACall.html">
+            
+                    
+                    Forward a call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.7" data-path="callScreen.html">
+            
+                <a href="callScreen.html#top">
+            
+                    
+                    Call Screening
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.8" data-path="conferenceCall.html">
+            
+                <a href="conferenceCall.html">
+            
+                    
+                    Conference Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.9" data-path="voicemail.html">
+            
+                <a href="voicemail.html">
+            
+                    
+                    Voicemail
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.10" data-path="sip.html">
+            
+                <a href="sip.html">
+            
+                    
+                    Configure SIP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.11" data-path="webrtc.html">
+            
+                <a href="webrtc.html">
+            
+                    
+                    WebRTC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.12" data-path="acrobits.html">
+            
+                <a href="acrobits.html">
+            
+                    
+                    For Mobile Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3.13" data-path="networkBridge.html">
+            
+                <a href="networkBridge.html">
+            
+                    
+                    Network Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="messaging.html">
+            
+                <a href="messaging.html">
+            
+                    
+                    Messaging
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.4.1" data-path="sendSMSMMS.html">
+            
+                <a href="sendSMSMMS.html">
+            
+                    
+                    Send SMS/MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4.2" data-path="smsDLR.html">
+            
+                <a href="smsDLR.html">
+            
+                    
+                    Send SMS with Delivery Receipt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.4.3" data-path="hostedMessaging.html">
+            
+                <a href="hostedMessaging.html">
+            
+                    
+                    Hosted Messaging Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="BandwidthCodeExamples.html">
+            
+                <a href="BandwidthCodeExamples.html">
+            
+                    
+                    Bandwidth Code Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../tnbp.html">
+            
+                <a href="../tnbp.html">
+            
+                    
+                    Termination Network Bridge Provisioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Security</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../security.html">
+            
+                <a href="../security.html">
+            
+                    
+                    Security
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../callbackSecurity.html">
+            
+                <a href="../callbackSecurity.html">
+            
+                    
+                    Secure your callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1">
+            
+                <a href="https://dev.bandwidth.com/ap-docs/methods/restApi.html">
+            
+                    
+                    Voice &amp; Messaging API Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2">
+            
+                <a href="https://dev.bandwidth.com/ap-docs/bxml/bxml.html">
+            
+                    
+                    BXML Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3">
+            
+                <a href="https://dev.bandwidth.com/v2-messaging">
+            
+                    
+                    Messaging v2 Reference (NEW)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4">
+            
+                <a href="https://dev.bandwidth.com/docs/phone-numbers/">
+            
+                    
+                    Phone Numbers Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">SDKs</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../getStartedVMDKS.html">
+            
+                <a href="../getStartedVMDKS.html">
+            
+                    
+                    Voice &amp; Messaging SDKs
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../clientLib/node.html">
+            
+                <a href="../clientLib/node.html">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../clientLib/csharp.html">
+            
+                <a href="../clientLib/csharp.html">
+            
+                    
+                    C#
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../clientLib/ruby.html">
+            
+                <a href="../clientLib/ruby.html">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../clientLib/python.html">
+            
+                <a href="../clientLib/python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../clientLib/java.html">
+            
+                <a href="../clientLib/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="../clientLib/php.html">
+            
+                <a href="../clientLib/php.html">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../getStartedPNSDKS.html">
+            
+                <a href="../getStartedPNSDKS.html">
+            
+                    
+                    Phone Numbers SDKs
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/node-bandwidth-iris">
+            
+                    
+                    Node JS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/csharp-bandwidth-iris">
+            
+                    
+                    C#
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/ruby-bandwidth-iris">
+            
+                    
+                    Ruby
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/python-bandwidth-iris">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.5">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/java-bandwidth-iris">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.6">
+            
+                <a target="_blank" href="https://github.com/Bandwidth/php-bandwidth-iris">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1">
+            
+                <a target="_blank" href="https://dev.bandwidth.com/faq">
+            
+                    
+                    FAQ
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2">
+            
+                <a target="_blank" href="https://support.bandwidth.com">
+            
+                    
+                    Support
+            
+                &#xA0;<i class="icons8-open-in-window"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="..">Hosted Messaging Getting Started</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="how-to-get-started-with-bandwidth-hosted-messaging">How to Get Started with Bandwidth Hosted Messaging</h1>
+<aside class="alert warning small"><p>Your account must be enabled for Hosted Messaging</p></aside>
+
+<p><img src="../images/how-to-import-numbers.png" alt="Description Image"></p>
+<h2 id="step-1-create-import-request---using-the-dashboard-api">Step 1 <em>Create Import Request</em> - Using the Dashboard API</h2>
+<p><code class="post">POST</code> to <code>/accounts/{accountId}/externalTns</code> With a list of phone numbers you would like to use Bandwidth for messaging.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>CustomerOrderID</code></td>
+<td style="text-align:left">An order ID created by the customer for their tracking purposes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SiteId</code></td>
+<td style="text-align:left">The ID of the Site that the Telephone Numbers are to be provisioned to.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SipPeerId</code></td>
+<td style="text-align:left">The ID of the SIP Peer that the Telephone Numbers are to be provisioned to.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Action</code></td>
+<td style="text-align:left">Indentify the action on external TNs. Allowed values... IMPORT or REMOVE.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-xml-request">Example: XML Request</h3>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> standalone=<span class="hljs-string">&quot;yes&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">CustomerOrderID</span>&gt;</span>ICPA123ABC<span class="hljs-tag">&lt;/<span class="hljs-name">CustomerOrderID</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SiteId</span>&gt;</span>743<span class="hljs-tag">&lt;/<span class="hljs-name">SiteId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">SipPeerId</span>&gt;</span>303716<span class="hljs-tag">&lt;/<span class="hljs-name">SipPeerId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Action</span>&gt;</span>[ IMPORT | REMOVE ]<span class="hljs-tag">&lt;/<span class="hljs-name">Action</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>9199918388<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4158714245<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154439<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154466<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
+</code></pre>
+<h4 id="example-xml-response">Example: XML Response</h4>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> standalone=<span class="hljs-string">&quot;yes&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ExternalTnsOrderResponse</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrderCreateDate</span>&gt;</span>2016-01-15T11:36:52.727Z<span class="hljs-tag">&lt;/<span class="hljs-name">OrderCreateDate</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">AccountId</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">AccountId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">CreatedByUser</span>&gt;</span>jbm<span class="hljs-tag">&lt;/<span class="hljs-name">CreatedByUser</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrderId</span>&gt;</span>65e03a35-6b97-48a5-8126-f47bad02df2a<span class="hljs-tag">&lt;/<span class="hljs-name">OrderId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ProcessingStatus</span>&gt;</span>RECEIVED<span class="hljs-tag">&lt;/<span class="hljs-name">ProcessingStatus</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">CustomerOrderID</span>&gt;</span>ICPA123ABC<span class="hljs-tag">&lt;/<span class="hljs-name">CustomerOrderID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SiteId</span>&gt;</span>743<span class="hljs-tag">&lt;/<span class="hljs-name">SiteId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SipPeerId</span>&gt;</span>303716<span class="hljs-tag">&lt;/<span class="hljs-name">SipPeerId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Action</span>&gt;</span>[ IMPORT | REMOVE ]<span class="hljs-tag">&lt;/<span class="hljs-name">Action</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>9199918388<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4158714245<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154439<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154466<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ExternalTnsOrderResponse</span>&gt;</span>
+</code></pre>
+<h2 id="step-2-get-status---using-the-dashboard-api">Step 2 <em>Get Status</em> - Using the Dashboard API</h2>
+<p>Using the the <code>&lt;OrderId&gt;</code> returned in step fetch the <code>&lt;ProcessingStatus&gt;</code> of the order by:</p>
+<p><code class="get">GET</code> to <code>/accounts/{accountId}/externalTns/&lt;{{OrderId}}&gt;</code></p>
+<p>The <code>&lt;ProcessingStatus&gt;</code> has multiple values:</p>
+<aside class="alert general small"><p>Only numbers that are COMPLETED without ERROR can be used.</p></aside>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Status</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>RECEIVED</code></td>
+<td style="text-align:left">Order has yet to be processed, initial status</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PROCESSING</code></td>
+<td style="text-align:left">Order is processing through</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>COMPLETE</code></td>
+<td style="text-align:left">Every number requested in the number is now available via Dashboard</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PARTIAL</code></td>
+<td style="text-align:left">Some numbers were procesed, others failed. <br> Check the <code>&lt;ERRORS&gt;</code> field for more information</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>FAILED</code></td>
+<td style="text-align:left">Entire order failed. <br> Check the <code>&lt;ERRORS&gt;</code> field for more information.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-complete-xml-response">Example: COMPLETE XML Response</h3>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> standalone=<span class="hljs-string">&quot;yes&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrderCreateDate</span>&gt;</span>2016-01-15T11:36:52.727Z<span class="hljs-tag">&lt;/<span class="hljs-name">OrderCreateDate</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">AccountId</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">AccountId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">CreatedByUser</span>&gt;</span>jbm<span class="hljs-tag">&lt;/<span class="hljs-name">CreatedByUser</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrderId</span>&gt;</span>65e03a35-6b97-48a5-8126-f47bad02df2a<span class="hljs-tag">&lt;/<span class="hljs-name">OrderId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ProcessingStatus</span>&gt;</span>COMPLETE<span class="hljs-tag">&lt;/<span class="hljs-name">ProcessingStatus</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">CustomerOrderID</span>&gt;</span>ICPA123ABC<span class="hljs-tag">&lt;/<span class="hljs-name">CustomerOrderID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SiteId</span>&gt;</span>743<span class="hljs-tag">&lt;/<span class="hljs-name">SiteId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SipPeerId</span>&gt;</span>303716<span class="hljs-tag">&lt;/<span class="hljs-name">SipPeerId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Action</span>&gt;</span>[ IMPORT | REMOVE ]<span class="hljs-tag">&lt;/<span class="hljs-name">Action</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>9199918388<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4158714245<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154439<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154466<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
+</code></pre>
+<h3 id="example-partial-xml-response">Example: PARTIAL XML Response</h3>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> standalone=<span class="hljs-string">&quot;yes&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrderCreateDate</span>&gt;</span>2016-01-15T11:36:52.727Z<span class="hljs-tag">&lt;/<span class="hljs-name">OrderCreateDate</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">AccountId</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">AccountId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">CreatedByUser</span>&gt;</span>jbm<span class="hljs-tag">&lt;/<span class="hljs-name">CreatedByUser</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrderId</span>&gt;</span>65e03a35-6b97-48a5-8126-f47bad02df2a<span class="hljs-tag">&lt;/<span class="hljs-name">OrderId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ProcessingStatus</span>&gt;</span>PARTIAL<span class="hljs-tag">&lt;/<span class="hljs-name">ProcessingStatus</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">CustomerOrderID</span>&gt;</span>ICPA123ABC<span class="hljs-tag">&lt;/<span class="hljs-name">CustomerOrderID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SiteId</span>&gt;</span>743<span class="hljs-tag">&lt;/<span class="hljs-name">SiteId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">SipPeerId</span>&gt;</span>303716<span class="hljs-tag">&lt;/<span class="hljs-name">SipPeerId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Action</span>&gt;</span>[ IMPORT | REMOVE ]<span class="hljs-tag">&lt;/<span class="hljs-name">Action</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>9199918388<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4158714245<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154439<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>4352154466<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Errors</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Error</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>[int]<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>[string]<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">TelephoneNumber</span>&gt;</span>9199918388<span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">TelephoneNumbers</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Error</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Errors</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ExternalTnsOrder</span>&gt;</span>
+</code></pre>
+<h2 id="step-3-create-application---using-the-bandwidth-communication-api">Step 3 <em>Create Application</em> - Using the Bandwidth Communication API</h2>
+<p>You&apos;ll need to configure an <a href="https://dev.bandwidth.com/ap-docs/methods/applications/applications.html" target="_blank"><code>application</code></a> in the Bandwidth Communication API. You may already have an application configured; if so, take note of the <code>applicationId</code>. Otherwise you&apos;ll need to create an application.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>name</code></td>
+<td style="text-align:left">A name you choose for this application.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>incomingMessageUrl</code></td>
+<td style="text-align:left">A URL where message events will be sent for an inbound SMS message</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>incomingMessageUrlCallbackTimeout</code></td>
+<td style="text-align:left">Determine how long should the platform wait for incomingMessageUrl&apos;s response before timing out in milliseconds.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>incomingMessageFallbackUrl</code></td>
+<td style="text-align:left">The URL used to send the callback event if the request to incomingMessageUrl fails.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>callbackHttpMethod</code></td>
+<td style="text-align:left">Set to <code class="post">POST</code> to use <a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">REST API Control</a><br> Set to <code class="get">GET</code> to use <a href="https://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html" target="_blank">BXML Control</a></td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-create-an-application">Example: Create an application</h3>
+<p><code class="post">POST</code> to <code>https://api.catapult.inetwork.com/v1/users/{userId}/applications/</code></p>
+<pre><code class="lang-json">{
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;MyFirstApp&quot;</span>,
+  <span class="hljs-attr">&quot;incomingMessageUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/messages.php&quot;</span>,
+  <span class="hljs-attr">&quot;callbackHttpMethod&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>
+}
+</code></pre>
+<h4 id="example-response-201---created">Example Response: 201 - Created</h4>
+<p>The <code>applicationId</code> is returned in the <code>Location</code> Header.</p>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/applications/{applicationId}
+</code></pre><h2 id="step-4-import-number---using-the-bandwidth-communication-api">Step 4 <em>Import Number</em> - Using the Bandwidth Communication API</h2>
+<p>Import numbers with the <code>applicationId</code> from Step 3</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">DESCRIPTION</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>Number</code></td>
+<td style="text-align:left">Dashboard Phone Number being imported. E.164 format.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>applicationId</code></td>
+<td style="text-align:left">HTTP Application you want the phone number to be registered to for inbound messages.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>providerName</code></td>
+<td style="text-align:left">Always use this provider &#x201C;bandwidth-dashboard&#x201D;</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>accountId</code></td>
+<td style="text-align:left">This ID is associated with your Bandwidth Dashboard account. Note: If you don&#x2019;t know your Provider Account ID, please open a ticket with our support group.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>userName</code></td>
+<td style="text-align:left">This is your user name used to log into the Bandwidth Dashboard.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>password</code></td>
+<td style="text-align:left">This is your password used to log into the Bandwidth Dashboard.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-import-numbers-one-at-a-time">Example: Import Numbers (One at a time)</h3>
+<p>You&apos;ll need to repeat this process for <em>EVERY</em> number imported in Step 1.</p>
+<p><code class="post">POST</code> to <code>https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers</code></p>
+<pre><code class="lang-json">{
+  <span class="hljs-attr">&quot;number&quot;</span>: <span class="hljs-string">&quot;+14352154439&quot;</span>,
+  <span class="hljs-attr">&quot;applicationId&quot;</span>:<span class="hljs-string">&quot;{{applicationId}}&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span> : <span class="hljs-string">&quot;text messaging TN&quot;</span>,
+  <span class="hljs-attr">&quot;provider&quot;</span>: {
+    <span class="hljs-attr">&quot;providerName&quot;</span>: <span class="hljs-string">&quot;bandwidth-dashboard&quot;</span>,
+    <span class="hljs-attr">&quot;properties&quot;</span>: {
+      <span class="hljs-attr">&quot;accountId&quot;</span>: <span class="hljs-string">&quot;9999999&quot;</span>,
+      <span class="hljs-attr">&quot;userName&quot;</span>: <span class="hljs-string">&quot;wileCoyote&quot;</span>,
+      <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;catchThatBird&quot;</span>
+    }
+  }
+}
+</code></pre>
+<h4 id="example-respone-201---created">Example Respone: 201 - Created</h4>
+<p>The <code>numberId</code> is returned in the <code>Location</code> Header.</p>
+<pre><code>201 Created
+Location:
+https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
+</code></pre><h2 id="step-5-send-message---using-the-bandwidth-communication-api">Step 5 <em>Send Message</em> - Using the Bandwidth Communication API</h2>
+<p>To send a message with your imported number, use the <code>/messaging</code> capabilities as normal.</p>
+<ul>
+<li><a href="https://dev.bandwidth.com/ap-docs/methods/messages/messages.html" target="_blank">Learn About Sending Messages</a></li>
+</ul>
+<h3 id="example-send-new-message">Example: Send New Message</h3>
+<p><code class="post">POST</code> to <code>https://api.catapult.inetwork.com/v1/users/{userId}/messages</code></p>
+<pre><code class="lang-json">{
+    <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;14352154439&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Good morning, this is a test message&quot;</span>
+}
+</code></pre>
+<h4 id="example-respone-201---created">Example Respone: 201 - Created</h4>
+<p>The <code>messageId</code> is returned in the <code>Location</code> Header.</p>
+<pre><code>201 Created
+Location:
+https://api.catapult.inetwork.com/v1/users/{{UserId}}/messages/m-id3x6rblp4jrkih2u7zxjdy
+</code></pre><h2 id="step-6-incoming-messages---using-the-bandwidth-communication-api">Step 6 <em>Incoming Messages</em> - Using the Bandwidth Communication API</h2>
+<p>Bandwith will send you either a <code class="get">GET</code> or <code class="post">POST</code> HTTP Callback based on your <code>application</code> configuration in Step 3.</p>
+<ul>
+<li><a href="https://dev.bandwidth.com/ap-docs/apiCallbacks/messagingEvents.html" target="_blank">Learn About Incoming Messages <em>POST</em></a></li>
+<li><a href="https://dev.bandwidth.com/ap-docs/bxml/callBacks/incomingSMS.html" target="_blank">Learn About Incoming Messages <em>GET</em></a></li>
+</ul>
+<h3 id="example-get-callback">Example <code>GET</code> Callback</h3>
+<p>All the relevant fields are passed as query parameters</p>
+<p><code class="get">GET</code> <code>http://[External server URL]</code></p>
+<pre><code class="lang-html">/{callbackUrl}?
+  messageId=m-asdf&amp;
+  from=%2B19191231111&amp;
+  eventType=sms&amp;
+  text=test&amp;
+  time=2016-12-01T16:04:49Z&amp;
+  to=%2B14352154439&amp;
+  state=received&amp;
+  applicationId=a-yr3jpxasdfh5xh5e35saoi&amp;
+  direction=in&amp;
+  messageUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2Fu-123%2Fmessages%2Fm-asdf
+</code></pre>
+<h3 id="example-post-callback">Example <code>POST</code> Callback</h3>
+<p><code class="post">POST</code> <code>http://[External server URL]</code></p>
+<pre><code class="lang-json">{
+   <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;sms&quot;</span>,
+   <span class="hljs-attr">&quot;direction&quot;</span>:<span class="hljs-string">&quot;in&quot;</span>,
+   <span class="hljs-attr">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId}&quot;</span>,
+   <span class="hljs-attr">&quot;messageUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}&quot;</span>,
+   <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+13233326955&quot;</span>,
+   <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+14352154439&quot;</span>,
+   <span class="hljs-attr">&quot;text&quot;</span>:<span class="hljs-string">&quot;Example&quot;</span>,
+   <span class="hljs-attr">&quot;applicationId&quot;</span>:<span class="hljs-string">&quot;{appId}&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2012-11-14T16:13:06.076Z&quot;</span>,
+   <span class="hljs-attr">&quot;state&quot;</span>:<span class="hljs-string">&quot;received&quot;</span>
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            <p><div id="page-footer" class="localized-footer"><ul class="footerUnorderedList">
+<span class="footerLabel">LEARN MORE</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/voice/">Voice</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/messaging/">Messaging</a></li><span class="remove4mobile"><span class="remove4mobile">&#x2022;</span></span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/9-1-1/">9-1-1 Access</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/phone-numbers/">Phone Numbers</a></li>
+</ul>
+<ul class="footerUnorderedList">
+<span class="footerLabel">QUICK LINKS</span>
+  <li class="footerListItem"><a href="https://status.bandwidth.com">Service Status</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/glossary/">Glossary</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/news/">News</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/contact/">Contact</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/resources/">Resources</a></li><span class="remove4mobile">&#x2022;</span>
+  <li class="footerListItem"><a href="https://www.bandwidth.com/blog/">Blog</a></li>
+</ul>
+</div></p>
+</div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Hosted Messaging Getting Started","level":"2.3.4.3","depth":3,"next":{"title":"Bandwidth Code Examples","level":"2.4","depth":1,"path":"howto/BandwidthCodeExamples.md","ref":"howto/BandwidthCodeExamples.md","articles":[]},"previous":{"title":"Send SMS with Delivery Receipt","level":"2.3.4.2","depth":3,"path":"howto/smsDLR.md","ref":"howto/smsDLR.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-favicon","bandwidth-toggle-chapters","custom-jquery-postprocessing","crazyegg","usabilla","-fontsettings","bandwidth-fonts","-highlight","bandwidth-highlight","custom-footer","parse-from-url@1.0.4","meta"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"meta":{"content":"","data":[{"name":"title","content":"Bandwidth API Developer Docs"},{"name":"description","content":"See the API reference documentation for Bandwidth's Voice, Messaging, Phone Numbers. and 9-1-1 access APIs, plus code samples, SDKs, getting started guides, and more!"}],"name":""},"custom-jquery-postprocessing":{},"parse-from-url":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html","footerPath":"layouts/footer.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"},{"lang":"bash","name":"cURL"},{"lang":"python","name":"python"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"mouseflow":{"projectId":"e48d3324-5985-479f-a9fc-7283fb266917"},"crazyegg":{"partOne":"0029","partTwo":"8291"},"favicon":"images/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"parseUrls":{"urls":[{"url":"https://api.github.com/orgs/BandwidthExamples/repos?archived=false&per_page=100","dest":"howto/BandwidthCodeExamples.md","mapping":"github-names.json"}]},"custom-footer":{},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bandwidth API Developer Docs","gitbook":"*"},"file":{"path":"howto/hostedMessaging.md","mtime":"2019-08-26T15:40:44.356Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T15:42:38.560Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P2JT7Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+	<!-- begin usabilla live embed code -->
+	<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+	window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/73009503da29.js");
+	/*]]>{/literal}*/</script>
+	<!-- end usabilla live embed code -->
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-bandwidth-fonts/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
