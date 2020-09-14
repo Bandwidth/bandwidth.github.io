@@ -3,6 +3,8 @@
 ## Retrieve Call Information By Query
 Retrieve information about calls by query. 
 
+Note: Call information is kept for 7 days after the calls are hung up.
+
 ### Request URL
 
 <code class="get">GET</code>`https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls`
