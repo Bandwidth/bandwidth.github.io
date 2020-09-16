@@ -1,9 +1,9 @@
 {% method %}
 
-## Retrieve Call Information By Query
-Retrieve information about calls by query. 
+## Retrieve Call Data by Search
+Retrieve data about calls by search. 
 
-Note: Call information is kept for 7 days after the calls are hung up. If no calls meet your search criteria, you will receive a 200 OK response with an empty array as a response body. 
+Note: Call data is kept for 7 days after the calls are hung up. If no calls meet your search criteria, you will receive a 200 OK response with an empty array as a response body. 
 
 The `disconnectCause` for a call can be:
 - `hangup`: one party hung up the call, a [`<Hangup>`](../../bxml/verbs/hangup.md) verb was executed, or there was no more BXML to execute; it indicates that the call ended normally.

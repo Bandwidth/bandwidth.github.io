@@ -1,7 +1,7 @@
 {% method %}
 
-## Retrieve Call Information
-Retrieve the current state of a specific call.
+## Retrieve Call Data by Call ID
+Retrieve the current state of a specific call using the call ID.
 
 **Note**: Call information is kept for 7 days after the calls are hung up. If you attempt to
 retrieve information for a call that is older than 7 days, you will get an HTTP 404 response.
