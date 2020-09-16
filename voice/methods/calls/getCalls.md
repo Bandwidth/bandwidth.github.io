@@ -3,7 +3,23 @@
 ## Retrieve Call Information By Query
 Retrieve information about calls by query. 
 
-Note: Call information is kept for 7 days after the calls are hung up.
+Note: Call information is kept for 7 days after the calls are hung up. If no calls meet your search criteria, you will receive a 200 OK response with an empty array as a response body. 
+
+The `disconnectCause` for a call can be:
+- `hangup`: one party hung up the call, a [`<Hangup>`](../../bxml/verbs/hangup.md) verb was executed, or there was no more BXML to execute; it indicates that the call ended normally.
+- `busy`: the callee was busy.
+- `timeout`: the call wasn't answered before the `callTimeout` was reached.
+- `cancel`: the call was cancelled by its originator while it was ringing.
+- `rejected`: the call was rejected by the callee.
+- `callback-error`: a BXML callback couldn't be delivered to your callback server.
+- `invalid-bxml`: invalid BXML was returned in response to a callback.
+- `application-error`: an unsupported action was tried on the call, e.g. trying to play a .ogg audio.
+- `account-limit`: the account rate limits were reached.
+- `node-capacity-exceeded`: the system maximum capacity was reached.
+- `error`: some error not described in any of the other causes happened on the call.
+- `unknown`: some unknown error happened on the call.
+
+Note: this list is not exhaustive and other values can appear in the future.
 
 ### Request URL
 
