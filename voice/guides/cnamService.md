@@ -1,6 +1,6 @@
 # CNAM Service
 
-Bandwidth’s Caller Name (CNAM) service is a low-cost per-query service that provides the Caller Name on VoIP calls in the US and Canada.
+Bandwidth’s Caller Name (CNAM) service provides the Caller Name on VoIP calls in the US and Canada.
 
 The CNAM data is managed by the phone company who provides the phone numbers to its customers.
 
