@@ -2,9 +2,9 @@
 
 Bandwidth’s Caller Name (CNAM) service is a low-cost per-query service that provides the Caller Name on VoIP calls in the US and Canada.
 
-With this service, the CNAM database is queried using a simple HTTPS GET Request.
-Once the request is made, the calling name is returned to the customer application or dial plan.
-
 The CNAM data is managed by the phone company who provides the phone numbers to its customers.
 
-[Click here for more information](https://support.bandwidth.com/hc/en-us/articles/204138766-CNAM-per-DIP-API-setup-instructions)
+For more information follow the links below:
+* [Manage through Dashboard](https://support.bandwidth.com/hc/en-us/articles/360025716114-How-to-Identify-and-Manage-Telephone-Numbers-Enabled-with-CNAM-)
+* [API Support](https://support.bandwidth.com/hc/en-us/articles/204138766-CNAM-per-DIP-API-setup-instructions)
+* [SIP Subscribe/Notify](https://support.bandwidth.com/hc/en-us/articles/360001519453-CNAM-Subscribe-Notify)
