@@ -11,8 +11,13 @@ always cache for a shorter amount of time or not cache at all. If no `Cache-Cont
 header is set on the response, media will not be cached.
 
 The audio format is determined by the HTTP `Content-Type` header in the response. Our system supports:
-- `audio/wav` and `audio/x-wav` for .wav files encoded as PCM or G711
-- `audio/mpeg`, `audio/mpeg3` and `audio/mp3` for .mp3 files
+- `audio/wav` and `audio/x-wav` for `.wav` files
+  Both `G711 μ-law` and `G711 A-law` are supported within the `pcm_s16le` container (signed, 16-bit, little-endian, PCM-encoded `.wav` file)
+- `audio/mpeg`, `audio/mpeg3` and `audio/mp3` for `.mp3` files
+  MPEG-1 layer 3 (`8`, `11.025`, and `12` kHz), MPEG-2 layer 3 (`16`, `22.05`, and `24` kHz), and MPEG-2.5 layer 3 (`32`, `44.1`, and `48` kHz) are all supported
+
+Both `.wav` and `.mp3` can be in either mono or stereo format, but they will be mixed down to mono before being played
+
 
 If the `Content-Type` is something other than the ones above or no `Content-Type` is found, we still try to determine the format by looking at the file extension. If the file extension is missing or it is something other than `.mp3` or `.wav`, we assume the media is `.wav` and it will be tried as such.
 
@@ -26,7 +31,7 @@ If the `Content-Type` is something other than the ones above or no `Content-Type
 ### Text Content
 | Name     | Description                                                                                                                                  |
 |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** .wav files encoded as `G.711 a-law`, `G.711 μ-law`, `G.729`, `pcm_s16le` (signed, 16-bit, little-endian, PCM-encoded `.wav` file), or `G.722` are supported. |
+| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** `.wav` and `.mp3` files are supported. |
 
 
 ### Callbacks Received
