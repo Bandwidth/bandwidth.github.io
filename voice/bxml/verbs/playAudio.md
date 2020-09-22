@@ -31,7 +31,7 @@ If the `Content-Type` is something other than the ones above or no `Content-Type
 ### Text Content
 | Name     | Description                                                                                                                                  |
 |:---------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** `.wav` and `.mp3` files are supported. |
+| audioUri | The URL of the audio file to play. May be a relative URL. <br> ⚠️ **ONLY** `.wav` and `.mp3` files as described above are supported. |
 
 
 ### Callbacks Received
@@ -44,7 +44,7 @@ None
 
 This shows how to use Bandwidth XML to play two audio clips into a phone call.
 
-⚠️ **ONLY** .wav files encoded as `G.711 a-law`, `G.711 μ-law`, `G.729`, `pcm_s16le` (signed, 16-bit, little-endian, PCM-encoded `.wav` file), or `G.722` are supported.
+⚠️ **ONLY** `.wav` and `.mp3` files as described above are supported.
 
 {% sample lang="http" %}
 
