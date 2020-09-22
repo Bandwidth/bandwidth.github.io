@@ -7,4 +7,4 @@ Once the request is made, the calling name is returned to the customer applicati
 
 The CNAM data is managed by the phone company who provides the phone numbers to its customers.
 
-[Click here for more information.](https://support.bandwidth.com/hc/en-us/articles/204138766-CNAM-per-DIP-API-setup-instructions)
+[Click here for more information](https://support.bandwidth.com/hc/en-us/articles/204138766-CNAM-per-DIP-API-setup-instructions)
