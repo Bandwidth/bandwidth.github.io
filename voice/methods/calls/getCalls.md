@@ -144,7 +144,7 @@ curl -X GET \
 
 ```bash
 curl -X GET \
-    --url "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls?pageSize=10&minStartTime=2020-07-13T12:00:000Z&maxStartTime=2020-07-13T13:00:000Z&to=+15552311778&from=+15552311772&state=disconnected&disconnectCause=hangup&disconnectCause=timeout" \
+    --url "https://voice.bandwidth.com/api/v2/accounts/{accountId}/calls?pageSize=10&minStartTime=2020-07-13T12%3A00%3A000Z&maxStartTime=2020-07-13T13%3A00%3A000Z&to=%2B15552311778&from=%2B15552311772&state=disconnected&disconnectCause=hangup&disconnectCause=timeout" \
     -u '{username}:{password}'
 ```
 
