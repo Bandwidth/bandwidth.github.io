@@ -13,8 +13,7 @@
 ## WebRTC Guides
 | Guide                                               | Description                                                                                                                     |
 |:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
-| [WebRTC Overview](guides/overview.md)               | Overview and concepts of WebRTC
-| [Call flow](guides/callFlow.md)                     | Sessions and call flows
+| [WebRTC Concept Overview](guides/overview.md)       | High level introduction to WebRTC
 | [Getting started](guides/quickstart.md)             | Learn how to the WebRTC "Hello World" sample app works
 
 
