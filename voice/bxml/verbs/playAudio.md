@@ -14,11 +14,11 @@ The audio format is determined by the HTTP `Content-Type` header in the response
 - `audio/wav` and `audio/x-wav` for `.wav` files
   - Both `G711 μ-law` and `G711 A-law` are supported within the `pcm_s16le` container (signed, 16-bit, little-endian, PCM-encoded `.wav` file)
 - `audio/mpeg`, `audio/mpeg3`, and `audio/mp3` for `.mp3` files
-  - MPEG-1 layer 3 (`8`, `11.025`, and `12` kHz), MPEG-2 layer 3 (`16`, `22.05`, and `24` kHz), and MPEG-2.5 layer 3 (`32`, `44.1`, and `48` kHz) are all supported
-  - ID3v2 tags must not surpass 10240 bytes per file
+  - `MPEG-1 layer 3` (`8`, `11.025`, and `12` kHz), `MPEG-2 layer 3` (`16`, `22.05`, and `24` kHz), and `MPEG-2.5 layer 3` (`32`, `44.1`, and `48` kHz) are all supported
+  - ID3v2 tags must not surpass `10240` bytes per file
 
 Both `.wav` and `.mp3` can be in either mono or stereo format, but they will be mixed down to mono before being played.
-Using higher-bitrate audio files won't meaningfully improve audio quality and will instead waste bandwidth, so using low bitrate formats such as PCMU (`G711 μ-law`) is preferred
+Using higher-bitrate audio files won't meaningfully improve audio quality and will instead waste bandwidth, so using low bitrate formats such as PCMU (`G711 μ-law`) is preferred.
 
 
 If the `Content-Type` is something other than the ones above or no `Content-Type` is found, we still try to determine the format by looking at the file extension. If the file extension is missing or it is something other than `.mp3` or `.wav`, we assume the media is `.wav` and it will be tried as such.
