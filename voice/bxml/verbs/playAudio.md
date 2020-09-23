@@ -14,7 +14,7 @@ The audio format is determined by the HTTP `Content-Type` header in the response
 - `audio/wav` and `audio/x-wav` for `.wav` files
   - Both `G711 μ-law` and `G711 A-law` are supported within the `pcm_s16le` container (signed, 16-bit, little-endian, PCM-encoded `.wav` file)
 - `audio/mpeg`, `audio/mpeg3`, and `audio/mp3` for `.mp3` files
-  - The following types are supported:
+  - The following standards (and cooresponding sample rates) are supported:
     - `MPEG-1 layer 3` (`48`, `44.1`, and `32` kHz)
     - `MPEG-2 layer 3` (`24`, `22.05`, and `16` kHz)
     - `MPEG-2.5 layer 3` (`12`, `11.025`, and `8` kHz)
