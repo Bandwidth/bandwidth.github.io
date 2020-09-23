@@ -14,7 +14,10 @@ The audio format is determined by the HTTP `Content-Type` header in the response
 - `audio/wav` and `audio/x-wav` for `.wav` files
   - Both `G711 μ-law` and `G711 A-law` are supported within the `pcm_s16le` container (signed, 16-bit, little-endian, PCM-encoded `.wav` file)
 - `audio/mpeg`, `audio/mpeg3`, and `audio/mp3` for `.mp3` files
-  - `MPEG-1 layer 3` (`8`, `11.025`, and `12` kHz), `MPEG-2 layer 3` (`16`, `22.05`, and `24` kHz), and `MPEG-2.5 layer 3` (`32`, `44.1`, and `48` kHz) are all supported
+  - The following types are supported:
+    - `MPEG-1 layer 3` (`48`, `44.1`, and `32` kHz)
+    - `MPEG-2 layer 3` (`24`, `22.05`, and `16` kHz)
+    - `MPEG-2.5 layer 3` (`12`, `11.025`, and `8` kHz)
   - ID3v2 tags must not surpass `10240` bytes per file
 
 Both `.wav` and `.mp3` can be in either mono or stereo format, but they will be mixed down to mono before being played.
