@@ -265,6 +265,7 @@
 
 ## WebRTC
 * [Overview](webrtc/about.md)
+* [WebRTC Concept Overview](webrtc/guides/overview.md)
 * [Quickstart Guide](webrtc/guides/quickstart.md)
 * [API Methods](webrtc/methods/about.md)
     * [Participants](webrtc/methods/participants/about.md)
