@@ -2,7 +2,7 @@
 
 ## Add a participant to a session
 
-Subscriptions can optionally be provided as part of this call
+Subscriptions can optionally be provided as part of this call.
 
 
 ### Request URL
@@ -18,7 +18,7 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 | Parameter                   | Description                                                                                       
 |:----------------------------|:--------------------------------------------------------------------------------------------------
 | sessionId                   | Session the subscriptions are associated with.                                                    
-| participants                | Subset of participants to subscribe to in the session. Optional.                                  
+| participants                | IDs of Participants publishing media to be subscribed to, optionally including a subset of stream aliases. Optional.                                
 
 
 
@@ -37,8 +37,13 @@ curl -X PUT
 {
   "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
   "participants": [
-    "568749d5-04d5-483d-adf5-deac7dd3d521",
-    "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
+    {
+        "participantId": "568749d5-04d5-483d-adf5-deac7dd3d521"
+    },
+    {
+        "participantId": "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7",
+        "streamAliases": ["microphone1", "microphone2"]
+    }
   ]
 }'
 ```
@@ -47,7 +52,6 @@ curl -X PUT
 
 ```json
 
-}
 ```
 
 ### Potential Error Responses
