@@ -20,7 +20,7 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 | callbackUrl                 | Full callback url to use for notifications about this participant                                 
 | publishPermissions          | Defines if this participant can publish audio or video                                            
 | sessions                    | List of session ids this participant is associated with                                           
-| subscriptions               | Subscription information for this participant, which lists the sessions and IDs of Participants publishing media                                                   
+| subscriptions               | Subscription information for this participant, which lists the sessions and IDs of Participants publishing media
 | tag                         | User defined tag to associate with the participant                                                
 
 
