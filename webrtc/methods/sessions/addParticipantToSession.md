@@ -17,7 +17,7 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 ### Request Body Parameters
 | Parameter                   | Description                                                                                       
 |:----------------------------|:--------------------------------------------------------------------------------------------------
-| sessionId                   | Session the subscriptions are associated with.                                                    
+| sessionId                   | Session the subscriptions are associated with.
 | participants                | IDs of Participants publishing media to be subscribed to, optionally including a subset of stream aliases. Optional.                                
 
 
