@@ -18,7 +18,6 @@ The audio format is determined by the HTTP `Content-Type` header in the response
     - `MPEG-1 layer 3` (`48`, `44.1`, and `32` kHz)
     - `MPEG-2 layer 3` (`24`, `22.05`, and `16` kHz)
     - `MPEG-2.5 layer 3` (`12`, `11.025`, and `8` kHz)
-  - ID3v2 tags must not surpass `10240` bytes per file
 
 Both `.wav` and `.mp3` can be in either mono or stereo format, but they will be mixed down to mono before being played.
 Using higher-bitrate audio files won't meaningfully improve audio quality and will instead waste bandwidth, so using low bitrate formats such as PCMU (`G711 μ-law`) is preferred.
