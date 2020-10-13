@@ -1,5 +1,8 @@
 Note: The numbers API expects phone numbers to be in a 10 digit format `XXXYYYZZZZ`, _not_ in E164 format. This is different from the voice and messaging APIs, which expect phone numbers in E164 format.
 
+#### Base API URL
+`https://dashboard.bandwidth.com/api/`
+
 {% raw %}
 <script src="../scripts/e3d67c1f.vendor.min.js"></script>
 <div ng-app="ramlConsoleApp" ng-cloak id="raml-console-unembedded">
