@@ -28,7 +28,7 @@ Note: Please ensure that the password is URL-encoded.
 | Parameter | Required or Optional | Type                      | Value/Notes |
 |-----------|----------------------|---------------------------|-------------|
 | companyId | Required             | Integer                   | Assigned during implementation/onboarding. |
-| password  | Optional             | String                    | Assigned during implementation/onboarding. |
+| password  | Required             | String                    | Assigned during implementation/onboarding. |
 | number    | Required             | String                    | 11-digit TN that's used to query CNAM information. |
 | dnis      | Optional             | String                    | 11-digit TN, if supplied, detailed billing reports per caller number can be provided. |
 | reference | Optional             | String (20-character max) | The reference parameter can be used to differentiate queries for billing purposes. For instance, if billing reports were desired on a per-reseller basis, the reseller code could be sent in the reference field. |
