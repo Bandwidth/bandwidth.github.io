@@ -1,4 +1,4 @@
-# CNAM per DIP API setup instructions
+# CNAM per DIP API
 
 ## Overview
 Bandwidth's Caller Name (CNAM) service is a low-cost per-query service that provides the Caller Name on VoIP calls in the US and Canada.
@@ -10,7 +10,7 @@ Bandwidth can not guarantee the validity of the information returned by the mana
 To utilize the CNAM lookup API, you will need to be setup with an account by your Account Manager.
 Please open a [support ticket](https://support.bandwidth.com/hc/en-us/requests/new) to enable this feature for your account.
 
-## CNAM setup instructions via HTTPS
+## Querying via HTTPS
 The simplest method of accessing the CNAM service is via an HTTPS GET request.
 The query information will be passed in the GET, and the entire response will be the CNAM data.
 Using an HTTP library that supports keep-alives, as well as HTTP pipelining, can help ensure highest performance service.
@@ -19,22 +19,22 @@ Bandwidth's CNAM service will authenticate based on two factors:
    1. The `CompanyID` passed will be checked to ensure CNAM service is enabled.
    1. A password will be validated.
 
-## Query format
+### Query format
 `https://cnam.dashcs.com/?companyId=<companyId>&password=<pass>&number=<phone number>`
 
 Note: Please ensure that the password is URL-encoded.
 
-## Query parameters 
-| Query Type                | Required or Optional | Type                     | Value/Notes |
-|---------------------------|----------------------|--------------------------|-------------|
-| CompanyId                 | Required             | Integer                  | Assigned during implementation/onboarding. |
-| Password                  | Optional             | String                   | Assigned during implementation/onboarding. |
-| Number                    | Required             | 11-digit TN              | (1+10 digit TN) that's used to query CNAM information. |
-| DNIS                      | Optional             | 11-digit TN              | If (1+10 digit TN) is supplied, detailed billing reports per caller number can be provided. |
-| Reference                 | Optional             | 20-character max, string | The reference parameter can be used to differentiate queries for billing purposes. For instance, if billing reports were desired on a per-reseller basis, the reseller code could be sent in the reference field. |
-| Test (shown on next page) | Optional             | Boolean                  | If a value is supplied for the query parameter “test”, the query will be considered a test, and a random name will be returned. These queries aren't billed. |
+### Query parameters 
+| Parameter | Required or Optional | Type                      | Value/Notes |
+|-----------|----------------------|---------------------------|-------------|
+| companyId | Required             | Integer                   | Assigned during implementation/onboarding. |
+| password  | Optional             | String                    | Assigned during implementation/onboarding. |
+| number    | Required             | String                    | 11-digit TN that's used to query CNAM information. |
+| dnis      | Optional             | String                    | 11-digit TN, if supplied, detailed billing reports per caller number can be provided. |
+| reference | Optional             | String (20-character max) | The reference parameter can be used to differentiate queries for billing purposes. For instance, if billing reports were desired on a per-reseller basis, the reseller code could be sent in the reference field. |
+| test      | Optional             | Boolean                   | If a value is supplied for the query parameter “test”, the query will be considered a test, and a random name will be returned. These queries aren't billed. |
 
-## Notes
+### Notes
 Phone numbers can be supplied as full E.164 numbers (starting with the country code).
 Only NANPA numbers are supported, so 10-digit numbers will automatically be prefixed with a 1.
 
