@@ -5,6 +5,13 @@
 ## Base API URL
 `https://mfa.bandwidth.com/api/v1/accounts/{accountId}`
 
+## Sample Applications
+| App                                                                                                | Description                                            |
+| :------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
+| [2FA Sample](https://github.com/Bandwidth/examples/tree/master/python/2FA)                         | Simple 2FA integration to example login page |
+| [2FA Smart Lock](https://www.bandwidth.com/blog/diy-two-factor-authentication-for-your-every-need/)| Integrating 2FA with a door lock |
+
+
 ## REST API Reference Index
 
 | Resource                                     | Description                                                           |
