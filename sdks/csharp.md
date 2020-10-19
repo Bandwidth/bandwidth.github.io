@@ -64,6 +64,8 @@ Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Me
 ```csharp
 using Bandwidth.Standard.Voice.Controllers;
 
+ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
 callRequest.AnswerUrl= "https://test.com";
@@ -140,12 +142,12 @@ ApiResponse<BandwidthMessage> response = null;
 try
 {
     response = controller.CreateMessage(accountId, messageRequest);
-} 
+}
 catch (MessagingException ex)
 {
     Console.WriteLine(ex.Type);
     Console.WriteLine(ex.Description);
-} 
+}
 catch (ApiException ex)
 {
     Console.WriteLine(ex.ResponseCode);

@@ -12,7 +12,7 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
-### Invalid Phone Number handing
+### Invalid Phone Number Handling
 
 When sending a group message to an invalid phone number, you may receive extraneous [callback events](../../callbacks/messageEvents.md).  You can read more on the [Messaging API concepts page](../../about.md#group-message-invalid).
 
