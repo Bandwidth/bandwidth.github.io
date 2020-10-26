@@ -10,7 +10,7 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's messaging API leverages Basic Authentication with your API username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ### Invalid Phone Number Handling
 
@@ -48,7 +48,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 | applicationId | `string` | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                                                                                                                                            |
 | media         | `array`  | A list of URLs to include as media attachments as part of the message                                                                                                                                                                                                                                                                                               |
 | tag           | `string` | An custom String that you can use to track this particular message                                                                                                                                                                                                                                                                                                  |
-| segmentCount  | `int`    | This indicates the number of segments the original message from the user is broken into before sending over to career networks                                                                                                                                                                                                                                      |
+| segmentCount  | `int`    | This indicates the number of segments the original message from the user is broken into before sending over to carrier networks                                                                                                                                                                                                                                      |
 
 {% common %}
 
