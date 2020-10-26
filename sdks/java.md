@@ -51,7 +51,7 @@ BandwidthClient client = new BandwidthClient.Builder()
             .baseUrl("https://test.com") // Optional - sets the base Url
             .build();
 
-//Fully qualified name to remove confilicts
+//Fully qualified name to remove conflicts
 com.bandwidth.messaging.controllers.APIController messagingController = client.getMessagingClient().getAPIController();
 com.bandwidth.voice.controllers.APIController voiceController = client.getVoiceClient().getAPIController();
 
