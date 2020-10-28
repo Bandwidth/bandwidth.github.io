@@ -13,6 +13,7 @@ node_modules
 bower_components
 #Ignore IDEA files
 /.idea
+*.iml
 
 # Ignore all logfiles and tempfiles.
 *.log

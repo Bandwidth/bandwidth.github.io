@@ -25,8 +25,7 @@ You should not include sensitive or personally-identifiable information in any t
 | Parameter                   | Description                                                                                       
 |:----------------------------|:--------------------------------------------------------------------------------------------------
 | callbackUrl                 | Full callback url to use for notifications about this participant                                 
-| publishPermissions          | Defines if this participant can publish audio or video                                            
-| subscriptions               | Subscription information for this participant                                                     
+| publishPermissions          | Defines the types of media this participant can publish. Accepted values: `AUDIO`,`VIDEO`                                                                                           
 | tag                         | User defined tag to associate with the participant                                                
 
 
@@ -55,17 +54,6 @@ curl -X POST
     "VIDEO",
     "AUDIO"
   ],
-  "subscriptions": {
-    "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
-    "participants": [
-      {
-        "participantId": "568749d5-04d5-483d-adf5-deac7dd3d521"
-      },
-      {
-        "participantId": "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
-      }
-    ]
-  },
   "tag": "participant1"
 }'
 ```
