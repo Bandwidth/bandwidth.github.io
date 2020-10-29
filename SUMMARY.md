@@ -18,6 +18,7 @@
 	* [Examples on Github](https://github.com/Bandwidth/examples)
 	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs)
     * [Postman Collections](https://github.com/Bandwidth/examples/tree/master/postman-collections)
+* [Developer Forum](http://bandwidthdashboard.discussion.community/)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
