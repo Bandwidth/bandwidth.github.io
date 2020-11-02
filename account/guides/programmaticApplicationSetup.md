@@ -450,7 +450,7 @@ HTTP/1.1 201 Created
 Location: https://{baseurl}/accounts/{{accountId}}/sites/{{siteId}}/sippeers/{{sippeerId}}
 ```
 
-> Save the {{sippeerId}} from the `location` header!
+> Save the `{sippeerId}` from the `location` header!
 
 
 {% endextendmethod %}
@@ -631,7 +631,7 @@ var mmsMessageFeature = await SipPeer.CreateMMSSettings(client, site.Id, sipPeer
     },
     Protocols = new Protocols
     {
-        HTTP = new HTTP { 
+        HTTP = new HTTP {
             HttpSettings = new HttpSettings
             {
             }
@@ -725,7 +725,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```csharp
 await SipPeer.UpdateApplicationSettings(client, site.Id, sipPeer.Id, new ApplicationsSettings
 {
-    HttpMessagingV2AppId = messageApplication.Application.ApplicationId 
+    HttpMessagingV2AppId = messageApplication.Application.ApplicationId
 });
 ```
 
