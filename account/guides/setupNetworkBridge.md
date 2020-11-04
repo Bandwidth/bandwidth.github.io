@@ -1,9 +1,9 @@
-# Bandwidth Network Bridge Setup {#top}
-This guide walks through the initial setup for Bandwidth's Network Bridge. The network bridge allows you to use Bandwidth to create phone calls using our network from another authorized API provider.
+# Bandwidth/Twilio Network Bridge Setup {#top}
+This guide walks through the initial setup for Bandwidth's Network Bridge with Twilio. The network bridge allows you to use Bandwidth to create phone calls using our network from another authorized API provider.
 
 You must contact [Bandwidth Customer Support](http://support.bandwidth.com/) to get your SIP domain and port number.
 
-## Pre-Requs {#pre-requs}
+## Pre-Reqs {#pre-requs}
 * [Twilio Account](http://twilio.com/)
 * [Bandwidth Dashboard Account](http://bandwidth.com/)
 * Network Bridge activated: [_contact sales_](https://www.bandwidth.com/)
@@ -86,8 +86,6 @@ After generating the hash value, fill in the Hash1 and Hash1b values to create t
 Select `Sip Credentials` from the account overview page on the [Bandwidth Dashboard](dashboard.bandwidth.com)
 
 <img src="../../images/sip_credentials.png" style="max-width:95%">
-
-Clicking `add` will give you the option to enter a username and password, and Bandwidth will generate the hash values for you, or you can pass in your own pre-generated hash values by selecting `SUPPLY YOUR OWN HASHES`.
 
 <img src="../../images/create_sip_credentials.png" style="max-width:95%">
 
