@@ -423,7 +423,7 @@
   </tr>
     <tr>
     <td>5522</td>
-    <td>Backorders are not compatible with Specific TN, TollFree Vanity or Local Vanity orders</td>
+    <td>Backorders are not compatible with Specific TN, NPANXX, NPANXXX, TollFree Vanity or Local Vanity orders</td>
   </tr>
     <tr>
     <td>5523</td>
@@ -935,7 +935,7 @@
   </tr>
     <tr>
     <td>5188</td>
-    <td>Endpoint must be a valid telephone number, FQDN, ip address, or SIP URI : %s</td>
+    <td>Endpoint must be a valid NANP 10 digit TN, FQDN, ip address, or SIP URI : %s</td>
   </tr>
     <tr>
     <td>5189</td>
@@ -987,7 +987,7 @@
   </tr>
     <tr>
     <td>5201</td>
-    <td>Tn endpoints must be valid NANP tns: %s</td>
+    <td>Tn endpoints must be valid NANP 10 digit telephone number : %s</td>
   </tr>
     <tr>
     <td>5202</td>
@@ -1048,6 +1048,34 @@
     <tr>
     <td>5216</td>
     <td>There is no default NNID configured on account %s for this tn type</td>
+  </tr>
+    <tr>
+    <td>5217</td>
+    <td>The PartialAllowed value submitted is invalid.</td>
+  </tr>
+    <tr>
+    <td>5218</td>
+    <td>Origination route cannot have private IP endpoint: %s</td>
+  </tr>
+    <tr>
+    <td>5219</td>
+    <td>Origination route sip endpoint %s cannot have invalid sip host %s</td>
+  </tr>
+    <tr>
+    <td>5220</td>
+    <td>Origination route sip endpoint %s cannot have private ipv4 %s as sip host</td>
+  </tr>
+    <tr>
+    <td>5221</td>
+    <td>Origination route priority %s cannot exceed maximum priority value %s</td>
+  </tr>
+    <tr>
+    <td>5222</td>
+    <td>Origination route weight %s cannot exceed maximum weight value %s</td>
+  </tr>
+    <tr>
+    <td>5223</td>
+    <td>Origination route priority should be a contiguous sequence of numbers starting with 1. Priority %d is missing.</td>
   </tr>
     <tr>
     <td>5214</td>
@@ -1144,6 +1172,14 @@
     <tr>
     <td>5002</td>
     <td>TelephoneNumber: %s The telephone number is not valid for ordering.</td>
+  </tr>
+    <tr>
+    <td>5217</td>
+    <td>A2P settings cannot be modified on the TN when the location is enabled for A2P.</td>
+  </tr>
+    <tr>
+    <td>5218</td>
+    <td>Telephonenumber cannot be ordered because it is already processing on another order.</td>
   </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
@@ -2168,6 +2204,10 @@
     <td>PIN does not match the Passcodes on the telephone numbers being ported out.</td>
   </tr>
     <tr>
+    <td>7611</td>
+    <td>The order has been cancelled by the porting vendor for unspecified reasons. Please contact Bandwidth for assistance.</td>
+  </tr>
+    <tr>
     <td>7999</td>
     <td>An internal error has occurred. Please contact support if this issue is not resolved in 1 business day</td>
   </tr>
@@ -3140,6 +3180,10 @@
     <td>16114</td>
     <td>StateCode is invalid</td>
   </tr>
+    <tr>
+    <td>16115</td>
+    <td>Order was rejected due to: %s</td>
+  </tr>
   </table>
 <h2>LidbErrorType</h2>
 <table class="fixed">
@@ -3348,10 +3392,6 @@
     <tr>
     <td>8026</td>
     <td>Your callback number is currently provisioned with a 911 street address which cannot be overwritten. Please contact your Bandwidth representative for assistance in the resolution of this issue.</td>
-  </tr>
-    <tr>
-    <td>8027</td>
-    <td>Your phone number is currently provisioned as a 911 callback telephone number with a specific associated street address, and cannot be provisioned with the 911 service. Please contact your Bandwidth representative for assistance in the resolution of this issue.</td>
   </tr>
     <tr>
     <td>8028</td>
@@ -3827,7 +3867,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR, GLOBALOUTBOUNDBDR, GLOBALOUTBOUNDSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -4472,7 +4512,7 @@
   </tr>
     <tr>
     <td>12013</td>
-    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement, Analytics</td>
+    <td>Product '%s' does not exist. Valid values: Origination, Termination, MESSAGING, E911, TollFree, UcTrunking, EdgeManagement, CORE, Iris, NumberManagement, Analytics, CampaignManagement</td>
   </tr>
     <tr>
     <td>12015</td>
@@ -4492,7 +4532,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -5078,6 +5118,38 @@
     <td>12168</td>
     <td>A call to the message search service has failed. Please try again later. If this problem continues please contact Bandwidth support.</td>
   </tr>
+    <tr>
+    <td>12169</td>
+    <td>A call to the BackOffice service has failed. Please try again later.</td>
+  </tr>
+    <tr>
+    <td>12170</td>
+    <td>Couldn't parse Billing Settings received from Back Office.</td>
+  </tr>
+    <tr>
+    <td>12171</td>
+    <td>The operation could not be performed because Account %d does not have A2P enabled on locations: %s</td>
+  </tr>
+    <tr>
+    <td>12172</td>
+    <td>Feature '%s' requires presence of '%s' feature on the account '%s'.</td>
+  </tr>
+    <tr>
+    <td>12173</td>
+    <td>Origination Route Plan feature can not be removed from account %d because there are still Route Plans provisioned on account TNs</td>
+  </tr>
+    <tr>
+    <td>12174</td>
+    <td>Feature '%s' requires presence of '%s' attribute on the account '%s'.</td>
+  </tr>
+    <tr>
+    <td>12175</td>
+    <td>Feature 10DLC requires presence of A2pOnly or A2pLongCode on the account '%s'.</td>
+  </tr>
+    <tr>
+    <td>12176</td>
+    <td>'%s' product requires at least one feature.</td>
+  </tr>
   </table>
 <h2>AdminValidationError</h2>
 <table class="fixed">
@@ -5611,7 +5683,7 @@
   </tr>
     <tr>
     <td>12648</td>
-    <td>Invalid property name, valid values are NEW_TERMINATION_IS_ACTIVATED, MAX_REPORT_INSTANCES_ALLOWED_PER_ACCOUNT, MAX_REPORT_INSTANCES_ALLOWED_PER_USER, REPORT_INSTANCE_DEFAULT_EXPIRY_DAYS, REPORT_INSTANCE_MAX_EXPIRY_DAYS, BACKOFFICE_API_USER, BACKOFFICE_API_PASSWORD, BACKOFFICE_URL, AUDIT_AVAILABLE_DBS, DEFAULT_PROXY_SIP_PEER_ID, NUMBER_OF_CHUNKS_PER_NIGHTLY_TN_AUDIT, CHUNK_SIZE_FOR_NIGHTLY_TN_AUDIT, PORTIN_NOTIFICATION_EMAIL, ONNET_PORTING_OVERFLOW_STATE, MAX_NUMBER_OF_TNS_IN_AN_AUTOMATED_PORT, ONNET_PORTING_OVERFLOW_FOR_EXTRA_LARGE_PORTS, ZENDESK_API_REQUESTOR_ID, ZENDESK_API_USER_ID, ZENDESK_API_TOKEN_ID, ZENDESK_API_BASE_URL_ID, V2_MESSAGING_SYSTEM_ROOT_URL, V2_MESSAGING_SYSTEM_ROOT_URL_USER, V2_MESSAGING_SYSTEM_ROOT_URL_PASSWORD, V2_MESSAGING_SYSTEM_APPLICATION_URL, V2_MESSAGING_SYSTEM_APPLICATION_URL_USER, V2_MESSAGING_SYSTEM_APPLICATION_URL_PASSWORD, ABACUS_URL, VAPOR_URL, MOVE_TNS_TIMEOUT, TERM_MIGRATION_TIMEOUT</td>
+    <td>Invalid property name.</td>
   </tr>
     <tr>
     <td>12649</td>
@@ -6387,7 +6459,7 @@
   </tr>
     <tr>
     <td>12958</td>
-    <td>Invalid property name, valid values are: tpa, vendors, bwspids, sbcNodeGroups, a2pClasses, a2pCampaignIds, blockedaccount, messagingBlockedAccountIds, systemEventSubscriptions, proxypeers, nnroutes, slingshotEnv, breakOutCountries, whitelistIps</td>
+    <td>Invalid property name.</td>
   </tr>
     <tr>
     <td>12960</td>
@@ -6756,6 +6828,54 @@
     <tr>
     <td>13052</td>
     <td>The PlusFour field value %s does not match the plus four extension %s provided in the Zip field.</td>
+  </tr>
+    <tr>
+    <td>13053</td>
+    <td>%s NNID %s cannot be assigned to %s</td>
+  </tr>
+    <tr>
+    <td>13054</td>
+    <td>A2P Long Code must be enabled on account to assign %s</td>
+  </tr>
+    <tr>
+    <td>13055</td>
+    <td>'page' and 'size' parameters must be specified at the same time.</td>
+  </tr>
+    <tr>
+    <td>13056</td>
+    <td>'page' parameter should be numeric</td>
+  </tr>
+    <tr>
+    <td>13057</td>
+    <td>'size' parameter should be numeric</td>
+  </tr>
+    <tr>
+    <td>13058</td>
+    <td>page and size must be greater than or equal to 1</td>
+  </tr>
+    <tr>
+    <td>13059</td>
+    <td>the minimum number of characters for a search string is %s</td>
+  </tr>
+    <tr>
+    <td>13060</td>
+    <td>Host %s is blacklisted</td>
+  </tr>
+    <tr>
+    <td>13061</td>
+    <td>Account %s is not the voice owner for all of the TNs in the payload</td>
+  </tr>
+    <tr>
+    <td>13062</td>
+    <td>Account %s does not have active records for all of the TNs in the payload. Check that all of these TNs need to be cleaned up on this account</td>
+  </tr>
+    <tr>
+    <td>13063</td>
+    <td>Only 1 Account can be recasted when specifying a list of TNs</td>
+  </tr>
+    <tr>
+    <td>13064</td>
+    <td>AccountRelationShip '%s' is not valid. Valid values: BASIC_ACCOUNT, SMALL_ACCOUNT, MEDIUM_ACCOUNT, LARGE_ACCOUNT, KEY_ACCOUNT</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -7470,6 +7590,10 @@
     <tr>
     <td>13679</td>
     <td>Delete not allowed; the SIP Peer is used as a proxy peer for the HTTP feature</td>
+  </tr>
+    <tr>
+    <td>13680</td>
+    <td>A2pOnly account %s required A2P enabled on location. Valid values are: 'ON', 'DefaultOn'</td>
   </tr>
   </table>
 <h2>PotValidationError</h2>

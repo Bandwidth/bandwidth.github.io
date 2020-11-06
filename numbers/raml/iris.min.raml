@@ -1211,6 +1211,8 @@ securitySchemes:
                       <li>CNAMSTMTBDR</li>
                       <li>CONFBDR</li>
                       <li>CONFSTMTBDR</li>
+                      <li>GLOBALOUTBOUNDBDR</li>
+                      <li>GLOBALOUTBOUNDSTMTBDR</li>
                       </ul>
                 queryParameters:
                     kind:
@@ -1220,7 +1222,7 @@ securitySchemes:
                         example: DIDSNAP
                 responses:
                     200:
-                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR  as status history not implemented yet for these billing types)
+                        description: The list of all billing report instances. (Not supported for BDR, MDR, INVOICE, STMTBDR, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR, GLOBALOUTBOUNDBDR, GLOBALOUTBOUNDSTMTBDR as status history not implemented yet for these billing types)
                         body:
                             application/xml:
                                 example: |
@@ -11606,7 +11608,7 @@ securitySchemes:
                         <tr>
                             <td>PartialAllowed</td>
                             <td>By default all order submissions are fulfilled partially. Setting the PartialAllowed to false would trigger the entire order to be fulfilled (any error ecnountered such as 1 TN not being available would fail all TNs in the order)<br>
-                                By default, this value is set to false</td>
+                                By default, this value is set to true</td>
                         </tr>
                         <tr>
                             <td>BackOrderRequested</td>
@@ -15583,7 +15585,7 @@ securitySchemes:
                             </tr>
                             <tr>
                               <td>CallingName</td>
-                              <td>Determines whether the Calling Name Display service is applied to the Telephone Numbers associates with the SIP Peer</td>
+                              <td>Determines whether the Calling Name Display service is applied to the Telephone Numbers associates with the SIP Peer. CNAM defaults to false if it is missing</td>
                               <td></td>
                             </tr>
                             <tr>
@@ -15874,6 +15876,7 @@ securitySchemes:
                                 <ul><li>Term Addresses cannot be shared anywhere</li>
                                 <li>VoiceHost and VoiceHostGroup addresses can be shared between SIP Peers, and can be different than or the same as Term IP Addresses </li>
                                 </ul>
+                                If the CallingName field is missing from the payload, CNAM will default to false on the Sip Peer
                             body:
                                 application/xml:
                                     example: |
@@ -16713,6 +16716,7 @@ securitySchemes:
                                                    IP address such as &lt;47.123.17.16&gt; with a zero subnet value must be provided</li>
                                                    <li>Can not disable shortcode sms settings for a SipPeer if shortcode numbers with messaging enabled
                                                    are present on this SipPeer</li>
+                                                   <li>A2pOnly account %s required A2P enabled on location. Valid values are: 'ON', 'DefaultOn'</li>
                                                 </ul>
                                             body:
                                                 application/xml:
@@ -17823,7 +17827,7 @@ securitySchemes:
                                         </Subscription>
                 put:
                     description: |
-                        Updates the subscription. This can be be used to update various values (expiry, email address, url, credentials...).
+                        Updates the subscription. This can be used to update various values (expiry, email address, url, credentials...).
                         Note that the initial state changes for an order may happen very quickly, so subscribing to an
                         order once the system creates it needs to account for the fact that the initial state may be
                         different based on timing factors. It is recommended that the application creating the
@@ -18086,7 +18090,7 @@ securitySchemes:
                         <ul>
                         <li>Endpoint</li>
                           <ul>
-                            <li>a NANP telephone number, or</li>
+                            <li>a NANP 10 digit telephone number, or</li>
                             <li>a SIP URI, or</li>
                             <li>a IPv4 address, or </li>
                             <li>a Fully Qualified Domain name(FQDN) </li>
@@ -18217,7 +18221,7 @@ securitySchemes:
                                          <Sms>off</Sms>
                                          <OriginationRoutePlan>
                                              <Route>
-                                                 <Endpoint>+16107622502</Endpoint>
+                                                 <Endpoint>6105552502</Endpoint>
                                                  <Priority>1</Priority>
                                                  <Weight>100</Weight>
                                              </Route>
@@ -18232,12 +18236,12 @@ securitySchemes:
                                                  <Weight>50</Weight>
                                              </Route>
                                              <Route>
-                                                 <Endpoint>+17077622509</Endpoint>
+                                                 <Endpoint>7075552509</Endpoint>
                                                  <Priority>3</Priority>
                                                  <Weight>50</Weight>
                                              </Route>
                                              <Route>
-                                                  <Endpoint>myhost.bandwidth.com</Endpoint>
+                                                  <Endpoint>myhost.bandwidth.example</Endpoint>
                                                   <Priority>4</Priority>
                                                   <Weight>100</Weight>
                                              </Route>
@@ -20264,7 +20268,7 @@ securitySchemes:
             </tr>
         </table>
         <br> <br>
-        If the customer's endpoint is unavailable, the Bandwidth Dashboard API callback service will retry the customer's endpoint 8 times over a period of 40 minutes.
+        If the customer's endpoint is unavailable, the Bandwidth Dashboard API callback service will not retry.
         <br><br>
         The API payloads are described below...
     /portOutValidationCallbackApi: 
