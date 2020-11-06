@@ -6,6 +6,8 @@ When used on a call, all audio on both sides of the call will be recorded.
 When used on a conference, all members who are not on mute or hold will be recorded, as well as all audio clips played.
 The recording will continue until the call or conference ends, the [`<StopRecording>`](stopRecording.md) verb is used, or the [`<PauseRecording>`](pauseRecording.md) verb is used.
 
+<b>Tip:</b> For use cases like voice mail system and conferencing introduction, you might want to take a look at [Record](../verbs/record.md).
+
 ### Attributes
 | Attribute                    | Description                                                                                                                                                                                                            |
 |:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
