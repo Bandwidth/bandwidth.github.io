@@ -24,7 +24,7 @@ In order to route the outbound calls through Bandwidth, you'll need to create a 
 | `Username` | required | String identifying the user. |
 | `Domain`   | optional | String refining the identity of the user. The Domain will be joined to the UserName with an @ to create a composite username. For example, the UserName bob could be combined with the domain somewhere.com to create a composite username bob@somewhere.com |
 | `Hash1`    | required | String representing a potential Hash values used to authenticate the client. The value should be computed from an MD5 Hash of: {composite-username}:{Realm}:{Password}. |
-| `Hash1b`   | required | String representing a potential Hash value used to authenticate the client. The value should be computed from an MD5 Hash of {composite-username}:{Realm}:{Realm}:{Password}. |
+| `Hash2`   | required | String representing a potential Hash value used to authenticate the client. The value should be computed from an MD5 Hash of {composite-username}:{Realm}:{Realm}:{Password}. |
 
 The Twilio platform requires a `SIPAuthUsername` and a `SIPAuthPassword`. These examples assume that your `username=sipauthtest` and `password=password`.
 
@@ -51,7 +51,7 @@ md5 -s sipauthtest:custxx.auth.bandwidth.com:password
 MD5 ("sipauthtest:custxx.auth.bandwidth.com:password") = fe438bddfc087dda89d29e637f5684ab
 ```
 
-##### Generate MD5 `Hash1b` _without_ Domain
+##### Generate MD5 `Hash2` _without_ Domain
 | composite-username | : | realm                       | realm                       | : | password   |
 |--------------------|---|-----------------------------|-----------------------------|---|------------|
 | `sipauthtest`      | : | `custxx.auth.bandwidth.com` | `custxx.auth.bandwidth.com` | : | `password` |
@@ -70,7 +70,7 @@ md5 -s bob@somewhere.com:custxx.auth.bandwidth.com:password
 MD5 ("bob@somewhere.com:custxx.auth.bandwidth.com:password") = 817d76e91aad032a8c272229f468bfb2
 ```
 
-#####  Generate md5 Hash1b _with_ domain `somewhere.com`
+#####  Generate md5 Hash2 _with_ domain `somewhere.com`
 | composite-username  | : | realm                       | realm                       | : | password   |
 |---------------------|---|-----------------------------|-----------------------------|---|------------|
 | `bob@somewhere.com` | : | `custxx.auth.bandwidth.com` | `custxx.auth.bandwidth.com` | : | `password` |
@@ -80,7 +80,7 @@ MD5 ("bob@somewhere.com:custxx.auth.bandwidth.com:custxx.auth.bandwidth.com:pass
 ```
 
 ### Add the Newly Created Hash to Sip Credentials {#add-new-credentials}
-After generating the hash value, fill in the Hash1 and Hash1b values to create the SIP credentials.
+After generating the hash value, fill in the Hash1 and Hash2 values to create the SIP credentials.
 
 #### Using the UI  {#using-the-ui}
 Select `Sip Credentials` from the account overview page on the [Bandwidth Dashboard](dashboard.bandwidth.com)
