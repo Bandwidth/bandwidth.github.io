@@ -23,7 +23,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | from          | Yes | One of your telephone numbers from which the message should come from (must be in E.164 format, like `+19195551212`). This number must be associated with the messaging application given by the `applicationId` parameter. |
 | applicationId | Yes | The messaging application ID. |
 | scope         | No | An optional field to denote what scope or action the 2fa code is addressing. If not supplied, defaults to "2FA". |
-| message | Yes | The message format of the 2fa code. There are three values that the system will replace "{CODE}", "{NAME}", "{SCOPE}". The "{SCOPE}" and "{NAME}" value template are optional, while "{CODE}" must be supplied. As the name would suggest, "{CODE}" will be replaced with the actual 2fa code. "{NAME}" is replaced with the application name, configured during provisioning of 2fa. The "{SCOPE}" value is the value of the `scope` parameter. The value of this parameter is limited to 2048 characters. |
+| message | Yes | The message format of the 2fa code. There are three values that the system will replace "{CODE}", "{NAME}", "{SCOPE}". The "{SCOPE}" and "{NAME}" template values are optional, while "{CODE}" must be supplied. As the name would suggest, "{CODE}" will be replaced with the actual 2fa code. "{NAME}" is replaced with the application name, configured during provisioning of 2fa. The "{SCOPE}" value is the value of the `scope` parameter. The value of this parameter is limited to 2048 characters. |
 | digits | Yes | The number of digits for your 2fa code. The valid number ranges from 4 to 8, inclusively. |
 
 ### Response Attributes
