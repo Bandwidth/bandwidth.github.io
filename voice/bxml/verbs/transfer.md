@@ -30,14 +30,13 @@ If no `transferCompleteUrl` is specified, no event will be sent, and execution o
 Note that the [TransferComplete](../callbacks/transferComplete.md) callback is only sent if the call is still active after the `<Transfer>` completes. If you need an event delivered for every `<Transfer>` regardless of how it ends, see the [Transfer Disconnect](../callbacks/transferDisconnect.md) event below. 
 
 ### Nested Tags
-Between 1 and 8 `<PhoneNumber>` tags must be nested within the `<Transfer>` tag to define the called parties.  If more than
-one `<PhoneNumber>` is specified, called parties will ring simultaneously and the first to answer will be bridged
-to the original call. Only one `<SipUri>` tag (without any `<PhoneNumber>`s) may be nested within a `<Transfer>`.
+Between 1 and 8 `<PhoneNumber>` or `<SipUri>` tags must be nested within the `<Transfer>` tag to define the called parties. If more than
+one destination is specified, called parties will ring simultaneously and the first to answer will be bridged to the original call.
 
-| Verb        | Description                                                                                     |
-|:------------|:------------------------------------------------------------------------------------------------|
-| PhoneNumber | A collection of phone numbers to transfer the call to. The first to answer will be transferred. |
-| SipUri      | The Bandwidth WebRTC sip endpoint.                                                              |
+| Tag         | Description                                                                                |
+| :---------- | :----------------------------------------------------------------------------------------- |
+| PhoneNumber | A phone number to transfer the call to. Value must be in E.164 format (e.g. +15555555555). |
+| SipUri      | A SIP URI to transfer the call to (e.g. sip:user@server.com).                            |
 
 #### PhoneNumber attributes
 | Attribute                    | Description |
@@ -57,7 +56,7 @@ to the original call. Only one `<SipUri>` tag (without any `<PhoneNumber>`s) may
 #### SipUri attributes
 | Attribute                    | Description |
 |:-----------------------------|:------------|
-| uui                          | (optional) The value of the `User-To-User` header to send within the initial `INVITE`. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only the `jwt` encoding for WebRTC is currently permitted. This value, including the encoding specifier, may not exceed 256 characters. |
+| uui                          | (optional) The value of the `User-To-User` header to send within the initial `INVITE`. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. |
 | transferAnswerUrl            | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
 | transferAnswerMethod         | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
 | transferAnswerFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
