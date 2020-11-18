@@ -47,7 +47,7 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 |:-------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `<OrderType>`            | Yes      | The Specific type of order in which to configure the subscription. <br> For this guide, the value is: `orders`                                              |
 | `<CallbackSubscription>` | Yes      | Contains the information about the callback url                                                                                                             |
-| `<Url>`                  | Yes      | The URL to send the <code class="post">POST</code> request when order status changes. <br><br> Part of the `<CallbackSubscription>` element.                |
+| `<URL>`                  | Yes      | The URL to send the <code class="post">POST</code> request when order status changes. <br><br> Part of the `<CallbackSubscription>` element.                |
 | `<Expiry>`               | Yes      | How long to keep the subscription active. <br> Can be very large (100 years in seconds `3153600000`) <br><br> Part of the `<CallbackSubscription>` element. |
 | `<CallbackCredentials>`  | No       | Container for the authentication credentials for the specified `URL`  <br><br> Part of the `<CallbackSubscription>` element.                                |
 | `<BasicAuthentication>`  | No       | Container for Basic Authentication credentials.                                                                                                             |

@@ -19,7 +19,7 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 
 * For each outbound message, you **will** receive either (but not both) a [Message Delivered](msgDelivered.md) or [Message Failed](messageFailed.md) event.
   * It is essential to check the direction of the message in the callback you receive. For example, if your use case depends on responding to inbound messages, you do not want to respond to an outbound message callback. This could create a loop of messages being sent from your account as you continuously respond to outbound message callbacks.
-  
+
 * ⚠️  Delivery receipts are now supported for MMS & Group Messaging. During this beta phase, you will need to request this functionality to be enabled on your account. Once enabled you will need to support all three possible callback events for MMS (Message Delivered, Message Failed, & Message Queued callbacks). [Visit our Support Site](https://support.bandwidth.com/hc/en-us/articles/360051643414-How-do-I-enable-MMS-Delivery-Receipts-when-sending-messages-) to learn more about enabling MMS DLR on your account.
 
 | Event                                      | Direction | Description                                                                      |
@@ -28,4 +28,4 @@ Bandwidth uses HTTP Callbacks (also known as [webhooks](https://webhooks.pbworks
 | [Incoming Text Message](incomingSingle.md) | `in`      | Bandwidth sends this event for each incoming text message                        |
 | [Message Delivered](msgDelivered.md)       | `out`     | Bandwidth sends this event when the text is delivered to the downstream carrier. |
 | [Message Failed](messageFailed.md)         | `out`     | Bandwidth sends this event when the message contents were unable to be delivered |
-| [Message Sending (MMS only)](messageQueued.md) | `out`  | Bandwidth sends this event when the MMS message is in the process of being sent to the downstream carrier. The delivery receipt has not been received yet to indicate final success or failure. |
+| [Message Sending (MMS only)](messageSending.md) | `out`  | Bandwidth sends this event when the MMS message is in the process of being sent to the downstream carrier. The delivery receipt has not been received yet to indicate final success or failure. |
