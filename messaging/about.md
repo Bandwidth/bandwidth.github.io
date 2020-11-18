@@ -46,7 +46,7 @@ After 24 hours, if your server has not returned a `HTTP 2xx` code, Bandwidth wil
 
 The messaging API works off of an internal queuing system.  As such, when you <code class="post">POST</code> to the `v2/.../messages` to create a new message, Bandwidth will reply with an `HTTP 202 - Accepted`.  This indicates that the message has been placed on the queue
 
-As the message progresses through the internal system you will receive a  a [Message Delivered](callbacks/msgDelivered.md) callback when the message has been handed off to the downstream carrier.
+As the message progresses through the internal system you will receive a [Message Delivered](callbacks/msgDelivered.md) callback when the message has been handed off to the downstream carrier.
 
 If at any-point through the process the message fails, you will receive a detailed [Message Failed](callbacks/messageFailed.md) callback with an error code describing the reason for failure.
 
@@ -65,4 +65,3 @@ For mored detailed information on segment counts, please see our [character limi
 ## MMS and Group Message Delivery Receipts {#mms-dlr}
 
 MMS and Group messages delivery receipts are currently in beta and you will need to enable them to receive them.
-

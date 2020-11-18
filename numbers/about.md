@@ -18,6 +18,7 @@
 | [Disconnect a Phone Number](./guides/disconnectSummary.md)                 | Learn about the basics for removing phone numbers from your account                                                             |
 | [Managing Line Features](./guides/managingLineFeatures.md)                 | Learn about the various line features and how to enable / disable features like CNAM                                            |
 | [Managing Orders](./guides/managingOrders.md)                              | Learn about managing in flight orders (orders that have yet to reach a terminal state)                                          |
+| [Downloading Reports](./guides/downloadingReports.md)                      | Learn how to create and download account and billing reports using the API                                                      |
 | [Import TNs for Hosted Messaging](./guides/hostedMessaging.md)             | Learn how to import Phone Numbers in to your Bandwidth account for Hosted Messaging (text-enable other phone numbers)           |
 | [Number Utilization Review API](./guides/numberUtilizationReviewAPI.md)    | Step By Step Guide To Number Assignment Using The Bandwidth Phone Number Management API                                         |
 | [Porting Phone Numbers](./guides/portingPhoneNumbers.md)                   | Learn the work flow associated to porting and managing port orders                                                              |

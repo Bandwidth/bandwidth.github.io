@@ -1,5 +1,9 @@
 ## Voice Guides
 
-### BXML Guides
+### BXML
 
 * [BXML Recording](bxmlRecording.md)
+
+### CNAM
+
+* [CNAM Service](cnamService.md)

@@ -21,3 +21,4 @@
 |:--------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
 | [Examples on Github](https://github.com/Bandwidth/examples)                                 | Example applications & Scripts demo-ing Bandwidth functionality with the SDKs                      |
 | [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs) | Bandwidth's [Open API Specification](https://swagger.io/solutions/getting-started-with-oas/) files |
+| [Postman Collection](https://github.com/Bandwidth/examples/tree/master/postman-collections) | A collection of postman APIO Request Examples                                                      |

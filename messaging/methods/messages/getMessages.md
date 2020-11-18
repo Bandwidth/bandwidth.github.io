@@ -2,7 +2,7 @@
 
 ## Get Messages
 
-Note: Message Search is in limited availability.  We will continue to make improvements so you may see changes. 
+Note: Message Search is in limited availability.  We will continue to make improvements so you may see changes.
 
 ### URL Encoding For Query Parameters
 
@@ -58,7 +58,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messages.segmentCount | integer | The number of segments the message was sent as |
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
-| messages.carrierName | string | The name of the carrier |
+| messages.carrierName | string | The name of the carrier. Not currently supported for MMS, coming soon |
 | pageInfo.prevPage | string | The link to the previous page for pagination |
 | pageInfo.nextPage | string | The link to the next page for pagination |
 

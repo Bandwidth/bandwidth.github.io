@@ -10,6 +10,8 @@ In order to successfully use the Number Ordering & Porting APIs you need to conf
 
 Subscriptions contain the `URL` & `CallbackCreds` to authenticate and send [number ordering & porting events](../../numbers/callbacks/about.md) for each state change.
 
+Because processing times may vary across all order types, Bandwidth recommends the use of subscriptions to receive webhook notifications upon order completion, as opposed to polling the resource ID with <code class="get">GET</code> requests until the desired state is returned.
+
 <img src="../../images/subscriptions.png" style="max-width:95%">
 
 ### Base Url

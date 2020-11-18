@@ -38,6 +38,7 @@ pip install bandwidth-sdk
 
 ```python
 from bandwidth.bandwidth_client import BandwidthClient
+from bandwidth.configuration import Environment #Optional - Used for custom base URLs
 
 from bandwidth.messaging.models.message_request import MessageRequest
 from bandwidth.messaging.exceptions.messaging_exception import MessagingException
@@ -65,7 +66,10 @@ bandwidth_client = BandwidthClient(
     messaging_basic_auth_user_name=messaging_basic_auth_user_name,
     messaging_basic_auth_password=messaging_basic_auth_password,
     two_factor_auth_basic_auth_user_name=two_factor_auth_basic_auth_user_name,
-    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password)
+    two_factor_auth_basic_auth_password=two_factor_auth_basic_auth_password,
+    environment=Environment.CUSTOM, #Optional - Used for custom base URLs
+    base_url="https://test.com" #Optional - Custom base URL set here
+)
 ```
 
 ## Create Phone Call
@@ -165,4 +169,31 @@ body = TwoFactorVerifyRequestSchema(
 )
 response = auth_client.create_verify_two_factor(account_id, body)
 print("Auth status: " + str(response.body.valid))
+```
+
+## Error Handling
+
+All SDK methods can raise 2 types of exceptions based on the API response received.
+
+The first type of exceptions are expected endpoint responses. The exception throw varies on each method and the corresponding http status code.
+
+The second type of exceptions are unexpected endpoint responses. The exception throw will always be an `APIException`.
+
+### Error Handling Example: Messaging
+
+```python
+<Other SDK import statements>
+from bandwidth.messaging.exceptions.messaging_exception import MessagingException
+from bandwidth.exceptions.api_exception import APIException
+
+<client initialization code>
+
+try:
+    response = messaging_client.create_message(account_id, body=body)
+except MessagingException as e:
+    print(e.response_code) #http status code
+    print(e.response.text) #raw response from api
+except APIException as e:
+    print(e.response_code) #http status code
+    print(e.response.text) #raw response from api
 ```

@@ -4,6 +4,11 @@ The Record verb allows a segment of audio to be recorded during a call. At the e
 
 Bandwidth will keep recordings for up to 30 days. After 30 days the recordings will be deleted from Bandwidth's servers.
 
+##### Links
+* This verb should probably be used if you are building a voice mail system or conference member introduction.
+For different use cases, you might want to take a look at [StartRecording](../verbs/startRecording.md). 
+* For a more detailed view of Recording, check the [Recording Guide](../../guides/bxmlRecording.md).
+
 ### Attributes
 | Attribute                    | Description |
 |:-----------------------------|:------------|

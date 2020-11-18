@@ -30,8 +30,7 @@ You should not include sensitive or personally-identifiable information in any t
 ### Response Attributes
 | Property                    | Description                                                                                       
 |:----------------------------|:--------------------------------------------------------------------------------------------------
-| id                          | Unique id of the session                                                                          
-| participants                | The list of participants associated with this session                                             
+| id                          | Unique id of the session                                                                                                                    
 | tag                         | User defined tag to associate with the session                                                    
 
 
@@ -57,10 +56,6 @@ curl -X POST
 ```json
 {
   "id"                  : "75c21163-e110-41bc-bd76-1bb428ec85d5",
-  "participants"        : [
-      "c0c0dcfd-4ce4-4752-a8d9-b6ddeb72bead",
-      "320e2af6-13ec-498d-8b51-daba52c37853"
- ],
   "tag"                 : "session1"
 }
 ```

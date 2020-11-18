@@ -33,7 +33,6 @@ curl -X DELETE
 
 ```json
 
-}
 ```
 
 ### Potential Error Responses
