@@ -34,7 +34,7 @@ In any of those cases a [Bridge Complete](../callbacks/bridgeComplete.md) event 
 | password                           | (optional) The password to send in the HTTP request to `bridgeCompleteUrl` and to `bridgeTargetCompleteUrl`. |
 | fallbackUsername                   | (optional) The username to send in the HTTP request to `bridgeCompleteFallbackUrl` and to `bridgeTargetCompleteFallbackUrl`. |
 | fallbackPassword                   | (optional) The password to send in the HTTP request to `bridgeCompleteFallbackUrl` and to `bridgeTargetCompleteFallbackUrl`. |
-| tag                                | (optional) A custom string that will be sent with the `bridgeComplete` callback and all future callbacks of the call unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| tag                                | (optional) A custom string that will be sent with the `bridgeComplete` callback and all future callbacks of the call unless overwritten by a future `tag` attribute or [`<Tag>`](tag.md) verb, or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 ### Text Content
 | Name        | Description                                               |
