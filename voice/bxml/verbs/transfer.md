@@ -33,10 +33,10 @@ Note that the [TransferComplete](../callbacks/transferComplete.md) callback is o
 Between 1 and 8 `<PhoneNumber>` or `<SipUri>` tags must be nested within the `<Transfer>` tag to define the called parties. If more than
 one destination is specified, called parties will ring simultaneously and the first to answer will be bridged to the original call.
 
-| Tag         | Description                                                                                |
-| :---------- | :----------------------------------------------------------------------------------------- |
-| PhoneNumber | A phone number to transfer the call to. Value must be in E.164 format (e.g. +15555555555). |
-| SipUri      | A SIP URI to transfer the call to (e.g. sip:user@server.com).                            |
+| Tag         | Description                                                                                  |
+| :---------- | :------------------------------------------------------------------------------------------- |
+| PhoneNumber | A phone number to transfer the call to. Value must be in E.164 format (e.g. `+15555555555`). |
+| SipUri      | A SIP URI to transfer the call to (e.g. `sip:user@server.com`).                              |
 
 #### PhoneNumber attributes
 | Attribute                    | Description |
