@@ -14,10 +14,10 @@ None
 
 
 {% common %}
-#### Example 1 of 1: Redirect Verb
-This shows how to use BXML to set the tag for a call to the value "abc123" before playing an audio clip.
-When the platform hangs up at the end of the audio clip, the tag reported in the [disconnect event](../callbacks/disconnect.md)
-will be "abc123".
+#### Example 1 of 1: Tag Verb
+This shows how to use the <Tag> verb and its effects on callback events. In this example, we only
+affect the [disconnect event](../callbacks/disconnect.md), but if there were other callbacks, they
+would also be affected.
 
 {% sample lang="http" %}
 
@@ -25,10 +25,11 @@ will be "abc123".
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-   <Tag>
-      abc123
-   </Tag>
+   <Tag>audio playing</Tag>
+   <!-- If the call is hung up during the audio clip, the tag value reported in the disconnect event will be "audio playing" -->
    <PlayAudio>/myMediaFile.mp3</PlayAudio>
+   <Tag>audio ended</Tag>
+   <!-- If the call is hung up after the audio clip, the tag value reported in the disconnect event will be "audio ended" -->
 </Response>
 ```
 
