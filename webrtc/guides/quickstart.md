@@ -11,7 +11,7 @@ and from these devices.
 
 ## Hello World
 
-Our WebRTC "hello world" sample app will show you to how receive calls and make outbound calls, all from your web browser. 
+Our WebRTC "hello world" sample app will show you how to receive calls and make outbound calls, all from your web browser. 
 
 Please visit our [Bandwidth Examples](https://github.com/Bandwidth/examples) repo to find a _webrtc\_hello\_world_ folder in NodeJS and Java (with a React front-end).
 
