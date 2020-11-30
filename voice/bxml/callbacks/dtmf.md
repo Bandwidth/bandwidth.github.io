@@ -15,6 +15,7 @@ HTTP/1.1 204
 | Property         | Description |
 |:-----------------|:------------|
 | eventType        | The event type, value is `dtmf`. |
+
 | accountId        | The user account associated with the call. |
 | applicationId    | The id of the application associated with the call. |
 | to               | The phone number that received the call, in E.164 format (e.g. +15555555555). |
