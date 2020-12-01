@@ -15,13 +15,14 @@ To receive [events/callbacks](../callbacks/messageEvents.md) for incoming and ou
 
 ### Capabilities
 
-| Verb                           | Path                                                               | about                                                                         |
-|:-------------------------------|:-------------------------------------------------------------------|:------------------------------------------------------------------------------|
+| Verb                           | Path                                                                  | about                                                                         |
+|:-------------------------------|:----------------------------------------------------------------------|:------------------------------------------------------------------------------|
+| <code class="post">GET</code>  | [`/users/{accountId}/messages`](../methods/messages/getMessages.md)   | Query information on previously sent messages from your account               |
 | <code class="post">POST</code> | [`/users/{accountId}/messages`](../methods/messages/createMessage.md) | Send a text message to a single number or a group message to multiple numbers |
 
 ### Media & Attachment Management
-| Verb                               | Path                                                                   | about                                                                          |
-|:-----------------------------------|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| Verb                               | Path                                                                      | about                                                                          |
+|:-----------------------------------|:--------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
 | <code class="get">GET</code>       | [`/users/{accountId}/media`](../methods/media/listMedia.md)               | Get a list of your media files                                                 |
 | <code class="get">GET</code>       | [`/users/{accountId}/media/{mediaName}`](../methods/media/getMedia.md)    | Downloads an incoming MMS media attachment or an uploaded media file           |
 | <code class="put">PUT</code>       | [`/users/{accountId}/media/{mediaName}`](../methods/media/uploadMedia.md) | Uploads a media file                                                           |
