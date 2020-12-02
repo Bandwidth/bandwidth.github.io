@@ -39,7 +39,7 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"     : "conferenceRecordingAvailable",
-    "eventTime"     : "2019-09-13T16:50:53.788Z",
+	"eventTime"     : "2019-09-13T16:50:53.788Z",
 	"accountId"     : "55555555",
 	"conferenceId"  : "conf-95ac90b3-ac6cd003-85e4-466f-b2e2-3fc5462c5d0d",
 	"name"          : "thisConference",
