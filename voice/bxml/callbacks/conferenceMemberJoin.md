@@ -53,7 +53,7 @@ POST http://[External server URL]
 {
     "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
     "name"          : "thisConference",
-    "eventType"     : "conferenceMemberJoin", 
+    "eventType"     : "conferenceMemberJoin",
     "eventTime"     : "2019-07-31T13:16:01.324Z",                                                                                                                                                                                                                                                   
     "callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
     "to"            : "+15551112345",

@@ -52,7 +52,7 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"     : "recordComplete",
-    "eventTime"     : "2019-09-13T16:48:48.905Z",
+	"eventTime"     : "2019-09-13T16:48:48.905Z",
 	"accountId"     : "55555555",
 	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"to"            : "+15553334444",

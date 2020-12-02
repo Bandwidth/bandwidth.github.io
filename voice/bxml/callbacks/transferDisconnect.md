@@ -57,7 +57,7 @@ POST http://[External server URL]
 ```json
 {
     "eventType"        : "transferDisconnect",
-    "eventTime"        : "2019-12-27T19:19:28.003Z",
+	"eventTime"        : "2019-12-27T19:19:28.003Z",
     "from"             : "+15551112222",
     "to"               : "+15553334444",
     "direction"        : "outbound",
@@ -82,7 +82,7 @@ POST http://[External server URL]
 ```json
 {
     "eventType"        : "transferDisconnect",
-    "eventTime"        : "2019-12-27T19:24:00.020Z",
+	"eventTime"        : "2019-12-27T19:24:00.020Z",
     "from"             : "+15551112222",
     "to"               : "+15553334444",
     "direction"        : "outbound",

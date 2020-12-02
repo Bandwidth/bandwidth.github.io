@@ -52,7 +52,7 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"     : "transcriptionAvailable",
-    "eventTime"     : "2019-09-13T16:53:34.229Z",
+	"eventTime"     : "2019-09-13T16:53:34.229Z",
 	"accountId"     : "55555555",
 	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",

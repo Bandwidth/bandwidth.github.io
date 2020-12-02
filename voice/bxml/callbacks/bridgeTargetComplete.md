@@ -41,7 +41,7 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"        : "bridgeTargetComplete",
-    "eventTime"        : "2019-07-31T13:16:01.324Z",
+	"eventTime"        : "2019-07-31T13:16:01.324Z",
 	"accountId"        : "55555555",
 	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"             : "+15551112222",

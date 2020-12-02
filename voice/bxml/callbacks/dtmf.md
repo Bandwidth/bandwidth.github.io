@@ -42,7 +42,7 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"        : "dtmf",
-    "eventTime"        : "2019-06-20T15:54:48.992Z",
+	"eventTime"        : "2019-06-20T15:54:48.992Z",
 	"accountId"        : "55555555",
 	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"startTime"        : "2019-06-20T15:54:22.234Z",

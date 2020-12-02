@@ -40,7 +40,7 @@ POST http://[External server URL]
 ```json
 {
 	"eventType"     : "initiate",
-    "eventTime"     : "2019-06-20T15:56:11.554Z",
+	"eventTime"     : "2019-06-20T15:56:11.554Z",
 	"accountId"     : "55555555",
 	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"          : "+15551112222",
