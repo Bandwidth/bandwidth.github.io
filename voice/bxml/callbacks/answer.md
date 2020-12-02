@@ -27,7 +27,7 @@ Content-Type: application/xml; charset=utf-8
 | callUrl       | The URL of the call associated with the event. |
 | startTime     | Time the call was started, in ISO 8601 format. |
 | answerTime    | Time the call was answered, in ISO 8601 format. |
-| tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, null. |
+| tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be provided. |
 
 {% common %}
 #### Example: Basic answer event

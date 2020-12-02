@@ -26,15 +26,15 @@ Content-Type: application/xml; charset=utf-8
 | from              | The phone number that made the call, in E.164 format (e.g. +15555555555). |
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | callId            | The call id associated with the event. |
-| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, null. |
+| parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be provided. |
 | callUrl           | The URL of the call associated with the event. |
 | startTime         | Time the call was started, in ISO 8601 format. |
 | answerTime        | Time the call was answered, in ISO 8601 format. |
-| tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, null. |
-| digits            | (optional) The digits collected from user.  Null if a timeout occurred before any digits were pressed. |
-| terminatingDigit  | (optional) The digit the user pressed to end the gather.  Null if no terminating digit was pressed. |
-| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, null. |
-| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, null. |
+| tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be provided. |
+| digits            | (optional) The digits collected from user. Empty string value if a timeout occurred before any digits were pressed. |
+| terminatingDigit  | (optional) The digit the user pressed to end the gather. Empty string value if no terminating digit was pressed. |
+| transferCallerId  | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, this field will not be provided. |
+| transferTo        | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, this field will not be provided. |
 
 {% common %}
 
