@@ -41,7 +41,7 @@ HTTP/1.1 204
 | cause             | Reason the call ended. See above for possible values. |
 | errorMessage      | (optional) Text explaining the reason that caused the call to be ended in case of errors. |
 | errorId           | (optional) Bandwidth internal id that references the error event. |
-| tag               | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be provided. |
+| tag               | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be present. |
 
 {% common %}
 

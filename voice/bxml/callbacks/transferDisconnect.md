@@ -36,7 +36,7 @@ HTTP/1.1 204
 | callId           | The call id associated with the event. |
 | parentCallId     | The call id of the original call leg that contained the `<Transfer>` tag. |
 | callUrl          | The URL of the call associated with the event. |
-| tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be provided. |
+| tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be present. |
 | startTime        | Time the transferred leg was started, in ISO 8601 format. |
 | answerTime       | (optional) Time the transferred leg was answered, in ISO 8601 format. |
 | endTime          | Time the transferred leg ended, in ISO 8601 format. |
@@ -57,7 +57,7 @@ POST http://[External server URL]
 ```json
 {
     "eventType"        : "transferDisconnect",
-	"eventTime"        : "2019-12-27T19:19:28.003Z",
+    "eventTime"        : "2019-12-27T19:19:28.003Z",
     "from"             : "+15551112222",
     "to"               : "+15553334444",
     "direction"        : "outbound",
@@ -82,7 +82,7 @@ POST http://[External server URL]
 ```json
 {
     "eventType"        : "transferDisconnect",
-	"eventTime"        : "2019-12-27T19:24:00.020Z",
+    "eventTime"        : "2019-12-27T19:24:00.020Z",
     "from"             : "+15551112222",
     "to"               : "+15553334444",
     "direction"        : "outbound",

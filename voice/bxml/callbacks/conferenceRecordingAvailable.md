@@ -25,7 +25,7 @@ HTTP/1.1 204
 | duration          | The duration of the recording (in ISO8601 format). |
 | fileFormat        | The audio format that the recording was saved as (`wav` or `mp3`). |
 | mediaUrl          | The URL of the recording media. |
-| tag               | (optional) The `tag` that was set at conference creation. If no `tag` was specified, this field will not be provided. |
+| tag               | (optional) The `tag` that was set at conference creation. If no `tag` was specified, this field will not be present. |
 | status            | The state of the recording. Can be `complete`, `partial`, or `error`. A `partial` status indicates that, although the recording is available to be downloaded, parts of the recording are missing. |
 
 {% common %}

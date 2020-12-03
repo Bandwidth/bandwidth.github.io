@@ -39,7 +39,7 @@ Content-Type: application/xml; charset=utf-8
 | callId           | The callId of the member that left the conference. |
 | from             | The from number of the call that left the conference. |
 | to               | The to number of the call that left the conference. |
-| tag              | (optional) The `tag` that was set at conference creation. If no `tag` was specified, this field will not be provided. |
+| tag              | (optional) The `tag` that was set at conference creation. If no `tag` was specified, this field will not be present. |
 
 {% common %}
 
@@ -54,7 +54,7 @@ POST http://[External server URL]
     "conferenceId"  : "conf-59082d52-4a2ab5be-ce26-43ed-af94-431b8a19d4e3",
     "name"          : "thisConference",
     "eventType"     : "conferenceMemberExit",
-    "eventTime"     : "2019-07-31T13:16:01.324Z",                                                                                                                                                                                                                                                    
+    "eventTime"     : "2019-07-31T13:16:01.324Z",                                                                                                                                                                                                                                                
     "callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
     "to"            : "+15551112345",
     "from"          : "+15559998765",

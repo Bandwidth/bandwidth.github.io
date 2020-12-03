@@ -27,7 +27,7 @@ Content-Type: application/xml; charset=utf-8
 | callUrl       | The URL of the call associated with the event. |
 | startTime     | Time the call was started, in ISO 8601 format. |
 | answerTime    | Time the call was answered, in ISO 8601 format. |
-| tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be provided. |
+| tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be present. |
 
 {% common %}
 #### Example: Basic answer event
@@ -38,7 +38,7 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType"     : "answer", 
+	"eventType"     : "answer",
 	"eventTime"     : "2019-06-20T15:54:25.435Z",
 	"accountId"     : "55555555",
 	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",

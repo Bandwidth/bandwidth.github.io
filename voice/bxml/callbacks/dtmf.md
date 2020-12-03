@@ -26,10 +26,10 @@ HTTP/1.1 204
 | callUrl          | The URL of the call associated with the event. |
 | startTime        | Time the call was started, in ISO 8601 format. |
 | answerTime       | Time the call was answered, in ISO 8601 format. |
-| parentCallId     | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be provided. |
-| transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, this field will not be provided. |
-| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, this field will not be provided. |
-| tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be provided. |
+| parentCallId     | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be present. |
+| transferCallerId | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `from` field of the B-leg call, in E.164 format (e.g. +15555555555). Otherwise, this field will not be present. |
+| transferTo       | (optional) If the event is related to the B leg of a `<Transfer>`, the phone number used as the `to` field of the B-leg call in E.164 format (e.g. +15555555555). Otherwise, this field will not be present. |
+| tag              | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be present. |
 
 {% common %}
 
