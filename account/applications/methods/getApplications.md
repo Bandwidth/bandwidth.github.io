@@ -36,31 +36,25 @@ Content-Type: application/xml
 <ApplicationProvisioningResponse>
     <ApplicationList>
         <Application>
-            <ApplicationId>2b6f1443-2b7e-4649-ac28-9c3a723d12f9</ApplicationId>
+            <ApplicationId>2cfcb382-161c-46d4-8c67-87ca09a72c85</ApplicationId>
             <ServiceType>Messaging-V2</ServiceType>
-            <AppName>Production Server</AppName>
-            <MsgCallbackUrl>https://yourSecureSite.com/callbacks</MsgCallbackUrl>
-            <CallbackCreds>
-                <UserId>Your-User-id</UserId>
-                <Password>Your-Password</Password>
-            </CallbackCreds>
+            <AppName>app1</AppName>
+            <InboundCallbackUrl>http://example.com/messaging/inbound</InboundCallbackUrl>
         </Application>
         <Application>
-            <ApplicationId>d775585a-ed5b-4a49-8b96-f68c0a993ebe</ApplicationId>
-            <ServiceType>Messaging-V2</ServiceType>
-            <AppName>Production Server 2</AppName>
-            <MsgCallbackUrl>https://yourUnsecureSite.com/callbacks</MsgCallbackUrl>
-            <CallbackCreds/>
-        </Application>
-        <Application>
-            <ApplicationId>2afad54d-8a65-4085-b25b-4c86fd5819d0</ApplicationId>
+            <ApplicationId>0cb0112b-5998-4c81-999a-0d3fb5e3f8e2</ApplicationId>
             <ServiceType>Voice-V2</ServiceType>
-            <AppName>Dev Site</AppName>
-            <CallInitiatedCallbackUrl>https://dev.yourSecureSite.com/callbacks</CallInitiatedCallbackUrl>
+            <AppName>app2</AppName>
+            <CallInitiatedCallbackUrl>http://example.com/voice/inbound</CallInitiatedCallbackUrl>
             <CallbackCreds>
-                <UserId>Your-User-id</UserId>
-                <Password>Your-Password</Password>
+                <UserId>15jPWZmXdm</UserId>
             </CallbackCreds>
+            <CallInitiatedFallbackUrl>https://fallback.com</CallInitiatedFallbackUrl>
+            <CallInitiatedFallbackMethod>POST</CallInitiatedFallbackMethod>
+            <CallInitiatedFallbackCreds>
+                <UserId>login2</UserId>
+            </CallInitiatedFallbackCreds>
+            <CallbackTimeout>20</CallbackTimeout>
         </Application>
     </ApplicationList>
 </ApplicationProvisioningResponse>
