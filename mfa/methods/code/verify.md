@@ -19,13 +19,13 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 
 | Parameter     | Required | Description                |
 |:--------------|:---------------------------|
-| to            | Yes | To telephone number        |
-| from          | Yes | From telephone number      |
+| to            | Yes | The phone number the original message was sent to (must be in E.164 format, like `+19195551212`).  |
+| from          | Yes | One of your telephone numbers where the original message was sent from (must be in E.164 format, like `+19195551212`). This number must be associated with the voice or messaging application given by the `applicationId` parameter.  |
 | applicationId | Yes | The voice or messaging application id used to make the initial request |
 | scope         | Required if the initial request had a `scope` value | scope of the request. This value must match the scope of the initial request |
 | code          | Yes | The code received to validate |
-| digits | Yes | The number of digits for your 2fa code. The valid number ranges from 2 to 8, inclusively. |
-| expirationTimeInMinutes | Yes| The time period, in minutes, to validate the 2fa code. By setting this to 3 minutes, it will mean any code generated within the last 3 minutes are still valid. The valid range for expirationTimeInMinutes is between 0 and 15 minutes, exclusively and inclusively, respectively. |
+| digits | Yes | The number of digits for your 2fa code. The valid number ranges from 4 to 8, inclusively. |
+| expirationTimeInMinutes | Yes| The time period, in minutes, to validate the 2fa code. By setting this to 3 minutes, it will mean any code generated within the last 3 minutes are still valid. The valid range for `expirationTimeInMinutes` is between 1 and 15 minutes, inclusively. |
 
 ### Response Attributes
 
