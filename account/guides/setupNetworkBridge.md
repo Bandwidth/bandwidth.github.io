@@ -1,4 +1,4 @@
-# Bandwidth/Twilio Network Bridge Setup {#top}
+# Setup Your Dashboard Account For Network Bridge {#top}
 This guide walks through the initial setup for Bandwidth's Network Bridge with Twilio. The network bridge allows you to use Bandwidth to create phone calls using our network from another authorized API provider.
 
 You must contact [Bandwidth Customer Support](http://support.bandwidth.com/) to get your SIP domain and port number.
