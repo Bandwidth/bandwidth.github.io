@@ -279,7 +279,7 @@
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 
-## WebRTC
+## WebRTC Calling and Video API
 * [Overview](webrtc/about.md)
 * [WebRTC Concept Overview](webrtc/guides/overview.md)
 * [Quickstart Guide](webrtc/guides/quickstart.md)
