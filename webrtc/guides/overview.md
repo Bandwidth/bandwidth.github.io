@@ -150,7 +150,7 @@ A participant stream level subscription adds further detail to a participant bas
     "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",
     "participants": [
         {
-            "participantId": "568749d5-04d5-483d-adf5-deac7dd3d521"
+            "participantId": "568749d5-04d5-483d-adf5-deac7dd3d521",
             "streamAliases": [ "microphone", "screenShare" ]
         },
         {
