@@ -48,6 +48,7 @@ If BXML execution ends without performing a callback, there is an implicit `<Han
 | [`<StartRecording>`](verbs/startRecording.md)   | The StartRecording verb allows a segment of a call to be recorded while other verbs are executing.    |
 | [`<StopGather>`](verbs/stopGather.md)           | The StopGather verb stops the DTMF collection initiated by `<StartGather>`. |
 | [`<StopRecording>`](verbs/stopRecording.md)     | The StopRecording verb stops a recording that was previously started by a `<StartRecording>`.         |
+| [`<Tag>`](verbs/tag.md)                         | The Tag verb is used to set a new tag value without executing a callback. |
 | [`<Transfer>`](verbs/transfer.md)               | The Transfer verb is used to transfer the call to another number.                                     |
 
 ### BXML Callbacks

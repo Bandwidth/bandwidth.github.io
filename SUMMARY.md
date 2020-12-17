@@ -191,6 +191,7 @@
 	* [StartRecording](voice/bxml/verbs/startRecording.md)
 	* [StopGather](voice/bxml/verbs/stopGather.md)
 	* [StopRecording](voice/bxml/verbs/stopRecording.md)
+	* [Tag](voice/bxml/verbs/tag.md)
 	* [Transfer](voice/bxml/verbs/transfer.md)
 * [Callbacks](voice/bxml/callbacks/about.md)
 	 * [Answer](voice/bxml/callbacks/answer.md)
@@ -278,7 +279,7 @@
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 
-## WebRTC
+## WebRTC Calling and Video API
 * [Overview](webrtc/about.md)
 * [WebRTC Concept Overview](webrtc/guides/overview.md)
 * [Quickstart Guide](webrtc/guides/quickstart.md)
