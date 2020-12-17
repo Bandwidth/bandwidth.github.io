@@ -22,24 +22,25 @@ You should not include sensitive or personally-identifiable information in any t
 
 ### Supported Parameters
 
-| Parameter          | Description                                                                                                                                                                                                             | Mandatory |
-|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     |:----------|
-| from               | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`).                                                                                                      | Yes       |
-| to                 | The number to call (must be an E.164 formatted number, like `+15555551212`                                                                                                                                              | Yes       |
-| applicationId      | The id of the application to associate this call with, for billing purposes.                                                                                                                                            | Yes       |
-| answerUrl          | The full URL to send the [Answer](../../bxml/callbacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/about.md) to be executed in the call.        | Yes       |
-| answerMethod       | (optional) The HTTP method to use for the request to `answerUrl`. GET or POST. Default value is POST.                                                                                                                   | No        |
-| disconnectUrl      | (optional) The URL to send the [Disconnect](../../bxml/callbacks/disconnect.md) event to when the call ends. This event does not expect a BXML as response.                                                             | No        |
-| disconnectMethod   | (optional) The HTTP method to use for the request to `disconnectUrl`. GET or POST. Default value is POST.                                                                                                               | No        |
-| username           | (optional) The username to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                 | No        |
-| password           | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`.                                                                                                                                 | No        |
-| callTimeout        | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30                                                           | No        |
-| tag                | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or [`<Tag>`](tag.md) verb, or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters.  | No        |
-| answerFallbackUrl  | (optional) A fallback url which, if provided, will be used to retry the answer callback delivery in case `answerUrl` fails to respond | No |
+| Parameter | Description | Mandatory |
+|:----------|:------------|:----------|
+| from | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`). | Yes |
+| to | The destination to call (must be an E.164 formatted number (e.g. `+15555551212`) or a SIP URI (e.g. `sip:user@server.com`). | Yes |
+| applicationId | The id of the application to associate this call with, for billing purposes. | Yes |
+| answerUrl | The full URL to send the [Answer](../../bxml/callbacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/about.md) to be executed in the call. | Yes |
+| answerMethod | (optional) The HTTP method to use for the request to `answerUrl`. GET or POST. Default value is POST. | No |
+| disconnectUrl | (optional) The URL to send the [Disconnect](../../bxml/callbacks/disconnect.md) event to when the call ends. This event does not expect a BXML as response. | No |
+| disconnectMethod | (optional) The HTTP method to use for the request to `disconnectUrl`. GET or POST. Default value is POST. | No |
+| username | (optional) The username to send in the HTTP request to `answerUrl` and `disconnectUrl`. | No |
+| password | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`. | No |
+| callTimeout | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30 | No |
+| tag | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or [`<Tag>`](tag.md) verb, or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. | No |
+| answerFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the answer callback delivery in case `answerUrl` fails to respond | No |
 | answerFallbackMethod | (optional) The HTTP method to use to deliver the answer callback to `answerFallbackUrl`. GET or POST. Default value is POST. | No |
-| fallbackUsername   | (optional) The username to send in the HTTP request to `answerFallbackUrl` | No |
-| fallbackPassword   | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
-| callbackTimeout    | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
+| fallbackUsername | (optional) The username to send in the HTTP request to `answerFallbackUrl` | No |
+| fallbackPassword | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
+| callbackTimeout | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
+| uui | (optional) The value of the `User-To-User` header to send within the initial `INVITE` when calling a SIP URI. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
 

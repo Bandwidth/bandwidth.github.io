@@ -4,21 +4,21 @@
 The Transfer verb is used to bridge another party onto the current call.
 
 ### Attributes
-| Attribute                      | Description |
-|:-------------------------------|:------------|
-| transferCallerId               | (optional) The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555).<br><br> Note: Leave blank to pass along the number of the remote party. |
-| callTimeout                    | (optional) This is the timeout (in seconds) for the callee to answer the call. Range: decimal values between 1 - 300.  Default value is 30 seconds. |
-| transferCompleteUrl            | (optional) URL to send the [Transfer Complete](../callbacks/transferComplete.md) event to and request new BXML. Optional but recommended. [See below](#transferCompleteUrl) for further details. May be a relative URL. |
-| transferCompleteMethod         | (optional) The HTTP method to use for the request to `transferCompleteUrl`. GET or POST. Default value is POST. |
-| transferCompleteFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Complete](../callbacks/transferComplete.md) callback delivery in case `transferCompleteUrl` fails to respond. |
+| Attribute | Description |
+|:----------|:------------|
+| transferCallerId | (optional) The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555).<br><br> Note: Leave blank to pass along the number of the remote party. |
+| callTimeout | (optional) This is the timeout (in seconds) for the callee to answer the call. Range: decimal values between 1 - 300.  Default value is 30 seconds. |
+| transferCompleteUrl | (optional) URL to send the [Transfer Complete](../callbacks/transferComplete.md) event to and request new BXML. Optional but recommended. [See below](#transferCompleteUrl) for further details. May be a relative URL. |
+| transferCompleteMethod | (optional) The HTTP method to use for the request to `transferCompleteUrl`. GET or POST. Default value is POST. |
+| transferCompleteFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the [Transfer Complete](../callbacks/transferComplete.md) callback delivery in case `transferCompleteUrl` fails to respond. |
 | transferCompleteFallbackMethod | (optional) The HTTP method to use to deliver the [Transfer Complete](../callbacks/transferComplete.md) callback to `transferCompleteFallbackUrl`. GET or POST. Default value is POST. |
-| username                       | (optional) The username to send in the HTTP request to `transferCompleteUrl`. |
-| password                       | (optional) The password to send in the HTTP request to `transferCompleteUrl`. |
-| fallbackUsername               | (optional) The username to send in the HTTP request to `transferCompleteFallbackUrl`. |
-| fallbackPassword               | (optional) The password to send in the HTTP request to `transferCompleteFallbackUrl`. |
-| tag                            | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
-| diversionTreatment             | (optional) Can be any of the following: <br> `none`: No diversion headers are sent on the outbound leg of the transferred call. <br>`propagate`: Copy the Diversion header from the inbound leg to the outbound leg. Ignored if there is no Diversion header present on the inbound leg. <br>`stack`: After propagating any Diversion header from the inbound leg to the outbound leg, stack on top another Diversion header based on the Request-URI of the inbound call. <br><br>Defaults to `none`.  If diversionTreatment is not specified, no diversion header will be included for the transfer even if one came with the inbound call. |
-| diversionReason                | (optional) Can be any of the following values: <br>`unknown`<br>`user-busy`<br>`no-answer`<br>`unavailable`<br>`unconditional`<br>`time-of-day`<br>`do-not-disturb`<br>`deflection`<br>`follow-me`<br>`out-of-service`<br>`away` <br><br>This parameter is considered only when `diversionTreatment` is set to `stack`.  Defaults to `unknown`. |
+| username | (optional) The username to send in the HTTP request to `transferCompleteUrl`. |
+| password | (optional) The password to send in the HTTP request to `transferCompleteUrl`. |
+| fallbackUsername | (optional) The username to send in the HTTP request to `transferCompleteFallbackUrl`. |
+| fallbackPassword | (optional) The password to send in the HTTP request to `transferCompleteFallbackUrl`. |
+| tag | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| diversionTreatment | (optional) Can be any of the following: <br> `none`: No diversion headers are sent on the outbound leg of the transferred call. <br>`propagate`: Copy the Diversion header from the inbound leg to the outbound leg. Ignored if there is no Diversion header present on the inbound leg. <br>`stack`: After propagating any Diversion header from the inbound leg to the outbound leg, stack on top another Diversion header based on the Request-URI of the inbound call. <br><br>Defaults to `none`.  If diversionTreatment is not specified, no diversion header will be included for the transfer even if one came with the inbound call. |
+| diversionReason | (optional) Can be any of the following values: <br>`unknown`<br>`user-busy`<br>`no-answer`<br>`unavailable`<br>`unconditional`<br>`time-of-day`<br>`do-not-disturb`<br>`deflection`<br>`follow-me`<br>`out-of-service`<br>`away` <br><br>This parameter is considered only when `diversionTreatment` is set to `stack`.  Defaults to `unknown`. |
 
 ### {#transferCompleteUrl}
 When the called party hangs up, if the `transferCompleteUrl` attribute is specified, the [TransferComplete](../callbacks/transferComplete.md) callback is sent to the `transferCompleteUrl`,
@@ -30,28 +30,44 @@ If no `transferCompleteUrl` is specified, no event will be sent, and execution o
 Note that the [TransferComplete](../callbacks/transferComplete.md) callback is only sent if the call is still active after the `<Transfer>` completes. If you need an event delivered for every `<Transfer>` regardless of how it ends, see the [Transfer Disconnect](../callbacks/transferDisconnect.md) event below. 
 
 ### Nested Tags
-Between 1 and 8 `<PhoneNumber>` tags must be nested within the `<Transfer>` tag to define the called parties.  If more than
-one `<PhoneNumber>` is specified, called parties will ring simultaneously and the first to answer will be bridged
-to the original call:
+Between 1 and 8 `<PhoneNumber>` or `<SipUri>` tags must be nested within the `<Transfer>` tag to define the called parties. If more than
+one destination is specified, called parties will ring simultaneously and the first to answer will be bridged to the original call.
 
-| Verb        | Description                                                                                     |
-|:------------|:------------------------------------------------------------------------------------------------|
-| PhoneNumber | A collection of phone numbers to transfer the call to. The first to answer will be transferred. |
+| Tag | Description |
+|:----|:------------|
+| PhoneNumber | A phone number to transfer the call to. Value must be in E.164 format (e.g. `+15555555555`). |
+| SipUri | A SIP URI to transfer the call to (e.g. `sip:user@server.com`). |
 
 #### PhoneNumber attributes
-| Attribute                    | Description |
-|:-----------------------------|:------------|
-| transferAnswerUrl            | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
-| transferAnswerMethod         | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
-| transferAnswerFallbackUrl    | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
+| Attribute | Description |
+|:----------|:------------|
+| transferAnswerUrl | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
+| transferAnswerMethod | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
+| transferAnswerFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
 | transferAnswerFallbackMethod | (optional) The HTTP method to use to deliver the [Transfer Answer](../callbacks/transferAnswer.md) callback to `transferAnswerFallbackUrl`. GET or POST. Default value is POST. |
-| transferDisconnectUrl        | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML. May be a relative URL.|
-| transferDisconnectMethod     | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST. |
-| username                     | (optional) The username to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
-| password                     | (optional) The password to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
-| fallbackUsername             | (optional) The username to send in the HTTP request to `transferAnswerFallbackUrl`. |
-| fallbackPassword             | (optional) The password to send in the HTTP request to `transferAnswerFallbackUrl`. |
-| tag                          | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+| transferDisconnectUrl | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML. May be a relative URL.|
+| transferDisconnectMethod | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST. |
+| username | (optional) The username to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
+| password | (optional) The password to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
+| fallbackUsername | (optional) The username to send in the HTTP request to `transferAnswerFallbackUrl`. |
+| fallbackPassword | (optional) The password to send in the HTTP request to `transferAnswerFallbackUrl`. |
+| tag | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
+
+#### SipUri attributes
+| Attribute | Description |
+|:----------|:------------|
+| uui | (optional) The value of the `User-To-User` header to send within the initial `INVITE`. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. |
+| transferAnswerUrl | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
+| transferAnswerMethod | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
+| transferAnswerFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |
+| transferAnswerFallbackMethod | (optional) The HTTP method to use to deliver the [Transfer Answer](../callbacks/transferAnswer.md) callback to `transferAnswerFallbackUrl`. GET or POST. Default value is POST. |
+| transferDisconnectUrl | (optional) URL, if any, to send the [Transfer Disconnect](../callbacks/transferDisconnect.md) event to. This event will be sent regardless of how the transfer ends and may not be responded to with BXML. May be a relative URL.|
+| transferDisconnectMethod | (optional) The HTTP method to use for the request to `transferDisconnectUrl`. GET or POST. Default value is POST. |
+| username | (optional) The username to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
+| password | (optional) The password to send in the HTTP request to `transferAnswerUrl` and `transferDisconnectUrl`. |
+| fallbackUsername | (optional) The username to send in the HTTP request to `transferAnswerFallbackUrl`. |
+| fallbackPassword | (optional) The password to send in the HTTP request to `transferAnswerFallbackUrl`. |
+| tag | (optional) A custom string that will be sent with these and all future callbacks unless overwritten by a future `tag` attribute or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. |
 
 When the called party answers, if the `transferAnswerUrl` is specified, the [Transfer Answer](../callbacks/transferAnswer.md) callback is sent to the `transferAnswerUrl` and
 the BXML returned by that callback is executed. That BXML is executed only for the called party.  At the conclusion
@@ -64,11 +80,11 @@ When each leg of the transfer ends for any reason, if `transferDisconnectUrl` wa
 
 ### Callbacks Received
 
-| Callbacks                                                 | Can reply with more BXML |
-|:----------------------------------------------------------|:-------------------------|
-| [Transfer Answer](../callbacks/transferAnswer.md)         | Yes                      |
-| [Transfer Complete](../callbacks/transferComplete.md)     | Yes                      |
-| [Transfer Disconnect](../callbacks/transferDisconnect.md) | No                       |
+| Callbacks | Can reply with more BXML |
+|:----------|:-------------------------|
+| [Transfer Answer](../callbacks/transferAnswer.md) | Yes |
+| [Transfer Complete](../callbacks/transferComplete.md) | Yes |
+| [Transfer Disconnect](../callbacks/transferDisconnect.md) | No |
 
 {% common %}
 
