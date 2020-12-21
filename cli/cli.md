@@ -1,20 +1,21 @@
 # QuickStart CLI
+
+A quick way to set up your account and start using our APIs
+
+## Bandwidth CLI Release Notes
+
+| Version | Notes |
+|:--------|:-----|
+| 0.0.3 | Initial public release |
+
+## Introduction
+
 This CLI allows you to order phone numbers and create the necessary [Bandwidth applications](../account/applications/about.md) to quickly setup your development environment and callback
 settings with Bandwidth. In addition, this quick-setup automates the necessary steps required to order
 your first number with Bandwidth.
 
-These quick-setup configurations are stored in the CLI and automatically used in any
-orders that are placed through the CLI.
+## Getting Started With Bandwidth Via The CLI
 
-The CLI also allows existing account users that have previously set up their development environment to automate the setup of additional applications and place new number orders.
-
-## Bandwidth CLI Links
-
-The full CLI reference can be found at [the Bandwidth CLI Github page](https://github.com/Bandwidth/bandwidth-cli).
-
-Alternatively, you can reference the CLI at [the Bandwidth CLI NPM page](https://www.npmjs.com/package/@bandwidth/cli).
-
-## Getting Started With Bandwidth
 First time users should use the `bandwidth quickstart` command to get started. You can use `quickstart` to order a number without prior
 setup, or simply setup your account (and order numbers later). `quickstart` can be used as many times as needed, and will automatically set up a new site, sippeer, and application without interacting with or influencing existing account settings.
 
@@ -55,3 +56,14 @@ setup successful. To order more numbers using this setup, use "bandwidth order c
 ```
 
 At this point, you can now use the number for [messages](../messaging/methods/messages/createMessage.md) or [SDKs](../sdks/about.md). Should you need more (or different) numbers than the 10 that were offered, you can order more numbers using `bandwidth order`.
+
+## Bandwidth CLI Links
+
+The full CLI reference can be found at [the Bandwidth CLI Github page](https://github.com/Bandwidth/bandwidth-cli).
+
+Alternatively, you can reference the CLI at [the Bandwidth CLI NPM page](https://www.npmjs.com/package/@bandwidth/cli).
+
+## Callbacks
+
+Bandwidth requires callback URLs in order to utilize the full extent of our voice and messaging services. Callback URLs are necessary to receive information such as delivery receipts, inbound messages, and phone call operations. More information can be found on our [callbacks page](../guides/callbacks/callbacks.md) 
+
