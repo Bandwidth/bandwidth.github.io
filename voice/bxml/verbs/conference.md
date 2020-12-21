@@ -155,10 +155,10 @@ var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentence.setSentence("You will be added to your conference now.");
 speakSentence.setGender("male");
 
-var conference = new BxmlBuilder.Verbs.Conference();
+var conference = new BandwidthBxml.Verbs.Conference();
 conference.setName('my-conference');
 
-var response = new BxmlBuilder.Response();
+var response = new BandwidthBxml.Response();
 response.addVerb(speakSentence);
 response.addVerb(conference);
 
@@ -284,11 +284,11 @@ var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
 speakSentence.setSentence("You will be added to your conference now.");
 speakSentence.setGender("male");
 
-var conference = new BxmlBuilder.Verbs.Conference();
+var conference = new BandwidthBxml.Verbs.Conference();
 conference.setCallIdsToCoach('c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d,c-2a913f94-6a486f3a-3cae-4034-bcc3-f0c9fa77ca2f');
 conference.setName('my-conference');
 
-var response = new BxmlBuilder.Response();
+var response = new BandwidthBxml.Response();
 response.addVerb(speakSentence);
 response.addVerb(conference);
 
