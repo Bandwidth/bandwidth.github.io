@@ -1,7 +1,7 @@
 {% method %}
 ## XML: `<PlayAudio>`
 The PlayAudio verb is used to play an audio file in the call. The URL of an audio file should be
-included in the body of the `<PlayAudio>` tag. If a relative URL is given, it is resolved relative to the endpoint that returned the BXML. To ensure playback quality Bandwidth recommends limiting audio files to less than 1 hour in length or 200 MB in size.
+included in the body of the `<PlayAudio>` tag. If a relative URL is given, it is resolved relative to the endpoint that returned the BXML. To ensure playback quality Bandwidth recommends limiting audio files to less than 1 hour in length or 250 MB in size.
 
 Audio is cached according to [RFC 7234](https://tools.ietf.org/html/rfc7234). Our system may cache
 your media up to the value of the response's `Cache-Control` header's `max-age` directive, or,
