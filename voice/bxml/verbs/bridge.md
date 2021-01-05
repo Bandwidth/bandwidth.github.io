@@ -174,7 +174,7 @@ Second call:
 speak_sentence = Bandwidth::Voice::SpeakSentence.new({
     :sentence => "The bridge will start now"
 })
-bridge = response = Bandwidth::Voice::Bridge.new({
+bridge = Bandwidth::Voice::Bridge.new({
     :call_id => "c-c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
     :bridge_complete_url => "https://bridge.url/nextBXMLForSecondCall",
     :bridge_target_complete_url => "https://bridge.url/nextBXMLForFirstCall"
