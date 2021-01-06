@@ -20,6 +20,6 @@
 | Link                                                                                        | Description                                                                                        |
 |:--------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
 | [Examples on Github](https://github.com/Bandwidth/examples)                                 | Example applications & Scripts demo-ing Bandwidth functionality with the SDKs                      |
-| [OpenAPI/Swagger on Github](https://github.com/Bandwidth/examples/tree/master/public-specs) | Bandwidth's [Open API Specification](https://swagger.io/solutions/getting-started-with-oas/) files |
+| [OpenAPI/Swagger on Github](https://github.com/Bandwidth/openapi-specs) | Bandwidth's [Open API Specification](https://swagger.io/solutions/getting-started-with-oas/) files |
 | [Developer Forum](http://bandwidthdashboard.discussion.community/)                          | Bandwidth's Developer Community Forum                                                              |
-| [Postman Collection](https://github.com/Bandwidth/examples/tree/master/postman-collections) | A collection of postman APIO Request Examples                                                      |
+| [Postman Collection](https://github.com/Bandwidth/postman) | A collection of postman API Request Examples                                                      |
