@@ -15,7 +15,7 @@
 	* [Node](sdks/node.md)
 	* [Java](sdks/java.md)
 	* [PHP](sdks/php.md)
-	* [Examples on Github](https://github.com/Bandwidth/examples)
+	* [Examples on Github](https://github.com/bandwidth-samples)
 	* [OpenAPI/Swagger on Github](https://github.com/Bandwidth/openapi-specs)
     * [Postman Collections](https://github.com/Bandwidth/postman)
 * [Quickstart CLI](cli/cli.md)
