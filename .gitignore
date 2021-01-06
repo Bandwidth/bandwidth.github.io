@@ -15,6 +15,9 @@ bower_components
 /.idea
 *.iml
 
+# VS Code
+/.vscode
+
 # Ignore all logfiles and tempfiles.
 *.log
 *.colt
