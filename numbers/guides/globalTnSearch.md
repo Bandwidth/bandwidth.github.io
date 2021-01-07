@@ -166,7 +166,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {% extendmethod %}
 ## Retrieving TN Information {#retrieving-tn-information}
-Retrieves information about the specified telephone number. The information returned provides status and historic information about the Telephone Number, including the status, the order id and date associated with the last modification, and the account and site information associated with the TN.  The request for more information can be made by requesting a number of specific derived sub-resources.
+Retrieves information about the specified telephone number. The information returned provides status and historic information about the Telephone Number, including the status, the order id and date associated with the last modification, and the account and site information associated with the TN. The request for more information can be made by requesting a number of specific derived sub-resources.
 
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/tns/{{tn}}`
