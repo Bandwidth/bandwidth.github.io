@@ -23,7 +23,7 @@
 The Bandwidth Telephone Numbers API allows you to search for telephone numbers across all of your accounts that your user credentials have access to.  You can then view detailed information about the telephone numbers on any of your accounts.
 
 ### Note
-> When querying for a phone number that is NOT in your account you will recieve an error `Telephone Numbers cannot be found on accounts`.  Within an `<ErrorList>` XML list.
+> When querying for a phone number that is NOT in your account you will receive an error `Telephone Numbers cannot be found on accounts`.  Within an `<ErrorList>` XML list.
 
 ### Base URL
 `https://dashboard.bandwidth.com/api/tns`
