@@ -197,7 +197,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 {% extendmethod %}
 ## Retrieving TN Details {#retrieving-tn-details}
 
-Retrieves detailed information about the phone number. TnAttributes - Does this telephone number is protected or not.
+Retrieves detailed information about the phone number. TnAttributes - Even if this telephone number is protected or not.
 
 ### Base URL
 <code class="get">GET</code>`https://dashboard.bandwidth.com/api/tns/{{tn}}/tndetails`
