@@ -61,6 +61,7 @@ The NodeJS SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40band
 |:--------|:-------------------------------------------------------|
 | 1.0.0   | First release                                          |
 | 1.1.0   | Updated schema with digits and expirationTimeInMinutes |
+| 2.0.0 | Removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 
 ### [WebRTC](https://www.npmjs.com/package/@bandwidth/webrtc)
 

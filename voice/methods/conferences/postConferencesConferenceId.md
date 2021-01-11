@@ -50,7 +50,7 @@ HTTP/1.1 204
 String accountId = "123";
 String conferenceId = "456";
 
-CallEngineModifyConferenceRequest request = new CallEngineModifyConferenceRequest();
+ApiModifyConferenceRequest request = new ApiModifyConferenceRequest();
 request.setStatus(StatusEnum.COMPLETED);
 
 ApiResponse<Void> response = null;
@@ -67,7 +67,7 @@ try {
 var accountId = "123";
 var conferenceId = "456";
 
-var request = new CallEngineModifyConferenceRequest
+var request = new ApiModifyConferenceRequest
 {
     Status = StatusEnum.Completed
 };
@@ -81,7 +81,7 @@ controller.ModifyConference(accountId, conferenceId, request);
 account_id = "123"
 conference_id = "456"
 
-body = CallEngineModifyConferenceRequest.new
+body = ApiModifyConferenceRequest.new
 body.status = "completed"
 
 voice_client.modify_conference(account_id, conference_id, :body => body)
@@ -93,7 +93,7 @@ voice_client.modify_conference(account_id, conference_id, :body => body)
 account_id = "123"
 conference_id = "456"
 
-body = CallEngineModifyConferenceRequest()
+body = ApiModifyConferenceRequest()
 body.status = "completed"
 
 voice_client.modify_conference(account_id, conference_id, body)
@@ -104,7 +104,7 @@ voice_client.modify_conference(account_id, conference_id, body)
 ```js
 var accountId = '123';
 var conferenceId = '456';
-var body = new CallEngineModifyConferenceRequest({"status":"completed"});
+var body = new ApiModifyConferenceRequest({"status":"completed"});
 
 controller.modifyConference(accountId, conferenceId, body, function(error, response, context) {
     // Handle callback
@@ -117,7 +117,7 @@ controller.modifyConference(accountId, conferenceId, body, function(error, respo
 $accountId = "123";
 $conferenceId = "456";
 
-$body = new BandwidthLib\Voice\Models\CallEngineModifyConferenceRequest();
+$body = new BandwidthLib\Voice\Models\ApiModifyConferenceRequest();
 $body->status = "completed";
 
 $voiceClient->modifyConference($accountId, $conferenceId, $body);
