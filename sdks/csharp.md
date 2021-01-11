@@ -25,6 +25,7 @@ The C# SDK(s) are available via [NuGet](https://www.nuget.org/) & Github
 | 3.7.0   | Updated WebRTC base URL                                                         |
 | 3.8.0 | Added get conference endpoint |
 | 3.9.0 | Added conference management endpoints |
+| 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 
 ## Download & Install
 

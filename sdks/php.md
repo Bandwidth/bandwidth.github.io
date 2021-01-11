@@ -24,6 +24,7 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 | 2.7.0   | Updated WebRTC base URL                                                         |
 | 2.8.0 | Added get conference endpoint |
 | 2.9.0 | Added conference management endpoints |
+| 3.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 
 ## Download & Install
 
