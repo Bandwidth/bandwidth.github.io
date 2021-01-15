@@ -235,3 +235,5 @@ Content-Type: application/json; charset=utf-8
   "requestId": "abc12312-abcd-1234-abcd-1234abcd1234"
 }
 ```
+
+{% endextendmethod %}
