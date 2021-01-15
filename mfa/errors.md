@@ -3,7 +3,7 @@
 
 # HTTP Errors when using MFA {#top}
 
-Bandwidth will respond with HTTP error codes when there are any issues with . Any `4xx` or `5xx` HTTP response code will not be billed. All of the errors except for `401` and `403` have a similar response format. Unifying all of the responses is in the works, so be sure to keep checking the page for updates!
+Bandwidth will respond with HTTP error codes when there are any issues with Multi-Factor Authentication endpoints. Any `4xx` or `5xx` HTTP response code will not be billed. All of the errors except for `401` and `403` have a similar response format. Unifying all of the responses is in the works, so be sure to keep checking the page for updates!
 
 ## Overview
 
