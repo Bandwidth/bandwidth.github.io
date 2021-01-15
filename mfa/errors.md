@@ -15,7 +15,7 @@ Bandwidth will respond with HTTP error codes when there are any issues with Mult
 
 ## 400 – BAD_REQUEST {#http-400}
 
-Bandwidth will return a `HTTP-400` Error when the request is malformed or invalid.  See the message of the error for tips before trying again.
+Bandwidth will return a `HTTP-400` error when the request is malformed or invalid.  See the message of the error for tips before trying again.
 
 {% extendmethod %}
 
