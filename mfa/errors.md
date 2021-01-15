@@ -27,7 +27,7 @@ Bandwidth will return a `HTTP-400` Error when the request is malformed or invali
 
 {% common %}
 
-### Example: Invalid `from` number
+### Example: Invalid from number
 
 ```http
 POST https://mfa.bandwidth.com/api/v1/accounts/{{accountId}}/code/messaging HTTP/1.1
