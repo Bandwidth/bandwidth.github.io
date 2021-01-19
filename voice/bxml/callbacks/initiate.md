@@ -31,18 +31,6 @@ Content-Type: application/xml; charset=utf-8
 | identity			| (optional) The value of the `Identity` header from the inbound invite request. Only present if the account is configured to forward this header. |
 | [pai](#pai-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. |
 
-#### PAI properties
-
-The Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is included in the Initiate event `pai` property as follows.
-
-| Property          | Description |
-|:------------------|:------------|
-| verstat | (optional) The verification status indicating whether the verification was successful or not. Possible values are `TN-Verification-Passed` or `TN-Verification-Failed`. |
-| attestationIndicator | (optional) The attestation level verified by Bandwidth. Possible values are `A` (full), `B` (partial) or `C` (gateway). |
-| originatingId | (optional) A unique origination identifier. |
-
-More information: [Understanding STIR/SHAKEN](https://www.bandwidth.com/regulations/stir-shaken)
-
 #### Diversion properties
 
 The `Diversion` header is parsed into a JSON object. Note that the attributes vary depending on the parameters received in the SIP header. Some common attributes and values are listed below.
@@ -57,6 +45,18 @@ The `Diversion` header is parsed into a JSON object. Note that the attributes va
 | privacy 	| `off` or `full`.
 | counter 	| The number of diversions that have occurred.
 | limit 	| The maximum number of diversions allowed for this session.
+
+#### PAI properties
+
+The Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is included in the Initiate event `pai` property as follows.
+
+| Property          | Description |
+|:------------------|:------------|
+| verstat | (optional) The verification status indicating whether the verification was successful or not. Possible values are `TN-Verification-Passed` or `TN-Verification-Failed`. |
+| attestationIndicator | (optional) The attestation level verified by Bandwidth. Possible values are `A` (full), `B` (partial) or `C` (gateway). |
+| originatingId | (optional) A unique origination identifier. |
+
+More information: [Understanding STIR/SHAKEN](https://www.bandwidth.com/regulations/stir-shaken)
 
 {% common %}
 
