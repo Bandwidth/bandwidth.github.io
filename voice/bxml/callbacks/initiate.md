@@ -27,7 +27,7 @@ Content-Type: application/xml; charset=utf-8
 | callId            | The call id associated with the event. |
 | callUrl           | The URL of the call associated with the event. |
 | startTime         | Time the call was started, in ISO 8601 format. |
-| diversion         | (optional) Information from the most recent Diversion header, if any. If present, the value will be a sub-object like `"diversion": {"param1": "value1", "param2": "value2"}`.<br>Each diversion parameter gets its own key in the JSON structure, and the keys present and their values will vary depending on the parameters received in the SIP header.<br><br>**Common Parameters**<br>- `origTo`: always present. Indicates the last telephone number that the call was diverted from.<br><br>**Note**: for all of the following keys, the values listed are common values, but this list is not exhaustive. Your application **must** be tolerant of unlisted keys and unlisted values of those keys.<br>- `reason`: The reason for the diversion. Common values: `unknown`, `user-busy`, `no-answer`, `unavailable`, `unconditional`, `time-of-day`, `do-not-disturb`, `deflection`, `follow-me`, `out-of-service`, `away`<br>- `screen`: `no` if the number was provided by the user, `yes` if the number was provided by the network<br>- `privacy`: `off` or `full`<br>- `counter`: the number of diversions that have occurred<br>- `limit`: The maximum number of diversions allowed for this session |
+| [diversion](#diversion-properties) | (optional) Information from the most recent `Diversion` header, if any. |
 | identity			| (optional) The value of the `Identity` header from the inbound invite request. Only present if the account is configured to forward this header. |
 | [pai](#pai-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. |
 
@@ -42,6 +42,21 @@ The Bandwidth STIR/SHAKEN implementation will verify the information provided in
 | originatingId | (optional) A unique origination identifier. |
 
 More information: [Understanding STIR/SHAKEN](https://www.bandwidth.com/regulations/stir-shaken)
+
+#### Diversion properties
+
+The `Diversion` header is parsed into a JSON object. Note that the attributes vary depending on the parameters received in the SIP header. Some common attributes and values are listed below.
+
+**Note:** it is not an exhaustive list. Your application must be tolerant to unlisted attributes and values.
+
+| Property  | Description |
+|:----------|:------------|
+| origTo 	| Indicates the last telephone number that the call was diverted from. This attribute is always present.
+| reason 	| The diversion reason. Common values: `unknown`, `user-busy`, `no-answer`, `unavailable`, `unconditional`, `time-of-day`, `do-not-disturb`, `deflection`, `follow-me`, `out-of-service`, `away`.
+| screen 	| `no` if the number was provided by the user, `yes` if the number was provided by the network.
+| privacy 	| `off` or `full`.
+| counter 	| The number of diversions that have occurred.
+| limit 	| The maximum number of diversions allowed for this session.
 
 {% common %}
 
