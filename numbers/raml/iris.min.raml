@@ -285,7 +285,12 @@ securitySchemes:
                 The API calls that are used to manage the details of a customer-defined application are accessed through the /accounts/{accountId}/applications resource. <br>
                 <p>For ServiceType of Messaging-V2 <br>
                   <ul>
-                    <li> MsgCallbackUrl (CallbackUrl - is deprecated) is required </li>
+                    <li> MsgCallbackUrl - is deprecated, but required if InboundCallbackUrl is not specified. Updates both InboundCallbackUrl and OutboundCallbackurl </li>
+                    <li> InboundCallbackUrl - required for messaging. </li>
+                    <li> OutboundCallbackUrl - optional for messaging. </li>
+                    <li> InboundCallbackCreds - optional for messaging. Corresponds to InboundCallbackUrl. </li>
+                    <li> OutboundCallbackCreds - optional for messaging. Corresponds to OutboundCallbackUrl. </li>
+                    <li> RequestedCallbackTypes - optional for messaging. List containing callback types: message-delivered, message-sending, message-failed </li>
                   </ul>
                 </p>
                 <p>For ServiceType of Voice-V2
@@ -313,6 +318,22 @@ securitySchemes:
                         <li> UserId and Password should have length between 6 and 63 symbols.</li>
                       </ul>
                 </p>
+                <p>InboundCallbackCreds - can only be specified by External users
+                 <ul>
+                    <li> If you want credentials, both UserId and Password must be specified.</li>
+                    <li> If you do not want passwords, CallbackCreds should be omitted entirely.</li>
+                    <li> UserId and Password should have length between 6 and 63 symbols.</li>
+                    <li> Corresponds to InboundCallbackUrl. Use instead of CallbackCreds for messaging. </li>
+                  </ul>
+                </p>
+                <p>OutboundCallbackCreds - can only be specified by External users
+                 <ul>
+                    <li> If you want credentials, both UserId and Password must be specified.</li>
+                    <li> If you do not want passwords, CallbackCreds should be omitted entirely.</li>
+                    <li> UserId and Password should have length between 6 and 63 symbols.</li>
+                    <li> Corresponds to OutboundCallbackUrl. Use instead of CallbackCreds for messaging. </li>
+                  </ul>
+                </p>
             post:
                 description: Create an Application, CallbackUrl field is deprecated field, use MsgCallbackUrl instead
                 body:
@@ -323,11 +344,21 @@ securitySchemes:
                             <Application>
                               <ServiceType>Messaging-V2</ServiceType>
                               <AppName>EBVICs</AppName>
-                              <MsgCallbackUrl>http://example.com</MsgCallbackUrl>
-                              <CallbackCreds>
+                              <InboundCallbackUrl>https://example.com</InboundCallbackUrl>
+                              <OutboundCallbackUrl>https://example2.com</OutboundCallbackUrl>
+                              <InboundCallbackCreds>
                                 <UserId>15jPWZmXdm</UserId>
                                 <Password>xxv3jPsPR2</Password>
-                              </CallbackCreds>
+                              </InboundCallbackCreds>
+                              <OutboundCallbackCreds>
+                                <UserId>15jPWZmXdm</UserId>
+                                <Password>xxv3jPsPR2</Password>
+                              </OutboundCallbackCreds>
+                              <RequestedCallbackTypes>
+                                <CallbackType>message-delivered</CallbackType>
+                                <CallbackType>message-failed</CallbackType>
+                                <CallbackType>message-sending</CallbackType>
+                              </RequestedCallbackTypes>
                             </Application>
                             <!--Voice-V2 application-->
                             <Application>
@@ -361,10 +392,23 @@ securitySchemes:
                                         <ApplicationId>d4d1b41d-4c05-47d0-838a-34e4f14e4e3e</ApplicationId>
                                         <ServiceType>Messaging-V2</ServiceType>
                                         <AppName>EBVICs</AppName>
-                                        <MsgCallbackUrl>http://example.com</MsgCallbackUrl>
-                                        <CallbackCreds>
+                                        <!--DEPRECATED--><MsgCallbackUrl>https://example.com</MsgCallbackUrl>
+                                        <InboundCallbackUrl>https://example.com</InboundCallbackUrl>
+                                        <OutboundCallbackUrl>https://example2.com</OutboundCallbackUrl>
+                                        <!--DEPRECATED--><MsgCallbackCreds>
+                                           <!--DEPRECATED--><UserId>15jPWZmXdm</UserId>
+                                         <!--DEPRECATED--></MsgCallbackCreds>
+                                        <InboundCallbackCreds>
                                           <UserId>15jPWZmXdm</UserId>
-                                          </CallbackCreds>
+                                        </InboundCallbackCreds>
+                                        <OutboundCallbackCreds>
+                                          <UserId>15jPWZmXdm</UserId>
+                                        </OutboundCallbackCreds>
+                                        <RequestedCallbackTypes>
+                                          <CallbackType>message-delivered</CallbackType>
+                                          <CallbackType>message-failed</CallbackType>
+                                          <CallbackType>message-sending</CallbackType>
+                                        </RequestedCallbackTypes>
                                       </Application>
                                     </ApplicationProvisioningResponse>
                                     <!--Voice-V2 application-->
@@ -407,7 +451,8 @@ securitySchemes:
                                           <ApplicationId>2cfcb382-161c-46d4-8c67-87ca09a72c85</ApplicationId>
                                           <ServiceType>Messaging-V2</ServiceType>
                                           <AppName>app1</AppName>
-                                          <MsgCallbackUrl>http://a.com</MsgCallbackUrl>
+                                          <!--DEPRECATED--><MsgCallbackUrl>http://a.com</MsgCallbackUrl>
+                                          <InboundCallbackUrl>http://a.com</InboundCallbackUrl>
                                         </Application>
                                         <Application>
                                           <ApplicationId>0cb0112b-5998-4c81-999a-0d3fb5e3f8e2</ApplicationId>
@@ -441,10 +486,23 @@ securitySchemes:
                                         <ApplicationId>e5a9e103-097e-4ec4-87a0-50109fb7b4b1</ApplicationId>
                                         <ServiceType>Messaging-V2</ServiceType>
                                         <AppName>qMmmTT</AppName>
-                                        <MsgCallbackUrl>http://example.com</MsgCallbackUrl>
-                                        <CallbackCreds>
+                                        <!--DEPRECATED--><MsgCallbackUrl>https://example.com</MsgCallbackUrl>
+                                        <InboundCallbackUrl>https://example.com</InboundCallbackUrl>
+                                        <OutboundCallbackUrl>https://example2.com</OutboundCallbackUrl>
+                                        <!--DEPRECATED--><MsgCallbackCreds>
+                                           <!--DEPRECATED--><UserId>15jPWZmXdm</UserId>
+                                         <!--DEPRECATED--></MsgCallbackCreds>
+                                        <InboundCallbackCreds>
                                           <UserId>15jPWZmXdm</UserId>
-                                        </CallbackCreds>
+                                        </InboundCallbackCreds>
+                                        <OutboundCallbackCreds>
+                                          <UserId>15jPWZmXdm</UserId>
+                                        </OutboundCallbackCreds>
+                                        <RequestedCallbackTypes>
+                                          <CallbackType>message-delivered</CallbackType>
+                                          <CallbackType>message-failed</CallbackType>
+                                          <CallbackType>message-sending</CallbackType>
+                                        </RequestedCallbackTypes>
                                       </Application>
                                     </ApplicationProvisioningResponse>
                                     <!--Voice-V2 application example-->
@@ -473,8 +531,13 @@ securitySchemes:
                    </ul>
                        <p>For ServiceType of Messaging-V2 <br>
                          <ul>
-                           <li> MsgCallbackUrl (CallbackUrl - is deprecated) is required </li>
-                         </ul>
+                          <li> MsgCallbackUrl - is deprecated, but required if InboundCallbackUrl is not specified. Updates both InboundCallbackUrl and OutboundCallbackurl </li>
+                          <li> InboundCallbackUrl - required for messaging. </li>
+                          <li> OutboundCallbackUrl - optional for messaging. </li>
+                          <li> InboundCallbackCreds - optional for messaging. Corresponds to InboundCallbackUrl. </li>
+                          <li> OutboundCallbackCreds - optional for messaging. Corresponds to OutboundCallbackUrl. </li>
+                          <li> RequestedCallbackTypes - optional for messaging. List containing callback types: message-delivered, message-sending, message-failed </li>
+                       </ul>
                        </p>
                        <p>For ServiceType of Voice-V2
                          <ul>
@@ -502,18 +565,37 @@ securitySchemes:
                            <li> UserId and Password should have length between 6 and 63 symbols.</li>
                          </ul>
                        </p>
+                       <p>InboundCallbackCreds - can only be specified by External users
+                        <ul>
+                           <li> If you want credentials, both UserId and Password must be specified.</li>
+                           <li> If you do not want passwords, CallbackCreds should be omitted entirely.</li>
+                           <li> UserId and Password should have length between 6 and 63 symbols.</li>
+                           <li> Corresponds to InboundCallbackUrl. Use instead of CallbackCreds for messaging. </li>
+                         </ul>
+                       </p>
+                       <p>OutboundCallbackCreds - can only be specified by External users
+                        <ul>
+                           <li> If you want credentials, both UserId and Password must be specified.</li>
+                           <li> If you do not want passwords, CallbackCreds should be omitted entirely.</li>
+                           <li> UserId and Password should have length between 6 and 63 symbols.</li>
+                           <li> Corresponds to OutboundCallbackUrl. Use instead of CallbackCreds for messaging. </li>
+                         </ul>
+                       </p>
                 body:
                      application/xml:
                          example:
                             <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
                             <!--Messaging-V2 application-->
                             <Application>
-                              <ServiceType>Voice-V2</ServiceType>
+                              <ServiceType>Messaging-V2</ServiceType>
                               <AppName>EBVICs</AppName>
-                              <CallInitiatedCallbackUrl>https://example2.com</CallInitiatedCallbackUrl>
-                              <CallInitiatedMethod>[GET|POST]</CallInitiatedMethod>
-                              <CallStatusCallbackUrl>https://example3.com</CallStatusCallbackUrl>
-                              <CallStatusMethod>[GET|POST]</CallStatusMethod>
+                              <InboundCallbackUrl>http://example.com</InboundCallbackUrl>
+                              <OutboundCallbackUrl>http://example2.com</OutboundCallbackUrl>
+                              <RequestedCallbackTypes>
+                                <CallbackType>message-delivered</CallbackType>
+                                <CallbackType>message-failed</CallbackType>
+                                <CallbackType>message-sending</CallbackType>
+                              </RequestedCallbackTypes>
                             </Application>
                             <!--Voice-V2 application-->
                             <Application>
@@ -542,6 +624,21 @@ securitySchemes:
                                 example:
                                     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                                     <ApplicationProvisioningResponse>
+                                      <!--Messaging-V2 application-->
+                                      <Application>
+                                        <ApplicationId>e5a9e103-097e-4ec4-87a0-50109fb7b4b1</ApplicationId>
+                                        <ServiceType>Messaging-V2</ServiceType>
+                                        <AppName>EBVICs</AppName>
+                                        <!-- DEPRECATED --><MsgCallbackUrl>http://example.com</MsgCallbackUrl>
+                                        <InboundCallbackUrl>http://example.com</InboundCallbackUrl>
+                                        <OutboundCallbackUrl>http://example2.com</OutboundCallbackUrl>
+                                        <RequestedCallbackTypes>
+                                          <CallbackType>message-delivered</CallbackType>
+                                          <CallbackType>message-failed</CallbackType>
+                                          <CallbackType>message-sending</CallbackType>
+                                        </RequestedCallbackTypes>
+                                      </Application>
+                                      <!--Voice-V2 application-->
                                       <Application>
                                         <ApplicationId>e5a9e103-097e-4ec4-87a0-50109fb7b4b1</ApplicationId>
                                         <ServiceType>Voice-V2</ServiceType>
@@ -2381,7 +2478,7 @@ securitySchemes:
                                 example:
                                     <?xml version="1.0" encoding="UTF-8"?>
                                     <Note>
-                                       <UserId>userId</UserId>
+                                       <UserId>userId</UserId>      <!-- note the userId must match the logged-in user -->
                                        <Description>note text</Description>
                                     </Note>
                         responses:
@@ -3156,7 +3253,7 @@ securitySchemes:
                                 example:
                                     <?xml version="1.0" encoding="UTF-8"?>
                                     <Note>
-                                       <UserId>userId</UserId>
+                                       <UserId>userId</UserId>      <!-- note the userId must match the logged-in user -->
                                        <Description>note text</Description>
                                     </Note>
                         responses:
@@ -3941,6 +4038,8 @@ securitySchemes:
                                                 <Zip>20004</Zip>
                                                 <PlusFour></PlusFour>
                                                 <Country>United States</Country>
+                                                <Latitude>35.848359</Latitude>
+                                                <Longitude>-75.000000</Longitude>
                                             </Address>
                                             <CallerName>0931180f-4</CallerName>
                                             <ErrorList/>
@@ -3967,6 +4066,8 @@ securitySchemes:
                                                 <Zip>20500</Zip>
                                                 <PlusFour>0003</PlusFour>
                                                 <Country>United States</Country>
+                                                <Latitude>35.848359</Latitude>
+                                                <Longitude>-75.000000</Longitude>
                                             </Address>
                                             <CallerName>0931180f-4</CallerName>
                                             <ErrorList/>
@@ -4052,6 +4153,8 @@ securitySchemes:
                         &lt;PlusFour/&gt;
                         &lt;County/&gt;
                         &lt;Country&gt;United States&lt;/Country&gt;
+                        &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                        &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                       &lt;/Address&gt;
                     &lt;/E911Order&gt;
                             </pre>
@@ -4099,6 +4202,8 @@ securitySchemes:
                         &lt;Zip&gt;27606&lt;/Zip&gt;
                         &lt;PlusFour&gt;5244&lt;/PlusFour&gt;
                         &lt;Country&gt;United States&lt;/Country&gt;
+                        &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                        &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                         &lt;AddressType&gt;E911&lt;/AddressType&gt;
                       &lt;/Address&gt;
                       &lt;AlternateEndUserIdentifiers&gt;
@@ -4137,6 +4242,8 @@ securitySchemes:
                         &lt;Zip&gt;27606&lt;/Zip&gt;
                         &lt;PlusFour&gt;5244&lt;/PlusFour&gt;
                         &lt;Country&gt;United States&lt;/Country&gt;
+                        &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                        &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                         &lt;AddressType&gt;E911&lt;/AddressType&gt;
                       &lt;/Address&gt;
                       &lt;AlternateEndUserIdentifiers&gt;
@@ -4206,6 +4313,8 @@ securitySchemes:
                         &lt;Zip&gt;27606&lt;/Zip&gt;
                         &lt;PlusFour&gt;5244&lt;/PlusFour&gt;
                         &lt;Country&gt;United States&lt;/Country&gt;
+                        &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                        &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                         &lt;AddressType&gt;E911&lt;/AddressType&gt;
                       &lt;/Address&gt;
                       &lt;AlternateEndUserIdentifiers&gt;
@@ -4273,6 +4382,8 @@ securitySchemes:
                           &lt;Zip&gt;27606&lt;/Zip&gt;
                           &lt;PlusFour&gt;5244&lt;/PlusFour&gt;
                           &lt;Country&gt;United States&lt;/Country&gt;
+                          &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                          &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                           &lt;AddressType&gt;E911&lt;/AddressType&gt;
                         &lt;/Address&gt;
                         &lt;Address&gt;
@@ -4312,6 +4423,8 @@ securitySchemes:
                           &lt;City&gt;Los Angeles&lt;/City&gt;
                           &lt;StateCode&gt;CA&lt;/StateCode&gt;
                           &lt;Zip&gt;90001&lt;/Zip&gt;
+                          &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                          &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                           &lt;LocationId&gt;Some32CharacterOrLessString&lt;/LocationId&gt;
                         &lt;/Address&gt;
                       &lt;/AdditionalAddresses&gt;
@@ -4363,6 +4476,8 @@ securitySchemes:
                         &lt;Zip&gt;27606&lt;/Zip&gt;
                         &lt;PlusFour&gt;5244&lt;/PlusFour&gt;
                         &lt;Country&gt;United States&lt;/Country&gt;
+                        &lt;Latitude&gt;35.848359&lt;/Latitude&gt;
+                        &lt;Longitude&gt;-75.000000&lt;/Longitude&gt;
                         &lt;AddressType&gt;E911&lt;/AddressType&gt;
                       &lt;/Address&gt;
                       &lt;AlternateEndUserIdentifiers&gt;
@@ -4413,6 +4528,8 @@ securitySchemes:
                                                 <PlusFour/>
                                                 <County/>
                                                 <Country/>
+                                                <Latitude>35.848359</Latitude>
+                                                <Longitude>-75.000000</Longitude>
                                             </Address>
                                         </E911Order>
                                     </E911OrderResponse>
@@ -4462,6 +4579,8 @@ securitySchemes:
                                                 <StateCode>NC</StateCode>
                                                 <Zip>27606</Zip>
                                                 <Country>United States</Country>
+                                                <Latitude>35.848359</Latitude>
+                                                <Longitude>-75.000000</Longitude>
                                             </Address>
                                             <CallerName>testName111111</CallerName>
                                             <CustomerOrderId>test</CustomerOrderId>
@@ -4512,6 +4631,8 @@ securitySchemes:
                                                             <PlusFour/>
                                                             <County/>
                                                             <Country>United States</Country>
+                                                            <Latitude>35.848359</Latitude>
+                                                            <Longitude>-75.000000</Longitude>
                                                         </Address>
                                                     </AlternateEndUserIdentifier>
                                                     <AlternateEndUserIdentifier>
@@ -4541,6 +4662,8 @@ securitySchemes:
                                                         <PlusFour/>
                                                         <County/>
                                                         <Country>United States</Country>
+                                                        <Latitude>35.848359</Latitude>
+                                                        <Longitude>-75.000000</Longitude>
                                                     </Address>
                                                 </AdditionalAddresses>
                                             <OrderType>e911</OrderType>
@@ -4727,17 +4850,13 @@ securitySchemes:
                         example:
                             <!--Sample request payload for an EMAIL recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Email to Bldg. 3 Front Desk
-                                </Description>
+                                <Description>Email to Bldg. 3 Front Desk</Description>
                                 <Type>EMAIL</Type>
                                 <EmailAddress>foo@bar.com</EmailAddress>
                             </EmergencyNotificationRecipient>
                             <!--Sample request payload for an SMS recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Text message to guard shack
-                                </Description>
+                                <Description>Text message to guard shack</Description>
                                 <Type>SMS</Type>
                                 <Sms>
                                     <TelephoneNumber>12015551212</TelephoneNumber>
@@ -4745,9 +4864,7 @@ securitySchemes:
                             </EmergencyNotificationRecipient>
                             <!--Sample request payload for an TTS recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Voice call notification to Susan Jones
-                                </Description>
+                                <Description>Voice call notification to Susan Jones</Description>
                                 <Type>TTS</Type>
                                 <Tts>
                                     <TelephoneNumber>12015551212</TelephoneNumber>
@@ -4755,9 +4872,7 @@ securitySchemes:
                             </EmergencyNotificationRecipient>
                             <!--Sample request payload for an CALLBACK recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Callback to property management system
-                                </Description>
+                                <Description>Callback to property management system</Description>
                                 <Type>CALLBACK</Type>
                                 <Callback>
                                     <Url>https://foo.bar/baz</Url>
@@ -4843,15 +4958,11 @@ securitySchemes:
                                 example:
                                     <EmergencyNotificationRecipientsResponse>
                                         <EmergencyNotificationRecipient>
-                                            <Identifier>
-                                                63865500-0904-46b1-9b4f-7bd237a26363
-                                            </Identifier>
+                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                             <CreatedDate>2020-03-18T21:26:47.403Z</CreatedDate>
                                             <LastModifiedDate>2020-03-18T21:26:47.403Z</LastModifiedDate>
                                             <ModifiedByUser>jgilmore</ModifiedByUser>
-                                            <Description>
-                                                This is a description of the emergency notification recipient.
-                                            </Description>
+                                            <Description>This is a description of the emergency notification recipient.</Description>
                                             <Type>CALLBACK</Type>
                                             <Callback>
                                                 <Url>https://foo.bar/baz</Url>
@@ -5029,11 +5140,11 @@ securitySchemes:
                         Results can be paginated and filtered using the following query parameters. </p>
                        <p> <b>Query parameters: </b></p>
                        <p> The GET operation has no request payload, but the accountId must be specified in the URI parameter.
-                       Results are returned by default in the order of newest to oldest modification date of the Emergency Notification Recipient.  This default order is reversed from oldest to newest when the ModifiedAfterDate query parameter is included in the query.</p>
+                       Results are returned by default in the order of newest to oldest modification date of the Emergency Notification Recipient.</p>
                        <p>Query parameters act as filters on the data. If more than one query parameter is provided, the results will be the intersection of the results from each query parameter. In other words, the query parameters are logically ANDed.
                        Query parameters are appended to the end of the endpoint, separated by a '?' and in the format parameter=value.  If you wish to specify more than one query parameter, separate them using an '&' character.  The order of query parameters does not matter.  For example:
-                       GET /accounts/{accountId}/emergencyNotificationRecipients?EnrDescription=front desk&EnrNotificationType=TTS
-                       ...will return all Emergency Notification Recipients having a description field including the string "front desk", and having a notification type of TTS.
+                       GET /accounts/{accountId}/emergencyNotificationRecipients?Size=20&EnrNotificationType=TTS
+                       ...will return at most 20 Emergency Notification Recipients having a notification type of TTS.
                        The following query parameters are supported.  All query parameters are optional. </p>
                         <table>
                                 <tr>
@@ -5041,29 +5152,6 @@ securitySchemes:
                                   <th>Example</th>
                                   <th>Default</th>
                                   <th>Usage</th>
-                                </tr>
-                                <tr>
-                                    <td valign="top">
-                                        <p>
-                                            ModifiedAfterDate
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            ModifiedAfterDate=
-                                            2020-03-23T17:34:00Z
-                                            </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            Include results only for orders having order last modified date and time after the date and time specified in this parameter. Note that inclusion of this parameter reverses the default sort order of the results to ascending in date/time (i.e. from oldest to newest). If you are looking for the ModifiedBeforeDate query parameter, please see the Page parameter.
-                                        </p>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td valign="top">
@@ -5084,28 +5172,6 @@ securitySchemes:
                                     <td valign="top">
                                         <p>
                                             Include results only for orders last modified by the user specified in this parameter.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top">
-                                        <p>
-                                            EnrDescription
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrDescription=front desk
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            A substring that will exist in all Emergency Notification Recipient Descriptions returned.
                                         </p>
                                     </td>
                                 </tr>
@@ -5308,15 +5374,11 @@ securitySchemes:
                                         </Links>
                                         <EmergencyNotificationRecipients>
                                             <EmergencyNotificationRecipient>
-                                                <Identifier>
-                                                    63865500-0904-46b1-9b4f-7bd237a26363
-                                                </Identifier>
+                                                <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                                 <CreatedDate>2020-03-18T21:26:47.403Z</CreatedDate>
                                                 <LastModifiedDate>2020-03-18T21:26:47.403Z</LastModifiedDate>
                                                 <ModifiedByUser>jgilmore</ModifiedByUser>
-                                                <Description>
-                                                    This is a description of the emergency notification recipient.
-                                                </Description>
+                                                <Description>This is a description of the emergency notification recipient.</Description>
                                                 <Type>CALLBACK</Type>
                                                 <Callback>
                                                     <Url>https://foo.bar/baz</Url>
@@ -5327,43 +5389,31 @@ securitySchemes:
                                                 </Callback>
                                             </EmergencyNotificationRecipient>
                                             <EmergencyNotificationRecipient>
-                                                <Identifier>
-                                                    63865500-0904-46b1-9b4f-7bd237a26363
-                                                </Identifier>
+                                                <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                                 <CreatedDate>2020-03-22T12:13:25.782Z</CreatedDate>
                                                 <LastModifiedDate>2020-03-22T12:13:25.782Z</LastModifiedDate>
                                                 <ModifiedByUser>gfranklin</ModifiedByUser>
-                                                <Description>
-                                                    This is a description of the emergency notification recipient.
-                                                </Description>
+                                                <Description>This is a description of the emergency notification recipient.</Description>
                                                 <Type>EMAIL</Type>
                                                 <EmailAddress>fred@gmail.com</EmailAddress>
                                             </EmergencyNotificationRecipient>
                                             <EmergencyNotificationRecipient>
-                                                <Identifier>
-                                                    63865500-0904-46b1-9b4f-7bd237a26363
-                                                </Identifier>
+                                                <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                                 <CreatedDate>2020-03-25T17:04:53.042Z</CreatedDate>
                                                 <LastModifiedDate>2020-03-25T17:04:53.042Z</LastModifiedDate>
                                                 <ModifiedByUser>msimpson</ModifiedByUser>
-                                                <Description>
-                                                    This is a description of the emergency notification recipient.
-                                                </Description>
+                                                <Description>This is a description of the emergency notification recipient.</Description>
                                                 <Type>SMS</Type>
                                                 <Sms>
                                                     <TelephoneNumber>12015551212</TelephoneNumber>
                                                 </Sms>
                                             </EmergencyNotificationRecipient>
                                             <EmergencyNotificationRecipient>
-                                                <Identifier>
-                                                    63865500-0904-46b1-9b4f-7bd237a26363
-                                                </Identifier>
+                                                <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                                 <CreatedDate>2020-03-29T20:14:01.736Z</CreatedDate>
                                                 <LastModifiedDate>2020-03-29T20:17:53.294Z</LastModifiedDate>
                                                 <ModifiedByUser>lsimpson</ModifiedByUser>
-                                                <Description>
-                                                    This is a description of the emergency notification recipient.
-                                                </Description>
+                                                <Description>This is a description of the emergency notification recipient.</Description>
                                                 <Type>TTS</Type>
                                                 <Tts>
                                                     <TelephoneNumber>12015551212</TelephoneNumber>
@@ -5421,15 +5471,11 @@ securitySchemes:
                                     <!--For a CALLBACK type emergency notification recipient...-->
                                     <EmergencyNotificationRecipientsResponse>
                                         <EmergencyNotificationRecipient>
-                                            <Identifier>
-                                                63865500-0904-46b1-9b4f-7bd237a26363
-                                            </Identifier>
+                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                             <CreatedDate>2020-03-18T21:26:47.403Z</CreatedDate>
                                             <LastModifiedDate>2020-04-01T18:32:22.316Z</LastModifiedDate>
                                             <ModifiedByUser>jgilmore</ModifiedByUser>
-                                            <Description>
-                                                This is a description of the emergency notification recipient.
-                                            </Description>
+                                            <Description>This is a description of the emergency notification recipient.</Description>
                                             <Type>CALLBACK</Type>
                                             <Callback>
                                                 <Url>https://foo.bar/baz</Url>
@@ -5443,15 +5489,11 @@ securitySchemes:
                                     <!--For an EMAIL type emergency notification recipient...-->
                                     <EmergencyNotificationRecipientsResponse>
                                         <EmergencyNotificationRecipient>
-                                            <Identifier>
-                                                63865500-0904-46b1-9b4f-7bd237a26363
-                                            </Identifier>
+                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                             <CreatedDate>2020-03-20T14:04:28.778Z</CreatedDate>
                                             <LastModifiedDate>2020-03-20T14:04:28.778Z</LastModifiedDate>
                                             <ModifiedByUser>wchurchill</ModifiedByUser>
-                                            <Description>
-                                                This is a description of the emergency notification recipient.
-                                            </Description>
+                                            <Description>This is a description of the emergency notification recipient.</Description>
                                             <Type>EMAIL</Type>
                                             <EmailAddress>fred@gmail.com</EmailAddress>
                                         </EmergencyNotificationRecipient>
@@ -5459,15 +5501,11 @@ securitySchemes:
                                     <!--*For an SMS type emergency notification recipient...-->
                                     <EmergencyNotificationRecipientsResponse>
                                         <EmergencyNotificationRecipient>
-                                            <Identifier>
-                                                63865500-0904-46b1-9b4f-7bd237a26363
-                                            </Identifier>
+                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                             <CreatedDate>2020-03-28T15:45:01.371Z</CreatedDate>
                                             <LastModifiedDate>2020-03-29T18:59:42.220Z</LastModifiedDate>
                                             <ModifiedByUser>deisenhower</ModifiedByUser>
-                                            <Description>
-                                                This is a description of the emergency notification recipient.
-                                            </Description>
+                                            <Description>This is a description of the emergency notification recipient.</Description>
                                             <Type>SMS</Type>
                                             <Sms>
                                                 <TelephoneNumber>12015551212</TelephoneNumber>
@@ -5477,15 +5515,11 @@ securitySchemes:
                                     <!--*For a TTS type emergency notification recipient...-->
                                     <EmergencyNotificationRecipientsResponse>
                                         <EmergencyNotificationRecipient>
-                                            <Identifier>
-                                                63865500-0904-46b1-9b4f-7bd237a26363
-                                            </Identifier>
+                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                             <CreatedDate>2020-03-30T22:14:30.443Z</CreatedDate>
                                             <LastModifiedDate>2020-03-30T22:14:30.443Z</LastModifiedDate>
                                             <ModifiedByUser>frooseveldt</ModifiedByUser>
-                                            <Description>
-                                                This is a description of the emergency notification recipient.
-                                            </Description>
+                                            <Description>This is a description of the emergency notification recipient.</Description>
                                             <Type>TTS</Type>
                                             <Tts>
                                                 <TelephoneNumber>12015551212</TelephoneNumber>
@@ -5536,17 +5570,13 @@ securitySchemes:
                          example:
                             <!--Sample request payload for an EMAIL recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Email to Bldg. 3 Front Desk
-                                </Description>
+                                <Description>Email to Bldg. 3 Front Desk</Description>
                                 <Type>EMAIL</Type>
                                 <EmailAddress>foo@bar.com</EmailAddress>
                             </EmergencyNotificationRecipient>
                             <!--Sample request payload for an SMS recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Text message to guard shack
-                                </Description>
+                                <Description>Text message to guard shack</Description>
                                 <Type>SMS</Type>
                                 <Sms>
                                     <TelephoneNumber>12015551212</TelephoneNumber>
@@ -5554,9 +5584,7 @@ securitySchemes:
                             </EmergencyNotificationRecipient>
                             <!--Sample request payload for an TTS recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Voice call notification to Susan Jones
-                                </Description>
+                                <Description>Voice call notification to Susan Jones</Description>
                                 <Type>TTS</Type>
                                 <Tts>
                                     <TelephoneNumber>12015551212</TelephoneNumber>
@@ -5564,9 +5592,7 @@ securitySchemes:
                             </EmergencyNotificationRecipient>
                             <!--Sample request payload for an CALLBACK recipient:-->
                             <EmergencyNotificationRecipient>
-                                <Description>
-                                    Callback to property management system
-                                </Description>
+                                <Description>Callback to property management system</Description>
                                 <Type>CALLBACK</Type>
                                 <Callback>
                                     <Url>https://foo.bar/baz</Url>
@@ -5584,15 +5610,11 @@ securitySchemes:
                                 example:
                                     <EmergencyNotificationRecipientsResponse>
                                         <EmergencyNotificationRecipient>
-                                            <Identifier>
-                                                63865500-0904-46b1-9b4f-7bd237a26363
-                                            </Identifier>
+                                            <Identifier>63865500-0904-46b1-9b4f-7bd237a26363</Identifier>
                                             <CreatedDate>2020-03-18T21:26:47.403Z</CreatedDate>
                                             <LastModifiedDate>2020-04-01T18:32:22.316Z</LastModifiedDate>
                                             <ModifiedByUser>jgilmore</ModifiedByUser>
-                                            <Description>
-                                                This is a description of the emergency notification recipient.
-                                            </Description>
+                                            <Description>This is a description of the emergency notification recipient.</Description>
                                             <Type>CALLBACK</Type>
                                             <Callback>
                                                 <Url>https://foo.bar/baz</Url>
@@ -7107,7 +7129,7 @@ securitySchemes:
         /emergencyNotificationGroups: 
             description: |
                 <p> This endpoint provides a way to fetch current emergency notification groups configured on
-                the account, including various ways to filter the results.  This endpoint examines the current configuration.  If you are interested in emergency notification group order history, use the /accounts/{accountId}/emergencyNotificationGroupOrders endpoint.
+                the account, including some ways to filter the results.  This endpoint examines the current configuration.  If you are interested in emergency notification group order history, use the /accounts/{accountId}/emergencyNotificationGroupOrders endpoint.
                 </p>
             get:
                 description: |
@@ -7115,12 +7137,12 @@ securitySchemes:
                         URI Parameters: <b>accountId</b> - the account id of the account to which the emergency notification group belongs </p>
                         <p><b>Query parameters:</b><br>
                         The GET operation has no request payload, but the accountId must be specified in the URI parameter.
-                        Results are returned by default in the order of newest to oldest modification date of the Emergency Notification Group.  This default order is reversed from oldest to newest when the ModifiedAfterDate query parameter is included in the query.
+                        Results are returned in the order of newest to oldest modification date of the Emergency Notification Group.
                         Query parameters act as filters on the data. If more than one query parameter is provided, the results will be the intersection of the results from each query parameter. In other words, the query parameters are logically ANDed.
                         Query parameters are appended to the end of the endpoint, separated by a '?' and in the format parameter=value.  If you wish to specify more than one query parameter, separate them using an '&' character.
                           The order of query parameters does not matter.  For example: <br>
-                        GET /accounts/{accountId}/emergencyNotificationGroups?EngDescription=Bldg 200&EnrEmailAddress=gateSecurity@mycompany.com <br>
-                        ...will return all Emergency Notification Groups having a description field including the string "Bldg 200", and having an emergency notification recipient with the specified email address. <br>
+                        GET /accounts/{accountId}/emergencyNotificationGroups?EnrId=63865500-0904-46b1-9b4f-7bd237a26363&Page=2020-04-07T00:00:00Z<br>
+                        ...will return all Emergency Notification Groups containing a recipient with a specified EnrId and last modified before 2020-04-07T00:00:00Z date. <br>
                         The following query parameters are supported.  All query parameters are optional.
                         </p>
                         <table>
@@ -7133,35 +7155,12 @@ securitySchemes:
                                 <tr>
                                     <td valign="top">
                                         <p>
-                                            EngDescription
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EngDescription=Building 4
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                          A substring that will exist in the Description for all returned Emergency Notification Groups.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top">
-                                        <p>
                                             EnrId
                                         </p>
                                     </td>
                                     <td  valign="top">
                                         <p>
-                                            EnrId=
-                                            63865500-0904-46b1-9b4f-7bd237a26363
+                                            EnrId=63865500-0904-46b1-9b4f-7bd237a26363
                                         </p>
                                     </td>
                                     <td valign="top">
@@ -7172,161 +7171,6 @@ securitySchemes:
                                     <td  valign="top">
                                         <p>
                                             The Identifier of an Emergency Notification Recipient that is associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top">
-                                        <p>
-                                            EnrDescription
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            EnrDescription=front desk
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            A substring that will exist in all Emergency Notification Recipient Descriptions associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td valign="top">
-                                        <p>
-                                            EnrNotificationType
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            EnrNotificationType=TTS
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td valign="top">
-                                        <p>
-                                            The type of notification (EMAIL, SMS, TTS, or CALLBACK) specified for Emergency Notification Recipients associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrSmsTn
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrSmsTn=3037458827
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            The Short Message Service telephone number in all SMS type Emergency Notification Recipients associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrTtsTn
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrTtsTn=402288875
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            The Text To Speech telephone number in all TTS type Emergency Notification Recipients associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrEmailAddress
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrEmailAddress=fred@aol.com
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            The email address in all EMAIL type Emergency Notification Recipients associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrCallbackUrl
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrCallbackUrl=
-                                            https://e911.callback.mycompany.com
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            The callback URL in all CALLBACK type Emergency Notification Recipients associated with the Emergency Notification Groups returned.
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrCallbackUsername
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            EnrCallbackUsername=ljames
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            No filter
-                                        </p>
-                                    </td>
-                                    <td  valign="top">
-                                        <p>
-                                            The callback username in all CALLBACK type Emergency Notification Recipients associated with the Emergency Notification Groups returned.
                                         </p>
                                     </td>
                                 </tr>
@@ -7501,35 +7345,12 @@ securitySchemes:
                                           <tr>
                                               <td valign="top">
                                                   <p>
-                                                      IncludeEepTns
+                                                      IncludeEndpoints
                                                   </p>
                                               </td>
                                               <td  valign="top">
                                                   <p>
-                                                      IncludeEepTns=true
-                                                  </p>
-                                              </td>
-                                              <td valign="top">
-                                                  <p>
-                                                      false
-                                                  </p>
-                                              </td>
-                                              <td valign="top">
-                                                  <p>
-                                                        Set this optional parameter to true if you wish to include a list
-                                                        of all Emergency Endpoint TNs associated with this Emergency Notification Group.
-                                                  </p>
-                                              </td>
-                                          </tr>
-                                          <tr>
-                                              <td valign="top">
-                                                  <p>
-                                                      IncludeEepAeuis
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      IncludeEepAeuis=true
+                                                      IncludeEndpoints=true
                                                   </p>
                                               </td>
                                               <td valign="top">
@@ -7539,20 +7360,21 @@ securitySchemes:
                                               </td>
                                               <td  valign="top">
                                                   <p>
-                                                      Set this optional parameter to true if you wish to include a list
-                                                      of all Emergency Endpoint AEUIs associated with this Emergency Notification Group.
+                                                      Set this optional parameter to true, if you wish to include a list
+                                                      of all Emergency Endpoints (with AEUI or conventional TN identifiers)
+                                                      associated with this Emergency Notification Group.
                                                   </p>
                                               </td>
                                           </tr>
                                           <tr>
                                               <td valign="top">
                                                   <p>
-                                                      StartWithEepTn
+                                                      EndpointId
                                                   </p>
                                               </td>
                                               <td valign="top">
                                                   <p>
-                                                      StartWithEepTn=203208110
+                                                      EndpointId=203208110
                                                   </p>
                                               </td>
                                               <td valign="top">
@@ -7562,22 +7384,23 @@ securitySchemes:
                                               </td>
                                               <td valign="top">
                                                   <p>
-                                                      This parameter, which may only be specified if the IncludeEepTns parameter is set to true,
-                                                      indicates the starting digits of the emergency endpoint TN that you wish to begin with in the
+                                                      This parameter, which may only be specified if the IncludeEndpoints parameter is set to true,
+                                                      indicates the starting digits of the emergency endpoint TN for conventional endpoints
+                                                      or starting letters / digits of AEUI endpoint identifier that you wish to begin with in the
                                                       list of emergency endpoints associated with the emergency notification group. At least 3 digits
-                                                      must be supplied, and up to 10 digits may be included.
+                                                      must be supplied.
                                                   </p>
                                               </td>
                                           </tr>
                                           <tr>
                                               <td valign="top">
                                                   <p>
-                                                      EepTnSize
+                                                      EndpointSize
                                                   </p>
                                               </td>
                                               <td valign="top">
                                                   <p>
-                                                      EepTnSize=200
+                                                      EndpointSize=200
                                                   </p>
                                               </td>
                                               <td valign="top">
@@ -7587,58 +7410,9 @@ securitySchemes:
                                               </td>
                                               <td valign="top">
                                                   <p>
-                                                      This parameter, which may only be specified if the IncludeEepTns parameter is set to true,
-                                                       indicates the maximum number of associated emergency endpoint TNs you wish to include for
+                                                      This parameter, which may only be specified, if the IncludeEndpoints parameter is set to true,
+                                                       indicates the maximum number of associated emergency endpoints you wish to include for
                                                        each emergency notification group that is returned in the query results. The value may range from 1 to 5000
-                                                  </p>
-                                              </td>
-                                          </tr>
-                                          <tr>
-                                              <td  valign="top">
-                                                  <p>
-                                                      StartWithEepAeui
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      StartWithEepAeui=Frank
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      No filter
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      This parameter, which may only be specified if the IncludeEepAeuis parameter is set to true,
-                                                       indicates the starting characters of the emergency endpoint AEUI that you wish to begin with
-                                                        in the list of emergency endpoints associated with the emergency notification group.
-                                                        At least 3 characters must be supplied, and up to 50 characters may be included.
-                                                  </p>
-                                              </td>
-                                          </tr>
-                                          <tr>
-                                              <td  valign="top">
-                                                  <p>
-                                                      EepAeuiSize
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      EepAeuiSize=50
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      20
-                                                  </p>
-                                              </td>
-                                              <td  valign="top">
-                                                  <p>
-                                                      This parameter, which may only be specified if the IncludeEepAeuis parameter is set to true,
-                                                      indicates the maximum number of associated emergency endpoint AEUIs you wish to include for
-                                                      each emergency notification group that is returned in the query results. The value may range from 1 to 5000.
                                                   </p>
                                               </td>
                                           </tr>
@@ -7664,6 +7438,12 @@ securitySchemes:
                                                         <Identifier>ef47eb61-e3b1-449d-834b-0fbc5a11da30</Identifier>
                                                     </EmergencyNotificationRecipient>
                                                 </EmergencyNotificationRecipients>
+                                                <EepToEngAssociations>
+                                                    <Endpoints>
+                                                        <Identifier>19152431000</Identifier>
+                                                        <Identifier>ACIDIdentifier12345</Identifier>
+                                                    </Endpoints>
+                                                </EepToEngAssociations>
                                             </EmergencyNotificationGroup>
                                         </EmergencyNotificationGroupsResponse>
                         404:
@@ -11170,7 +10950,7 @@ securitySchemes:
                                 example:
                                     <?xml version="1.0" encoding="UTF-8"?>
                                     <Note>
-                                       <UserId>userId</UserId>
+                                       <UserId>userId</UserId>      <!-- note the userId must match the logged-in user -->
                                        <Description>note text</Description>
                                     </Note>
                         responses:
@@ -11240,6 +11020,308 @@ securitySchemes:
                                                         <Description>Username is required</Description>
                                                     </ResponseStatus>
                                                 </NoteResponse>           
+        /moveTns: 
+            description: |
+                This method moves desired Telephone Numbers to the given SIP peer.
+            get:
+                description: Retrieves the moveTns requests for the given account ID. <p>A maximum of 1,000 orders can be retrieved per request. If no date range or specific query parameter (marked by <b class="required">*</b> below) is provided, the order results will be limited to the last two years.</p>
+                queryParameters:
+                    status:
+                        description: The status of the moveTnsOrder being searched for.
+                        type: string
+                        example: PARTIAL
+                        enum: [RECEIVED, PROCESSING, COMPLETE, PARTIAL, FAILED]
+                    tn:
+                        description: <b class="required">*</b> A Telephone Number (TN) that is referenced in the order
+                        type: string
+                        example: 9199918388
+                    customerOrderId:
+                        description: <b class="required">*</b> The Customer Order ID is an ID assigned by the account owner to provide a reference number for the importTnOrder.
+                        type: string
+                        example: ABCCorp12345
+                    createdDateFrom:
+                        description: Checks the order's creation date against this value. Orders that have a creation date after this date will be included. Format is yyyy-MM-dd
+                        type: string
+                        example: 2013-10-22
+                    createdDateTo:
+                        description: Checks the order's creation date against this value. Orders that have a creation date before this date will be included. Format is yyyy-MM-dd
+                        type: string
+                        example: 2013-10-25
+                    modifiedDateFrom:
+                        description: For Date-based searches, the starting date of a date range (inclusive) that will be used to find Import Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-22
+                    modifiedDateTo:
+                        description: For Date-based searches, the ending date of a date range (inclusive) that will be used to find Import Tn Orders that were modified within the date range. It is in the form yyyy-MM-dd.
+                        type: string
+                        example: 2013-10-25
+                responses:
+                    200:
+                        description: The descriptive payload for the moveTnsOrder query provides information about the orders found by the query, including the data associated with the order, the state of the order, and a list of the successfully imported Telephone Numbers, and decriptions of any encountered errors.
+                        body:
+                            application/xml:
+                                example: 
+                                      <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <MoveTnsOrders>
+                                        <TotalCount>2</TotalCount>
+                                            <MoveTnsOrderSummary>
+                                                <accountId>14</accountId>
+                                                <CountOfTNs>1</CountOfTNs>
+                                                <CustomerOrderId>CustomerOrderId</CustomerOrderId>
+                                                <userId>systemUser</userId>
+                                                <lastModifiedDate>2019-01-24T11:08:09.770Z</lastModifiedDate>
+                                                <OrderDate>2019-01-24T11:08:09.770Z</OrderDate>
+                                                <OrderType>move_tn_orders</OrderType>
+                                                <OrderStatus>COMPLETE</OrderStatus>
+                                                <OrderId>211a103c-5f9c-4117-8833-c574bdc390fd</OrderId>
+                                            </MoveTnsOrderSummary>
+                                            <MoveTnsOrderSummary>
+                                                <accountId>14</accountId>
+                                                <CountOfTNs>2</CountOfTNs>
+                                                <CustomerOrderId>CustomerOrderId</CustomerOrderId>
+                                                <userId>systemUser</userId>
+                                                <lastModifiedDate>2019-01-24T10:43:16.934Z</lastModifiedDate>
+                                                <OrderDate>2019-01-24T10:43:16.934Z</OrderDate>
+                                                <OrderType>move_tn_orders</OrderType>
+                                                <OrderStatus>PARTIAL</OrderStatus>
+                                                <OrderId>8dc32f09-2329-4c73-b702-526f46b02712</OrderId>
+                                            </MoveTnsOrderSummary>
+                                    </MoveTnsOrders>
+            post:
+                description: |
+                    Creates an moveTnOrders request to move numbers to the given site ID and sippeer ID as specified in the body. A successfully submitted order will have a status of "RECEIVED".
+                    A successfully completed order will have a status of "COMPLETE" if all of the telephone numbers were successfully moved and "PARTIAL" if some of the telephone numbers were moved. A failed order will have a status of "FAILED" and no telephone numbers would have been moved.
+                    The elements supplied in the payloads are described in the following table:
+                    <table border="1" cellspacing="0" cellpadding="0" width="624">
+                        <tbody>
+                            <tr>
+                                <td valign="top">
+                                    <p>
+                                        <strong>Parameter</strong>
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p>
+                                        <strong>Required</strong>
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        <strong>Description</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <p>
+                                        accountId (URL Parameter)
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p align="center">
+                                        Yes
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        The account ID for moving the numbers.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <p>
+                                        CustomerOrderId
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p align="center">
+                                        No
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        Internal customer order id for tracking the order.  Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <p>
+                                        TelephoneNumber
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p align="center">
+                                        Yes
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        Ten digit phone number with no dots or dashes. One or more is required. Use a PhoneNumber tag for each phone number in the list.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <p>
+                                        SiteId
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p align="center">
+                                        Yes
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        See section on Sites
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <p>
+                                        SipPeerId
+                                    </p>
+                                </td>
+                                <td valign="top">
+                                    <p align="center">
+                                        No
+                                    </p>
+                                </td>
+                                <td width="351" valign="top">
+                                    <p>
+                                        See section on SIP Peers
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                body:
+                    application/xml:
+                        example: |
+                            <MoveTnsOrder>
+                                <CustomerOrderID>ICPA123ABC</CustomerOrderID>
+                                <SiteId>743</SiteId>
+                                <SipPeerId>303716</SipPeerId>
+                                <TelephoneNumbers>
+                                    <TelephoneNumber>9199918388</TelephoneNumber>
+                                    <TelephoneNumber>4158714245</TelephoneNumber>
+                                    <TelephoneNumber>4352154439</TelephoneNumber>
+                                    <TelephoneNumber>4352154466</TelephoneNumber>
+                                </TelephoneNumbers>
+                            </MoveTnsOrder>
+                responses:
+                    201:
+                        description: The order has been created and an order ID will be specified in the payload and in the header.
+                        body:
+                            application/xml:
+                                example: 
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <MoveTnsOrderResponse>
+                                        <MoveTnsOrder>
+                                            <OrderCreateDate>2020-09-15T16:36:22.076Z</OrderCreateDate>
+                                            <AccountId>9999999</AccountId>
+                                            <CreatedByUser>systemUser</CreatedByUser>
+                                            <OrderId>093a9f9b-1a78-4e47-b6e2-776a484596f4</OrderId>
+                                            <LastModifiedDate>2020-09-15T16:36:22.096Z</LastModifiedDate>
+                                            <SiteId>483</SiteId>
+                                            <TelephoneNumbers>
+                                                <TelephoneNumber>2032081004</TelephoneNumber>
+                                                <TelephoneNumber>2032081005</TelephoneNumber>
+                                            </TelephoneNumbers>
+                                            <ProcessingStatus>RECEIVED</ProcessingStatus>
+                                            <SipPeerId>500025</SipPeerId>
+                                        </MoveTnsOrder>
+                                    </MoveTnsOrderResponse>
+                    400:
+                        description: The order failed; one of the input parameters is invalid. The error text and an error code will be provided in the ErrorList element.
+                        body:
+                            application/xml:
+                                example: 
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <MoveTnsOrderResponse>
+                                        <ProcessingStatus>FAILED</ProcessingStatus>
+                                        <Errors>
+                                            <Code>7309</Code>
+                                            <Description>The site id was not supplied or is invalid.</Description>
+                                        </Errors>
+                                        <Errors>
+                                            <Code>7312</Code>
+                                            <Description>The sippeer id is invalid.</Description>
+                                        </Errors>
+                                    </MoveTnsOrderResponse>
+            /{orderid}: 
+                description: |
+                    This API returns data about the specific moveTnsOrder id specified as the resource
+                get:
+                    description: Retrieve information about a moveTnsOrder with specified ID.
+                    responses:
+                        200:
+                            description: The information has been successfully retrieved and displayed in the payload.
+                            body:
+                                application/xml:
+                                    example: 
+                                          <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                        <MoveTnsOrder>
+                                            <OrderCreateDate>2020-08-10T02:58:04.615Z</OrderCreateDate>
+                                            <AccountId>9900012</AccountId>
+                                            <CreatedByUser>jdb</CreatedByUser>
+                                            <OrderId>bf1305b8-8998-1111-2222-51ba3ce52d4e</OrderId>
+                                            <CustomerOrderId>123-456-789-abc</CustomerOrderId>
+                                            <LastModifiedDate>2018-01-09T02:58:05.298Z</LastModifiedDate>
+                                            <SiteId>65487</SiteId>
+                                            <SipPeerId>885544</SipPeerId>
+                                            <TelephoneNumbers>
+                                                <TelephoneNumber>2106078250</TelephoneNumber>
+                                                <TelephoneNumber>2109678273</TelephoneNumber>
+                                                <TelephoneNumber>2109678331</TelephoneNumber>
+                                                <TelephoneNumber>2109678337</TelephoneNumber>
+                                                <TelephoneNumber>2266401468</TelephoneNumber>
+                                            </TelephoneNumbers>
+                                            <ProcessingStatus>PARTIAL</ProcessingStatus>
+                                            <Errors>
+                                                <Error>
+                                                    <Code>7518</Code>
+                                                    <Description>Telephone Number Not Active.</Description>
+                                                    <TelephoneNumbers>
+                                                        <TelephoneNumber>2262665583</TelephoneNumber>
+                                                    </TelephoneNumbers>
+                                                </Error>
+                                            </Errors>
+                                        </MoveTnsOrder>
+                /history: 
+                    description: This resource retrieves the history of a moveTnOrder.
+                    get:
+                        description: Retrieves the history of the specified moveTnOrder.
+                        responses:
+                            200:
+                                description: The history has been successfully retrieved and displayed in the payload.
+                                body:
+                                    application/xml:
+                                        example: 
+                                              <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                            <OrderHistoryWrapper>
+                                                <OrderHistory>
+                                                    <OrderDate>2020-09-17T08:56:39.607Z</OrderDate>
+                                                    <Note>Move TNs order has been received by the system.</Note>
+                                                    <Author>admin</Author>
+                                                    <Status>received</Status>
+                                                </OrderHistory>
+                                                <OrderHistory>
+                                                    <OrderDate>2020-09-17T08:56:39.743Z</OrderDate>
+                                                    <Note>Move TNs order processing has started.</Note>
+                                                    <Author>admin</Author>
+                                                    <Status>processing</Status>
+                                                </OrderHistory>
+                                                <OrderHistory>
+                                                    <OrderDate>2020-09-17T08:56:39.820Z</OrderDate>
+                                                    <Note>Move TNs order is complete.</Note>
+                                                    <Author>admin</Author>
+                                                    <Status>complete</Status>
+                                                </OrderHistory>
+                                            </OrderHistoryWrapper>
         /numbersAssignment: 
             description: |
                 The TelephoneNumbersAssignment order resource represents the requests made to the Bandwidth Dashboard API to declare whether telephone numbers associated with the customer's account are assigned to end users or not.  This declaration of assignment is used in preparing NRUF Federal and PUC telephone number utilizatoin filings, and in providing justification for the acquisition and allocation of additional telephone numbers to the overall inventory<br>
@@ -12228,7 +12310,7 @@ securitySchemes:
                                 example:
                                     <?xml version="1.0" encoding="UTF-8"?>
                                     <Note>
-                                       <UserId>userId</UserId>
+                                       <UserId>userId</UserId>      <!-- note the userId must match the logged-in user -->
                                        <Description>note text</Description>
                                     </Note>
                         responses:
@@ -13482,7 +13564,7 @@ securitySchemes:
                                 example:
                                     <?xml version="1.0" encoding="UTF-8"?>
                                     <Note>
-                                       <UserId>userId</UserId>
+                                       <UserId>userId</UserId>      <!-- note the userId must match the logged-in user -->
                                        <Description>note text</Description>
                                     </Note>
                         responses:
@@ -16180,32 +16262,6 @@ securitySchemes:
                                                             <LidbCount>0</LidbCount>
                                                         </SipPeerTelephoneNumbersCount>
                                                     </SipPeerTelephoneNumbersCountResponse>
-                        /movetns: 
-                            description: This method moves desired Telephone Numbers to the given SIP peer. 
-                            post:
-                                description: |
-                                    The POST method moves all telephone numbers specified in the body to the given SIP peer.<br>
-                                    The source SIP peer is determined by the Telephone Number, i.e. the PUT method can move multiple numbers from different source SIP peers.<br>
-                                    The destination SIP peer is specified in the URL.<br>
-                                    NOTE: only a maximum of 5000 Telephone Numbers can be moved in one operation.
-                                body:
-                                    application/xml:
-                                        example: |
-                                            <SipPeerTelephoneNumbers>
-                                                <FullNumber>9199921234</FullNumber>
-                                                    <!-- SNIP -->
-                                                <FullNumber>9199998550</FullNumber>
-                                            </SipPeerTelephoneNumbers>
-                                responses:
-                                    200:
-                                        description: The request has been successfully received.
-                                    400:
-                                        description: |
-                                            Bad Request. Possible errors in response:
-                                            <ul>
-                                                <li>Shared TNs with messaging cannot be moved to a sippeer without the SMS feature enabled.</li>
-                                                <li>Shared TNs with voice cannot be moved to a sippeer with the SMS feature enabled.</li>
-                                            </ul>
                         /products: 
                             description:  |
                                 This API will expose products that are associated directly with the SIP Peer.
@@ -19302,97 +19358,6 @@ securitySchemes:
                                             <Lata>224</Lata>
                                         </TelephoneNumberDetails>
                                     </TelephoneNumberResponse>
-        /history: 
-            description: |
-                The history call returns a number of payload elements, each representing an event in the lifecycle of the Telephone Number. <br>
-                Information returned includes the Order details that prompted the change in the TN status, including dates, order IDs and order types.
-            get:
-                description: Retrieves the history associated with that telephone number.
-                responses:
-                    200:
-                        description: |
-                            OK - the history has been successfully retrieved and displayed.<br>
-                            <h3>TN Attributes</h3>
-                            <h4>status</h4>
-                            <ul>
-                                <li>Inservice: The TN is currently in use by the customer that owns the TN.</li>
-                                <li>Available: The TN is available to be ordered. If the TN is "protected" only the account owning the TN can order it, otherwise it should be generally available.</li>
-                                <li>Aging: The TN is disconnected by the customer owning the TN. At this time, the TN will go into aging for some period of time (typically 30 days) and the customer owning the TN can order it again. If the allotted time has passed and the TN is not ordered by the owning customer, the TN will go back to Available.</li>
-                                <li>PortInPendingFoc: TN is in FOC and waiting for the FOC date.</li>
-                                <li>PortOut: A TN has been ported out of an account.</li>
-                                <li>Reserved: A TN is reserved by a customer to order at a later time.</li>
-                                <li>Removed: Bandwidth will show this for TNs that have been soft-removed.</li>
-                                <li>Eliminated: This status will shown for external TNs that are removed from Bandwidth.</li>
-                            </ul>
-                        body:
-                            application/xml:
-                                example: 
-                                    <TelephoneNumberResponse>
-                                        <TelephoneNumberStatuses>
-                                            <TelephoneNumberStatus>
-                                                <AccountId>753</AccountId>
-                                                <LastModifiedDate>2014-07-29T13:42:49.789Z</LastModifiedDate>
-                                                <OrderCreateDate>2014-07-29T13:42:33.000Z</OrderCreateDate>
-                                                <OrderId>58ee5da9-6357-4626-86fd-6faf4bf819b3</OrderId>
-                                                <Status>Available</Status>
-                                                <UserId>jbm</UserId>
-                                                <OrderType>IMPORT_AVAILABLE_ORDER</OrderType>
-                                            </TelephoneNumberStatus>
-                                            <TelephoneNumberStatus>
-                                                <AccountId>14</AccountId>
-                                                <LastModifiedDate>2014-07-30T11:07:10.585Z</LastModifiedDate>
-                                                <OrderCreateDate>2014-07-30T11:07:10.537Z</OrderCreateDate>
-                                                <OrderId>90d7f38d-03fc-43f4-85f6-ed2608411775</OrderId>
-                                                <Status>Inservice</Status>
-                                                <UserId>jbm</UserId>
-                                                <OrderType>NEW_NUMBER_ORDER</OrderType>
-                                            </TelephoneNumberStatus>
-                                            <TelephoneNumberStatus>
-                                                <AccountId>14</AccountId>
-                                                <LastModifiedDate>2014-07-30T11:24:17.834Z</LastModifiedDate>
-                                                <OrderCreateDate>2014-07-30T11:24:17.834Z</OrderCreateDate>
-                                                <OrderId>9c0d22f0-6cd6-42d8-b3e4-8a3e0dd18b6c</OrderId>
-                                                <Status>Inservice</Status>
-                                                <UserId>jbm</UserId>
-                                                <OrderType>DLDA_ORDER</OrderType>
-                                                <OrderStatus>RECEIVED</OrderStatus>
-                                            </TelephoneNumberStatus>
-                                            <TelephoneNumberStatus>
-                                                <AccountId>14</AccountId>
-                                                <LastModifiedDate>2014-07-30T11:24:18.842Z</LastModifiedDate>
-                                                <OrderCreateDate>2014-07-30T11:24:17.834Z</OrderCreateDate>
-                                                <OrderId>9c0d22f0-6cd6-42d8-b3e4-8a3e0dd18b6c</OrderId>
-                                                <Status>Inservice</Status>
-                                                <UserId>jbm</UserId>
-                                                <OrderType>DLDA_ORDER</OrderType>
-                                                <OrderStatus>PROCESSING</OrderStatus>
-                                            </TelephoneNumberStatus>
-                                            <TelephoneNumberStatus>
-                                                <AccountId>14</AccountId>
-                                                <LastModifiedDate>2014-07-30T11:24:22.224Z</LastModifiedDate>
-                                                <OrderCreateDate>2014-07-30T11:24:17.834Z</OrderCreateDate>
-                                                <OrderId>9c0d22f0-6cd6-42d8-b3e4-8a3e0dd18b6c</OrderId>
-                                                <Status>Inservice</Status>
-                                                <UserId>jbm</UserId>
-                                                <OrderType>DLDA_ORDER</OrderType>
-                                                <OrderStatus>PARTIAL</OrderStatus>
-                                            </TelephoneNumberStatus>
-                                        </TelephoneNumberStatuses>
-                                        <TelephoneNumber>2018981023</TelephoneNumber>
-                                    </TelephoneNumberResponse>
-                    400:
-                        description: Bad Request - failed to retrieve the history for the current phone number.
-                    404:
-                        description: Not Found - there aren't records about the phone number in history.
-                        body:
-                            application/xml:
-                                example: 
-                                    <ErrorResponse>
-                                        <irisStatus>
-                                            <Code>404</Code>
-                                            <Description>Results were not found.</Description>
-                                        </irisStatus>
-                                    </ErrorResponse>
         /tnreservation: 
             description: |
                 This API call retrieves any current reservation information associated with the Telephone Number, if a reservation is currently active on the indicated Telephone Number.
