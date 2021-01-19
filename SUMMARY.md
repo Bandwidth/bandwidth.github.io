@@ -313,7 +313,7 @@
 
 ## Emergency Services
 * [Overview](emergency-services/about.md)
-* [Dashboard 911 API](emergency-services/dashboard/dashboardE911Overview.md)
+* [Dashboard 911 API](emergency-services/dashboard/about.md)
 	* [Guides & Tutorials](emergency-services/dashboard/guides/about.md)
 		* [About Emergency Notifications](emergency-services/dashboard/guides/emergencyNotifications.md)
 			* [Overview](emergency-services/dashboard/guides/emergencyNotifications.md#overview)
@@ -327,11 +327,17 @@
 			* [Associate Groups & Endpoints](emergency-services/dashboard/guides/configEmergencyNotifications.md#associate-eng-enr)
 			* [Updating Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#updating-eng)
 			* [Removing Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#removing)
-* [DASH 911 API](emergency-services/dash/dashE911Overview.md)
-	* [911 Dashboard API Guide](https://support.bandwidth.com/hc/en-us/articles/115006226067-911-Dashboard-API-Guide)
+* [DASH 911 API](emergency-services/dash/about.md)
 	* [API Methods](emergency-services/dash/methods/about.md)
-		* [Manage Notification Recipients](emergency-services/dash/methods/recipientManagement.md)
-		* [Manage Recipient and Endpoint Associations](emergency-services/dash/methods/associationManagement.md)
+		* [DASH Emergency Notifications](emergency-services/dash/methods/dashNotificationsMethodsOverview.md)
+			* [GET List Recipients](emergency-services/dash/methods/notifications/listRecipients.md)
+			* [POST Create Recipient](emergency-services/dash/methods/notifications/createRecipient.md)
+			* [GET Recipient Information](emergency-services/dash/methods/notifications/recipientInformation.md)
+			* [PATCH Update Recipient](emergency-services/dash/methods/notifications/updateRecipient.md)
+			* [DELETE Remove Recipient](emergency-services/dash/methods/notifications/removeRecipient.md)
+			* [GET Recipient Endpoint Associations](emergency-services/dash/methods/notifications/getAssociations.md)
+			* [PATCH Update Recipient Endpoint Association](emergency-services/dash/methods/notifications/updateAssociation.md)
+			* [DELETE Remove Recipient Endpoint Association](emergency-services/dash/methods/notifications/removeAssociation.md)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)
