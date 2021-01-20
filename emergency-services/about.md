@@ -26,3 +26,8 @@ Please be sure to select the correct APIs & login for the services for which you
 
 
 ### DASH API
+
+| Guide                                                                                                      | Description                           |
+|:-----------------------------------------------------------------------------------------------------------|:--------------------------------------|
+| [DASH API Reference](https://support.bandwidth.com/hc/en-us/articles/115006226067-911-Dashboard-API-Guide) | Full API reference for the DASH API   |
+| [Notifications API Reference](./dash/methods/dashNotificationsMethodsOverview.md)                          | Emergency Notifications API Reference |
