@@ -9,12 +9,12 @@ Endpoint for listing your emergency notification recipients
 <code class="get">GET</code>`https://evs-api.bandwidth.com/api/v1/notifications/notificationRecipients`
 
 ### Supported Query Paramaters
-| Paramater  | Mandatory | Type    | Description |
-|:-----------|:----------|:--------|:------------|
-| page       | No        | string  |  |
-| size       | No        | integer |  |
-| from       | No        | string  |  |
-| endpointId | No        | string  |  |
+| Paramater  | Mandatory | Type    | Description                                                       |
+|:-----------|:----------|:--------|:------------------------------------------------------------------|
+| page       | No        | integer | Results page. Default value is 1                                  |
+| size       | No        | integer | Number of records returned. Default value is 5,000. Max is 10,000 |
+| from       | No        | integer | Record number to start results from                               |
+| endpointId | No        | string  | Unique EndpointId value to filter Response                        |
 
 {% common %}
 
@@ -29,6 +29,9 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
+X-total-count: 70
+Link: <{url}>; rel="prev"
+Link: <{url}>; rel="next"
 
 {
     "notificationRecipients": [
