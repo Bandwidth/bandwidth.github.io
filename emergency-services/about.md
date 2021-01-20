@@ -6,7 +6,7 @@
 
 ## Base URLs
 
-The Emergency Services APIs at Bandwidth are hosted with our [Dash](https://dashboard.dashcs.com/dash-board/login.jsp) service and our [Dashboard Service](https://dashboard.bandwidth.com/).
+The Emergency Services APIs at Bandwidth are hosted with our [Dashboard Service](https://dashboard.bandwidth.com/) and our [DASH](https://dashboard.dashcs.com/dash-board/login.jsp) service.
 
 Please be sure to select the correct APIs & login for the services for which your account is configured.
 
@@ -14,12 +14,20 @@ Please be sure to select the correct APIs & login for the services for which you
 `https://dashboard.bandwidth.com/api/`
 
 ### Dash Base API URL
-`https://service.dashcs.com/dashapi`
+`https://service.dashcs.com/dashapi/`
 
 ## Emergency Services Guides
 
-| Guide                                                                      | Description                                               |
-|:---------------------------------------------------------------------------|:----------------------------------------------------------|
-| [About Emergency Notifications](./guides/emergencyNotifications.md)        | Learn about Emergency Notifications                       |
-| [Config Emergency Notifications](./guides/configEmergencyNotifications.md) | Walk through configuring an Emergency Notifications setup |
+### Dashboard API
+| Guide                                                                                | Description                                               |
+|:-------------------------------------------------------------------------------------|:----------------------------------------------------------|
+| [About Emergency Notifications](./dashboard/guides/emergencyNotifications.md)        | Learn about Emergency Notifications                       |
+| [Config Emergency Notifications](./dashboard/guides/configEmergencyNotifications.md) | Walk through configuring an Emergency Notifications setup |
 
+
+### DASH API
+
+| Guide                                                                                                      | Description                           |
+|:-----------------------------------------------------------------------------------------------------------|:--------------------------------------|
+| [DASH API Reference](https://support.bandwidth.com/hc/en-us/articles/115006226067-911-Dashboard-API-Guide) | Full API reference for the DASH API   |
+| [Notifications API Reference](./dash/methods/dashNotificationsMethodsOverview.md)                          | Emergency Notifications API Reference |

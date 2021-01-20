@@ -1078,8 +1078,16 @@
     <td>Origination route priority should be a contiguous sequence of numbers starting with 1. Priority %d is missing.</td>
   </tr>
     <tr>
-    <td>5214</td>
+    <td>5224</td>
     <td>The search criteria '%s' cannot be empty</td>
+  </tr>
+    <tr>
+    <td>5225</td>
+    <td>A2P settings cannot be disabled on the TN when the location is enabled for A2P.</td>
+  </tr>
+    <tr>
+    <td>5226</td>
+    <td>Messaging Route for %s is not configured.</td>
   </tr>
     <tr>
     <td>5002</td>
@@ -3184,6 +3192,10 @@
     <td>16115</td>
     <td>Order was rejected due to: %s</td>
   </tr>
+    <tr>
+    <td>16116</td>
+    <td>The DL/DA API does not support numbers in the Canadian LATA.</td>
+  </tr>
   </table>
 <h2>LidbErrorType</h2>
 <table class="fixed">
@@ -3277,6 +3289,14 @@
     <tr>
     <td>9011</td>
     <td>Sip Peer doesn't have Sms feature.</td>
+  </tr>
+    <tr>
+    <td>9012</td>
+    <td>Proper messaging route is not configured.</td>
+  </tr>
+    <tr>
+    <td>9013</td>
+    <td>TN already has messaging enabled. Won't reset SMS.</td>
   </tr>
   </table>
 <h2>E911Error</h2>
@@ -3689,6 +3709,10 @@
     <td>8107</td>
     <td>The %s is invalid. Max allowed length %s characters.</td>
   </tr>
+    <tr>
+    <td>8108</td>
+    <td>Cannot %s emergency notification group(s) due to an internal error</td>
+  </tr>
   </table>
 
 
@@ -3940,6 +3964,10 @@
     <tr>
     <td>15619</td>
     <td>Passcode was not found for tn(s)</td>
+  </tr>
+    <tr>
+    <td>15620</td>
+    <td>Invalid 'status'. Valid values: received, processing, complete, partial, failed</td>
   </tr>
   </table>
 
@@ -4532,7 +4560,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC, Hosted_E911</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -4656,7 +4684,7 @@
   </tr>
     <tr>
     <td>12053</td>
-    <td>Our E911 service is unavailable</td>
+    <td>E911 Geocoding Service is unavailable</td>
   </tr>
     <tr>
     <td>12054</td>
@@ -4884,7 +4912,7 @@
   </tr>
     <tr>
     <td>12109</td>
-    <td>E911 geocoding service is temporary unavailable</td>
+    <td>E911 Geocoding Service is temporarily unavailable.</td>
   </tr>
     <tr>
     <td>12110</td>
@@ -5149,6 +5177,42 @@
     <tr>
     <td>12176</td>
     <td>'%s' product requires at least one feature.</td>
+  </tr>
+    <tr>
+    <td>12177</td>
+    <td>Account '%s' already has existing 10DLC settings</td>
+  </tr>
+    <tr>
+    <td>12178</td>
+    <td>10DLC settings not found for account '%s'</td>
+  </tr>
+    <tr>
+    <td>12179</td>
+    <td>Email already exists on another account.</td>
+  </tr>
+    <tr>
+    <td>12180</td>
+    <td>CompanyName already exists.</td>
+  </tr>
+    <tr>
+    <td>12181</td>
+    <td>10DLC campaign settings already exist for account %s.</td>
+  </tr>
+    <tr>
+    <td>12182</td>
+    <td>Reseller with Id %s not found.</td>
+  </tr>
+    <tr>
+    <td>12183</td>
+    <td>Brand with id '%s' not found</td>
+  </tr>
+    <tr>
+    <td>12184</td>
+    <td>A call to the campaign registry service has failed.</td>
+  </tr>
+    <tr>
+    <td>12185</td>
+    <td>A call to the campaign registry service has failed with reason: '%s'</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -6243,7 +6307,7 @@
   </tr>
     <tr>
     <td>12802</td>
-    <td>The callback URL must be specified</td>
+    <td>The inbound callback URL must be specified</td>
   </tr>
     <tr>
     <td>12803</td>
@@ -6876,6 +6940,130 @@
     <tr>
     <td>13064</td>
     <td>AccountRelationShip '%s' is not valid. Valid values: BASIC_ACCOUNT, SMALL_ACCOUNT, MEDIUM_ACCOUNT, LARGE_ACCOUNT, KEY_ACCOUNT</td>
+  </tr>
+    <tr>
+    <td>13065</td>
+    <td>MsgCallbackUrl can't be present with InboundCallbackUrl or OutboundCallbackUrl.</td>
+  </tr>
+    <tr>
+    <td>13066</td>
+    <td>CallbackCreds can't be present with InboundCallbackCreds or OutboundCallbackCreds.</td>
+  </tr>
+    <tr>
+    <td>13067</td>
+    <td>Termination is required for call forwarding.</td>
+  </tr>
+    <tr>
+    <td>13068</td>
+    <td>RespOrgException must be true or false.</td>
+  </tr>
+    <tr>
+    <td>13069</td>
+    <td>RespOrgIds must be 5 characters in length.</td>
+  </tr>
+    <tr>
+    <td>13070</td>
+    <td>Missing mandatory element RespOrgException.</td>
+  </tr>
+    <tr>
+    <td>13071</td>
+    <td>The RespOrg id list should not be empty, at least one RespOrg Id should be configured.</td>
+  </tr>
+    <tr>
+    <td>13072</td>
+    <td>Please remove the list of RespOrgIds that this account is responsible for.</td>
+  </tr>
+    <tr>
+    <td>13073</td>
+    <td>A RespOrg Exception account must have at least one RespOrg Id configured.</td>
+  </tr>
+    <tr>
+    <td>13074</td>
+    <td>Please remove the list of RespOrgIds that this account is responsible for.</td>
+  </tr>
+    <tr>
+    <td>13075</td>
+    <td>A RespOrg Exception account must have at least one RespOrg Id configured.</td>
+  </tr>
+    <tr>
+    <td>13076</td>
+    <td>Please remove the list of RespOrgIds that this account is responsible for.</td>
+  </tr>
+    <tr>
+    <td>13077</td>
+    <td>Only %s RespOrgIds may be specified for %s.</td>
+  </tr>
+    <tr>
+    <td>13078</td>
+    <td>The following RespOrgIds already exists on this account: %s.</td>
+  </tr>
+    <tr>
+    <td>13079</td>
+    <td>The following RespOrgIds do not exist on this account: %s.</td>
+  </tr>
+    <tr>
+    <td>13080</td>
+    <td>The following RespOrgIds are included in both AddRespOrgIdList and RemoveRespOrgIdList: %s.</td>
+  </tr>
+    <tr>
+    <td>13081</td>
+    <td>The following RespOrgIds are included in %s more than once: %s</td>
+  </tr>
+    <tr>
+    <td>13082</td>
+    <td>Reseller is not allowed with a BusinessIdentity of DirectCustomer.</td>
+  </tr>
+    <tr>
+    <td>13083</td>
+    <td>Phone must be a valid E.164 telephone number.</td>
+  </tr>
+    <tr>
+    <td>13084</td>
+    <td>Reseller attributes must be specified.</td>
+  </tr>
+    <tr>
+    <td>13085</td>
+    <td>Invalid BusinessIdentity. Valid values: Reseller, DirectCustomer</td>
+  </tr>
+    <tr>
+    <td>13086</td>
+    <td>Password element is not allowed for UI users. Current user has %s allowed origin</td>
+  </tr>
+    <tr>
+    <td>13087</td>
+    <td>Password element change is available only for owners (current authenticated user).</td>
+  </tr>
+    <tr>
+    <td>13088</td>
+    <td>Vertical value is invalid. Valid values are: REAL_ESTATE, HEALTHCARE, ENERGY, ENTERTAINMENT, RETAIL, AGRICULTURE, INSURANCE, EDUCATION, HOSPITALITY, FINANCIAL, GAMBLING, CONSTRUCTION, NGO, MANUFACTURING, GOVERNMENT, TECHNOLOGY, COMMUNICATION</td>
+  </tr>
+    <tr>
+    <td>13089</td>
+    <td>Entity type value is invalid. Valid values are: PRIVATE_PROFIT, PUBLIC_PROFIT, NON_PROFIT</td>
+  </tr>
+    <tr>
+    <td>13090</td>
+    <td>BrandRelationship value is invalid. Valid values are: BASIC_ACCOUNT, SMALL_ACCOUNT, MEDIUM_ACCOUNT, LARGE_ACCOUNT, KEY_ACCOUNT</td>
+  </tr>
+    <tr>
+    <td>13091</td>
+    <td>StockExchange value is invalid. Valid values are: NONE, NASDAQ, NYSE, AMEX, AMX, ASX, B3, BME, BSE, FRA, ICEX, JPX, JSE, KRX, LON, NSE, OMX, SEHK, SSE, STO, SWX, SZSE, TSX, TWSE, VSE</td>
+  </tr>
+    <tr>
+    <td>13092</td>
+    <td>AltBusinessIdType value is invalid. Valid values are: NONE, DUNS, GIIN, LEI</td>
+  </tr>
+    <tr>
+    <td>13093</td>
+    <td>The brandId '%s' is invalid.</td>
+  </tr>
+    <tr>
+    <td>13094</td>
+    <td>The account already has a main brand.</td>
+  </tr>
+    <tr>
+    <td>13095</td>
+    <td>The account must have a main brand.</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -7592,8 +7780,8 @@
     <td>Delete not allowed; the SIP Peer is used as a proxy peer for the HTTP feature</td>
   </tr>
     <tr>
-    <td>13680</td>
-    <td>A2pOnly account %s required A2P enabled on location. Valid values are: 'ON', 'DefaultOn'</td>
+    <td>13681</td>
+    <td>All Telephone Number backorder activity affecting this Location must be completed or canceled before the Location can be deleted.</td>
   </tr>
   </table>
 <h2>PotValidationError</h2>
