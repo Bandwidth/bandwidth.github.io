@@ -37,8 +37,8 @@ Content-Type: application/xml; charset=utf-8
 | conferenceId     | The ID of the conference. |
 | name             | The custom name used to reference this conference. This the name that you included inside the body of the [`<Conference>`](../verbs/conference.md) tag. |
 | callId           | The callId of the member that left the conference. |
-| from             | The from number of the call that left the conference. |
-| to               | The to number of the call that left the conference. |
+| from             | The from number of the call that left the conference: can be a phone number in E.164 format (e.g. +15555555555) or a string such as `Private` or `Restricted`. |
+| to               | The to number of the call that left the conference, in E.164 format (e.g. +15555555555). |
 | tag              | (optional) The `tag` that was set at conference creation. If no `tag` was specified, this field will not be present. |
 
 {% common %}
