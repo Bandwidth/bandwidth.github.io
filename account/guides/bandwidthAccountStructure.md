@@ -39,7 +39,7 @@ When a telephone number is added to a Location, it will inherit the settings and
 
 Bandwidth recommends the use of a production and development Location for each Sub-account to ensure the ability to safely test modifications to your code base before deploying to your production environment.
 
-Another use case for having more than one Location in a Sub-account would be easy configuration of messaging settings. For example, you have a group of users that can utilize messaging on the numbers you provision and a group of users that cannot. With multiple Locations, you could set the phone number to live in the messaging or non-messaging enabled Location at the time of provisioning. If at a later date you need to toggle the messaging settings for one or more numbers at a time, a MoveTns order would allow you to switch the Location of the numbers and, they will dynamically adapt to the new Locations settings.
+Another use case for having more than one Location in a Sub-account would be easy configuration of messaging settings. For example, you have a group of users that can utilize messaging on the numbers you provision and a group of users that cannot. With multiple Locations, you could set the phone number to live in the messaging or non-messaging enabled Location at time of provisioning. If, at a later date, you need to toggle the messaging settings for one or more numbers at a time, a MoveTns order would allow you to switch the number’s Location and it will dynamically adapt to the new Location’s settings. Bandwidth does not recommend exceeding 250 locations, as it may begin to affect system responsiveness. 
 
 ## Application
 
