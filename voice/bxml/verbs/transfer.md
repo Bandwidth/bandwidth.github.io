@@ -6,7 +6,7 @@ The Transfer verb is used to bridge another party onto the current call.
 ### Attributes
 | Attribute | Description |
 |:----------|:------------|
-| transferCallerId | (optional) The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555) or be one of the following acceptable strings: `Restricted`, `RESTRICTED`, `Anonymous`, `ANONYMOUS`, `Private`, `PRIVATE`, `Unavailable`, or `UNAVAILABLE`).<br><br> Note: Leave blank to pass along the number of the remote party. |
+| transferCallerId | (optional) The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555) or be one of the following acceptable strings: `Restricted`, `RESTRICTED`, `Anonymous`, `ANONYMOUS`, `Private`, `PRIVATE`, `Unavailable`, or `UNAVAILABLE`.<br><br> Note: Leave blank to pass along the number of the remote party. |
 | callTimeout | (optional) This is the timeout (in seconds) for the callee to answer the call. Range: decimal values between 1 - 300.  Default value is 30 seconds. |
 | transferCompleteUrl | (optional) URL to send the [Transfer Complete](../callbacks/transferComplete.md) event to and request new BXML. Optional but recommended. [See below](#transferCompleteUrl) for further details. May be a relative URL. |
 | transferCompleteMethod | (optional) The HTTP method to use for the request to `transferCompleteUrl`. GET or POST. Default value is POST. |
