@@ -24,6 +24,8 @@ Using higher-bitrate audio files won't meaningfully improve audio quality and wi
 
 If the `Content-Type` is something other than the ones above or no `Content-Type` is found, we still try to determine the format by looking at the file extension. If the file extension is missing or it is something other than `.mp3` or `.wav`, we assume the media is `.wav` and it will be tried as such.
 
+Recordings created with the [`<Record>`](record.md) or the [`<StartRecording>`](startRecording.md) verbs can also be played, just use the `mediaUrl` property sent in the [`RecordingAvailable`](../callbacks/recordingAvailable.md) callback.
+
 ### Attributes
 | ATTRIBUTE | Description                                                        |
 |:----------|:-------------------------------------------------------------------|
