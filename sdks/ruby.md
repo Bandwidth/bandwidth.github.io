@@ -25,6 +25,7 @@ The Ruby SDK(s) are available via [RubyGems](https://rubygems.org/) & Github
 | 3.8.0 | Added get conference endpoint |
 | 3.9.0 | Added conference management endpoints |
 | 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
+| 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
 
 ## Download & Install
 
