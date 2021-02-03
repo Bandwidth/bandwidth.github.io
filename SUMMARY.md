@@ -318,7 +318,7 @@
 
 ## Emergency Services
 * [Overview](emergency-services/about.md)
-* [Bandwidth Dashboard 911 API](emergency-services/dashboard/about.md)
+* [Bandwidth Dashboard 911 DLR API](emergency-services/dashboard/about.md)
 	* [Guides & Tutorials](emergency-services/dashboard/guides/about.md)
 		* [About Emergency Notifications](emergency-services/dashboard/guides/emergencyNotifications.md)
 			* [Overview](emergency-services/dashboard/guides/emergencyNotifications.md#overview)
