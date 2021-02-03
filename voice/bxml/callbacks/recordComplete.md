@@ -24,7 +24,7 @@ Content-Type: application/xml; charset=utf-8
 | accountId         | The user account associated with the call. |
 | applicationId     | The id of the application associated with the call. |
 | to                | The phone number that received the call, in E.164 format (e.g. +15555555555). |
-| from              | The provided identifier of the caller: can be a phone number in E.164 format (e.g. +15555555555) or a string such as `Private` or `Restricted`. |
+| from              | The provided identifier string of the caller used in the `from` field of the original call. |
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | callId            | The call id associated with the event. |
 | parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be present. |
