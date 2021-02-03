@@ -318,7 +318,7 @@
 
 ## Emergency Services
 * [Overview](emergency-services/about.md)
-* [Dashboard 911 API](emergency-services/dashboard/about.md)
+* [Bandwidth Dashboard 911 DLR API](emergency-services/dashboard/about.md)
 	* [Guides & Tutorials](emergency-services/dashboard/guides/about.md)
 		* [About Emergency Notifications](emergency-services/dashboard/guides/emergencyNotifications.md)
 			* [Overview](emergency-services/dashboard/guides/emergencyNotifications.md#overview)
@@ -332,7 +332,7 @@
 			* [Associate Groups & Endpoints](emergency-services/dashboard/guides/configEmergencyNotifications.md#associate-eng-enr)
 			* [Updating Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#updating-eng)
 			* [Removing Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#removing)
-* [DASH 911 API](emergency-services/dash/about.md)
+* [911 Access Dashboard API](emergency-services/dash/about.md)
 	* [API Methods](emergency-services/dash/methods/about.md)
 		* [DASH Emergency Notifications](emergency-services/dash/methods/dashNotificationsMethodsOverview.md)
 			* [GET List Recipients](emergency-services/dash/methods/notifications/listRecipients.md)
