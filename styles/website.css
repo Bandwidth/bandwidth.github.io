@@ -20,7 +20,8 @@ a[aria-label="Change Layout"]{
 }
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
-  top: 83px;
+  /* DX-1782 - Fix the main menu from overlapping content. */
+  top: 70px;
 }
 .book-header h1 a, .book-header h1 a:hover {
   border-bottom: none;
@@ -44,6 +45,13 @@ a[aria-label="Change Layout"]{
 .book-header .btn.lang-switcher:hover{
   color: #fff;
 }
+
+/* DX-1782 - Fix the code sample language switcher menu from overlapping content. */
+.api-code-top {
+  position: static;
+  width: auto;
+}
+
 .api-method-example h3{
   margin-top: 0px;
 }
