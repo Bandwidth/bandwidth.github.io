@@ -2,9 +2,9 @@
 <section class="emergencyServicesAbout">
 {% endraw %}
 
-# DASH E911 Notifications API
+# 911 Access Dashboard Notifications API
 
-## DASH Emergency Notifications API Base URL
+## 911 Access Dashboard Emergency Notifications API Base URL
 `https://evs-api.bandwidth.com/api/v1`
 
 ### Notifications REST API Reference Index  
