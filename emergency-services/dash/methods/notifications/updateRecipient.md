@@ -17,7 +17,7 @@ Endpoint to update information pertaining to a single emergency notification rec
 
 {% common %}
 
-<!--{% sample lang='http' %}-->
+{% sample lang='http' %}
 
 ```http
 PATCH https://evs-api.bandwidth.com/api/v1/notifications/notificationRecipients/{recipientId} HTTP/1.1

@@ -10,7 +10,7 @@ Endpoint to update the emergency notification recipients associated with an endp
 
 {% common %}
 
-<!--{% sample lang='http' %}-->
+{% sample lang='http' %}
 
 ```http
 PATCH https://evs-api.bandwidth.com/api/v1/notifications/endpoints/{endpointId}/notificationRecipients/{recipientId} HTTP/1.1
