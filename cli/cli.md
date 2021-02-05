@@ -2,6 +2,8 @@
 
 A quick way to set up your account and start using our APIs
 
+(Coming soon in the Dashboard UI)
+
 ## Bandwidth CLI Release Notes
 
 | Version | Notes |
