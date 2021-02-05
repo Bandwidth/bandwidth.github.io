@@ -175,7 +175,7 @@ Content-Type: text/plain;charset=UTF-8
   "to"                       : "+12345678901",
   "applicationId"            : "93de2206-9669-4e07-948d-329f4b722ee2",
   "scope"                    : "2FA",
-  "expirationTimeInMinutes"  : 3
+  "expirationTimeInMinutes"  : 3,
   "code"                     : "1234"
 }
 ```
@@ -219,7 +219,7 @@ Content-Type: text/plain;charset=UTF-8
   "to"                       : "+12345678901",
   "applicationId"            : "93de2206-9669-4e07-948d-329f4b722ee2",
   "scope"                    : "2FA",
-  "expirationTimeInMinutes"  : 3
+  "expirationTimeInMinutes"  : 3,
   "code"                     : "1234"
 }
 ```
