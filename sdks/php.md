@@ -25,6 +25,8 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 | 2.8.0 | Added get conference endpoint |
 | 2.9.0 | Added conference management endpoints |
 | 3.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
+| 4.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
+| 5.0.0 | Updated the MFA error bodies and added message priority |
 
 ## Download & Install
 
