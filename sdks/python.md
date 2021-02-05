@@ -26,6 +26,7 @@ The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 | 6.10.0 | Added conference management endpoints |
 | 7.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 | 8.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
+| 9.0.0 | Updated the MFA error bodies and added message priority |
 
 
 ## Download & Install
