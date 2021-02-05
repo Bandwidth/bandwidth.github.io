@@ -10,7 +10,7 @@ Endpoint to remove an emergency notification recipient
 
 {% common %}
 
-<!--{% sample lang='http' %}-->
+{% sample lang='http' %}
 ```http
 DELETE https://evs-api.bandwidth.com/api/v1/notifications/notificationRecipients/{recipientId} HTTP/1.1
 Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0

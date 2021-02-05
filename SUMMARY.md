@@ -319,7 +319,7 @@
 
 ## Emergency Services
 * [Overview](emergency-services/about.md)
-* [Bandwidth Dashboard 911 DLR API](emergency-services/dashboard/about.md)
+* [911 Dynamic Location Routing](emergency-services/dashboard/about.md)
 	* [Guides & Tutorials](emergency-services/dashboard/guides/about.md)
 		* [About Emergency Notifications](emergency-services/dashboard/guides/emergencyNotifications.md)
 			* [Overview](emergency-services/dashboard/guides/emergencyNotifications.md#overview)
@@ -335,7 +335,7 @@
 			* [Removing Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#removing)
 * [911 Access Dashboard API](emergency-services/dash/about.md)
 	* [API Methods](emergency-services/dash/methods/about.md)
-		* [DASH Emergency Notifications](emergency-services/dash/methods/dashNotificationsMethodsOverview.md)
+		* [911 Access Dashboard Emergency Notifications](emergency-services/dash/methods/dashNotificationsMethodsOverview.md)
 			* [GET List Recipients](emergency-services/dash/methods/notifications/listRecipients.md)
 			* [POST Create Recipient](emergency-services/dash/methods/notifications/createRecipient.md)
 			* [GET Recipient Information](emergency-services/dash/methods/notifications/recipientInformation.md)
