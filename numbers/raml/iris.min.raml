@@ -17599,10 +17599,6 @@ securitySchemes:
                                  <td>emergencyEndpointGroup</td>
                                  <td>COMPLETE, FAILED</td>
                               </tr>
-                              <tr>
-                                 <td>tollFreePortabilityChecker</td>
-                                 <td>PROCESSING, FAILED, COMPLETE, CANCELLED</td>
-                              </tr>
                            </table>
                 Notified events: MESSAGING_LOST
                 The event notifications occur when TNs in your account are impacted due to orders outside of your account. For example, a MESSAGING_LOST event is reported on a TN with hosted messaging service in your account when a port in order placed by another account on the same TN is executed. An order placed in your account to remove the TN will NOT report a MESSAGING_LOST event. 
@@ -17677,7 +17673,7 @@ securitySchemes:
                     For email subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup | tollFreePortabilityChecker] </OrderType> <!-- required -->
+                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup] </OrderType> <!-- required -->
                         <OrderId> [ UUID ] </OrderId> <!-- optional, if provided notifications will only be sent for events regarding this specific order, if omitted notifications regarding events for all orders of the specified type will be sent -->
                         <EmailSubscription>
                             <Email> [ email address] </Email>
@@ -17698,7 +17694,7 @@ securitySchemes:
                     For callback subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders| emergencyNotificationGroup | emergencyEndpointGroup | tollFreePortabilityChecker] </OrderType> <!-- same rules and values as above -->
+                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders| emergencyNotificationGroup | emergencyEndpointGroup] </OrderType> <!-- same rules and values as above -->
                         <OrderId> [UUID]</OrderId> <!-- same rules and value as above -->
                         <CallbackSubscription>
                             <URL> [valid publically addressable URL] </URL> <!-- the URL that notifications should get POSTed to, HTTPS is highly recommended -->
@@ -17732,14 +17728,13 @@ securitySchemes:
                         </CallbackSubscription>
                     </Subscription>
                     ```
-                    &lt;Expiry&gt; can be omitted from the request payload and defaults to 86400 seconds (1 day). Typical values for your convenience are: 86400 - 1 day, 604800 - 1 week, 2592000 - 1 month, 31536000 - 1 year, 315360000 - 10 years.<p>
-                    The credentials used to impose security on the callbacks are defined in the <CallbackCredentials> element.  The Basic authentication is straightforward, but the <PublicKey> requires a little more explanation.  Please see the document to the left on Mutual Authentication for CallBacks.<CallbackCredentials> can be omitted if the url is http, but using https is recommended for security.<p>
+                    The credentials used to impose security on the callbacks are defined in the <CallbackCredentials> element.  The Basic authentication is straightforward, but the <PublicKey> requires a little more explanation.  Please see the document to the left on Mutual Authentication for CallBacks.<p>
                     When status changes on an order that had been subscribed to with a callback subscription (order update, note added to order), the following payload
                     will be POSTed to the URL of the callback subscription.<br>More detail can be found in the API documentation for the fictitious endpoint /callbacks
                     ```xml
                     <Notification>
                         <SubscriptionId>...</SubscriptionId>
-                        <OrderType>portins | portouts | orders | disconnects | dldas | lsrorders | e911s| tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup | tollFreePortabilityChecker</OrderType>
+                        <OrderType>portins | portouts | orders | disconnects | dldas | lsrorders | e911s| tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders </OrderType>
                         <OrderId>...</OrderId>
                         <!-- for order update events -->
                         <Status>COMPLETE | FAILED | PARTIAL | EXCEPTION ... </Status>
@@ -17822,7 +17817,7 @@ securitySchemes:
                             </Subscription>
                 responses:
                     201:
-                        description: if the subscription is successfully created a CREATED response code will be returned. Response has no payload. The subscription id is returned in the response Location header.
+                        description: if the subscription is successfully created a CREATED response code will be returned
                     400:
                         description: if the account specified does not exist or is locked it will result in a bad request
                     404:
@@ -17835,7 +17830,6 @@ securitySchemes:
                     description: |
                       Retrieves the information associated with the subscription ID.
                       The returned information reflects the subscription as it has been defined, and for callback subscriptions will reflect the status of the latest attempt to place the callback.  The <status> element will indicate if an error is being encountered when the Bandwidth Dashboard API attempts to place the callback.
-                      &lt;Expiry&gt; in the GET response payload, shows how many seconds are remaining before expiration of the subscription.
                     responses:
                         200:
                             description: A subscrption as been retrieved. The information is returned.
