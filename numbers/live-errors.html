@@ -1352,6 +1352,14 @@
     <td>You have mixed toll free and non-toll free numbers in the order. Please submit the toll free and non-toll free numbers in separate orders. These numbers are %s </td>
   </tr>
     <tr>
+    <td>7624</td>
+    <td>Processing Status may only be changed to CANCELLED.</td>
+  </tr>
+    <tr>
+    <td>7625</td>
+    <td>Processing Status may only be changed to CANCELLED for orders that are currently in PROCESSING status.</td>
+  </tr>
+    <tr>
     <td>7999</td>
     <td>An internal error has occurred. Please contact support if this issue is not resolved in 1 business day</td>
   </tr>
@@ -3713,6 +3721,10 @@
     <td>8108</td>
     <td>Cannot %s emergency notification group(s) due to an internal error</td>
   </tr>
+    <tr>
+    <td>8109</td>
+    <td>Search filter can only have one of the following: EnrSmsTn, EnrTtsTn, EnrEmailAddress, EnrCallbackUrl</td>
+  </tr>
   </table>
 
 
@@ -4026,7 +4038,7 @@
   </tr>
     <tr>
     <td>14500</td>
-    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup</td>
+    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup, tollFreePortabilityChecker</td>
   </tr>
     <tr>
     <td>14501</td>
@@ -4473,6 +4485,14 @@
     <tr>
     <td>23016</td>
     <td>UserName '%s' is invalid. It can only contain alphanumerics (a-z, A-Z, 0-9), '.', '_', '-', '!', '$', '&', '*', '+', '=', '~' symbols and '@' (at signs)</td>
+  </tr>
+    <tr>
+    <td>23017</td>
+    <td>Realm '%1$s' was not found on any account.</td>
+  </tr>
+    <tr>
+    <td>23018</td>
+    <td>Realm '%1$s' was not found on the account with ID = %2$s.</td>
   </tr>
   </table>
 
@@ -5212,7 +5232,7 @@
   </tr>
     <tr>
     <td>12185</td>
-    <td>A call to the campaign registry service has failed with reason: '%s'</td>
+    <td>A call to the campaign registry service has failed validation.</td>
   </tr>
   </table>
 <h2>AdminValidationError</h2>
@@ -7064,6 +7084,18 @@
     <tr>
     <td>13095</td>
     <td>The account must have a main brand.</td>
+  </tr>
+    <tr>
+    <td>13096</td>
+    <td>The EIN: %s is invalid.</td>
+  </tr>
+    <tr>
+    <td>13097</td>
+    <td>The website url: %s is invalid.</td>
+  </tr>
+    <tr>
+    <td>13098</td>
+    <td>P2P route for %s cannot be assigned to A2P only account</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
