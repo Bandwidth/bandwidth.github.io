@@ -2,11 +2,11 @@
 
 ## Get URIs
 
-Find all of the URIs belonging to the requesting customer that has active emergency services.   
-
 ### Request URL
 
-<code class="post">POST</code>`https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1/uris`
+<code class="get">GET</code>`https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1/uris`
+
+Find all of the URIs belonging to the requesting customer that has active emergency services.   
 
 {% common %}
 

@@ -2,11 +2,11 @@
 
 ## Authentication Check
 
-A convenience method that always returns true. You can use this to make sure your authentication is working.  
-
 ### Request URL
 
-<code class="post">POST</code>`https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1/authenticationcheck`
+<code class="get">GET</code>`https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1/authenticationcheck`
+
+A convenience method that always returns true. You can use this to make sure your authentication is working.  
 
 {% common %}
 

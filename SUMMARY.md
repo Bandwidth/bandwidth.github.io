@@ -334,6 +334,7 @@
 			* [Updating Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#updating-eng)
 			* [Removing Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#removing)
 * [911 Access Dashboard API](emergency-services/dash/about.md)
+	* [Usage Guide](emergency-services/dash/usage_scenario.md)
 	* [API Methods](emergency-services/dash/methods/about.md)
 		* [911 Access Dashboard SOAP Overview](emergency-services/dash/methods/soap.md)
 		* [911 Access Dashboard REST API Methods](emergency-services/dash/methods/dashMethodsOverview.md)
@@ -341,7 +342,7 @@
 			* [GET URIs](emergency-services/dash/methods/accessDashboard/getUris.md)
 			* [GET Locations by URI](emergency-services/dash/methods/accessDashboard/locationsByUri.md)
 			* [GET Provisioned Location by URI](emergency-services/dash/methods/accessDashboard/provisionedLocationByUri.md)
-			* [POST Provisioned Location History by URI](emergency-services/dash/methods/accessDashboard/historyByUri.md)
+			* [GET Provisioned Location History by URI](emergency-services/dash/methods/accessDashboard/historyByUri.md)
 			* [POST Validate Location](emergency-services/dash/methods/accessDashboard/validateLocation.md)
 			* [POST Add Location](emergency-services/dash/methods/accessDashboard/addlocation.md)
 			* [POST Remove Location](emergency-services/dash/methods/accessDashboard/removeLocation.md)
@@ -356,6 +357,7 @@
 			* [GET Recipient Endpoint Associations](emergency-services/dash/methods/notifications/getAssociations.md)
 			* [PATCH Update Recipient Endpoint Association](emergency-services/dash/methods/notifications/updateAssociation.md)
 			* [DELETE Remove Recipient Endpoint Association](emergency-services/dash/methods/notifications/removeAssociation.md)
+	* [Faults and Limits](emergency-services/dash/faults.md)
 
 ## v1 Docs
 * [Home Page](https://old.dev.bandwidth.com)

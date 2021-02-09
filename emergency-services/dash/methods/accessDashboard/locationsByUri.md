@@ -2,20 +2,20 @@
 
 ## Get Locations by URI
 
+### Request URL
+
+<code class="get">GET</code>`https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1/locationsbyuri/{uri}`
+
 Find all the locations associated with the given URI.
 
 Note: Throws ParseException, NotFoundException, LockedException
-
-### Request URL
-
-<code class="post">POST</code>`https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1//locationsbyuri/{uri}`
 
 {% common %}
 
 {% sample lang='http' %}
 
 ```http
-GET https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1//locationsbyuri/{uri} HTTP/1.1
+GET https://service.dashcs.com/dash-api/xml/emergencyprovisioning/v1/locationsbyuri/13035551234 HTTP/1.1
 Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 ```
 
@@ -23,62 +23,62 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
 Status: 200 OK
 Content-Type: text/xml; charset=UTF-8
 
-<ns2:getLocationsByURIResponse xmlns:ns2="http://dashcs.com/api/v1/emergency">
+<ns0:getLocationsByURIResponse xmlns:ns0="http://dashcs.com/api/v1/emergency" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Locations>
-        <activatedtime>2019-08-03T04:56:09Z</activatedtime>
-        <address1>200 STATE RT 17</address1>
-        <address2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></address2>
-        <callername>Databit, Inc</callername>
-        <comments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></comments>
-        <community>MAHWAH</community>
-        <customerorderid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></customerorderid>
-        <latitude>41.096072</latitude>
+        <activatedtime>2014-10-08T16:57:48Z</activatedtime>
+        <address1>1855 BLAKE ST</address1>
+        <address2 xsi:nil="true" />
+        <callername>Bandwidth Test User 1</callername>
+        <comments xsi:nil="true" />
+        <community>DENVER</community>
+        <customerorderid xsi:nil="true" />
+        <latitude>39.75302</latitude>
         <legacydata>
-            <housenumber>200</housenumber>
-            <predirectional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></predirectional>
-            <streetname>STATE RT 17</streetname>
-            <suite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></suite>
+            <housenumber>1855</housenumber>
+            <predirectional xsi:nil="true" />
+            <streetname>BLAKE ST</streetname>
+            <suite xsi:nil="true" />
         </legacydata>
-        <locationid>80258750</locationid>
-        <longitude>-74.157524</longitude>
-        <plusfour>1203</plusfour>
-        <postalcode>07430</postalcode>
-        <state>NJ</state>
+        <locationid>20914831</locationid>
+        <longitude>-104.996203</longitude>
+        <plusfour>1288</plusfour>
+        <postalcode>80202</postalcode>
+        <state>CO</state>
+        <status>
+            <code>PROVISIONED</code>
+            <description>Location is currently provisioned for URI</description>
+        </status>
+        <type>ADDRESS</type>
+        <updatetime>2014-10-08T17:23:49Z</updatetime>
+    </Locations>
+    <Locations>
+        <activatedtime>2014-10-08T16:57:48Z</activatedtime>
+        <address1>2850 ST LAWERENCE AVE</address1>
+        <address2 xsi:nil="true" />
+        <callername>Bandwidth Test User 1</callername>
+        <comments xsi:nil="true" />
+        <community>READING</community>
+        <customerorderid xsi:nil="true" />
+        <latitude>40.331245</latitude>
+        <legacydata>
+            <housenumber>2850</housenumber>
+            <predirectional xsi:nil="true" />
+            <streetname>ST LAWERENCE AVE</streetname>
+            <suite xsi:nil="true" />
+        </legacydata>
+        <locationid>21018169</locationid>
+        <longitude>-75.849602</longitude>
+        <plusfour xsi:nil="true" />
+        <postalcode>19606</postalcode>
+        <state>PA</state>
         <status>
             <code>GEOCODED</code>
             <description>Location is geocoded</description>
         </status>
         <type>ADDRESS</type>
-        <updatetime>2020-03-20T18:23:38.426Z</updatetime>
+        <updatetime>2015-04-08T23:45:07Z</updatetime>
     </Locations>
-    <Locations>
-        <activatedtime>2020-01-23T13:13:15.431Z</activatedtime>
-        <address1>158 ESSEX ST</address1>
-        <address2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></address2>
-        <callername>Databit, Inc</callername>
-        <comments></comments>
-        <community>MELROSE</community>
-        <customerorderid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></customerorderid>
-        <latitude>42.457299</latitude>
-        <legacydata>
-            <housenumber>158</housenumber>
-            <predirectional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></predirectional>
-            <streetname>ESSEX ST</streetname>
-            <suite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></suite>
-        </legacydata>
-        <locationid>2527756312559</locationid>
-        <longitude>-71.068666</longitude>
-        <plusfour>3106</plusfour>
-        <postalcode>02176</postalcode>
-        <state>MA</state>
-        <status>
-            <code>GEOCODED</code>
-            <description>Location is geocoded</description>
-        </status>
-        <type>ADDRESS</type>
-        <updatetime>2020-03-20T18:23:38.426Z</updatetime>
-    </Locations>
-</ns2:getLocationsByURIResponse>
+</ns0:getLocationsByURIResponse>
 ```
 
 {% endmethod %}

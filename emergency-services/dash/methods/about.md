@@ -18,15 +18,19 @@ This documentation pertains to the 911 Access Dashboard REST API. [Click here](s
 | <code class="get">GET</code>   | [`/uris`](../methods/accessDashboard/uris.md)                                               | Find all of the URIs belonging to the requesting customer that has active emergency services              |
 | <code class="get">GET</code>   | [`/locationsbyuri/{uri}`](../methods/accessDashboard/locationsByUri.md)                     | Find all the locations associated with the given URI                                                      |
 | <code class="get">GET</code>   | [`/provisionedlocationbyuri/{uri}`](../methods/accessDashboard/provisionedLocationByUri.md) | Get the provisioned location associated with a URI                                                        |
-| <code class="post">POST</code> | [`/provisionedlocationhistorybyuri/{uri}`](../methods/accessDashboard/historyByUri.md)      | Given a URI find the provisioned location and histories                                                   |
+| <code class="get">GET</code>   | [`/provisionedlocationhistorybyuri/{uri}`](../methods/accessDashboard/historyByUri.md)      | Given a URI find the provisioned location and histories                                                   |
 | <code class="post">POST</code> | [`/validatelocation`](../methods/accessDashboard/validateLocation.md)                       | Validate and correct the location if necessary                                                            |
 | <code class="post">POST</code> | [`/addlocation`](../methods/accessDashboard/addLocation.md)                                 | Associate a Location with a URI                                                                           |
 | <code class="post">POST</code> | [`/removelocation`](../methods/accessDashboard/removeLocation.md)                           | Given a location ID, remove the location                                                                  |
 | <code class="post">POST</code> | [`/removeuri`](../methods/accessDashboard/removeUri.md)                                     | Remove a given URI                                                                                        |
-| <code class="post">POST</code> | [`/provisionlocation`](../methods/accessDashboard/provisionLocation.md)                     | Activates a specific location for emergency service                                                       | 
+| <code class="post">POST</code> | [`/provisionlocation`](../methods/accessDashboard/provisionLocation.md)                     | Activates a specific location for emergency service                                                       |
 
 ## 911 Access Dashboard Emergency Notifications API Base URL
-`https://evs-api.bandwidth.com/api/v1`
+| Environment | URL                                     |
+|:------------|:----------------------------------------|
+| Production  | `https://evs-api.bandwidth.com/api/v1`  |
+| Staging     | `https://test.evs.bandwidth.com/api/v1` |
+``
 
 ### Notifications REST API Reference Index  
 | Verb                               | Resource                                                                                                                     | Description                                                         |               
