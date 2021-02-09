@@ -30,7 +30,6 @@ This documentation pertains to the 911 Access Dashboard REST API. [Click here](s
 |:------------|:----------------------------------------|
 | Production  | `https://evs-api.bandwidth.com/api/v1`  |
 | Staging     | `https://test.evs.bandwidth.com/api/v1` |
-``
 
 ### Notifications REST API Reference Index  
 | Verb                               | Resource                                                                                                                     | Description                                                         |               
