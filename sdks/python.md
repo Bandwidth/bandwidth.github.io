@@ -125,7 +125,7 @@ body.mfrom = "+18888888888"
 body.text = "Greetings!"
 
 try:
-    response = messaging_client.create_message(account_id, body=body)
+    response = messaging_client.create_message(account_id, body)
     print(response.body.id) #1570819529611mexbyfr7ugrouuxy
     print(response.status_code) #202
 except MessagingException as e:
@@ -192,7 +192,7 @@ from bandwidth.exceptions.api_exception import APIException
 <client initialization code>
 
 try:
-    response = messaging_client.create_message(account_id, body=body)
+    response = messaging_client.create_message(account_id, body)
 except MessagingException as e:
     print(e.response_code) #http status code
     print(e.response.text) #raw response from api
