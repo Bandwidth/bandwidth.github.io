@@ -101,7 +101,7 @@ body.from = '+18888888888'
 body.text = 'Hello from Bandwidth'
 
 begin
-    response = messaging_client.create_message(account_id, :body => body)
+    response = messaging_client.create_message(account_id, body)
     puts response.data.id #1570740275373xbn7mbhsfewasdr
     puts response.status_code #202
 rescue Bandwidth::MessagingException => e
