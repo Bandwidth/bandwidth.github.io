@@ -344,7 +344,7 @@
 			* [GET Provisioned Location by URI](emergency-services/dash/methods/accessDashboard/provisionedLocationByUri.md)
 			* [GET Provisioned Location History by URI](emergency-services/dash/methods/accessDashboard/historyByUri.md)
 			* [POST Validate Location](emergency-services/dash/methods/accessDashboard/validateLocation.md)
-			* [POST Add Location](emergency-services/dash/methods/accessDashboard/addlocation.md)
+			* [POST Add Location](emergency-services/dash/methods/accessDashboard/addLocation.md)
 			* [POST Remove Location](emergency-services/dash/methods/accessDashboard/removeLocation.md)
 			* [POST Remove URI](emergency-services/dash/methods/accessDashboard/removeUri.md)
 			* [POST Provision Location](emergency-services/dash/methods/accessDashboard/provisionLocation.md)
