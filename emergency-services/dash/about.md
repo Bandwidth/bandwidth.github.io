@@ -19,10 +19,10 @@ Bandwidth’s API is a set of programming instructions and standards for accessi
 ## Getting Started
 To get things moving quickly, perform the following steps:
 
-  1. Log into the staging environment to make sure your login and password work properly. If you don't have a login, please open a ticket with your Bandwidth Support Team.
-  1. If you aren’t familiar with web services, be sure to get the tooling or libraries you need for your platform. Not sure where to start? Download SOAPUI to begin working with our API right away.
+  1. Log into the [staging environment](https://staging-service.dashcs.com/dash-board/login.jsp) to make sure your login and password work properly. If you don't have a login, please [open a ticket](https://support.bandwidth.com/hc/en-us/requests/new) with your Bandwidth Support Team.
+  1. If you aren’t familiar with web services, be sure to get the tooling or libraries you need for your platform. Not sure where to start? [Download SOAPUI](https://www.soapui.org/) to begin working with our API right away.
   1. Develop your client code against our staging environment.
-  1. Please reach out to your Bandwidth Support Team to enable API access on our production environments.
+  1. Please [reach out](https://support.bandwidth.com/hc/en-us/requests/new) to your Bandwidth Support Team to enable API access on our production environments.
 
 ## Environments
 Bandwidth maintains a staging environment for customers to integrate with before moving on to production. In each section where URLs are shown, one will be for staging and the other for production. The staging environment has a possible daily outage window between 11 a.m. and 1 p.m. MT.
