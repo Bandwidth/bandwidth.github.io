@@ -5,7 +5,10 @@
 # 911 Access Dashboard Notifications API
 
 ## 911 Access Dashboard Emergency Notifications API Base URL
-`https://evs-api.bandwidth.com/api/v1`
+| Environment | URL                                     |
+|:------------|:----------------------------------------|
+| Production  | `https://evs-api.bandwidth.com/api/v1`  |
+| Staging     | `https://test.evs.bandwidth.com/api/v1` |
 
 ### Notifications REST API Reference Index  
 | Verb                               | Resource                                                                                                                     | Description                                                         |               
