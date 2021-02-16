@@ -16,7 +16,7 @@ Bandwidth recommends that all new users complete their account set-up using the 
 
 ## Account
 
-Your account is the top-level entity in which you will perform all functions within the Bandwidth Dahsboard. Your account has a name and a unique ID number, which can be conveniently found in the URL when logged in to the [Dashboard](https://www.dashboard.bandwidth.com), as well as in the top right-hand corner of the landing page.
+Your account is the top-level entity in which you will perform all functions within the Bandwidth Dashboard. Your account has a name and a unique ID number, which can be conveniently found in the URL when logged in to the [Dashboard](https://www.dashboard.bandwidth.com), as well as in the top right-hand corner of the landing page.
 
 AccountId Location in Dashboard URL:
 `https://dashboard.bandwidth.com/portal/r/a/{accountId}`
@@ -39,7 +39,7 @@ When a telephone number is added to a Location, it will inherit the settings and
 
 Bandwidth recommends the use of a production and development Location for each Sub-account to ensure the ability to safely test modifications to your code base before deploying to your production environment.
 
-Another use case for having more than one Location in a Sub-account would be easy configuration of messaging settings. For example, you have a group of users that can utilize messaging on the numbers you provision and a group of users that cannot. With multiple Locations, you could set the phone number to live in the messaging or non-messaging enabled Location at time of provisioning. If, at a later date, you need to toggle the messaging settings for one or more numbers at a time, a MoveTns order would allow you to switch the number’s Location and it will dynamically adapt to the new Location’s settings. Bandwidth does not recommend exceeding 250 locations, as it may begin to affect system responsiveness. 
+Another use case for having more than one Location in a Sub-account would be easy configuration of messaging settings. For example, you have a group of users that can utilize messaging on the numbers you provision and a group of users that cannot. With multiple Locations, you could set the phone number to live in the messaging or non-messaging enabled Location at time of provisioning. If, at a later date, you need to toggle the messaging settings for one or more numbers at a time, a MoveTns order would allow you to switch the number’s Location and it will dynamically adapt to the new Location’s settings. Bandwidth does not recommend exceeding 250 locations, as it may begin to affect system responsiveness.
 
 ## Application
 
