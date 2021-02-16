@@ -35,6 +35,8 @@
 		* [Create a Voice Application](account/guides/bandwidthAccountSetupGuide.md#create-a-voice-application)
 		* [Create a Messaging Application](account/guides/bandwidthAccountSetupGuide.md#create-a-messaging-application)
 		* [Create a Location](account/guides/bandwidthAccountSetupGuide.md#create-a-location)
+		* [Order a Phone Number](account/guides/bandwidthAccountSetupGuide.md#order-a-phone-number)
+		* [Next Steps](account/guides/bandwidthAccountSetupGuide.md#next-steps)
 	* [Automate Account Setup](account/guides/programmaticApplicationSetup.md)
 		* [Create **messaging** application](account/guides/programmaticApplicationSetup.md#create-messaging-application)
 		* [Create **voice** application](account/guides/programmaticApplicationSetup.md#create-voice-application)
