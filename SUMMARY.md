@@ -31,7 +31,6 @@
 		* [Location (_Sip-peer_)](account/guides/bandwidthAccountStructure.md#location-sip-peer)
 		* [Application](account/guides/bandwidthAccountStructure.md#application)
 	* [Bandwidth Account Setup Guide](account/guides/bandwidthAccountSetupGuide.md)
-		* [Create an API-only user](account/guides/bandwidthAccountSetupGuide.md#create-an-api-only-user)
 		* [Create a Sub-Account](account/guides/bandwidthAccountSetupGuide.md#create-a-sub-account)
 		* [Create a Voice Application](account/guides/bandwidthAccountSetupGuide.md#create-a-voice-application)
 		* [Create a Messaging Application](account/guides/bandwidthAccountSetupGuide.md#create-a-messaging-application)
