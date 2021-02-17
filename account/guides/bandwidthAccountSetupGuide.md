@@ -124,7 +124,7 @@ To begin using your Bandwidth Dashboard numbers for Messaging APIs, create a Mes
 | Send `message-failed` Callbacks    | No        | Optional toggle to turn on/off [`message-failed`](../../messaging/callbacks/messageFailed.md) callbacks events   |
 | Send `message-sending` Callbacks   | No        | Optional toggle to turn on/off [`message-sending`](../../messaging/callbacks/messageSending.md) callbacks events |
 
-## Create a Location
+## Create a Location (Sip-Peer)
 <img src="../../images/account-setup-3.png" style="max-width:95%">
 
 A Location is where you’ll link your Application and provision other routing settings. When a telephone number is added to a Location, it will inherit the settings and properties of that Location.
