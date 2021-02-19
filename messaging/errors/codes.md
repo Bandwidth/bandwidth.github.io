@@ -184,20 +184,9 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4360 | message-not-sent-expiration-date-passed | Message expired | Message was not sent because the specified expiration date passed before the message was able to send | NO |
 | 4401 | rejected-routing-error | BW is unable to route the message | Message is unable to be routed within Bandwidth particularly when the source and destination are the same number. The destination or To number is mis-provisioned or there is a configuration with the message that is causing a situation where a message is being sent repeatedly between the same numbers. | NO | 
 | 4403 | rejected-forbidden-from-number | Messaging forbidden on From number | Messaging on this From number is forbidden most commonly because the number does not belong to BW or the account. Other reasons include it is not enabled in the Bandwidth Dashboard, the TN is aging, or it is an invalid number (i.e. 11111111111) | NO |
+| 4404 | rejected-forbidden-to-number | Messaging forbidden on To number | Messaging on this To number is forbidden. This could be the number is not active, not enable for messaging or is an invalid number (i.e. 11111111111) | NO |
 | 4405 | rejected-unallocated-from-number | Unallocated from number | The From telephone number is considered unallocated when the number does not exist in our database as an active number. This number is either not enabled for messaging at the industry level, or the number is not yet released in the industry | NO |
 | 4406 | rejected-unallocated-to-number | Unallocated to number | The To number associated with this message, while a valid North American number, is not yet assigned to a carrier and the message cannot be sent downstream. | NO |
-| 4431 | rejected-forbidden-shortcode | Messaging on shortcode forbidden | The message cannot be sent as the account associated with the message is not provisioned for Short code messaging | NO |
-| 4432 | rejected-forbidden-country | Messaging to country forbidden | Bandwidth system indicates the account associated with the message is not enabled for messaging this zone, this country or this country is outside of messaging reach (specifically for MMS). | NO |
-| 4433 | rejected-forbidden-tollfree | Messaging on Toll Free Number Forbidden | The account associated with this message is not enabled for toll free messaging | NO |
-| 4434 | rejected-forbidden-tollfree-for-recipient | Messaging to Toll Free Number Forbidden | Messaging to this toll free number is not allowed. Number is likely not enabled for messaging or not active.  | NO |
-| 4451 | rejected-wrong-user-id | Invalid User Id | The user id is not a valid id. Verify the user ID and retry the message | NO |
-| 4452 | rejected-wrong-application-id | Invalid Application ID | The Application ID specified is not a valid Application Id, or the Application ID is not associated with the account | NO |
-| 4470 | rejected-spam-detected | Rejected as SPAM (future) | This message has been filtered and blocked by a downstream carrier for spam. Messages can be blocked for a variety of reason, including but not limited to  volumetric filtering, content blocking, SHAFT violation, A2P | YES |
-| 4481 | rejected-from-number-in-blacklist | From Number in black list | The From number has been flagged by Bandwidth as prohibited from sending messages. This is typically because Bandwidth or a downstream carriers has several violations; reports of spam, P2P violations, associated with this number. | NO |
-| 4482 | rejected-to-number-in-blacklist | To Number in black list | The number you are attempting to send to is blocked from receiving messages.  | YES |
-| 4492 | reject-emergency | Message to emergency number forbidden | Messaging to an emergency number is forbidden | NO |
-| 4493 | rejected-unauthorized | Unauthorized | Bandwidth service indicates the sender is not authorized to send messages from the account. | NO |
-| 4404 | rejected-forbidden-to-number | Messaging forbidden on To number | Messaging on this To number is forbidden. This could be the number is not active, not enable for messaging or is an invalid number (i.e. 11111111111) | NO |
 | 4407 | rejected-account-not-defined-from-number | From Number is associated with account | Undefined source account id. The From number associated with this message is not associated with this account, is an invalid number or not configured appropriately to send messages. | NO |
 | 4408 | rejected-account-not-defined-to-number | To Number not associated with account | Undefined destination account id. The To (destination) number is not associated with an account, is an invalid number or not configured correctly to receive messages. | NO |
 | 4409 | rejected-invalid-from-profile | Invalid destination profile | Bandwidth failed to create destination. The destination profile is considered invalid, most often this is because the destination number does not support MMS. | NO |
@@ -206,7 +195,18 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4412 | media-content-invalid | Failed to parse Content-Type for media | The media content type in not a supported media content type. | NO |
 | 4420 | rejected-carrier-does-not-exist | No Route to Destination Carrier | The upstream carrier associated with the message does not exist in Bandwidth configuration | NO |
 | 4421 | rejected-forbidden-no-destination | No Route to Destination Carrier | The message cannot be sent downstream as the account associated with the message does not have permission to send to this destination.  You may not be provisioned to send to this destination.  | NO |
+| 4431 | rejected-forbidden-shortcode | Messaging on shortcode forbidden | The message cannot be sent as the account associated with the message is not provisioned for Short code messaging | NO |
+| 4432 | rejected-forbidden-country | Messaging to country forbidden | Bandwidth system indicates the account associated with the message is not enabled for messaging this zone, this country or this country is outside of messaging reach (specifically for MMS). | NO |
+| 4433 | rejected-forbidden-tollfree | Messaging on Toll Free Number Forbidden | The account associated with this message is not enabled for toll free messaging | NO |
+| 4434 | rejected-forbidden-tollfree-for-recipient | Messaging to Toll Free Number Forbidden | Messaging to this toll free number is not allowed. Number is likely not enabled for messaging or not active.  | NO |
 | 4435 | forbidden-too-many-recipients | Too Many Recipients | The group message has too many recipients. When sending Group Messages, there's a maximum of 10 participants in a Group. | NO |
+| 4451 | rejected-wrong-user-id | Invalid User Id | The user id is not a valid id. Verify the user ID and retry the message | NO |
+| 4452 | rejected-wrong-application-id | Invalid Application ID | The Application ID specified is not a valid Application Id, or the Application ID is not associated with the account | NO |
+| 4470 | rejected-spam-detected | Rejected as SPAM (future) | This message has been filtered and blocked by a downstream carrier for spam. Messages can be blocked for a variety of reason, including but not limited to  volumetric filtering, content blocking, SHAFT violation, A2P | YES |
+| 4481 | rejected-from-number-in-blacklist | From Number in black list | The From number has been flagged by Bandwidth as prohibited from sending messages. This is typically because Bandwidth or a downstream carriers has several violations; reports of spam, P2P violations, associated with this number. | NO |
+| 4482 | rejected-to-number-in-blacklist | To Number in black list | The number you are attempting to send to is blocked from receiving messages.  | NO |
+| 4492 | reject-emergency | Message to emergency number forbidden | Messaging to an emergency number is forbidden | NO |
+| 4493 | rejected-unauthorized | Unauthorized | Bandwidth service indicates the sender is not authorized to send messages from the account. | NO |
 
 ### Carrier Reported Client Errors {#carrier-client}
 
@@ -255,7 +255,6 @@ A 5xx code indicates that either Bandwidth or the downstream carrier has reporte
 |:--|:--|:--|:--|:--|
 | 5600 | destination-carrier-queue-full | Carrier Service Unavailable | Carrier Service Unavailable. This could result from network congestion, messaging queue full on the vendor side, throttling error on the vendor side. | YES |
 | 5610 | submit_ sm-or-submit_ multi-failed | Carrier Service Failure | The downstream carrier application is experiencing an error. submitting the message has failed or cancelling message has failed | YES |
-| 5611 | temporary-route-error-retries-exceeded | Carrier Service Failure | The downstream carrier is reporting the message expired in their system when attempts to retry sending failed. | YES |
 | 5620 | destination-app-error | Carrier Application Error | The carrier is reporting a general error associated with their application processing the message. | YES |
 | 5630 | message-not-acknowle | Carrier Application Error | NACK - no response or acknowledgement received from the carrier | YES |
 | 5650 | destination-failed | Carrier Service Failure | Carrier Service is reporting a failure to send to destination (mobile operator or handset). | YES |
