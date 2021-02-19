@@ -194,7 +194,7 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4411 | rejected-message-size-limit-exceeded | Combined size of media too large | The total size of MMS message media/attachments exceeded the max file size supported | NO |
 | 4412 | media-content-invalid | Failed to parse Content-Type for media | The media content type in not a supported media content type. | NO |
 | 4420 | rejected-carrier-does-not-exist | No Route to Destination Carrier | The upstream carrier associated with the message does not exist in Bandwidth configuration | NO |
-| 4421 | rejected-forbidden-no-destination | No Route to Destination Carrier | The message cannot be sent downstream as the account associated with the message does not have permission to send to this destination.  You may not be provisioned to send to this destination.  | NO |
+| 4421 | rejected-forbidden-no-destination | No Route to Destination Carrier | The message cannot be sent downstream as the account associated with the message does not have permission to send to this destination. You may not be provisioned to send to this destination.  | NO |
 | 4431 | rejected-forbidden-shortcode | Messaging on shortcode forbidden | The message cannot be sent as the account associated with the message is not provisioned for Short code messaging | NO |
 | 4432 | rejected-forbidden-country | Messaging to country forbidden | Bandwidth system indicates the account associated with the message is not enabled for messaging this zone, this country or this country is outside of messaging reach (specifically for MMS). | NO |
 | 4433 | rejected-forbidden-tollfree | Messaging on Toll Free Number Forbidden | The account associated with this message is not enabled for toll free messaging | NO |
