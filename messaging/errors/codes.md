@@ -192,7 +192,7 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4409 | rejected-invalid-from-profile | Invalid destination profile | Bandwidth failed to create destination. The destination profile is considered invalid, most often this is because the destination number does not support MMS. | NO |
 | 4410 | media-unavailable | Could not download media | There was an error retrieving the media from the media web server.  Check the media URL and try to access directly to see if the media can be fetched successfully. | NO |
 | 4411 | rejected-message-size-limit-exceeded | Combined size of media too large | The total size of MMS message media/attachments exceeded the max file size supported | NO |
-| 4412 | media-content-invalid | Failed to parse Content-Type for media | The media content type in not a supported media content type. | NO |
+| 4412 | media-content-invalid | Failed to parse Content-Type for media | The media content type is not a supported media content type. | NO |
 | 4420 | rejected-carrier-does-not-exist | No Route to Destination Carrier | The upstream carrier associated with the message does not exist in Bandwidth configuration | NO |
 | 4421 | rejected-forbidden-no-destination | No Route to Destination Carrier | The message cannot be sent downstream as the account associated with the message does not have permission to send to this destination. You may not be provisioned to send to this destination.  | NO |
 | 4431 | rejected-forbidden-shortcode | Messaging on shortcode forbidden | The message cannot be sent as the account associated with the message is not provisioned for Short code messaging | NO |
