@@ -1,5 +1,3 @@
-{% multimethod %}
-
 # Bandwidth Account API Setup {#top}
 
 This walks through how to programmatically setup and configure your Bandwidth account _via APIs_ for use with [HTTP Voice](../../voice/about.md) and [HTTP Messaging](../../messaging/about.md)
@@ -893,5 +891,3 @@ Content-Type: application/xml; charset=utf-8
 {% endmethod %}
 
 ---
-
-{% endmultimethod %}
