@@ -154,7 +154,7 @@ The [Application](../applications/about.md) contains the HTTP URL you want to us
 
 Learn more about [applications in the documentation](../applications/about.md).
 
-{% extendmethod %}
+{% method %}
 
 #### Application Parameters
 
@@ -243,7 +243,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/applications/{{voice-applicat
 </ApplicationProvisioningResponse>
 ```
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
 
@@ -251,7 +251,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/applications/{{voice-applicat
 
 This endpoint can be used to create a subaccount (AKA site) on your account
 
-{% extendmethod %}
+{% method %}
 
 #### Subaccount Parameters
 
@@ -374,7 +374,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/sites/{{siteID}}
 </SiteResponse>
 ```
 
-{% endextendmethod %}
+{% endmethod %}
 
 ## Create location (_sippeer_) {#create-location}
 
@@ -388,7 +388,7 @@ The location (_sippeer_) is a logical grouping of numbers.
 
 * You'll need a location (_sippeer_) in order to group phone numbers.
 
-{% extendmethod %}
+{% method %}
 
 ### Location Parameters
 
@@ -453,7 +453,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/sites/{{siteId}}/sippeers/{{s
 > Save the `{sippeerId}` from the `location` header!
 
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
 
@@ -461,7 +461,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/sites/{{siteId}}/sippeers/{{s
 
 In order to use HTTP messaging in your account, you need to enable SMS and MMS on each location after creating.
 
-{% extendmethod %}
+{% method %}
 
 ### Enable SMS Parameters
 
@@ -577,7 +577,7 @@ Content-Type: application/xml; charset=utf-8
 ```
 
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
 
@@ -585,7 +585,7 @@ Content-Type: application/xml; charset=utf-8
 
 In addition to enabling SMS, you must also enable MMS to receive picture messages and other multi-media messages.
 
-{% extendmethod %}
+{% method %}
 
 ### Enable MMS Parameters
 
@@ -683,7 +683,7 @@ Content-Type: application/xml; charset=utf-8
 ```
 
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
 
@@ -691,7 +691,7 @@ Content-Type: application/xml; charset=utf-8
 
 In order to use the messaging API, you need to assign the `application` created above to the location (_sippeer_)
 
-{% extendmethod %}
+{% method %}
 
 ### Assign Application Parameters
 
@@ -755,7 +755,7 @@ Content-Type: application/xml; charset=utf-8
 </ApplicationsSettingsResponse>
 ```
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
 
@@ -772,7 +772,7 @@ Bandwidth requires that **both** origination (inbound calls) and termination (ou
 
 It is only required to set **either** `termination/settings` or `origination/settings` for configuring HTTP Voice (SIP customers may have different settings). Setting one or the other, will copy the settings to the other settings profile. This example adds and configures the `origination/settings`, however sending the same request body to the `termination/settings` will result in the same configuration.
 
-{% extendmethod %}
+{% method %}
 
 ### Enable HTTP Voice Parameters
 
@@ -891,6 +891,6 @@ Content-Type: application/xml; charset=utf-8
 </SipPeerOriginationSettingsResponse>
 ```
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
