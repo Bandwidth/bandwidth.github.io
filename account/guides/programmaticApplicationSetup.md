@@ -1,4 +1,5 @@
 {% multimethod %}
+{% endmultimethod %}
 
 # Bandwidth Account API Setup {#top}
 
@@ -48,7 +49,7 @@ The [Application](../applications/about.md) contains the HTTP URL you want to us
 
 Learn more about [applications in the documentation](../applications/about.md).
 
-{% extendmethod %}
+{% method %}
 
 #### Application Parameters
 
@@ -137,7 +138,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/applications/{{applicationID}
 </ApplicationProvisioningResponse>
 ```
 
-{% endextendmethod %}
+{% endmethod %}
 
 ---
 
@@ -893,5 +894,3 @@ Content-Type: application/xml; charset=utf-8
 {% endextendmethod %}
 
 ---
-
-{% endmultimethod %}
