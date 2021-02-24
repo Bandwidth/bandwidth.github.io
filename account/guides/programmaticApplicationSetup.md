@@ -1,5 +1,4 @@
 {% multimethod %}
-{% endmultimethod %}
 
 # Bandwidth Account API Setup {#top}
 
@@ -894,3 +893,5 @@ Content-Type: application/xml; charset=utf-8
 {% endextendmethod %}
 
 ---
+
+{% endmultimethod %}
