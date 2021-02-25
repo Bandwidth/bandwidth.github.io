@@ -46,7 +46,7 @@ The [Application](../applications/about.md) contains the HTTP URL you want to us
 
 Learn more about [applications in the documentation](../applications/about.md).
 
-{% multimethod %}
+{% method %}
 
 #### Application Parameters
 
@@ -135,7 +135,7 @@ Location: https://{baseurl}/accounts/{{accountId}}/applications/{{applicationID}
 </ApplicationProvisioningResponse>
 ```
 
-{% endmultimethod %}
+{% endmethod %}
 
 ---
 
