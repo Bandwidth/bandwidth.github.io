@@ -846,6 +846,8 @@ Content-Type: application/xml; charset=utf-8
 </SipPeerOriginationSettingsResponse>
 ```
 
+{% common %}
+
 ### Ensure HTTP Voice settings on Location (_sippeer_)
 
 
