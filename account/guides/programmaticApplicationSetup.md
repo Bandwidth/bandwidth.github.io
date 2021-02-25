@@ -846,10 +846,25 @@ Content-Type: application/xml; charset=utf-8
 </SipPeerOriginationSettingsResponse>
 ```
 
+{% endmethod %}
+
+{% method %}
+
+### Enable HTTP Voice Parameters
+
+#### Request URL
+
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/sites/{{siteId}}/sippeers/{{sippeerId}}/products/termination/settings`
+
+| Parameters | Mandatory | Description               |
+|:-----------|:----------|:--------------------------|
+| `VoiceProtocol` | Yes       | **MUST BE SET TO** `HTTP` |
+| `HttpSettings` | Yes | Parent element for HTTP settings |
+| `HttpVoiceV2AppId` | Yes | The applicationId of the **Voice** application created above |
+
 {% common %}
 
 ### Ensure HTTP Voice settings on Location (_sippeer_)
-
 
 {% sample lang="http" %}
 
