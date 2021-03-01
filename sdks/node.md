@@ -83,17 +83,22 @@ npm install @bandwidth/bxml
 ## Initialize Bandwidth Client
 
 ```js
-const BandwidthMessaging = require('@bandwidth/messaging');
-BandwidthMessaging.Configuration.basicAuthUserName = "token";
-BandwidthMessaging.Configuration.basicAuthPassword = "secret";
-const messagingController = BandwidthMessaging.APIController;
+import { Client as MessagingClient, ApiController as MessagingApiController } from '@bandwidth/messaging';
+import { Client as VoiceClient, ApiController as VoiceApiController } from '@bandwidth/voice';
 
-const BandwidthVoice = require('@bandwidth/voice');
-BandwidthVoice.Configuration.basicAuthUserName = "username";
-BandwidthVoice.Configuration.basicAuthPassword = "password";
-const voiceController = BandwidthVoice.APIController;
+const messagingClient = new MessagingClient({
+    basicAuthPassword: 'password',
+    basicAuthUserName: 'username'
+});
 
-const BandwidthBxml = require('@bandwidth/bxml');
+const messagingController = new MessagingApiController(messagingClient);
+
+const voiceClient = new VoiceClient({
+    basicAuthPassword: 'password',
+    basicAuthUserName: 'username'
+});
+
+const voiceController = new VoiceApiController(voiceClient);
 ```
 
 ## Create Phone Call
