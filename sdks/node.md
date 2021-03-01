@@ -77,58 +77,45 @@ The NodeJS SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40band
 ```bash
 npm install @bandwidth/messaging
 npm install @bandwidth/voice
-npm install @bandwidth/bxml
-```
-
-## Initialize Bandwidth Client
-
-```js
-import { Client as MessagingClient, ApiController as MessagingApiController } from '@bandwidth/messaging';
-import { Client as VoiceClient, ApiController as VoiceApiController } from '@bandwidth/voice';
-
-const messagingClient = new MessagingClient({
-    basicAuthPassword: 'password',
-    basicAuthUserName: 'username'
-});
-
-const messagingController = new MessagingApiController(messagingClient);
-
-const voiceClient = new VoiceClient({
-    basicAuthPassword: 'password',
-    basicAuthUserName: 'username'
-});
-
-const voiceController = new VoiceApiController(voiceClient);
 ```
 
 ## Create Phone Call
 
 ```js
-var accountId = '1234';
+import { Client, ApiController } from '@bandwidth/voice';
 
-var body = new BandwidthVoice.ApiCreateCallRequest({
-    "from"          : "+19999999999",
-    "to"            : "+18888888888",
-    "applicationId" : "123",
-    "answerUrl"     : "https://test.com",
-    "answerMethod"  : "POST",
-    "callTimeout"   : 30
+const client = new Client({
+    basicAuthPassword: 'password',
+    basicAuthUserName: 'username'
 });
-var response = await voiceController.createCall(accountId, body);
+
+const controller = new ApiController(client);
+
+const response = await controller.createCall('account-id-123', {
+    applicationId: 'app-id-123',
+    from: '+19999999999',
+    to: '+18888888888',
+    answerUrl: 'https://your-server.com/webhooks/answer',
+    answerMethod: 'POST',
+    callTimeout: 30
+});
+
 console.log(response);
 ```
 
 ## Generate BXML
 
 ```js
-var speakSentence = new BandwidthBxml.Verbs.SpeakSentence();
-speakSentence.setSentence("test");
-speakSentence.setVoice("susan");
-speakSentence.setGender("female");
-speakSentence.setLocale("en_US");
+import { SpeakSentence, Response } from '@bandwidth/voice';
 
-var response = new BandwidthBxml.Response();
-response.addVerb(speakSentence);
+const speakSentence = new SpeakSentence({
+    sentence: 'This is a spoken test.',
+    locale: 'en_US'
+    voice: 'susan',
+    gender: 'female'
+});
+
+const response = new Response(speakSentence);
 
 console.log(response.toBxml());
 ```
@@ -136,21 +123,21 @@ console.log(response.toBxml());
 ## Send Text Message
 
 ```js
-var accountId = '1234';
+import { Client, ApiController } from '@bandwidth/messaging';
 
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId" : applicationId ,
-    "to"            : ["+19999999999"],
-    "from"          : "+18888888888",
-    "text"          : "The quick brown fox jumps over a lazy dog."
+const client = new Client({
+    basicAuthPassword: 'password',
+    basicAuthUserName: 'username'
 });
 
-var response = await messagingController.createMessage(accountId, body);
+const controller = new ApiController(client);
+
+const response = await controller.createMessage('user-id-123', {
+    applicationId: 'app-id-123',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over a lazy dog.'
+});
+
 console.log(response);
-```
-
-## Order Phone Number
-
-```js
-//coming soon
 ```
