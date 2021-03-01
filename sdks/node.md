@@ -136,7 +136,7 @@ const response = await controller.createMessage('user-id-123', {
     applicationId: 'app-id-123',
     to: ['+19999999999'],
     from: '+18888888888',
-    text: 'The quick brown fox jumps over a lazy dog.'
+    text: 'The quick brown fox jumps over the lazy dog.'
 });
 
 console.log(response);
