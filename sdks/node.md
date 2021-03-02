@@ -1,8 +1,8 @@
-# Node.JS SDK
+# Node.js SDK
 
 ## Links
 
-The NodeJS SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40bandwidth) & Github.
+The Node.js SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40bandwidth) & GitHub.
 
 | Links                                                                        | Description                                                                   | Github                                                                                                 |
 |:-----------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
@@ -20,6 +20,7 @@ The NodeJS SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40band
 
 | Version | Notes                                                                           |
 |:--------|:--------------------------------------------------------------------------------|
+| 3.0.0   | Updated to TypeScript and reduced model verbosity |
 | 2.0.0   | Removed all messaging exceptions and normalized them under `MessagingException` |
 
 ### [Voice API](https://www.npmjs.com/package/@bandwidth/voice)
@@ -31,6 +32,8 @@ The NodeJS SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40band
 | 1.4.0 | Added conference management endpoints |
 
 ### [BXML](https://www.npmjs.com/package/@bandwidth/bxml)
+
+Note: Starting with [@bandwidth/voice](https://www.npmjs.com/package/@bandwidth/voice) 2.0.0, BXML is no longer required as a separate library.
 
 | Version | Notes                                                                                                                                                                        |
 |:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
