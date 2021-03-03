@@ -232,6 +232,8 @@ Before creating the order, to reduce failed or error statuses, create a <code cl
 |:---------------------|:----------|:--------------------------------------------------------------------|
 | `<TelephoneNumbers>` | Yes       | Top level element containing a list of `<TelephoneNumber>` elements |
 | `<TelephoneNumber>`  | Yes       | Phone Number to check "importability"                               |
+| `<SiteId>`           | Yes       | Site (Sub-Account) ID you are importing the numbers into            |
+| `<SipPeerId>`        | No        | SipPeer (Location) ID you are importing the numbers into            | 
 
 {% common %}
 
@@ -245,12 +247,13 @@ Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <ImportTnCheckerPayload>
-  <TelephoneNumbers>
-    <TelephoneNumber>3032281000</TelephoneNumber>
-    <TelephoneNumber>4109235436</TelephoneNumber>
-    <TelephoneNumber>4104685864</TelephoneNumber>
-    <TelephoneNumber>3032280004</TelephoneNumber>
-  </TelephoneNumbers>
+    <TelephoneNumbers>
+        <TelephoneNumber>3032281000</TelephoneNumber>
+        <TelephoneNumber>4109235436</TelephoneNumber>
+        <TelephoneNumber>4104685864</TelephoneNumber>
+    </TelephoneNumbers>
+    <SiteId>486</SiteId>
+    <SipPeerId>500025</SipPeerId>
 </ImportTnCheckerPayload>
 
 ```
@@ -265,6 +268,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{{accountId}}/application
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ImportTnCheckerResponse>
   <ImportTnCheckerPayload>
+    <SiteId>486</SiteId>
+    <SipPeerId>500025</SipPeerId>
     <TelephoneNumbers>
       <TelephoneNumber>3032281000</TelephoneNumber>
       <TelephoneNumber>3032280004</TelephoneNumber>
