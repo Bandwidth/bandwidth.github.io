@@ -92,7 +92,7 @@ const client = new Client({
 const controller = new ApiController(client);
 
 const accountId = '1111111';
-const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/0/0.smil';
+const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/1/1.mp3';
 
 const contentType = 'application/octet-stream';
 const cacheControl = 'no-cache';
