@@ -90,7 +90,7 @@ const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/0/0.smil';
 
 const response = await controller.getMedia(accountId, mediaId);
 
-fs.writeFileSync('file_to_write', response.result, 'binary');
+fs.writeFileSync('file-to-write', response.result, 'binary');
 ```
 
 {% sample lang="php" %}

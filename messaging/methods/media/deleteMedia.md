@@ -50,7 +50,19 @@ messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 {% sample lang="js" %}
 
 ```js
-await messagingController.deleteMedia(messagingAccountId, "mediaId")
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/0/0.smil';
+
+const response = await controller.deleteMedia(accountId, mediaId);
 ```
 
 {% sample lang="php" %}
