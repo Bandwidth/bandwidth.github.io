@@ -94,8 +94,10 @@ const client = new Client({
 
 const controller = new ApiController(client);
 
-const response = await controller.createCall('account-id-123', {
-    applicationId: 'app-id-123',
+const accountId = '1111111';
+
+const response = await controller.createCall(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
     from: '+19999999999',
     to: '+18888888888',
     answerUrl: 'https://your-server.com/webhooks/answer',
@@ -135,8 +137,10 @@ const client = new Client({
 
 const controller = new ApiController(client);
 
-const response = await controller.createMessage('user-id-123', {
-    applicationId: 'app-id-123',
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
     to: ['+19999999999'],
     from: '+18888888888',
     text: 'The quick brown fox jumps over the lazy dog.'
