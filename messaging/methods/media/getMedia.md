@@ -86,8 +86,9 @@ const client = new Client({
 const controller = new ApiController(client);
 
 const accountId = '1111111';
+const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/0/0.smil';
 
-const response = await controller.getMedia(accountId, 'mediaId');
+const response = await controller.getMedia(accountId, mediaId);
 
 fs.writeFileSync('file_to_write', response.result, 'binary');
 ```
