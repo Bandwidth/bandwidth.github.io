@@ -37,8 +37,10 @@ const BandwidthBxml = require('@bandwidth/bxml');
 ### 2.x
 
 ```js
-const response = await controller.createCall('account-id-123', {
-    applicationId: 'app-id-123',
+const accountId = '1111111';
+
+const response = await controller.createCall(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
     from: '+19999999999',
     to: '+18888888888',
     answerUrl: 'https://your-server.com/webhooks/answer',
@@ -53,12 +55,13 @@ const response = await controller.createCall('account-id-123', {
 var body = new BandwidthVoice.ApiCreateCallRequest({
     "from"          : "+19999999999",
     "to"            : "+18888888888",
-    "applicationId" : "app-id-123",
+    "applicationId" : "abc12345-6def-abc1-2345-6defabc12345",
     "answerUrl"     : "https://your-server.com/webhooks/answer",
     "answerMethod"  : "POST",
     "callTimeout"   : 30
 });
-var response = await controller.createCall("account-id-123", body);
+const accountId = "1111111";
+var response = await controller.createCall(accountId, body);
 ```
 
 ---
