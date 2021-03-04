@@ -200,15 +200,23 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!"
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.'
+});
 ```
 
 {% sample lang="php" %}
@@ -399,16 +407,24 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
-    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.',
+    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg']
+});
 ```
 
 {% sample lang="php" %}
@@ -601,16 +617,24 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
-    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.',
+    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg', 'https://s3.amazonaws.com/bw-v2-api/demo-2.jpg']
+});
 ```
 
 {% sample lang="php" %}
@@ -794,15 +818,23 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902", "+12345678903"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999', '+10000000000'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.'
+});
 ```
 
 {% sample lang="php" %}
@@ -999,16 +1031,24 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902", "+12345678903"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
-    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999', '+10000000000'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.',
+    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg]
+});
 ```
 
 {% sample lang="php" %}
