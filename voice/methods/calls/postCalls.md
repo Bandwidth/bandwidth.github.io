@@ -24,8 +24,8 @@ You should not include sensitive or personally-identifiable information in any t
 
 | Parameter | Description | Mandatory |
 |:----------|:------------|:----------|
-| from | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`). | Yes |
-| to | The destination to call (must be an E.164 formatted number (e.g. `+15555551212`) or a SIP URI (e.g. `sip:user@server.com`). | Yes |
+| from | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`, or be one of the following strings: `Restricted`, `Anonymous`, `Private`, or `Unavailable`). | Yes |
+| to | The destination to call (must be an E.164 formatted number (e.g. `+15555551212`) or a SIP URI (e.g. `sip:user@server.com`)). | Yes |
 | applicationId | The id of the application to associate this call with, for billing purposes. | Yes |
 | answerUrl | The full URL to send the [Answer](../../bxml/callbacks/answer.md) event to when the called party answers. This endpoint should return the first [BXML document](../../bxml/about.md) to be executed in the call. | Yes |
 | answerMethod | (optional) The HTTP method to use for the request to `answerUrl`. GET or POST. Default value is POST. | No |
