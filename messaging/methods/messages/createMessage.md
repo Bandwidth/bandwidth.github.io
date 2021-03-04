@@ -1047,7 +1047,7 @@ const response = await controller.createMessage(accountId, {
     to: ['+19999999999', '+10000000000'],
     from: '+18888888888',
     text: 'The quick brown fox jumps over the lazy dog.',
-    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg]
+    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg']
 });
 ```
 
