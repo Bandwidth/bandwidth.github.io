@@ -40,7 +40,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | SENT | Bandwidth has sent the message. The downstream carrier has accepted the message. |
 | DELIVERED | Bandwidth has received a delivery receipt from the downstream carrier confirming successful delivery to the carrier or handset (when available). |
 | FAILED | The message could not be sent or the delivery receipt received from the downstream carrier indicated the message was not deliverable. Review error codes for more information. |
-| ACCEPTED | Message was sent successfully, no DLR received. |
+| ACCEPTED | Message was accepted by the customer. |
 | UNDELIVERED | Message was not capable of being delivered. Delivery receipt indicates the message was failed or rejected by the upstream provider. |
 
 ### Response Parameters
