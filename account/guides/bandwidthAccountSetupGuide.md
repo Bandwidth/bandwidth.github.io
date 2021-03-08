@@ -22,7 +22,7 @@ After you’ve familiarized yourself with these concepts, you may want to [autom
 1. [Create an Application](#creating-applications)
     * [Create a Voice Application](#create-a-voice-application)
     * [Create a Messaging Application](#create-a-messaging-application)
-1. [Create a Location](#create-a-location)
+1. [Create a Location](#create-a-location-sip-peer)
 1. [Order a Phone Number](#order-a-phone-number)
 1. [Next steps](#next-steps)
     * [Create an API-only user](#create-an-api-only-user)
@@ -31,7 +31,7 @@ After you’ve familiarized yourself with these concepts, you may want to [autom
 ## Create a Sub-Account (Site)
 <img src="../../images/account-setup-1.png" style="max-width:95%">
 
-Once you log into the Bandwidth Dashboard, the first thing you need to do is set up your initial Sub-account. Metaphorically speaking, if you were to look at the Account as a filing cabinet - the Sub-accounts can be best visualized as the drawers.
+Once you log into the Bandwidth Dashboard, the first thing you need to do is set up your initial Sub-account. Metaphorically speaking, if you were to look at the Account as a filing cabinet, the Sub-accounts can be best visualized as the drawers.
 
 _Note: Many users choose to just keep a single Sub-Account. Whereas others create two to represent Development & Production environments._
 
@@ -63,7 +63,7 @@ _Note: For a self-guided training tutorial, click on **Learning Lab & Support** 
 ## Creating Applications
 <img src="../../images/account-setup-2.png" style="max-width:95%">
 ### Create a Voice Application
-To begin using your Bandwidth Dashboard phone numbers for Voice APIs, create a Voice application and then associate it with your phone number’s Location:
+To begin using your Bandwidth Dashboard phone numbers for Voice APIs, create a Voice Application and then associate it with your phone number’s Location:
 
   1. In the top navigation bar, click **Applications**, and then click **Add Application**.
   1. Provide an **Application name** (we recommend you use something that identifies what the application will do).
@@ -124,10 +124,10 @@ To begin using your Bandwidth Dashboard numbers for Messaging APIs, create a Mes
 | Send `message-failed` Callbacks    | No        | Optional toggle to turn on/off [`message-failed`](../../messaging/callbacks/messageFailed.md) callbacks events   |
 | Send `message-sending` Callbacks   | No        | Optional toggle to turn on/off [`message-sending`](../../messaging/callbacks/messageSending.md) callbacks events |
 
-## Create a Location (Sip-Peer)
+## Create a Location (SIP Peer)
 <img src="../../images/account-setup-3.png" style="max-width:95%">
 
-A Location is where you’ll link your Application and provision other routing settings. When a telephone number is added to a Location, it will inherit the settings and properties of that Location.
+A Location is where you’ll link your Application and provision other routing settings. When a phone number is added to a Location, it will inherit the settings and properties of that Location.
 
 Link your Application with a Location:
 
@@ -170,13 +170,17 @@ Link your Application with a Location:
 ## Order a Phone Number
 <img src="../../images/account-setup-4.png" style="max-width:95%">
 
-Now that your account is set up - you are ready to order a phone number and begin communicating with Bandwidth!
+Now that your Account is set up, you’re ready to order a phone number and begin communicating with Bandwidth!
 
-For a guide on ordering phone numbers in the Bandwidth Dashboard, [click here](https://support.bandwidth.com/hc/en-us/articles/360011094753-How-do-I-search-and-order-phone-numbers-), for a guide on ordering phone numbers via the Bandwidth Dashboard API, [click here](../../numbers/guides/onDemandNumberSearchAndOrder.md#top)!
+For a guide on ordering phone numbers in the Bandwidth Dashboard, [click here](https://support.bandwidth.com/hc/en-us/articles/360011094753-How-do-I-search-and-order-phone-numbers-)!
+
+For a guide on ordering phone numbers via the Bandwidth Dashboard API, [click here](../../numbers/guides/onDemandNumberSearchAndOrder.md)!
+
 
 ## Next steps
 ### Create an API-only User
-Create an [API-only user](../../guides/accountCredentials.md) to validate your API calls. Unlike user accounts that can access the Bandwidth Dashboard User Interface, users restricted to API only access will not require periodic password resets.
+Create an [API-only user](../../guides/accountCredentials.md) to validate your API calls. Unlike user accounts that can access the Bandwidth Dashboard User Interface, users restricted to API only access won’t require periodic password resets.
+
 
 ### Start Developing to Our Voice and Messaging APIs
 After you've completed your account set-up tasks, explore our inventory and order a phone number to your account. Once you have a phone number, you are ready to [send your first text message](../../messaging/methods/messages/createMessage.md) or [create your first phone call](../../voice/methods/calls/postCalls.md). For help, check out our [SDK’s and Postman Collection](../../sdks/about.md).
