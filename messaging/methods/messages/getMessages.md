@@ -23,7 +23,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messageId | string | The ID of the message to search for. Special characters need to be encoded using URL encoding | `9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6`, `1589228074636lm4k2je7j7jklbn2` |
 | sourceTn | string | The phone number that sent the message | `%2B15554443333` |
 | destinationTn | string | The phone number that received the message | `%2B15554443333` |
-| messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED`, `DLR_EXPIRED` | `RECEIVED` |
+| messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED`, `ACCEPTED`, `UNDELIVERED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z` |
 | toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z^` |
@@ -39,8 +39,9 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | SENDING | Bandwidth is in the process of sending your messages to the downstream carrier. |
 | SENT | Bandwidth has sent the message. The downstream carrier has accepted the message. |
 | DELIVERED | Bandwidth has received a delivery receipt from the downstream carrier confirming successful delivery to the carrier or handset (when available). |
-| DLR_EXPIRED | Bandwidth did not receive the requested delivery receipt from the downstream carrier. The mobile operator or end-user device did not communicate back to the network indicating the message delivery. Currently, Bandwidth waits 2 hours for delivery receipts. |
 | FAILED | The message could not be sent or the delivery receipt received from the downstream carrier indicated the message was not deliverable. Review error codes for more information. |
+| ACCEPTED | Message was accepted by the customer. |
+| UNDELIVERED | Message was not capable of being delivered. Delivery receipt indicates the message was failed or rejected by the upstream provider. |
 
 ### Response Parameters
 
