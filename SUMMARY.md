@@ -14,6 +14,8 @@
 	* [Ruby](sdks/ruby.md)
 	* [C#](sdks/csharp.md)
 	* [Node](sdks/node.md)
+		* [Messaging, Usage and Migration Guide](sdks/node/usage-guide-messaging.md)
+		* [Voice, Usage and Migration GUide](sdks/node/usage-guide-voice.md)
 	* [Java](sdks/java.md)
 	* [PHP](sdks/php.md)
 	* [Examples on Github](https://github.com/Bandwidth/examples)

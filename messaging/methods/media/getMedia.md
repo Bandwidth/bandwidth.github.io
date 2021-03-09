@@ -75,8 +75,22 @@ f.close()
 {% sample lang="js" %}
 
 ```js
-var response = await messagingController.getMedia(messagingAccountId, "mediaId");
-fs.writeFileSync("file_to_write", response, "binary");
+import { Client, ApiController } from '@bandwidth/messaging';
+import { fs } from 'fs';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/1/1.mp3';
+
+const response = await controller.getMedia(accountId, mediaId);
+
+fs.writeFileSync('file-to-write', response.result, 'binary');
 ```
 
 {% sample lang="php" %}
