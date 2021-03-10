@@ -102,8 +102,8 @@ except Exception as e:
 import { Client, ApiController } from '@bandwidth/voice';
 
 const client = new Client({
-    basicAuthUserName: username,
-    basicAuthPassword: password
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
 const controller = new ApiController(client);
@@ -190,8 +190,8 @@ except Exception as e:
 import { Client, ApiController } from '@bandwidth/voice';
 
 const client = new Client({
-    basicAuthUserName: username,
-    basicAuthPassword: password
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
 const controller = new ApiController(client);
