@@ -74,15 +74,21 @@ voice_client.modify_call_recording_state(VOICE_ACCOUNT_ID, call_id, body=body)
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthVoice.ModifyCallRecordingState({
-    "state": "paused"
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
-try {
-    await voiceController.modifyCallRecordingState(accountId, callId, body);
-catch (error) {
-    console.error(error);
-}
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+
+const response = await controller.modifyCallRecordingState(accountId, callId, {
+    state: 'paused'
+});
 ```
 
 {% sample lang="php" %}

@@ -102,13 +102,20 @@ print(response.body.call_ids_to_coach[0])
 {% sample lang="js" %}
 
 ```js
-var accountId = "12345";
-var conferenceId = "conf-04c62a3d-1cd6-4bb9-8c91-27ed04140964";
-var memberId = "c-95ac8d8d-b81437f5-4586-4d5b-9b46-29f8b3fe0aaf";
+import { Client, ApiController } from '@bandwidth/voice';
 
-var response = await voiceController.getConferenceMember(accountId, conferenceId, memberId);
-console.log(response.callId);
-console.log(response.callIdsToCoach[0]);
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const conferenceId = 'conf-abc12345-6def-abc1-2345-6defabc12345';
+const memberId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+
+const response = await controller.getConferenceMember(accountId, conferenceId, memberId);
 ```
 
 {% sample lang="php" %}
