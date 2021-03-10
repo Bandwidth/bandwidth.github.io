@@ -102,12 +102,20 @@ voice_client.modify_conference(account_id, conference_id, body)
 {% sample lang="js" %}
 
 ```js
-var accountId = '123';
-var conferenceId = '456';
-var body = new ApiModifyConferenceRequest({"status":"completed"});
+import { Client, ApiController } from '@bandwidth/voice';
 
-controller.modifyConference(accountId, conferenceId, body, function(error, response, context) {
-    // Handle callback
+const client = new Client({
+    basicAuthUserName: username,
+    basicAuthPassword: password
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const conferenceId = 'conf-abc12345-6def-abc1-2345-6defabc12345';
+
+const response = await controller.modifyConference(accountId, conferenceId, {
+    status: 'completed'
 });
 ```
 
