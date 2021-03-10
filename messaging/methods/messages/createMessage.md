@@ -33,7 +33,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 | tag           | No        | `string`                                                       | Any string which will be included in the callback events of the message. (max 1024 Chars)                                                                                                                                                                                                                                                                                                                                     |
 | priority      | No        | `string` | The message's priority, currently for toll-free or short code SMS only. Accepted values are `"default"` or `"high"`. Messages with a priority value of `"high"` are given preference over your other traffic. If not set in the request body, Bandwidth will use the `"default"` value. |
 
-* Please check the [FAQ](https://support.bandwidth.com/hc/en-us/articles/360014235473-What-MMS-message-size-limits-must-be-adhered-to-) for information on media size limits
+* Please check the [FAQ](https://support.bandwidth.com/hc/en-us/articles/360014235473-What-MMS-message-size-limits-must-be-adhered-to) for information on media size limits
 
 ### Response Parameters
 
