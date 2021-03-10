@@ -100,8 +100,20 @@ print(response.body.media_url)
 {% sample lang="js" %}
 
 ```js
-var response = await voiceController.getMetadataForRecording(accountId, callId, recordingId);
-console.log(response.mediaUrl);
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+const recordingId = 'r-abc12345-6def-abc1-2345-6defabc12345';
+
+const response = await controller.getMetadataForRecording(accountId, callId, recordingId);
 ```
 
 {% sample lang="php" %}
