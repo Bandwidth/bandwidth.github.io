@@ -9,7 +9,7 @@ Downloads a media file you previously uploaded.
 
 #### Basic Authentication
 
-Bandwidth's media API leverages Basic Authentication with your API username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's media API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ## ⚠️ Caution on fetching Media ⚠️
 
