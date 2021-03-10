@@ -10,7 +10,7 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ### Invalid Phone Number Handling
 
@@ -97,7 +97,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -290,7 +290,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -500,7 +500,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -708,7 +708,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -913,7 +913,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {

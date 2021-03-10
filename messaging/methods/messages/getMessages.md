@@ -14,7 +14,7 @@ Most of the query parameters for this endpoint require URL encoding (exception b
 
 #### Basic Authentication
 
-Authentication on this endpoint is <b>NOT</b> done via API token and secret. Instead, your Dashboard API credentials should be used for basic auth.
+Bandwidth's messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ### Query Parameters
 
@@ -26,7 +26,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 | messageStatus | string | The status of the message. One of `RECEIVED`, `QUEUED`, `SENDING`, `SENT`, `FAILED`, `DELIVERED`, `ACCEPTED`, `UNDELIVERED` | `RECEIVED` |
 | errorCode | integer | The error code of the message | `9902` |
 | fromDateTime | string | The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z` |
-| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z^` |
+| toDateTime | string | The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | `2016-09-14T18:20:16.000Z` |
 | pageToken | string | A base64 encoded value used for pagination of results | gdEewhcJLQRB5 |
 | limit | integer | The maximum records requested in search result . Default `100`. <br> The sum of limit and after cannot be more than 10000 | `limit=100` |
 

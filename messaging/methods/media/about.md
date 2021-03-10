@@ -15,7 +15,7 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ### Capabilities
 

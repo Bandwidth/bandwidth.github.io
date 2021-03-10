@@ -9,11 +9,11 @@ Downloads a media file you previously uploaded.
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's media API leverages Basic Authentication with your API username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ## ⚠️ Caution on fetching Media ⚠️
 
-You **MUST** use your API token and secret to download the media each and every time you want to access the file.  We **DO NOT** recommend using Bandwidth's url to display/stream media files to your end-users.  Providing your user-id, token, and secret to users' devices is a security risk, as they _could_ use your credentials to access your account.
+You **MUST** use your API username and password to download the media each and every time you want to access the file.  We **DO NOT** recommend using Bandwidth's url to display/stream media files to your end-users.  Providing your account id, username, and password to users' devices is a security risk, as they _could_ use your credentials to access your account.
 
 Instead, we recommend that you create a copy on your local server or a cloud storage service.  Doing so allows you to specify **YOUR** authentication method (if any) to keep your Bandwidth account and users safe.
 
@@ -26,7 +26,7 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 ```bash
 curl -X GET \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}' \
-    -u '{token}:{secret}'
+    -u '{username}:{password}'
 ```
 
 {% sample lang="java" %}

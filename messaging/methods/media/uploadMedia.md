@@ -10,7 +10,7 @@ Bandwidth retains uploaded media for up to 48 hours.
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 
@@ -37,7 +37,7 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 curl -X PUT \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{file.mp3}' \
     -H "Content-Type: audio/mpeg" \
-    -u '{token}:{secret}' \
+    -u '{username}:{password}' \
     --data-raw "@{/filepath/file.mp3}"
 ```
 
