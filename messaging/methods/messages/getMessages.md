@@ -71,7 +71,7 @@ Authentication on this endpoint is <b>NOT</b> done via API token and secret. Ins
 
 ```http
 GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageId=1589228074636lm4k2je7j7jklbn2 HTTP/1.1
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -108,7 +108,7 @@ Content-Type: application/json
 
 ```http
 GET https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?messageStatus=DLR_EXPIRED HTTP/1.1
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 HTTP/1.1 200 OK
 Content-Type: application/json
