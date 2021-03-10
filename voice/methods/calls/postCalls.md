@@ -168,21 +168,25 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthVoice.ApiCreateCallRequest({
-    "from": "+19999999999",
-    "to": "+18888888888",
-    "applicationId": "123",
-    "answerUrl": "https://test.com",
-    "answerMethod": "POST",
-    "callTimeout": 30
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: username,
+    basicAuthPassword: password
 });
 
-try {
-    var response = await voiceController.createCall(accountId, body);
-    console.log(response);
-catch (error) {
-    console.error(error);
-}
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createCall(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: '+19999999999',
+    from: '+18888888888',
+    answerUrl: 'https://test.com',
+    answerMethod: 'POST',
+    callTimeout: 30
+});
 ```
 
 {% sample lang="php" %}
