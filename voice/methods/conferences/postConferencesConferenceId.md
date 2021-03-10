@@ -105,8 +105,8 @@ voice_client.modify_conference(account_id, conference_id, body)
 import { Client, ApiController } from '@bandwidth/voice';
 
 const client = new Client({
-    basicAuthUserName: username,
-    basicAuthPassword: password
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
 const controller = new ApiController(client);
