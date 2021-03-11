@@ -28,6 +28,6 @@ Bandwidth provides a 'user-based' permission and authentication scheme. It's rec
 
 ⚠️ The API user is meant to be separate from your Dashboard user and **should not** be used to access the Dashboard.  Further, your Dashboard user **should not** be used to access Bandwidth's APIs.
 
-Unlike the other user types, API users are not required to update their password every 90 days.
+Unlike other user types, an API user is not required to update their password.
 
 <br>
