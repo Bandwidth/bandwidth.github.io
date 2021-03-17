@@ -78,7 +78,7 @@ To begin using your Bandwidth Dashboard phone numbers for Voice APIs, create a V
 | Field Name                     | Mandatory | Description                                                                                                                        |
 |:-------------------------------|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------|
 | Application Name               | Yes       | Custom application name                                                                                                            |
-| Application ID                 | Yes       | Unique application id needed for API calls - Bandwidth creates this for you                                                        |
+| Application ID                 | Yes       | Unique application ID needed for API calls - Bandwidth creates this for you                                                        |
 | Application Type               | Yes       | VOICE or MESSAGING                                                                                                                 |
 | Call Initiated Callback Method | Yes       | REST method for callbacks. POST gives a JSON object in the request body (recommended). GET passes the callback in query parameters |
 | Call Initiated Callback URL    | Yes       | URL to send call initiated (inbound calls) events to                                                                               |
@@ -111,7 +111,7 @@ To begin using your Bandwidth Dashboard numbers for Messaging APIs, create a Mes
 | Field Name                         | Mandatory | Description                                                                                                      |
 |:-----------------------------------|:---------:|:-----------------------------------------------------------------------------------------------------------------|
 | Application Name                   | Yes       | Custom application name                                                                                          |
-| Application ID                     | Yes       | Unique application id needed for API calls - Bandwidth creates this for you                                      |
+| Application ID                     | Yes       | Unique application ID needed for API calls - Bandwidth creates this for you                                      |
 | Application Type                   | Yes       | VOICE or MESSAGING                                                                                               |
 | Use Multiple Callback URLs         | No        | Optional toggle to allow you to split callbacks to different URLs for inbound and outbound messages              |
 | (Inbound) Callback URL             | Yes       | URL to send inbound (or all) message callbacks to                                                                |
