@@ -4,7 +4,7 @@
 
 # Bandwidth 10DLC Campaigns Import UI Guide {#top}
 
-This walks through how to import, and view your campaigns through the [Bandwidth Dashboard](dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md) and [HTTP Messaging](../../messaging/about.md) API's.
+This walks through how to import and view your campaigns through the [Bandwidth Dashboard](dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md) and [Messaging](../../messaging/about.md) API's.
 
 ## Assumptions
 * You have been contracted and given access to your Bandwidth Dashboard Account
