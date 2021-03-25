@@ -14,79 +14,36 @@ This walks through how to import, and view your campaigns through the [Bandwidth
 * You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP)
 
 ## Steps
-1. [View your imported campaigns](#create-a-sub-account)
-1. [Import a campaign](#creating-applications)
-1. [Assign a campaign to a Telephone Number (TN)](#create-a-location-sip-peer)
+1. [View imported campaigns](#view-imported-campaigns)
+1. [Import a campaign](#import-a-campaign)
+1. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
 1. [Next steps](#next-steps)
     * [Create an API-only user](#create-an-api-only-user)
     * [Start Developing to Our Voice and Messaging APIs](#start-developing-to-our-voice-and-messaging-apis)
 
-## Create a Sub-Account (Site)
-<img src="../../images/account-setup-1.png" style="max-width:95%">
+## View imported campaigns
+<img src="../../images/campaign-import-list.png" style="max-width:95%">
 
-Once you log into the Bandwidth Dashboard, the first thing you need to do is set up your initial Sub-account. Metaphorically speaking, if you were to look at the Account as a filing cabinet, the Sub-accounts can be best visualized as the drawers.
+Once you log into the Bandwidth Dashboard, you should see **Campaigns** in the navigation bar. 
+If you select it, you will be routed to the **IMPORTED CAMPAIGNS** sub navigation 
+which is where you will see a list of the campaigns that have been previously imported on your account. 
 
-_Note: Many users choose to just keep a single Sub-Account. Whereas others create two to represent Development & Production environments._
+## Import a campaign
+<img src="../../images/campaign-import-modal.png" style="max-width:95%">
 
-  1. In the top navigation bar, click **Account**, select **Sub-accounts**, and then click **Add Sub-account**.
-  1. Enter the required information and click **Create Sub-account**.
+While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
+This will display a popup modal which allows you to enter the ID of the campaign you want to import.
 
-_Note: Your Sub-account contains a unique Site ID, you will need to reference this for our Number Management API requests._
+_Note: If you get an error message while importing, it is likely that -
+1) your CSP ID on your account is incorrect
+2) the campaign has not yet been shared with BANDW DCA
 
-##### Sub-Account Fields
-<img src="../../images/account-setup-subaccount-fields.png" style="max-width:95%">
-
-| Field Name      | Mandatory | Description                                                                |
-|:----------------|:---------:|:---------------------------------------------------------------------------|
-| Name            | Yes       | Sub-Account Name                                                           |
-| Address Type    | Yes       | `Billing` or `Service`. For record purposes only, does not affect billing. |
-| Street Number   | Yes       | Street number of address                                                   |
-| Street Name     | Yes       | Street name of address                                                     |
-| Address Line 2  | No        | Optional second address line (ex `Unit 123`)                               |
-| City            | Yes       | City                                                                       |
-| State           | Yes       | State                                                                      |
-| Zip/Postal Code | Yes       | Postal Code                                                                |
-| ZIP Plus 4      | No        | Optional +4 Postal Code                                                    |
-| Customer ID     | No        | Optional ID for your reference                                             |
-| Customer Name   | No        | Optional Name for your reference                                           |
-| Description     | No        | Optional Description fro your reference                                    |
-
-_Note: For a self-guided training tutorial, click on **Learning Lab & Support** in the Bandwidth Dashboard and take a look at the **Onboarding Guides**!_
-
-## Creating Applications
-<img src="../../images/account-setup-2.png" style="max-width:95%">
-### Create a Voice Application
-To begin using your Bandwidth Dashboard phone numbers for Voice APIs, create a Voice Application and then associate it with your phone number’s Location:
-
-  1. In the top navigation bar, click **Applications**, and then click **Add Application**.
-  1. Provide an **Application name** (we recommend you use something that identifies what the application will do).
-  1. Under **Application type**, select **Voice**.
-  _Note: Once your application is created, you won’t be able to change the application type._
-  1. Enter your Callback URL(s)
-  1. Click **Create Application**
-
-##### Voice Application Fields
-<img src="../../images/account-setup-voice-application-fields.png" style="max-width:95%">
-
+##### Campaign import fields
 | Field Name                     | Mandatory | Description                                                                                                                        |
 |:-------------------------------|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------|
-| Application Name               | Yes       | Custom application name                                                                                                            |
-| Application ID                 | Yes       | Unique application ID needed for API calls - Bandwidth creates this for you                                                        |
-| Application Type               | Yes       | VOICE or MESSAGING                                                                                                                 |
-| Call Initiated Callback Method | Yes       | REST method for callbacks. POST gives a JSON object in the request body (recommended). GET passes the callback in query parameters |
-| Call Initiated Callback URL    | Yes       | URL to send call initiated (inbound calls) events to                                                                               |
-| Call Status Callback Method    | No        | REST method for callbacks. POST gives a JSON object in the request body (recommended). GET passes the callback in query parameters |
-| Call Status Callback URL       | No        | URL to send call status events to                                                                                                  |
-| Callback User ID               | No        | Optional user id bandwidth sends in the Authorization header of the callback                                                       |
-| Callback Password              | No        | Optional password bandwidth sends in the Authorization header of the callback                                                      |
-| Call Initiated Fallback Method | No        | REST method for callbacks. POST gives a JSON object in the request body (recommended). GET passes the callback in query parameters |
-| Call Initiated Fallback URL    | No        | Fallback URL to send call initiated (inbound calls) events to                                                                      |
-| Call Status Fallback Method    | No        | REST method for callbacks. POST gives a JSON object in the request body (recommended). GET passes the callback in query parameters |
-| Call Status Fallback URL       | No        | Fallback URL to send call status events to                                                                                         |
-| Fallback User ID               | No        | Optional user id bandwidth sends in the Authorization header of the callback                                                       |
-| Fallback Password              | No        | Optional password bandwidth sends in the Authorization header of the callback                                                      |
+| Campaign ID                    | Yes       | Unique Campaign ID provided by TCR                                                                                                       |
 
-### Create a Messaging Application
+### Assign a campaign to a TN
 To begin using your Bandwidth Dashboard numbers for Messaging APIs, create a Messaging Application and then associate it with your phone number’s Location:
 
   1. In the top navigation bar, click **Applications**, and then click **Add Application**.
@@ -158,17 +115,6 @@ Link your Application with a Location:
 | Applications (Messaging)  | Yes (if HTTP SMS)    | If using HTTP messaging, the application you wish to associate. When messages are sent to/from the numbers on this location, Bandwidth sends a webhook to the callback URL(s) of the associated application |
 | MMS Enabled               | No                   | Toggle on/off MMS capabilities for all telephone numbers in the location |
 | MMS Protocol              | Yes (if MMS enabled) | SMPP or HTTP - determines what protocol is used for messages to/from the telephone numbers in the location |
-
-
-## Order a Phone Number
-<img src="../../images/account-setup-4.png" style="max-width:95%">
-
-Now that your Account is set up, you’re ready to order a phone number and begin communicating with Bandwidth!
-
-For a guide on ordering phone numbers in the Bandwidth Dashboard, [click here](https://support.bandwidth.com/hc/en-us/articles/360011094753-How-do-I-search-and-order-phone-numbers-)!
-
-For a guide on ordering phone numbers via the Bandwidth Dashboard API, [click here](../../numbers/guides/onDemandNumberSearchAndOrder.md)!
-
 
 ## Next steps
 ### Create an API-only User
