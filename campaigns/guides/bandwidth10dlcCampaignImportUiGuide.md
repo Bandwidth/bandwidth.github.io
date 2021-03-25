@@ -1,21 +1,17 @@
 {% raw %}
-<section class="accountManagementGuides">
+<section class="campaignManagementGuides">
 {% endraw %}
 
-# Bandwidth Account Setup Guide {#top}
+# Bandwidth 10DLC Campaigns Import UI Guide {#top}
 
-This walks through how to setup and configure your Bandwidth account through the [Bandwidth Dashboard](dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md), [HTTP Voice](../../voice/about.md), and [HTTP Messaging](../../messaging/about.md) API's.
-
-Now that we’ve covered the [hierarchical structure](./bandwidthAccountStructure.md) of your Bandwidth Dashboard account, let’s talk about how to complete your set-up.
-
-Bandwidth recommends that all new users complete their account set-up using the Bandwidth Dashboard user interface to best get acquainted with our unique account structure.
-
-After you’ve familiarized yourself with these concepts, you may want to [automate your set-up](./programaticApplicationSetup.md) and programmatically configure your Sub-Accounts, Locations & Applications.
+This walks through how to import, and view your campaigns through the [Bandwidth Dashboard](dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md) and [HTTP Messaging](../../messaging/about.md) API's.
 
 ## Assumptions
 * You have been contracted and given access to your Bandwidth Dashboard Account
-* Your account is enabled for HTTP Voice and/or Messaging
-* You have administrator access on the account to create users and change roles
+* Your account has Messaging and Campaign Management products enabled
+* Your account has 10dlcImportCampaigns product feature enabled
+* Your account has your CSP ID associated to it
+* You have provisioned campaigns through your CSP via TCR
 
 ## Steps
 1. [Create a Sub-Account](#create-a-sub-account)
