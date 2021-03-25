@@ -11,15 +11,12 @@ This walks through how to import, and view your campaigns through the [Bandwidth
 * Your account has Messaging and Campaign Management products enabled
 * Your account has 10dlcImportCampaigns product feature enabled
 * Your account has your CSP ID associated to it
-* You have provisioned campaigns through your CSP via TCR
+* You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP)
 
 ## Steps
-1. [Create a Sub-Account](#create-a-sub-account)
-1. [Create an Application](#creating-applications)
-    * [Create a Voice Application](#create-a-voice-application)
-    * [Create a Messaging Application](#create-a-messaging-application)
-1. [Create a Location](#create-a-location-sip-peer)
-1. [Order a Phone Number](#order-a-phone-number)
+1. [View your imported campaigns](#create-a-sub-account)
+1. [Import a campaign](#creating-applications)
+1. [Assign a campaign to a Telephone Number (TN)](#create-a-location-sip-peer)
 1. [Next steps](#next-steps)
     * [Create an API-only user](#create-an-api-only-user)
     * [Start Developing to Our Voice and Messaging APIs](#start-developing-to-our-voice-and-messaging-apis)
