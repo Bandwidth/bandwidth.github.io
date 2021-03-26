@@ -68,10 +68,8 @@ If you select it, you will see the **Choose a .csv file to import** field.
 
 A sample CSV is as follows -
 
-| Column 1          | Column 2          | Column 3          |
+| TN                | CampaignId        | Action            |
 |:------------------|:------------------|-------------------|
-| `TN`              | `A2pSettings`     | `A2pSettings`     |
-| `TN`              | `CampaignId`      | `Action`          |
 | `9192491000`      | `CABCDEF`         | `asSpecified`     |
 | `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
 | `9192491002`      | `C0123456`        | `asSpecified`     |
