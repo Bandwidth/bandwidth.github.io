@@ -43,8 +43,39 @@ _Note: If you get an error message while importing, it is likely that -
 |:-------------------------------|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------|
 | Campaign ID                    | Yes       | Unique Campaign ID provided by TCR                                                                                                       |
 
-### Assign a campaign to a TN
-Coming soon!
+## Assign a campaign to a TN
+<img src="../../images/tn-option-order-1.png" style="max-width:95%">
+
+You should see **Numbers** in the navigation bar. 
+If you select it, you will be routed to a sub navigation where you will see **My Numbers**.
+If you select it, can search for a TN and view the details page.
+
+<img src="../../images/tn-option-order-2.png" style="max-width:95%">
+<img src="../../images/tn-option-order-3.png" style="max-width:95%">
+
+Once on the TN details page, you can scroll to the bottom where you will see SMS Settings. 
+Ensure SMS Settings is on, and that use location defaults is off. 
+You will see a dropdown labeled **A2P Campaign ID**. 
+Your imported campaigns will be found in the dropdown. 
+When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
+When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.
+
+## Bulk Assign a campaign to multiple TNs
+<img src="../../images/tn-option-order-1.png" style="max-width:95%">
+
+You should see **Numbers** in the navigation bar. 
+If you select it, you will be routed to a sub navigation where you will see **My Numbers**.
+If you select it, can search for a TN and view the details page.
+
+<img src="../../images/tn-option-order-2.png" style="max-width:95%">
+<img src="../../images/tn-option-order-3.png" style="max-width:95%">
+
+Once on the TN details page, you can scroll to the bottom where you will see SMS Settings. 
+Ensure SMS Settings is on, and that use location defaults is off. 
+You will see a dropdown labeled **A2P Campaign ID**. 
+Your imported campaigns will be found in the dropdown. 
+When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
+When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.
 
 ## Next steps
 ### Create an API-only user
