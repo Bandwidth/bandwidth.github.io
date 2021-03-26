@@ -46,8 +46,6 @@ _Note: If you get an error message while importing, it is likely that -
 | `Campaign ID`                  | `Yes`     | `Unique Campaign ID provided by TCR`                                                                                                       |
 
 
-{% common %}
-
 ## Assign a campaign to a TN
 
 You should see **Numbers** in the navigation bar. 
@@ -96,8 +94,6 @@ A sample CSV is as follows -
 | `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
 | `9192491002`      | `C0123456`        | `asSpecified`     |
 
-
-{% common %}
 
 Once you click the **Import** button the TNs will be processed. 
 Upon successful completion, the TNs will have the appropriate Campaign ID assigned and will be ready for use.
