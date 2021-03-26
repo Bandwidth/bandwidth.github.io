@@ -48,7 +48,7 @@ _Note: If you get an error message while importing, it is likely that -
 
 You should see **Numbers** in the navigation bar. 
 If you select it, you will be routed to a sub navigation where you will see **My Numbers**.
-If you select it, can search for a TN and view the details page.
+If you select it, you can search for a TN and view the details page.
 
 <img src="../../images/tn-option-order-2.png" style="max-width:95%">
 <img src="../../images/tn-option-order-3.png" style="max-width:95%">
@@ -59,23 +59,31 @@ You will see a dropdown labeled **A2P Campaign ID**.
 Your imported campaigns will be found in the dropdown. 
 When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
 When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.
+
+For more info on TNs, please see [Number Management](../../numbers/about.md)
 
 ## Bulk Assign a campaign to multiple TNs
-<img src="../../images/tn-option-order-1.png" style="max-width:95%">
+<img src="../../images/tn-bulk-upload-1.png" style="max-width:95%">
 
 You should see **Numbers** in the navigation bar. 
-If you select it, you will be routed to a sub navigation where you will see **My Numbers**.
-If you select it, can search for a TN and view the details page.
+If you select it, you will be routed to a sub navigation where you will see **Upload Line Features**.
+If you select it, you will see the **Choose a .csv file to import** field.
+A sample CSV is as follows -
 
-<img src="../../images/tn-option-order-2.png" style="max-width:95%">
-<img src="../../images/tn-option-order-3.png" style="max-width:95%">
+| Column 1          | Column 2          | Column 3          |
+|:------------------|:------------------|-------------------|
+| `TN`              | `A2pSettings`     | `A2pSettings`     |
+| `TN`              | `CampaignId`      | `Action`          |
+| `9192491000`      | `CABCDEF`         | `asSpecified`     |
+| `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
+| `9192491002`      | `C0123456`        | `asSpecified`     |
 
-Once on the TN details page, you can scroll to the bottom where you will see SMS Settings. 
-Ensure SMS Settings is on, and that use location defaults is off. 
-You will see a dropdown labeled **A2P Campaign ID**. 
-Your imported campaigns will be found in the dropdown. 
-When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
-When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.
+<img src="../../images/tn-bulk-upload-2.png" style="max-width:95%">
+
+Once you click the **Import** button the TNs will be processed. 
+Upon successful completion, the TNs will have the appropriate Campaign ID assigned and will be ready for use.
+
+For more info on TNs, please see [Number Management](../../numbers/about.md)
 
 ## Next steps
 ### Create an API-only user
