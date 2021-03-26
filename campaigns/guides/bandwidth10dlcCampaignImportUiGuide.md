@@ -60,7 +60,7 @@ Your imported campaigns will be found in the dropdown.
 When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
 When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.
 
-For more info on TNs, please see [Number Management](../../numbers/about.md)
+For more info on TNs, please see [Advanced Ordering](../../numbers/guides/advancedOrdering.md)
 
 ## Bulk Assign a campaign to multiple TNs
 <img src="../../images/tn-bulk-upload-1.png" style="max-width:95%">
@@ -83,7 +83,7 @@ A sample CSV is as follows -
 Once you click the **Import** button the TNs will be processed. 
 Upon successful completion, the TNs will have the appropriate Campaign ID assigned and will be ready for use.
 
-For more info on TNs, please see [Number Management](../../numbers/about.md)
+For more info on TNs, please see [Managing Line Features](../../numbers/guides/managingLineFeatures.md)
 
 ## Next steps
 ### Create an API-only user
