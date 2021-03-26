@@ -25,14 +25,14 @@ The Account Management API resources are authenticated with your [API Credential
 
 ## Get imported campaigns
 
+{% extendmethod %}
+
 #### Request URL
 <code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/campaignManagement/10dlc/campaigns/imports?page={page}&size={size}`
 
 #### Request Authentication
 
-The [imports](about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds)
-
-{% common %}
+The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds)
 
 ### GET Imports
 
@@ -78,10 +78,10 @@ Location: https://{baseurl}/10dlc/campaigns/imports?page=1&size=2
 
 ## Import campaign
 
+{% extendmethod %}
+
 #### Request URL
 <code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/campaignManagement/10dlc/campaigns/imports`
-
-{% common %}
 
 | Request Body               | Mandatory | Description                                                                                                                |
 |:---------------------------|:----------|:---------------------------------------------------------------------------------------------------------------------------|
@@ -129,6 +129,10 @@ Location: https://{baseurl}/10dlc/campaigns/imports
 For more info on TNs, please see [Number Management](../../numbers/about.md)
 For more info on assigning campaigns to TNs, please see [Advanced Ordering](../../numbers/guides/advancedOrdering.md)
 
+---
+
 ## Bulk Assign a campaign to multiple TNs
 For more info on TNs, please see [Number Management](../../numbers/about.md)
 For more info on bulk assigning TNs, please see [Managing Line Features](../../numbers/guides/managingLineFeatures.md)
+
+---

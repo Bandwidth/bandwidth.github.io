@@ -297,6 +297,9 @@
 	* [Callbacks](international/messaging.md#dlrs)
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
+* [Campaigns](campaigns/about.md)
+    * [10DLC Import Dashboard UI Guide](campaigns/guides/bandwidth10dlcCampaignImportUiGuide.md)
+	* [10DLC Import API Guide](campaigns/guides/bandwidth10dlcCampaignImportApiGuide.md)
 
 ## Multi-Factor Authentication
 * [Overview](mfa/about.md)
@@ -310,7 +313,6 @@
 ## WebRTC Calling and Video API
 * [Overview](webrtc/about.md)
 * [WebRTC Concept Overview](webrtc/guides/overview.md)
-* [Quickstart Guide](webrtc/guides/quickstart.md)
 * [API Methods](webrtc/methods/about.md)
     * [Participants](webrtc/methods/participants/about.md)
         * [POST Create Participant](webrtc/methods/participants/createParticipant.md)
