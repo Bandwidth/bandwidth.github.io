@@ -28,7 +28,7 @@ The Account Management API resources are authenticated with your [API Credential
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/campaignManagement/10dlc/campaigns/imports?page={page}&size={size}`
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page={page}&size={size}`
 
 #### Request Authentication
 
@@ -39,7 +39,7 @@ The [imports](../about.md) resource is authenticated with your [API Credentials 
 {% sample lang="http" %}
 
 ```http
-GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/campaignManagement/10dlc/campaigns/imports?page=1&size=2 HTTP/1.1
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2 HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
@@ -49,7 +49,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Location: https://{baseurl}/10dlc/campaigns/imports?page=1&size=2
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LongCodeImportCampaignsResponse>
@@ -79,7 +79,7 @@ Location: https://{baseurl}/10dlc/campaigns/imports?page=1&size=2
 {% extendmethod %}
 
 #### Request URL
-<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{{accountId}}/campaignManagement/10dlc/campaigns/imports`
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports`
 
 | Request Body               | Mandatory | Description                                                                                                                |
 |:---------------------------|:----------|:---------------------------------------------------------------------------------------------------------------------------|
@@ -90,7 +90,7 @@ Location: https://{baseurl}/10dlc/campaigns/imports?page=1&size=2
 {% sample lang="http" %}
 
 ```http
-POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/campaignManagement/10dlc/campaigns/imports HTTP/1.1
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
@@ -105,7 +105,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml
-Location: https://{baseurl}/10dlc/campaigns/imports
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LongCodeImportCampaignsResponse>
