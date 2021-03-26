@@ -74,8 +74,6 @@ Location: https://{baseurl}/10dlc/campaigns/imports?page=1&size=2
 
 {% endextendmethod %}
 
----
-
 ## Import campaign
 
 {% extendmethod %}
