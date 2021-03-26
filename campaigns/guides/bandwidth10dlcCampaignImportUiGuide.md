@@ -32,19 +32,11 @@ which is where you will see a list of the campaigns that have been previously im
 While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
 This will display a popup modal which allows you to enter the ID of the campaign you want to import.
 
-<img src="../../images/campaign-import-modal.png" style="max-width:95%">
+<img src="../../images/campaign-import-modal.png" style="max-width:95%">\
 
----
-
-_Note: If you get an error message while importing, it is likely that -
-1) your CSP ID on your account is incorrect
+_Note_: If you get an error message while importing, it is likely that -
+1) your CSP ID on your account is incorrect,
 2) the campaign has not yet been shared with BANDW DCA
-
-##### Campaign import fields
-| Field Name                     | Mandatory | Description                                                                                                                        |
-|:-------------------------------|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------|
-| `Campaign ID`                  | `Yes`     | `Unique Campaign ID provided by TCR`                                                                                                       |
-
 
 ## Assign a campaign to a TN
 
@@ -52,26 +44,19 @@ You should see **Numbers** in the navigation bar.
 If you select it, you will be routed to a sub navigation where you will see **My Numbers**.
 If you select it, you can search for a TN and view the details page.
 
-<img src="../../images/tn-option-order-1.png" style="max-width:95%">
-
----
+<img src="../../images/tn-option-order-1.png" style="max-width:95%">\
 
 Once on the TN details page, you can scroll to the bottom where you will see SMS Settings. 
 Ensure SMS Settings is on, and that use location defaults is off. 
 You will see a dropdown labeled **A2P Campaign ID**. 
 Your imported campaigns will be found in the dropdown. 
 When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
-When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.
+When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.\
 
----
+<img src="../../images/tn-option-order-2.png" style="max-width:95%">\
 
-<img src="../../images/tn-option-order-2.png" style="max-width:95%">
 
----
-
-<img src="../../images/tn-option-order-3.png" style="max-width:95%">
-
----
+<img src="../../images/tn-option-order-3.png" style="max-width:95%">\
 
 For more info on TNs, please see [Advanced Ordering](../../numbers/guides/advancedOrdering.md)
 
@@ -80,9 +65,7 @@ You should see **Numbers** in the navigation bar.
 If you select it, you will be routed to a sub navigation where you will see **Upload Line Features**.
 If you select it, you will see the **Choose a .csv file to import** field.
 
-<img src="../../images/tn-bulk-upload-1.png" style="max-width:95%">
-
----
+<img src="../../images/tn-bulk-upload-1.png" style="max-width:95%">\
 
 A sample CSV is as follows -
 
@@ -94,13 +77,10 @@ A sample CSV is as follows -
 | `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
 | `9192491002`      | `C0123456`        | `asSpecified`     |
 
-
 Once you click the **Import** button the TNs will be processed. 
 Upon successful completion, the TNs will have the appropriate Campaign ID assigned and will be ready for use.
 
-<img src="../../images/tn-bulk-upload-2.png" style="max-width:95%">
-
----
+<img src="../../images/tn-bulk-upload-2.png" style="max-width:95%">\
 
 For more info on TNs, please see [Managing Line Features](../../numbers/guides/managingLineFeatures.md)
 
