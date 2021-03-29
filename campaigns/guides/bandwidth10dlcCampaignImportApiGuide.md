@@ -123,7 +123,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 
 ## Assign a campaign to a TN
 For more info on TNs, please see [Number Management](../../numbers/about.md)<br/>
-For more info on assigning campaigns to TNs, please see [Advanced Ordering](../../numbers/guides/advancedOrdering.md)
+For more info on assigning campaigns to TNs, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md)
 
 ## Bulk Assign a campaign to multiple TNs
 For more info on TNs, please see [Number Management](../../numbers/about.md)<br/>

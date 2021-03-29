@@ -4,7 +4,7 @@
 
 # Bandwidth 10DLC Campaigns Import UI Guide {#top}
 
-This walks through how to import and view your campaigns through the [Bandwidth Dashboard](dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md) and [Messaging](../../messaging/about.md) API's.
+This walks through how to import and view your campaigns through the [Bandwidth Dashboard](https://dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md) and [Messaging](../../messaging/about.md) API's.
 
 ## Assumptions
 * You have been contracted and given access to your Bandwidth Dashboard Account
@@ -57,7 +57,7 @@ When you click the **Save** button, the TN will be associated with the Campaign 
   
 <img src="../../images/tn-option-order-3.png" style="max-width:95%"><br/>
 
-For more info on TNs, please see [Advanced Ordering](../../numbers/guides/advancedOrdering.md)
+For more info on TNs, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md)
 
 ## Bulk Assign a campaign to multiple TNs
 You should see **Numbers** in the navigation bar. 
