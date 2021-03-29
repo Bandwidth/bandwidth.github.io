@@ -4,6 +4,8 @@
 
 # Bandwidth Campaign Management Guides
 
+Please note this functionality has not yet been released. These guides are proactive to help you plan your integrations.
+
 ## Base API URL
 `https://dashboard.bandwidth.com/api/acccount/{accountId}/campaignManagement/`
 
