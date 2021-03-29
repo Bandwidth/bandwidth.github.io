@@ -127,7 +127,7 @@ For more info on TNs, please see [Number Management](../../numbers/about.md).<br
 For more info on assigning campaigns to TNs, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md).
 
 ## Bulk Assign a campaign to multiple TNs
-We do not have a publicly exposed REST endpoint for bulk TN updates. Please see how to import a csv in our [campaign import Dashboard UI guide](bandwidth10dlcCampaignImportUiGuide.md).
+We do not have a publicly exposed REST endpoint for bulk TN updates. Please see how to import a csv in our [campaign import Dashboard UI guide](bandwidth10dlcCampaignImportUiGuide.md#assign-a-campaign-to-a-tn).
 For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
 For more info on managing TN Line Features, please see [our managing line features guide](../../numbers/guides/managingLineFeatures.md).
 
