@@ -18,7 +18,7 @@ Endpoint for listing your emergency notification recipients
 
 {% common %}
 
-<!--{% sample lang='http' %}-->
+{% sample lang='http' %}
 
 ```http
 GET https://evs-api.bandwidth.com/api/v1/notifications/notificationRecipients HTTP/1.1

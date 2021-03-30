@@ -10,7 +10,7 @@ Bandwidth retains uploaded media for up to 48 hours.
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's Messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 
@@ -37,7 +37,7 @@ You can upload files up to <code>3.75MB</code> and file storage is free for an u
 curl -X PUT \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{file.mp3}' \
     -H "Content-Type: audio/mpeg" \
-    -u '{token}:{secret}' \
+    -u '{username}:{password}' \
     --data-raw "@{/filepath/file.mp3}"
 ```
 
@@ -81,13 +81,25 @@ f.close()
 {% sample lang="js" %}
 
 ```js
-var contentLength;
-var contentType = 'application/octet-stream';
-var cacheControl = 'no-cache';
+import { Client, ApiController } from '@bandwidth/messaging';
+import { fs } from 'fs';
 
-var contents = fs.readFileSync("some_file", "binary");
-contentLength = contents.length;
-await messagingController.uploadMedia(messagingAccountId, "mediaId", contentLength, contents, contentType, cacheControl);
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/1/1.mp3';
+
+const contentType = 'application/octet-stream';
+const cacheControl = 'no-cache';
+
+const contents = fs.readFileSync('file-to-read', 'binary');
+
+const response = await controller.uploadMedia(accountId, mediaId, contents.length, contents, contentType, cacheControl);
 ```
 
 {% sample lang="php" %}

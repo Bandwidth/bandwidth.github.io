@@ -33,7 +33,7 @@ Bandwidth will return a `HTTP-400` Error when the request is malformed or invali
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "",
@@ -79,7 +79,7 @@ Bandwidth returns a `HTTP-401` Error when the specified user does not have acces
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -124,7 +124,7 @@ Bandwidth returns a `HTTP-403` error when the user does not have access to the m
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -172,7 +172,7 @@ Bandwidth returns a `HTTP-404` when the path is not found. Ensure the path of th
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages/happy HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "from"          : "+19192676804",
@@ -218,7 +218,7 @@ Bandwidth returns a `HTTP-415` error when the content-type of the request is inc
 
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages HTTP/1.1
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 Content-Type: text/plain;charset=UTF-8
 
 {
@@ -265,7 +265,7 @@ For more information about rate limits and queue management, see the [rate limit
 
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{{accountId}}/messages HTTP/1.1
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 Content-Type: text/plain;charset=UTF-8
 
 {

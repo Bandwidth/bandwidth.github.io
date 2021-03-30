@@ -9,7 +9,7 @@ Deletes a media file from Bandwidth API server. Make sure you don't have any app
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's Messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 {% common %}
 
@@ -20,7 +20,7 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 ```bash
 curl -X DELETE \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}' \
-	-u '{token}:{secret}'
+	-u '{username}:{password}'
 ```
 
 {% sample lang="csharp" %}
@@ -50,7 +50,19 @@ messaging_client.delete_media(MESSAGING_ACCOUNT_ID, "mediaId")
 {% sample lang="js" %}
 
 ```js
-await messagingController.deleteMedia(messagingAccountId, "mediaId")
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const mediaId = 'abc12345-6def-abc1-2345-6defabc12345/1/1.mp3';
+
+const response = await controller.deleteMedia(accountId, mediaId);
 ```
 
 {% sample lang="php" %}

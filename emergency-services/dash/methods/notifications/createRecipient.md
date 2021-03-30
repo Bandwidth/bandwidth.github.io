@@ -18,7 +18,7 @@ Endpoint for creating a new emergency notification recipients
 
 {% common %}
 
-<!--{% sample lang='http' %}-->
+{% sample lang='http' %}
 
 ```http
 POST https://evs-api.bandwidth.com/api/v1/notifications/notificationRecipients HTTP/1.1

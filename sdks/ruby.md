@@ -25,6 +25,8 @@ The Ruby SDK(s) are available via [RubyGems](https://rubygems.org/) & Github
 | 3.8.0 | Added get conference endpoint |
 | 3.9.0 | Added conference management endpoints |
 | 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
+| 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
+| 6.0.0 | Updated the MFA error bodies and added message priority |
 
 ## Download & Install
 
@@ -99,7 +101,7 @@ body.from = '+18888888888'
 body.text = 'Hello from Bandwidth'
 
 begin
-    response = messaging_client.create_message(account_id, :body => body)
+    response = messaging_client.create_message(account_id, body)
     puts response.data.id #1570740275373xbn7mbhsfewasdr
     puts response.status_code #202
 rescue Bandwidth::MessagingException => e

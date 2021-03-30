@@ -2,7 +2,7 @@
 <section class="emergencyServicesAbout">
 {% endraw %}
 
-# Bandwidth Emergency Services API
+# Bandwidth Emergency Services APIs
 
 ## Base URLs
 
@@ -10,22 +10,22 @@ The Emergency Services APIs at Bandwidth are hosted with our [Dashboard Service]
 
 Please be sure to select the correct APIs & login for the services for which your account is configured.
 
-### Dashboard Base API URL
+### Bandwidth Dashboard Base API URL
 `https://dashboard.bandwidth.com/api/`
 
-### Dash Base API URL
+### 911 Access Dashboard Base API URL
 `https://service.dashcs.com/dashapi/`
 
 ## Emergency Services Guides
 
-### Dashboard API
+### Bandwidth Dashboard API
 | Guide                                                                                | Description                                               |
 |:-------------------------------------------------------------------------------------|:----------------------------------------------------------|
 | [About Emergency Notifications](./dashboard/guides/emergencyNotifications.md)        | Learn about Emergency Notifications                       |
 | [Config Emergency Notifications](./dashboard/guides/configEmergencyNotifications.md) | Walk through configuring an Emergency Notifications setup |
 
 
-### DASH API
+### 911 Access Dashboard API
 
 | Guide                                                                                                      | Description                           |
 |:-----------------------------------------------------------------------------------------------------------|:--------------------------------------|

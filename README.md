@@ -104,7 +104,7 @@ result = message_controller.create_message(account_id,:body => body)
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {

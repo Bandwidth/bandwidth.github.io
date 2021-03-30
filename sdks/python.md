@@ -25,6 +25,8 @@ The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 | 6.9.0 | Added get conference endpoint |
 | 6.10.0 | Added conference management endpoints |
 | 7.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
+| 8.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
+| 9.0.0 | Updated the MFA error bodies and added message priority |
 
 
 ## Download & Install
@@ -123,7 +125,7 @@ body.mfrom = "+18888888888"
 body.text = "Greetings!"
 
 try:
-    response = messaging_client.create_message(account_id, body=body)
+    response = messaging_client.create_message(account_id, body)
     print(response.body.id) #1570819529611mexbyfr7ugrouuxy
     print(response.status_code) #202
 except MessagingException as e:
@@ -190,7 +192,7 @@ from bandwidth.exceptions.api_exception import APIException
 <client initialization code>
 
 try:
-    response = messaging_client.create_message(account_id, body=body)
+    response = messaging_client.create_message(account_id, body)
 except MessagingException as e:
     print(e.response_code) #http status code
     print(e.response.text) #raw response from api

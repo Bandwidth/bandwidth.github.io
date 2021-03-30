@@ -31,7 +31,7 @@ HTTP/1.1 204
 | accountId         | The user account associated with the call. |
 | applicationId     | The id of the application associated with the call. |
 | to                | The phone number that received the call, in E.164 format (e.g. +15555555555). |
-| from              | The phone number that made the call, in E.164 format (e.g. +15555555555). |
+| from              | The provided identifier string of the caller used in the `from` field of the original call. |
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | callId            | The call id associated with the event. |
 | callUrl           | The URL of the call associated with the event. |

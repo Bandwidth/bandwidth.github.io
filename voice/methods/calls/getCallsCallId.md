@@ -126,8 +126,19 @@ print(response.body.state)
 {% sample lang="js" %}
 
 ```js
-var response = await voiceController.getCallState(accountId, callId);
-console.log(response.state);
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+
+const response = await controller.getCallState(accountId, callId);
 ```
 
 {% sample lang="php" %}
