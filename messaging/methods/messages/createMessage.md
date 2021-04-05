@@ -636,7 +636,7 @@ const response = await controller.createMessage(accountId, {
     to: ['+19999999999'],
     from: '+18888888888',
     text: 'The quick brown fox jumps over the lazy dog.',
-    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png', 'https://s3.amazonaws.com/bw-v2-api/demo-2.jpg']
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png', 'https://dev.bandwidth.com/images/github_logo.png']
 });
 ```
 
