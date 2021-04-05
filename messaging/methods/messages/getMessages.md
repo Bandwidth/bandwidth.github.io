@@ -60,6 +60,11 @@ Bandwidth's Messaging API leverages Basic Authentication with your API user's us
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
 | messages.carrierName | string | The name of the carrier. Not currently supported for MMS, coming soon |
+| messages.messageSize | integer | The size of the message including message content and headers |
+| messages.messageLength | integer | The length of the message content |
+| messages.attachmentCount | integer | The number of attachments the message has |
+| messages.recipientCount | integer | The number of recipients the message has |
+| messages.campaignClass | string | The campaign class of the message, if it has one |
 | pageInfo.prevPage | string | The link to the previous page for pagination |
 | pageInfo.nextPage | string | The link to the next page for pagination |
 
@@ -95,7 +100,12 @@ Content-Type: application/json
             "segmentCount":1,
             "errorCode":0,
             "receiveTime":"2020-04-07T14:03:07.000Z",
-            "carrierName":"other"
+            "carrierName":"other",
+            "messageSize": 27,
+            "messageLength": 18,
+            "attachmentCount": 1,
+            "recipientCount": 1,
+            "campaignClass": "T"
         }
     ]
 }
@@ -137,7 +147,12 @@ Link: <https://messaging.bandwidth.com/api/v2/users/{accountId}/messages?message
             "segmentCount":1,
             "errorCode":9902,
             "receiveTime":"2020-04-07T14:03:07.000Z",
-            "carrierName":"other"
+            "carrierName":"other",
+            "messageSize": 27,
+            "messageLength": 18,
+            "attachmentCount": 1,
+            "recipientCount": 1,
+            "campaignClass": "T"
         },
         {
             ...
