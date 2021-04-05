@@ -255,7 +255,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+      "https://dev.bandwidth.com/images/bandwidth-logo.png"
     ],
     "tag"           : "test message"
 }
@@ -280,7 +280,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -301,7 +301,7 @@ curl -X POST \
         "text"          : "Hey, check this out!",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+          "https://dev.bandwidth.com/images/bandwidth-logo.png"
           ],
         "tag"           : "test message"
     }
@@ -327,7 +327,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -343,7 +343,7 @@ List<String> toNumbers = new ArrayList<>();
 List<String> medias = new ArrayList<>();
 
 toNumbers.add("+12345678902");
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+medias.add("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 messageRequest.setApplicationId(MSG_APPLICATION_ID);
 messageRequest.setText("Hey, check this out!");
@@ -365,7 +365,7 @@ messageRequest.To = new List<string> { "+12345678902" };
 messageRequest.From = "+12345678901";
 messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "test message";
-messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
+messageRequest.Media = new List<string> { "https://dev.bandwidth.com/images/bandwidth-logo.png" };
 
 var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
@@ -382,7 +382,7 @@ body.to = ["+12345678902"]
 body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 begin
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
@@ -399,7 +399,7 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.body.id)
@@ -426,7 +426,7 @@ const response = await controller.createMessage(accountId, {
     to: ['+19999999999'],
     from: '+18888888888',
     text: 'The quick brown fox jumps over the lazy dog.',
-    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg']
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png']
 });
 ```
 
@@ -438,7 +438,7 @@ $body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
 $body->to = array("+12345678902");
 $body->from = "+12345678901";
 $body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+$body->media = array("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -464,8 +464,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-      "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+      "https://dev.bandwidth.com/images/bandwidth-logo.png",
+      "https://dev.bandwidth.com/images/github_logo.png"
     ],
     "tag"           : "test message"
 }
@@ -489,8 +489,8 @@ Content-Type: application/json; charset=utf-8
   "tag"          : "test message",
   "owner"        : "+12345678901",
   "media"        : [
-   "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-   "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+   "https://dev.bandwidth.com/images/bandwidth-logo.png",
+   "https://dev.bandwidth.com/images/github_logo.png"
   ],
   "direction"    : "out",
   "segmentCount" : 1
@@ -511,8 +511,8 @@ curl -X POST \
         "text"          : "Hey, check this out!",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-          "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+          "https://dev.bandwidth.com/images/bandwidth-logo.png",
+          "https://dev.bandwidth.com/images/github_logo.png"
         ],
         "tag"           : "test message"
     }
@@ -536,8 +536,8 @@ Content-Type: application/json; charset=utf-8
   "tag"          : "test message",
   "owner"        : "+12345678901",
   "media"        : [
-   "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-   "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+   "https://dev.bandwidth.com/images/bandwidth-logo.png",
+   "https://dev.bandwidth.com/images/github_logo.png"
   ],
   "direction"    : "out",
   "segmentCount" : 1
@@ -552,8 +552,8 @@ List<String> toNumbers = new ArrayList<>();
 List<String> medias = new ArrayList<>();
 
 toNumbers.add("+12345678902");
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+medias.add("https://dev.bandwidth.com/images/bandwidth-logo.png");
+medias.add("https://dev.bandwidth.com/images/github_logo.png");
 
 messageRequest.setApplicationId(applicationId);
 messageRequest.setText("Hello World");
@@ -575,7 +575,7 @@ messageRequest.To = new List<string> { "+12345678902" };
 messageRequest.From = "+12345678901";
 messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "test message";
-messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"  };
+messageRequest.Media = new List<string> { "https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png"  };
 
 var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
@@ -592,7 +592,7 @@ body.to = ["+12345678902"]
 body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png"]
 begin
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
@@ -609,7 +609,7 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.body.id)
@@ -636,7 +636,7 @@ const response = await controller.createMessage(accountId, {
     to: ['+19999999999'],
     from: '+18888888888',
     text: 'The quick brown fox jumps over the lazy dog.',
-    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg', 'https://s3.amazonaws.com/bw-v2-api/demo-2.jpg']
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png', 'https://s3.amazonaws.com/bw-v2-api/demo-2.jpg']
 });
 ```
 
@@ -648,7 +648,7 @@ $body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
 $body->to = array("+12345678902");
 $body->from = "+12345678901";
 $body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+$body->media = array("https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -877,7 +877,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+      "https://dev.bandwidth.com/images/bandwidth-logo.png"
     ],
     "tag"           : "test message"
 }
@@ -903,7 +903,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -927,7 +927,7 @@ curl -X POST \
         "text"          : "Hey, check this out!",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+          "https://dev.bandwidth.com/images/bandwidth-logo.png"
         ],
         "tag"           : "test message"
     }
@@ -953,7 +953,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -970,7 +970,7 @@ List<String> medias = new ArrayList<>();
 toNumbers.add("+12345678902");
 toNumbers.add("+12345678903");
 
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+medias.add("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 messageRequest.setApplicationId(applicationId);
 messageRequest.setText("Hello World");
@@ -991,7 +991,7 @@ messageRequest.To = new List<string> { "+12345678902", "+12345678903" };
 messageRequest.From = "+12345678901";
 messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "text message";
-messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
+messageRequest.Media = new List<string> { "https://dev.bandwidth.com/images/bandwidth-logo.png" };
 
 var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 ```
@@ -1006,7 +1006,7 @@ body.to = ["+12345678902", "+12345678903"]
 body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 begin
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
@@ -1023,7 +1023,7 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902", "+12345678903"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.body.id)
@@ -1050,7 +1050,7 @@ const response = await controller.createMessage(accountId, {
     to: ['+19999999999', '+10000000000'],
     from: '+18888888888',
     text: 'The quick brown fox jumps over the lazy dog.',
-    media: ['https://s3.amazonaws.com/bw-v2-api/demo.jpg']
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png']
 });
 ```
 
@@ -1062,7 +1062,7 @@ $body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
 $body->to = array("+12345678902", "+12345678903");
 $body->from = "+12345678901";
 $body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+$body->media = array("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
