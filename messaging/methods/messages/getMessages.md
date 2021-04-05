@@ -60,8 +60,8 @@ Bandwidth's Messaging API leverages Basic Authentication with your API user's us
 | messages.errorCode | integer | The numeric error code of the message |
 | messages.receiveTime | string | The ISO 8601 datetime of the message |
 | messages.carrierName | string | The name of the carrier. Not currently supported for MMS, coming soon |
-| messages.messageSize | integer | The size of the message including message content and headers |
-| messages.messageLength | integer | The length of the message content |
+| messages.messageSize | integer | The size of the message in bytes, including message content and headers |
+| messages.messageLength | integer | The number of text characters in the message |
 | messages.attachmentCount | integer | The number of attachments the message has |
 | messages.recipientCount | integer | The number of recipients the message has |
 | messages.campaignClass | string | The campaign class of the message, if it has one |
