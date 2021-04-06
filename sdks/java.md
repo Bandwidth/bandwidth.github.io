@@ -24,6 +24,8 @@ The Java SDK(s) are available via [Maven](https://mvnrepository.com/) & Github
 | 3.6.0 | Added get conference endpoint |
 | 3.7.0 | Added WebRTC API |
 | 3.8.0 | Added conference management endpoints |
+| 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
+| 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required. Updated the MFA error bodies and added message priority |
 
 ## Download & Install
 

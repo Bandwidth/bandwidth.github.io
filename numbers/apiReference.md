@@ -1,4 +1,6 @@
-Note: The numbers API expects phone numbers to be in a 10 digit format `XXXYYYZZZZ`, _not_ in E164 format. This is different from the voice and messaging APIs, which expect phone numbers in E164 format.
+Emojis are explicitly not allowed on any endpoint for this API.
+
+This API expects phone numbers to be in a 10 digit format `XXXYYYZZZZ`, _not_ in E164 format. This is different from the voice and messaging APIs, which expect phone numbers in E164 format.
 
 #### Base API URL
 `https://dashboard.bandwidth.com/api/`

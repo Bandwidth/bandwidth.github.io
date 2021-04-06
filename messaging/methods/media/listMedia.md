@@ -11,7 +11,7 @@ Each request returns a maximum of 1000 media files. Retrieving more than 1000 me
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API Token and API Secret. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's Messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ---
 
@@ -24,7 +24,7 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 | Property      | Description                                   |
 |:--------------|:----------------------------------------------|
 | mediaName     | The mediaName is the unique name of the media |
-| contentLength | Size of the media in Bytes `B`                |
+| contentLength | Size of the media in Bytes                    |
 | content       | URL to use to GET the specific media file.    |
 | Continuation-Token (Response Header) | Token used to retrieve subsequent media. |
 
@@ -38,7 +38,7 @@ Bandwidth's messaging API leverages Basic Authentication with your API Token and
 ```bash
 curl -X GET \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media' \
-    -u '{token}:{secret}'
+    -u '{username}:{password}'
 ```
 
 > The above command returns JSON structured like this:
@@ -95,8 +95,18 @@ print(media.body[0].media_name)
 {% sample lang="js" %}
 
 ```js
-var response = await messagingController.listMedia(userId, '');
-console.log(response[0].mediaName);
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.listMedia(accountId);
 ```
 
 {% sample lang="php" %}
@@ -116,7 +126,7 @@ print_r($response->getResult()[0]->mediaName);
 ```bash
 curl -X GET \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/media' \
-    -u '{token}:{secret}' \
+    -u '{username}:{password}' \
     -H "Continuation-Token: 12345"
 ```
 
@@ -219,23 +229,31 @@ while True:
 {% sample lang="js" %}
 
 ```js
-async function getMediaWithToken(continuationToken) {
-    await messagingController.listMedia(userId, continuationToken, function(error, response, context) {
-        console.log("Medias length: " + response.length);
-        console.log("Media 1 name: " + response[0].mediaName);
-        if (context.response.headers.hasOwnProperty('continuation-token')) {
-            continuationToken = context.response.headers['continuation-token'];
-        } else {
-            continuationToken = null;
-        }
-    });
-    return continuationToken;
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+async function listMedia(continuationToken) {
+    const response = await controller.listMedia(accountId, continuationToken);
+    // Read the response and continue listing media as required.
+    if (response.headers.hasOwnProperty('continuation-token')) {
+        return response.headers['continuation-token'];
+    } else {
+        return '';
+    }
 }
 
 var continuationToken = '';
 while (true) {
-    continuationToken = await getMediaWithToken(continuationToken);
-    if (continuationToken === null) {
+    continuationToken = await listMedia(continuationToken);
+    if (continuationToken === '') {
         break;
     }
 }

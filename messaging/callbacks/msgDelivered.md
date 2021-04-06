@@ -130,7 +130,7 @@ User-Agent: BandwidthAPI/v2
       "owner"        : "+12345678902",
       "direction"    : "out",
       "segmentCount" : 1,
-      "media"        : [""https://s3.amazonaws.com/bw-v2-api/demo.jpg""]
+      "media"        : ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
     }
   }
 ]

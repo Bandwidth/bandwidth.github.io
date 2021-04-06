@@ -88,11 +88,22 @@ voice_client.create_transcribe_recording(VOICE_ACCOUNT_ID, call_id, recording_id
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthVoice.ApiTranscribeRecordingRequest({
-    "callbackUrl": "https://www.myapp.com/transcription"
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
-await voiceController.createTranscribeRecording(accountId, callId, recordingId, body);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+const recordingId = 'r-abc12345-6def-abc1-2345-6defabc12345';
+
+const response = await controller.createTranscribeRecording(accountId, callId, recordingId, {
+    callbackUrl: 'https://www.myapp.com/transcription'
+});
 ```
 
 {% sample lang="php" %}

@@ -18,3 +18,4 @@ Welcome to the Bandwidth developer docs!
 | [Call control with BXML](../voice/bxml/about.md)               | Learn how to control call flows with BXML (Bandwidth XML).                  | Voice                           |
 | [Phone Number Overview](../numbers/about.md)                   | Entry point for all things Phone Number API related.                        | Phone Numbers                   |
 | [Phone Number Ordering](../numbers/guides/advancedOrdering.md) | Learn how to configure your account to programmaticly order Phone Numbers   | Phone Numbers                   |
+| [Quickstart CLI](../cli/cli.md) | A CLI used to set up your account and start using our APIs | All |

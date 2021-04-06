@@ -10,7 +10,7 @@ Endpoint for sending text messages and picture messages using V2 messaging.
 
 #### Basic Authentication
 
-Bandwidth's messaging API leverages Basic Authentication with your API username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
+Bandwidth's Messaging API leverages Basic Authentication with your API user's username and password. Read more about how Bandwidth secures endpoints in the [Security & Credentials](../../../guides/accountCredentials.md) document.
 
 ### Invalid Phone Number Handling
 
@@ -31,8 +31,10 @@ When sending a group message to an invalid phone number, you may receive extrane
 | applicationId | Yes       | `string`                                                       | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                                                                                                                                                                                                      |
 | media*        | No (required if no text is provided)       | `array`                                                        | A list of URLs to include as media attachments as part of the message. If this field is included, the message will be sent as MMS no matter the number of recipients.<br>Refer to the [What MMS message size limits must be adhered to?](https://support.bandwidth.com/hc/en-us/articles/360014235473-What-MMS-message-size-limits-must-be-adhered-to-) article to learn more about file size limitations and best practices. |
 | tag           | No        | `string`                                                       | Any string which will be included in the callback events of the message. (max 1024 Chars)                                                                                                                                                                                                                                                                                                                                     |
+| priority      | No        | `string` | The message's priority, currently for toll-free or short code SMS only. Accepted values are `"default"` or `"high"`. Messages with a priority value of `"high"` are given preference over your other traffic. If not set in the request body, Bandwidth will use the `"default"` value. |
+| expiration    | No        | `string` | The message's expiration date and time, currently for toll-free or short code SMS only. Accepted values must be in RFC-3339 format. Messages received after the expiration date and time will not be sent. If a message expires, Bandwidth will send a `message-failed` event with a 4360 error code to your callback URL. Ex: `2021-10-02T15:00:00Z`|
 
-* Please check the [FAQ](https://support.bandwidth.com) for information on media size limits
+* Please check the [FAQ](https://support.bandwidth.com/hc/en-us/articles/360014235473-What-MMS-message-size-limits-must-be-adhered-to) for information on media size limits
 
 ### Response Parameters
 
@@ -49,7 +51,8 @@ When sending a group message to an invalid phone number, you may receive extrane
 | media         | `array`  | A list of URLs to include as media attachments as part of the message                                                                                                                                                                                                                                                                                               |
 | tag           | `string` | An custom String that you can use to track this particular message                                                                                                                                                                                                                                                                                                  |
 | segmentCount  | `int`    | This indicates the number of segments the original message from the user is broken into before sending over to carrier networks                                                                                                                                                                                                                                      |
-
+| priority      | `string` | The priority specified by the user |
+| expiration    | `string` | Message expiration date and time specified by the user.
 {% common %}
 
 ### Example 1 of 5: Send a single text message
@@ -59,7 +62,7 @@ When sending a group message to an invalid phone number, you may receive extrane
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
     "to"            : ["+12345678902"],
@@ -96,7 +99,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -175,7 +178,7 @@ body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -200,15 +203,23 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!"
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.'
+});
 ```
 
 {% sample lang="php" %}
@@ -236,7 +247,7 @@ try {
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
     "to"            : ["+12345678902"],
@@ -244,7 +255,7 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+      "https://dev.bandwidth.com/images/bandwidth-logo.png"
     ],
     "tag"           : "test message"
 }
@@ -269,7 +280,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -281,7 +292,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -290,7 +301,7 @@ curl -X POST \
         "text"          : "Hey, check this out!",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+          "https://dev.bandwidth.com/images/bandwidth-logo.png"
           ],
         "tag"           : "test message"
     }
@@ -316,7 +327,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -332,7 +343,7 @@ List<String> toNumbers = new ArrayList<>();
 List<String> medias = new ArrayList<>();
 
 toNumbers.add("+12345678902");
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+medias.add("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 messageRequest.setApplicationId(MSG_APPLICATION_ID);
 messageRequest.setText("Hey, check this out!");
@@ -354,7 +365,7 @@ messageRequest.To = new List<string> { "+12345678902" };
 messageRequest.From = "+12345678901";
 messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "test message";
-messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
+messageRequest.Media = new List<string> { "https://dev.bandwidth.com/images/bandwidth-logo.png" };
 
 var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
@@ -371,9 +382,9 @@ body.to = ["+12345678902"]
 body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -388,7 +399,7 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.body.id)
@@ -399,16 +410,24 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
-    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.',
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png']
+});
 ```
 
 {% sample lang="php" %}
@@ -419,7 +438,7 @@ $body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
 $body->to = array("+12345678902");
 $body->from = "+12345678901";
 $body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+$body->media = array("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -437,7 +456,7 @@ try {
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
     "to"            : ["+12345678902"],
@@ -445,8 +464,8 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-      "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+      "https://dev.bandwidth.com/images/bandwidth-logo.png",
+      "https://dev.bandwidth.com/images/github_logo.png"
     ],
     "tag"           : "test message"
 }
@@ -470,8 +489,8 @@ Content-Type: application/json; charset=utf-8
   "tag"          : "test message",
   "owner"        : "+12345678901",
   "media"        : [
-   "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-   "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+   "https://dev.bandwidth.com/images/bandwidth-logo.png",
+   "https://dev.bandwidth.com/images/github_logo.png"
   ],
   "direction"    : "out",
   "segmentCount" : 1
@@ -483,7 +502,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -492,8 +511,8 @@ curl -X POST \
         "text"          : "Hey, check this out!",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-          "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+          "https://dev.bandwidth.com/images/bandwidth-logo.png",
+          "https://dev.bandwidth.com/images/github_logo.png"
         ],
         "tag"           : "test message"
     }
@@ -517,8 +536,8 @@ Content-Type: application/json; charset=utf-8
   "tag"          : "test message",
   "owner"        : "+12345678901",
   "media"        : [
-   "https://s3.amazonaws.com/bw-v2-api/demo.jpg",
-   "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"
+   "https://dev.bandwidth.com/images/bandwidth-logo.png",
+   "https://dev.bandwidth.com/images/github_logo.png"
   ],
   "direction"    : "out",
   "segmentCount" : 1
@@ -533,8 +552,8 @@ List<String> toNumbers = new ArrayList<>();
 List<String> medias = new ArrayList<>();
 
 toNumbers.add("+12345678902");
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+medias.add("https://dev.bandwidth.com/images/bandwidth-logo.png");
+medias.add("https://dev.bandwidth.com/images/github_logo.png");
 
 messageRequest.setApplicationId(applicationId);
 messageRequest.setText("Hello World");
@@ -556,7 +575,7 @@ messageRequest.To = new List<string> { "+12345678902" };
 messageRequest.From = "+12345678901";
 messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "test message";
-messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"  };
+messageRequest.Media = new List<string> { "https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png"  };
 
 var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 
@@ -573,9 +592,9 @@ body.to = ["+12345678902"]
 body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png"]
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -590,7 +609,7 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.body.id)
@@ -601,16 +620,24 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
-    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg"]
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.',
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png', 'https://dev.bandwidth.com/images/github_logo.png']
+});
 ```
 
 {% sample lang="php" %}
@@ -621,7 +648,7 @@ $body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
 $body->to = array("+12345678902");
 $body->from = "+12345678901";
 $body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg", "https://s3.amazonaws.com/bw-v2-api/demo2.jpg");
+$body->media = array("https://dev.bandwidth.com/images/bandwidth-logo.png", "https://dev.bandwidth.com/images/github_logo.png");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);
@@ -640,7 +667,7 @@ try {
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
     "to"            : [
@@ -683,7 +710,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -769,7 +796,7 @@ body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -794,15 +821,23 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902", "+12345678903"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999', '+10000000000'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.'
+});
 ```
 
 {% sample lang="php" %}
@@ -831,7 +866,7 @@ try {
 ```http
 POST https://messaging.bandwidth.com/api/v2/users/{accountId}/messages HTTP/1.1
 Content-Type: application/json; charset=utf-8
-Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
     "to"            : [
@@ -842,7 +877,7 @@ Authorization: Basic YXBpVG9rZW46YXBpU2VjcmV0
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+      "https://dev.bandwidth.com/images/bandwidth-logo.png"
     ],
     "tag"           : "test message"
 }
@@ -868,7 +903,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -880,7 +915,7 @@ Content-Type: application/json; charset=utf-8
 ```bash
 curl -X POST \
     --url 'https://messaging.bandwidth.com/api/v2/users/{accountId}/messages' \
-    -u '{apiToken}:{apiSecret}' \
+    -u '{username}:{password}' \
     -H 'Content-type: application/json' \
     --data-raw '
     {
@@ -892,7 +927,7 @@ curl -X POST \
         "text"          : "Hey, check this out!",
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "media"         : [
-          "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+          "https://dev.bandwidth.com/images/bandwidth-logo.png"
         ],
         "tag"           : "test message"
     }
@@ -918,7 +953,7 @@ Content-Type: application/json; charset=utf-8
   "tag"           : "test message",
   "owner"         : "+12345678901",
   "media"         : [
-    "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+    "https://dev.bandwidth.com/images/bandwidth-logo.png"
   ],
   "direction"     : "out",
   "segmentCount"  : 1
@@ -935,7 +970,7 @@ List<String> medias = new ArrayList<>();
 toNumbers.add("+12345678902");
 toNumbers.add("+12345678903");
 
-medias.add("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+medias.add("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 messageRequest.setApplicationId(applicationId);
 messageRequest.setText("Hello World");
@@ -956,7 +991,7 @@ messageRequest.To = new List<string> { "+12345678902", "+12345678903" };
 messageRequest.From = "+12345678901";
 messageRequest.Text = "Hey, check this out!";
 messageRequest.Tag = "text message";
-messageRequest.Media = new List<string> { "https://s3.amazonaws.com/bw-v2-api/demo.jpg" };
+messageRequest.Media = new List<string> { "https://dev.bandwidth.com/images/bandwidth-logo.png" };
 
 var response = msgClient.CreateMessage(MSG_ACCOUNT_ID, messageRequest);
 ```
@@ -971,9 +1006,9 @@ body.to = ["+12345678902", "+12345678903"]
 body.from = "+12345678901"
 body.text = "Hey, check this out!"
 body.tag = "test message"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 begin
-    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, :body => body)
+    result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     puts result.data.id
 rescue Exception => e
     puts e
@@ -988,7 +1023,7 @@ body.application_id = "93de2206-9669-4e07-948d-329f4b722ee2"
 body.to = ["+12345678902", "+12345678903"]
 body.mfrom = "+12345678901"
 body.text = "Hey, check this out!"
-body.media = ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+body.media = ["https://dev.bandwidth.com/images/bandwidth-logo.png"]
 try:
     result = messaging_client.create_message(MESSAGING_ACCOUNT_ID, body)
     print(result.body.id)
@@ -999,16 +1034,24 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthMessaging.MessageRequest({
-    "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2" ,
-    "to": ["+12345678902", "+12345678903"],
-    "from": "+12345678901",
-    "text": "Hey, check this out!",
-    "media": ["https://s3.amazonaws.com/bw-v2-api/demo.jpg"]
+import { Client, ApiController } from '@bandwidth/messaging';
+
+const client = new Client({
+  basicAuthUserName: 'username',
+  basicAuthPassword: 'password'
 });
 
-var response = await messagingController.createMessage(messagingAccountId, body);
-console.log(response);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.createMessage(accountId, {
+    applicationId: 'abc12345-6def-abc1-2345-6defabc12345',
+    to: ['+19999999999', '+10000000000'],
+    from: '+18888888888',
+    text: 'The quick brown fox jumps over the lazy dog.',
+    media: ['https://dev.bandwidth.com/images/bandwidth-logo.png']
+});
 ```
 
 {% sample lang="php" %}
@@ -1019,7 +1062,7 @@ $body->applicationId = "93de2206-9669-4e07-948d-329f4b722ee2";
 $body->to = array("+12345678902", "+12345678903");
 $body->from = "+12345678901";
 $body->text = "Hey, check this out!";
-$body->media = array("https://s3.amazonaws.com/bw-v2-api/demo.jpg");
+$body->media = array("https://dev.bandwidth.com/images/bandwidth-logo.png");
 
 try {
     $response = $messagingClient->createMessage($messagingAccountId, $body);

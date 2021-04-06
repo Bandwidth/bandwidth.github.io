@@ -139,8 +139,18 @@ print(response.body[0].media_url)
 {% sample lang="js" %}
 
 ```js
-var response = await voiceController.getQueryMetadataForAccount(accountId);
-console.log(response[0].mediaUrl);
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
+});
+
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+
+const response = await controller.getQueryMetadataForAccount(accountId);
 ```
 
 {% sample lang="php" %}

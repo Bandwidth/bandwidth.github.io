@@ -99,16 +99,22 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthVoice.ApiModifyCallRequest({
-    "redirectUrl": "http://www.myapp.com/new",
-    "state": "active"
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
-try {
-    await voiceController.modifyCall(accountId, callId, body);
-} catch (error) {
-    console.error(error);
-}
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+
+const response = await controller.modifyCall(accountId, callId, {
+    redirectUrl: 'https://test.com/redirect',
+    state: 'active'
+});
 ```
 
 {% sample lang="php" %}
@@ -181,11 +187,21 @@ except Exception as e:
 {% sample lang="js" %}
 
 ```js
-var body = new BandwidthVoice.ApiModifyCallRequest({
-    "state": "completed"
+import { Client, ApiController } from '@bandwidth/voice';
+
+const client = new Client({
+    basicAuthUserName: 'username',
+    basicAuthPassword: 'password'
 });
 
-await voiceController.modifyCall(accountId, "callId", body);
+const controller = new ApiController(client);
+
+const accountId = '1111111';
+const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
+
+const response = await controller.modifyCall(accountId, callId, {
+    state: 'completed'
+});
 ```
 
 {% sample lang="php" %}
