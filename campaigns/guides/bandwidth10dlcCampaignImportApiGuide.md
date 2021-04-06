@@ -60,6 +60,16 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
             <MessageClass>Campaign-E</MessageClass>
             <CreateDate>2021-03-18T12:50:45Z</CreateDate>
             <Status>ACTIVE</Status>
+            <MnoStatusList>
+                <MnoStatus>
+                    <MnoName>ATT</MnoName>
+                    <MnoId>10017</MnoId>
+                    <Status>APPROVED</Status>
+                    <MnoName>TMO</MnoName>
+                    <MnoId>10035</MnoId>
+                    <Status>PENDING</Status>
+                </MnoStatus
+            </MnoStatusList>
         </ImportedCampaign>
         <ImportedCampaign>
             <CampaignId>CCOPRTM</CampaignId>
@@ -67,6 +77,16 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
             <MessageClass>Campaign-E</MessageClass>
             <CreateDate>2021-03-19T09:36:18Z</CreateDate>
             <Status>ACTIVE</Status>
+            <MnoStatusList>
+                <MnoStatus>
+                    <MnoName>ATT</MnoName>
+                    <MnoId>10017</MnoId>
+                    <Status>REJECTED</Status>
+                    <MnoName>TMO</MnoName>
+                    <MnoId>10035</MnoId>
+                    <Status>SUSPENDED</Status>
+                </MnoStatus
+            </MnoStatusList>
         </ImportedCampaign>
     </ImportedCampaigns>
 </LongCodeImportCampaignsResponse>
@@ -115,6 +135,16 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
         <MessageClass>Campaign-E</MessageClass>
         <CreateDate>2021-03-18T12:50:45Z</CreateDate>
         <Status>ACTIVE</Status>
+            <MnoStatusList>
+                <MnoStatus>
+                    <MnoName>ATT</MnoName>
+                    <MnoId>10017</MnoId>
+                    <Status>APPROVED</Status>
+                    <MnoName>TMO</MnoName>
+                    <MnoId>10035</MnoId>
+                    <Status>APPROVED</Status>
+                </MnoStatus
+            </MnoStatusList>
     </ImportedCampaign>
 </LongCodeImportCampaignsResponse>
 ```
