@@ -64,7 +64,7 @@ Bandwidth's Messaging API leverages Basic Authentication with your API user's us
 | messages.messageLength | integer | The number of text characters in the message |
 | messages.attachmentCount | integer | The number of attachments the message has |
 | messages.recipientCount | integer | The number of recipients the message has |
-| messages.campaignClass | string | The campaign class of the message, if it has one |
+| messages.campaignClass | string | The campaign class of the message, or unregistered. Only applies to A2P traffic. |
 | pageInfo.prevPage | string | The link to the previous page for pagination |
 | pageInfo.nextPage | string | The link to the next page for pagination |
 
