@@ -53,6 +53,10 @@ Your imported campaigns will be found in the dropdown.
 When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
 When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.<br/>
 
+_Note_: If you don't see the Campaign ID in the dropdown, it's likely that - 
+1) it has not been approved by all Mobile Network Operators (MNOs),
+2) it has been deactivated or expired<br/>
+
 <img src="../../images/tn-option-order-2.png" style="max-width:95%"><br/> 
   
 <img src="../../images/tn-option-order-3.png" style="max-width:95%"><br/>
