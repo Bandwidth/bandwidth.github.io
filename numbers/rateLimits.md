@@ -227,3 +227,6 @@ Endpoints related to pulling historical information.
 | <code class="get">GET</code> | `/accounts/{accountId}/sites/{siteId}/portins`              |
 | <code class="get">GET</code> | `/bulkPortins`                                              |
 | <code class="get">GET</code> | `/accounts/{accountId}/bulkPortins/{orderId}/{history`      |
+| <code class="get">GET</code> | `/accounts/{accountId}/e911s/{orderId}/history`             |
+| <code class="get">GET</code> | `/accounts/{accountId}/e911s`                               |
+| <code class="get">GET</code> | `/accounts/{accountId}/e911s/{orderId}`                     |
