@@ -5,6 +5,8 @@ Uploads a file the normal HTTP way. You may add headers to the request in order 
 
 Bandwidth retains uploaded media for up to 48 hours.
 
+If a file being uploaded has the same name as a file that already exists under that api account, the new file will overwrite the old file.
+
 ### Request URL
 <code class="put">PUT</code>`https://messaging.bandwidth.com/api/v2/users/{accountId}/media/{mediaName}`
 
