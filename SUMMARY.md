@@ -142,6 +142,7 @@
 		* [Modifying an LNP Order (Supp LNP Order)](numbers/guides/portingPhoneNumbers.md#modify-lnp)
 		* [Canceling LNP Order](numbers/guides/portingPhoneNumbers.md#cancel-lnp)
 		* [Activating Ported Numbers](numbers/guides/portingPhoneNumbers.md#activate-ported-numbers)
+	* [Toll Free Porting Validation](numbers/guides/tollFreePorting.md)
 	* [Number Utilization Review API](numbers/guides/numberUtilizationReviewAPI.md)
 	* [Portout Passcode Protection](numbers/guides/portoutPasscode.md)
 	* [CSR Lookup API](numbers/guides/csrLookup.md)
