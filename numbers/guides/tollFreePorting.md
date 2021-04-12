@@ -33,10 +33,39 @@ This endpoint allows users to submit a list of toll free numbers to determine if
 {% common %}
 ### Request
 ```http
+POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/tollFreePortingValidations HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<TollFreePortingValidation>
+    <!-- The CustomerOrderId is an optional string that may be associated with the order.  -->
+    <!-- It will be included in all responses and notifications related to the order, and may be used to correlate with an order in a customer system. -->
+    <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
+    <!-- The TollFreeNumberList is a list of toll free telephone numbers for which you want information about the status and RespOrg from SOMOS. -->
+    <!-- The list may consist of up to 5,000 toll free telephone numbers in one order.  The more numbers in the order, the longer it will take the order to complete. -->
+    <TollFreeNumberList>
+        <TollFreeNumber>8442948899</TollFreeNumber>
+        <TollFreeNumber>8774024485</TollFreeNumber>
+    </TollFreeNumberList>
+</TollFreePortingValidation>
 ```
 
 ### Response
 ```xml
+<TollFreePortingValidationResponse>
+    <TollFreePortingValidation>
+        <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
+        <ProcessingStatus>PROCESSING</ProcessingStatus>
+        <AccountId>9900572</AccountId>
+        <CreatedByUser>jgilmore</CreatedByUser>
+        <OrderCreateDate>2020-08-20T14:51:58.695Z</OrderCreateDate>
+        <OrderId>e2b029cf-1cfa-4285-a875-80e8fd951208</OrderId>
+        <TollFreeNumberList>
+            <TollFreeNumber>8442948899</TollFreeNumber>
+            <TollFreeNumber>8774024485</TollFreeNumber>
+        </TollFreeNumberList>
+    </TollFreePortingValidation>
+</TollFreePortingValidationResponse>
 ```
 
 {% endextendmethod %}
@@ -51,10 +80,57 @@ This endpoint allows users to fetch a list of all /tollFreePortingValidations or
 {% common %}
 ### Request
 ```http
+GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/tollFreePortingValidations HTTP/1.1
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
 ```xml
+<TollFreePortingValidationResponses>
+    <!-- A sample order that is still processing -->
+    <TollFreePortingValidationResponse>
+        <TollFreePortingValidation>
+            <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
+            <ProcessingStatus>PROCESSING</ProcessingStatus>
+            <AccountId>9900572</AccountId>
+            <CreatedByUser>jgilmore</CreatedByUser>
+            <OrderCreateDate>2020-08-20T14:51:58.695Z</OrderCreateDate>
+            <OrderId>e2b029cf-1cfa-4285-a875-80e8fd951208</OrderId>
+            <TollFreeNumberList>
+                <TollFreeNumber>8442948899</TollFreeNumber>
+                <TollFreeNumber>8774024485</TollFreeNumber>
+            </TollFreeNumberList>
+        </TollFreePortingValidation>
+    </TollFreePortingValidationResponse>
+    <!-- A sample order that completed -->
+    <TollFreePortingValidationResponse>
+        <TollFreePortingValidation>
+            <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
+            <ProcessingStatus>COMPLETE</ProcessingStatus>
+            <AccountId>9900572</AccountId>
+            <CreatedByUser>jgilmore</CreatedByUser>
+            <OrderCreateDate>2020-08-20T14:51:58.695Z</OrderCreateDate>
+            <OrderId>e2b029cf-1cfa-4285-a875-80e8fd951208</OrderId>
+            <TollFreeNumberList>
+                <TollFreeNumber>8442948899</TollFreeNumber>
+                <TollFreeNumber>8774024485</TollFreeNumber>
+            </TollFreeNumberList>
+            <Breakdown>
+                <PortableTollFreeNumberList>
+                    <RespOrgList>
+                        <RespOrg>
+                            <Id>RespOrg1</Id>
+                            <RespOrgException>true</RespOrgException>
+                            <TollFreeNumberList>
+                                <TollFreeNumber>8442948899</TollFreeNumber>
+                                <TollFreeNumber>8774024485</TollFreeNumber>
+                            </TollFreeNumberList>
+                        </RespOrg>
+                    </RespOrgList>
+                </PortableTollFreeNumberList>
+            </Breakdown>
+        </TollFreePortingValidation>
+    </TollFreePortingValidationResponse>
 ```
 
 {% endextendmethod %}
@@ -74,10 +150,26 @@ This endpoint allows users to fetch the status of a specified /tollFreePortingVa
 {% common %}
 ### Request
 ```http
+GET https://dashboard.bandwidth.com/api/accounts/{{accountId}}/tollFreePortingValidations/{orderId} HTTP/1.1
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
 ### Response
 ```xml
+<TollFreePortingValidationResponse>
+    <TollFreePortingValidation>
+        <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
+        <ProcessingStatus>PROCESSING</ProcessingStatus>
+        <AccountId>9900572</AccountId>
+        <CreatedByUser>jgilmore</CreatedByUser>
+        <OrderCreateDate>2020-08-20T14:51:58.695Z</OrderCreateDate>
+        <OrderId>e2b029cf-1cfa-4285-a875-80e8fd951208</OrderId>
+        <TollFreeNumberList>
+            <TollFreeNumber>8442948899</TollFreeNumber>
+            <TollFreeNumber>8774024485</TollFreeNumber>
+        </TollFreeNumberList>
+    </TollFreePortingValidation>
+</TollFreePortingValidationResponse>
 ```
 
 {% endextendmethod %}
@@ -89,10 +181,31 @@ This endpoint allows users to cancel a /tollFreePortingValidations order if you 
 {% common %}
 ### Request
 ```http
+PATCH https://dashboard.bandwidth.com/api/accounts/{{accountId}}/tollFreePortingValidations HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<TollFreePortingValidation>
+    <ProcessingStatus>CANCELLED</ProcessingStatus>
+</TollFreePortingValidation>
 ```
 
 ### Response
 ```xml
+<TollFreePortingValidationResponse>
+    <TollFreePortingValidation>
+        <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
+        <ProcessingStatus>CANCELLED</ProcessingStatus>
+        <AccountId>9900572</AccountId>
+        <CreatedByUser>jgilmore</CreatedByUser>
+        <OrderCreateDate>2020-08-20T14:51:58.695Z</OrderCreateDate>
+        <OrderId>e2b029cf-1cfa-4285-a875-80e8fd951208</OrderId>
+        <TollFreeNumberList>
+            <TollFreeNumber>8442948899</TollFreeNumber>
+            <TollFreeNumber>8774024485</TollFreeNumber>
+        </TollFreeNumberList>
+    </TollFreePortingValidation>
+</TollFreePortingValidationResponse>
 ```
 
 {% endextendmethod %}
@@ -113,3 +226,6 @@ For requests with only a few toll free numbers, these requests are generally ser
 If you wish to be notified of /tollFreePortingValidations order status changes, you may subscribe to notification via web hook, or via email.  For information on subscribing for order notifications, please see [our documentation regarding subscriptions](./account/subscriptions/about.md).
 
 For detailed information on the /tollFreePortingValidations endpoints and supported operations, please refer to Bandwidth’s [Numbers API reference](./apiReference.md).
+
+<br>
+<br>
