@@ -168,7 +168,7 @@ This endpoint assumes that TN(s) have already been ordered or ported into our sy
 
 | TnOptionGroup              | Mandatory | Description                                                    |
 |:---------------------------|:----------|:---------------------------------------------------------------|
-| `Sms`                      | Yes       |  'on' or 'off' to enable A2pSettings, Sms must be turned 'on'  |
+| `Sms`                      | Yes       |  'on' or 'off'. Sms must be turned 'on' to enable A2pSettings  |
 | `A2pSettings`              | Yes       | 	An object containing A2pSettings                              |
 | `TelephoneNumbers`         | Yes       | 	A list of Telephone Numbers to assign Campaign Id             |
 
