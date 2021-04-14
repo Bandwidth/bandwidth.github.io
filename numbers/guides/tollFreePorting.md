@@ -226,6 +226,5 @@ For requests with only a few toll free numbers, these requests are generally ser
 If you wish to be notified of /tollFreePortingValidations order status changes, you may subscribe to notification via web hook, or via email.  For information on subscribing for order notifications, please see [our documentation regarding subscriptions](./account/subscriptions/about.md).
 
 For detailed information on the /tollFreePortingValidations endpoints and supported operations, please refer to Bandwidth’s [Numbers API reference](./apiReference.md).
-
 <br>
 <br>
