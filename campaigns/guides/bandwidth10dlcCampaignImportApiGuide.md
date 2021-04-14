@@ -159,40 +159,46 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 
 | Request Body               | Mandatory | Description                                                                                                                  |
 |:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
-| `TnOptionGroups`           | Yes       | 	A list of TnOptionGroup.                                                                                                   |
+| `TnOptionGroups`           | Yes       | 	A list of TnOptionGroup.                                                                                                    |
 | `CustomerOrderId`          | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
 
-| TnOptionGroup              | Mandatory | Description                                                                                                                  |
-|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
-| `TelephoneNumber`          | Yes       | 	A list of TnOptionGroups.                                                                                                   |
-| `CallingNameDisplay`       | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `PortOutPasscode`          | Yes       | 	A list of TnOptionGroups.                                                                                                   |
-| `NumberFormat`             | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `RPIDFormat`               | Yes       | 	A list of TnOptionGroups.                                                                                                   |
-| `RewriteUser`              | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `CallForward`              | Yes       | 	A list of TnOptionGroups.                                                                                                   |
-| `Protected`                | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `Sms`                      | Yes       | 	A list of TnOptionGroups.                                                                                                   |
-| `FinalDestinationURI`      | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `NNID`                     | Yes       | 	A list of TnOptionGroups.                                                                                                   |
-| `ESPID`                    | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `A2pSettings`              | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-| `OrginationRoutePlan`      | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| TnOptionGroup              | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `Sms`                      | Yes       |  'on' or 'off' to enable A2pSettings, Sms must be turned 'on'  |
+| `A2pSettings`              | Yes       | 	An object containing A2pSettings                              |
+| `TelephoneNumbers`         | Yes       | 	A list of Telephone Numbers to assign Campaign Id             |
+
+| TnOptionGroup              | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `CampaignId`               | Yes       |  The Campaign Id provided by The Campaign Registry (TCR)       |
+| `Action     `              | Yes       | 	Must be set to 'asSpecified'                                  |
 
 
 
-### POST Imports
+### POST Tn Options
 
 {% sample lang="http" %}
 
 ```http
-POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports HTTP/1.1
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
-<ImportedCampaign>
-    <CampaignId>CJEUMDK</CampaignId>
-</ImportedCampaign>
+<TnOptionOrder>
+  <TnOptionGroups>
+    <TnOptionGroup>
+      <Sms>on</Sms>
+      <A2pSettings>
+        <Action>asSpecified</Action>
+        <CampaignId>CJEUMDK</CampaignId>
+      </A2pSettings>
+      <TelephoneNumbers>
+        <TelephoneNumber>9999999999</TelephoneNumber>
+        <TelephoneNumber>8888888888</TelephoneNumber>
+      </TelephoneNumbers>
+    </TnOptionGroup>
+  </TnOptionGroups>
+</TnOptionOrder>
 
 ```
 
@@ -201,32 +207,37 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 201 Created
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
+Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnoptions
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
-    <ImportedCampaign>
-        <CampaignId>CJEUMDK</CampaignId>
-        <Description>Test 9</Description>
-        <MessageClass>Campaign-E</MessageClass>
-        <CreateDate>2021-03-18T12:50:45Z</CreateDate>
-        <Status>ACTIVE</Status>
-            <MnoStatusList>
-                <MnoStatus>
-                    <MnoName>ATT</MnoName>
-                    <MnoId>10017</MnoId>
-                    <Status>APPROVED</Status>
-                    <MnoName>TMO</MnoName>
-                    <MnoId>10035</MnoId>
-                    <Status>APPROVED</Status>
-                </MnoStatus
-            </MnoStatusList>
-    </ImportedCampaign>
-</LongCodeImportCampaignsResponse>
+    <TnOptionOrderResponse>
+        <TnOptionOrder>
+            <OrderCreateDate>2021-04-14T18:17:17.791Z</OrderCreateDate>
+            <AccountId>9900012</AccountId>
+            <CreatedByUser>systemUser</CreatedByUser>
+            <OrderId>09c9bfbb-2928-4646-ac4a-05eac326219a</OrderId>
+            <LastModifiedDate>2021-04-14T18:17:17.792Z</LastModifiedDate>
+            <ProcessingStatus>RECEIVED</ProcessingStatus>
+            <TnOptionGroups>
+                <TnOptionGroup>
+                    <Sms>on</Sms>
+                    <A2pSettings>
+                        <CampaignId>CAHVRZA</CampaignId>
+                        <Action>asSpecified</Action>
+                    </A2pSettings>
+                    <TelephoneNumbers>
+                        <TelephoneNumber>9104270494</TelephoneNumber>
+                    </TelephoneNumbers>
+                </TnOptionGroup>
+            </TnOptionGroups>
+            <ErrorList/>
+            <Warnings/>
+        </TnOptionOrder>
+    </TnOptionOrderResponse>
 ```
 
 {% endextendmethod %}
-For more detailed documentation, please - <br/>
+_Note_: There are many line options you can add to a TN. This section showed just how turn SMS on, and assign a Campaign ID. For more detailed documentation on other kinds of TN Option Orders, please - <br/>
 1. Go to the [Dashboard REST API Documentation](../../numbers/apiReference.md)<br/>
 2. Click on the /Accounts section<br/>
 3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
