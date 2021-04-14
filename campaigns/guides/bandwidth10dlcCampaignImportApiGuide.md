@@ -152,9 +152,87 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 {% endextendmethod %}
 
 ## Assign a campaign to a TN
-To assign a campaign to a TN, you will need to associate it with the Campaign ID by using the [POST /accounts/{accountId}/tnoptions endpoint](../../numbers/apiReference.md).<br/>
+{% extendmethod %}
+
+#### Request URL
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `TnOptionGroups`           | Yes       | 	A list of TnOptionGroup.                                                                                                   |
+| `CustomerOrderId`          | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+
+| TnOptionGroup              | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `TelephoneNumber`          | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| `CallingNameDisplay`       | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `PortOutPasscode`          | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| `NumberFormat`             | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `RPIDFormat`               | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| `RewriteUser`              | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `CallForward`              | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| `Protected`                | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `Sms`                      | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| `FinalDestinationURI`      | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `NNID`                     | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+| `ESPID`                    | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `A2pSettings`              | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+| `OrginationRoutePlan`      | Yes       | 	A list of TnOptionGroups.                                                                                                   |
+
+
+
+### POST Imports
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<ImportedCampaign>
+    <CampaignId>CJEUMDK</CampaignId>
+</ImportedCampaign>
+
+```
+
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LongCodeImportCampaignsResponse>
+    <ImportedCampaign>
+        <CampaignId>CJEUMDK</CampaignId>
+        <Description>Test 9</Description>
+        <MessageClass>Campaign-E</MessageClass>
+        <CreateDate>2021-03-18T12:50:45Z</CreateDate>
+        <Status>ACTIVE</Status>
+            <MnoStatusList>
+                <MnoStatus>
+                    <MnoName>ATT</MnoName>
+                    <MnoId>10017</MnoId>
+                    <Status>APPROVED</Status>
+                    <MnoName>TMO</MnoName>
+                    <MnoId>10035</MnoId>
+                    <Status>APPROVED</Status>
+                </MnoStatus
+            </MnoStatusList>
+    </ImportedCampaign>
+</LongCodeImportCampaignsResponse>
+```
+
+{% endextendmethod %}
+For more detailed documentation, please - <br/>
+1. Go to the [Dashboard REST API Documentation](../../numbers/apiReference.md)<br/>
+2. Click on the /Accounts section<br/>
+3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
+4. Click and see the POST endpoint with detailed descriptions<br/>
 For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
-For more info on assigning campaigns to TNs, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md).
+For more info on ordering a TN, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md).
 
 ## Bulk Assign a campaign to multiple TNs
 We do not have a publicly exposed REST endpoint for bulk TN updates. Please see how to import a csv in our [campaign import Dashboard UI guide](bandwidth10dlcCampaignImportUiGuide.md#assign-a-campaign-to-a-tn).<br/>
