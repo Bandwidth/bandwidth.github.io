@@ -22,6 +22,8 @@ The Account Management API resources are authenticated with your [API Credential
 
 * [Get imported campaigns](#get-imported-campaigns)
 * [Import campaign](#import-campaign)
+* [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
+* [Bulk Assign a campaign to multiple TNs](#bulk-assign-a-campaign-to-multiple-tns)
 
 ## Get imported campaigns
 
