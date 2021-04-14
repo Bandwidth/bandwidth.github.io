@@ -152,6 +152,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 {% endextendmethod %}
 
 ## Assign a campaign to a TN
+
 ### Assumption
 This endpoint assumes that TN(s) have already been ordered or ported into our system. For more info, please see [our number ordering](../../numbers/guides/onDemandNumberSearchAndOrder.md) or [number porting](../../numbers/guides/portingPhoneNumbers.md) guides.
 
@@ -175,8 +176,6 @@ This endpoint assumes that TN(s) have already been ordered or ported into our sy
 |:---------------------------|:----------|:---------------------------------------------------------------|
 | `CampaignId`               | Yes       |  The Campaign Id provided by The Campaign Registry (TCR)       |
 | `Action     `              | Yes       | 	Must be set to 'asSpecified'                                  |
-
-
 
 ### POST Tn Options
 
@@ -240,7 +239,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnop
 ```
 
 {% endextendmethod %}
-_Note_: There are many line options you can add to a TN. This section showed just how turn SMS on, and assign a Campaign ID. For more detailed documentation on other kinds of TN Option Orders, please - <br/>
+_Note_: There are many line options you can add to a TN. This section showed just how to turn SMS on and assign an A2P Campaign ID. For more detailed documentation on other types of TN Option Orders, please - <br/>
 1. Go to the [Dashboard REST API Documentation](../../numbers/apiReference.md)<br/>
 2. Click on the /Accounts section<br/>
 3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
