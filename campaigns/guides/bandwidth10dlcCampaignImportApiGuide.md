@@ -228,7 +228,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnop
                         <Action>asSpecified</Action>
                     </A2pSettings>
                     <TelephoneNumbers>
-                        <TelephoneNumber>9104270494</TelephoneNumber>
+                        <TelephoneNumber>9999999999</TelephoneNumber>
+                        <TelephoneNumber>8888888888</TelephoneNumber>
                     </TelephoneNumbers>
                 </TnOptionGroup>
             </TnOptionGroups>
