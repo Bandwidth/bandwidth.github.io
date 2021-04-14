@@ -152,6 +152,9 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 {% endextendmethod %}
 
 ## Assign a campaign to a TN
+### Assumption
+This endpoint assumes that TN(s) have already been ordered or ported into our system. For more info, please see [our number ordering](../../numbers/guides/onDemandNumberSearchAndOrder.md) or [number porting](../../numbers/guides/portingPhoneNumbers.md) guides.
+
 {% extendmethod %}
 
 #### Request URL
@@ -243,7 +246,6 @@ _Note_: There are many line options you can add to a TN. This section showed jus
 3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
 4. Click and see the POST endpoint with detailed descriptions<br/>
 For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
-For more info on ordering a TN, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md).
 
 ## Bulk Assign a campaign to multiple TNs
 We do not have a publicly exposed REST endpoint for bulk TN updates. Please see how to import a csv in our [campaign import Dashboard UI guide](bandwidth10dlcCampaignImportUiGuide.md#assign-a-campaign-to-a-tn).<br/>
