@@ -8,7 +8,7 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 |:-----------------------------------------------------------------------|:--------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|
 | [`bandwidth/sdk`](https://packagist.org/packages/bandwidth/sdk)        | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/php-sdk)                  |
 | [`bandwidth/iris`](https://packagist.org/packages/bandwidth/iris)      | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/php-bandwidth-iris)       |
-| [Code Examples](https://github.com/Bandwidth/examples/tree/master/php) | PHP code examples                                                               | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/php) |
+| [Code Examples](https://github.com/Bandwidth-Samples?language=php) | PHP code examples                                                               | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth-Samples?language=php) |
 
 ## Release Notes
 
