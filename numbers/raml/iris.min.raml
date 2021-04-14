@@ -17581,7 +17581,7 @@ securitySchemes:
                                  <td>COMPLETE, FAILED</td>
                               </tr>
                               <tr>
-                                 <td>tollFreePortabilityChecker</td>
+                                 <td>tollfreePortingValidations</td>
                                  <td>PROCESSING, FAILED, COMPLETE, CANCELLED</td>
                               </tr>
                            </table>
@@ -17658,7 +17658,7 @@ securitySchemes:
                     For email subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup | tollFreePortabilityChecker] </OrderType> <!-- required -->
+                        <OrderType> [ portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | bulkPortins| importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup | tollfreePortingValidations] </OrderType> <!-- required -->
                         <OrderId> [ UUID ] </OrderId> <!-- optional, if provided notifications will only be sent for events regarding this specific order, if omitted notifications regarding events for all orders of the specified type will be sent -->
                         <EmailSubscription>
                             <Email> [ email address] </Email>
@@ -17679,7 +17679,7 @@ securitySchemes:
                     For callback subscriptions on order status notification use a body like this:<br>
                     ```
                     <Subscription>
-                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders| emergencyNotificationGroup | emergencyEndpointGroup | tollFreePortabilityChecker] </OrderType> <!-- same rules and values as above -->
+                        <OrderType> [portins | portouts | orders | disconnects | dldas | lsrorders | e911s | tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders| emergencyNotificationGroup | emergencyEndpointGroup | tollfreePortingValidations] </OrderType> <!-- same rules and values as above -->
                         <OrderId> [UUID]</OrderId> <!-- same rules and value as above -->
                         <CallbackSubscription>
                             <URL> [valid publically addressable URL] </URL> <!-- the URL that notifications should get POSTed to, HTTPS is highly recommended -->
@@ -17720,7 +17720,7 @@ securitySchemes:
                     ```xml
                     <Notification>
                         <SubscriptionId>...</SubscriptionId>
-                        <OrderType>portins | portouts | orders | disconnects | dldas | lsrorders | e911s| tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup | tollFreePortabilityChecker</OrderType>
+                        <OrderType>portins | portouts | orders | disconnects | dldas | lsrorders | e911s| tnoptions | externalTns | lidb | importtnorders | removeImportedTnOrders | emergencyNotificationGroup | emergencyEndpointGroup | tollfreePortingValidations</OrderType>
                         <OrderId>...</OrderId>
                         <!-- for order update events -->
                         <Status>COMPLETE | FAILED | PARTIAL | EXCEPTION ... </Status>
@@ -18517,10 +18517,10 @@ securitySchemes:
                     responses:
                         200:
                             description: A reservation has been successfully deleted.
-        /tollFreePortabilityChecker: 
+        /tollFreePortingValidations: 
             description: |
                 Request toll free number status and RespOrg information from SOMOS and fetch recent orders.
-                The /tollFreePortabilityChecker endpoint allows you to submit a list of toll free telephone numbers for which you want to query the status and RespOrg information from SOMOS.  Because it can take a few minutes to get this information for a large list of toll free telephone numbers, this is an asynchronous API call.  This means that you POST to submit the request.  The response gives you an order id that can be used to check the status of the order, or retrieve the results if the order is complete.  Or you can use the /accounts/{accountId}/subscriptions API to register for status notifications about all /tollFreePortabilityChecker orders, or a specific order.
+                The /tollFreePortingValidations endpoint allows you to submit a list of toll free telephone numbers for which you want to query the status and RespOrg information from SOMOS.  Because it can take a few minutes to get this information for a large list of toll free telephone numbers, this is an asynchronous API call.  This means that you POST to submit the request.  The response gives you an order id that can be used to check the status of the order, or retrieve the results if the order is complete.  Or you can use the /accounts/{accountId}/subscriptions API to register for status notifications about all /tollFreePortingValidations orders, or a specific order.
             post:
                 description: |
                         A list of toll free telephone numbers submitted to this endpoint will result in that list being broken down as follows:<br><br>
@@ -18536,7 +18536,7 @@ securitySchemes:
                 body:
                     application/xml:
                         example:
-                            <TollFreePortabilityChecker>
+                            <TollFreePortingValidation>
                               <!-- The CustomerOrderId is an optional string that may be associated with the order.  -->
                               <!-- It will be included in all responses and notifications related to the order, and may be used to correlate with an order in a customer system. -->
                               <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
@@ -18546,11 +18546,11 @@ securitySchemes:
                                   <TollFreeNumber>8442948899</TollFreeNumber>
                                   <TollFreeNumber>8774024485</TollFreeNumber>
                               </TollFreeNumberList>
-                            </TollFreePortabilityChecker>
+                            </TollFreePortingValidation>
                 responses:
                     201:
                         description: |
-                            The success response to a POST operation on the /tollFreePortabilityChecker endpoint looks like the following.<br>
+                            The success response to a POST operation on the /tollFreePortingValidations endpoint looks like the following.<br>
                             The CustomerOrderId is copied from the request.<br>
                             The ProcessingStatus may be one of:<br>
                             <ul>
@@ -18562,8 +18562,8 @@ securitySchemes:
                             </ul>
                             <br>
                             ```xml
-                            <TollFreePortabilityCheckerResponse>
-                                <TollFreePortabilityChecker>
+                            <TollFreePortingValidationResponse>
+                                <TollFreePortingValidation>
                                     <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                     <ProcessingStatus>PROCESSING</ProcessingStatus>
                                     <AccountId>9900572</AccountId>
@@ -18574,13 +18574,13 @@ securitySchemes:
                                         <TollFreeNumber>8442948899</TollFreeNumber>
                                         <TollFreeNumber>8774024485</TollFreeNumber>
                                     </TollFreeNumberList>
-                                </TollFreePortabilityChecker>
-                            </TollFreePortabilityCheckerResponse>
+                                </TollFreePortingValidation>
+                            </TollFreePortingValidationResponse>
                             ```
                             <br>
-                            A failed POST attempt for /accounts/{accountId}/tollFreePortabilityChecker will look like the following:<br>
+                            A failed POST attempt for /accounts/{accountId}/tollFreePortingValidations will look like the following:<br>
                             ```xml
-                            <TollFreePortabilityCheckerResponse>
+                            <TollFreePortingValidationResponse>
                                 <ErrorList>
                                     <Error>
                                         <Code>nnnn</ErrorCode>
@@ -18591,7 +18591,7 @@ securitySchemes:
                                         <Description>Description of condition nnnn</Description>
                                     </Error>
                                 </ErrorList>
-                                <TollFreePortabilityChecker>
+                                <TollFreePortingValidation>
                                     <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                     <ProcessingStatus>FAILED</ProcessingStatus>
                                     <AccountId>9900572</AccountId>
@@ -18602,8 +18602,8 @@ securitySchemes:
                                         <TollFreeNumber>8442948899</TollFreeNumber>
                                         <TollFreeNumber>8774024485</TollFreeNumber>
                                     </TollFreeNumberList>
-                                </TollFreePortabilityChecker>
-                            </TollFreePortabilityCheckerResponse>
+                                </TollFreePortingValidation>
+                            </TollFreePortingValidationResponse>
                             ```
                             <br>
                     400:
@@ -18611,11 +18611,11 @@ securitySchemes:
                     401:
                         description: The request must be authenticated with a valid username and password using basic authentication.
                     403:
-                        description: The specified account does not have the toll free product -OR- The user does not have permission to create toll free portability checker orders.
+                        description: The specified account does not have the toll free product -OR- The user does not have permission to create toll free porting validation orders.
                     404:
                         description: The accountId specified in the request URI is not found.
                     405:
-                        description: An unsupported method was attempted on the tollFreePortabilityChecker endpoint.
+                        description: An unsupported method was attempted on the tollFreePortingValidations endpoint.
                     409:
                         description: Request includes more than 500 toll free numbers.
                     502:
@@ -18624,8 +18624,8 @@ securitySchemes:
                         body:
                             application/xml:
                                 example:
-                                     <TollFreePortabilityCheckerResponse>
-                                        <TollFreePortabilityChecker>
+                                     <TollFreePortingValidationResponse>
+                                        <TollFreePortingValidation>
                                             <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                             <ProcessingStatus>PROCESSING</ProcessingStatus>
                                             <AccountId>9900572</AccountId>
@@ -18636,15 +18636,15 @@ securitySchemes:
                                                 <TollFreeNumber>8442948899</TollFreeNumber>
                                                 <TollFreeNumber>8774024485</TollFreeNumber>
                                             </TollFreeNumberList>
-                                        </TollFreePortabilityChecker>
-                                     </TollFreePortabilityCheckerResponse>
+                                        </TollFreePortingValidation>
+                                     </TollFreePortingValidationResponse>
             get:
                 description: |
-                    Fetch toll free portability checker orders associated with this account.  The get operation on /accounts/{accountId}/tollFreePortabilityChecker allows you to find recent toll free portability checker orders.  This might be useful if, for example, you lose the order id that was returned in the 201 response to the POST operation that created the order.<br><br>
-                    With no query parameters, the results include all recent toll free portability checker orders associated with the account specified in the URI parameter.  A query parameter called tollFreeNumber can be optionally specified to narrow the results to only orders that included the specified toll free telephone number.<br>
+                    Fetch toll free porting validation orders associated with this account.  The get operation on /accounts/{accountId}/tollFreePortingValidations allows you to find recent toll free porting validation orders.  This might be useful if, for example, you lose the order id that was returned in the 201 response to the POST operation that created the order.<br><br>
+                    With no query parameters, the results include all recent toll free porting validation orders associated with the account specified in the URI parameter.  A query parameter called tollFreeNumber can be optionally specified to narrow the results to only orders that included the specified toll free telephone number.<br>
                 queryParameters:
                     tollFreeNumber:
-                        description: This optional query parameter may be specified in order to retrieve only toll free portability checker orders that include the specified toll free telephone number.
+                        description: This optional query parameter may be specified in order to retrieve only toll free porting validation orders that include the specified toll free telephone number.
                         type: string
                         required: false
                         example: 8442948899
@@ -18653,10 +18653,10 @@ securitySchemes:
                         description: |
                             A success response to the GET includes a payload like the following:<br>
                             ```xml
-                            <TollFreePortabilityCheckerResponses>
+                            <TollFreePortingValidationResponses>
                                 <!-- A sample order that is still processing -->
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>PROCESSING</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -18667,11 +18667,11 @@ securitySchemes:
                                             <TollFreeNumber>8442948899</TollFreeNumber>
                                             <TollFreeNumber>8774024485</TollFreeNumber>
                                         </TollFreeNumberList>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 <!-- A sample order that completed -->
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>COMPLETE</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -18696,11 +18696,11 @@ securitySchemes:
                                                 </RespOrgList>
                                             </PortableTollFreeNumberList>
                                         </Breakdown>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 <!-- A sample order that failed -->
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>FAILED</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -18749,11 +18749,11 @@ securitySchemes:
                                                 </DeniedTollFreeNumber>
                                             </DeniedTollFreeNumberList>
                                         </Breakdown>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 <!-- A sample order that was cancelled -->
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>CANCELLED</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -18764,23 +18764,23 @@ securitySchemes:
                                             <TollFreeNumber>8442948899</TollFreeNumber>
                                             <TollFreeNumber>8774024485</TollFreeNumber>
                                         </TollFreeNumberList>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
-                            </TollFreePortabilityCheckerResponses>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
+                            </TollFreePortingValidationResponses>
                             ```
                             <br>
                             If no orders are found, the response will look like the following:<br>
                             ```xml
-                            <TollFreePortabilityCheckerResponses/>
+                            <TollFreePortingValidationResponses/>
                             ```
                             <br>
                         body:
                             application/xml:
                                 example: |
-                                    <TollFreePortabilityCheckerResponses>
+                                    <TollFreePortingValidationResponses>
                                         <!-- A sample order that is still processing -->
-                                        <TollFreePortabilityCheckerResponse>
-                                            <TollFreePortabilityChecker>
+                                        <TollFreePortingValidationResponse>
+                                            <TollFreePortingValidation>
                                                 <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                                 <ProcessingStatus>PROCESSING</ProcessingStatus>
                                                 <AccountId>9900572</AccountId>
@@ -18791,11 +18791,11 @@ securitySchemes:
                                                     <TollFreeNumber>8442948899</TollFreeNumber>
                                                     <TollFreeNumber>8774024485</TollFreeNumber>
                                                 </TollFreeNumberList>
-                                            </TollFreePortabilityChecker>
-                                        </TollFreePortabilityCheckerResponse>
+                                            </TollFreePortingValidation>
+                                        </TollFreePortingValidationResponse>
                                         <!-- A sample order that completed -->
-                                        <TollFreePortabilityCheckerResponse>
-                                            <TollFreePortabilityChecker>
+                                        <TollFreePortingValidationResponse>
+                                            <TollFreePortingValidation>
                                                 <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                                 <ProcessingStatus>COMPLETE</ProcessingStatus>
                                                 <AccountId>9900572</AccountId>
@@ -18820,11 +18820,11 @@ securitySchemes:
                                                         </RespOrgList>
                                                     </PortableTollFreeNumberList>
                                                 </Breakdown>
-                                            </TollFreePortabilityChecker>
-                                        </TollFreePortabilityCheckerResponse>
+                                            </TollFreePortingValidation>
+                                        </TollFreePortingValidationResponse>
                                         <!-- A sample order that failed -->
-                                        <TollFreePortabilityCheckerResponse>
-                                            <TollFreePortabilityChecker>
+                                        <TollFreePortingValidationResponse>
+                                            <TollFreePortingValidation>
                                                 <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                                 <ProcessingStatus>FAILED</ProcessingStatus>
                                                 <AccountId>9900572</AccountId>
@@ -18873,11 +18873,11 @@ securitySchemes:
                                                         </DeniedTollFreeNumber>
                                                     </DeniedTollFreeNumberList>
                                                 </Breakdown>
-                                            </TollFreePortabilityChecker>
-                                        </TollFreePortabilityCheckerResponse>
+                                            </TollFreePortingValidation>
+                                        </TollFreePortingValidationResponse>
                                         <!-- A sample order that was cancelled -->
-                                        <TollFreePortabilityCheckerResponse>
-                                            <TollFreePortabilityChecker>
+                                        <TollFreePortingValidationResponse>
+                                            <TollFreePortingValidation>
                                                 <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                                 <ProcessingStatus>CANCELLED</ProcessingStatus>
                                                 <AccountId>9900572</AccountId>
@@ -18888,28 +18888,28 @@ securitySchemes:
                                                     <TollFreeNumber>8442948899</TollFreeNumber>
                                                     <TollFreeNumber>8774024485</TollFreeNumber>
                                                 </TollFreeNumberList>
-                                            </TollFreePortabilityChecker>
-                                        </TollFreePortabilityCheckerResponse>
-                                    </TollFreePortabilityCheckerResponses>
+                                            </TollFreePortingValidation>
+                                        </TollFreePortingValidationResponse>
+                                    </TollFreePortingValidationResponses>
                     401:
                         description: The request must be authenticated with a valid username and password using basic authentication.
                     403:
-                        description: The specified account does not have the toll free product -OR- The user does not have permission to fetch toll free portability checker orders.
+                        description: The specified account does not have the toll free product -OR- The user does not have permission to fetch toll free porting validation orders.
                     404:
                         description: The accountId specified in the request URI is not found.
             /{orderId}: 
                 description: |
-                    Fetch status and results for a specified /tollFreePortabilityChecker order, or cancel an order that is still processing.
+                    Fetch status and results for a specified /tollFreePortingValidations order, or cancel an order that is still processing.
                 get:
                     description: |
-                        Fetch a specified toll free portability checker order.
+                        Fetch a specified toll free porting validation order.
                     responses:
                         201:
                             description: |
                                 For an order in the PROCESSING state, the response will look like the following:
                                 ```xml
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>PROCESSING</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -18920,14 +18920,14 @@ securitySchemes:
                                             <TollFreeNumber>8442948899</TollFreeNumber>
                                             <TollFreeNumber>8774024485</TollFreeNumber>
                                         </TollFreeNumberList>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 ```
                                 <br>
                                 For an order in the FAILED state, the response will look like the following:<br>
                                 ```xml
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>FAILED</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -18976,14 +18976,14 @@ securitySchemes:
                                                 </DeniedTollFreeNumber>
                                             </DeniedTollFreeNumberList>
                                         </Breakdown>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 ```
                                 <br>
                                 For an order in the COMPLETE state, the response will look like the following:<br>
                                 ```xml
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>COMPLETE</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -19008,14 +19008,14 @@ securitySchemes:
                                                 </RespOrgList>
                                             </PortableTollFreeNumberList>
                                         </Breakdown>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 ```
                                 <br>
                                 For an order in the CANCELLED state, the response will look like the following:<br>
                                 ```xml
-                                <TollFreePortabilityCheckerResponse>
-                                    <TollFreePortabilityChecker>
+                                <TollFreePortingValidationResponse>
+                                    <TollFreePortingValidation>
                                         <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                         <ProcessingStatus>CANCELLED</ProcessingStatus>
                                         <AccountId>9900572</AccountId>
@@ -19026,32 +19026,32 @@ securitySchemes:
                                             <TollFreeNumber>8442948899</TollFreeNumber>
                                             <TollFreeNumber>8774024485</TollFreeNumber>
                                         </TollFreeNumberList>
-                                    </TollFreePortabilityChecker>
-                                </TollFreePortabilityCheckerResponse>
+                                    </TollFreePortingValidation>
+                                </TollFreePortingValidationResponse>
                                 ```
                                 <br>
                         401:
                             description: The request must be authenticated with a valid username and password using basic authentication.
                         403:
-                            description: The specified account does not have the toll free product. -OR- The user does not have permission to fetch toll free portability checker orders.
+                            description: The specified account does not have the toll free product. -OR- The user does not have permission to fetch toll free porting validation orders.
                         404:
                             description: The accountId specified in the request URI is not foundThe orderId specified in the request URI is not found.
                 patch:
                   description: |
-                            Cancel a toll free portability checker order in the PROCESSING state.  This may be used if the order is taking too long, or if you decide that you no longer need the results of the query.
+                            Cancel a toll free porting validation order in the PROCESSING state.  This may be used if the order is taking too long, or if you decide that you no longer need the results of the query.
                   body:
                       application/xml:
                           example: |
-                              <TollFreePortabilityChecker>
+                              <TollFreePortingValidation>
                                   <ProcessingStatus>CANCELLED</ProcessingStatus>
-                              </TollFreePortabilityChecker>
+                              </TollFreePortingValidation>
                   responses:
                       200:
                           description: |
                               A success response to the PATCH operation looks like the following:<br>
                               ```xml
-                              <TollFreePortabilityCheckerResponse>
-                                  <TollFreePortabilityChecker>
+                              <TollFreePortingValidationResponse>
+                                  <TollFreePortingValidation>
                                       <CustomerOrderId>MyOptionalOrderId</CustomerOrderId>
                                       <ProcessingStatus>CANCELLED</ProcessingStatus>
                                       <AccountId>9900572</AccountId>
@@ -19062,18 +19062,18 @@ securitySchemes:
                                           <TollFreeNumber>8442948899</TollFreeNumber>
                                           <TollFreeNumber>8774024485</TollFreeNumber>
                                       </TollFreeNumberList>
-                                  </TollFreePortabilityChecker>
-                              </TollFreePortabilityCheckerResponse>
+                                  </TollFreePortingValidation>
+                              </TollFreePortingValidationResponse>
                               ```
                               <br>
                               A failed PATCH attempt results in a payload that looks like the following:<br>
                               ```xml
-                              <TollFreePortabilityCheckerResponse>
+                              <TollFreePortingValidationResponse>
                                   <ResponseStatus>
                                       <ErrorCode>7624</ErrorCode>
                                       <Description>Processing Status may only be changed to CANCELLED for orders that are currently in PROCESSING status.</Description>
                                   </ResponseStatus>
-                              </TollFreePortabilityCheckerResponse>
+                              </TollFreePortingValidationResponse>
                               ```
                               <br>
                       400:
@@ -19081,7 +19081,7 @@ securitySchemes:
                       401:
                           description: The request must be authenticated with a valid username and password using basic authentication.
                       403:
-                          description: The specified account does not have the toll free product -OR- The user does not have permission to fetch toll free portability checker orders.
+                          description: The specified account does not have the toll free product -OR- The user does not have permission to fetch toll free porting validation orders.
                       404:
                           description: The accountId specified in the request URI is not found -OR- The orderId specified in the request URI is not found.
                       409:

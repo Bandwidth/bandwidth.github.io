@@ -4030,7 +4030,7 @@
   </tr>
     <tr>
     <td>14500</td>
-    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup, tollFreePortabilityChecker</td>
+    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup, tollFreePortingValidations</td>
   </tr>
     <tr>
     <td>14501</td>
@@ -4580,7 +4580,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC, Hosted_E911, 10DLCImportCampaign</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC, Hosted_E911, 10DLCImportCampaign, TN_LOOKUP</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -7157,6 +7157,18 @@
     <td>13105</td>
     <td>Cannot delete ImportCampaignSettings for account with a Campaign associated with it</td>
   </tr>
+    <tr>
+    <td>13106</td>
+    <td>Invalid signature</td>
+  </tr>
+    <tr>
+    <td>13107</td>
+    <td>CIC '%s' is duplicate. Please remove the duplicate values and try again</td>
+  </tr>
+    <tr>
+    <td>13108</td>
+    <td>ROR '%s' is duplicate. Please remove the duplicate values and try again</td>
+  </tr>
   </table>
 <h2>TerminationError</h2>
 <table class="fixed">
@@ -8499,7 +8511,7 @@
   </tr>
     <tr>
     <td>200</td>
-    <td>TFN Validation Failed. Please review the attached TollFree Portability Checker results and update the order with valid TFNs.</td>
+    <td>TFN Validation Failed. Please review the attached TollFree Porting Validation results and update the order with valid TFNs.</td>
   </tr>
     <tr>
     <td>200</td>
