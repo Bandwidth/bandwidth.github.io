@@ -172,10 +172,10 @@ This endpoint assumes that TN(s) have already been ordered or ported into our sy
 | `A2pSettings`              | Yes       | 	An object containing A2pSettings                              |
 | `TelephoneNumbers`         | Yes       | 	A list of Telephone Numbers to assign Campaign Id             |
 
-| TnOptionGroup              | Mandatory | Description                                                    |
+| A2pSettings                | Mandatory | Description                                                    |
 |:---------------------------|:----------|:---------------------------------------------------------------|
 | `CampaignId`               | Yes       |  The Campaign Id provided by The Campaign Registry (TCR)       |
-| `Action     `              | Yes       | 	Must be set to 'asSpecified'                                  |
+| `Action`                   | Yes       | 	Must be set to 'asSpecified'                                  |
 
 ### POST Tn Options
 
@@ -215,9 +215,9 @@ Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnop
     <TnOptionOrderResponse>
         <TnOptionOrder>
             <OrderCreateDate>2021-04-14T18:17:17.791Z</OrderCreateDate>
-            <AccountId>9900012</AccountId>
-            <CreatedByUser>systemUser</CreatedByUser>
-            <OrderId>09c9bfbb-2928-4646-ac4a-05eac326219a</OrderId>
+            <AccountId>000000000</AccountId>
+            <CreatedByUser>user</CreatedByUser>
+            <OrderId>ac48abbe-2311-4888-ca4a-05eaa336119c</OrderId>
             <LastModifiedDate>2021-04-14T18:17:17.792Z</LastModifiedDate>
             <ProcessingStatus>RECEIVED</ProcessingStatus>
             <TnOptionGroups>
@@ -240,11 +240,14 @@ Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnop
 ```
 
 {% endextendmethod %}
-_Note_: There are many line options you can add to a TN. This section showed just how to turn SMS on and assign an A2P Campaign ID. For more detailed documentation on other types of TN Option Orders, please - <br/>
+
+### Next Steps
+There are many line options you can add to a TN. This section showed just how to turn SMS on and assign an A2P Campaign ID. For more detailed documentation on other types of TN Option Orders, please - <br/>
 1. Go to the [Dashboard REST API Documentation](../../numbers/apiReference.md)<br/>
 2. Click on the /Accounts section<br/>
 3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
 4. Click and see the POST endpoint with detailed descriptions<br/>
+
 For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
 
 ## Bulk Assign a campaign to multiple TNs
