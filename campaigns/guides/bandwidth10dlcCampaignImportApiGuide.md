@@ -22,6 +22,8 @@ The Account Management API resources are authenticated with your [API Credential
 
 * [Get imported campaigns](#get-imported-campaigns)
 * [Import campaign](#import-campaign)
+* [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
+* [Bulk Assign a campaign to multiple TNs](#bulk-assign-a-campaign-to-multiple-tns)
 
 ## Get imported campaigns
 
@@ -152,9 +154,103 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 {% endextendmethod %}
 
 ## Assign a campaign to a TN
-To assign a campaign to a TN, you will need to associate it with the Campaign ID by using the [POST /accounts/{accountId}/tnoptions endpoint](../../numbers/apiReference.md).<br/>
+
+### Assumption
+This endpoint assumes that TN(s) have already been ordered or ported into our system. For more info, please see [our number ordering](../../numbers/guides/onDemandNumberSearchAndOrder.md) or [number porting](../../numbers/guides/portingPhoneNumbers.md) guides.
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `TnOptionGroups`           | Yes       | 	A list of TnOptionGroup.                                                                                                    |
+| `CustomerOrderId`          | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
+
+| TnOptionGroup              | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `Sms`                      | Yes       |  'on' or 'off'. Sms must be turned 'on' to enable A2pSettings  |
+| `A2pSettings`              | Yes       | 	An object containing A2pSettings                              |
+| `TelephoneNumbers`         | Yes       | 	A list of Telephone Numbers to assign Campaign Id             |
+
+| A2pSettings                | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `CampaignId`               | Yes       |  The Campaign Id provided by The Campaign Registry (TCR)       |
+| `Action`                   | Yes       | 	Must be set to 'asSpecified'                                  |
+
+### POST Tn Options
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<TnOptionOrder>
+  <TnOptionGroups>
+    <TnOptionGroup>
+      <Sms>on</Sms>
+      <A2pSettings>
+        <Action>asSpecified</Action>
+        <CampaignId>CJEUMDK</CampaignId>
+      </A2pSettings>
+      <TelephoneNumbers>
+        <TelephoneNumber>9999999999</TelephoneNumber>
+        <TelephoneNumber>8888888888</TelephoneNumber>
+      </TelephoneNumbers>
+    </TnOptionGroup>
+  </TnOptionGroups>
+</TnOptionOrder>
+
+```
+
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnoptions
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <TnOptionOrderResponse>
+        <TnOptionOrder>
+            <OrderCreateDate>2021-04-14T18:17:17.791Z</OrderCreateDate>
+            <AccountId>000000000</AccountId>
+            <CreatedByUser>user</CreatedByUser>
+            <OrderId>ac48abbe-2311-4888-ca4a-05eaa336119c</OrderId>
+            <LastModifiedDate>2021-04-14T18:17:17.792Z</LastModifiedDate>
+            <ProcessingStatus>RECEIVED</ProcessingStatus>
+            <TnOptionGroups>
+                <TnOptionGroup>
+                    <Sms>on</Sms>
+                    <A2pSettings>
+                        <CampaignId>CAHVRZA</CampaignId>
+                        <Action>asSpecified</Action>
+                    </A2pSettings>
+                    <TelephoneNumbers>
+                        <TelephoneNumber>9999999999</TelephoneNumber>
+                        <TelephoneNumber>8888888888</TelephoneNumber>
+                    </TelephoneNumbers>
+                </TnOptionGroup>
+            </TnOptionGroups>
+            <ErrorList/>
+            <Warnings/>
+        </TnOptionOrder>
+    </TnOptionOrderResponse>
+```
+
+{% endextendmethod %}
+
+### Next Steps
+There are many line options you can add to a TN. This section showed just how to turn SMS on and assign an A2P Campaign ID. For more detailed documentation on other types of TN Option Orders, please - <br/>
+1. Go to the [Dashboard REST API Documentation](../../numbers/apiReference.md)<br/>
+2. Click on the /Accounts section<br/>
+3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
+4. Click and see the POST endpoint with detailed descriptions<br/>
+
 For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
-For more info on assigning campaigns to TNs, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md).
 
 ## Bulk Assign a campaign to multiple TNs
 We do not have a publicly exposed REST endpoint for bulk TN updates. Please see how to import a csv in our [campaign import Dashboard UI guide](bandwidth10dlcCampaignImportUiGuide.md#assign-a-campaign-to-a-tn).<br/>
