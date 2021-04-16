@@ -8,7 +8,7 @@ The Java SDK(s) are available via [Maven](https://mvnrepository.com/) & Github
 |:----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
 | [`com.bandwidth.sdk/bandwidth-sdk`](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-sdk)                     | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/java-sdk)                  |
 | [`com.bandwidth.sdk/bandwidth-java-iris-sdk`](https://mvnrepository.com/artifact/com.bandwidth.sdk/bandwidth-java-iris-sdk) | Manage phone numbers and account settings                                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/java-bandwidth-iris)       |
-| [Code Examples](https://github.com/Bandwidth/examples/tree/master/java)                                                     | Java code examples                                                              | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/java) |
+| [Code Examples](https://github.com/Bandwidth-Samples?language=java)                                                     | Java code examples                                                              | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth-Samples?language=java) |
 
 ## Release Notes
 

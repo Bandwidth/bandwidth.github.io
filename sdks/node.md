@@ -12,7 +12,7 @@ The Node.js SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40ban
 | [`@bandwidth/messaging`](https://www.npmjs.com/package/@bandwidth/messaging) | Create outbound messages and manage message media (MMS)                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/node-messaging)              |
 | [`@bandwidth/mfa`](https://www.npmjs.com/package/@bandwidth/mfa)             | Create Multifactor Auth calls or messages                                     | [<img src="https://github.com/favicon.ico">](https://github.com/bandwidth/node-mfa)                    |
 | [`@bandwidth/webrtc`](https://www.npmjs.com/package/@bandwidth/webrtc)       | Create and manage WebRTC Sessions                                             | N/A                                                                                                    |
-| [Code Examples](https://github.com/Bandwidth/examples/tree/master/nodejs)    | NodeJS code examples                                                          | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/nodejs) |
+| [Code Examples](https://github.com/search?q=topic%3Anodejs+org%3ABandwidth-Samples)    | NodeJS code examples                                                          | [<img src="https://github.com/favicon.ico">](https://github.com/search?q=topic%3Anodejs+org%3ABandwidth-Samples) |
 
 ## Release notes
 

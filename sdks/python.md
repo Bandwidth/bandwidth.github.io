@@ -7,7 +7,7 @@ The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 | Links                                                                     | Description                                                                     | Github                                                                                                 |
 |:--------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
 | [`bandwidth-sdk`](https://pypi.org/project/bandwidth-sdk/)                | Manage Phone Calls with BXML, Create outbound calls, SMS messages, MMS messages | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/python-sdk)                  |
-| [Code Examples](https://github.com/Bandwidth/examples/tree/master/python) | Python code examples                                                            | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/examples/tree/master/python) |
+| [Code Examples](https://github.com/Bandwidth-Samples?language=python) | Python code examples                                                            | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth-Samples?language=python) |
 
 ## Release Notes
 
