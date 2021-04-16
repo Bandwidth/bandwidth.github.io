@@ -12,16 +12,10 @@ Our Video API and WebRTC Calling API are both powered by Bandwidth's WebRTC Plat
 
 [https://github.com/Bandwidth/webrtc-browser](https://github.com/Bandwidth/webrtc-browser)
 
-## WebRTC Guides and Sample Apps
-
-| Guide                                                                                                        | Description                                            |
-| :----------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
-| [WebRTC Concept Overview](guides/overview.md)                                                                | High level introduction to WebRTC                      |
-| [Getting started](guides/quickstart.md)                                                                      | Learn how to the WebRTC "Hello World" sample app works |
-| [Audio Example](https://github.com/Bandwidth/examples/tree/master/nodejs/webrtc-hello-world)                 | A "Hello World" app in NodeJs and React                |
-| [Simpler Audio Example](https://github.com/Bandwidth/examples/tree/master/nodejs/webrtc-hello-again)         | A "Hello World" app in NodeJs with minimal javascript  |
-| [React Video Conference App](https://github.com/Bandwidth/webrtc-sample-conference-node)                     | A video conference app built in React and Typescrypt   |
-| [Simple Video Conference App](https://github.com/Bandwidth/examples/tree/master/nodejs/webrtc-video-meeting) | A video conference app built basic javascript          |
+## Sample Applications
+| Links | Description |
+| :---- | :---- |
+| [WebRTC Sample Applications](https://github.com/search?q=topic%3Awebrtc+org%3ABandwidth-Samples) | WebRTC sample applications for a variety of technologies |
 
 ## REST API Reference Index
 
