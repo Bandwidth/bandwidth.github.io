@@ -6,9 +6,9 @@
 `https://mfa.bandwidth.com/api/v1/accounts/{accountId}`
 
 ## Sample Applications
-| App | Description |
+| Links | Description |
 | :---- | :---- |
-| [MFA Secured Website](https://github.com/Bandwidth-Samples/mfa-secured-website-python) | Simple MFA integration to example login page |
+| [MFA Sample Applications](https://github.com/search?q=topic%3Amfa+org%3ABandwidth-Samples) | MFA sample applications for a variety of technologies |
 
 ## Blogs
 | Name | Description |
