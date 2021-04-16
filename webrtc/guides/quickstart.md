@@ -13,14 +13,14 @@ and from these devices.
 
 Our WebRTC "hello world" sample app will show you how to receive calls and make outbound calls, all from your web browser. 
 
-Please visit our [Bandwidth Examples](https://github.com/Bandwidth/examples) repo to find a _webrtc\_hello\_world_ folder in NodeJS and Java (with a React front-end).
+Please visit our [Bandwidth Samples](https://github.com/search?q=topic%3Awebrtc+org%3ABandwidth-Samples) organization to find a number of _webrtc-hello-world_ samples in Node.js, Java (with a React front-end), and more.
 
 Follow the instructions in the README to add your Bandwidth credentials and application settings, and you should have a working demo!
 
 
 ## How it works
 
-For the purposes of this guide, we will walk you through the sample app in *NodeJS*, but the idea is the same in all languages.
+For the purposes of this guide, we will walk you through the sample app in *Node.js*, but the idea is the same in all languages.
 
 
 ### Creating a session and participants
