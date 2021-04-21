@@ -3462,24 +3462,12 @@
     <td>The LocationId '%s' is used two or more times in this order.</td>
   </tr>
     <tr>
-    <td>8039</td>
-    <td>The LocationId '%s' is already provisioned.</td>
-  </tr>
-    <tr>
     <td>8040</td>
     <td>The LocationId '%s' should be provisioned</td>
   </tr>
     <tr>
-    <td>8041</td>
-    <td>The address can not be convert to json properly</td>
-  </tr>
-    <tr>
     <td>8042</td>
     <td>General 911 Provisioning Error: '%s'</td>
-  </tr>
-    <tr>
-    <td>8043</td>
-    <td>Account '%s' has no credentials for provisioning PIDFLO sections</td>
   </tr>
     <tr>
     <td>8044</td>
@@ -3506,20 +3494,12 @@
     <td>The specified E911 Location IDs are bound to next 911 Endpoints: '%s'. Before deleting these locations you should unprovision these 911 Endpoints.</td>
   </tr>
     <tr>
-    <td>8052</td>
-    <td>The AEUI with identifier '%s' should be provisioned</td>
-  </tr>
-    <tr>
     <td>8053</td>
     <td>The count of additional addresses in order exceeds the maximum size of %d.</td>
   </tr>
     <tr>
     <td>8054</td>
     <td>The AEUI with identifier '%s' is not PIDF-LO enabled, updating is allowed only for PIDF-LO endpoints</td>
-  </tr>
-    <tr>
-    <td>8055</td>
-    <td>A Location ID is required.</td>
   </tr>
     <tr>
     <td>8056</td>
@@ -3710,10 +3690,6 @@
     <td>Specified endpoint(s) are currently associated with different group(s). Endpoint(s) %s</td>
   </tr>
     <tr>
-    <td>8106</td>
-    <td>Emergency Endpoint Identifier specified for removal is not associated with Emergency Notification Group %s. Identifier(s): %s</td>
-  </tr>
-    <tr>
     <td>8107</td>
     <td>The %s is invalid. Max allowed length %s characters.</td>
   </tr>
@@ -3724,6 +3700,10 @@
     <tr>
     <td>8109</td>
     <td>Search filter can only have one of the following: EnrSmsTn, EnrTtsTn, EnrEmailAddress, EnrCallbackUrl</td>
+  </tr>
+    <tr>
+    <td>8110</td>
+    <td>Address and Caller Name are required to add new E911 endpoint for this Telephone Number(s)</td>
   </tr>
   </table>
 
@@ -3819,7 +3799,7 @@
   </tr>
     <tr>
     <td>15518</td>
-    <td>Invalid 'status'. Valid values: draft, pending_documents, submitted, requested_supp, foc, complete, exception, snapback, requested_cancel, cancelled</td>
+    <td>Invalid 'status'. Valid values: draft, pending_documents, submitted, requested_supp, foc, complete, exception, snapback, requested_cancel, cancelled, validate_tfns, validate_draft_tfns, valid_draft_tfns, invalid_tfns, invalid_draft_tfns</td>
   </tr>
     <tr>
     <td>15518</td>
@@ -3903,7 +3883,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR, GLOBALOUTBOUNDBDR, GLOBALOUTBOUNDSTMTBDR].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR, TFPEERINGSTMTBDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -3981,6 +3961,18 @@
     <td>15620</td>
     <td>Invalid 'status'. Valid values: received, processing, complete, partial, failed</td>
   </tr>
+    <tr>
+    <td>15621</td>
+    <td>The service type '%s' is invalid</td>
+  </tr>
+    <tr>
+    <td>15622</td>
+    <td>Query parameters: lastModifiedDateFrom, lastModifiedDateTo, state, host, city, rateCenter, tier, lata, protected, siteId, sippeerId, status,  cannot be combined with service =%s</td>
+  </tr>
+    <tr>
+    <td>15623</td>
+    <td>The service type query parameter is not supported.</td>
+  </tr>
   </table>
 
 
@@ -4038,7 +4030,7 @@
   </tr>
     <tr>
     <td>14500</td>
-    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup, tollFreePortabilityChecker</td>
+    <td>Incorrect order type. Valid values: portins, portouts, orders, disconnects, importToAccounts, dldas, lsrorders, e911s, tnoptions, externalTns, lidbs, bulkPortins, importtnorders, removeImportedTnOrders, csrs, emergencyEndpointGroup, emergencyNotificationGroup, tollFreePortingValidations</td>
   </tr>
     <tr>
     <td>14501</td>
@@ -4494,6 +4486,14 @@
     <td>23018</td>
     <td>Realm '%1$s' was not found on the account with ID = %2$s.</td>
   </tr>
+    <tr>
+    <td>23019</td>
+    <td>Application with ID %1$s was not found on the account with ID = %2$s</td>
+  </tr>
+    <tr>
+    <td>23020</td>
+    <td>Application ID %s is not a valid UUID.</td>
+  </tr>
   </table>
 
 
@@ -4580,7 +4580,7 @@
   </tr>
     <tr>
     <td>12019</td>
-    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC, Hosted_E911</td>
+    <td>Feature '%s' does not exist. Valid values: DlDa, CNAM, CallForwarding, LIDB, SMS, MMS, HTTP, TollFree, ShortCode, A2pLongCode, A2pOnly, A2pCampaigns, LNP, Ordering, ExternalTNs, ProtectedTNs, TNAssignment, Reservation, LSR, CnamDip, AEUI, PIDFLO, Cloud, Seats, Premise, Burstable, Basic, Full, SipAuth, HTTPV2, IMPORT_TNS, PROTECTED_FROM_IMPORT_TNS, TermHttpVoice, OrigHttpVoice, CSR, LnpFalloutManagement, OPTIONAL_CALLBACK_INFORMATION, NOTIFICATIONS, WebRtc, MessagingAnalytics, LATITUDE_LONGITUDE_PROVISIONING, LATITUDE_LONGITUDE_PROVISIONING_911, OriginationRoutePlan, PortOutPasscodeProtection, NOTIFICATIONS_911_UC, DEFAULT_911_CALL_ROUTING_TO_ECC, TollFreePeeringPartner, 10DLC, Hosted_E911, 10DLCImportCampaign, TN_LOOKUP</td>
   </tr>
     <tr>
     <td>12020</td>
@@ -5234,6 +5234,38 @@
     <td>12185</td>
     <td>A call to the campaign registry service has failed validation.</td>
   </tr>
+    <tr>
+    <td>12186</td>
+    <td>Import campaign settings already exist</td>
+  </tr>
+    <tr>
+    <td>12187</td>
+    <td>Campaign with id '%s' failed to share with upstream connectivity partner.</td>
+  </tr>
+    <tr>
+    <td>12188</td>
+    <td>Campaign with id '%s' failed to share with upstream connectivity partner and deactivation failed. Please reach out to support.</td>
+  </tr>
+    <tr>
+    <td>12189</td>
+    <td>Campaign with id '%s' not found</td>
+  </tr>
+    <tr>
+    <td>12189</td>
+    <td>The account must have the 10DlcImport feature enabled and have a valid CSP to import a campaign from TCR.</td>
+  </tr>
+    <tr>
+    <td>12190</td>
+    <td>Could not retrieve message class from TCR. Please validate with TCR.</td>
+  </tr>
+    <tr>
+    <td>12191</td>
+    <td>10DLC and 10DLCImportCampaign product features must be mutually exclusive.</td>
+  </tr>
+    <tr>
+    <td>12192</td>
+    <td>A2P Campaign ID '%s' is not active</td>
+  </tr>
   </table>
 <h2>AdminValidationError</h2>
 <table class="fixed">
@@ -5415,11 +5447,11 @@
   </tr>
     <tr>
     <td>12551</td>
-    <td>Zip '%s' is too long. Max length 15 characters</td>
+    <td>Zip '%s' is too long. Max length 5 characters</td>
   </tr>
     <tr>
     <td>12552</td>
-    <td>Zip4 '%s' is too long. Max length 10 characters</td>
+    <td>Zip4 '%s' is too long. Max length 4 characters</td>
   </tr>
     <tr>
     <td>12553</td>
@@ -6187,7 +6219,7 @@
   </tr>
     <tr>
     <td>12758</td>
-    <td>Sip Authentication cannot be disabled because account have some provisioned SIP Credentials.</td>
+    <td>Sip Authentication cannot be disabled because the account still has some provisioned SIP Credentials.</td>
   </tr>
     <tr>
     <td>12759</td>
@@ -6195,11 +6227,11 @@
   </tr>
     <tr>
     <td>12761</td>
-    <td>Sbc configuration cannot be changed when Sip Authentication enabled.</td>
+    <td>Sbc configuration cannot be changed when Sip Authentication is enabled.</td>
   </tr>
     <tr>
     <td>12762</td>
-    <td>Sip Authentication update still in progress. Please wait until it will be completed.</td>
+    <td>Sip Authentication update is still in progress. Please wait until it has completed.</td>
   </tr>
     <tr>
     <td>12763</td>
@@ -7097,6 +7129,50 @@
     <td>13098</td>
     <td>P2P route for %s cannot be assigned to A2P only account</td>
   </tr>
+    <tr>
+    <td>13099</td>
+    <td>Usecase value is invalid. Valid values are: 2FA, ACCOUNT_NOTIFICATION, CARRIER_EXEMPT, CHARITY, CONVERSATIONAL, CUSTOMER_CARE, DELIVERY_NOTIFICATION, EMERGENCY, FRAUD_ALERT, HIGHER_EDUCATION, LOW_VOLUME, MARKETING, MIXED, POLITICAL, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, SECURITY_ALERT, SOCIAL, SWEEPSTAKE, TRIAL</td>
+  </tr>
+    <tr>
+    <td>13100</td>
+    <td>The CSP ID: %s is already in use.</td>
+  </tr>
+    <tr>
+    <td>13101</td>
+    <td>RespOrg ID in url and body is different.</td>
+  </tr>
+    <tr>
+    <td>13102</td>
+    <td>RespOrg ID is invalid</td>
+  </tr>
+    <tr>
+    <td>13103</td>
+    <td>Zip '%s' is invalid. Only numeric characters are supported with length of 5 digits.</td>
+  </tr>
+    <tr>
+    <td>13104</td>
+    <td>Account '%s' can't change cspId value while it has campaigns.</td>
+  </tr>
+    <tr>
+    <td>13105</td>
+    <td>Cannot delete ImportCampaignSettings for account with a Campaign associated with it</td>
+  </tr>
+    <tr>
+    <td>13106</td>
+    <td>Invalid signature</td>
+  </tr>
+    <tr>
+    <td>13107</td>
+    <td>CIC '%s' is duplicate. Please remove the duplicate values and try again</td>
+  </tr>
+    <tr>
+    <td>13108</td>
+    <td>ROR '%s' is duplicate. Please remove the duplicate values and try again</td>
+  </tr>
+    <tr>
+    <td>13109</td>
+    <td>Sip Authentication cannot be disabled. All realms except for the default must first be deleted.</td>
+  </tr>
   </table>
 <h2>TerminationError</h2>
 <table class="fixed">
@@ -7201,7 +7277,7 @@
   </tr>
     <tr>
     <td>13507</td>
-    <td>Too many Voice Host Groups provided. Max 5</td>
+    <td>Too many Voice Host Groups provided. Max 1</td>
   </tr>
     <tr>
     <td>13508</td>
@@ -7815,6 +7891,18 @@
     <td>13681</td>
     <td>All Telephone Number backorder activity affecting this Location must be completed or canceled before the Location can be deleted.</td>
   </tr>
+    <tr>
+    <td>13682</td>
+    <td>Campaign ID '%s' is not an internal campaign and cannot be assigned to the Location.</td>
+  </tr>
+    <tr>
+    <td>13683</td>
+    <td>Location %d has toll free peering partner entities (CICs or RORs) and requires at least one Origination host.</td>
+  </tr>
+    <tr>
+    <td>13684</td>
+    <td>Location %d has toll free peering partner entities (CICs or RORs) and cannot be removed.</td>
+  </tr>
   </table>
 <h2>PotValidationError</h2>
 <table class="fixed">
@@ -8058,6 +8146,10 @@
     <tr>
     <td>1018</td>
     <td>Access to losing carrier information is not permitted for Enterprise Telephony account users.</td>
+  </tr>
+    <tr>
+    <td>1019</td>
+    <td>Bad request encountered. Please check your request and try again.</td>
   </tr>
   </table>
 <h2>ErrorCode</h2>
@@ -8420,6 +8512,10 @@
     <tr>
     <td>200</td>
     <td>Backorder can't be fulfilled - We do not currently support the ordering of new TNs in rate centers required to fulfill this order. Please see the coverage matrix or contact bandwidth customer support for further details.</td>
+  </tr>
+    <tr>
+    <td>200</td>
+    <td>TFN Validation Failed. Please review the attached TollFree Porting Validation results and update the order with valid TFNs.</td>
   </tr>
     <tr>
     <td>200</td>
