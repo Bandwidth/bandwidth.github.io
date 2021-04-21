@@ -21,7 +21,8 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 | publishPermissions          | Defines if this participant can publish audio or video                                            
 | sessions                    | List of session ids this participant is associated with                                           
 | subscriptions               | Subscription information for this participant, which lists the sessions and IDs of Participants publishing media
-| tag                         | User defined tag to associate with the participant                                                
+| tag                         | User defined tag to associate with the participant
+| deviceApiVersion            | The version of the signaling API the participant will use 
 
 
 
@@ -61,7 +62,8 @@ curl -X GET
           } 
      ]
  },
-  "tag"                 : "participant1"
+  "tag"                 : "participant1",
+  "deviceApiVersion"    : "V2"
 }
 ```
 
