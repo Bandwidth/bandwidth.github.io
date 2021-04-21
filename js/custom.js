@@ -64,6 +64,7 @@ module.exports = function ($) {
 
 	function hidePagesFromNav () {
 		var redirects = [
+			'Toll Free Porting Validation'
 		];
 
 		redirects.forEach(page => {
