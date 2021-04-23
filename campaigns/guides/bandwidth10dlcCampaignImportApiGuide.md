@@ -94,6 +94,24 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 </LongCodeImportCampaignsResponse>
 ```
 
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LongCodeImportCampaignsResponse>
+   <ResponseStatus>
+        <ErrorCode>1006</ErrorCode>
+        <Description>
+            size must be between 1 and 25 (bounds are included)
+        </Description>
+   </ResponseStatus>
+</LongCodeImportCampaignsResponse>
+```
+
 {% endextendmethod %}
 
 ## Import campaign
@@ -149,6 +167,23 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
             </MnoStatusList>
     </ImportedCampaign>
 </LongCodeImportCampaignsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
+
+<LongCodeImportCampaignResponse>
+   <ResponseStatus>
+        <ErrorCode>1011</ErrorCode>
+        <Description>
+            CampaignId is too long. Max length 12 characters.
+         </Description>
+   </ResponseStatus>
+</LongCodeImportCampaignResponse>
 ```
 
 {% endextendmethod %}
