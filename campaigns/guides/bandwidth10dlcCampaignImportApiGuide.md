@@ -112,6 +112,11 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 </LongCodeImportCampaignsResponse>
 ```
 
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+```
+
 {% endextendmethod %}
 
 ## Import campaign
@@ -184,6 +189,12 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
          </Description>
    </ResponseStatus>
 </LongCodeImportCampaignResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 404 Not Found
 ```
 
 {% endextendmethod %}
@@ -274,6 +285,28 @@ Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnop
             <Warnings/>
         </TnOptionOrder>
     </TnOptionOrderResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnoptions
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TnOptionOrderResponse>
+    <ResponseStatus>
+        <ErrorCode>5081</ErrorCode>
+        <Description>Number Format 'wrong' is invalid.</Description>
+    </ResponseStatus>
+</TnOptionOrderResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 409 Conflict
 ```
 
 {% endextendmethod %}
