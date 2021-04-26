@@ -397,6 +397,7 @@ Address Line 2 can be a free form text, although the typical format is:
     <unit type> <unit num> <unit type> <unit num>...
 
 To fit more information into a smaller space, we try to abbreviate it. Here are the example Address Line 2 inputs and corresponding abbreviated outputs:
+
 | Input                     | Abbreviated Output |
 |:--------------------------|:-------------------|
 | suite AA                  | STE AA             |
@@ -468,3 +469,4 @@ A similar API call deletes the locations. To remove locations, issue a POST with
 If you try to delete a location that is the primary location for an endpoint, you’ll get an error in your order. You must first delete any endpoints that use the location (or update them to use a new location) before you can delete that location.
 
 **Note: Before you delete locations or endpoints, make sure they aren't in use. If you send Bandwidth a 911 call with that uses an AEUI or location identifier that has been deleted, Bandwidth won't know how to route the call, and will send the call to our Emergency Call Center.**
+<br>
