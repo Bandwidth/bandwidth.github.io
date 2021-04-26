@@ -469,4 +469,7 @@ A similar API call deletes the locations. To remove locations, issue a POST with
 If you try to delete a location that is the primary location for an endpoint, you’ll get an error in your order. You must first delete any endpoints that use the location (or update them to use a new location) before you can delete that location.
 
 **Note: Before you delete locations or endpoints, make sure they aren't in use. If you send Bandwidth a 911 call with that uses an AEUI or location identifier that has been deleted, Bandwidth won't know how to route the call, and will send the call to our Emergency Call Center.**
+
+For more information on 911 DLR and making 933 test calls, see [this support article](https://support.bandwidth.com/hc/en-us/sections/360001336774-E911-Dynamic-Location-Routing).
+
 <br>
