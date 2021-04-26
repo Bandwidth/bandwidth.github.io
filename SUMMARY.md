@@ -334,6 +334,7 @@
 * [Overview](emergency-services/about.md)
 * [911 Dynamic Location Routing](emergency-services/dashboard/about.md)
 	* [Guides & Tutorials](emergency-services/dashboard/guides/about.md)
+		* [911 DLR Integration Guide](emergency-services/dashboard/guides/911DlrGuide.md)
 		* [About Emergency Notifications](emergency-services/dashboard/guides/emergencyNotifications.md)
 			* [Overview](emergency-services/dashboard/guides/emergencyNotifications.md#overview)
 			* [Notification Types](emergency-services/dashboard/guides/emergencyNotifications.md#notification-types)
