@@ -16,7 +16,7 @@ Locations can be independently provisioned in a couple of ways. You can provisio
 
 This method allows you to assign your own identifier to the address rather than letting the Bandwidth Dashboard assigning one for you. The location id you provide must be unique across your account. The location id has the following limits:
   * It can only contain characters in the range [A-Za-z0-9].
-  * It can't be any larger than 32 characters.
+  * It can't be any larger than 50 characters.
 
 #### Validate the Location
 ##### Request
