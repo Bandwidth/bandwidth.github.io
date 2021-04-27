@@ -125,7 +125,6 @@
 			* [Download the Report](numbers/guides/downloadingReports.md##download-billing-report)
 	* [Hosted Messaging - import TNs](numbers/guides/hostedMessaging.md)
 		* [Create Subscription](numbers/guides/hostedMessaging.md#create-subscription)
-		* [Check the Phone Number for "importability"](numbers/guides/hostedMessaging.md#check-for-importability)
 		* [Create importTNOrder](numbers/guides/hostedMessaging.md#create-importTN-order)
 		* [Receive callback](numbers/guides/hostedMessaging.md#receive-callback)
 		* [Fetch Order Status](numbers/guides/hostedMessaging.md#fetch-order-status)
