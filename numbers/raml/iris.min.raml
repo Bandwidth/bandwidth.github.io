@@ -11835,7 +11835,12 @@ securitySchemes:
                           Valid Nxx values ~ [2-9] for the first digit, <br>
                           and [0-9] for both the second and third digits.<br>
                           A similar approach is viable for NPANXXXX.<br>
-                          The EnableLCA flag turns LCA search on or off.
+                          The EnableLCA flag turns LCA search on or off.<br>
+                          <br>
+                          Limitations:
+                          <ul>
+                          <li>These order types are unsupported with BackOrderRequested=true</li>
+                          </ul>
                           </td>
                         </tr>
                         <tr>
@@ -20873,16 +20878,16 @@ securitySchemes:
             </tr>
             <tr>
                 <td>Port-Out Validation</td>
-                <td>This Callback API will be used with select pre-qualified customers to confirm the validity of a port-out request when it is submitted by the winning carrier.  The API call will define the end user owner of the Telephone Number in terms of FCC-approved information to aid in assessing the validity of the request</td>
+                <td>This Callback API will be used with select pre-qualified customers to confirm the validity of a port-out request when it is submitted by the winning carrier.  The API call will define the end user owner of the Telephone Number in terms of FCC-approved information to aid in assessing the validity of the request.
+                If the customer's endpoint is unavailable, the Bandwidth Dashboard API callback service will retry the portout validation callback to the customer's endpoint 8 times over a period of 40 minutes.</td>
             </tr>
             <tr>
                 <td>Order state change notification Callback API</td>
-                <td>This Callback API will be used to notify customers of events and changes that occur with various feature and service orders that are being processed by the Bandwidth Dashboard API on their behalf.  In general this notification callback will be called whenever an order that is in-scope changes state or has a note added to it.</td>
+                <td>This Callback API will be used to notify customers of events and changes that occur with various feature and service orders that are being processed by the Bandwidth Dashboard API on their behalf.  In general this notification callback will be called whenever an order that is in-scope changes state or has a note added to it.
+                If the customer's endpoint is unavailable, the Bandwidth Dashboard API callback service will not retry the order notification callback.</td>
             </tr>
         </table>
-        <br> <br>
-        If the customer's endpoint is unavailable, the Bandwidth Dashboard API callback service will not retry.
-        <br><br>
+        <br>
         The API payloads are described below...
     /portOutValidationCallbackApi: 
         description: |
