@@ -346,6 +346,7 @@
 			* [Associate Groups & Endpoints](emergency-services/dashboard/guides/configEmergencyNotifications.md#associate-eng-enr)
 			* [Updating Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#updating-eng)
 			* [Removing Configuration](emergency-services/dashboard/guides/configEmergencyNotifications.md#removing)
+        * [Emergency Calling API Integration Guide](emergency-services/guides/emergencyCallingApiIntegrationGuide.md)
 * [911 Access Dashboard API](emergency-services/dash/about.md)
 	* [Usage Guide](emergency-services/dash/usage_scenario.md)
 	* [API Methods](emergency-services/dash/methods/about.md)
