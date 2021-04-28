@@ -39,7 +39,7 @@ A number or numbers can be checked to see if they can be ported into the Bandwid
 
 The fullcheck query parameter values control the components of the response payload that is returned:
 
-### `fullcheck` Query Parameter Behvaior
+### `fullcheck` Query Parameter Behavior
 
 | Parameter value    | Description                                                                                                                                                                                                                                                                                                      |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
