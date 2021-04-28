@@ -331,6 +331,7 @@
 
 ## Emergency Services
 * [Overview](emergency-services/about.md)
+* [Emergency Calling API Integration Guide](emergency-services/guides/emergencyCallingApiIntegrationGuide.md)
 * [911 Dynamic Location Routing](emergency-services/dashboard/about.md)
 	* [Guides & Tutorials](emergency-services/dashboard/guides/about.md)
 		* [About Emergency Notifications](emergency-services/dashboard/guides/emergencyNotifications.md)
