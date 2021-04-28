@@ -23,7 +23,7 @@ API Operation endpoint: `POST` `{Base API URL}/accounts/{accountId}/e911s`
 
 This method allows you to assign your own identifier to the address rather than letting the Bandwidth Dashboard assign one for you. The location ID you provide must be unique across your account.
 
-*_Note_*: The location ID can only contain characters in the range [A-Za-z0-9] and can't exceed 32 characters.
+*Note*: The location ID can only contain characters in the range [A-Za-z0-9] and can't exceed 32 characters.
 
 ```
 <E911Order>
@@ -109,7 +109,7 @@ Example:
 
 Bandwidth will look for the AEUI in your account. We'll use the lat-lon values to determine where to send the call. We'll also attempt to find an address near the lat-lon you provided and send that address to the emergency authorities.
 
-_Note_: If the given latitude/longitude is outside of the US, the call will be sent to an Emergency Call Center (ECC).
+*Note*: If the given latitude/longitude is outside of the US, the call will be sent to an Emergency Call Center (ECC).
 
 #### Response 3: aeui with location_id, lat, lon, and radius
 
@@ -158,7 +158,7 @@ Since the Emergency API phone number we provide for routing with this service is
 
 Once your system is ready, please reach out to your Bandwidth Support Team and provide them the URL to your callback service.
 
-_*Note*_: The Emergency Calling API supports basic HTTP authentication. If you require basic authentication to access your service, you must provide a username and password to your Bandwidth Support Team so that we can include that information when we send you the HTTP request.
+*Note*: The Emergency Calling API supports basic HTTP authentication. If you require basic authentication to access your service, you must provide a username and password to your Bandwidth Support Team so that we can include that information when we send you the HTTP request.
 
 ## Sample use case
 
