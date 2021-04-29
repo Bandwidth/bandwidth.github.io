@@ -40,7 +40,7 @@ You should not include sensitive or personally-identifiable information in any t
 | fallbackUsername | (optional) The username to send in the HTTP request to `answerFallbackUrl` | No |
 | fallbackPassword | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
 | callbackTimeout | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
-| uui | (optional) The value of the `User-To-User` header to send within the initial `INVITE` when calling a SIP URI. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. | No |
+| uui | (optional) A comma-separated list of `User-To-User` headers to send within the initial `INVITE`. Each value must end with the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encodings are currently allowed. The entire value cannot exceed 350 characters, including parameters and separators. Example: `<jwt-value>;encoding=jwt,<base64-value>;encoding=base64` | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
 
