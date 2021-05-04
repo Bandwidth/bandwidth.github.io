@@ -59,12 +59,12 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
 | lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |
 | identity        | (optional) The value of the `Identity` header from the inbound invite request. Only present for inbound calls and if the account is configured to forward this header. |
-| [pai](#pai-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. Only present for inbound calls. |
+| [stir-Shaken](#stirshaken-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. Only present for inbound calls. |
 {% common %}
 
-#### PAI properties
+#### STIR/SHAKEN properties
 
-For inbound calls, the Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is stored in the call state `pai` property as follows.
+For inbound calls, the Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is stored in the call state `stirShaken` property as follows.
 
 | Property          | Description |
 |:------------------|:------------|

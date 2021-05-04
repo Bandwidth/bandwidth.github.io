@@ -29,7 +29,7 @@ Content-Type: application/xml; charset=utf-8
 | startTime         | Time the call was started, in ISO 8601 format. |
 | [diversion](#diversion-properties) | (optional) Information from the most recent `Diversion` header, if any. |
 | identity			| (optional) The value of the `Identity` header from the inbound invite request. Only present if the account is configured to forward this header. |
-| [pai](#pai-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. |
+| [stirShaken](#stirshaken-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. |
 
 #### Diversion properties
 
@@ -46,9 +46,9 @@ The `Diversion` header is parsed into a JSON object. Note that the attributes va
 | counter 	| The number of diversions that have occurred.
 | limit 	| The maximum number of diversions allowed for this session.
 
-#### PAI properties
+#### STIR/SHAKEN properties
 
-The Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is included in the Initiate event `pai` property as follows.
+The Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is included in the Initiate event `stirShaken` property as follows.
 
 | Property          | Description |
 |:------------------|:------------|
