@@ -39,7 +39,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 
 | Parameter                             | Mandatory | Description                                                                                                                                                  |
 |:--------------------------------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| X-accountId (HTTP Header)          | Yes       | The ID of the Bandwidth account that the user belongs to. | 
+| X-accountId (HTTP Header)          | Yes       | The ID of the Bandwidth account that the user belongs to. |
 | tns                                | Yes       |An array of strings representing E.164 formatted telephone numbers. |
 
 #### HTTP Response Codes
@@ -59,7 +59,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 POST https://numbers.bandwidth.com/api/v1/tnlookup HTTP/1.1
@@ -107,7 +107,7 @@ Location: https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-
 ## Fetch Status of a Request {#fetch-tnlookup-request-status}
 
 Returns the result of a request by id.
-  
+
 If requestId exists, the result for that request is returned. See the Examples for details on the various responses that you can receive. Generally, if you see a Response Code of 0 in a result for a TN, information will be available for it. Any other Response Code will indicate no information was available for the TN.
 
 {% extendmethod %}
@@ -162,7 +162,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
@@ -187,7 +187,7 @@ Content-Type: application/json
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
@@ -225,7 +225,7 @@ Content-Type: application/json
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
@@ -274,7 +274,7 @@ Content-Type: application/json
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
@@ -315,7 +315,7 @@ Content-Type: application/json
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
@@ -349,7 +349,7 @@ Content-Type: application/json
 
 {% sample lang="http" %}
 
-#### Request 
+#### Request
 
 ```http
 GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
