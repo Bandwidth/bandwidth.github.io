@@ -161,7 +161,7 @@
 		* [Retrieving TN Lata](numbers/guides/globalTnSearch.md#retrieving-tn-lata)
 		* [Retrieving TN Reservation](numbers/guides/globalTnSearch.md#retrieving-tn-reservation)
 		* [Retrieving TN Available Nn Routes](numbers/guides/globalTnSearch.md#retrieving-tn-availableNnRoutes)
-	* [Phone Number Lookup API](numbers/guides/tnLookup.md)
+	* [Number Lookup API](numbers/guides/tnLookup.md)
 		* [Create a Phone Number Lookup Request](numbers/guides/tnLookup.md#create-tnlookup-request)
 		* [Fetch Status of a Request](numbers/guides/tnLookup.md#fetch-tnlookup-request-status)
 * [API Methods](numbers/apiReference.md)
