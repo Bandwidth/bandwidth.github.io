@@ -76,3 +76,6 @@
   * [Retrieving TN Lata](globalTnSearch.md#retrieving-tn-lata)
   * [Retrieving TN Reservation](globalTnSearch.md#retrieving-tn-reservation)
   * [Retrieving TN Available Nn Routes](globalTnSearch.md#retrieving-tn-availableNnRoutes)
+* [Phone Number Lookup API](tnLookup.md)
+  * [Create a Phone Number Lookup Request](tnLookup.md#create-tnlookup-request)
+  * [Fetch Status of a Request](tnLookup.md#fetch-tnlookup-request-status)
