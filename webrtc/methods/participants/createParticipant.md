@@ -25,8 +25,9 @@ You should not include sensitive or personally-identifiable information in any t
 | Parameter                   | Description                                                                                       
 |:----------------------------|:--------------------------------------------------------------------------------------------------
 | callbackUrl                 | Full callback url to use for notifications about this participant                                 
-| publishPermissions          | Defines the types of media this participant can publish. Accepted values: `AUDIO`,`VIDEO`                                                                                           
-| tag                         | User defined tag to associate with the participant                                                
+| publishPermissions          | Defines the types of media this participant can publish. Accepted values: `AUDIO`,`VIDEO`
+| tag                         | User defined tag to associate with the participant
+| deviceApiVersion            | Optional parameter that sets the version of the signaling API the participant will use. Accepted values: `V2`,`V3`. Defaults to `V2`
 
 
 ### Response Attributes
@@ -83,7 +84,8 @@ curl -X POST
               } 
          ]
      },
-      "tag"                 : "participant1"
+      "tag"                 : "participant1",
+      "deviceApiVersion": "V2"
  },
   "token"               : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.L8i6g3PfcHlioHCCPURC9pmXT7gdJpx3kOoyAfNUwCc"
 }
