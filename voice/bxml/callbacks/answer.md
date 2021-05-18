@@ -3,6 +3,8 @@
 
 The Answer event is fired when an outbound call is answered.
 
+If [sync machine detection](../../guides/machineDetection.md) was requested, this event will also contain the result of that operation.
+
 ### Expected response
 
 ```http
@@ -28,6 +30,7 @@ Content-Type: application/xml; charset=utf-8
 | startTime     | Time the call was started, in ISO 8601 format. |
 | answerTime    | Time the call was answered, in ISO 8601 format. |
 | tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be present. |
+| machineDetectionResult | (optional) if a sync machine detection operation was requested, the result of the operation will be sent here. |
 
 {% common %}
 #### Example: Basic answer event
@@ -71,6 +74,29 @@ POST http://[External server URL]
 	"startTime"     : "2019-06-20T15:54:22.234Z",
 	"answerTime"    : "2019-06-20T15:54:25.432Z",
 	"tag"           : "example-tag"
+}
+```
+
+#### Example: Answer event with tag and machineDetectionResult properties
+
+```
+POST http://[External server URL]
+```
+```json
+{
+	"eventType"             : "answer",
+	"eventTime"             : "2019-06-20T15:54:25.435Z",
+	"accountId"             : "55555555",
+	"applicationId"         : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"from"                  : "+15551112222",
+	"to"                    : "+15553334444",
+	"direction"             : "outbound",
+	"callId"                : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"               : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"startTime"             : "2019-06-20T15:54:22.234Z",
+	"answerTime"            : "2019-06-20T15:54:25.432Z",
+	"tag"                   : "example-tag",
+	"machineDetectionResult": "answering-machine"
 }
 ```
 
