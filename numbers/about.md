@@ -22,3 +22,4 @@
 | [Import TNs for Hosted Messaging](./guides/hostedMessaging.md)             | Learn how to import Phone Numbers in to your Bandwidth account for Hosted Messaging (text-enable other phone numbers)           |
 | [Number Utilization Review API](./guides/numberUtilizationReviewAPI.md)    | Step By Step Guide To Number Assignment Using The Bandwidth Phone Number Management API                                         |
 | [Porting Phone Numbers](./guides/portingPhoneNumbers.md)                   | Learn the work flow associated to porting and managing port orders                                                              |
+| [Number Lookup Tool](./guides/tnLookup.md) | Lookup carrier information for a number or batch of numbers. | 
