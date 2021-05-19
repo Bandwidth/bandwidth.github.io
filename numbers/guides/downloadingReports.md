@@ -160,6 +160,7 @@ Content-Disposition: attachment; filename=output.pdf
 | CNAMSTMTBDR          | Record of CNAM Subscribe and Notify queries/dips, aligns with invoices                                                                               |
 | CONFBDR              | Billing Detail Records for Transcription Services - per conference information, available on day to day basis                                        |
 | CONFSTMTBDR          | BDR records that are aligned with the invoice for Conferencing Services                                                                              |
+| UNPROVISIONED_CALLS_BDR | BDR for unprovisioned 911 calls that were routed to the ECC | 
 
 {% extendmethod %}
 ### Request a Report {#request-billing-report}
