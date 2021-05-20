@@ -76,7 +76,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <Status>APPROVED</Status>
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
-                    <Status>PENDING</Status>
+                    <Status>REVIEW</Status>
                 </MnoStatus
             </MnoStatusList>
         </ImportedCampaign>
