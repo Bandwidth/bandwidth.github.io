@@ -57,7 +57,7 @@ _Note_:
 If you don't see the Campaign ID in the dropdown, it's likely that - 
 1) it has not been approved by all Mobile Network Operators (MNOs),
 2) it has been deactivated or expired<br/>
-For a full list of status values and descriptions, please see [our campaign status guide](campaignFaqs.md) <br/>
+For a full list of status values and descriptions, please see [our campaign FAQs](campaignFaqs.md) <br/>
 
 <img src="../../images/tn-option-order-2.png" style="max-width:95%"><br/> 
   
