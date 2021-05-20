@@ -4,10 +4,10 @@
 
 # Campaign FAQs
 
-## 1. What are is the difference between the 'status', and the 'mnoStatusList' field?
+## 1. What is the difference between the 'status', and the 'mnoStatusList' field?
 The 'status' field is the status of the campaign from the TCR perspective. 
 The 'mnoStatusList' field, is a list of statuses from the individual carrier perspective. Both sets of statuses are entirely independent. 
-It is possible to have a campaign that is in 'ACTIVE' status from TCR perspective, but have 'REJECTED' statuses from one or more carriers.
+It is possible to have a campaign that is in 'ACTIVE' status from the TCR perspective, but have 'REJECTED' statuses from one or more carriers.
 
 ## 2. What are all the possible 'status' field values?
 * 'ACTIVE'
