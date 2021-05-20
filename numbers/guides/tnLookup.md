@@ -31,7 +31,7 @@ Creates a request for a given TN, or batch of TNs. The limit to the amount of TN
 
 #### Request URL
 
-<code class="post">POST</code>`https://numbers.bandwidth.com/api/v1/tnlookup`
+<code class="post">POST</code>`https://numbers.bandwidth.com/api/v1/accounts/{accountId}/tnlookup`
 
 #### Request Authentication
 
@@ -39,7 +39,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 
 | Parameter                             | Mandatory | Description                                                                                                                                                  |
 |:--------------------------------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| X-accountId (HTTP Header)          | Yes       | The ID of the Bandwidth account that the user belongs to. |
+| accountId (URL Path Parameter)          | Yes       | The ID of the Bandwidth account that the user belongs to. |
 | tns                                | Yes       |An array of strings representing E.164 formatted telephone numbers. |
 
 #### HTTP Response Codes
@@ -62,9 +62,8 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 #### Request
 
 ```http
-POST https://numbers.bandwidth.com/api/v1/tnlookup HTTP/1.1
+POST https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup HTTP/1.1
 Content-Type: application/json
-X-accountId: 9999999
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 Example: One TN Request Payload
@@ -90,7 +89,7 @@ Example: Multiple TNs Request Payload
 ```http
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590
+Location: https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590
 
 {
   "requestId": "004223a0-8b17-41b1-bf81-20732adf5590",
@@ -116,16 +115,17 @@ If requestId exists, the result for that request is returned. See the Examples f
 
 #### Request URL
 
-<code class="get">GET</code>`https://numbers.bandwidth.com/api/v1/tnlookup/{requestId}`
+<code class="get">GET</code>`https://numbers.bandwidth.com/api/v1/accounts/{accountId}/tnlookup/{requestId}`
 
 #### Request Authentication
 
 This resource is authenticated with your [API Credentials](../../guides/accountCredentials.md#number-account-creds)
 
 
-| Parameters           | Description |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| requestId (URL path parameter) | The id of the request that was returned from the POST method. |                                                 
+| Parameters           |  Mandatory | Description |
+|:---------------------|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| accountId (URL Path Parameter)          | Yes       | The ID of the Bandwidth account that the user belongs to. |
+| requestId (URL path parameter) | Yes       | The id of the request that was returned from the POST method. |                                                 
 
 #### Response Parameters
 
@@ -165,7 +165,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 #### Request
 
 ```http
-GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
+GET https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -190,7 +190,7 @@ Content-Type: application/json
 #### Request
 
 ```http
-GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
+GET https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -228,7 +228,7 @@ Content-Type: application/json
 #### Request
 
 ```http
-GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
+GET https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -277,7 +277,7 @@ Content-Type: application/json
 #### Request
 
 ```http
-GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
+GET https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -318,7 +318,7 @@ Content-Type: application/json
 #### Request
 
 ```http
-GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
+GET https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
@@ -352,7 +352,7 @@ Content-Type: application/json
 #### Request
 
 ```http
-GET https://numbers.bandwidth.com/api/v1/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
+GET https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a0-8b17-41b1-bf81-20732adf5590 HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 
