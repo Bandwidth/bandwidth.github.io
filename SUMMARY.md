@@ -302,7 +302,8 @@
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
 * [Campaigns](campaigns/about.md)
     * [10DLC Import Dashboard UI Guide](campaigns/guides/bandwidth10dlcCampaignImportUiGuide.md)
-	* [10DLC Import API Guide](campaigns/guides/bandwidth10dlcCampaignImportApiGuide.md)
+	* [10DLC Import API Guide](campaigns/guides/bandwidth10dlcCampaignImportApiGuide.md)		
+	* [10DLC Import FAQs](campaigns/guides/campaignFaqs.md)
 
 ## Multi-Factor Authentication
 * [Overview](mfa/about.md)
