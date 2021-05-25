@@ -1,11 +1,11 @@
 /**
 * vkBeautify - javascript plugin to pretty-print or minify text in XML, JSON, CSS and SQL formats.
-*  
-* Version - 0.99.00.beta 
+*
+* Version - 0.99.00.beta
 * Copyright (c) 2012 Vadim Kiryukhin
 * vkiryukhin @ gmail.com
 * http://www.eslinstructor.net/vkbeautify/
-* 
+*
 * Dual licensed under the MIT and GPL licenses:
 *   http://www.opensource.org/licenses/mit-license.php
 *   http://www.gnu.org/licenses/gpl.html
@@ -50,7 +50,7 @@
 function createShiftArr(step) {
 
 	var space = '    ';
-	
+
 	if ( isNaN(parseInt(step)) ) {  // argument is string
 		space = step;
 	} else { // argument is integer
@@ -72,7 +72,7 @@ function createShiftArr(step) {
 
 	var shift = ['\n']; // array of shifts
 	for(ix=0;ix<100;ix++){
-		shift.push(shift[ix]+space); 
+		shift.push(shift[ix]+space);
 	}
 	return shift;
 }
@@ -98,67 +98,67 @@ vkbeautify.prototype.xml = function(text,step) {
 
 		for(ix=0;ix<len;ix++) {
 			// start comment or <![CDATA[...]]> or <!DOCTYPE //
-			if(ar[ix].search(/<!/) > -1) { 
+			if(ar[ix].search(/<!/) > -1) {
 				str += shift[deep]+ar[ix];
-				inComment = true; 
+				inComment = true;
 				// end comment  or <![CDATA[...]]> //
-				if(ar[ix].search(/-->/) > -1 || ar[ix].search(/\]>/) > -1 || ar[ix].search(/!DOCTYPE/) > -1 ) { 
-					inComment = false; 
+				if(ar[ix].search(/-->/) > -1 || ar[ix].search(/\]>/) > -1 || ar[ix].search(/!DOCTYPE/) > -1 ) {
+					inComment = false;
 				}
-			} else 
+			} else
 			// end comment  or <![CDATA[...]]> //
-			if(ar[ix].search(/-->/) > -1 || ar[ix].search(/\]>/) > -1) { 
+			if(ar[ix].search(/-->/) > -1 || ar[ix].search(/\]>/) > -1) {
 				str += ar[ix];
-				inComment = false; 
-			} else 
+				inComment = false;
+			} else
 			// <elm></elm> //
 			if( /^<\w/.exec(ar[ix-1]) && /^<\/\w/.exec(ar[ix]) &&
-				/^<[\w:\-\.\,]+/.exec(ar[ix-1]) == /^<\/[\w:\-\.\,]+/.exec(ar[ix])[0].replace('/','')) { 
+				/^<[\w:\-\.\,]+/.exec(ar[ix-1]) == /^<\/[\w:\-\.\,]+/.exec(ar[ix])[0].replace('/','')) {
 				str += ar[ix];
 				if(!inComment) deep--;
 			} else
 			 // <elm> //
 			if(ar[ix].search(/<\w/) > -1 && ar[ix].search(/<\//) == -1 && ar[ix].search(/\/>/) == -1 ) {
 				str = !inComment ? str += shift[deep++]+ar[ix] : str += ar[ix];
-			} else 
+			} else
 			 // <elm>...</elm> //
 			if(ar[ix].search(/<\w/) > -1 && ar[ix].search(/<\//) > -1) {
 				str = !inComment ? str += shift[deep]+ar[ix] : str += ar[ix];
-			} else 
+			} else
 			// </elm> //
-			if(ar[ix].search(/<\//) > -1) { 
+			if(ar[ix].search(/<\//) > -1) {
 				str = !inComment ? str += shift[--deep]+ar[ix] : str += ar[ix];
-			} else 
+			} else
 			// <elm/> //
-			if(ar[ix].search(/\/>/) > -1 ) { 
+			if(ar[ix].search(/\/>/) > -1 ) {
 				str = !inComment ? str += shift[deep]+ar[ix] : str += ar[ix];
-			} else 
+			} else
 			// <? xml ... ?> //
-			if(ar[ix].search(/<\?/) > -1) { 
+			if(ar[ix].search(/<\?/) > -1) {
 				str += shift[deep]+ar[ix];
-			} else 
+			} else
 			// xmlns //
-			if( ar[ix].search(/xmlns\:/) > -1  || ar[ix].search(/xmlns\=/) > -1) { 
+			if( ar[ix].search(/xmlns\:/) > -1  || ar[ix].search(/xmlns\=/) > -1) {
 				str += shift[deep]+ar[ix];
-			} 
-			
+			}
+
 			else {
 				str += ar[ix];
 			}
 		}
-		
+
 	return  (str[0] == '\n') ? str.slice(1) : str;
 }
 
 vkbeautify.prototype.json = function(text,step) {
 
 	var step = step ? step : this.step;
-	
-	if (typeof JSON === 'undefined' ) return text; 
-	
+
+	if (typeof JSON === 'undefined' ) return text;
+
 	if ( typeof text === "string" ) return JSON.stringify(JSON.parse(text), null, step);
 	if ( typeof text === "object" ) return JSON.stringify(text, null, step);
-		
+
 	return text; // text is not string nor object
 }
 
@@ -177,16 +177,16 @@ vkbeautify.prototype.css = function(text, step) {
 		str = '',
 		ix = 0,
 		shift = step ? createShiftArr(step) : this.shift;
-		
+
 		for(ix=0;ix<len;ix++) {
 
-			if( /\{/.exec(ar[ix]))  { 
+			if( /\{/.exec(ar[ix]))  {
 				str += shift[deep++]+ar[ix];
-			} else 
-			if( /\}/.exec(ar[ix]))  { 
+			} else
+			if( /\}/.exec(ar[ix]))  {
 				str += shift[--deep]+ar[ix];
 			} else
-			if( /\*\\/.exec(ar[ix]))  { 
+			if( /\*\\/.exec(ar[ix]))  {
 				str += shift[deep]+ar[ix];
 			}
 			else {
@@ -216,13 +216,13 @@ function split_sql(str, tab) {
 				.replace(/ HAVING /ig,"~::~HAVING ")
 				//.replace(/ SET /ig," SET~::~")
 				.replace(/ IN /ig," IN ")
-				
+
 				.replace(/ JOIN /ig,"~::~JOIN ")
 				.replace(/ CROSS~::~{1,}JOIN /ig,"~::~CROSS JOIN ")
 				.replace(/ INNER~::~{1,}JOIN /ig,"~::~INNER JOIN ")
 				.replace(/ LEFT~::~{1,}JOIN /ig,"~::~LEFT JOIN ")
 				.replace(/ RIGHT~::~{1,}JOIN /ig,"~::~RIGHT JOIN ")
-				
+
 				.replace(/ ON /ig,"~::~"+tab+"ON ")
 				.replace(/ OR /ig,"~::~"+tab+tab+"OR ")
 				.replace(/ ORDER\s{1,}BY/ig,"~::~ORDER BY ")
@@ -230,21 +230,21 @@ function split_sql(str, tab) {
 
 				.replace(/\(\s{0,}SELECT /ig,"~::~(SELECT ")
 				.replace(/\)\s{0,}SELECT /ig,")~::~SELECT ")
-				
+
 				.replace(/ THEN /ig," THEN~::~"+tab+"")
 				.replace(/ UNION /ig,"~::~UNION~::~")
 				.replace(/ USING /ig,"~::~USING ")
 				.replace(/ WHEN /ig,"~::~"+tab+"WHEN ")
 				.replace(/ WHERE /ig,"~::~WHERE ")
 				.replace(/ WITH /ig,"~::~WITH ")
-				
+
 				//.replace(/\,\s{0,}\(/ig,",~::~( ")
 				//.replace(/\,/ig,",~::~"+tab+tab+"")
 
 				.replace(/ ALL /ig," ALL ")
 				.replace(/ AS /ig," AS ")
-				.replace(/ ASC /ig," ASC ")	
-				.replace(/ DESC /ig," DESC ")	
+				.replace(/ ASC /ig," ASC ")
+				.replace(/ DESC /ig," DESC ")
 				.replace(/ DISTINCT /ig," DISTINCT ")
 				.replace(/ EXISTS /ig," EXISTS ")
 				.replace(/ NOT /ig," NOT ")
@@ -253,7 +253,7 @@ function split_sql(str, tab) {
 				.replace(/\s{0,}SELECT /ig,"SELECT ")
 				.replace(/\s{0,}UPDATE /ig,"UPDATE ")
 				.replace(/ SET /ig," SET ")
-							
+
 				.replace(/~::~{1,}/g,"~::~")
 				.split('~::~');
 }
@@ -281,36 +281,36 @@ vkbeautify.prototype.sql = function(text,step) {
 				ar = ar.concat(split_sql(ar_by_quote[ix], tab) );
 			}
 		}
-		
+
 		len = ar.length;
 		for(ix=0;ix<len;ix++) {
-			
+
 			parenthesisLevel = isSubquery(ar[ix], parenthesisLevel);
-			
-			if( /\s{0,}\s{0,}SELECT\s{0,}/.exec(ar[ix]))  { 
+
+			if( /\s{0,}\s{0,}SELECT\s{0,}/.exec(ar[ix]))  {
 				ar[ix] = ar[ix].replace(/\,/g,",\n"+tab+tab+"")
-			} 
-			
-			if( /\s{0,}\s{0,}SET\s{0,}/.exec(ar[ix]))  { 
+			}
+
+			if( /\s{0,}\s{0,}SET\s{0,}/.exec(ar[ix]))  {
 				ar[ix] = ar[ix].replace(/\,/g,",\n"+tab+tab+"")
-			} 
-			
-			if( /\s{0,}\(\s{0,}SELECT\s{0,}/.exec(ar[ix]))  { 
+			}
+
+			if( /\s{0,}\(\s{0,}SELECT\s{0,}/.exec(ar[ix]))  {
 				deep++;
 				str += shift[deep]+ar[ix];
-			} else 
-			if( /\'/.exec(ar[ix]) )  { 
+			} else
+			if( /\'/.exec(ar[ix]) )  {
 				if(parenthesisLevel<1 && deep) {
 					deep--;
 				}
 				str += ar[ix];
 			}
-			else  { 
+			else  {
 				str += shift[deep]+ar[ix];
 				if(parenthesisLevel<1 && deep) {
 					deep--;
 				}
-			} 
+			}
 			var junk = 0;
 		}
 
@@ -324,19 +324,19 @@ vkbeautify.prototype.xmlmin = function(text, preserveComments) {
 	var str = preserveComments ? text
 							   : text.replace(/\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>/g,"")
 									 .replace(/[ \r\n\t]{1,}xmlns/g, ' xmlns');
-	return  str.replace(/>\s{0,}</g,"><"); 
+	return  str.replace(/>\s{0,}</g,"><");
 }
 
 vkbeautify.prototype.jsonmin = function(text) {
 
-	if (typeof JSON === 'undefined' ) return text; 
-	
-	return JSON.stringify(JSON.parse(text), null, 0); 
-				
+	if (typeof JSON === 'undefined' ) return text;
+
+	return JSON.stringify(JSON.parse(text), null, 0);
+
 }
 
 vkbeautify.prototype.cssmin = function(text, preserveComments) {
-	
+
 	var str = preserveComments ? text
 							   : text.replace(/\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\//g,"") ;
 
@@ -32727,11 +32727,11 @@ var Buffer=require("__browserify_Buffer").Buffer;(function() {
       '-', '?', ':', ',', '[', ']', '{', '}',
       '#', '&', '*', '!', '|', '>', '\'', '"',
       '%', '@', '`'.
-    
+
     It may also start with
       '-', '?', ':'
     if it is followed by a non-space character.
-    
+
     Note that we limit the last rule to the block context (except the '-'
     character) because we want the flow context to be space independent.
     */
@@ -32750,7 +32750,7 @@ var Buffer=require("__browserify_Buffer").Buffer;(function() {
     The byte order mark is stripped if it's the first character in the stream.
     We do not yet support BOM inside the stream as the specification requires.
     Any such mark will be considered as a part of the document.
-    
+
     TODO: We need to make tab handling rules more sane.  A good rule is
       Tabs cannot precede tokens BLOCK-SEQUENCE-START, BLOCK-MAPPING-START,
       BLOCK-END, KEY (block context), VALUE (block context), BLOCK-ENTRY
@@ -40859,7 +40859,7 @@ function Buffer(subject, encoding, offset) {
   if (encoding == "base64" && typeof subject == "string") {
     subject = stringtrim(subject);
     while (subject.length % 4 != 0) {
-      subject = subject + "="; 
+      subject = subject + "=";
     }
   }
 
@@ -41967,7 +41967,7 @@ Buffer.prototype.writeDoubleBE = function(value, offset, noAssert) {
 
 	function b64ToByteArray(b64) {
 		var i, j, l, tmp, placeHolders, arr;
-	
+
 		if (b64.length % 4 > 0) {
 			throw 'Invalid string. Length must be a multiple of 4';
 		}
@@ -42058,7 +42058,7 @@ http.request = function (params, cb) {
     if (!params.host) params.host = window.location.hostname;
     if (!params.port) params.port = 80;
     if (!params.scheme) params.scheme = window.location.protocol.split(':')[0];
-    
+
     var req = new Request(new xhrHttp, params);
     if (cb) req.on('response', cb);
     return req;
@@ -42122,18 +42122,18 @@ var Request = module.exports = function (xhr, params) {
     self.writable = true;
     self.xhr = xhr;
     self.body = concatStream()
-    
+
     var uri = params.host
         + (params.port ? ':' + params.port : '')
         + (params.path || '/')
     ;
-    
+
     xhr.open(
         params.method || 'GET',
         (params.scheme || 'http') + '://' + uri,
         true
     );
-    
+
     if (params.headers) {
         var keys = objectKeys(params.headers);
         for (var i = 0; i < keys.length; i++) {
@@ -42148,7 +42148,7 @@ var Request = module.exports = function (xhr, params) {
             else xhr.setRequestHeader(key, value)
         }
     }
-    
+
     if (params.auth) {
         //basic auth
         this.setHeader('Authorization', 'Basic ' + Base64.btoa(params.auth));
@@ -42158,11 +42158,11 @@ var Request = module.exports = function (xhr, params) {
     res.on('close', function () {
         self.emit('close');
     });
-    
+
     res.on('ready', function () {
         self.emit('response', res);
     });
-    
+
     xhr.onreadystatechange = function () {
         res.handle(xhr);
     };
@@ -42266,13 +42266,13 @@ function parseHeaders (res) {
     for (var i = 0; i < lines.length; i++) {
         var line = lines[i];
         if (line === '') continue;
-        
+
         var m = line.match(/^([^:]+):\s*(.*)/);
         if (m) {
             var key = m[1].toLowerCase(), value = m[2];
-            
+
             if (headers[key] !== undefined) {
-            
+
                 if (isArray(headers[key])) {
                     headers[key].push(value);
                 }
@@ -42311,7 +42311,7 @@ Response.prototype.handle = function (res) {
         catch (err) {
             capable.status2 = false;
         }
-        
+
         if (capable.status2) {
             this.emit('ready');
         }
@@ -42325,7 +42325,7 @@ Response.prototype.handle = function (res) {
             }
         }
         catch (err) {}
-        
+
         try {
             this._emitData(res);
         }
@@ -42339,12 +42339,12 @@ Response.prototype.handle = function (res) {
             this.emit('ready');
         }
         this._emitData(res);
-        
+
         if (res.error) {
             this.emit('error', this.getResponse(res));
         }
         else this.emit('end');
-        
+
         this.emit('close');
     }
 };
@@ -42543,7 +42543,7 @@ function to_utf8(bytes, start, end) {
         out[out.length] = fcc(reduced(col, pos))
         col.length = 0
       }
-    } else { 
+    } else {
       out[out.length] = fcc(by)
     }
     ++idx
@@ -42660,11 +42660,11 @@ function from_hex(str) {
 
     if(i > 0 && (i % 2) === 1) {
       buf[i>>>1] = parseInt(character, 16)
-      character = '' 
+      character = ''
     }
   }
 
-  return buf 
+  return buf
 }
 
 function from_utf(str) {
@@ -42680,7 +42680,7 @@ function from_utf(str) {
         bytes[bytes.length] = parseInt(tmp[j], 16)
       }
     } else {
-      bytes[bytes.length] = ch 
+      bytes[bytes.length] = ch
     }
   }
 
@@ -42688,7 +42688,7 @@ function from_utf(str) {
 }
 
 function from_base64(str) {
-  return new Uint8Array(base64.toByteArray(str)) 
+  return new Uint8Array(base64.toByteArray(str))
 }
 
 },{"base64-js":48}],53:[function(require,module,exports){
@@ -42721,7 +42721,7 @@ function join(targets, hint) {
       curlen = cur && cur.length
       continue
     }
-    out[i++] = cur[curoff++] 
+    out[i++] = cur[curoff++]
   }
 
   return out
@@ -43092,7 +43092,7 @@ function Buffer(subject, encoding, offset) {
   if (encoding == "base64" && typeof subject == "string") {
     subject = stringtrim(subject);
     while (subject.length % 4 != 0) {
-      subject = subject + "="; 
+      subject = subject + "=";
     }
   }
 
@@ -44202,7 +44202,7 @@ module.exports=require('q9TxCC');
 
 	function b64ToByteArray(b64) {
 		var i, j, l, tmp, placeHolders, arr;
-	
+
 		if (b64.length % 4 > 0) {
 			throw 'Invalid string. Length must be a multiple of 4';
 		}
@@ -48496,15 +48496,15 @@ var objectHelper = (function () {
     function isString (value) {
         return Object.prototype.toString.apply(value) === '[object String]';
     }
-    
+
     function isNumber (value) {
         return Object.prototype.toString.apply(value) === '[object Number]';
     }
-    
+
     function isBoolean (value) {
         return Object.prototype.toString.apply(value) === '[object Boolean]';
     }
-    
+
     function join (arr, separator) {
         var
             result = '',
@@ -51553,7 +51553,7 @@ if (typeof define === 'function' && define.amd) {
 
 (function(){
   var table = function(converter) {
-    var tables = {}, style = 'text-align:left;', filter; 
+    var tables = {}, style = 'text-align:left;', filter;
     tables.th = function(header){
       if (header.trim() === "") { return "";}
       var id = header.trim().replace(/ /g, '_').toLowerCase();
@@ -51592,7 +51592,7 @@ if (typeof define === 'function' && define.amd) {
       out += "</tr>\n";
       return out;
     };
-    filter = function(text) { 
+    filter = function(text) {
       var i=0, lines = text.split('\n'), tbl = [], line, hs, rows, out = [];
       for (i; i<lines.length;i+=1) {
         line = lines[i];
@@ -51623,12 +51623,12 @@ if (typeof define === 'function' && define.amd) {
           }
         }
         out.push(line);
-      }             
+      }
       return out.join('\n');
     };
     return [
-    { 
-      type: 'lang', 
+    {
+      type: 'lang',
       filter: filter
     }
     ];
@@ -51759,9 +51759,9 @@ window.CodeMirror = (function() {
     d.lineDiv = elt("div", null, "CodeMirror-code");
     d.selectionDiv = elt("div", null, null, "position: relative; z-index: 1");
     // Blinky cursor, and element used to ensure cursor fits at the end of a line
-    d.cursor = elt("div", "\u00a0", "CodeMirror-cursor");
+    d.cursor = elt("div", ".text\u00a0", "CodeMirror-cursor");
     // Secondary cursor, shown when on a 'jump' in bi-directional text
-    d.otherCursor = elt("div", "\u00a0", "CodeMirror-cursor CodeMirror-secondarycursor");
+    d.otherCursor = elt("div", ".text\u00a0", "CodeMirror-cursor CodeMirror-secondarycursor");
     // Used to measure text size
     d.measure = elt("div", null, "CodeMirror-measure");
     // Wraps everything that needs to exist inside the vertically-padded coordinate system
