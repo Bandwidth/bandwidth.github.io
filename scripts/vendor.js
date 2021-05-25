@@ -51759,9 +51759,9 @@ window.CodeMirror = (function() {
     d.lineDiv = elt("div", null, "CodeMirror-code");
     d.selectionDiv = elt("div", null, null, "position: relative; z-index: 1");
     // Blinky cursor, and element used to ensure cursor fits at the end of a line
-    d.cursor = elt("div", "\0020", "CodeMirror-cursor");
+    d.cursor = elt("div", "", "CodeMirror-cursor");
     // Secondary cursor, shown when on a 'jump' in bi-directional text
-    d.otherCursor = elt("div", "\0020", "CodeMirror-cursor CodeMirror-secondarycursor");
+    d.otherCursor = elt("div", "", "CodeMirror-cursor CodeMirror-secondarycursor");
     // Used to measure text size
     d.measure = elt("div", null, "CodeMirror-measure");
     // Wraps everything that needs to exist inside the vertically-padded coordinate system
