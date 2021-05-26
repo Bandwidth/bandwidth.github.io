@@ -10,15 +10,27 @@
   <link rel="stylesheet" href="../styles/website.css">
   <link rel="stylesheet" href="../gitbook/style.css">
   <link rel="stylesheet" href="../styles/website.css">
+  <style>
+    div.scroll {
+        margin:4px, 4px;
+        padding:4px;
+        background-color: green;
+        width: 500px;
+        height: 110px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+    }
+</style>
 </head>
 <body>
   <script src="../scripts/e3d67c1f.vendor.min.js"></script>
-  <div class="body-inner">
-    <div ng-app="ramlConsoleApp" ng-cloak id="raml-console-unembedded">
-      <raml-console with-root-documentation src="raml/iris.min.raml"></raml-console>
-      <script src="../scripts/app.js"></script>
-      <script>RAML.Settings.proxy = '';</script>
-    </div>
+  <div class="scroll"
+  <div ng-app="ramlConsoleApp" ng-cloak id="raml-console-unembedded">
+    <raml-console with-root-documentation src="raml/iris.min.raml"></raml-console>
+    <script src="../scripts/app.js"></script>
+    <script>RAML.Settings.proxy = '';</script>
+  </div>
   </div>
 </body>
 </html>
