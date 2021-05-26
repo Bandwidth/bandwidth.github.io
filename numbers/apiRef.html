@@ -1,13 +1,34 @@
+<html>
 <head>
-  <link rel="stylesheet" href="../gitbook/style.css">
+  <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-start{border-spacing:1px 1px;-ms-zoom:1.0001;}.ng-animate-active{border-spacing:0px 0px;-ms-zoom:1;}</style>
+  <meta charset="UTF-8">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>Numbers API Methods</title>
   <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-fonts/website.css">
-  <link rel="stylesheet" href="../styles/app.css">
-  <link rel="stylesheet" href="../styles/website.css">
   <link rel="stylesheet" href="../gitbook/gitbook-plugin-bandwidth-highlight/website.css">
+  <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
+  <link rel="stylesheet" href="../styles/website.css">
+  <link rel="stylesheet" href="../gitbook/style.css">
+  <link rel="stylesheet" href="../styles/website.css">
+  <style>
+    div.scroll {
+      position: absolute;
+      overflow-y: scroll;
+      min-height: 100%;
+      max-height: 100%;
+      min-width: 100%;
+      max-width: 100%;
+    }
+</style>
 </head>
-<script src="../scripts/e3d67c1f.vendor.min.js"></script>
-<div ng-app="ramlConsoleApp" ng-cloak id="raml-console-unembedded">
-  <raml-console with-root-documentation src="raml/iris.min.raml"></raml-console>
-  <script src="../scripts/app.js"></script>
-  <script>RAML.Settings.proxy = '';</script>
-</div>
+<body>
+  <script src="../scripts/e3d67c1f.vendor.min.js"></script>
+  <div class="scroll">
+  <div ng-app="ramlConsoleApp" ng-cloak id="raml-console-unembedded">
+    <raml-console with-root-documentation src="raml/iris.min.raml"></raml-console>
+    <script src="../scripts/app.js"></script>
+    <script>RAML.Settings.proxy = '';</script>
+  </div>
+  </div>
+</body>
+</html>

@@ -1187,7 +1187,31 @@
   </tr>
     <tr>
     <td>5218</td>
-    <td>Telephonenumber cannot be ordered because it is already processing on another order.</td>
+    <td>Telephone number cannot be ordered because it is already processing on another order.</td>
+  </tr>
+    <tr>
+    <td>5219</td>
+    <td>All Telephone numbers must belong to the same source Account.</td>
+  </tr>
+    <tr>
+    <td>5220</td>
+    <td>The target account does not support %s.</td>
+  </tr>
+    <tr>
+    <td>5221</td>
+    <td>The source Account and target Account must belong to the same customer (GAN).</td>
+  </tr>
+    <tr>
+    <td>5222</td>
+    <td>Account is not configured for tier %d telephone numbers.</td>
+  </tr>
+    <tr>
+    <td>5223</td>
+    <td>Move of short code and international telephone numbers across accounts is not allowed.</td>
+  </tr>
+    <tr>
+    <td>5224</td>
+    <td>External telephone numbers can't be moved. Please use ImportTns order instead.</td>
   </tr>
   </table>
 <h2>ExternalTnsErrorType</h2>
@@ -2074,6 +2098,18 @@
     <tr>
     <td>7504</td>
     <td>This order was cancelled due to the following numbers: [%s]. These numbers are external and cannot be processed by Internal Port-in order</td>
+  </tr>
+    <tr>
+    <td>7505</td>
+    <td>ListOfPhoneNumbers cannot be empty for orders not in a draft status.</td>
+  </tr>
+    <tr>
+    <td>7506</td>
+    <td>ListOfPhoneNumbers cannot be updated for a toll-free order in the %s state.</td>
+  </tr>
+    <tr>
+    <td>7507</td>
+    <td>ListOfPhoneNumbers can only contain toll-free numbers for a Toll-Free Phase 1 order.</td>
   </tr>
     <tr>
     <td>7700</td>
@@ -3335,7 +3371,7 @@
   </tr>
     <tr>
     <td>8005</td>
-    <td>Unable to provision. Please contact support for assistance.</td>
+    <td>Unable to provision. Please contact support for assistance. %s</td>
   </tr>
     <tr>
     <td>8006</td>
@@ -3883,7 +3919,7 @@
   </tr>
     <tr>
     <td>15600</td>
-    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR, TFPEERINGSTMTBDR].</td>
+    <td>Billing Report Type '%s' is invalid. Valid values: [BDR, MDR, INVOICE, STMTBDR, DIDSNAP, DIDSNAP_MSG, RECORDINGBDR, RECORDINGSTMTBDR, TRANSCRIPTIONBDR, TRANSCRIPTIONSTMTBDR, CNAMBDR, CNAMSTMTBDR, CONFBDR, CONFSTMTBDR, TFPEERINGSTMTBDR, UNPROVISIONED_CALLS_BDR].</td>
   </tr>
     <tr>
     <td>15601</td>
@@ -5274,6 +5310,18 @@
     <td>12192</td>
     <td>A2P Campaign ID '%s' is not active</td>
   </tr>
+    <tr>
+    <td>12193</td>
+    <td>Imported campaign with name %s already exist</td>
+  </tr>
+    <tr>
+    <td>12194</td>
+    <td>Failed to tag record with id '%s'.</td>
+  </tr>
+    <tr>
+    <td>12195</td>
+    <td>Campaign '%s' deactivation has failed.</td>
+  </tr>
   </table>
 <h2>AdminValidationError</h2>
 <table class="fixed">
@@ -6023,19 +6071,19 @@
   </tr>
     <tr>
     <td>12705</td>
-    <td>usernamefragment can not be empty.</td>
+    <td>Usernamefragment can not be empty.</td>
   </tr>
     <tr>
     <td>12706</td>
-    <td>usernamefragment should contain at least 3 characters.</td>
+    <td>Usernamefragment should contain at least 3 characters.</td>
   </tr>
     <tr>
     <td>12707</td>
-    <td>domainfragment can not be empty.</td>
+    <td>Domainfragment can not be empty.</td>
   </tr>
     <tr>
     <td>12708</td>
-    <td>domainfragment should contain at least 3 characters.</td>
+    <td>Domainfragment should contain at least 3 characters.</td>
   </tr>
     <tr>
     <td>12709</td>
@@ -7180,6 +7228,34 @@
     <tr>
     <td>13109</td>
     <td>Sip Authentication cannot be disabled. All realms except for the default must first be deleted.</td>
+  </tr>
+    <tr>
+    <td>13110</td>
+    <td>RespOrgId value must be a one of: %s.</td>
+  </tr>
+    <tr>
+    <td>13111</td>
+    <td>Realmfragment can not be empty.</td>
+  </tr>
+    <tr>
+    <td>13112</td>
+    <td>Realmfragment should contain at least 3 characters.</td>
+  </tr>
+    <tr>
+    <td>13113</td>
+    <td>Usernamefragment cannot contain more than 64 characters.</td>
+  </tr>
+    <tr>
+    <td>13114</td>
+    <td>Domainfragment cannot contain more than 64 characters.</td>
+  </tr>
+    <tr>
+    <td>13115</td>
+    <td>Realmfragment cannot contain more than 64 characters.</td>
+  </tr>
+    <tr>
+    <td>13116</td>
+    <td>Realmfragment %1$s is invalid. Supported chars: [.a-z0-9]</td>
   </tr>
   </table>
 <h2>TerminationError</h2>
@@ -8581,6 +8657,10 @@
   </tr>
     <tr>
     <td>400</td>
+    <td>Validation Failed. Please check your input parameters.</td>
+  </tr>
+    <tr>
+    <td>409</td>
     <td>Validation Failed. Please check your input parameters.</td>
   </tr>
     <tr>
