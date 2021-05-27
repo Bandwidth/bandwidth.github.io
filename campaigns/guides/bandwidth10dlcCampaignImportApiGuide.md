@@ -32,6 +32,82 @@ The Account Management API resources are authenticated with your [API Credential
 * [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
 * [Bulk Assign a campaign to multiple TNs](#bulk-assign-a-campaign-to-multiple-tns)
 
+## Get imported campaign
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/{campaignId}`
+
+#### Request Authentication
+
+The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds)
+
+### GET Imported Campaign by Campaign ID
+
+{% sample lang="http" %}
+
+```http
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LongCodeImportCampaignsResponse>
+    <ImportedCampaign>
+        <CampaignId>CA114BN</CampaignId>
+        <Description>Test 1</Description>
+        <MessageClass>Campaign-E</MessageClass>
+        <CreateDate>2021-03-18T12:50:45Z</CreateDate>
+        <Status>ACTIVE</Status>
+        <MnoStatusList>
+            <MnoStatus>
+                <MnoName>ATT</MnoName>
+                <MnoId>10017</MnoId>
+                <Status>APPROVED</Status>
+                <MnoName>TMO</MnoName>
+                <MnoId>10035</MnoId>
+                <Status>APPROVED</Status>
+            </MnoStatus
+        </MnoStatusList>
+    </ImportedCampaign>
+</LongCodeImportCampaignsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN
+
+<LongCodeImportCampaignResponse>
+   <ResponseStatus>
+        <ErrorCode>12055</ErrorCode>
+        <Description>
+            10DLCImportCampaign feature is not enabled on account
+         </Description>
+   </ResponseStatus>
+</LongCodeImportCampaignResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 404 Not Found
+```
+
+{% endextendmethod %}
+
 ## Get imported campaigns
 
 {% extendmethod %}
@@ -191,9 +267,9 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 
 <LongCodeImportCampaignResponse>
    <ResponseStatus>
-        <ErrorCode>1011</ErrorCode>
+        <ErrorCode>12055</ErrorCode>
         <Description>
-            CampaignId is too long. Max length 12 characters.
+            10DLCImportCampaign feature is not enabled on account
          </Description>
    </ResponseStatus>
 </LongCodeImportCampaignResponse>
