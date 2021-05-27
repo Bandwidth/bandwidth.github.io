@@ -267,9 +267,9 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 
 <LongCodeImportCampaignResponse>
    <ResponseStatus>
-        <ErrorCode>12055</ErrorCode>
+        <ErrorCode>1011</ErrorCode>
         <Description>
-            10DLCImportCampaign feature is not enabled on account
+            CampaignId is too long. Max length 12 characters.
          </Description>
    </ResponseStatus>
 </LongCodeImportCampaignResponse>
