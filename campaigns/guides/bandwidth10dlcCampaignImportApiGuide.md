@@ -89,6 +89,7 @@ HTTP/1.1 400 Bad Request
 Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN
 
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LongCodeImportCampaignResponse>
    <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
