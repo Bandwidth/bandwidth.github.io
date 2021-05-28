@@ -12,6 +12,7 @@ This walks through how to import and view your campaigns through the [Bandwidth 
 * Your account has 10dlcImportCampaigns product feature enabled
 * Your account has your CSP ID associated to it
 * You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP)
+* You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
 
 ## Steps
 1. [View imported campaigns](#view-imported-campaigns)

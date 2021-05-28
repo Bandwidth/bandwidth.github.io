@@ -14,6 +14,7 @@ This walks through how to programmatically import and view your campaigns _via A
 * Your account has your CSP ID associated to it
 * Your API User has the Campaign Management role assigned
 * You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP) 
+* You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
 
 ## Important Notes
 
@@ -76,7 +77,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                 <MnoName>TMO</MnoName>
                 <MnoId>10035</MnoId>
                 <Status>APPROVED</Status>
-            </MnoStatus
+            </MnoStatus>
         </MnoStatusList>
     </ImportedCampaign>
 </LongCodeImportCampaignsResponse>
@@ -154,7 +155,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
                     <Status>REVIEW</Status>
-                </MnoStatus
+                </MnoStatus>
             </MnoStatusList>
         </ImportedCampaign>
         <ImportedCampaign>
@@ -171,7 +172,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
                     <Status>SUSPENDED</Status>
-                </MnoStatus
+                </MnoStatus>
             </MnoStatusList>
         </ImportedCampaign>
     </ImportedCampaigns>
@@ -253,7 +254,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
                     <Status>APPROVED</Status>
-                </MnoStatus
+                </MnoStatus>
             </MnoStatusList>
     </ImportedCampaign>
 </LongCodeImportCampaignsResponse>
