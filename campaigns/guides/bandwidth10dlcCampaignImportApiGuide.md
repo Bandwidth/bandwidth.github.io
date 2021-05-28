@@ -77,7 +77,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                 <MnoName>TMO</MnoName>
                 <MnoId>10035</MnoId>
                 <Status>APPROVED</Status>
-            </MnoStatus
+            </MnoStatus>
         </MnoStatusList>
     </ImportedCampaign>
 </LongCodeImportCampaignsResponse>
@@ -155,7 +155,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
                     <Status>REVIEW</Status>
-                </MnoStatus
+                </MnoStatus>
             </MnoStatusList>
         </ImportedCampaign>
         <ImportedCampaign>
@@ -172,7 +172,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
                     <Status>SUSPENDED</Status>
-                </MnoStatus
+                </MnoStatus>
             </MnoStatusList>
         </ImportedCampaign>
     </ImportedCampaigns>
@@ -254,7 +254,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                     <MnoName>TMO</MnoName>
                     <MnoId>10035</MnoId>
                     <Status>APPROVED</Status>
-                </MnoStatus
+                </MnoStatus>
             </MnoStatusList>
     </ImportedCampaign>
 </LongCodeImportCampaignsResponse>
