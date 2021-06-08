@@ -301,9 +301,14 @@
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
 * [Campaigns](campaigns/about.md)
-    * [10DLC Import Dashboard UI Guide](campaigns/guides/bandwidth10dlcCampaignImportUiGuide.md)
-	* [10DLC Import API Guide](campaigns/guides/bandwidth10dlcCampaignImportApiGuide.md)		
-	* [10DLC Import FAQs](campaigns/guides/campaignFaqs.md)
+    * [CSP](campaigns/imports/about.md)
+        * [10DLC CSP Dashboard UI Guide](campaigns/csp/guides/bandwidth10dlcCampaignCspUiGuide.md)
+        * [10DLC CSP API Guide](campaigns/csp/guides/bandwidth10dlcCampaignCspApiGuide.md)		
+        * [10DLC CSP FAQs](campaigns/csp/guides/campaignFaqs.md)
+    * [Imports](campaigns/imports/about.md)
+        * [10DLC Import Dashboard UI Guide](campaigns/imports/guides/bandwidth10dlcCampaignImportUiGuide.md)
+        * [10DLC Import API Guide](campaigns/imports/guides/bandwidth10dlcCampaignImportApiGuide.md)		
+        * [10DLC Import FAQs](campaigns/imports/guides/campaignFaqs.md)
 
 ## Multi-Factor Authentication
 * [Overview](mfa/about.md)

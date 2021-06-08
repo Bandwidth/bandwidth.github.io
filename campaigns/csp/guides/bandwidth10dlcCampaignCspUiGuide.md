@@ -4,7 +4,7 @@
 
 # Bandwidth 10DLC Campaigns Import UI Guide {#top}
 
-This walks through how to import and view your campaigns through the [Bandwidth Dashboard](https://dashboard.bandwidth.com) for use with our [Number Management](../../numbers/about.md) and [Messaging](../../messaging/about.md) API's.
+This walks through how to import and view your campaigns through the [Bandwidth Dashboard](https://dashboard.bandwidth.com) for use with our [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 
 ## Assumptions
 * You have been contracted and given access to your Bandwidth Dashboard Account
@@ -27,7 +27,7 @@ Once you log into the Bandwidth Dashboard, you should see **Campaigns** in the n
 If you select it, you will be routed to the **IMPORTED CAMPAIGNS** sub navigation 
 which is where you will see a list of the campaigns that have been previously imported on your account. 
 
-<img src="../../images/campaign-import-list.png" style="max-width:95%">
+<img src="../../../images/campaign-import-list.png" style="max-width:95%">
 
 ## Import a campaign
 While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
@@ -70,7 +70,7 @@ If you are not able to turn location defaults off, you will need to go to the lo
 
 <img src="../../images/location-a2p-settings.png" style="max-width:95%"><br/>
 
-For more info on TNs, please see [our number ordering guide](../../numbers/guides/onDemandNumberSearchAndOrder.md)
+For more info on TNs, please see [our number ordering guide](../../../numbers/guides/onDemandNumberSearchAndOrder.md)
 
 ## Bulk Assign a campaign to multiple TNs
 You should see **Numbers** in the navigation bar. 
@@ -92,11 +92,11 @@ Upon successful completion, the TNs will have the appropriate Campaign ID assign
 
 <img src="../../images/tn-bulk-upload-2.png" style="max-width:95%"><br/>
 
-For more info on TNs, please see [Managing Line Features](../../numbers/guides/managingLineFeatures.md)
+For more info on TNs, please see [Managing Line Features](../../../numbers/guides/managingLineFeatures.md)
 
 ## Next steps
 ### Create an API-only user
-Create an [API-only user](../../guides/accountCredentials.md) to validate your API calls. Unlike user accounts that can access the Bandwidth Dashboard User Interface, users restricted to API only access won’t require periodic password resets.
+Create an [API-only user](../../../guides/accountCredentials.md) to validate your API calls. Unlike user accounts that can access the Bandwidth Dashboard User Interface, users restricted to API only access won’t require periodic password resets.
 
 ### Start developing to our Messaging APIs
-After you've finished importing your campaigns, explore our inventory and order a phone number to your account. Once you have a phone number, you are ready to [send your first text message](../../messaging/methods/messages/createMessage.md). For help, check out our [SDK’s and Postman Collection](../../sdks/about.md).
+After you've finished importing your campaigns, explore our inventory and order a phone number to your account. Once you have a phone number, you are ready to [send your first text message](../../../messaging/methods/messages/createMessage.md). For help, check out our [SDK’s and Postman Collection](../../../sdks/about.md).
