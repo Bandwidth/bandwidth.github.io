@@ -301,7 +301,7 @@
 	* [DLR Parameters](international/messaging.md#http-dlr)
 	* [DLR Error Codes](international/messaging.md#dlr-errors)
 * [Campaigns](campaigns/about.md)
-    * [CSP](campaigns/imports/about.md)
+    * [CSP](campaigns/csp/about.md)
         * [10DLC CSP Dashboard UI Guide](campaigns/csp/guides/bandwidth10dlcCampaignCspUiGuide.md)
         * [10DLC CSP API Guide](campaigns/csp/guides/bandwidth10dlcCampaignCspApiGuide.md)		
         * [10DLC CSP FAQs](campaigns/csp/guides/campaignFaqs.md)

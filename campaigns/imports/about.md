@@ -5,7 +5,7 @@
 # Bandwidth Campaign Management Guides
 
 ## Base API URL
-`https://dashboard.bandwidth.com/api/acccount/{accountId}/campaignManagement/`
+`https://dashboard.bandwidth.com/api/acccount/{accountId}/campaignManagement/imports`
 
 ## Bandwidth Campaign Management Guides
 
