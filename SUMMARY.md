@@ -56,7 +56,7 @@
 		* [Generate MD5 Hash](account/guides/setupNetworkBridge.md#generate-md5-hash)
 		* [Add the Newly Created Hash to Sip Credentials](account/guides/setupNetworkBridge.md#add-new-credentials)
 		* [Create Call Using the Network Bridge](account/guides/setupNetworkBridge.md#create-call)
-   * [Setup Registrar](account/guides/setupRegistrar.md)
+    * [Setup Registrar](account/guides/setupRegistrar.md)
 		* [Pre-Requs](account/guides/setupRegistrar.md#pre-requs)
 		* [Steps](account/guides/setupRegistrar.md#steps)
 		* [Create New Realm](account/guides/setupRegistrar.md#create-new-realm)  
