@@ -48,7 +48,7 @@
 		* [Enable **MMS** on Location (_Sip-peer_)](account/guides/programmaticApplicationSetup.md#enable-mms-on-location)
 		* [Assign Application to Location (_Sip-peer_)](account/guides/programmaticApplicationSetup.md#assign-messaging-application-to-location)
 		* [Enable HTTP Voice on Location (_Sip-peer_)](account/guides/programmaticApplicationSetup.md#assign-application-enable-voice-on-location)
-	* [Setup Network Bridgge](account/guides/setupNetworkBridge.md)
+	* [Setup Network Bridge](account/guides/setupNetworkBridge.md)
 		* [Pre-Requs](account/guides/setupNetworkBridge.md#pre-requs)
 		* [Steps](account/guides/setupNetworkBridge.md#steps)
 		* [Create New Realm](account/guides/setupNetworkBridge.md#create-new-realm)  
