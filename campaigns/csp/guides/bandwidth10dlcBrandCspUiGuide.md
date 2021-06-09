@@ -12,6 +12,9 @@ This walks through how to provision, manage and view your brands through the [Ba
 * Your account has 10dlcCampaigns product feature enabled
 * Your user has been assigned the Campaign Management user role
 
+## Important Notes
+* Campaign has not yet been shared error message - cron re-tries every hour. TN won't be eligible for TN Association.
+
 ## Steps
 1. [Register your brand](#view-imported-campaigns)
     * [Direct Customer](#create-an-api-only-user)
@@ -20,6 +23,7 @@ This walks through how to provision, manage and view your brands through the [Ba
 3. [Provision a campaign](#assign-a-campaign-to-a-tn)
     * [Standard use case](#create-an-api-only-user)
     * [Mixed use case](#start-developing-to-our-messaging-apis)
+    * [Special use case](#start-developing-to-our-messaging-apis)
 4. [Campaign List](#next-steps)
 5. [Campaign Statuses](#next-steps)
     * [Campaign Status](#create-an-api-only-user)
@@ -31,9 +35,6 @@ This walks through how to provision, manage and view your brands through the [Ba
 10. [Next steps](#next-steps)
     * [Create an API-only user](#create-an-api-only-user)
     * [Start developing to our Messaging APIs](#start-developing-to-our-messaging-apis)
-
-
-
 
 ## View imported campaigns
 Once you log into the Bandwidth Dashboard, you should see **Campaigns** in the navigation bar. 
