@@ -33,7 +33,7 @@ You should not include sensitive or personally-identifiable information in any t
 | disconnectMethod | (optional) The HTTP method to use for the request to `disconnectUrl`. GET or POST. Default value is POST. | No |
 | username | (optional) The username to send in the HTTP request to `answerUrl` and `disconnectUrl`. | No |
 | password | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`. | No |
-| callTimeout | (optional) The timeout (in seconds) for the callee to answer the call after it starts ringing. If the call does not start ringing within 30s, the call will be cancelled.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30 | No |
+| callTimeout | (optional) The timeout (in seconds) for the callee to answer the call after it starts ringing. If the call does not start ringing within 30s, the call will be cancelled regardless of this value.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30 | No |
 | tag | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or [`<Tag>`](tag.md) verb, or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. | No |
 | answerFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the answer callback delivery in case `answerUrl` fails to respond | No |
 | answerFallbackMethod | (optional) The HTTP method to use to deliver the answer callback to `answerFallbackUrl`. GET or POST. Default value is POST. | No |
