@@ -19,9 +19,8 @@ This walks through how to provision, manage and view your campaigns through the 
     * [Mixed use case](#mixed-use-case)
     * [Special use case](#special-use-case)
 2. [Campaign List](#campaign-list)
-    *. [Campaign Statuses](#campaign-statuses)
-        * [Campaign Status](#campaign-status)
-        * [MNO Status](#mno-status)
+    * [Campaign Statuses](#campaign-statuses)
+    * [Error Messages](#error-messages)
 4. [View campaign details](#view-campaign-details)
 5. [Edit campaign](#edit-campaign)
 6. [Deactivate campaign](#deactivate-campaign)
@@ -60,32 +59,56 @@ Once you successfully register a campaign, you will be navigated back to the cam
 
 <img src="../../../images/campaign-list.png" style="max-width:95%"><br/>
 
-## Campaign Statuses
-While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
-This will display a popup modal which allows you to enter the ID of the campaign you want to import.<br/>
+### Campaign Statuses
+While on the campaign list page, you will be able to view the statuses of you campaigns<br/>
 
 <img src="../../../images/campaign-list.png" style="max-width:95%"><br/>
 
-### Campaign Status
-### MNO Status
+#### Campaign Status
+The campaign statuses are - 1)ACTIVE or 2)EXPIRED. Immediately after registering a campaign, it will be in the ACTIVE status. 
+A campaign will only become EXPIRED if you take the action to deactivate the campaign yourself, or if auto-renewal is turned off for the campaign.<br/>
+
+#### MNO Status
+The MNO (carrier) statuses are - 1)REVIEW, 2)APPROVED, 3)REJECTED, or 4)SUSPENDED. For standard use cases, immediately after registering a campaign, all MNO statuses will be APPROVED. 
+For special use cases, all mno statuses will be REVIEW, and is subject to a manual review process. An MNO Can suspend and/or unsuspend a campaign at any time at their own discretion. <br/>
+
+_Note_: 
+1) Campaign Status and MNO Statuses are entirely independent of each other. 
+A campaign can be in ACTIVE status, but still be in REVIEW, REJECTED, or SUSPENDED by one or more MNOs.
+2) If a campaign has an EXPIRED status or if any of the MNO statuses are not APPROVED, then the campaign cannot be associated to a TN in our system.
+If a campaign has already been associated to TN(s), and the campaign becomes EXPIRED or an MNO suspends the campaign, it will be removed from those TN(s).<br/>
+
+### Error Messages
+We have some asynchronous processing that happens behind the scenes after registering a campaign. 
+In the event of a processing delay, the campaign in question will have an error message displayed next to it on the campaign list page. 
+Processing should be complete within one hour. If a campaign is seeing a processing delay, it will not be eligible to be assigned to a tn until it is resolved.<br/>
+
+<img src="../../../images/campaign-list-error.png" style="max-width:95%"><br/>
 
 ## View Campaign Details
-While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
-This will display a popup modal which allows you to enter the ID of the campaign you want to import.<br/>
+While on the list page, you can click on a Campaign ID to navigate to the campaign details page. Here you can view the Carrier Term Preview, and associated campaign information.<br/>
 
-<img src="../../../images/campaign-list.png" style="max-width:95%"><br/>
+<img src="../../../images/campaign-details-1.png" style="max-width:95%"><br/>
+<img src="../../../images/campaign-details-2.png" style="max-width:95%"><br/>
 
 ## Edit Campaign
-While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
-This will display a popup modal which allows you to enter the ID of the campaign you want to import.<br/>
+You can edit your campaign by selecting the **EDIT CAMPAIGN** button from the details page. The only fields that are editable are - Sample 1-5 and Auto-Renewal<br/>
 
-<img src="../../../images/campaign-list.png" style="max-width:95%"><br/>
+<img src="../../../images/edit-campaign.png" style="max-width:95%"><br/>
+<img src="../../../images/edit-campaign-2.png" style="max-width:95%"><br/>
 
 ## Deactivate Campaign
-While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
-This will display a popup modal which allows you to enter the ID of the campaign you want to import.<br/>
+You can deactivate your campaign by selecting the **DEACTIVATE CAMPAIGN** button from the details page. <br/>
 
-<img src="../../../images/campaign-list.png" style="max-width:95%"><br/>
+You will be prompted with a warning message and have the ability to confirm the action. This action cannot be reversed. 
+Deactivating a campaign will change the Campaign Status to EXPIRED, and will remove the campaign from all TNs in our system. <br/>
+
+<img src="../../../images/deactivated-campaign-warning.png" style="max-width:95%"><br/>
+
+Campaigns in EXPIRED status cannot be edited or deactivated<br/>
+
+<img src="../../../images/deactivated-campaign.png" style="max-width:95%"><br/>
+
 
 ## Assign a campaign to a TN
 
@@ -98,14 +121,15 @@ If you select it, you can search for a TN and view the details page.
 Once on the TN details page, you can scroll to the bottom where you will see SMS Settings. 
 Ensure SMS Settings is on, and that use location defaults is off. 
 You will see a dropdown labeled **A2P Campaign ID**. 
-Your imported campaigns will be found in the dropdown. 
+Your campaigns will be found in the dropdown. 
 When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
 When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.<br/>
 
 _Note_: 
 If you don't see the Campaign ID in the dropdown, it's likely that - 
 1) it has not been approved by all Mobile Network Operators (MNOs),
-2) it has been deactivated or expired<br/>
+2) it has been deactivated and is in EXPIRED status
+3) background processing has been delayed for your campaign. This should be resolved within 1 hour of initial registration.<br/>
 For a full list of status values and descriptions, please see [our campaign FAQs](campaignFaqs.md) <br/>
 
 <img src="../../../images/tn-option-order-2.png" style="max-width:95%"><br/> 
@@ -147,4 +171,4 @@ For more info on TNs, please see [Managing Line Features](../../../numbers/guide
 Create an [API-only user](../../../guides/accountCredentials.md) to validate your API calls. Unlike user accounts that can access the Bandwidth Dashboard User Interface, users restricted to API only access won’t require periodic password resets.
 
 ### Start developing to our Messaging APIs
-After you've finished importing your campaigns, explore our inventory and order a phone number to your account. Once you have a phone number, you are ready to [send your first text message](../../../messaging/methods/messages/createMessage.md). For help, check out our [SDK’s and Postman Collection](../../../sdks/about.md).
+After you've finished registering your campaigns, explore our inventory and order a phone number to your account. Once you have a phone number, you are ready to [send your first text message](../../../messaging/methods/messages/createMessage.md). For help, check out our [SDK’s and Postman Collection](../../../sdks/about.md).
