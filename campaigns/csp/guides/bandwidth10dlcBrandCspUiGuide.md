@@ -34,7 +34,7 @@ Once on the landing page, if you select **REGISTER MY BRAND** you will be prompt
 
 <img src="../../../images/register-my-brand.png" style="max-width:95%"><br/>
 
-The first section is where you will enter your brand details. Once all you enter all the required information, you can hit next to go to the Brand Contact Details section.<br/>
+The first section is where you will enter your brand details. Once you enter all the required information, you can hit next to go to the Brand Contact Details section.<br/>
 
 ### Direct Customer
 If you are a direct customer and will not be managing brands and campaigns for other companies, you can select the Direct Customer option and submit the form to register your brand.
