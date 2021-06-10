@@ -16,32 +16,61 @@ This walks through how to provision, manage and view your brands through the [Ba
 * Campaign has not yet been shared error message - cron re-tries every hour. TN won't be eligible for TN Association.
 
 ## Steps
-1. [Register your brand](#view-imported-campaigns)
-    * [Direct Customer](#create-an-api-only-user)
-    * [Reseller](#start-developing-to-our-messaging-apis)
-2. [Register customer brands (reseller only)](#import-a-campaign)
-3. [Provision a campaign](#assign-a-campaign-to-a-tn)
+1. [Register your brand](#register-your-brand)
+    * [Direct Customer](#direct-customer)
+    * [Reseller](#reseller)
+2. [Brand List](#brand-list)
+3. [Register customer brands (reseller only)](#register-customer-brands)
+4. [Provision a campaign](#assign-a-campaign-to-a-tn)
     * [Standard use case](#create-an-api-only-user)
     * [Mixed use case](#start-developing-to-our-messaging-apis)
     * [Special use case](#start-developing-to-our-messaging-apis)
-4. [Campaign List](#next-steps)
-5. [Campaign Statuses](#next-steps)
+5. [Campaign List](#next-steps)
+6. [Campaign Statuses](#next-steps)
     * [Campaign Status](#create-an-api-only-user)
     * [MNO Status](#start-developing-to-our-messaging-apis)
-6. [View campaign details](#next-steps)
-7. [Edit campaign](#next-steps)
-8. [Deactivate campaign](#next-steps)
-9. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
-10. [Next steps](#next-steps)
+7. [View campaign details](#next-steps)
+8. [Edit campaign](#next-steps)
+9. [Deactivate campaign](#next-steps)
+10. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
+11. [Next steps](#next-steps)
     * [Create an API-only user](#create-an-api-only-user)
     * [Start developing to our Messaging APIs](#start-developing-to-our-messaging-apis)
 
-## View imported campaigns
+## Register your brand
 Once you log into the Bandwidth Dashboard, you should see **Campaigns** in the navigation bar. 
-If you select it, you will be routed to the **IMPORTED CAMPAIGNS** sub navigation 
-which is where you will see a list of the campaigns that have been previously imported on your account. 
+If you select it and you have not yet registered your brand, you will be directed to the landing page.
 
-<img src="../../../images/campaign-import-list.png" style="max-width:95%">
+<img src="../../../images/campaign-landing-page.png" style="max-width:95%"><br/>
+
+Once on the landing page, if you select **REGISTER MY BRAND** you will be prompted with a pop-up modal with a series of forms to register your 1) reseller if necessary and 2) brand.
+
+<img src="../../../images/register-my-brand.png" style="max-width:95%"><br/>
+
+The first section is where you will enter your brand details. Once all you enter all the required information, you can hit next to go to the Brand Contact Details section.<br/>
+
+### Direct Customer
+If you are a direct customer and will not be managing brands and campaigns for other companies, you can select the Direct Customer option and submit the form to register your brand.
+
+<img src="../../../images/register-my-brand-direct.png" style="max-width:95%"><br/>
+
+### Reseller
+If you are a reseller, you can select the Reseller option and enter the required information to submit and register your reseller and brand.
+
+<img src="../../../images/register-my-brand-reseller.png" style="max-width:95%"><br/>
+
+## Brand List
+After successful registration of your brand, you will be directed to the Brand List page. If you are a Direct Customer, you will only be able to see your brand. 
+If you are a Reseller, you will see your Customer Brand list in addition to your brand.<br/>
+
+<img src="../../../images/brand-list-page.png" style="max-width:95%"><br/>
+
+## Register Customer Brands
+If you are a reseller, you can add as many customer brands as you would like. 
+From the brand list page if you select the **ADD CUSTOMER BRAND** button, you will be prompted again with the Brand Details form.<br/>
+
+<img src="../../../images/register-customer-brand.png" style="max-width:95%"><br/>
+
 
 ## Import a campaign
 While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
