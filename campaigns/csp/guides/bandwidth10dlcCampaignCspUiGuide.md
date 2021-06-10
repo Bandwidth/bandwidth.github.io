@@ -1,5 +1,5 @@
 {% raw %}
-<section class="campaignManagementGuides">
+<section class="campaignManagementCspGuides">
 {% endraw %}
 
 # Bandwidth 10DLC Campaigns Import UI Guide {#top}
