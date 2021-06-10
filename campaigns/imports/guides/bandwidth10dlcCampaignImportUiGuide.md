@@ -14,6 +14,9 @@ This walks through how to import and view your campaigns through the [Bandwidth 
 * You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP)
 * You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
 
+## Important Notes
+* Campaign has not yet been shared error message - cron re-tries every hour. TN won't be eligible for TN Association.
+
 ## Steps
 1. [View imported campaigns](#view-imported-campaigns)
 1. [Import a campaign](#import-a-campaign)

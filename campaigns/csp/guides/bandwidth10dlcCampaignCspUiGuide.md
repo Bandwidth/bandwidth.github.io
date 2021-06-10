@@ -9,16 +9,24 @@ This walks through how to import and view your campaigns through the [Bandwidth 
 ## Assumptions
 * You have been contracted and given access to your Bandwidth Dashboard Account
 * Your account has Messaging and Campaign Management products enabled
-* Your account has 10dlcImportCampaigns product feature enabled
-* Your account has your CSP ID associated to it
-* You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP)
-* You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
+* Your account has 10dlcCampaigns product feature enabled
+* Your user has been assigned the Campaign Management user role
+* You have registered your [brand](bandwidth10dlcBrandCspUiGuide.md)
 
 ## Steps
-1. [View imported campaigns](#view-imported-campaigns)
-1. [Import a campaign](#import-a-campaign)
-1. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
-1. [Next steps](#next-steps)
+1. [Provision a campaign](#assign-a-campaign-to-a-tn)
+    * [Standard use case](#create-an-api-only-user)
+    * [Mixed use case](#start-developing-to-our-messaging-apis)
+    * [Special use case](#start-developing-to-our-messaging-apis)
+2. [Campaign List](#next-steps)
+3. [Campaign Statuses](#next-steps)
+    * [Campaign Status](#create-an-api-only-user)
+    * [MNO Status](#start-developing-to-our-messaging-apis)
+4. [View campaign details](#next-steps)
+5. [Edit campaign](#next-steps)
+6. [Deactivate campaign](#next-steps)
+7. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
+8. [Next steps](#next-steps)
     * [Create an API-only user](#create-an-api-only-user)
     * [Start developing to our Messaging APIs](#start-developing-to-our-messaging-apis)
 

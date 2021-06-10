@@ -12,28 +12,15 @@ This walks through how to provision, manage and view your brands through the [Ba
 * Your account has 10dlcCampaigns product feature enabled
 * Your user has been assigned the Campaign Management user role
 
-## Important Notes
-* Campaign has not yet been shared error message - cron re-tries every hour. TN won't be eligible for TN Association.
-
 ## Steps
 1. [Register your brand](#register-your-brand)
     * [Direct Customer](#direct-customer)
     * [Reseller](#reseller)
 2. [Brand List](#brand-list)
 3. [Register customer brands (reseller only)](#register-customer-brands)
-4. [Provision a campaign](#assign-a-campaign-to-a-tn)
-    * [Standard use case](#create-an-api-only-user)
-    * [Mixed use case](#start-developing-to-our-messaging-apis)
-    * [Special use case](#start-developing-to-our-messaging-apis)
-5. [Campaign List](#next-steps)
-6. [Campaign Statuses](#next-steps)
-    * [Campaign Status](#create-an-api-only-user)
-    * [MNO Status](#start-developing-to-our-messaging-apis)
-7. [View campaign details](#next-steps)
-8. [Edit campaign](#next-steps)
-9. [Deactivate campaign](#next-steps)
-10. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
-11. [Next steps](#next-steps)
+4. [Edit Brand](#edit-brand)
+5. [Next steps](#next-steps)
+    * [Register Campaigns](#register-campaigns)
     * [Create an API-only user](#create-an-api-only-user)
     * [Start developing to our Messaging APIs](#start-developing-to-our-messaging-apis)
 
@@ -71,73 +58,16 @@ From the brand list page if you select the **ADD CUSTOMER BRAND** button, you wi
 
 <img src="../../../images/register-customer-brand.png" style="max-width:95%"><br/>
 
+## Edit Brands
+You can edit both your brand, and your customer brands by hitting the **EDIT** button next to the brand you would like to update. 
+Select Brand fields are editable once they have been registered, and may trigger a re-score of the brand from TCR. <br/>
 
-## Import a campaign
-While on the imported campaign list page, you have the option to select the '+ NEW IMPORTED CAMPAIGN' button.
-This will display a popup modal which allows you to enter the ID of the campaign you want to import.
-
-<img src="../../images/campaign-import-modal.png" style="max-width:95%"><br/>
-
-_Note_: If you get an error message while importing, it is likely that -
-1) your CSP ID on your account is incorrect,
-2) the campaign has not yet been shared with BANDW DCA
-
-## Assign a campaign to a TN
-
-You should see **Numbers** in the navigation bar. 
-If you select it, you will be routed to a sub navigation where you will see **My Numbers**.
-If you select it, you can search for a TN and view the details page.
-
-<img src="../../images/tn-option-order-1.png" style="max-width:95%"><br/>
-
-Once on the TN details page, you can scroll to the bottom where you will see SMS Settings. 
-Ensure SMS Settings is on, and that use location defaults is off. 
-You will see a dropdown labeled **A2P Campaign ID**. 
-Your imported campaigns will be found in the dropdown. 
-When you select a Campaign ID the **Message Class** field will auto-populate with the message class assigned from TCR.
-When you click the **Save** button, the TN will be associated with the Campaign ID and will be ready for use.<br/>
-
-_Note_: 
-If you don't see the Campaign ID in the dropdown, it's likely that - 
-1) it has not been approved by all Mobile Network Operators (MNOs),
-2) it has been deactivated or expired<br/>
-For a full list of status values and descriptions, please see [our campaign FAQs](campaignFaqs.md) <br/>
-
-<img src="../../images/tn-option-order-2.png" style="max-width:95%"><br/> 
-  
-<img src="../../images/tn-option-order-3.png" style="max-width:95%"><br/>
-
-_Note_: 
-If you are not able to turn location defaults off, you will need to go to the location and disable the 'Enforce Location Long Code Settings for all numbers' setting - <br/>
-<img src="../../images/disabled-location-defaults.png" style="max-width:95%"><br/>
-
-<img src="../../images/location-a2p-settings.png" style="max-width:95%"><br/>
-
-For more info on TNs, please see [our number ordering guide](../../../numbers/guides/onDemandNumberSearchAndOrder.md)
-
-## Bulk Assign a campaign to multiple TNs
-You should see **Numbers** in the navigation bar. 
-If you select it, you will be routed to a sub navigation where you will see **Upload Line Features**.
-If you select it, you will see the **Choose a .csv file to import** field.
-
-<img src="../../images/tn-bulk-upload-1.png" style="max-width:95%"><br/>
-
-A sample CSV is as follows -
-
-| TN                | CampaignId        | Action            |
-|:------------------|:------------------|:------------------|
-| `9192491000`      | `CABCDEF`         | `asSpecified`     |
-| `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
-| `9192491002`      | `C0123456`        | `asSpecified`     |
-
-Once you click the **Import** button the TNs will be processed. 
-Upon successful completion, the TNs will have the appropriate Campaign ID assigned and will be ready for use.
-
-<img src="../../images/tn-bulk-upload-2.png" style="max-width:95%"><br/>
-
-For more info on TNs, please see [Managing Line Features](../../../numbers/guides/managingLineFeatures.md)
+<img src="../../../images/edit-my-brand.png" style="max-width:95%"><br/>
 
 ## Next steps
+### Register Campaigns
+After registering your brand(s) you can use them to [register campaigns](bandwidth10dlcCampaignCspUiGuide.md).
+
 ### Create an API-only user
 Create an [API-only user](../../../guides/accountCredentials.md) to validate your API calls. Unlike user accounts that can access the Bandwidth Dashboard User Interface, users restricted to API only access won’t require periodic password resets.
 
