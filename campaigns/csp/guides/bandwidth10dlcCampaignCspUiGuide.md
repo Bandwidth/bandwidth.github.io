@@ -33,9 +33,12 @@ This walks through how to provision, manage and view your campaigns through the 
 ## Register a campaign
 Once you log into the Bandwidth Dashboard, you should see **Campaigns** in the navigation bar. 
 If you select it, you will be routed to the **Brands** sub navigation. From there you can select the **Campaigns** sub navigation
-which is where you will see a list of the campaigns that have been previously registered on your account.<br/>
+which is where you will see a list of the campaigns that have been previously registered on your account. <br/>
 
 <img src="../../../images/campaign-list-new.png" style="max-width:95%"><br/>
+
+If you have not previously registered a campaign you will see **CREATE A NEW CAMPAIGN**. 
+If you select **CREATE A NEW CAMPAIGN** or **+ NEW CAMPAIGN** you will be prompted with the campaign registration form.<br/>
 
 The first section is where you will select the brand you want to associate with the campaign.<br/>
 
@@ -53,6 +56,9 @@ For mixed use cases (Mixed or Low Volume Mixed), once selected, you will see sub
 Special use cases are on the right side of the form. These use cases need to go through MNO manual approval processes and may not be approved for some time after registering.<br/>
 
 The third and final section is where you will enter the campaign details.<br/>
+
+<img src="../../../images/register-campaign-details-1.png" style="max-width:95%"><br/>
+<img src="../../../images/register-campaign-details-2.png" style="max-width:95%"><br/>
 
 ## Campaign List
 Once you successfully register a campaign, you will be navigated back to the campaign list page<br/>
@@ -103,7 +109,7 @@ Deactivating a campaign will change the Campaign Status to EXPIRED, and will rem
 
 <img src="../../../images/deactivate-campaign-warning.png" style="max-width:95%"><br/>
 
-Campaigns in EXPIRED status cannot be edited or deactivated<br/>
+Campaigns in EXPIRED status cannot be edited or deactivated.<br/>
 
 <img src="../../../images/deactivated-campaign.png" style="max-width:95%"><br/>
 
