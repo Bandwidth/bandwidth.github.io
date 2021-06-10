@@ -62,8 +62,6 @@ Once you successfully register a campaign, you will be navigated back to the cam
 ### Campaign Statuses
 While on the campaign list page, you will be able to view the statuses of you campaigns<br/>
 
-<img src="../../../images/campaign-list.png" style="max-width:95%"><br/>
-
 #### Campaign Status
 The campaign statuses are - 1)ACTIVE or 2)EXPIRED. Immediately after registering a campaign, it will be in the ACTIVE status. 
 A campaign will only become EXPIRED if you take the action to deactivate the campaign yourself, or if auto-renewal is turned off for the campaign.<br/>
@@ -103,12 +101,11 @@ You can deactivate your campaign by selecting the **DEACTIVATE CAMPAIGN** button
 You will be prompted with a warning message and have the ability to confirm the action. This action cannot be reversed. 
 Deactivating a campaign will change the Campaign Status to EXPIRED, and will remove the campaign from all TNs in our system. <br/>
 
-<img src="../../../images/deactivated-campaign-warning.png" style="max-width:95%"><br/>
+<img src="../../../images/deactivate-campaign-warning.png" style="max-width:95%"><br/>
 
 Campaigns in EXPIRED status cannot be edited or deactivated<br/>
 
 <img src="../../../images/deactivated-campaign.png" style="max-width:95%"><br/>
-
 
 ## Assign a campaign to a TN
 
