@@ -139,7 +139,7 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignResponse>
+<LongCodeImportCampaignsResponse>
     <ImportedCampaigns>
         <ImportedCampaign>
             <CampaignId>CCOPVEY</CampaignId>
@@ -176,7 +176,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
             </MnoStatusList>
         </ImportedCampaign>
     </ImportedCampaigns>
-</LongCodeImportCampaignResponse>
+</LongCodeImportCampaignsResponse>
 ```
 
 ### Error Response
@@ -187,14 +187,14 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignResponse>
+<LongCodeImportCampaignsResponse>
    <ResponseStatus>
         <ErrorCode>1006</ErrorCode>
         <Description>
             size must be between 1 and 25 (bounds are included)
         </Description>
    </ResponseStatus>
-</LongCodeImportCampaignResponse>
+</LongCodeImportCampaignsResponse>
 ```
 
 ### Error Codes
