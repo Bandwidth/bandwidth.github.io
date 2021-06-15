@@ -13,12 +13,12 @@ This walks through how to programmatically import and view your campaigns _via A
 * Your account has 10dlcImportCampaigns product feature enabled
 * Your account has your CSP ID associated to it
 * Your API User has the Campaign Management role assigned
-* You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP) 
+* You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP)
 * You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
 
 ## Important Notes
 
-* If you get a '403 Unauthorized' error response while making an HTTP Request to any of the Import endpoints, 
+* If you get a '403 Unauthorized' error response while making an HTTP Request to any of the Import endpoints,
 you will need to reach out to the Implementation team to get the Campaign Management role assigned to your API User.
 * TCR currently has rate limits set on their HTTP REST endpoints. During high volume events, it is possible our APIs will be rate limited and respond with '429 Too Many Requests'.
 
@@ -62,7 +62,7 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
+<LongCodeImportCampaignResponse>
     <ImportedCampaign>
         <CampaignId>CA114BN</CampaignId>
         <Description>Test 1</Description>
@@ -80,7 +80,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
             </MnoStatus>
         </MnoStatusList>
     </ImportedCampaign>
-</LongCodeImportCampaignsResponse>
+</LongCodeImportCampaignResponse>
 ```
 
 ### Error Response
@@ -239,7 +239,7 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
+<LongCodeImportCampaignResponse>
     <ImportedCampaign>
         <CampaignId>CJEUMDK</CampaignId>
         <Description>Test 9</Description>
@@ -257,7 +257,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
                 </MnoStatus>
             </MnoStatusList>
     </ImportedCampaign>
-</LongCodeImportCampaignsResponse>
+</LongCodeImportCampaignResponse>
 ```
 
 ### Error Response
