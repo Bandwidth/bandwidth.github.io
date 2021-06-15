@@ -29,7 +29,7 @@ In order to route the outbound calls through Bandwidth, you'll need to create a 
 | Value      | Required | Description |
 |------------|----------|-------------|
 | `Username` | required | String identifying the user. |
-| `Domain`   | optional | String refining the identity of the user. The Domain will be joined to the UserName with an @ to create a composite username. For example, the UserName bob could be combined with the domain somewhere.com to create a composite username bob@somewhere.com |
+| `Domain`   | optional | String defining the identity of the user. The Domain will be joined to the UserName with an @ to create a composite username. For example, the UserName bob could be combined with the domain somewhere.com to create a composite username bob@somewhere.com |
 | `Realm` | optional | String identifying the realm the user belongs.  If left blank/empty the default realm on the account will be used. |
 | `HttpVoiceV2AppId` | optional | String identifying the V2 Voice application to route the call to. |
 | `Hash1`    | required | String representing a potential Hash values used to authenticate the client. The value should be computed from an MD5 Hash of: {composite-username}:{Realm}:{Password}. |
@@ -69,7 +69,7 @@ MD5 ("sipauthtest:<randomAccountHex>.auth.bandwidth.com:password") = fe438bddfc0
 | `sipauthtest`      | : | `<randomAccountHex>.auth.bandwidth.com` | `<randomAccountHex>.auth.bandwidth.com` | : | `password` |
 ```bash
 md5 -s sipauthtest:<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password
-MD5 ("sipauthtest:<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password") = 79bb0e55551e14a2f329a282c7cf145
+MD5 ("sipauthtest@<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password") = 79bb0e55551e14a2f329a282c7cf145
 ```
 
 #### Non-Default Setup (_Domain Specified_)
