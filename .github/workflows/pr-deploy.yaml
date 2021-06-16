@@ -1,0 +1,46 @@
+name: PR publish docsite
+
+on:
+  pull_request:
+
+jobs:
+  publish:
+    name: Publish Temp Docsite
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build docsite
+      run: ./.github/actions/build-docsite/script.sh
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    - name: Create Bucket Name
+      id: create_name
+      run: |
+        BUCKET_NAME=bw-gitbook-api-docs-${GITHUB_HEAD_REF#refs/heads/}
+        BUCKET_NAME=$(echo "$BUCKET_NAME" | tr '[:upper:]' '[:lower:]') #convert to lowercase for AWS bucket (can't be uppercase)
+        BUCKET_NAME=$(echo "$BUCKET_NAME" | sed -e "s/[^a-z0-9]/-/g") #replace all remaining non alphanumerics with -
+        echo $BUCKET_NAME
+        echo "::set-output name=bucket_name::$BUCKET_NAME"
+    - name: Create Bucket
+      run: |
+        echo $BUCKET_NAME
+        aws s3 mb s3://$BUCKET_NAME --region us-east-1
+        aws s3 website s3://$BUCKET_NAME --index-document index.html
+      env:
+        BUCKET_NAME: ${{ steps.create_name.outputs.bucket_name }}
+    - name: Sync zip to Bucket
+      run: |
+        aws s3 sync ./_book/ s3://$BUCKET_NAME --acl public-read
+      env:
+        BUCKET_NAME: ${{ steps.create_name.outputs.bucket_name }}
+    - name: Comment on PR
+      uses: mshick/add-pr-comment@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.BW_GITHUB_TOKEN }}
+      with:
+        message: http://${{ steps.create_name.outputs.bucket_name }}.s3-website-us-east-1.amazonaws.com/
+        allow-repeats: true
