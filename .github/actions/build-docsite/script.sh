@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e # Exit with nonzero exit code if anything fails
 

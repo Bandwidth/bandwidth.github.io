@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build docsite
-      run: ./.github/actions/build-docsite/script.sh
+      run: sh ./.github/actions/build-docsite/script.sh
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
