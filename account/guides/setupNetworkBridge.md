@@ -10,6 +10,7 @@ You must contact [Bandwidth Customer Support](http://support.bandwidth.com/) to 
 * Your default port ex: `5006` [_contact support_](http://support.bandwidth.com/)
 
 ## Steps {#steps}
+1. [Create New Realm](#create-new-realm)
 1. [Create New SIP Credentials](#create-new-sip-credentials)
 1. [Create call via Twilio with new SIP Creds](#create-call)
 
@@ -46,7 +47,7 @@ Check that MD5 is installed
 $ which md5
 /sbin/md5
 ```
-
+``
 Once MD5 is installed, run the command: `md5 -s {composite-username}:{Realm}:{Password}` where `{Password}` is the desired password
 
 #### Default Setup (_No Domain Specified as Part of the User's ID_)
@@ -55,36 +56,36 @@ Once MD5 is installed, run the command: `md5 -s {composite-username}:{Realm}:{Pa
 |--------------------|---|-----------------------------|---|------------|
 | `sipauthtest`      | : | `<randomAccountHex>.auth.bandwidth.com` | : | `password` |
 ```
-md5 -s sipauthtest:<randomAccountHex>.auth.bandwidth.com:password
-MD5 ("sipauthtest:<randomAccountHex>.auth.bandwidth.com:password") = fe438bddfc087dda89d29e637f5684ab
+md5 -s sipauthtest:realmname.<randomAccountHex>.auth.bandwidth.com:password
+MD5 ("sipauthtest:realmname.<randomAccountHex>.auth.bandwidth.com:password") = fe438bddfc087dda89d29e637f5684ab
 ```
 
 ##### Generate MD5 `Hash2` _without_ Domain
-| composite-username | : | realm                       | realm                       | : | password   |
+| composite-username | @ | realm                       | realm                       | : | password   |
 |--------------------|---|-----------------------------|-----------------------------|---|------------|
-| `sipauthtest`      | : | `<randomAccountHex>.auth.bandwidth.com` | `<randomAccountHex>.auth.bandwidth.com` | : | `password` |
+| `sipauthtest`      | @ | `realmname.<randomAccountHex>.auth.bandwidth.com` | `realmname.<randomAccountHex>.auth.bandwidth.com` | : | `password` |
 ```bash
-md5 -s sipauthtest:<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password
-MD5 ("sipauthtest:<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password") = 79bb0e55551e14a2f329a282c7cf145
+md5 -s sipauthtest@realmname.<randomAccountHex>.auth.bandwidth.com:realmname.<randomAccountHex>.auth.bandwidth.com:password
+MD5 ("sipauthtest@realmname.<randomAccountHex>.auth.bandwidth.com:realmname.<randomAccountHex>.auth.bandwidth.com:password") = 79bb0e55551e14a2f329a282c7cf145
 ```
 
 #### Non-Default Setup (_Domain Specified_)
 ##### Generate md5 Hash1 _with_ domain `somewhere.com`
 | composite-username  | : | realm                       | : | password   |
 |---------------------|---|-----------------------------|---|------------|
-| `bob@somewhere.com` | : | `<randomAccountHex>.auth.bandwidth.com` | : | `password` |
+| `bob@somewhere.com` | : | `realmname.<randomAccountHex>.auth.bandwidth.com` | : | `password` |
 ```bash
-md5 -s bob@somewhere.com:<randomAccountHex>.auth.bandwidth.com:password
-MD5 ("bob@somewhere.com:<randomAccountHex>.auth.bandwidth.com:password") = 817d76e91aad032a8c272229f468bfb2
+md5 -s bob@somewhere.com:realmname.<randomAccountHex>.auth.bandwidth.com:password
+MD5 ("bob@somewhere.com:realmname<randomAccountHex>.auth.bandwidth.com:password") = 817d76e91aad032a8c272229f468bfb2
 ```
 
 #####  Generate md5 Hash2 _with_ domain `somewhere.com`
-| composite-username  | : | realm                       | realm                       | : | password   |
+| composite-username  | @ | realm                       | realm                       | : | password   |
 |---------------------|---|-----------------------------|-----------------------------|---|------------|
-| `bob@somewhere.com` | : | `<randomAccountHex>.auth.bandwidth.com` | `<randomAccountHex>.auth.bandwidth.com` | : | `password` |
+| `bob@somewhere.com` | @ | `realmname.<randomAccountHex>.auth.bandwidth.com` | `realmname.<randomAccountHex>.auth.bandwidth.com` | : | `password` |
 ```bash
-md5 -s bob@somewhere.com:<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password
-MD5 ("bob@somewhere.com:<randomAccountHex>.auth.bandwidth.com:<randomAccountHex>.auth.bandwidth.com:password") = 39679d2a73c2e1ea719621bc0d8fdac8
+md5 -s bob@somewhere.com@realmname.<randomAccountHex>.auth.bandwidth.com:realmname.<randomAccountHex>.auth.bandwidth.com:password
+MD5 ("bob@somewhere.com@realmname.<randomAccountHex>.auth.bandwidth.com:realmname.<randomAccountHex>.auth.bandwidth.com:password") = 39679d2a73c2e1ea719621bc0d8fdac8
 ```
 
 ### Add the Newly Created Hash to Sip Credentials {#add-new-credentials}
@@ -134,7 +135,7 @@ To create a call using the network bridge format:
 ##### Curl Request to Create the Call
 ```bash
 curl 'https://api.twilio.com/2010-04-01/Accounts/{AccountId}/Calls.json' -X POST \
---data-urlencode 'To=sip:+17778889999@<randomAccountHex>.auth.bandwidth.com:5006' \
+--data-urlencode 'To=sip:+17778889999@realmname.<randomAccountHex>.auth.bandwidth.com:5006' \
 --data-urlencode 'From=+15553334444' \
 --data-urlencode 'Url=http://requestb.in/zolm8azo' \
 --data-urlencode 'SipAuthUsername=sipauthtest' \
