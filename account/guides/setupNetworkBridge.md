@@ -116,6 +116,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
     <SipCredential>
         <UserName>bob</UserName>
         <Domain>somewhere.com</Domain>
+        <Realm>realmName<Realm>
         <Hash1>817d76e91aad032a8c272229f468bfb2</Hash1>
         <Hash1b>39679d2a73c2e1ea719621bc0d8fdac8</Hash1b>
     </SipCredential>
