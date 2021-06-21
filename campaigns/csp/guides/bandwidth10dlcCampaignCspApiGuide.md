@@ -1,20 +1,18 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Bandwidth 10DLC Campaigns Import API Guide {#top}
+# Bandwidth 10DLC CSP Campaigns API Guide {#top}
 
-This walks through how to programmatically import and view your campaigns _via APIs_ for use with our [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
+This walks through how to programmatically provision, manage and view your campaigns _via APIs_ for use with our [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 
 ## Assumptions
 
 * Familiarity with [Account API Credentials](../../../guides/accountCredentials.md)
 * Created an [API Credential Pair within the UI](https://support.bandwidth.com/hc/en-us/articles/360039065753-Classic-How-to-Create-New-Users-in-the-Bandwidth-Dashboard)
 * Your account has Messaging and Campaign Management products enabled
-* Your account has 10dlcImportCampaigns product feature enabled
-* Your account has your CSP ID associated to it
-* Your API User has the Campaign Management role assigned
-* You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP) 
-* You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
+* Your account has 10dlcCampaigns product feature enabled
+* Your user has been assigned the Campaign Management user role
+* You have [registered a brand](bandwidth10dlcBrandCspApiGuide.md)
 
 ## Important Notes
 

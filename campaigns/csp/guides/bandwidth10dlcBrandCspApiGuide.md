@@ -3,18 +3,15 @@
 
 # Bandwidth 10DLC Campaigns Import API Guide {#top}
 
-This walks through how to programmatically import and view your campaigns _via APIs_ for use with our [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
+This walks through how to programmatically provision, manage and view your brands _via APIs_ for use with our [Campaign](../about.md), [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 
 ## Assumptions
 
 * Familiarity with [Account API Credentials](../../../guides/accountCredentials.md)
 * Created an [API Credential Pair within the UI](https://support.bandwidth.com/hc/en-us/articles/360039065753-Classic-How-to-Create-New-Users-in-the-Bandwidth-Dashboard)
 * Your account has Messaging and Campaign Management products enabled
-* Your account has 10dlcImportCampaigns product feature enabled
-* Your account has your CSP ID associated to it
-* Your API User has the Campaign Management role assigned
-* You have provisioned campaigns with The Campaign Registry (TCR) through your Campaign Service Provider (CSP) 
-* You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
+* Your account has 10dlcCampaigns product feature enabled
+* Your user has been assigned the Campaign Management user role
 
 ## Important Notes
 
@@ -28,59 +25,73 @@ The Account Management API resources are authenticated with your [API Credential
 
 ## Getting Started
 
-* [Get imported campaigns](#get-imported-campaigns)
-* [Import campaign](#import-campaign)
-* [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
-* [Bulk Assign a campaign to multiple TNs](#bulk-assign-a-campaign-to-multiple-tns)
+1. [Create Campaign Settings](#create-campaign-settings)
+    * [Direct Customer](#direct-customer)
+    * [Reseller](#reseller)
+2. [Update Campaign Settings](#update-campaign-settings)
+    * [Direct Customer](#update-direct-customer)
+    * [Reseller](#update-reseller)
+3. [Get Campaign Settings](#get-campaign-settings)
+4. [Create Brand](#create-brand)
+    * [My Brand](#my-brand)
+    * [Customer Brand](#customer-brand)
+5. [Update Brand](#update-brand)
+6. [Get Brand](#get-brand)
+7. [Get Detailed Brands List](#get-detailed-brands-list)
+8. [Get Abbreviated Brands List](#get-abbreviated-brands-list)
 
-## Get imported campaign
+
+## Create campaign settings
 
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/{campaignId}`
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `BusinessIdentity`         | Yes       | 	The type of customer you are, 'DirectCustomer' or 'Reseller'                                                                |
+| `Reseller`                 | No        | 	Value required for 'Reseller' BusinessIdentity only. An object containing reseller information                              |
+
+| Reseller                   | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `CompanyName`              | Yes       |  Display or company name of the reseller. Max 100 characters   |
+| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999'|
+| `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
 
 #### Request Authentication
 
-The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
 
-### GET Imported Campaign by Campaign ID
+### POST campaign settings
+#### Direct Customer
 
 {% sample lang="http" %}
 
 ```http
-GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN HTTP/1.1
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>DirectCustomer</BusinessIdentity>
+</CampaignSettings>
 ```
 
 ### Response
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 Created
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
-    <ImportedCampaign>
-        <CampaignId>CA114BN</CampaignId>
-        <Description>Test 1</Description>
-        <MessageClass>Campaign-E</MessageClass>
-        <CreateDate>2021-03-18T12:50:45Z</CreateDate>
-        <Status>ACTIVE</Status>
-        <MnoStatusList>
-            <MnoStatus>
-                <MnoName>ATT</MnoName>
-                <MnoId>10017</MnoId>
-                <Status>APPROVED</Status>
-                <MnoName>TMO</MnoName>
-                <MnoId>10035</MnoId>
-                <Status>APPROVED</Status>
-            </MnoStatus>
-        </MnoStatusList>
-    </ImportedCampaign>
-</LongCodeImportCampaignsResponse>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>DirectCustomer</BusinessIdentity>
+    </CampaignSettings>
+</CampaignSettingsResponse>
 ```
 
 ### Error Response
@@ -88,24 +99,222 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports/CA114BN
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignResponse>
-   <ResponseStatus>
-        <ErrorCode>12055</ErrorCode>
-        <Description>
-            10DLCImportCampaign feature is not enabled on account
-         </Description>
-   </ResponseStatus>
-</LongCodeImportCampaignResponse>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
 ```
 
 ### Error Codes
 ```http
 HTTP/1.1 400 Bad Request
 HTTP/1.1 403 Unauthorized
-HTTP/1.1 404 Not Found
+```
+
+#### Reseller
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>Reseller</BusinessIdentity>
+      <Reseller>
+        <CompanyName>Test Bandwidth Company</CompanyName>      
+        <Phone>+18009999999</Phone>
+        <Email>Test1@bandwidth.com</Email>
+    </Reseller>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>Reseller</BusinessIdentity>
+        <Reseller>
+            <CompanyName>Test 1</CompanyName>
+            <Phone>+18002837273</Phone>
+            <Email>Test1@bandwidth.com</Email>
+        </Reseller>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+```
+
+{% endextendmethod %}
+
+## Update campaign settings
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `BusinessIdentity`         | Yes       | 	The type of customer you are, 'DirectCustomer' or 'Reseller'                                                                |
+| `Reseller`                 | No        | 	Value required for 'Reseller' BusinessIdentity only. An object containing reseller information                              |
+
+| Reseller                   | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `CompanyName`              | Yes       |  Display or company name of the reseller. Max 100 characters   |
+| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999'|
+| `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
+
+#### Request Authentication
+
+The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+
+### PUT campaign settings 
+#### Update Direct Customer
+
+{% sample lang="http" %}
+
+```http
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>DirectCustomer</BusinessIdentity>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>DirectCustomer</BusinessIdentity>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+```
+
+#### Reseller
+
+{% sample lang="http" %}
+
+```http
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>Reseller</BusinessIdentity>
+      <Reseller>
+        <CompanyName>Test Bandwidth Company</CompanyName>      
+        <Phone>+18009999999</Phone>
+        <Email>Test1@bandwidth.com</Email>
+    </Reseller>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>Reseller</BusinessIdentity>
+        <Reseller>
+            <CompanyName>Test 1</CompanyName>
+            <Phone>+18002837273</Phone>
+            <Email>Test1@bandwidth.com</Email>
+        </Reseller>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
 ```
 
 {% endextendmethod %}
@@ -121,12 +330,12 @@ HTTP/1.1 404 Not Found
 
 The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
 
-### GET Imports
+### GET campaign settings
 
 {% sample lang="http" %}
 
 ```http
-GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2 HTTP/1.1
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
@@ -136,150 +345,39 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
-    <ImportedCampaigns>
-        <ImportedCampaign>
-            <CampaignId>CCOPVEY</CampaignId>
-            <Description>Test 9</Description>
-            <MessageClass>Campaign-E</MessageClass>
-            <CreateDate>2021-03-18T12:50:45Z</CreateDate>
-            <Status>ACTIVE</Status>
-            <MnoStatusList>
-                <MnoStatus>
-                    <MnoName>ATT</MnoName>
-                    <MnoId>10017</MnoId>
-                    <Status>APPROVED</Status>
-                    <MnoName>TMO</MnoName>
-                    <MnoId>10035</MnoId>
-                    <Status>REVIEW</Status>
-                </MnoStatus>
-            </MnoStatusList>
-        </ImportedCampaign>
-        <ImportedCampaign>
-            <CampaignId>CCOPRTM</CampaignId>
-            <Description>Test 10</Description>
-            <MessageClass>Campaign-E</MessageClass>
-            <CreateDate>2021-03-19T09:36:18Z</CreateDate>
-            <Status>ACTIVE</Status>
-            <MnoStatusList>
-                <MnoStatus>
-                    <MnoName>ATT</MnoName>
-                    <MnoId>10017</MnoId>
-                    <Status>REJECTED</Status>
-                    <MnoName>TMO</MnoName>
-                    <MnoId>10035</MnoId>
-                    <Status>SUSPENDED</Status>
-                </MnoStatus>
-            </MnoStatusList>
-        </ImportedCampaign>
-    </ImportedCampaigns>
-</LongCodeImportCampaignsResponse>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>Reseller</BusinessIdentity>
+        <Reseller>
+            <CompanyName>Test Company 1</CompanyName>
+            <Phone>+18009999999</Phone>
+            <Email>Test1@bandwidth.com</Email>
+        </Reseller>
+    </CampaignSettings>
+</CampaignSettingsResponse>
 ```
 
 ### Error Response
 
 ```http
-HTTP/1.1 400 Bad Request
+HTTP/1.1 404 Not Found
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page=1&size=2
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
-   <ResponseStatus>
-        <ErrorCode>1006</ErrorCode>
-        <Description>
-            size must be between 1 and 25 (bounds are included)
-        </Description>
-   </ResponseStatus>
-</LongCodeImportCampaignsResponse>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>4022</ErrorCode>
+        <Description>Account '1111111' does not exist or is locked</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
 ```
 
 ### Error Codes
 ```http
-HTTP/1.1 400 Bad Request
-HTTP/1.1 403 Unauthorized
-```
-
-{% endextendmethod %}
-
-## Import campaign
-
-{% extendmethod %}
-
-#### Request URL
-<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports`
-
-| Request Body               | Mandatory | Description                                                                                                                |
-|:---------------------------|:----------|:---------------------------------------------------------------------------------------------------------------------------|
-| `CampaignId`               | Yes       | Campaign ID generated by TCR                                                                                               |
-
-### POST Imports
-
-{% sample lang="http" %}
-
-```http
-POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports HTTP/1.1
-Content-Type: application/xml; charset=utf-8
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-
-<ImportedCampaign>
-    <CampaignId>CJEUMDK</CampaignId>
-</ImportedCampaign>
-
-```
-
-### Response
-
-```http
-HTTP/1.1 201 Created
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LongCodeImportCampaignsResponse>
-    <ImportedCampaign>
-        <CampaignId>CJEUMDK</CampaignId>
-        <Description>Test 9</Description>
-        <MessageClass>Campaign-E</MessageClass>
-        <CreateDate>2021-03-18T12:50:45Z</CreateDate>
-        <Status>ACTIVE</Status>
-            <MnoStatusList>
-                <MnoStatus>
-                    <MnoName>ATT</MnoName>
-                    <MnoId>10017</MnoId>
-                    <Status>APPROVED</Status>
-                    <MnoName>TMO</MnoName>
-                    <MnoId>10035</MnoId>
-                    <Status>APPROVED</Status>
-                </MnoStatus>
-            </MnoStatusList>
-    </ImportedCampaign>
-</LongCodeImportCampaignsResponse>
-```
-
-### Error Response
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports
-
-<LongCodeImportCampaignResponse>
-   <ResponseStatus>
-        <ErrorCode>1011</ErrorCode>
-        <Description>
-            CampaignId is too long. Max length 12 characters.
-         </Description>
-   </ResponseStatus>
-</LongCodeImportCampaignResponse>
-```
-
-### Error Codes
-```http
-HTTP/1.1 400 Bad Request
 HTTP/1.1 403 Unauthorized
 HTTP/1.1 404 Not Found
 ```
