@@ -31,7 +31,7 @@ The Account Management API resources are authenticated with your [API Credential
 2. [Update Campaign Settings](#update-campaign-settings)
     * [Direct Customer](#update-direct-customer)
     * [Reseller](#update-reseller)
-3. [Get Campaign Settings](#get-campaign-settings)
+3. [Fetch Campaign Settings](#fetch-campaign-settings)
 4. [Create Brand](#create-brand)
     * [My Brand](#my-brand)
     * [Customer Brand](#customer-brand)
@@ -319,7 +319,7 @@ HTTP/1.1 403 Unauthorized
 
 {% endextendmethod %}
 
-## Get imported campaigns
+## Fetch campaign settings
 
 {% extendmethod %}
 
@@ -492,6 +492,349 @@ Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnop
 ```http
 HTTP/1.1 400 Bad Request
 HTTP/1.1 409 Conflict
+```
+
+{% endextendmethod %}
+
+## Create brand
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `BusinessIdentity`         | Yes       | 	The type of customer you are, 'DirectCustomer' or 'Reseller'                                                                |
+| `Reseller`                 | No        | 	Value required for 'Reseller' BusinessIdentity only. An object containing reseller information                              |
+
+| Reseller                   | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `CompanyName`              | Yes       |  Display or company name of the reseller. Max 100 characters   |
+| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999'|
+| `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
+
+#### Request Authentication
+
+The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+
+### POST campaign settings
+#### Direct Customer
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>DirectCustomer</BusinessIdentity>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>DirectCustomer</BusinessIdentity>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+```
+
+#### Reseller
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>Reseller</BusinessIdentity>
+      <Reseller>
+        <CompanyName>Test Bandwidth Company</CompanyName>      
+        <Phone>+18009999999</Phone>
+        <Email>Test1@bandwidth.com</Email>
+    </Reseller>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>Reseller</BusinessIdentity>
+        <Reseller>
+            <CompanyName>Test 1</CompanyName>
+            <Phone>+18002837273</Phone>
+            <Email>Test1@bandwidth.com</Email>
+        </Reseller>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+```
+
+{% endextendmethod %}
+
+## Update campaign settings
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `BusinessIdentity`         | Yes       | 	The type of customer you are, 'DirectCustomer' or 'Reseller'                                                                |
+| `Reseller`                 | No        | 	Value required for 'Reseller' BusinessIdentity only. An object containing reseller information                              |
+
+| Reseller                   | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `CompanyName`              | Yes       |  Display or company name of the reseller. Max 100 characters   |
+| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999'|
+| `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
+
+#### Request Authentication
+
+The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+
+### PUT campaign settings 
+#### Update Direct Customer
+
+{% sample lang="http" %}
+
+```http
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>DirectCustomer</BusinessIdentity>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>DirectCustomer</BusinessIdentity>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+```
+
+#### Reseller
+
+{% sample lang="http" %}
+
+```http
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<CampaignSettings>
+  <BusinessIdentity>Reseller</BusinessIdentity>
+      <Reseller>
+        <CompanyName>Test Bandwidth Company</CompanyName>      
+        <Phone>+18009999999</Phone>
+        <Email>Test1@bandwidth.com</Email>
+    </Reseller>
+</CampaignSettings>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>Reseller</BusinessIdentity>
+        <Reseller>
+            <CompanyName>Test 1</CompanyName>
+            <Phone>+18002837273</Phone>
+            <Email>Test1@bandwidth.com</Email>
+        </Reseller>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>Phone is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+```
+
+{% endextendmethod %}
+
+## Fetch campaign settings
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page={page}&size={size}`
+
+#### Request Authentication
+
+The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+
+### GET campaign settings
+
+{% sample lang="http" %}
+
+```http
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <CampaignSettings>
+        <BusinessIdentity>Reseller</BusinessIdentity>
+        <Reseller>
+            <CompanyName>Test Company 1</CompanyName>
+            <Phone>+18009999999</Phone>
+            <Email>Test1@bandwidth.com</Email>
+        </Reseller>
+    </CampaignSettings>
+</CampaignSettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>4022</ErrorCode>
+        <Description>Account '1111111' does not exist or is locked</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 404 Not Found
 ```
 
 {% endextendmethod %}
