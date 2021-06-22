@@ -37,8 +37,8 @@ The Account Management API resources are authenticated with your [API Credential
     * [Customer Brand](#customer-brand)
 5. [Update Brand](#update-brand)
 6. [Fetch Brand](#fetch-brand)
-7. [Fetch Detailed Brands List](#fetch-detailed-brands-list)
-8. [Fetch Abbreviated Brands List](#fetch-abbreviated-brands-list)
+7. [Fetch Detailed Brand List](#fetch-detailed-brand-list)
+8. [Fetch Abbreviated Brand List](#fetch-abbreviated-brand-list)
 
 
 ## Create campaign settings
@@ -806,7 +806,7 @@ HTTP/1.1 429 Too Many Requests
 
 {% endextendmethod %}
 
-## Fetch detailed brands list
+## Fetch detailed brand list
 This endpoint returns a paginated brand list with full brand details.
 
 {% extendmethod %}
@@ -890,7 +890,7 @@ HTTP/1.1 429 Too Many Requests
 
 {% endextendmethod %}
 
-## Fetch abbreviated brands list
+## Fetch abbreviated brand list
 This endpoint returns a complete, un-paginated, brand list with limited detail.
 
 {% extendmethod %}
