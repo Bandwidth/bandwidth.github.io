@@ -36,9 +36,9 @@ The Account Management API resources are authenticated with your [API Credential
     * [My Brand](#my-brand)
     * [Customer Brand](#customer-brand)
 5. [Update Brand](#update-brand)
-6. [Get Brand](#get-brand)
-7. [Get Detailed Brands List](#get-detailed-brands-list)
-8. [Get Abbreviated Brands List](#get-abbreviated-brands-list)
+6. [Fetch Brand](#fetch-brand)
+7. [Fetch Detailed Brands List](#fetch-detailed-brands-list)
+8. [Fetch Abbreviated Brands List](#fetch-abbreviated-brands-list)
 
 
 ## Create campaign settings
@@ -388,120 +388,6 @@ HTTP/1.1 429 Too Many Requests
 
 {% endextendmethod %}
 
-## Assign a campaign to a TN
-
-### Assumption
-This endpoint assumes that TN(s) have already been ordered or ported into our system. For more info, please see [our number ordering](../../../numbers/guides/onDemandNumberSearchAndOrder.md) or [number porting](../../../numbers/guides/portingPhoneNumbers.md) guides.
-
-{% extendmethod %}
-
-#### Request URL
-<code class="post">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions`
-
-| Request Body               | Mandatory | Description                                                                                                                  |
-|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
-| `TnOptionGroups`           | Yes       | 	A list of TnOptionGroup.                                                                                                    |
-| `CustomerOrderId`          | No        | 	Optional value for Id set by customer. Only alphanumeric values, dashes and spaces are allowed. Max length is 40 characters.|
-
-| TnOptionGroup              | Mandatory | Description                                                    |
-|:---------------------------|:----------|:---------------------------------------------------------------|
-| `Sms`                      | Yes       |  'on' or 'off'. Sms must be turned 'on' to enable A2pSettings  |
-| `A2pSettings`              | Yes       | 	An object containing A2pSettings                              |
-| `TelephoneNumbers`         | Yes       | 	A list of Telephone Numbers to assign Campaign Id             |
-
-| A2pSettings                | Mandatory | Description                                                    |
-|:---------------------------|:----------|:---------------------------------------------------------------|
-| `CampaignId`               | Yes       |  The Campaign Id provided by The Campaign Registry (TCR)       |
-| `Action`                   | Yes       | 	Must be set to 'asSpecified'                                  |
-
-### POST Tn Options
-
-{% sample lang="http" %}
-
-```http
-POST https://dashboard.bandwidth.com/api/accounts/{accountId}/tnoptions HTTP/1.1
-Content-Type: application/xml; charset=utf-8
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-
-<TnOptionOrder>
-  <TnOptionGroups>
-    <TnOptionGroup>
-      <Sms>on</Sms>
-      <A2pSettings>
-        <Action>asSpecified</Action>
-        <CampaignId>CJEUMDK</CampaignId>
-      </A2pSettings>
-      <TelephoneNumbers>
-        <TelephoneNumber>9999999999</TelephoneNumber>
-        <TelephoneNumber>8888888888</TelephoneNumber>
-      </TelephoneNumbers>
-    </TnOptionGroup>
-  </TnOptionGroups>
-</TnOptionOrder>
-
-```
-
-### Response
-
-```http
-HTTP/1.1 201 Created
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnoptions
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <TnOptionOrderResponse>
-        <TnOptionOrder>
-            <OrderCreateDate>2021-04-14T18:17:17.791Z</OrderCreateDate>
-            <AccountId>000000000</AccountId>
-            <CreatedByUser>user</CreatedByUser>
-            <OrderId>ac48abbe-2311-4888-ca4a-05eaa336119c</OrderId>
-            <LastModifiedDate>2021-04-14T18:17:17.792Z</LastModifiedDate>
-            <ProcessingStatus>RECEIVED</ProcessingStatus>
-            <TnOptionGroups>
-                <TnOptionGroup>
-                    <Sms>on</Sms>
-                    <A2pSettings>
-                        <CampaignId>CAHVRZA</CampaignId>
-                        <Action>asSpecified</Action>
-                    </A2pSettings>
-                    <TelephoneNumbers>
-                        <TelephoneNumber>9999999999</TelephoneNumber>
-                        <TelephoneNumber>8888888888</TelephoneNumber>
-                    </TelephoneNumbers>
-                </TnOptionGroup>
-            </TnOptionGroups>
-            <ErrorList/>
-            <Warnings/>
-        </TnOptionOrder>
-    </TnOptionOrderResponse>
-```
-
-### Error Response
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/accounts/{accountId}/tnoptions
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TnOptionOrderResponse>
-    <ResponseStatus>
-        <ErrorCode>5081</ErrorCode>
-        <Description>Number Format 'wrong' is invalid.</Description>
-    </ResponseStatus>
-</TnOptionOrderResponse>
-```
-
-### Error Codes
-```http
-HTTP/1.1 400 Bad Request
-HTTP/1.1 403 Unauthorized
-HTTP/1.1 409 Conflict
-HTTP/1.1 429 Too Many Requests
-```
-
-{% endextendmethod %}
-
 ## Create brand
 
 {% extendmethod %}
@@ -527,6 +413,7 @@ HTTP/1.1 429 Too Many Requests
 | `Phone`                    | No       | 	Valid phone number in e.164 international format '+18009999999' |
 | `PostalCode`               | No       | 	Postal codes. Use 5 digit zipcode for United States  |
 | `State`                    | No       | 	State name. Must be 2 letters code for United States  |
+| `Street`                   | No       | 	street name. Max Length 100 characters |
 | `StockExchange`            | No (Required for public)       | 	Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
 | `StockSymbol`             | No (Required for public)      | 	Stock symbol  |
 | `Vertical`                 | Yes      | 	Enum value describing vertical or industry segment of the brand   |
@@ -536,7 +423,7 @@ HTTP/1.1 429 Too Many Requests
 
 #### Request Authentication
 
-The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+The [brands](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
 
 ### POST brand
 #### My Brand
@@ -564,6 +451,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
+  <Street>1200 Test Road</Street>
   <StockExchange>NASDAQ</StockExchange>
   <StockSymbol>BAND</StockSymbol>
   <Vertical>COMMUNICATION</Vertical>
@@ -597,6 +485,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
+      <Street>1200 Test Road</Street>
       <StockExchange>NASDAQ</StockExchange>
       <StockSymbol>BAND</StockSymbol>
       <Vertical>COMMUNICATION</Vertical>
@@ -611,7 +500,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <CampaignSettingsResponse>
@@ -654,6 +543,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
+  <Street>1200 Test Road</Street>
   <StockExchange>NASDAQ</StockExchange>
   <StockSymbol>TEST</StockSymbol>
   <Vertical>COMMUNICATION</Vertical>
@@ -686,6 +576,125 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
+      <Street>1200 Test Road</Street>
+      <StockExchange>NASDAQ</StockExchange>
+      <StockSymbol>TEST</StockSymbol>
+      <Vertical>COMMUNICATION</Vertical>
+      <Website>https://www.bandwidthcustomer.com</Website>
+      <IsMain>false</IsMain>
+    </Brand>
+</BrandResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>CompanyName is required</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 429 Too Many Requests
+```
+
+{% endextendmethod %}
+
+## Update brand
+_Note_: Non-editable fields will be ignored and will not be updated.
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `Brand`                    | Yes       | 	An object containing brand information                                                                                      |
+
+| Brand                     | Mandatory | Description                                                    |
+|:---------------------------|:----------|:---------------------------------------------------------------|
+| `DisplayName`              | Yes       | 	Display or marketing name of the brand. Max 100 characters   |
+| `Website`                  | No       | 	Brand website URL. Max Length 100 characters  |
+| `Street`                   | No       | 	street name. Max Length 100 characters |
+| `City`                     | No        | 	City name. Max Length 100 characters  |
+| `State`                    | No       | 	State name. Must be 2 letters code for United States  |
+| `PostalCode`               | No       | 	Postal codes. Use 5 digit zipcode for United States  |
+| `Country`                  | Yes       | 	ISO2 2 characters country code. Example: US - United States   |
+| `Email`                    | Yes      | 	Valid email address of brand support contact. Max 100 characters   |
+| `Phone`                    | No       | 	Valid phone number in e.164 international format '+18009999999' |
+| `Vertical`                 | Yes      | 	Enum value describing vertical or industry segment of the brand   |
+
+#### Request Authentication
+
+### PUT Brand
+
+{% sample lang="http" %}
+
+```http
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId} HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<Brand>
+  <EntityType>NON_PROFIT</EntityType>
+  <AltBusinessId>111111110</AltBusinessId>
+  <AltBusinessIdType>DUNS</AltBusinessIdType>
+  <City>Raleigh</City>
+  <CompanyName>Bandwidth Customer</CompanyName>
+  <Country>US</Country>
+  <DisplayName>Bandwidth Customer</DisplayName>
+  <Ein>111111110</Ein>
+  <Email>Test1@bandwidthcustomer.com</Email>
+  <Phone>+18009999999</Phone>
+  <PostalCode>27606</PostalCode>
+  <State>NC</State>
+  <Street>1200 Test Road</Street>
+  <StockExchange>NASDAQ</StockExchange>
+  <StockSymbol>TEST</StockSymbol>
+  <Vertical>COMMUNICATION</Vertical>
+  <Website>https://www.bandwidthcustomer.com</Website>
+  <IsMain>false</IsMain>
+</Brand>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandResponse>
+    <Brand>
+      <BrandId>BJDHM3</BrandId>
+      <CspId>CMHSJ9</CspId>
+      <EntityType>NON_PROFIT</EntityType>
+      <AltBusinessId>111111110</AltBusinessId>
+      <AltBusinessIdType>DUNS</AltBusinessIdType>
+      <City>Raleigh</City>
+      <CompanyName>Bandwidth Customer</CompanyName>
+      <Country>US</Country>
+      <DisplayName>Bandwidth Customer</DisplayName>
+      <Ein>111111110</Ein>
+      <Email>Test1@bandwidthcustomer.com</Email>
+      <Phone>+18009999999</Phone>
+      <PostalCode>27606</PostalCode>
+      <State>NC</State>
+      <Street>1200 Test Road</Street>
       <StockExchange>NASDAQ</StockExchange>
       <StockSymbol>TEST</StockSymbol>
       <Vertical>COMMUNICATION</Vertical>
@@ -706,7 +715,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 <CampaignSettingsResponse>
     <ResponseStatus>
         <ErrorCode>1003</ErrorCode>
-        <Description>CompanyName is required</Description>
+        <Description>Phone is required</Description>
     </ResponseStatus>
 </CampaignSettingsResponse>
 ```
@@ -714,168 +723,192 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ### Error Codes
 ```http
 HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 404 Not Found
+HTTP/1.1 429 Too Many Requests
+```
+
+{% endextendmethod %}
+
+## Fetch brand
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
+
+### GET brand
+
+{% sample lang="http" %}
+
+```http
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId} HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandResponse>
+    <Brand>
+      <BrandId>BJDHM3</BrandId>
+      <CspId>CMHSJ9</CspId>
+      <EntityType>NON_PROFIT</EntityType>
+      <AltBusinessId>111111110</AltBusinessId>
+      <AltBusinessIdType>DUNS</AltBusinessIdType>
+      <City>Raleigh</City>
+      <CompanyName>Bandwidth Customer</CompanyName>
+      <Country>US</Country>
+      <DisplayName>Bandwidth Customer</DisplayName>
+      <Ein>111111110</Ein>
+      <Email>Test1@bandwidthcustomer.com</Email>
+      <Phone>+18009999999</Phone>
+      <PostalCode>27606</PostalCode>
+      <State>NC</State>
+      <Street>1200 Test Road</Street>
+      <StockExchange>NASDAQ</StockExchange>
+      <StockSymbol>TEST</StockSymbol>
+      <Vertical>COMMUNICATION</Vertical>
+      <Website>https://www.bandwidthcustomer.com</Website>
+      <IsMain>false</IsMain>
+    </Brand>
+</BrandResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>12183</ErrorCode>
+        <Description>Brand with id 'BJDHM3' not found"</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 404 Not Found
+HTTP/1.1 429 Too Many Requests
+```
+
+{% endextendmethod %}
+
+## Fetch detailed brands list
+This endpoint returns a paginated brand list with full brand details.
+
+{% extendmethod %}
+
+#### Request URL
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}&page={page}&size={size}`
+
+_Note_: type parameter values include -
+1) 'none' which returns both 'My Brand' and 'Customer Brands'.
+2) 'main' which returns 'My Brand' only.
+3) 'customer' which return 'Customer Brands' only.
+
+### GET detailed brand list 
+
+{% sample lang="http" %}
+
+```http
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type=main&page=0&size=2 HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type=main&page=0&size=2
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandsResponse>
+    <Brands>
+        <Brand>
+          <BrandId>BJDHM3</BrandId>
+          <CspId>CMHSJ9</CspId>
+          <EntityType>NON_PROFIT</EntityType>
+          <AltBusinessId>111111110</AltBusinessId>
+          <AltBusinessIdType>DUNS</AltBusinessIdType>
+          <City>Raleigh</City>
+          <CompanyName>Bandwidth Customer</CompanyName>
+          <Country>US</Country>
+          <DisplayName>Bandwidth Customer</DisplayName>
+          <Ein>111111110</Ein>
+          <Email>Test1@bandwidthcustomer.com</Email>
+          <Phone>+18009999999</Phone>
+          <PostalCode>27606</PostalCode>
+          <State>NC</State>
+          <Street>1200 Test Road</Street>
+          <StockExchange>NASDAQ</StockExchange>
+          <StockSymbol>TEST</StockSymbol>
+          <Vertical>COMMUNICATION</Vertical>
+          <Website>https://www.bandwidthcustomer.com</Website>
+          <IsMain>false</IsMain>
+        </Brand>
+    </Brands>
+    <TotalCount>1</TotalCount>
+</BrandsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 403 Not Found
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type=main&page=0&size=2
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CampaignSettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>12055</ErrorCode>
+        <Description>CampaignManagement feature is not enabled on account 9999999</Description>
+    </ResponseStatus>
+</CampaignSettingsResponse>
+```
+
+### Error Codes
+```http
 HTTP/1.1 403 Unauthorized
 HTTP/1.1 429 Too Many Requests
 ```
 
 {% endextendmethod %}
 
-## Update campaign settings
+## Fetch abbreviated brands list
+This endpoint returns a complete, un-paginated, brand list with limited detail.
 
 {% extendmethod %}
 
 #### Request URL
-<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands`
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}`
 
-| Request Body               | Mandatory | Description                                                                                                                  |
-|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
-| `BusinessIdentity`         | Yes       | 	The type of customer you are, 'DirectCustomer' or 'Reseller'                                                                |
-| `Reseller`                 | No        | 	Value required for 'Reseller' BusinessIdentity only. An object containing reseller information                              |
+_Note_: type parameter values include -
+1) 'none' which returns both 'My Brand' and 'Customer Brands'.
+2) 'main' which returns 'My Brand' only.
+3) 'customer' which return 'Customer Brands' only.
 
-| Reseller                   | Mandatory | Description                                                    |
-|:---------------------------|:----------|:---------------------------------------------------------------|
-| `CompanyName`              | Yes       |  Display or company name of the reseller. Max 100 characters   |
-| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999'|
-| `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
-
-#### Request Authentication
-
-The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
-
-### PUT campaign settings 
-#### Update Direct Customer
+### GET abbreviated brand list 
 
 {% sample lang="http" %}
 
 ```http
-PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
-Content-Type: application/xml; charset=utf-8
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-
-<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<CampaignSettings>
-  <BusinessIdentity>DirectCustomer</BusinessIdentity>
-</CampaignSettings>
-```
-
-### Response
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
-    <CampaignSettings>
-        <BusinessIdentity>DirectCustomer</BusinessIdentity>
-    </CampaignSettings>
-</CampaignSettingsResponse>
-```
-
-### Error Response
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
-    <ResponseStatus>
-        <ErrorCode>1003</ErrorCode>
-        <Description>Phone is required</Description>
-    </ResponseStatus>
-</CampaignSettingsResponse>
-```
-
-### Error Codes
-```http
-HTTP/1.1 400 Bad Request
-HTTP/1.1 403 Unauthorized
-```
-
-#### Reseller
-
-{% sample lang="http" %}
-
-```http
-PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
-Content-Type: application/xml; charset=utf-8
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
-
-<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<CampaignSettings>
-  <BusinessIdentity>Reseller</BusinessIdentity>
-      <Reseller>
-        <CompanyName>Test Bandwidth Company</CompanyName>      
-        <Phone>+18009999999</Phone>
-        <Email>Test1@bandwidth.com</Email>
-    </Reseller>
-</CampaignSettings>
-```
-
-### Response
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
-    <CampaignSettings>
-        <BusinessIdentity>Reseller</BusinessIdentity>
-        <Reseller>
-            <CompanyName>Test 1</CompanyName>
-            <Phone>+18002837273</Phone>
-            <Email>Test1@bandwidth.com</Email>
-        </Reseller>
-    </CampaignSettings>
-</CampaignSettingsResponse>
-```
-
-### Error Response
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
-    <ResponseStatus>
-        <ErrorCode>1003</ErrorCode>
-        <Description>Phone is required</Description>
-    </ResponseStatus>
-</CampaignSettingsResponse>
-```
-
-### Error Codes
-```http
-HTTP/1.1 400 Bad Request
-HTTP/1.1 403 Unauthorized
-```
-
-{% endextendmethod %}
-
-## Fetch campaign settings
-
-{% extendmethod %}
-
-#### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page={page}&size={size}`
-
-#### Request Authentication
-
-The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
-
-### GET campaign settings
-
-{% sample lang="http" %}
-
-```http
-GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/?type=main HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
@@ -885,33 +918,50 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands?type=main
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
-    <CampaignSettings>
-        <BusinessIdentity>Reseller</BusinessIdentity>
-        <Reseller>
-            <CompanyName>Test Company 1</CompanyName>
-            <Phone>+18009999999</Phone>
-            <Email>Test1@bandwidth.com</Email>
-        </Reseller>
-    </CampaignSettings>
-</CampaignSettingsResponse>
+<BrandsResponse>
+    <Brands>
+        <Brand>
+          <BrandId>BJDHM3</BrandId>
+          <CspId>CMHSJ9</CspId>
+          <EntityType>NON_PROFIT</EntityType>
+          <AltBusinessId>111111110</AltBusinessId>
+          <AltBusinessIdType>DUNS</AltBusinessIdType>
+          <City>Raleigh</City>
+          <CompanyName>Bandwidth Customer</CompanyName>
+          <Country>US</Country>
+          <DisplayName>Bandwidth Customer</DisplayName>
+          <Ein>111111110</Ein>
+          <Email>Test1@bandwidthcustomer.com</Email>
+          <Phone>+18009999999</Phone>
+          <PostalCode>27606</PostalCode>
+          <State>NC</State>
+          <Street>1200 Test Road</Street>
+          <StockExchange>NASDAQ</StockExchange>
+          <StockSymbol>TEST</StockSymbol>
+          <Vertical>COMMUNICATION</Vertical>
+          <Website>https://www.bandwidthcustomer.com</Website>
+          <IsMain>false</IsMain>
+        </Brand>
+    </Brands>
+    <TotalCount>1</TotalCount>
+</BrandsResponse>
 ```
 
 ### Error Response
 
 ```http
-HTTP/1.1 404 Not Found
+HTTP/1.1 403 Not Found
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands?type=main
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <CampaignSettingsResponse>
     <ResponseStatus>
-        <ErrorCode>4022</ErrorCode>
-        <Description>Account '1111111' does not exist or is locked</Description>
+        <ErrorCode>12055</ErrorCode>
+        <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
 </CampaignSettingsResponse>
 ```
@@ -919,7 +969,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ### Error Codes
 ```http
 HTTP/1.1 403 Unauthorized
-HTTP/1.1 404 Not Found
+HTTP/1.1 429 Too Many Requests
 ```
 
 {% endextendmethod %}
