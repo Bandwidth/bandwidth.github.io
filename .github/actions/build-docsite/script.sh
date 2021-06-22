@@ -9,7 +9,6 @@ pip install awscli
 
 make
 sleep 1
-rm _book/.travis.yml
 cp -a _book/. out/
 
 cd ./lambda
