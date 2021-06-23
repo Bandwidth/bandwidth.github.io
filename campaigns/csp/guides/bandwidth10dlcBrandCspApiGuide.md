@@ -63,9 +63,10 @@ The Account Management API resources are authenticated with your [API Credential
 The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
 
 ### POST campaign settings
-#### Direct Customer
 
 {% sample lang="http" %}
+
+#### Direct Customer
 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
@@ -200,9 +201,10 @@ HTTP/1.1 429 Too Many Requests
 | `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
 
 ### PUT campaign settings 
-#### Update Direct Customer
 
 {% sample lang="http" %}
+
+#### Update Direct Customer
 
 ```http
 PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc HTTP/1.1
@@ -494,12 +496,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<BrandResponse>
     <ResponseStatus>
         <ErrorCode>1003</ErrorCode>
         <Description>CompanyName is required</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</BrandResponse>
 ```
 
 ### Error Codes
@@ -509,11 +511,11 @@ HTTP/1.1 403 Unauthorized
 HTTP/1.1 429 Too Many Requests
 ```
 
+{% sample lang="http" %}
+
 #### Customer Brand
 _Note_: You will only be allowed to create Customer Brands as a Reseller. 
 On the Request Body you can indicate a 'Customer Brand' by setting the IsMain flag to false.
-
-{% sample lang="http" %}
 
 ```http
 POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands HTTP/1.1
@@ -585,12 +587,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<BrandResponse>
     <ResponseStatus>
         <ErrorCode>1003</ErrorCode>
         <Description>CompanyName is required</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</BrandResponse>
 ```
 
 ### Error Codes
@@ -700,15 +702,15 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<BrandResponse>
     <ResponseStatus>
         <ErrorCode>1003</ErrorCode>
         <Description>Phone is required</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</BrandResponse>
 ```
 
 ### Error Codes
@@ -865,12 +867,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type=main&page=0&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<BrandsResponse>
     <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</BrandsResponse>
 ```
 
 ### Error Codes
@@ -949,12 +951,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands?type=main
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<BrandsResponse>
     <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</BrandsResponse>
 ```
 
 ### Error Codes

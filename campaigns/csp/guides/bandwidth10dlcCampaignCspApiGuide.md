@@ -417,12 +417,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<CampaignResponse>
     <ResponseStatus>
         <ErrorCode>12189</ErrorCode>
         <Description>Campaign with id 'CTW3YRE' not found"</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</CampaignResponse>
 ```
 
 ### Error Codes
@@ -548,12 +548,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/campaigns?page=0&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<CampaignsResponse>
     <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</CampaignsResponse>
 ```
 
 ### Error Codes
@@ -677,12 +677,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/campaigns?page=0&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<CampaignsResponse>
     <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</CampaignsResponse>
 ```
 
 ### Error Codes
@@ -728,12 +728,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/campaigns?page=0&size=2
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<CampaignResponse>
     <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</CampaignResponse>
 ```
 
 ### Error Codes
