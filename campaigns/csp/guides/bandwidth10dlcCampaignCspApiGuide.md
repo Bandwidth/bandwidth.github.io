@@ -30,7 +30,7 @@ The Account Management API resources are authenticated with your [API Credential
 2. [Update Campaign](#update-campaign)
 3. [Fetch Campaign](#fetch-campaign)
 4. [Fetch Campaign List](#fetch-campaign-list)
-5. [Fetch Campaign List By brandId](#fetch-campaign-list-by-brandid)
+5. [Fetch Campaign List By BrandId](#fetch-campaign-list-by-brand)
 6. [Deactivate Campaign](#deactivate-campaign)
 7. [Assign a campaign to a TN](#assign-a-campaign-to-a-tn)
 8. [Bulk Assign a campaign to multiple TNs](#bulk-assign-a-campaign-to-multiple-tns)
@@ -564,7 +564,7 @@ HTTP/1.1 429 Too Many Requests
 
 {% endextendmethod %}
 
-## Fetch campaign list by brandId
+## Fetch campaign list by brand
 This endpoint fetches a paginated list of all campaigns for a given brandId.
 
 {% extendmethod %}
@@ -572,7 +572,7 @@ This endpoint fetches a paginated list of all campaigns for a given brandId.
 #### Request URL
 <code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/campaigns?page=0&size=2`
 
-### GET campaign list by brandId 
+### GET campaign list by brand
 
 {% sample lang="http" %}
 
