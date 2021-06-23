@@ -2,7 +2,7 @@
 <section class="campaignManagementCspGuides">
 {% endraw %}
 
-# Bandwidth 10DLC CSP Brands UI Guide {#top}
+# Bandwidth 10DLC Reseller and Brand CSP UI Guide {#top}
 
 This walks through how to provision, manage and view your brands through the [Bandwidth Dashboard](https://dashboard.bandwidth.com) for use with our [Campaign](../about.md), [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 
