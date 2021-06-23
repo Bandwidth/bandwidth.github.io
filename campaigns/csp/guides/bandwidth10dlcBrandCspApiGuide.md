@@ -852,7 +852,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
           <StockSymbol>TEST</StockSymbol>
           <Vertical>COMMUNICATION</Vertical>
           <Website>https://www.bandwidthcustomer.com</Website>
-          <IsMain>false</IsMain>
+          <IsMain>true</IsMain>
         </Brand>
     </Brands>
     <TotalCount>1</TotalCount>
@@ -936,7 +936,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
           <StockSymbol>TEST</StockSymbol>
           <Vertical>COMMUNICATION</Vertical>
           <Website>https://www.bandwidthcustomer.com</Website>
-          <IsMain>false</IsMain>
+          <IsMain>true</IsMain>
         </Brand>
     </Brands>
     <TotalCount>1</TotalCount>
