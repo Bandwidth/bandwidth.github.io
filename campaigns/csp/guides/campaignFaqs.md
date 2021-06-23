@@ -21,6 +21,3 @@ It is possible to have a campaign that is in 'ACTIVE' status from the TCR perspe
 
 ## 4. My campaign has been rejected by one or more carriers, how can I get them to approve?
 At this point, the carriers campaign review rules are unknown to Bandwidth. To get your campaign re-reviewed, you will have to update your campaign and re-submit.
-
-## 5. How do I share my campaigns with Bandwidth DCA?
-You can share your campaigns with Bandwidth DCA in the TCR UI or by making a request to PUT csp-api.campaignregistry.com/campaign/{campaignId}/sharing/BANDW - For more info, please see the [TCR CSP API Documentation](https://csp-api.campaignregistry.com/v1/restAPI)

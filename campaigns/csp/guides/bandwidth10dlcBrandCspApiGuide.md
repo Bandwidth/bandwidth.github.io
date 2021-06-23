@@ -199,10 +199,6 @@ HTTP/1.1 429 Too Many Requests
 | `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999'|
 | `Email`                    | Yes       | 	Valid email address of reseller contact. Max 100 characters   |
 
-#### Request Authentication
-
-The [10dlc](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
-
 ### PUT campaign settings 
 #### Update Direct Customer
 
@@ -257,7 +253,7 @@ HTTP/1.1 403 Unauthorized
 HTTP/1.1 429 Too Many Requests
 ```
 
-#### Reseller
+#### Update Reseller
 
 {% sample lang="http" %}
 
@@ -326,11 +322,7 @@ HTTP/1.1 403 Unauthorized
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/imports?page={page}&size={size}`
-
-#### Request Authentication
-
-The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
+<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
 
 ### GET campaign settings
 
