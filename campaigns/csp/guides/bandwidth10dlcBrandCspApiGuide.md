@@ -782,12 +782,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<CampaignSettingsResponse>
+<BrandResponse>
     <ResponseStatus>
         <ErrorCode>12183</ErrorCode>
         <Description>Brand with id 'BJDHM3' not found"</Description>
     </ResponseStatus>
-</CampaignSettingsResponse>
+</BrandResponse>
 ```
 
 ### Error Codes
