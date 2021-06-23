@@ -1,7 +1,7 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Bandwidth 10DLC CSP Campaigns API Guide {#top}
+# Bandwidth 10DLC Campaign CSP API Guide {#top}
 
 This walks through how to programmatically provision, manage and view your campaigns _via APIs_ for use with our [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 

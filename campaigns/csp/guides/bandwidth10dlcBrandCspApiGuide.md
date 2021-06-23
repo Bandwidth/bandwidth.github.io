@@ -1,7 +1,7 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Bandwidth 10DLC Campaigns Import API Guide {#top}
+# Bandwidth 10DLC Brand CSP API Guide {#top}
 
 This walks through how to programmatically provision, manage and view your brands _via APIs_ for use with our [Campaign](../about.md), [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 
