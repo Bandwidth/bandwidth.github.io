@@ -40,7 +40,6 @@ The Account Management API resources are authenticated with your [API Credential
 7. [Fetch Detailed Brand List](#fetch-detailed-brand-list)
 8. [Fetch Abbreviated Brand List](#fetch-abbreviated-brand-list)
 
-
 ## Create campaign settings
 
 {% extendmethod %}
@@ -869,7 +868,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ### Error Response
 
 ```http
-HTTP/1.1 403 Not Found
+HTTP/1.1 403 Unauthorized
 Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type=main&page=0&size=2
 
@@ -953,7 +952,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ### Error Response
 
 ```http
-HTTP/1.1 403 Not Found
+HTTP/1.1 403 Unauthorized
 Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands?type=main
 
