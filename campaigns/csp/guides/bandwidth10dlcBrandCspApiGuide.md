@@ -187,7 +187,7 @@ HTTP/1.1 429 Too Many Requests
 {% extendmethod %}
 
 #### Request URL
-<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
+<code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
 
 | Request Body               | Mandatory | Description                                                                                                                  |
 |:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
@@ -324,7 +324,7 @@ HTTP/1.1 403 Unauthorized
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc`
 
 ### GET campaign settings
 
@@ -610,7 +610,7 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 {% extendmethod %}
 
 #### Request URL
-<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
+<code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
 
 | Request Body               | Mandatory | Description                                                                                                                  |
 |:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
@@ -728,7 +728,7 @@ HTTP/1.1 429 Too Many Requests
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
 
 ### GET brand
 
@@ -805,7 +805,7 @@ This endpoint returns a paginated brand list with full brand details.
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}&page={page}&size={size}`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}&page={page}&size={size}`
 
 _Note_: type parameter values include -
 1) 'none' which returns both 'My Brand' and 'Customer Brands'.
@@ -889,7 +889,7 @@ This endpoint returns a complete, un-paginated, brand list with limited detail.
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}`
 
 _Note_: type parameter values include -
 1) 'none' which returns both 'My Brand' and 'Customer Brands'.

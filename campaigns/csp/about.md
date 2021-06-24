@@ -18,5 +18,5 @@
 | [FAQs](guides/campaignFaqs.md)                                         | 10DLC CSP Campaigns Frequently Asked Questions                                 |                             
 
 ## Important Notes
-1. We only support for campaigns that have been approved by all carriers participating through TCR.
+1. We only support campaigns that have been approved by all carriers participating through TCR.
  Therefore, all campaigns provisioned via our CSP Portal will be provisioned against all participating carriers.

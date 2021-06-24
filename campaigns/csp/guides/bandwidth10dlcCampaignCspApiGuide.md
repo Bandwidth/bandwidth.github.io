@@ -208,7 +208,7 @@ HTTP/1.1 429 Too Many Requests
 {% extendmethod %}
 
 #### Request URL
-<code class="post">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}`
+<code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}`
 
 | Request Body               | Mandatory | Description                                                                                                                  |
 |:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
@@ -316,7 +316,7 @@ HTTP/1.1 429 Too Many Requests
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}`
 
 ### GET campaign
 
@@ -439,7 +439,7 @@ HTTP/1.1 429 Too Many Requests
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns?page={page}&size={size}`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns?page={page}&size={size}`
 
 ### GET campaign list 
 This endpoint fetches a paginated list of all campaigns for your account.
@@ -570,7 +570,7 @@ This endpoint fetches a paginated list of all campaigns for a given brandId.
 {% extendmethod %}
 
 #### Request URL
-<code class="post">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/campaigns?page=0&size=2`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/campaigns?page=0&size=2`
 
 ### GET campaign list by brand
 
@@ -699,7 +699,7 @@ This endpoint will update the campaign status to 'EXPIRED'.
 {% extendmethod %}
 
 #### Request URL
-<code class="post">DELETE</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}`
+<code class="delete">DELETE</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/campaigns/{campaignId}`
 
 ### DELETE campaign
 
