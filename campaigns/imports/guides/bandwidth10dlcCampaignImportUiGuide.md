@@ -80,7 +80,7 @@ You should see **Numbers** in the navigation bar.
 If you select it, you will be routed to a sub navigation where you will see **Upload Line Features**.
 If you select it, you will see the **Choose a .csv file to import** field.
 
-<img src="../../images/tn-bulk-upload-1.png" style="max-width:95%"><br/>
+<img src="../../../images/tn-bulk-upload-1.png" style="max-width:95%"><br/>
 
 A sample CSV is as follows -
 
