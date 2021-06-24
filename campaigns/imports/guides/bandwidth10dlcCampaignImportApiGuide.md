@@ -3,11 +3,11 @@
 
 # Bandwidth 10DLC Campaigns Import API Guide {#top}
 
-This walks through how to programmatically import and view your campaigns _via APIs_ for use with our [Number Management](../../numbers/about.md) and [Messaging](../../messaging/about.md) API's.
+This walks through how to programmatically import and view your campaigns _via APIs_ for use with our [Number Management](../../../numbers/about.md) and [Messaging](../../../messaging/about.md) API's.
 
 ## Assumptions
 
-* Familiarity with [Account API Credentials](../../guides/accountCredentials.md)
+* Familiarity with [Account API Credentials](../../../guides/accountCredentials.md)
 * Created an [API Credential Pair within the UI](https://support.bandwidth.com/hc/en-us/articles/360039065753-Classic-How-to-Create-New-Users-in-the-Bandwidth-Dashboard)
 * Your account has Messaging and Campaign Management products enabled
 * Your account has 10dlcImportCampaigns product feature enabled
@@ -24,7 +24,7 @@ you will need to reach out to the Implementation team to get the Campaign Manage
 
 ## API Authentication
 
-The Account Management API resources are authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds).
+The Account Management API resources are authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds).
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ The Account Management API resources are authenticated with your [API Credential
 
 #### Request Authentication
 
-The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds)
+The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
 
 ### GET Imported Campaign by Campaign ID
 
@@ -119,7 +119,7 @@ HTTP/1.1 404 Not Found
 
 #### Request Authentication
 
-The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../guides/accountCredentials.md#number-account-creds)
+The [imports](../about.md) resource is authenticated with your [API Credentials for "Number & Account Management"](../../../guides/accountCredentials.md#number-account-creds)
 
 ### GET Imports
 
@@ -289,7 +289,7 @@ HTTP/1.1 404 Not Found
 ## Assign a campaign to a TN
 
 ### Assumption
-This endpoint assumes that TN(s) have already been ordered or ported into our system. For more info, please see [our number ordering](../../numbers/guides/onDemandNumberSearchAndOrder.md) or [number porting](../../numbers/guides/portingPhoneNumbers.md) guides.
+This endpoint assumes that TN(s) have already been ordered or ported into our system. For more info, please see [our number ordering](../../../numbers/guides/onDemandNumberSearchAndOrder.md) or [number porting](../../../numbers/guides/portingPhoneNumbers.md) guides.
 
 {% extendmethod %}
 
@@ -400,16 +400,16 @@ HTTP/1.1 409 Conflict
 
 ### Next Steps
 There are many line options you can add to a TN. This section showed just how to turn SMS on and assign an A2P Campaign ID. For more detailed documentation on other types of TN Option Orders, please - <br/>
-1. Go to the [Dashboard REST API Documentation](../../numbers/apiReference.md)<br/>
+1. Go to the [Dashboard REST API Documentation](../../../numbers/apiReference.md)<br/>
 2. Click on the /Accounts section<br/>
 3. Scroll until you see /accounts/{accountId}/tnoptions<br/>
 4. Click and see the POST endpoint with detailed descriptions<br/>
 
-For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
+For more info on TNs, please see [Number Management](../../../numbers/about.md).<br/>
 
 ## Bulk Assign a campaign to multiple TNs
 We do not have a publicly exposed REST endpoint for bulk TN updates. Please see how to import a csv in our [campaign import Dashboard UI guide](bandwidth10dlcCampaignImportUiGuide.md#assign-a-campaign-to-a-tn).<br/>
-For more info on TNs, please see [Number Management](../../numbers/about.md).<br/>
-For more info on managing TN Line Features, please see [our managing line features guide](../../numbers/guides/managingLineFeatures.md).
+For more info on TNs, please see [Number Management](../../../numbers/about.md).<br/>
+For more info on managing TN Line Features, please see [our managing line features guide](../../../numbers/guides/managingLineFeatures.md).
 
 ---
