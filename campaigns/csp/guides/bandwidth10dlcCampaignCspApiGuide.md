@@ -225,7 +225,6 @@ HTTP/1.1 429 Too Many Requests
 | `MessageFlow`              | No        | Yes        | Message flow description. Max length 2048 |
 | `HelpMessage`              | No        | Yes        | Help message of the campaign. Max length 255  |
 | `AutoRenewal`              | No        | Yes        | Campaign subscription auto-renewal status. Default true  |
-
 | `BrandId`                  | Yes       | No        |  Alphanumeric identifier of the brand associated with this campaign  |
 | `Vertical`                 | Yes       | No        | 	Business/industry segment of this campaign. Must be of defined valid types |
 | `Usecase`                  | Yes       | No        | 	Campaign usecase. Must be of defined valid types  |
