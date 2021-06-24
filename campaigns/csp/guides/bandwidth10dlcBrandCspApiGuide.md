@@ -616,18 +616,25 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 |:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
 | `Brand`                    | Yes       | 	An object containing brand information                                                                                      |
 
-| Brand                     | Mandatory | Description                                                    |
-|:---------------------------|:----------|:---------------------------------------------------------------|
-| `DisplayName`              | Yes       | 	Display or marketing name of the brand. Max 100 characters   |
-| `Website`                  | No       | 	Brand website URL. Max Length 100 characters  |
-| `Street`                   | No       | 	street name. Max Length 100 characters |
-| `City`                     | No        | 	City name. Max Length 100 characters  |
-| `State`                    | No       | 	State name. Must be 2 letters code for United States  |
-| `PostalCode`               | No       | 	Postal codes. Use 5 digit zipcode for United States  |
-| `Country`                  | Yes       | 	ISO2 2 characters country code. Example: US - United States   |
-| `Email`                    | Yes      | 	Valid email address of brand support contact. Max 100 characters   |
-| `Phone`                    | No       | 	Valid phone number in e.164 international format '+18009999999' |
-| `Vertical`                 | Yes      | 	Enum value describing vertical or industry segment of the brand   |
+| Brand                      | Mandatory | Editable | Description                                                    |
+|:---------------------------|:----------|:---------|:-----------------------------------------------------|
+| `DisplayName`              | Yes       | Yes      | Display or marketing name of the brand. Max 100 characters   |
+| `Website`                  | No        | Yes      | Brand website URL. Max Length 100 characters  |
+| `Street`                   | No        | Yes      | street name. Max Length 100 characters |
+| `City`                     | No        | Yes      | City name. Max Length 100 characters  |
+| `State`                    | No        | Yes      | State name. Must be 2 letters code for United States  |
+| `PostalCode`               | No        | Yes      | Postal codes. Use 5 digit zipcode for United States  |
+| `Country`                  | Yes       | Yes      | ISO2 2 characters country code. Example: US - United States   |
+| `Email`                    | Yes       | Yes      | Valid email address of brand support contact. Max 100 characters   |
+| `Phone`                    | No        | Yes      | Valid phone number in e.164 international format '+18009999999' |
+| `Vertical`                 | Yes       | Yes      | Enum value describing vertical or industry segment of the brand   |
+| `EntityType`               | Yes       | No       | Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
+| `AltBusinessId`            | No        | No       | Alternate business identifier such as DUNS, LEI, GIIN |
+| `AltBusinessIdType`        | No        | No       | Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
+| `Ein`                      | No (Required for non-profit)  | No    	| Government assigned corporate tax ID. EIN is 9-digits in U.S   |
+| `StockExchange`            | No (Required for public)      | No    	| Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
+| `StockSymbol`              | No (Required for public)      | No    	| Stock symbol  |
+| `Website`                  | No        | No    	| Brand website URL. Max Length 100 characters  |
 
 #### Request Authentication
 
