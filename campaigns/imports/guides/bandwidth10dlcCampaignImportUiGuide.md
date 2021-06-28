@@ -15,6 +15,11 @@ This walks through how to import and view your campaigns through the [Bandwidth 
 * You have shared your provisioned campaigns with [Bandwidth DCA](campaignFaqs.md#5-how-do-i-share-my-campaigns-with-bandwidth-dca)
 
 ## Important Notes
+
+* We only allow imports for campaigns that have been approved by all carriers participating through TCR. 
+While provisioning your campaigns through your CSP, make sure to provision with all participating carriers. 
+If you are registering as your own CSP, exclude the 'mnoIds' property on the TCR CSP /campaigns/campaignBuilder endpoint request body. 
+If you do not provision to all carriers, you will have to either work with TCR to remedy or create another campaign in which both campaigns will be subject to fees.
 * Campaign has not yet been shared error message - cron re-tries every hour. TN won't be eligible for TN Association.
 
 ## Steps

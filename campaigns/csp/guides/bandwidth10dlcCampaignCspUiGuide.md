@@ -13,6 +13,10 @@ This walks through how to provision, manage and view your campaigns through the 
 * Your user has been assigned the Campaign Management user role
 * You have registered your [brand(s)](bandwidth10dlcBrandCspUiGuide.md)
 
+## Important Notes
+* We only support campaigns that have been approved by all carriers participating through TCR. 
+While provisioning your campaigns through Bandwidth Dashboard UI, they will automatically provision to all participating carriers.
+
 ## Steps
 1. [Register a campaign](#register-a-campaign)
     * [Standard use case](#standard-use-case)

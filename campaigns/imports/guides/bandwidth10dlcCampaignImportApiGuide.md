@@ -18,6 +18,10 @@ This walks through how to programmatically import and view your campaigns _via A
 
 ## Important Notes
 
+* We only allow imports for campaigns that have been approved by all carriers participating through TCR. 
+While provisioning your campaigns through your CSP, make sure to provision with all participating carriers. 
+If you are registering as your own CSP, exclude the 'mnoIds' property on the TCR CSP /campaigns/campaignBuilder endpoint request body. 
+If you do not provision to all carriers, you will have to either work with TCR to remedy or create another campaign in which both campaigns will be subject to fees.
 * If you get a '403 Unauthorized' error response while making an HTTP Request to any of the Import endpoints,
 you will need to reach out to the Implementation team to get the Campaign Management role assigned to your API User.
 * TCR currently has rate limits set on their HTTP REST endpoints. During high volume events, it is possible our APIs will be rate limited and respond with '429 Too Many Requests'.
