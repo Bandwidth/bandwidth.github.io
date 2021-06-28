@@ -310,6 +310,7 @@
     * [Imports](campaigns/imports/about.md)
         * [Dashboard UI Guide](campaigns/imports/guides/bandwidth10dlcCampaignImportUiGuide.md)
         * [API Guide](campaigns/imports/guides/bandwidth10dlcCampaignImportApiGuide.md)		
+        * [Managing Multiple CSP IDs](campaigns/imports/guides/bandwidth10dlcCampaignImportManagingMultipleCspIdsGuide.md)
         * [FAQs](campaigns/imports/guides/campaignFaqs.md)
 
 ## Multi-Factor Authentication
