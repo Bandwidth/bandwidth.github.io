@@ -87,10 +87,7 @@ If you select it, you will see the **Choose a .csv file to import** field.
 
 A sample CSV is as follows -
 
-|                   |                   |                   |
-|-------------------|-------------------|-------------------|
-| TN                | A2pSettings       | A2pSettings       |
-| TN                | CampaignId        | Action            |
+| TN <br/> TN       | A2pSettings <br/> CampaignId   | A2pSettings <br/> Action      | 
 |:------------------|:------------------|:------------------|
 | `9192491000`      | `CABCDEF`         | `asSpecified`     |
 | `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
