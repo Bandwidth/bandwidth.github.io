@@ -73,10 +73,8 @@ For a full list of status values and descriptions, please see [our campaign FAQs
 <img src="../../../images/tn-option-order-3.png" style="max-width:95%"><br/>
 
 _Note_: 
-If you are not able to turn location defaults off, you will need to go to the location and disable the 'Enforce Location Long Code Settings for all numbers' setting - <br/>
+If you are not able to turn location defaults off, you will need to reach out to the implementation team to disable 'Enforce Location Long Code Settings' on your locations. - <br/>
 <img src="../../../images/disabled-location-defaults.png" style="max-width:95%"><br/>
-
-<img src="../../../images/location-a2p-settings.png" style="max-width:95%"><br/>
 
 For more info on TNs, please see [our number ordering guide](../../../numbers/guides/onDemandNumberSearchAndOrder.md)
 
