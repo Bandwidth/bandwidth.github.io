@@ -13,6 +13,7 @@
 |:---------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | [Dashboard UI Guide](guides/bandwidth10dlcCampaignImportUiGuide.md)                | How to import and view your 10DLC campaigns using the Bandwidth Dashboard   |               
 | [API Guide](guides/bandwidth10dlcCampaignImportApiGuide.md)              | How to import and view your 10DLC campaigns using Bandwidth APIs            |                             
+| [Managing Multiple CSP IDs](guides/bandwidth10dlcCampaignImportManagingMultipleCspIdsGuide.md)              | How to manage multiple CSP IDs and share campaigns to your CSP ID    |                             
 | [FAQs](guides/campaignFaqs.md)                                         | Import Campaigns Frequently Asked Questions                                 |                             
 
 ## Important Notes

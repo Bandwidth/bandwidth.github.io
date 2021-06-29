@@ -13,6 +13,10 @@ This walks through how to provision, manage and view your campaigns through the 
 * Your user has been assigned the Campaign Management user role
 * You have registered your [brand(s)](bandwidth10dlcBrandCspUiGuide.md)
 
+## Important Notes
+* We only support campaigns that have been approved by all carriers participating through TCR. 
+While provisioning your campaigns through Bandwidth Dashboard UI, they will automatically provision to all participating carriers.
+
 ## Steps
 1. [Register a campaign](#register-a-campaign)
     * [Standard use case](#standard-use-case)
@@ -140,10 +144,8 @@ For a full list of status values and descriptions, please see [our campaign FAQs
 <img src="../../../images/tn-option-order-3.png" style="max-width:95%"><br/>
 
 _Note_: 
-If you are not able to turn location defaults off, you will need to go to the location and disable the 'Enforce Location Long Code Settings for all numbers' setting - <br/>
+If you are not able to turn location defaults off, you will need to reach out to the implementation team to disable 'Enforce Location Long Code Settings' on your locations. - <br/>
 <img src="../../../images/disabled-location-defaults.png" style="max-width:95%"><br/>
-
-<img src="../../../images/location-a2p-settings.png" style="max-width:95%"><br/>
 
 For more info on TNs, please see [our number ordering guide](../../../numbers/guides/onDemandNumberSearchAndOrder.md)
 
@@ -154,11 +156,10 @@ If you select it, you will see the **Choose a .csv file to import** field.
 
 <img src="../../../images/tn-bulk-upload-1.png" style="max-width:95%"><br/>
 
-A sample CSV is as follows -
+Sample CSV format is as follows -
 
-| TN                | A2pSettings       | A2pSettings       |
+| TN <br/> TN       | A2pSettings <br/> CampaignId   | A2pSettings <br/> Action      | 
 |:------------------|:------------------|:------------------|
-| `TN`              | `CampaignId`      | `Action`          |
 | `9192491000`      | `CABCDEF`         | `asSpecified`     |
 | `9192491001`      | `CEFGHIJ`         | `asSpecified`     |
 | `9192491002`      | `C0123456`        | `asSpecified`     |
