@@ -54,15 +54,15 @@ You should not include sensitive or personally-identifiable information in any t
 | silenceTimeout     | If no speech is detected in this period, a callback with a `silence` result is sent. Default is 10 seconds. | No |
 | speechThreshold    | Threshold to use when determining the result of the operation if a result was not determined yet. If the length of the speech detected is above this threshold, the result will be `answering-machine`. If the length of speech detected is below this threshold, the result will be `human`. Default is 10 seconds. | No |
 | speechEndThreshold | Threshold to use to determine an end of speech. Default is 5 seconds. | No |
-| waitForResult      | Controls whether we wait for the speech to end before sending the callback with the machine detection operation result. Default is false | No |
+| delayResult        | If set to true and an answering machine is detected, delays the sending of the `answering-machine` result until the machine is done speaking or until the `detectionTimeout` is reached. If false, the `answering-machine` result is sent immediately. Useful if you want to leave a message only after the machine is done talking. Default is false. | No |
 | callbackUrl        | The URL to send the [Machine Detection Complete](../../bxml/callbacks/machineDetectionComplete.md) when the operation is completed. | Only for `async` mode |
-| callbackMethod     | (optional) The HTTP method to use for the request to `callbackUrl`. GET or POST. Default value is POST. | No |
-| fallbackUrl        | (optional) A fallback URL which, if provided, will be used to retry the machine detection complete callback delivery in case `callbackUrl` fails to respond | No |
-| fallbackMethod     | (optional) The HTTP method to use for the request to `fallbackUrl`. GET or POST. Default value is POST. | No |
-| username           | (optional) The username to send in the HTTP request to `callbackUrl` | No |
-| password           | (optional) The password to send in the HTTP request to `callbackUrl` | No |
-| fallbackUsername   | (optional) The username to send in the HTTP request to `fallbackUrl` | No |
-| fallbackPassword   | (optional) The password to send in the HTTP request to `fallbackUrl` | No |
+| callbackMethod     | The HTTP method to use for the request to `callbackUrl`. GET or POST. Default value is POST. | No |
+| fallbackUrl        | A fallback URL which, if provided, will be used to retry the machine detection complete callback delivery in case `callbackUrl` fails to respond | No |
+| fallbackMethod     | The HTTP method to use for the request to `fallbackUrl`. GET or POST. Default value is POST. | No |
+| username           | The username to send in the HTTP request to `callbackUrl` | No |
+| password           | The password to send in the HTTP request to `callbackUrl` | No |
+| fallbackUsername   | The username to send in the HTTP request to `fallbackUrl` | No |
+| fallbackPassword   | The password to send in the HTTP request to `fallbackUrl` | No |
 
 {% common %}
 
