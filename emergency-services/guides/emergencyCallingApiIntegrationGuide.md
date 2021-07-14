@@ -70,7 +70,7 @@ Based on the information from the end user who initiates an Emergency Calling AP
 | Name | Purpose | Optional/Required |
 |--|--|--|
 | aeui | Caller identifier | Required |
-| location_id | Location identifier | Optional if lat-lon given | 
+| location_id | Location identifier | Optional if lat-lon given |
 | lat | Latitude, in WGS84 decimal degrees | Optional if location_id is given |
 | lon | Longitude, in WGS84 decimal degrees | Optional if location_id is given |
 | radius | Maximum allowable distance between location and lat/lon | Optional, defaults to 50 meters |
@@ -89,7 +89,9 @@ Example:
 ```
 {
     "aeui" : "myaeui",
-    "location_id": "mylocationid"
+    "location_id": "mylocationid",
+    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "name": "JJ Smith"
 }
 ```
 
@@ -103,7 +105,9 @@ Example:
 {
     "aeui" : "myaeui",
     "lat": 35.67426,
-    "lon": -105.95283
+    "lon": -105.95283,
+    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "name": "JJ Smith"
 }
 ```
 
@@ -121,7 +125,9 @@ Example:
     "location_id": "mylocationid",
     "lat": 35.67426,
     "lon": -105.95283,
-    "radius": 25
+    "radius": 25,
+    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "name": "JJ Smith"
 }
 ```
 
@@ -136,7 +142,9 @@ Example:
     "aeui" : "myaeui",
     "location_id": "mylocationid",
     "lat": 35.67426,
-    "lon": -105.95283
+    "lon": -105.95283,
+    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "name": "JJ Smith"
 }
 ```
 
