@@ -12,6 +12,8 @@ The maximum size of a BXML document is 64 KB.
 
 <img src="../../images/bxml_how.png" style="max-width:95%">
 
+Note: Improperly formed or invalid BXML will cause the call to fail and generate a detailed error including the invalid BXML that is available to Bandwidth Customer Service.  Please contact Bandwidth Customer Service with any questions.
+
 ###  Understanding BXML Callback Events
 BXML callbacks are HTTP requests made by the Bandwidth platform to endpoints specified by you in your HTTP requests and BXML. Their purpose
 is to 1) inform you of events that have happened in the call flow and 2) receive instructions from your
