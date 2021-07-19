@@ -24,7 +24,7 @@ Status: 200 OK
 Content-Type: text/xml; charset=UTF-8
 
 <ns0:getLocationsByURIResponse xmlns:ns0="http://dashcs.com/api/v1/emergency" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Locations>
+    <Location>
         <activatedtime>2014-10-08T16:57:48Z</activatedtime>
         <address1>1855 BLAKE ST</address1>
         <address2 xsi:nil="true" />
@@ -50,7 +50,7 @@ Content-Type: text/xml; charset=UTF-8
         </status>
         <type>ADDRESS</type>
         <updatetime>2014-10-08T17:23:49Z</updatetime>
-    </Locations>
+    </Location>
 </ns0:getLocationsByURIResponse>
 ```
 
