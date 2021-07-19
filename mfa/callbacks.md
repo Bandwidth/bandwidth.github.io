@@ -1,13 +1,14 @@
 # Two-Factor Authentication Callbacks
 For Two-Factor Authentication Callbacks, we rely on DLR's (Delivery Receipts) sent to us by Bandwidth's Messaging platform. We then take these DLR's and send them to the specified URL that was set in the `callbackUrl` field in the [initial request](./methods/code/messaging.md).
 
-Please read additional information regarding Bandwidth's Messaging Callbacks [here](../messaging/callbacks/messageEvents.md)
+Please read additional information regarding Bandwidth's Messaging Callbacks [here](../messaging/callbacks/messageEvents.md).
 
 ## Two-Factor Authentication Provisioning
 When Two-Factor Authentication is enabled on your account, we generate a separate Application in Bandwidth's dashboard specifically for 2FA. As part of this application, there is a field present called `Callback URL` that we auto-populate with 2FA's callback URL. Doing this ensures proper logging of requests on our end so we can better service you in the event there is an issue, as well as simplifies the sending of different types of DLR's from messaging. We proxy all callbacks to the destination of your choice using the value in the `callbackUrl` field.
 
-See the below image as an example of the Callback URL from the Bandwidth Dashboard.
-![Callback URL example image](../images/mfa-callbackUrlExample.png)
+See the below image as an example of the Callback URL from the Bandwidth Dashboard.<br>
+![Callback URL example image](../images/mfa-callbackUrlExample.png) <br>
+<br>
 
 *Note: The path parameter `yourAccountId` is replaced with your overall Bandwidth Account ID.*
 
