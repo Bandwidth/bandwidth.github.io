@@ -41,6 +41,7 @@ You should not include sensitive or personally-identifiable information in any t
 | fallbackPassword | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
 | callbackTimeout | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
 | uui | (optional) The value of the `User-To-User` header to send within the initial `INVITE` when calling a SIP URI. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. | No |
+| priority | (optional) The priority of this call over other calls from your account. A lower value means higher priority, so an 1-priority call takes precedence over a 2-priority call. Range: integer values between 1 - 5. Default value is 5. | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
 
