@@ -51,7 +51,8 @@ curl -X POST \
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "scope"         : "scope",
         "digits"        : 5,
-        "message"       : "Your temporary {NAME} {SCOPE} code is {CODE}"
+        "message"       : "Your temporary {NAME} {SCOPE} code is {CODE}",
+        "callbackUrl"   : "https://example.com/mfa/callback"
     }
   '
 ```
