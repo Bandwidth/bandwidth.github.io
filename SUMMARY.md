@@ -319,7 +319,11 @@
     * [POST Voice](mfa/methods/code/voice.md)
     * [POST Messaging](mfa/methods/code/messaging.md)
     * [POST Verify](mfa/methods/code/verify.md)
-* [Callbacks](mfa/callbacks.md)
+* [Callbacks](mfa/callbacks/about.md)
+    * [Domestic - Message Delivered](mfa/callbacks/domesticCallbacks/messageDelivered.md)
+    * [Domestic - Message Failed](mfa/callbacks/domesticCallbacks/messageFailed.md)
+    * [International - Message Delivered](mfa/callbacks/internationalCallbacks/messageFailed.md)
+    * [International - Message Failed](mfa/callbacks/internationalCallbacks/messageFailed.md)
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 
