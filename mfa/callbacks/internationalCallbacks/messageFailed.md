@@ -1,5 +1,5 @@
 {% method %}
-# Domestic - Message Failed
+# International - Message Failed
 When sending to Two-Factor Authentication's (2FA) International platform, you will receive a `message-failed` delivery receipt (DLR) upon unsuccessful delivery to the carrier.
 
 ### Parameters

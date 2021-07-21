@@ -9,13 +9,13 @@ Two-Factor Authentication (2FA) Callbacks (also known as [webhooks](https://webh
 ## Domestic Callbacks
 - The 2FA platform considers any message that is sent to a phone number in the United States and Canada to be domestic. This covers all phone numbers with the country code `+1`.
 - The type of domestic callbacks are as follows:
-  - [message-delivered](./domesticCallbacks/messageDelivered.md) - Message has been delivered by the carrier.
+  - [message-delivered](./domesticCallbacks/messageDelivered.md) - Message has been delivered to the carrier.
   - [message-failed](./domesticCallbacks/messageFailed.md) - Message failed to deliver.
 
 ## International Callbacks
 - The 2FA platform considers any message that is sent to a phone number outside of the United States and Canada to be international. This covers all phone numbers that do not have the country code `+1`.
 - The type of international callbacks are as follows:
-  - [message-delivered](./internationalCallbacks/messageDelivered.md) - Message has been delivered by the carrier.
+  - [message-delivered](./internationalCallbacks/messageDelivered.md) - Message has been delivered to the carrier.
   - [message-failed](./internationalCallbacks/messageFailed.md) - Message failed to deliver.
 
 ## Two-Factor Authentication Provisioning

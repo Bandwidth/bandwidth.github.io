@@ -322,7 +322,7 @@
 * [Callbacks](mfa/callbacks/about.md)
     * [Domestic - Message Delivered](mfa/callbacks/domesticCallbacks/messageDelivered.md)
     * [Domestic - Message Failed](mfa/callbacks/domesticCallbacks/messageFailed.md)
-    * [International - Message Delivered](mfa/callbacks/internationalCallbacks/messageFailed.md)
+    * [International - Message Delivered](mfa/callbacks/internationalCallbacks/messageDelivered.md)
     * [International - Message Failed](mfa/callbacks/internationalCallbacks/messageFailed.md)
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
