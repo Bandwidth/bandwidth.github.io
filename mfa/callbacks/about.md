@@ -27,4 +27,6 @@ See the below image as an example of the Callback URL from the Bandwidth Dashboa
 <br>
 *Note: The path parameter `yourAccountId` is replaced with your overall Bandwidth Account ID during provisioning.*
 <br>
+<br>
 If you change the value in the Bandwidth Dashboard in the `Callback URL` field to something other than the default 2FA Callback URL, you will not get the standardized messages for Domestic callbacks nor get logging/monitoring support from the 2FA platform.
+<br>
