@@ -4,16 +4,16 @@ Two-Factor Authentication (2FA) Callbacks (also known as [webhooks](https://webh
 ## Message Callbacks Concepts
 - Both Domestic and International callbacks have the same fields and have the same format. However, some of these fields differ in values to denote between the two systems.
 - Domestic callbacks are retried for 24 hours if the 2FA platform is unable to deliver it to you.
-- International callbacks are not retried if the 2FA platform is unable to deliver it to you.
+- International callbacks are not retried if the 2FA platform is unable to deliver it to you after the initial delivery attempt.
 
 ## Domestic Callbacks
-- The 2FA platform considers any message that is sent to a phone number in the United States and Canada to be domestic. This covers all phone numbers with the country code `+1`.
+- The 2FA platform considers any message that is sent to a phone number with the country code `+1` to be domestic.
 - The type of domestic callbacks are as follows:
   - [message-delivered](./domesticCallbacks/messageDelivered.md) - Message has been delivered to the carrier.
   - [message-failed](./domesticCallbacks/messageFailed.md) - Message failed to deliver.
 
 ## International Callbacks
-- The 2FA platform considers any message that is sent to a phone number outside of the United States and Canada to be international. This covers all phone numbers that do not have the country code `+1`.
+- The 2FA platform considers any message that is sent to a phone number that does not have the country code `+1` to be international.
 - The type of international callbacks are as follows:
   - [message-delivered](./internationalCallbacks/messageDelivered.md) - Message has been delivered to the carrier.
   - [message-failed](./internationalCallbacks/messageFailed.md) - Message failed to deliver.
