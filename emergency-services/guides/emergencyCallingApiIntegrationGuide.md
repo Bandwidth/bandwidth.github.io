@@ -74,6 +74,9 @@ Based on the information from the end user who initiates an Emergency Calling AP
 | lat | Latitude, in WGS84 decimal degrees | Optional if location_id is given |
 | lon | Longitude, in WGS84 decimal degrees | Optional if location_id is given |
 | radius | Maximum allowable distance between location and lat/lon | Optional, defaults to 50 meters |
+| callback | Callback number PSAP can use to reach caller | Optional, requires your account to be configured to not require callback at provisioning time |
+| name | Name of emergency caller presented to the PSAP | Optional, requires your account to be configured to not require callback at provisioning time |
+
 
 Based on the response you provide, Bandwidth will attempt to deliver the call to the appropriate emergency authority. There are four valid responses:
 
@@ -156,6 +159,8 @@ Bandwidth's servers will time out if it takes longer than 450 milliseconds to re
 
 If Bandwidth doesn't receive a response before timing out, if the response returns a status code of something other than a “2XX”, “301”, “302”, or “303”, or if it's incorrectly formatted or doesn't match the required format above, the response will be rejected. By default, this call will be sent to the Bandwidth's ECC.
 
+
+
 #### Rejecting robodialer and wrong number calls
 
 As indicated above, your account configuration defaults so that any error response on your side causes the call to be sent to our ECC. However, we can enable an option to reject the call if your service responds with an HTTP 404 code. Please [open a ticket](https://support.bandwidth.com/hc/en-us/requests/new) with your Bandwidth Support Team to enable this setting.
@@ -167,6 +172,24 @@ Since the Emergency API phone number we provide for routing with this service is
 Once your system is ready, please reach out to your Bandwidth Support Team and provide them the URL to your callback service.
 
 *Note*: The Emergency Calling API supports basic HTTP authentication. If you require basic authentication to access your service, you must provide a username and password to your Bandwidth Support Team so that we can include that information when we send you the HTTP request.
+
+#### Setting callback or caller name at call time
+
+If you can't set up your caller name or callback number for the caller when you add your endpoint to Bandwidth's systems, but do have that information at 911 (or 933) call time, your account can be configured to allow you to pass that information back to us in your API response.
+
+For example, building on Response 1 above, you could dynamically set the callback number to 15554321234, and the caller name to "JJ Smith" at the time of the call, instead of setting that when you provisioned the endpoint, using a response like this:
+
+```
+{
+    "aeui" : "myaeui",
+    "location_id": "mylocationid",
+    "callback": "+15554321234",
+    "name": "JJ Smith"
+}
+```
+
+By default, the value of the callback and name fields in the API response, if passed, will be ignored. If you need this capability, please contact your Bandwidth Implementation Specialist to set up your account.
+
 
 ## Sample use case
 
