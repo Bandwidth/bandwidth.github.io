@@ -15,8 +15,8 @@ Two-Factor Authentication (2FA) Callbacks (also known as [webhooks](https://webh
 ## International Callbacks
 - The 2FA platform considers any message that is sent to a phone number that does not have the country code `+1` to be international.
 - The type of international callbacks are as follows:
-  - [message-delivered](./internationalCallbacks/messageDelivered.md) - Message has been delivered to the carrier.
-  - [message-failed](./internationalCallbacks/messageFailed.md) - Message failed to deliver.
+  - [message-delivered](./international/messageDelivered.md) - Message has been delivered to the carrier.
+  - [message-failed](./international/messageFailed.md) - Message failed to deliver.
 
 ## Two-Factor Authentication Provisioning
 When Two-Factor Authentication is enabled on your account, the 2FA platform generates a separate Application in the Bandwidth Dashboard specifically for 2FA. As part of this application, there is a field present called `Callback URL` that is auto-populated with the default Callback URL for 2FA. Having this default endpoint ensures proper logging of requests to the platform for better serviceability, as well as simplifies the sending of different types of DLRs from messaging. The 2FA platform proxies all callbacks to the destination of your choice using the value in the `callbackUrl` field.

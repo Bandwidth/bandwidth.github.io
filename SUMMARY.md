@@ -322,8 +322,8 @@
 * [Callbacks](mfa/callbacks/about.md)
     * [North America - Message Delivered](mfa/callbacks/northAmerica/messageDelivered.md)
     * [North America - Message Failed](mfa/callbacks/northAmerica/messageFailed.md)
-    * [International - Message Delivered](mfa/callbacks/internationalCallbacks/messageDelivered.md)
-    * [International - Message Failed](mfa/callbacks/internationalCallbacks/messageFailed.md)
+    * [International - Message Delivered](mfa/callbacks/international/messageDelivered.md)
+    * [International - Message Failed](mfa/callbacks/international/messageFailed.md)
 * [Rate Limits](mfa/rateLimits.md)
 * [Errors](mfa/errors.md)
 
