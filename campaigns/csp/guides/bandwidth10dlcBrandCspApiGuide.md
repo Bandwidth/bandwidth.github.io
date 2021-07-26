@@ -394,24 +394,25 @@ HTTP/1.1 429 Too Many Requests
 
 | Brand                      | Mandatory | Description                                                    |
 |:---------------------------|:----------|:---------------------------------------------------------------|
-| `EntityType`               | Yes       |  Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
+| `EntityType`               | Yes       |  Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT', 'GOVERNMENT', SOLE_PROPRIETOR   |
 | `AltBusinessId`            | No        | 	Alternate business identifier such as DUNS, LEI, GIIN |
 | `AltBusinessIdType`        | No        | 	Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
-| `City`                     | No        | 	City name. Max Length 100 characters  |
-| `CompanyName`              | Yes       | 	Legal Company Name. Max Length 100 characters   |
+| `BrandRelationship`        | Yes       |  Enum value describing the relationship with your Account. Supported values: 'BASIC_ACCOUNT', 'SMALL_ACCOUNT', 'MEDIUM_ACCOUNT', 'LARGE_ACCOUNT', 'KEY_ACCOUNT' | 
+| `City`                     | Yes       | 	City name. Max Length 100 characters  |
+| `CompanyName`              | Yes (Not required for Sole Proprietor)      | 	Legal Company Name. Max Length 100 characters   |
 | `Country`                  | Yes       | 	ISO2 2 characters country code. Example: US - United States   |
 | `DisplayName`              | Yes       | 	Display or marketing name of the brand. Max 100 characters   |
-| `Ein`                      | No (Required for non-profit)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
-| `Email`                    | Yes      | 	Valid email address of brand support contact. Max 100 characters   |
-| `Phone`                    | No       | 	Valid phone number in e.164 international format '+18009999999' |
-| `PostalCode`               | No       | 	Postal codes. Use 5 digit zipcode for United States  |
-| `State`                    | No       | 	State name. Must be 2 letters code for United States  |
-| `Street`                   | No       | 	street name. Max Length 100 characters |
+| `Ein`                      | No (Required for non-profit and Disabled for Sole_Proprietor)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
+| `Email`                    | Yes       | 	Valid email address of brand support contact. Max 100 characters   |
+| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999' |
+| `PostalCode`               | Yes       | 	Postal codes. Use 5 digit zipcode for United States  |
+| `State`                    | Yes       | 	State name. Must be 2 letters code for United States  |
+| `Street`                   | Yes       | 	street name. Max Length 100 characters |
 | `StockExchange`            | No (Required for public)       | 	Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
-| `StockSymbol`             | No (Required for public)      | 	Stock symbol  |
-| `Vertical`                 | Yes      | 	Enum value describing vertical or industry segment of the brand   |
-| `Website`                  | No       | 	Brand website URL. Max Length 100 characters  |
-| `IsMain`                   | Yes      | 	true or false. True if creating 'My Brand', false if creating 'Customer Brand'  |
+| `StockSymbol`              | No (Required for public)      | 	Stock symbol  |
+| `Vertical`                 | Yes (Disabled for Sole_Proprietor)     | 	Enum value describing vertical or industry segment of the brand   |
+| `Website`                  | No        | 	Brand website URL. Max Length 100 characters  |
+| `IsMain`                   | Yes       | 	true or false. True if creating 'My Brand', false if creating 'Customer Brand'  |
 
 
 #### Request Authentication
@@ -620,14 +621,15 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 |:---------------------------|:----------|:---------|:-----------------------------------------------------|
 | `DisplayName`              | Yes       | Yes      | Display or marketing name of the brand. Max 100 characters   |
 | `Website`                  | No        | Yes      | Brand website URL. Max Length 100 characters  |
-| `Street`                   | No        | Yes      | street name. Max Length 100 characters |
-| `City`                     | No        | Yes      | City name. Max Length 100 characters  |
-| `State`                    | No        | Yes      | State name. Must be 2 letters code for United States  |
-| `PostalCode`               | No        | Yes      | Postal codes. Use 5 digit zipcode for United States  |
+| `Street`                   | Yes       | Yes      | street name. Max Length 100 characters |
+| `City`                     | Yes       | Yes      | City name. Max Length 100 characters  |
+| `State`                    | Yes       | Yes      | State name. Must be 2 letters code for United States  |
+| `PostalCode`               | Yes       | Yes      | Postal codes. Use 5 digit zipcode for United States  |
 | `Country`                  | Yes       | Yes      | ISO2 2 characters country code. Example: US - United States   |
 | `Email`                    | Yes       | Yes      | Valid email address of brand support contact. Max 100 characters   |
-| `Phone`                    | No        | Yes      | Valid phone number in e.164 international format '+18009999999' |
-| `Vertical`                 | Yes       | Yes      | Enum value describing vertical or industry segment of the brand   |
+| `Phone`                    | Yes       | Yes      | Valid phone number in e.164 international format '+18009999999' |
+| `Vertical`                 | Yes (Not required for Sole_Proprietor)       | Yes      | Enum value describing vertical or industry segment of the brand   |
+| `BrandRelationship`        | Yes       | Yes      | Enum value describing the relationship with your Account. Supported values: 'BASIC_ACCOUNT', 'SMALL_ACCOUNT', 'MEDIUM_ACCOUNT', 'LARGE_ACCOUNT', 'KEY_ACCOUNT' |
 | `EntityType`               | Yes       | No       | Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
 | `AltBusinessId`            | No        | No       | Alternate business identifier such as DUNS, LEI, GIIN |
 | `AltBusinessIdType`        | No        | No       | Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
