@@ -436,6 +436,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <EntityType>NON_PROFIT</EntityType>
   <AltBusinessId>111111111</AltBusinessId>
   <AltBusinessIdType>DUNS</AltBusinessIdType>
+  <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
   <City>Raleigh</City>
   <CompanyName>Bandwidth</CompanyName>
   <Country>US</Country>
@@ -469,6 +470,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <EntityType>NON_PROFIT</EntityType>
       <AltBusinessId>111111111</AltBusinessId>
       <AltBusinessIdType>DUNS</AltBusinessIdType>
+      <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
       <City>Raleigh</City>
       <CompanyName>Bandwidth</CompanyName>
       <Country>US</Country>
@@ -654,6 +656,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <EntityType>NON_PROFIT</EntityType>
   <AltBusinessId>111111110</AltBusinessId>
   <AltBusinessIdType>DUNS</AltBusinessIdType>
+  <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
   <City>Raleigh</City>
   <CompanyName>Bandwidth Customer</CompanyName>
   <Country>US</Country>
@@ -687,6 +690,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <EntityType>NON_PROFIT</EntityType>
       <AltBusinessId>111111110</AltBusinessId>
       <AltBusinessIdType>DUNS</AltBusinessIdType>
+      <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
       <City>Raleigh</City>
       <CompanyName>Bandwidth Customer</CompanyName>
       <Country>US</Country>
