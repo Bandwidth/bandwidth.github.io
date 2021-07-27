@@ -402,7 +402,7 @@ HTTP/1.1 429 Too Many Requests
 | `CompanyName`              | Yes (Not required for Sole Proprietor)      | 	Legal Company Name. Max Length 100 characters   |
 | `Country`                  | Yes       | 	ISO2 2 characters country code. Example: US - United States   |
 | `DisplayName`              | Yes       | 	Display or marketing name of the brand. Max 100 characters   |
-| `Ein`                      | No (Required for non-profit and Disabled for Sole_Proprietor)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
+| `Ein`                      | Yes (Not required for Sole_Proprietor)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
 | `Email`                    | Yes       | 	Valid email address of brand support contact. Max 100 characters   |
 | `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999' |
 | `PostalCode`               | Yes       | 	Postal codes. Use 5 digit zipcode for United States  |
@@ -635,7 +635,7 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 | `EntityType`               | Yes       | No       | Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
 | `AltBusinessId`            | No        | No       | Alternate business identifier such as DUNS, LEI, GIIN |
 | `AltBusinessIdType`        | No        | No       | Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
-| `Ein`                      | No (Required for non-profit)  | No    	| Government assigned corporate tax ID. EIN is 9-digits in U.S   |
+| `Ein`                      | Yes (Not required for Sole_Proprietor)  | No    	| Government assigned corporate tax ID. EIN is 9-digits in U.S   |
 | `StockExchange`            | No (Required for public)      | No    	| Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
 | `StockSymbol`              | No (Required for public)      | No    	| Stock symbol  |
 | `Website`                  | No        | No    	| Brand website URL. Max Length 100 characters  |
