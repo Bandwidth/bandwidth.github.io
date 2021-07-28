@@ -74,7 +74,7 @@ Based on the information from the end user who initiates an Emergency Calling AP
 | lat | Latitude, in WGS84 decimal degrees | Optional if location_id is given |
 | lon | Longitude, in WGS84 decimal degrees | Optional if location_id is given |
 | radius | Maximum allowable distance between location and lat/lon | Optional, defaults to 50 meters |
-| callback | Callback number PSAP can use to reach caller | Optional, requires your account to be configured to not require callback at provisioning time |
+| callback | Callback number PSAP can use to reach caller, must be in E164 format (+19195551234) and a valid US or Canadian phone number | Optional, requires your account to be configured to not require callback at provisioning time |
 | name | Name of emergency caller presented to the PSAP | Optional, requires your account to be configured to not require callback at provisioning time |
 
 
