@@ -92,9 +92,7 @@ Example:
 ```
 {
     "aeui" : "myaeui",
-    "location_id": "mylocationid",
-    "callback": "+15554321234",
-    "name": "JJ Smith"
+    "location_id": "mylocationid"
 }
 ```
 
@@ -108,9 +106,7 @@ Example:
 {
     "aeui" : "myaeui",
     "lat": 35.67426,
-    "lon": -105.95283,
-    "callback": "+15554321234",
-    "name": "JJ Smith"
+    "lon": -105.95283
 }
 ```
 
@@ -128,9 +124,7 @@ Example:
     "location_id": "mylocationid",
     "lat": 35.67426,
     "lon": -105.95283,
-    "radius": 25,
-    "callback": "+15554321234",
-    "name": "JJ Smith"
+    "radius": 25
 }
 ```
 
@@ -145,9 +139,7 @@ Example:
     "aeui" : "myaeui",
     "location_id": "mylocationid",
     "lat": 35.67426,
-    "lon": -105.95283,
-    "callback": "+15554321234",
-    "name": "JJ Smith"
+    "lon": -105.95283
 }
 ```
 
@@ -182,9 +174,7 @@ For example, building on Response 1 above, you could dynamically set the callbac
 ```
 {
     "aeui" : "myaeui",
-    "location_id": "mylocationid",
-    "callback": "+15554321234",
-    "name": "JJ Smith"
+    "location_id": "mylocationid"
 }
 ```
 
