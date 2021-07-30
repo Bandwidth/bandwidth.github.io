@@ -93,7 +93,7 @@ Example:
 {
     "aeui" : "myaeui",
     "location_id": "mylocationid",
-    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "callback": "+15554321234",
     "name": "JJ Smith"
 }
 ```
@@ -109,7 +109,7 @@ Example:
     "aeui" : "myaeui",
     "lat": 35.67426,
     "lon": -105.95283,
-    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "callback": "+15554321234",
     "name": "JJ Smith"
 }
 ```
@@ -129,7 +129,7 @@ Example:
     "lat": 35.67426,
     "lon": -105.95283,
     "radius": 25,
-    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "callback": "+15554321234",
     "name": "JJ Smith"
 }
 ```
@@ -146,7 +146,7 @@ Example:
     "location_id": "mylocationid",
     "lat": 35.67426,
     "lon": -105.95283,
-    "callback": "+15554321234",    // `Callback` and `Name` must be configured by Bandwidth support
+    "callback": "+15554321234",
     "name": "JJ Smith"
 }
 ```
