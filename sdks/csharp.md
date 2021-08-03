@@ -27,6 +27,7 @@ The C# SDK(s) are available via [NuGet](https://www.nuget.org/) & Github
 | 3.9.0 | Added conference management endpoints |
 | 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 | 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required. Updated the MFA error bodies and added message priority |
+| 6.0.0 | Updated voice, messaging, and MFA objects as well as corrected WebRTC participant id and session id parameter ordering in a number of requests.
 
 ## Download & Install
 
@@ -48,7 +49,7 @@ using Bandwidth.Standard;
 BandwidthClient client = new BandwidthClient.Builder()
                 .VoiceBasicAuthCredentials( username, password )
                 .MessagingBasicAuthCredentials( token, secret )
-                .TwoFactorAuthBasicAuthCredentials( username, password)
+                .MultiFactorAuthBasicAuthCredentials( username, password)
                 .Environment(Bandwidth.Standard.Environment.Custom) // Optional - sets the base URL to Custom
                 .BaseUrl("https://test.com") // Optional - sets the base URL
                 .Build();
@@ -66,7 +67,7 @@ Bandwidth.Standard.Messaging.Controllers.APIController msgController = client.Me
 ```csharp
 using Bandwidth.Standard.Voice.Controllers;
 
-ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+CreateCallRequest callRequest = new CreateCallRequest();
 
 callRequest.ApplicationId = "3-d-4-b-5";
 callRequest.To="+19999999999";
