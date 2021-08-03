@@ -164,6 +164,7 @@
 	* [Number Lookup API](numbers/guides/tnLookup.md)
 		* [Create a Phone Number Lookup Request](numbers/guides/tnLookup.md#create-tnlookup-request)
 		* [Fetch Status of a Request](numbers/guides/tnLookup.md#fetch-tnlookup-request-status)
+		* [Update for Aug 30,2021](numbers/guides/tnlnew.md)
 * [API Methods](numbers/apiReference.md)
 * [Callbacks](numbers/callbacks/about.md)
 	* [Order Notification](numbers/callbacks/orderNotification.md)

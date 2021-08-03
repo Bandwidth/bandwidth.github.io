@@ -1,7 +1,9 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Phone Number Lookup API {#top}
+# Phone Number Lookup API - Update for Aug 30,2021 {#top}
+
+### ⚠️ This version of the API will go into effect in Production on Aug 30,2021 ⚠️
 
 A Bandwidth API to provide carrier information for a telephone number or batch of telephone numbers. Currently supports lookups of telephone numbers in the mainland United States, Alaska, Hawaii, District of Columbia, and the provinces of Canada. Telephone numbers submitted must be in E.164 format to be processed.
 
@@ -70,7 +72,7 @@ Example: One TN Request Payload
 
 {
   "tns": [
-    "19196104423"
+    "19196104420"
   ]
 }
 
@@ -78,7 +80,7 @@ Example: Multiple TNs Request Payload
 
 {
   "tns": [
-    "19196104423",
+    "19196104420",
     "+19196104424"
   ]
 }
@@ -107,7 +109,7 @@ Location: https://numbers.bandwidth.com/api/v1/accounts/9999999/tnlookup/004223a
 
 Returns the result of a request by id.
 
-If requestId exists, the result for that request is returned. See the Examples for details on the various responses that you can receive. Generally, if you see a Response Code of 0 in a result for a TN, information will be available for it. Any other Response Code will indicate no information was available for the TN.
+If requestId exists, the result for that request is returned. See the Examples for details on the various responses that you can receive. Generally, if you see a responseCode value of 0 in a result for a TN, information will be available for it. Any other responseCode value will indicate no information was available for the TN.
 
 {% extendmethod %}
 
@@ -129,22 +131,20 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 
 #### Response Parameters {#fetch-tnlookup-response-params}
 
-### ⚠️ After Aug 30th,2021, do not use the response fields in the following table. Refer to this [link](../../numbers/guides/tnlnew.md#fetch-tnlookup-response-params) to see how these fields are changing after that date.⚠️
-
 | Parameter     | Type     | Description     | Example   |
 |:--------------|:---------|:----------------|:----------|
 | requestId          | `string` |  The requestId. | 004223a0-8b17-41b1-bf81-20732adf5590 |
 | status           | `string` | The status of the request | IN_PROGRESS, COMPLETE, PARTIAL_COMPLETE, or FAILED |
 | result          | array of `object` |   The carrier information results for the specified telephone number.  | See examples to the right. |
-| Response Code | `integer` |  Our vendor's response code.  | 0, 1, 2, 3, ... |
-| Message       | `string`  | Message associated with the response code. | NOERROR |
-| E.164 Format           | `string` | The telephone number in E.164 format.| 19196104424 |
-| Formatted       | `string`  | The formatted version of the telephone number. | (919) 610-4424 |
-| Country       | `string`  | The country of the telephone number in ISO 3166-1 alpha-2 format. | US or CA |
-| Line Type     | `string`  | The line type of the telephone number. | Mobile |
-| Line Provider     | `string`  | The service provider of the telephone number. | T-Mobile USA |
-| Mobile Country Code     | `string`  | The first half of the Home Network Identity (HNI).| 310 |
-| Mobile Network Code     | `string`  | The second half of the HNI.| 160 |
+| responseCode | `integer` |  Our vendor's response code.  | 0, 1, 2, 3, ... |
+| message       | `string`  | Message associated with the response code. | NOERROR |
+| e164Format           | `string` | The telephone number in E.164 format.| 19196104424 |
+| formatted       | `string`  | The formatted version of the telephone number. | (919) 610-4424 |
+| country       | `string`  | The country of the telephone number in ISO 3166-1 alpha-2 format. | US or CA |
+| lineType     | `string`  | The line type of the telephone number. | Mobile |
+| lineProvider     | `string`  | The service provider of the telephone number. | T-Mobile USA |
+| mobileCountryCode     | `string`  | The first half of the Home Network Identity (HNI).| 310 |
+| mobileNetworkCode     | `string`  | The second half of the HNI.| 160 |
 | failedTelephoneNumbers  | array of `string`| The telephone numbers whose lookup failed. | 18096105012 |
 
 
@@ -152,7 +152,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 
 | Code                              |  Description  |
 |:----------------------------------|:-----------|
-|200|If requestId exists, the result for that request is returned. See the Examples for details on the various responses that you can receive. Generally, if you see a Response Code of 0 in a result for a TN, information will be available for it. Any other Response Code will indicate no information was available for the TN.|
+|200|If requestId exists, the result for that request is returned. See the Examples for details on the various responses that you can receive. Generally, if you see a responseCode value of 0 in a result for a TN, information will be available for it. Any other responseCode value will indicate no information was available for the TN.|
 |400|Bad Request.  Ensure that you have set the requestId as a URL path parameter.|
 |401|Unauthorized. Ensure that you are using the proper credentials for the environment you are accessing, your user has the proper role assigned to it, and that your Bandwidth account is enabled for TN Lookup access.|
 |404|RequestId not found. Ensure that the requestId used in the URL path is valid and maps to a previous request that was submitted.|
@@ -208,15 +208,15 @@ Content-Type: application/json
   "status": "COMPLETE",
   "result": [
     {
-      "Response Code": 0,
-      "Message": "NOERROR",
-      "E.164 Format": "19196104424",
-      "Formatted": "(919) 610-4424",
-      "Country": "US",
-      "Line Type": "Mobile",
-      "Line Provider": "T-Mobile USA",
-      "Mobile Country Code": "310",
-      "Mobile Network Code": "160"
+      "responseCode": 0,
+      "message": "NOERROR",
+      "e164Format": "19196104424",
+      "formatted": "(919) 610-4424",
+      "country": "US",
+      "lineType": "Mobile",
+      "lineProvider": "T-Mobile USA",
+      "mobileCountryCode": "310",
+      "mobileNetworkCode": "160"
     }
   ]
 }
@@ -246,26 +246,26 @@ Content-Type: application/json
   "status": "COMPLETE",
   "result": [
     {
-      "Response Code": 0,
-      "Message": "NOERROR",
-      "E.164 Format": "+19196104424",
-      "Formatted": "(919) 610-4424",
-      "Country": "US",
-      "Line Type": "Mobile",
-      "Line Provider": "T-Mobile USA",
-      "Mobile Country Code": "310",
-      "Mobile Network Code": "160"
+      "responseCode": 0,
+      "message": "NOERROR",
+      "e164Format": "+19196104424",
+      "formatted": "(919) 610-4424",
+      "country": "US",
+      "lineType": "Mobile",
+      "lineProvider": "T-Mobile USA",
+      "mobileCountryCode": "310",
+      "mobileNetworkCode": "160"
     },
     {
-      "Response Code": 0,
-      "Message": "NOERROR",
-      "E.164 Format": "19196104423",
-      "Formatted": "(919) 610-4423",
-      "Country": "US",
-      "Line Type": "Mobile",
-      "Line Provider": "Verizon Wireless",
-      "Mobile Country Code": "310",
-      "Mobile Network Code": "010"
+      "responseCode": 0,
+      "message": "NOERROR",
+      "e164Format": "19196104420",
+      "formatted": "(919) 610-4420",
+      "country": "US",
+      "lineType": "Mobile",
+      "lineProvider": "Verizon Wireless",
+      "mobileCountryCode": "310",
+      "mobileNetworkCode": "010"
     }
   ]
 }
@@ -295,15 +295,15 @@ Content-Type: application/json
   "status": "PARTIAL_COMPLETE",
   "result": [
     {
-      "Response Code": 0,
-      "Message": "NOERROR",
-      "E.164 Format": "+19196104424",
-      "Formatted": "(919) 610-4424",
-      "Country": "US",
-      "Line Type": "Mobile",
-      "Line Provider": "T-Mobile USA",
-      "Mobile Country Code": "310",
-      "Mobile Network Code": "160"
+      "responseCode": 0,
+      "message": "NOERROR",
+      "e164Format": "+19196104424",
+      "formatted": "(919) 610-4424",
+      "country": "US",
+      "lineType": "Mobile",
+      "lineProvider": "T-Mobile USA",
+      "mobileCountryCode": "310",
+      "mobileNetworkCode": "160"
     }
   ],
   "failedTelephoneNumbers": [
@@ -336,11 +336,11 @@ Content-Type: application/json
   "status": "COMPLETE",
   "result": [
     {
-      "Response Code": 3,
-      "Message": "NXDOMAIN",
-      "E.164 Format": "19196104425",
-      "Formatted": "(919) 610-4425",
-      "Country": "US"
+      "responseCode": 3,
+      "message": "NXDOMAIN",
+      "e164Format": "19196104425",
+      "formatted": "(919) 610-4425",
+      "country": "US"
     }
   ]
 }
