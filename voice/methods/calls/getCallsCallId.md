@@ -112,14 +112,14 @@ try {
 {% sample lang="ruby" %}
 
 ```ruby
-result = voice_client.get_call_state(account_id, call_id)
+result = voice_client.get_call(account_id, call_id)
 puts result.data.state
 ```
 
 {% sample lang="python" %}
 
 ```python
-response = voice_client.get_call_state(account_id, call_id)
+response = voice_client.get_call(account_id, call_id)
 print(response.body.state)
 ```
 
