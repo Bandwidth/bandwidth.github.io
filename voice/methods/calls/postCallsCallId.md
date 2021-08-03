@@ -47,7 +47,7 @@ curl -X POST \
 
 ```java
 try {
-    ApiModifyCallRequest modifyCallRequest = new ApiModifyCallRequest();
+    ModifyCallRequest modifyCallRequest = new ModifyCallRequest();
     modifyCallRequest.setRedirectUrl("");
     modifyCallRequest.setState(StateEnum.ACTIVE);
 
@@ -61,7 +61,7 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-ApiModifyCallRequest apiModifyCallRequest = new ApiModifyCallRequest();
+ModifyCallRequest apiModifyCallRequest = new ModifyCallRequest();
 apiModifyCallRequest.RedirectUrl = "http://www.myapp.com/new";
 apiModifyCallRequest.State = StateEnum.ACTIVE;
 
@@ -72,7 +72,7 @@ voiceClient.ModifyCall(VOICE_ACCOUNT_ID, callId, apiModifyCallRequest);
 {% sample lang="ruby" %}
 
 ```ruby
-body = ApiModifyCallRequest.new
+body = ModifyCallRequest.new
 body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
@@ -86,7 +86,7 @@ end
 {% sample lang="python" %}
 
 ```python
-body = ApiModifyCallRequest()
+body = ModifyCallRequest()
 body.redirect_url = "http://www.myapp.com/new"
 body.state = "active"
 
@@ -120,7 +120,7 @@ const response = await controller.modifyCall(accountId, callId, {
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body = new BandwidthLib\Voice\Models\ModifyCallRequest();
 $body->state = "active";
 $body->redirectUrl = "http://www.myapp.com/new";
 
@@ -152,7 +152,7 @@ curl -X POST \
 {% sample lang="csharp" %}
 
 ```csharp
-ApiModifyCallRequest apiModifyCallRequest = new ApiModifyCallRequest();
+ModifyCallRequest apiModifyCallRequest = new ModifyCallRequest();
 apiModifyCallRequest.State = StateEnum.COMPLETED;
 
 voiceClient.ModifyCall(VOICE_ACCOUNT_ID, callId, apiModifyCallRequest);
@@ -162,7 +162,7 @@ voiceClient.ModifyCall(VOICE_ACCOUNT_ID, callId, apiModifyCallRequest);
 {% sample lang="ruby" %}
 
 ```ruby
-body = ApiModifyCallRequest.new
+body = ModifyCallRequest.new
 body.state = "completed"
 
 begin
@@ -175,7 +175,7 @@ end
 {% sample lang="python" %}
 
 ```python
-body = ApiModifyCallRequest()
+body = ModifyCallRequest()
 body.state = "completed"
 
 try:
@@ -207,7 +207,7 @@ const response = await controller.modifyCall(accountId, callId, {
 {% sample lang="php" %}
 
 ```php
-$body = BandwidthLib\Voice\Models\ApiModifyCallRequest();
+$body = BandwidthLib\Voice\Models\ModifyCallRequest();
 $body->state = "completed";
 
 try {

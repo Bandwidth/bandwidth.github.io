@@ -94,16 +94,16 @@ curl -X GET \
 {% sample lang="csharp" %}
 
 ```csharp
-var response = voiceClient.GetCallState(accountId, callID);
+var response = voiceClient.GetCall(accountId, callID);
 Console.WriteLine(response.State);
 ```
 
 {% sample lang="java" %}
 
 ```java
-ApiResponse<ApiCallStateResponse> response = null;
+ApiResponse<CallState> response = null;
 try {
-    response = voiceController.getCallState(accountId, callId);
+    response = voiceController.getCall(accountId, callId);
 } catch (IOException | ApiException e) {
     System.out.println(e.getMessage());
 }
@@ -112,14 +112,14 @@ try {
 {% sample lang="ruby" %}
 
 ```ruby
-result = voice_client.get_call_state(account_id, call_id)
+result = voice_client.get_call(account_id, call_id)
 puts result.data.state
 ```
 
 {% sample lang="python" %}
 
 ```python
-response = voice_client.get_call_state(account_id, call_id)
+response = voice_client.get_call(account_id, call_id)
 print(response.body.state)
 ```
 
@@ -144,7 +144,7 @@ const response = await controller.getCallState(accountId, callId);
 {% sample lang="php" %}
 
 ```php
-$response = $voiceClient->getCallState($accountId, $callId);
+$response = $voiceClient->getCall($accountId, $callId);
 print_r($response->getResult()->state);
 ```
 

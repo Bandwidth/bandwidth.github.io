@@ -27,6 +27,9 @@ The Ruby SDK(s) are available via [RubyGems](https://rubygems.org/) & Github
 | 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 | 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
 | 6.0.0 | Updated the MFA error bodies and added message priority |
+| 7.0.0 | Updated voice, messaging, and MFA objects as well as corrected WebRTC `participantId` and `sessionId` parameter ordering in a number of requests. |
+| 7.1.0 | Add transfer BXML verb for WebRTC. |
+| 8.0.0 | Add voice `voiceCallId` to the transfer BXML verb for WebRTC. |
 
 ## Download & Install
 
@@ -42,15 +45,15 @@ require 'bandwidth'
 include Bandwidth
 include Bandwidth::Voice
 include Bandwidth::Messaging
-include Bandwidth::TwoFactorAuth
+include Bandwidth::MultiFactorAuth
 
 bandwidth_client = Bandwidth::Client.new(
     voice_basic_auth_user_name: 'username',
     voice_basic_auth_password: 'password',
     messaging_basic_auth_user_name: 'token',
     messaging_basic_auth_password: 'secret',
-    two_factor_auth_basic_auth_user_name: 'username',
-    two_factor_auth_basic_auth_password: 'password',
+    multi_factor_auth_basic_auth_user_name: 'username',
+    multi_factor_auth_basic_auth_password: 'password',
     environment: Environment::CUSTOM, #Optional - Used for custom base URLs
     base_url: "https://test.com" #Optional - Custom base URL set here
 )
@@ -62,7 +65,7 @@ bandwidth_client = Bandwidth::Client.new(
 voice_client = bandwidth_client.voice_client.client
 
 account_id = '1'
-body = ApiCreateCallRequest.new
+body = CreateCallRequest.new
 body.from = '+16666666666'
 body.to = '+17777777777'
 body.answer_url = 'https://test.com'
@@ -113,7 +116,7 @@ end
 ## Perform A 2FA Request
 
 ```ruby
-auth_client = bandwidth_client.two_factor_auth_client.client
+auth_client = bandwidth_client.multi_factor_auth_client.client
 account_id = "1"
 
 from_phone = "+18888888888"
