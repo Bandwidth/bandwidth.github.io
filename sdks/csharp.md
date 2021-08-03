@@ -27,7 +27,7 @@ The C# SDK(s) are available via [NuGet](https://www.nuget.org/) & Github
 | 3.9.0 | Added conference management endpoints |
 | 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 | 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required. Updated the MFA error bodies and added message priority |
-| 6.0.0 | Updated voice, messaging, and MFA objects as well as corrected WebRTC participant id and session id parameter ordering in a number of requests.
+| 6.0.0 | Updated voice, messaging, and MFA objects as well as corrected WebRTC `participantId` and `sessionId` parameter ordering in a number of requests. |
 
 ## Download & Install
 
