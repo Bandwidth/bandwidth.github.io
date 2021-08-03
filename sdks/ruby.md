@@ -116,7 +116,7 @@ end
 ## Perform A 2FA Request
 
 ```ruby
-auth_client = bandwidth_client.two_factor_auth_client.client
+auth_client = bandwidth_client.multi_factor_auth_client.client
 account_id = "1"
 
 from_phone = "+18888888888"
