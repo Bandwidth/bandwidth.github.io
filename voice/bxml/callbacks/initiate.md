@@ -52,7 +52,7 @@ The Bandwidth STIR/SHAKEN implementation will verify the information provided in
 
 | Property          | Description |
 |:------------------|:------------|
-| verstat | (optional) The verification status indicating whether the verification was successful or not. Possible values are `TN-Verification-Passed` or `TN-Verification-Failed`. |
+| verstat | (optional) The verification status indicating whether the verification was successful or not. Possible values are `TN-Verification-Passed` and `TN-Verification-Failed`. |
 | attestationIndicator | (optional) The attestation level verified by Bandwidth. Possible values are `A` (full), `B` (partial) or `C` (gateway). |
 | originatingId | (optional) A unique origination identifier. |
 
