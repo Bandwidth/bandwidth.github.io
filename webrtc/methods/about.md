@@ -1,6 +1,6 @@
 <div id="banner">
   <div class="bannerContainer">
-    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc">our new API Reference site</a> for the most up-to-date documentation.</p>
     <p id="bannerClose"><i class="fa fa-close"></i></p>
   </div>
 </div>
