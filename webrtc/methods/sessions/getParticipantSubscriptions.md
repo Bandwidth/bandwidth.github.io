@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc#operation/getParticipantSubscriptions">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 {% method %}
 
 ## Get a participant's subscriptions
@@ -27,10 +35,10 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 
 {% sample lang="http" %}
 ```bash
-curl -X GET 
-  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}/subscriptions' 
-  -u '{username}:{password}' 
-  -H 'Content-type: application/json' 
+curl -X GET
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}/subscriptions'
+  -u '{username}:{password}'
+  -H 'Content-type: application/json'
 ```
 
 > Responds
@@ -45,7 +53,7 @@ curl -X GET
       {
           "participantId"       : "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7",
           "streamAliases"       : ["microphone1", "microphone2"]
-      } 
+      }
   ]
 }
 ```

@@ -1,9 +1,11 @@
 <div id="banner">
   <div class="bannerContainer">
-    <p>Welcome to the documentation website for Bandwidth's APIs. Please visit our  <a href="https://old.dev.bandwidth.com">legacy documentation website</a> for Bandwidth's V1 documentation.</p>
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/docs/webrtc">our new Docsite</a> for the most up-to-date documentation.</p>
     <p id="bannerClose"><i class="fa fa-close"></i></p>
   </div>
 </div>
+<br/>
+<br/>
 
 # Bandwidth's WebRTC Calling API and Video API
 

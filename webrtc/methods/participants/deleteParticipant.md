@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc#operation/deleteParticipant">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 {% method %}
 
 ## Delete participant by ID
@@ -21,10 +29,10 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 
 {% sample lang="http" %}
 ```bash
-curl -X DELETE 
-  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants/{participantId}' 
-  -u '{username}:{password}' 
-  -H 'Content-type: application/json' 
+curl -X DELETE
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants/{participantId}'
+  -u '{username}:{password}'
+  -H 'Content-type: application/json'
 ```
 
 > Responds

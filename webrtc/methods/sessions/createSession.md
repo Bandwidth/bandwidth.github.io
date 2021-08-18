@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc#operation/createSession">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 {% method %}
 
 ## Create a new session
@@ -41,10 +49,10 @@ You should not include sensitive or personally-identifiable information in any t
 
 {% sample lang="http" %}
 ```bash
-curl -X POST 
-  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions' 
-  -u '{username}:{password}' 
-  -H 'Content-type: application/json' 
+curl -X POST
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions'
+  -u '{username}:{password}'
+  -H 'Content-type: application/json'
 	 --data-raw '
 {
   "tag": "session1"

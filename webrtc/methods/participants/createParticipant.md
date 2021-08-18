@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc#operation/createParticipant">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 {% method %}
 
 ## Create a new participant under this account
@@ -44,10 +52,10 @@ You should not include sensitive or personally-identifiable information in any t
 
 {% sample lang="http" %}
 ```bash
-curl -X POST 
-  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants' 
-  -u '{username}:{password}' 
-  -H 'Content-type: application/json' 
+curl -X POST
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants'
+  -u '{username}:{password}'
+  -H 'Content-type: application/json'
 	 --data-raw '
 {
   "callbackUrl": "https://example.com/callback",
@@ -81,7 +89,7 @@ curl -X POST
               },
               {
                   "participantId"       : "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
-              } 
+              }
          ]
      },
       "tag"                 : "participant1",
