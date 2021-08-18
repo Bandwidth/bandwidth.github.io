@@ -1,3 +1,12 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/docs/webrtc/errors">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
+
 # Errors
 
 # HTTP Error Codes
@@ -29,4 +38,3 @@ Bandwidth returns a `HTTP-404` when a resource is not found or no longer active.
 ## 500 – Internal Server Error {#http-500}
 
 Bandwidth will return a `HTTP-500` Error when an unknown error occurs. If you receive a `HTTP-500` error, please open a [support ticket](https://support.bandwidth.com) with the original request and the response returned. Please be sure to remove any passwords or sensitive information from the support ticket!
-

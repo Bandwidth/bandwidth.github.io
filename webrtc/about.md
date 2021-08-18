@@ -1,3 +1,12 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/docs/webrtc">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
+
 # Bandwidth's WebRTC Calling API and Video API
 
 ⚠️ Your account must be activated to use WebRTC. Please contact [sales support](https://www.bandwidth.com/talk-to-an-expert/) to learn how to get access!

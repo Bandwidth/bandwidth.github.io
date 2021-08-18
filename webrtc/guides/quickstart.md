@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/docs/webrtc/quickstart">our new Docsite</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 # Getting started with WebRTC
 
 ## Overview
@@ -11,7 +19,7 @@ and from these devices.
 
 ## Hello World
 
-Our WebRTC "hello world" sample app will show you how to receive calls and make outbound calls, all from your web browser. 
+Our WebRTC "hello world" sample app will show you how to receive calls and make outbound calls, all from your web browser.
 
 Please visit our [Bandwidth Samples](https://github.com/search?q=topic%3Awebrtc+org%3ABandwidth-Samples) organization to find a number of _webrtc-hello-world_ samples in Node.js, Java (with a React front-end), and more.
 
@@ -121,7 +129,7 @@ We also take our newly created `participant.id` and add it to our WebRTC session
 };
 ```
 
-A quick note on this: the `getSessionId()` method is a convenience method in this example that will automatically create and keep track of a `sessionId` that we use as a "conference" or "room" to 
+A quick note on this: the `getSessionId()` method is a convenience method in this example that will automatically create and keep track of a `sessionId` that we use as a "conference" or "room" to
 connect our participants.
 
 Once that's all done, the `createParticipant` call from `/connectionInfo` (remember? that's where this all started!)
@@ -252,9 +260,9 @@ app.post("/incomingCall", async (req, res) => {
 ```
 
 When we receive a phone call, we again call `createParticipant`, which creates a new participant with `AUDIO` `publishPermission`
-and adds them to our session. 
+and adds them to our session.
 
-Like the browser participant, this call returns a `token` that authorizes the phone to publish and subscribe streams in our session. 
+Like the browser participant, this call returns a `token` that authorizes the phone to publish and subscribe streams in our session.
 But in the browser, we did this with our `publish` and `onStreamAvailable` methods. How do we publish and subscribe streams on a phone?
 
 We use a handy feature of Bandwidth's Voice API called a `transfer`. By returning the BXML from the `generateTransferBxml` method, this
@@ -274,7 +282,7 @@ Another way to add a participant to this session is to have the browser make an 
 a participant, publishing and receiving audio, but this app will also use Bandwidth's Voice API to make an outbound call from the server and
 connect it into the session.
 
-Our frontend code has a nice big button to make an outbound call (make sure you set `OUTBOUND_PHONE_NUMBER` in your `.env` file or this 
+Our frontend code has a nice big button to make an outbound call (make sure you set `OUTBOUND_PHONE_NUMBER` in your `.env` file or this
 won't work!). When you click it, it calls the `callOutboundPhoneNumber` method:
 
 *./frontend/src/App.tsx*
@@ -387,7 +395,7 @@ You should notice the `generateTransferBxml` call works exactly like it did in o
 transfered, Bandwidth's WebRTC platform makes the phone call look like another WebRTC participant in our
 session, and will trigger each browser's `onStreamAvailable` method with the call's audio stream.
 
-Since we've already got our code set up to stream audio, we don't have to do anything else. 
+Since we've already got our code set up to stream audio, we don't have to do anything else.
 
 Give it a try yourself!
 
@@ -397,6 +405,5 @@ Give it a try yourself!
 Hopefully this tutorial was helpful to understand how Bandwidth's WebRTC and Voice API platforms
 can be combined to make powerful, real-time communication applications.
 
-And it's not limited to just audio and phones! You can use the same `session`, `participant` and `onStreamAvailable` 
+And it's not limited to just audio and phones! You can use the same `session`, `participant` and `onStreamAvailable`
 ideas to create web based video streaming or screen sharing applications.
-

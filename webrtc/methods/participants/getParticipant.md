@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc#operation/getParticipant">our new API Reference site</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 {% method %}
 
 ## Get participant by ID
@@ -22,7 +30,7 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 | sessions                    | List of session ids this participant is associated with                                           
 | subscriptions               | Subscription information for this participant, which lists the sessions and IDs of Participants publishing media
 | tag                         | User defined tag to associate with the participant
-| deviceApiVersion            | The version of the signaling API the participant will use 
+| deviceApiVersion            | The version of the signaling API the participant will use
 
 
 
@@ -32,10 +40,10 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 
 {% sample lang="http" %}
 ```bash
-curl -X GET 
-  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants/{participantId}' 
-  -u '{username}:{password}' 
-  -H 'Content-type: application/json' 
+curl -X GET
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/participants/{participantId}'
+  -u '{username}:{password}'
+  -H 'Content-type: application/json'
 ```
 
 > Responds
@@ -59,7 +67,7 @@ curl -X GET
           },
           {
               "participantId"       : "0275e47f-dd21-4cf0-a1e1-dfdc719e73a7"
-          } 
+          }
      ]
  },
   "tag"                 : "participant1",
