@@ -15,9 +15,8 @@ This guide walks through the initial setup for Bandwidth's Registrar. The Regist
 
 #### Using the UI  {#using-the-ui}
 Select `Sip Credentials` from the account overview page on the [Bandwidth Dashboard](https://dashboard.bandwidth.com)
-<img
-src='../../images/sip_credentials.png'
-alt='Sip Credentials'/>
+
+<img src='../../images/sip_credentials.png' alt='Sip Credentials' style="max-width:95%"/>
 
 In order to route the calls through Bandwidth, you'll need to create a new realm.  Upon realm creation, it will be used as part of the `Realm` combined with `<randomAccountHex>.auth.bandwidth.com`.
 
@@ -26,9 +25,8 @@ In order to route the calls through Bandwidth, you'll need to create a new realm
 | `Realm` | required | String identifying the realm. |
 | `Description`   | optional | A string used for a description of the realm |
 
-<img
-src='../../images/create_realm.png'
-alt='Create Realm Page'/>
+
+<img src='../../images/create_realm.png' alt='Create Realm Page' style="max-width:95%"/>
 
 ### Create New Sip Credentials {#create-new-sip-credentials}
 In order to route the outbound calls through Bandwidth, you'll need to create a new set of SIP credentials. To generate your own hash values, you can skip ahead to the  [Using the API](#using-the-api) section of this guide.
@@ -42,20 +40,18 @@ In order to route the outbound calls through Bandwidth, you'll need to create a 
 | `Hash1`    | required | String representing a potential Hash values used to authenticate the client. The value should be computed from an MD5 Hash of: {composite-username}:{Realm}:{Password}. |
 | `Hash2`   | required | String representing a potential Hash value used to authenticate the client. The value should be computed from an MD5 Hash of {composite-username}:{Realm}:{Realm}:{Password}. |
 
+
 Select `+ ADD` to add a Sip Credential
-<img
-src='../../images/add_sip_cred_button.png'
-alt='Add Sip Credential Button'/>
+
+<img src='../../images/add_sip_cred_button.png' alt='Add Sip Credential Button' style="max-width:95%"/>
 
 Enter a Username, Password and Realm for the Sip Credential
-<img
-src='../../images/create_sip_credentials.png'
-alt='Create Sip Credentials Page'/>
+
+<img  src='../../images/create_sip_credentials.png' alt='Create Sip Credentials Page' style="max-width:95%"/>
 
 The Sip Credentials and Realms will be displayed here
-<img
-src='../../images/sip_registrar_realms.png'
-alt='Sip Registrar Realms'/>
+
+<img src='../../images/sip_registrar_realms.png' alt='Sip Registrar Realms' style="max-width:95%"/>
 
 #### Using the API {#using-the-api}
 
