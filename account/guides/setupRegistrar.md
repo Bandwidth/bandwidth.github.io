@@ -16,7 +16,7 @@ This guide walks through the initial setup for Bandwidth's Registrar. The Regist
 #### Using the UI  {#using-the-ui}
 Select `Sip Credentials` from the account overview page on the [Bandwidth Dashboard](https://dashboard.bandwidth.com)
 <img
-src='../../static/img/sip_credentials.png'
+src='../../images/sip_credentials.png'
 alt='Sip Credentials'/>
 
 In order to route the calls through Bandwidth, you'll need to create a new realm.  Upon realm creation, it will be used as part of the `Realm` combined with `<randomAccountHex>.auth.bandwidth.com`.
@@ -27,7 +27,7 @@ In order to route the calls through Bandwidth, you'll need to create a new realm
 | `Description`   | optional | A string used for a description of the realm |
 
 <img
-src='../../static/img/create_realm.png'
+src='../../images/create_realm.png'
 alt='Create Realm Page'/>
 
 ### Create New Sip Credentials {#create-new-sip-credentials}
@@ -44,17 +44,17 @@ In order to route the outbound calls through Bandwidth, you'll need to create a 
 
 Select `+ ADD` to add a Sip Credential
 <img
-src='../../static/img/add_sip_cred_button.png'
+src='../../images/add_sip_cred_button.png'
 alt='Add Sip Credential Button'/>
 
 Enter a Username, Password and Realm for the Sip Credential
 <img
-src='../../static/img/create_sip_credentials.png'
+src='../../images/create_sip_credentials.png'
 alt='Create Sip Credentials Page'/>
 
 The Sip Credentials and Realms will be displayed here
 <img
-src='../../static/img/sip_registrar_realms.png'
+src='../../images/sip_registrar_realms.png'
 alt='Sip Registrar Realms'/>
 
 #### Using the API {#using-the-api}
