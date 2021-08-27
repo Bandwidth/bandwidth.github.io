@@ -127,9 +127,7 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 | accountId (URL Path Parameter)          | Yes       | The ID of the Bandwidth account that the user belongs to. |
 | requestId (URL path parameter) | Yes       | The id of the request that was returned from the POST method. |                                                 
 
-#### Response Parameters {#fetch-tnlookup-response-params}
-
-### ⚠️ After Aug 30th,2021, do not use the response fields in the following table. Refer to this [link](../../numbers/guides/tnlnew.md#fetch-tnlookup-response-params) to see how these fields are changing after that date.⚠️
+#### Response Parameters
 
 | Parameter     | Type     | Description     | Example   |
 |:--------------|:---------|:----------------|:----------|
@@ -146,7 +144,6 @@ This resource is authenticated with your [API Credentials](../../guides/accountC
 | Mobile Country Code     | `string`  | The first half of the Home Network Identity (HNI).| 310 |
 | Mobile Network Code     | `string`  | The second half of the HNI.| 160 |
 | failedTelephoneNumbers  | array of `string`| The telephone numbers whose lookup failed. | 18096105012 |
-
 
 #### HTTP Response Codes
 
