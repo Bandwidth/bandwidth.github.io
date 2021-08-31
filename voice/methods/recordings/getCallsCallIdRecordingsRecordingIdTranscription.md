@@ -106,7 +106,7 @@ const accountId = '1111111';
 const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
 const recordingId = 'r-abc12345-6def-abc1-2345-6defabc12345';
 
-const response = await controller.getRecordingTranscription(accountId, callId, recordingId);
+const response = await controller.getCallTranscription(accountId, callId, recordingId);
 ```
 
 {% sample lang="php" %}

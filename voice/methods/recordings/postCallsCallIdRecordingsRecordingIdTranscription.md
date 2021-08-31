@@ -101,7 +101,7 @@ const accountId = '1111111';
 const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
 const recordingId = 'r-abc12345-6def-abc1-2345-6defabc12345';
 
-const response = await controller.createTranscribeRecording(accountId, callId, recordingId, {
+const response = await controller.createTranscribeCallRecording(accountId, callId, recordingId, {
     callbackUrl: 'https://www.myapp.com/transcription'
 });
 ```
