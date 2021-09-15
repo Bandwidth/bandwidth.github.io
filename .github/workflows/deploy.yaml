@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'stop-gap-v2'
+  workflow_dispatch:
 
 jobs:
   publish:
