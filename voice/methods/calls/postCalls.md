@@ -41,8 +41,28 @@ You should not include sensitive or personally-identifiable information in any t
 | fallbackPassword | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
 | callbackTimeout | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
 | uui | (optional) A comma-separated list of `User-To-User` headers to send within the initial `INVITE`. Each value must end with the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encodings are currently allowed. The entire value cannot exceed 350 characters, including parameters and separators. Example: `<jwt-value>;encoding=jwt,<base64-value>;encoding=base64` | No |
+| machineDetection | (optional) The [machine detection request](#machine-detection-request) used to perform a [machine detection](../../guides/machineDetection.md) operation on the answerer leg. | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
+
+#### Machine detection request
+
+| Parameter          | Description | Mandatory |
+|:-------------------|:------------|:----------|
+| mode               | The machine detection mode. Can be [`sync`](../../guides/machineDetection.md#sync-mode) or [`async`](../../guides/machineDetection.md#async-mode). Default is `async`. | No |
+| detectionTimeout   | The timeout used for the whole operation. If no result is determined in this period, a callback with a `timeout` result is sent. Default is 15 seconds. | No |
+| silenceTimeout     | If no speech is detected in this period, a callback with a `silence` result is sent. Default is 10 seconds. | No |
+| speechThreshold    | Threshold to use when determining the result of the operation if a result was not determined yet. If the length of the speech detected is above this threshold, the result will be `answering-machine`. If the length of speech detected is below this threshold, the result will be `human`. Default is 10 seconds. | No |
+| speechEndThreshold | Threshold to use to determine an end of speech. Default is 5 seconds. | No |
+| delayResult        | If set to true and an answering machine is detected, delays the sending of the `answering-machine` result until the machine is done speaking or until the `detectionTimeout` is reached. If false, the `answering-machine` result is sent immediately. Useful if you want to leave a message only after the machine is done talking. Default is false. | No |
+| callbackUrl        | The URL to send the [Machine Detection Complete](../../bxml/callbacks/machineDetectionComplete.md) when the operation is completed. | Only for `async` mode |
+| callbackMethod     | The HTTP method to use for the request to `callbackUrl`. GET or POST. Default value is POST. | No |
+| fallbackUrl        | A fallback URL which, if provided, will be used to retry the machine detection complete callback delivery in case `callbackUrl` fails to respond | No |
+| fallbackMethod     | The HTTP method to use for the request to `fallbackUrl`. GET or POST. Default value is POST. | No |
+| username           | The username to send in the HTTP request to `callbackUrl` | No |
+| password           | The password to send in the HTTP request to `callbackUrl` | No |
+| fallbackUsername   | The username to send in the HTTP request to `fallbackUrl` | No |
+| fallbackPassword   | The password to send in the HTTP request to `fallbackUrl` | No |
 
 {% common %}
 
