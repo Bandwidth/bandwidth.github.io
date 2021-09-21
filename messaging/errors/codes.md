@@ -11,7 +11,7 @@
   * [Carrier Errors with Ambiguous Cause](#carrier-ambiguous-errors)
 
 ## Error Reporting {#error-reporting}
-The Bandwidth V2 messaging API presents errors on the [callback URL](../callbacks/messageEvents.md) using the [`message-failed`](../callbacks/messageFailed.md) type in the payload body along with an errorCode and description.   An example is as follows:
+The Bandwidth V2 messaging API presents errors on the [callback URL](../callbacks/messageEvents.md) using the [`message-failed`](../callbacks/messageFailed.md) type in the payload body along with an errorCode and description. An example is as follows:
 
 ```json
 [
@@ -182,7 +182,7 @@ A 4xx code indicates that Bandwidth or the downstream carrier has identified som
 | 4303 | malformed-invalid-to-number | Malformed To Number | The To number associated with the message is a number not routable to a carrier or valid in the industry (Ex: a 9 digit number).  | NO |
 | 4350 | malformed-for-destination | Malformed message encoding | Message passed validation on receive stage, but failed on send. This is likely because the destination number (To) is an invalid number. | NO |
 | 4360 | message-not-sent-expiration-date-passed | Message expired | Message was not sent because the specified expiration date passed before the message was able to send | NO |
-| 4401 | rejected-routing-error | BW is unable to route the message | Message is unable to be routed within Bandwidth particularly when the source and destination are the same number. The destination or To number is mis-provisioned or there is a configuration with the message that is causing a situation where a message is being sent repeatedly between the same numbers. | NO | 
+| 4401 | rejected-routing-error | BW is unable to route the message | Message is unable to be routed within Bandwidth particularly when the source and destination are the same number. The destination or To number is mis-provisioned or there is a configuration with the message that is causing a situation where a message is being sent repeatedly between the same numbers. | NO |
 | 4403 | rejected-forbidden-from-number | Messaging forbidden on From number | Messaging on this From number is forbidden most commonly because the number does not belong to BW or the account. Other reasons include: the TN is not enabled in the Bandwidth Dashboard, the account associated with this number is not enabled for this type of messaging, the TN is disconnected, or it is an invalid number (i.e., 11111111111). | NO |
 | 4404 | rejected-forbidden-to-number | Messaging forbidden on To number | Messaging on this To number is forbidden. This could be the number is not active, not enabled for messaging or is an invalid number (i.e. 11111111111) | NO |
 | 4405 | rejected-unallocated-from-number | Unallocated from number | The From telephone number is considered unallocated when the number does not exist in our database as an active number. This number is either not enabled for messaging at the industry level, or the number is not yet released in the industry | NO |
@@ -266,4 +266,4 @@ A 5xx code indicates that either Bandwidth or the downstream carrier has reporte
 | Code | Description | Friendly Description | Explanation Of Error | Billable |
 |:--|:--|:--|:--|:--|
 | 9902 | delivery-receipt-expired | Timed out waiting for delivery receipt. The reason a delivery receipt was not received is not known. | Bandwidth timed out waiting for the delivery receipt, this could be because the downstream provider did not send the requested delivery receipt or they sent after the system timed out at two hours. | YES |
-| 9999 | unknown-error | Unknown error from downstream. Carrier reported a failure code that is unknown to Bandwidth. | Bandwidth does not recognize the vendor's error response or does not have the vendor code mapped internally | YES |
+| 9999 | unknown-error | Unknown error from downstream. Carrier reported a failure code that is unknown to Bandwidth. | Bandwidth does not recognize the vendor's error response or does not have the vendor code mapped internally. NOTE: Bandwidth will sometimes return the text of the downstream carriers message depending on the carrier. We recommend logging this to provide to support, but not exposing to your user, as the content that comes back is unknown. | YES |

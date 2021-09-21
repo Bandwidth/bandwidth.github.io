@@ -8,7 +8,6 @@ The Node.js SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40ban
 |:-----------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
 | [`@bandwidth/numbers`](https://www.npmjs.com/package/@bandwidth/numbers)     | Manage phone numbers and account settings                                     | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/node-numbers)                |
 | [`@bandwidth/voice`](https://www.npmjs.com/package/@bandwidth/voice)       | Create outbound phone calls and manage call media (recordings/transcriptions) | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/node-voice)                  |
-| [`@bandwidth/bxml`](https://www.npmjs.com/package/@bandwidth/bxml)           | Create BXML for managing call flow                                            | N/A                                                                                                    |
 | [`@bandwidth/messaging`](https://www.npmjs.com/package/@bandwidth/messaging) | Create outbound messages and manage message media (MMS)                       | [<img src="https://github.com/favicon.ico">](https://github.com/Bandwidth/node-messaging)              |
 | [`@bandwidth/mfa`](https://www.npmjs.com/package/@bandwidth/mfa)             | Create Multifactor Auth calls or messages                                     | [<img src="https://github.com/favicon.ico">](https://github.com/bandwidth/node-mfa)                    |
 | [`@bandwidth/webrtc`](https://www.npmjs.com/package/@bandwidth/webrtc)       | Create and manage WebRTC Sessions                                             | N/A                                                                                                    |
@@ -30,24 +29,6 @@ The Node.js SDK(s) are available via [NPM](https://www.npmjs.com/search?q=%40ban
 | 1.2.0   | Added Conferencing API endpoints |
 | 1.3.0 | Added conference detail endpoints |
 | 1.4.0 | Added conference management endpoints |
-
-### [BXML](https://www.npmjs.com/package/@bandwidth/bxml)
-
-Note: Starting with [@bandwidth/voice](https://www.npmjs.com/package/@bandwidth/voice) 2.0.0, BXML is no longer required as a separate library.
-
-| Version | Notes                                                                                                                                                                        |
-|:--------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2.0.0   | Renamed `toXml()` to `toBxml()`                                                                                                                                              |
-| 2.1.0   | Added support for Record verb, and SSML in SpeakSentence                                                                                                                     |
-| 2.2.0   | Added StartRecording, PauseRecording, ResumeRecording, and StopRecording verbs                                                                                               |
-| 2.3.0   | Added support for transcriptions to Record and StartRecording verbs                                                                                                          |
-| 2.3.1   | Fixed startRecording init                                                                                                                                                    |
-| 2.4.0   | Added transferDisconnectUrl and transferDisconnectMethod to PhoneNumber                                                                                                      |
-| 2.5.0   | Updated Pause (changed code comment to floats instead of ints), SendDtmf (added toneInterval and toneDuration attributes), and Record (added silenceTimeout attribute) verbs |
-| 2.6.0   | Multiple nested verbs with Gather verb                                                                                                                                       |
-| 2.7.0   | Added Conferencing BXML                                                                                                                                                      |
-| 2.8.0   | Added Bridge verb                                                                                                                                                            |
-
 
 ### [Numbers](https://www.npmjs.com/package/@bandwidth/numbers)
 

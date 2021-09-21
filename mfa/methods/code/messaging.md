@@ -25,6 +25,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | scope         | No | An optional field to denote what scope or action the 2fa code is addressing. If not supplied, defaults to "2FA". |
 | message | Yes | The message format of the 2fa code. There are three values that the system will replace "{CODE}", "{NAME}", "{SCOPE}". The "{SCOPE}" and "{NAME}" template values are optional, while "{CODE}" must be supplied. As the name would suggest, "{CODE}" will be replaced with the actual 2fa code. "{NAME}" is replaced with the application name, configured during provisioning of 2fa. The "{SCOPE}" value is the value of the `scope` parameter. The value of this parameter is limited to 2048 characters. |
 | digits | Yes | The number of digits for your 2fa code. The valid number ranges from 4 to 8, inclusively. |
+| callbackUrl | No | The URL to send messaging callbacks to. Callbacks are in Bandwidth Messaging Callback format. Additional information can be accessed [here](../../callbacks/about.md). Example: `callbackUrl="https://www.example.com/callbacks"`  |
 
 ### Response Attributes
 
@@ -50,7 +51,8 @@ curl -X POST \
         "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
         "scope"         : "scope",
         "digits"        : 5,
-        "message"       : "Your temporary {NAME} {SCOPE} code is {CODE}"
+        "message"       : "Your temporary {NAME} {SCOPE} code is {CODE}",
+        "callbackUrl"   : "https://example.com/mfa/callback"
     }
   '
 ```
@@ -132,17 +134,40 @@ message_id = response.body.message_id
 {% sample lang="js" %}
 
 ```js
-const payload = new mfa.TwoFactorCodeRequestSchema();
-payload.applicationId = applicationId;
-payload.from = fromNumber;
-payload.to = toNumber;
-payload.scope = 'scope';
-payload.digits = 5;
-payload.message = "Your temporary {NAME} {SCOPE} code is {CODE}";
+import { Client, MFAController } from '@bandwidth/mfa';
 
-const response = await controller.createMessagingTwoFactor(accountId, payload);
+const BW_USERNAME = process.env["BW_USERNAME"];
+const BW_PASSWORD = process.env["BW_PASSWORD"];
+const BW_ACCOUNT_ID = process.env["BW_ACCOUNT_ID"];
+const BW_MESSAGING_APPLICATION_ID = process.env["BW_MESSAGING_APPLICATION_ID"];
+const fromNumber = process.env["BW_NUMBER"];
+const toNumber = process.env["USER_NUMBER"];
 
-console.log(JSON.stringify(response, null, 2));
+const client = new Client({
+  basicAuthUserName: BW_USERNAME,
+  basicAuthPassword: BW_PASSWORD
+});
+
+const controller = new MFAController(client);
+
+const payload = {
+  applicationId: BW_MESSAGING_APPLICATION_ID,
+  from: fromNumber,
+  to: toNumber,
+  scope: 'scope',
+  digits: 5,
+  message: "Your temporary {NAME} {SCOPE} code is {CODE}"
+}
+
+const msgTwoFactor = async function() {
+  try {
+    const response = await controller.messagingTwoFactor(BW_ACCOUNT_ID, payload);
+    console.log(JSON.stringify(response, null, 2));
+  } catch (error) {
+    console.error(error);
+}};
+
+msgTwoFactor();
 ```
 
 {% sample lang="php" %}

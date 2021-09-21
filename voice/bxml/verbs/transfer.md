@@ -7,7 +7,7 @@ The Transfer verb is used to bridge another party onto the current call.
 | Attribute | Description |
 |:----------|:------------|
 | transferCallerId | (optional) The caller ID to use when the call is transferred, if different. Must be in E.164 format (e.g. +15555555555) or be one of the following strings: `Restricted`, `Anonymous`, `Private`, or `Unavailable`.<br><br> Note: Leave blank to pass along the number of the remote party. |
-| callTimeout | (optional) This is the timeout (in seconds) for the callee to answer the call. Range: decimal values between 1 - 300.  Default value is 30 seconds. |
+| callTimeout | (optional) The timeout (in seconds) for the callee to answer the call after it starts ringing. If the call does not start ringing within 30s, the call will be cancelled regardless of this value. Range: decimal values between 1 - 300.  Default value is 30 seconds. |
 | transferCompleteUrl | (optional) URL to send the [Transfer Complete](../callbacks/transferComplete.md) event to and request new BXML. Optional but recommended. [See below](#transferCompleteUrl) for further details. May be a relative URL. |
 | transferCompleteMethod | (optional) The HTTP method to use for the request to `transferCompleteUrl`. GET or POST. Default value is POST. |
 | transferCompleteFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the [Transfer Complete](../callbacks/transferComplete.md) callback delivery in case `transferCompleteUrl` fails to respond. |
@@ -56,7 +56,7 @@ one destination is specified, called parties will ring simultaneously and the fi
 #### SipUri attributes
 | Attribute | Description |
 |:----------|:------------|
-| uui | (optional) The value of the `User-To-User` header to send within the initial `INVITE`. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. |
+| uui | (optional) A comma-separated list of `User-To-User` headers to send within the initial `INVITE`. Each value must end with the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encodings are currently allowed. The entire value cannot exceed 350 characters, including parameters and separators. Example: `<jwt-value>;encoding=jwt,<base64-value>;encoding=base64` |
 | transferAnswerUrl | (optional) URL, if any, to send the [Transfer Answer](../callbacks/transferAnswer.md) event to and request BXML to be executed for the called party before the call is bridged. May be a relative URL. |
 | transferAnswerMethod | (optional) The HTTP method to use for the request to `transferAnswerUrl`. GET or POST. Default value is POST. |
 | transferAnswerFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the [Transfer Answer](../callbacks/transferAnswer.md) callback delivery in case `transferAnswerUrl` fails to respond. |

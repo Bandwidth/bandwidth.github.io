@@ -33,14 +33,14 @@ You should not include sensitive or personally-identifiable information in any t
 | disconnectMethod | (optional) The HTTP method to use for the request to `disconnectUrl`. GET or POST. Default value is POST. | No |
 | username | (optional) The username to send in the HTTP request to `answerUrl` and `disconnectUrl`. | No |
 | password | (optional) The password to send in the HTTP request to `answerUrl` and `disconnectUrl`. | No |
-| callTimeout | (optional) This is the timeout (in seconds) for the callee to answer the call.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30 | No |
+| callTimeout | (optional) The timeout (in seconds) for the callee to answer the call after it starts ringing. If the call does not start ringing within 30s, the call will be cancelled regardless of this value.  Can be any numeric value (including decimals) between 1 and 300.  Default: 30 | No |
 | tag | (optional) A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or [`<Tag>`](tag.md) verb, or cleared.<br><br>May be cleared by setting `tag=""`<br><br>Max length 256 characters. | No |
 | answerFallbackUrl | (optional) A fallback url which, if provided, will be used to retry the answer callback delivery in case `answerUrl` fails to respond | No |
 | answerFallbackMethod | (optional) The HTTP method to use to deliver the answer callback to `answerFallbackUrl`. GET or POST. Default value is POST. | No |
 | fallbackUsername | (optional) The username to send in the HTTP request to `answerFallbackUrl` | No |
 | fallbackPassword | (optional) The password to send in the HTTP request to `answerFallbackUrl` | No |
 | callbackTimeout | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
-| uui | (optional) The value of the `User-To-User` header to send within the initial `INVITE` when calling a SIP URI. Must include the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters. | No |
+| uui | (optional) A comma-separated list of `User-To-User` headers to send within the initial `INVITE`. Each value must end with the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encodings are currently allowed. The entire value cannot exceed 350 characters, including parameters and separators. Example: `<jwt-value>;encoding=jwt,<base64-value>;encoding=base64` | No |
 | machineDetection | (optional) The [machine detection request](#machine-detection-request) used to perform a [machine detection](../../guides/machineDetection.md) operation on the answerer leg. | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
@@ -124,7 +124,7 @@ Location: https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-
 {% sample lang="java" %}
 
 ```java
-ApiCreateCallRequest createCallRequest = new ApiCreateCallRequest();
+CreateCallRequest createCallRequest = new CreateCallRequest();
 createCallRequest.setTo("+19195551313");
 createCallRequest.setFrom("+19195551212");
 createCallRequest.setAnswerUrl("http://www.myapp.com/hello");
@@ -141,7 +141,7 @@ try {
 {% sample lang="csharp" %}
 
 ```csharp
-ApiCreateCallRequest apiCreateCallRequest = new ApiCreateCallRequest();
+CreateCallRequest apiCreateCallRequest = new CreateCallRequest();
 apiCreateCallRequest.From = "+19195551212";
 apiCreateCallRequest.To = "+19195551313";
 apiCreateCallRequest.AnswerUrl = "http://www.myapp.com/hello";
@@ -155,7 +155,7 @@ Console.WriteLine(response.Data.CallId);
 {% sample lang="ruby" %}
 
 ```ruby
-body = ApiCreateCallRequest.new
+body = CreateCallRequest.new
 body.from = "+19195551212"
 body.to = "+19195551313"
 body.answer_url = "http://www.myapp.com/hello"
@@ -172,7 +172,7 @@ end
 {% sample lang="python" %}
 
 ```python
-body = ApiCreateCallRequest()
+body = CreateCallRequest()
 body.mfrom = "+19195551212"
 body.to = "+19195551313"
 body.answer_url = "http://www.myapp.com/hello"
@@ -212,7 +212,7 @@ const response = await controller.createCall(accountId, {
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body = new BandwidthLib\Voice\Models\CreateCallRequest();
 $body->from = "+15554443333";
 $body->to = "+15554442222";
 $body->answerUrl = "https://test.com";

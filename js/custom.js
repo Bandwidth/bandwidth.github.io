@@ -183,6 +183,14 @@ module.exports = function ($) {
             $('title').remove();
             $('head').append('<title>Bandwidth Phone Numbers API</title>');
         });
+
+        $('a').each(function(){
+          if (($(this).attr("href").toLowerCase().indexOf("bandwidth.com") < 0) &&
+              ($(this).attr("href").toLowerCase().indexOf("http") >= 0)) {
+            $(this).attr("rel", "nofollow");
+          }
+        });
+
     }
 
 	fixHTTPMethodStyling();

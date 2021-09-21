@@ -5,7 +5,6 @@ TARGET_BRANCH="stop-gap-v2"
 function doCompile {
   make
   sleep 1
-  rm _book/.travis.yml
   cp -a _book/. out/
 }
 

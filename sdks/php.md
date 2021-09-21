@@ -27,6 +27,8 @@ The PHP SDK(s) are available via [Packagist](https://packagist.org/) & Github
 | 3.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 | 4.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required |
 | 5.0.0 | Updated the MFA error bodies and added message priority |
+| 6.0.0 | Updated voice, messaging, and MFA objects as well as corrected WebRTC `participantId` and `sessionId` parameter ordering in a number of requests. |
+| 7.0.0 | Add `voiceCallId` to `generateTransferBxmlVerb` for WebRTC. |
 
 ## Download & Install
 
@@ -45,8 +47,8 @@ $config = new BandwidthLib\Configuration(
         'messagingBasicAuthPassword' => 'secret',
         'voiceBasicAuthUserName' => 'username',
         'voiceBasicAuthPassword' => 'password',
-        'twoFactorAuthBasicAuthUserName' => 'username',
-        'twoFactorAuthBasicAuthPassword' => 'password',
+        'multiFactorAuthBasicAuthUserName' => 'username',
+        'multiFactorAuthBasicAuthPassword' => 'password',
         'environment' => BandwidthLib\Environments::CUSTOM, //Optional - Used for custom base URLs
         'baseUrl' => 'https://test.com' //Optional - Custom base URL set here
     )
@@ -59,7 +61,7 @@ $client = new BandwidthLib\BandwidthClient($config);
 ```php
 $voiceClient = $client->getVoice()->getClient();
 
-$body = new BandwidthLib\Voice\Models\ApiCreateCallRequest();
+$body = new BandwidthLib\Voice\Models\CreateCallRequest();
 $body->from = "+15554443333";
 $body->to = "+15554442222";
 $body->answerUrl = "https://test.com";
@@ -106,7 +108,7 @@ try {
 ## Perform A 2FA Request
 
 ```php
-$authClient = $client->getTwoFactorAuth()->getClient();
+$authClient = $client->getMultiFactorAuth()->getClient();
 $accountId = '1';
 
 $fromPhone = '+18888888888';

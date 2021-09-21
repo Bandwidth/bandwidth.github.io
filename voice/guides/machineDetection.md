@@ -2,7 +2,7 @@
 
 ## About
 
-This guide will show you how to do machine detection, using the `machineDetection` parameter in a [call creation request](../methods/calls/postCalls.md).
+This guide will show you how to use machine detection, using the `machineDetection` parameter in a [call creation request](../methods/calls/postCalls.md).
 
 You can use either a sync or an async mode for this operation.
 

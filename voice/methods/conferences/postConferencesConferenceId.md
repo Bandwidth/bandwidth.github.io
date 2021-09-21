@@ -50,7 +50,7 @@ HTTP/1.1 204
 String accountId = "123";
 String conferenceId = "456";
 
-ApiModifyConferenceRequest request = new ApiModifyConferenceRequest();
+ModifyConferenceRequest request = new ModifyConferenceRequest();
 request.setStatus(StatusEnum.COMPLETED);
 
 ApiResponse<Void> response = null;
@@ -67,7 +67,7 @@ try {
 var accountId = "123";
 var conferenceId = "456";
 
-var request = new ApiModifyConferenceRequest
+var request = new ModifyConferenceRequest
 {
     Status = StatusEnum.Completed
 };
@@ -81,7 +81,7 @@ controller.ModifyConference(accountId, conferenceId, request);
 account_id = "123"
 conference_id = "456"
 
-body = ApiModifyConferenceRequest.new
+body = ModifyConferenceRequest.new
 body.status = "completed"
 
 voice_client.modify_conference(account_id, conference_id, :body => body)
@@ -93,7 +93,7 @@ voice_client.modify_conference(account_id, conference_id, :body => body)
 account_id = "123"
 conference_id = "456"
 
-body = ApiModifyConferenceRequest()
+body = ModifyConferenceRequest()
 body.status = "completed"
 
 voice_client.modify_conference(account_id, conference_id, body)
@@ -125,7 +125,7 @@ const response = await controller.modifyConference(accountId, conferenceId, {
 $accountId = "123";
 $conferenceId = "456";
 
-$body = new BandwidthLib\Voice\Models\ApiModifyConferenceRequest();
+$body = new BandwidthLib\Voice\Models\ModifyConferenceRequest();
 $body->status = "completed";
 
 $voiceClient->modifyConference($accountId, $conferenceId, $body);
