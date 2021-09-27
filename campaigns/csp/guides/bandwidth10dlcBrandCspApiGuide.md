@@ -404,6 +404,8 @@ HTTP/1.1 429 Too Many Requests
 | `DisplayName`              | Yes       | 	Display or marketing name of the brand. Max 100 characters   |
 | `Ein`                      | Yes (Not required for Sole_Proprietor)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
 | `Email`                    | Yes       | 	Valid email address of brand support contact. Max 100 characters   |
+| `FirstName`                | No (Required for Sole_Proprietor)       | 	First of given name.   |
+| `LastName`                 | No (Required for Sole_proprietor)      | 	Last or Surname.  |
 | `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999' |
 | `PostalCode`               | Yes       | 	Postal codes. Use 5 digit zipcode for United States  |
 | `State`                    | Yes       | 	State name. Must be 2 letters code for United States  |
@@ -443,6 +445,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <DisplayName>Bandwidth</DisplayName>
   <Ein>111111111</Ein>
   <Email>Test1@bandwidth.com</Email>
+  <FirstName>John</FirstName>
+  <LastName>Doe</LastName>
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
@@ -476,6 +480,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <Country>US</Country>
       <DisplayName>Bandwidth</DisplayName>
       <Ein>111111111</Ein>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <UniversalEin>111111111</UniversalEin>
       <Email>Test1@bandwidth.com</Email>
       <Phone>+18009999999</Phone>
@@ -536,6 +542,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <DisplayName>Bandwidth Customer</DisplayName>
   <Ein>111111110</Ein>
   <Email>Test1@bandwidthcustomer.com</Email>
+  <FirstName>John</FirstName>
+  <LastName>Doe</LastName>
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
@@ -569,6 +577,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <DisplayName>Bandwidth Customer</DisplayName>
       <Ein>111111110</Ein>
       <Email>Test1@bandwidthcustomer.com</Email>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
@@ -629,6 +639,8 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 | `PostalCode`               | Yes       | Yes      | Postal codes. Use 5 digit zipcode for United States  |
 | `Country`                  | Yes       | Yes      | ISO2 2 characters country code. Example: US - United States   |
 | `Email`                    | Yes       | Yes      | Valid email address of brand support contact. Max 100 characters   |
+| `FirstName`                | No (Required for Sole_Proprietor)      | Yes |	First of given name.   |
+| `LastName`                 | No (Required for Sole_proprietor)      | Yes | 	Last or Surname.  |
 | `Phone`                    | Yes       | Yes      | Valid phone number in e.164 international format '+18009999999' |
 | `Vertical`                 | Yes (Not required for Sole_Proprietor)       | Yes      | Enum value describing vertical or industry segment of the brand   |
 | `BrandRelationship`        | Yes       | Yes      | Enum value describing the relationship with your Account. Supported values: 'BASIC_ACCOUNT', 'SMALL_ACCOUNT', 'MEDIUM_ACCOUNT', 'LARGE_ACCOUNT', 'KEY_ACCOUNT' |
@@ -663,6 +675,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <DisplayName>Bandwidth Customer</DisplayName>
   <Ein>111111110</Ein>
   <Email>Test1@bandwidthcustomer.com</Email>
+  <FirstName>John</FirstName>
+  <LastName>Doe</LastName>
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
@@ -697,6 +711,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <DisplayName>Bandwidth Customer</DisplayName>
       <Ein>111111110</Ein>
       <Email>Test1@bandwidthcustomer.com</Email>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
@@ -774,6 +790,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <DisplayName>Bandwidth Customer</DisplayName>
       <Ein>111111110</Ein>
       <Email>Test1@bandwidthcustomer.com</Email>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
@@ -857,6 +875,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
           <DisplayName>Bandwidth Customer</DisplayName>
           <Ein>111111110</Ein>
           <Email>Test1@bandwidthcustomer.com</Email>
+          <FirstName>John</FirstName>
+          <LastName>Doe</LastName>
           <Phone>+18009999999</Phone>
           <PostalCode>27606</PostalCode>
           <State>NC</State>
@@ -941,6 +961,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
           <DisplayName>Bandwidth Customer</DisplayName>
           <Ein>111111110</Ein>
           <Email>Test1@bandwidthcustomer.com</Email>
+          <FirstName>John</FirstName>
+          <LastName>Doe</LastName>
           <Phone>+18009999999</Phone>
           <PostalCode>27606</PostalCode>
           <State>NC</State>
