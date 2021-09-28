@@ -1218,7 +1218,6 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
          <BrandId>B111111</BrandId>
        </BrandVetting>
     </BrandVettings>
-    <TotalCount>1</TotalCount>
 </BrandVettingsResponse>
 ```
 
