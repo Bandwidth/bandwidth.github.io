@@ -41,7 +41,7 @@ The Account Management API resources are authenticated with your [API Credential
 8. [Fetch Abbreviated Brand List](#fetch-abbreviated-brand-list)
 9. [Create External Brand Vet](#create-external-brand-vet)
 10. [Import External Brand Vet](#import-external-brand-vet)
-11. [Fetch External Brand Vet](#fetch-external-brand-vet)
+11. [Fetch External Brand Vet](#fetch-list-of-external-brand-vets)
 
 ## Create campaign settings
 
@@ -1059,7 +1059,7 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
      <VettedDate>2021-09-27T19:09:40.981Z</VettedDate>
      <BrandId>B111111</BrandId>
    </BrandVetting>
-</BrandResponse>
+</BrandVettingResponse>
 ```
 
 ### Error Response
@@ -1070,12 +1070,12 @@ Content-Type: application/xml
 Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<BrandResponse>
+<BrandVettingResponse>
     <ResponseStatus>
         <ErrorCode>1003</ErrorCode>
         <Description>VettingClass is required</Description>
     </ResponseStatus>
-</BrandResponse>
+</BrandVettingResponse>
 ```
 
 ### Error Codes
@@ -1088,39 +1088,21 @@ HTTP/1.1 429 Too Many Requests
 {% endextendmethod %}
 
 ## Import external brand vet
-_Note_: Non-editable fields will be ignored and will not be updated.
 
 {% extendmethod %}
 
 #### Request URL
-<code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}`
+<code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting`
 
 | Request Body               | Mandatory | Description                                                                                                                  |
 |:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
-| `Brand`                    | Yes       | 	An object containing brand information                                                                                      |
+| `BrandVetting`                    | Yes       | 	An object containing external brand vet information                                                                                    |
 
-| Brand                      | Mandatory | Editable | Description                                                    |
-|:---------------------------|:----------|:---------|:-----------------------------------------------------|
-| `DisplayName`              | Yes       | Yes      | Display or marketing name of the brand. Max 100 characters   |
-| `Website`                  | No        | Yes      | Brand website URL. Max Length 100 characters  |
-| `Street`                   | Yes       | Yes      | street name. Max Length 100 characters |
-| `City`                     | Yes       | Yes      | City name. Max Length 100 characters  |
-| `State`                    | Yes       | Yes      | State name. Must be 2 letters code for United States  |
-| `PostalCode`               | Yes       | Yes      | Postal codes. Use 5 digit zipcode for United States  |
-| `Country`                  | Yes       | Yes      | ISO2 2 characters country code. Example: US - United States   |
-| `Email`                    | Yes       | Yes      | Valid email address of brand support contact. Max 100 characters   |
-| `FirstName`                | No (Required for Sole_Proprietor)      | Yes |	First of given name.   |
-| `LastName`                 | No (Required for Sole_proprietor)      | Yes | 	Last or Surname.  |
-| `Phone`                    | Yes       | Yes      | Valid phone number in e.164 international format '+18009999999' |
-| `Vertical`                 | Yes (Not required for Sole_Proprietor)       | Yes      | Enum value describing vertical or industry segment of the brand   |
-| `BrandRelationship`        | Yes       | Yes      | Enum value describing the relationship with your Account. Supported values: 'BASIC_ACCOUNT', 'SMALL_ACCOUNT', 'MEDIUM_ACCOUNT', 'LARGE_ACCOUNT', 'KEY_ACCOUNT' |
-| `EntityType`               | Yes       | No       | Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
-| `AltBusinessId`            | No        | No       | Alternate business identifier such as DUNS, LEI, GIIN |
-| `AltBusinessIdType`        | No        | No       | Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
-| `Ein`                      | Yes (Not required for Sole_Proprietor)  | No    	| Government assigned corporate tax ID. EIN is 9-digits in U.S   |
-| `StockExchange`            | No (Required for public)      | No    	| Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
-| `StockSymbol`              | No (Required for public)      | No    	| Stock symbol  |
-| `Website`                  | No        | No    	| Brand website URL. Max Length 100 characters  |
+| BrandVetting               | Mandatory | Description                                                    |
+|:---------------------------|:----------|:-----------------------------------------------------|
+| `EvpId`                    | Yes       | External vetting provider ID for the brand.          |
+| `VettingId`                | Yes       | Unique ID that identifies a vetting transaction performed by a vetting provider. This ID is provided by the vetting provider at time of vetting.             |
+| `VettingToken`             | No (Required for Aeigis Mobile)       | Required by some providers for vetting record confirmation.               |
 
 #### Request Authentication
 
@@ -1129,34 +1111,16 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 {% sample lang="http" %}
 
 ```http
-PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId} HTTP/1.1
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<Brand>
-  <EntityType>NON_PROFIT</EntityType>
-  <AltBusinessId>111111110</AltBusinessId>
-  <AltBusinessIdType>DUNS</AltBusinessIdType>
-  <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
-  <City>Raleigh</City>
-  <CompanyName>Bandwidth Customer</CompanyName>
-  <Country>US</Country>
-  <DisplayName>Bandwidth Customer</DisplayName>
-  <Ein>111111110</Ein>
-  <Email>Test1@bandwidthcustomer.com</Email>
-  <FirstName>John</FirstName>
-  <LastName>Doe</LastName>
-  <Phone>+18009999999</Phone>
-  <PostalCode>27606</PostalCode>
-  <State>NC</State>
-  <Street>1200 Test Road</Street>
-  <StockExchange>NASDAQ</StockExchange>
-  <StockSymbol>TEST</StockSymbol>
-  <Vertical>COMMUNICATION</Vertical>
-  <Website>https://www.bandwidthcustomer.com</Website>
-  <IsMain>false</IsMain>
-</Brand>
+<BrandVetting>
+  <EvpId>AEGIS</EvpId>
+  <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+  <VettingToken>YAQ45SM</VettingToken>
+</BrandVetting>
 ```
 
 ### Response
@@ -1164,36 +1128,22 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<BrandResponse>
-    <Brand>
-      <BrandId>BJDHM3</BrandId>
-      <CspId>CMHSJ9</CspId>
-      <EntityType>NON_PROFIT</EntityType>
-      <AltBusinessId>111111110</AltBusinessId>
-      <AltBusinessIdType>DUNS</AltBusinessIdType>
-      <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
-      <City>Raleigh</City>
-      <CompanyName>Bandwidth Customer</CompanyName>
-      <Country>US</Country>
-      <DisplayName>Bandwidth Customer</DisplayName>
-      <Ein>111111110</Ein>
-      <Email>Test1@bandwidthcustomer.com</Email>
-      <FirstName>John</FirstName>
-      <LastName>Doe</LastName>
-      <Phone>+18009999999</Phone>
-      <PostalCode>27606</PostalCode>
-      <State>NC</State>
-      <Street>1200 Test Road</Street>
-      <StockExchange>NASDAQ</StockExchange>
-      <StockSymbol>TEST</StockSymbol>
-      <Vertical>COMMUNICATION</Vertical>
-      <Website>https://www.bandwidthcustomer.com</Website>
-      <IsMain>false</IsMain>
-    </Brand>
-</BrandResponse>
+<BrandVettingResponse>
+   <BrandVetting>
+     <EvpId>AEGIS</EvpId>
+     <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+     <VettingToken>YAQ45SM</VettingToken>
+     <VettingScore>0</VettingScore>
+     <VettingClass>STANDARD</VettingClass>
+     <VettingStatus>PENDING</VettingStatus>
+     <CreateDate>2021-09-27T19:09:40.981Z</CreateDate>
+     <VettedDate>2021-09-27T19:09:40.981Z</VettedDate>
+     <BrandId>B111111</BrandId>
+   </BrandVetting>
+</BrandVettingResponse>
 ```
 
 ### Error Response
@@ -1201,15 +1151,15 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<BrandResponse>
+<BrandVettingResponse>
     <ResponseStatus>
         <ErrorCode>1003</ErrorCode>
-        <Description>Phone is required</Description>
+        <Description>VettingToken is required</Description>
     </ResponseStatus>
-</BrandResponse>
+</BrandVettingResponse>
 ```
 
 ### Error Codes
@@ -1222,25 +1172,26 @@ HTTP/1.1 429 Too Many Requests
 
 {% endextendmethod %}
 
-## Fetch external brand vet
-This endpoint returns a complete, un-paginated, brand list with limited detail.
+## Fetch list of external brand vets
 
 {% extendmethod %}
 
 #### Request URL
-<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/details?type={type}`
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true`
 
-_Note_: type parameter values include -
-1) 'none' which returns both 'My Brand' and 'Customer Brands'.
-2) 'main' which returns 'My Brand' only.
-3) 'customer' which return 'Customer Brands' only.
+| Optional Query Params  | Description                                                                                                                  |
+|:---------------------------|:-----------------------------------------------------|
+| `evpId`                    | External vetting provider ID for the brand.          |
+| `vettingClass`             | Identifies the vetting classification.               |
+| `vettingStatus`            | Identifies the vetting request status.               |
+| `includePending`           | true/false boolean to include pending vetting records|
 
-### GET abbreviated brand list
+### GET external brand vets
 
 {% sample lang="http" %}
 
 ```http
-GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/?type=main HTTP/1.1
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true HTTP/1.1
 Content-Type: application/xml; charset=utf-8
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
@@ -1250,38 +1201,25 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands?type=main
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<BrandsResponse>
-    <Brands>
-        <Brand>
-          <BrandId>BJDHM3</BrandId>
-          <CspId>CMHSJ9</CspId>
-          <EntityType>NON_PROFIT</EntityType>
-          <AltBusinessId>111111110</AltBusinessId>
-          <AltBusinessIdType>DUNS</AltBusinessIdType>
-          <City>Raleigh</City>
-          <CompanyName>Bandwidth Customer</CompanyName>
-          <Country>US</Country>
-          <DisplayName>Bandwidth Customer</DisplayName>
-          <Ein>111111110</Ein>
-          <Email>Test1@bandwidthcustomer.com</Email>
-          <FirstName>John</FirstName>
-          <LastName>Doe</LastName>
-          <Phone>+18009999999</Phone>
-          <PostalCode>27606</PostalCode>
-          <State>NC</State>
-          <Street>1200 Test Road</Street>
-          <StockExchange>NASDAQ</StockExchange>
-          <StockSymbol>TEST</StockSymbol>
-          <Vertical>COMMUNICATION</Vertical>
-          <Website>https://www.bandwidthcustomer.com</Website>
-          <IsMain>true</IsMain>
-        </Brand>
-    </Brands>
+<BrandVettingsResponse>
+    <BrandVettings>
+       <BrandVetting>
+         <EvpId>AEGIS</EvpId>
+         <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+         <VettingToken>YAQ45SM</VettingToken>
+         <VettingScore>0</VettingScore>
+         <VettingClass>STANDARD</VettingClass>
+         <VettingStatus>PENDING</VettingStatus>
+         <CreateDate>2021-09-27T19:09:40.981Z</CreateDate>
+         <VettedDate>2021-09-27T19:09:40.981Z</VettedDate>
+         <BrandId>B111111</BrandId>
+       </BrandVetting>
+    </BrandVettings>
     <TotalCount>1</TotalCount>
-</BrandsResponse>
+</BrandVettingsResponse>
 ```
 
 ### Error Response
@@ -1289,15 +1227,15 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
 ```http
 HTTP/1.1 403 Unauthorized
 Content-Type: application/xml
-Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands?type=main
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<BrandsResponse>
+<BrandVettingsResponse>
     <ResponseStatus>
         <ErrorCode>12055</ErrorCode>
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
-</BrandsResponse>
+</BrandVettingsResponse>
 ```
 
 ### Error Codes
