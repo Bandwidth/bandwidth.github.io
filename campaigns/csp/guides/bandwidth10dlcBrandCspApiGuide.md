@@ -1023,7 +1023,7 @@ HTTP/1.1 429 Too Many Requests
 
 #### Request Authentication
 
-### PUT Brand
+### POST external brand vet
 
 {% sample lang="http" %}
 
@@ -1106,7 +1106,7 @@ HTTP/1.1 429 Too Many Requests
 
 #### Request Authentication
 
-### PUT Brand
+### PUT external brand vet
 
 {% sample lang="http" %}
 
