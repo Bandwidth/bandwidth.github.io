@@ -8,16 +8,11 @@ This event is sent to the url informed when requesting a machine detection opera
 - `timeout`: no result was determined; the `detectionTimeout` parameter can be used to control the period.
 - `error`: an error ocurred during the machine detection operation.
 
+To modify the call after receiving this callback, your application should sent a request to the [Update Calls](../../methods/calls/postCallsCallId.md) endpoint.
 ### Expected response
 ```http
-HTTP/1.1 200
-Content-Type: application/xml; charset=utf-8
-
-<Response>
-    <!-- BXML verbs to process in the call -->
-</Response>
+HTTP/1.1 204
 ```
-
 
 ### Properties
 | Property                        | Description  |
