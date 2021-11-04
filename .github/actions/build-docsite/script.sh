@@ -9,6 +9,8 @@ npm install -g gitbook-cli@2.3.0
 
 make
 sleep 1
+
+# Dont think this is necessary as out/ is never used in deploy.yaml but dont want to break it
 cp -a _book/. out/
 
 # cd ./lambda
