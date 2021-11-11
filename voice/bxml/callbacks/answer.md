@@ -30,7 +30,7 @@ Content-Type: application/xml; charset=utf-8
 | startTime     | Time the call was started, in ISO 8601 format. |
 | answerTime    | Time the call was answered, in ISO 8601 format. |
 | tag           | (optional) The `tag`  specified on call creation. If no `tag` was specified or it was previously cleared, this field will not be present. |
-| machineDetectionResult | (optional) if a sync machine detection operation was requested, the result of the operation will be sent here. |
+| machineDetectionResult | (optional) if a sync machine detection operation was requested, the result of the operation will be sent here. Possible values are the same as for the async webhook [Machine Detection Complete](machineDetectionComplete.md) |
 
 {% common %}
 #### Example: Basic answer event

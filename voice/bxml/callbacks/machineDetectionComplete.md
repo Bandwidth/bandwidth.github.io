@@ -43,7 +43,7 @@ POST http://[External server URL]
 
 ```json
 {
-	"eventType"             : "transferComplete",
+	"eventType"             : "machineDetectionComplete",
 	"eventTime"             : "2019-07-31T13:20:39.810Z",
 	"accountId"             : "55555555",
 	"applicationId"         : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
