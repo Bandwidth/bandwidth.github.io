@@ -86,7 +86,7 @@ POST http://[External server URL]
 {
 	"eventType"              : "answer",
 	"eventTime"              : "2021-11-10T11:20:02.950Z",
-	"accountId"              : '55555555',
+	"accountId"              : "55555555",
 	"applicationId"          : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
 	"from"                   : "+15551112222",
 	"to"                     : "+15553334444",
