@@ -96,7 +96,10 @@ POST http://[External server URL]
 	"startTime"             : "2019-06-20T15:54:22.234Z",
 	"answerTime"            : "2019-06-20T15:54:25.432Z",
 	"tag"                   : "example-tag",
-	"machineDetectionResult": "answering-machine"
+	"machineDetectionResult": {
+		"value":  "answering-machine",
+        "duration": "PT5.023724322S"
+    }
 }
 ```
 
