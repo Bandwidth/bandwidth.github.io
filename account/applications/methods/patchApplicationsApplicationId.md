@@ -26,9 +26,9 @@ Bandwidth's Account API leverages Basic Authentication with your Dashboard API C
 | `OutboundCallbackCreds.Password`      | Messaging | No, but highly recommended | Basic auth `Password`|
 | `RequestedCallbackTypes`              | Messaging | No                         | List containing the `CallbackTypes` you wish to receive at the `OutboundCallbackUrl`. |
 | `RequestedCallbackTypes.CallbackType` | Messaging | No                         | `message-delivered`, `message-sending`, `message-failed` |
-| `CallInitiatedCallbackUrl`            | Voice     | Yes, for `Voice-V2`        | Url to receive [voice events](../../../voice/bxml/callbacks/about.md) |
+| `CallInitiatedCallbackUrl`            | Voice     | Yes, for `Voice-V2`        | Url to receive [initiate events](../../../voice/bxml/callbacks/initiate.md) for inbound calls |
 | `CallInitiatedMethod`                 | Voice     | No                         | HTTP method for events sent to the `CallInitiatedCallbackUrl`.<br> <code class="post">POST</code> or <code class="get">GET</code><br>Default is <code class="post">POST</code> |
-| `CallStatusCallbackUrl`               | Voice     | No                         | Url to receive [voice events](../../../voice/bxml/callbacks/about.md) **NOT** related to Initiated. Such as: rejected or hung up. |
+| `CallStatusCallbackUrl`               | Voice     | No                         | Url to receive [disconnect events](../../../voice/bxml/callbacks/disconnect.md) for inbound calls. |
 | `CallStatusMethod`                    | Voice     | No                         | HTTP method for events sent to the `CallStatusCallbackUrl`.<br> <code class="post">POST</code> or <code class="get">GET</code><br>Default is <code class="post">POST</code> |
 | `CallbackCreds`                       | Voice     | No, but highly recommended | Basic auth credentials to apply to your message & voice events |
 | `CallbackCreds.UserId`                | Voice     | No, but highly recommended | Basic auth `UserId` |
