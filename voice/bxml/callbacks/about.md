@@ -47,6 +47,7 @@ URLs, so POST is the preferred method.
 | [Conference Recording Available](conferenceRecordingAvailable.md) | Bandwidth API sends this when a recording started by a `<StartRecording>`in a conference is available for download. |
 | [Disconnect](disconnect.md)                    | Bandwidth API sends this when a call ends.                                                                                       |
 | [DTMF](dtmf.md)                                | Bandwidth API sends this for every digit detected after a `<StartGather>` is executed. |
+| [Machine Detection Complete](machineDetectionComplete.md)   | Bandwidth API sends this when the result of a machine detection request is available. |
 | [Recording Available](recordingAvailable.md)   | Bandwidth API sends this when a recording started by either a `<StartRecording>` or a `<Record>` verb in a call is available for download. |
 | [Transfer Disconnect](transferDisconnect.md)   | Bandwidth API sends this when any leg of a `<Transfer>` ends.                                                                                       |
 | [Transcription Available](transcriptionAvailable.md) | Bandwidth API sends this when the transcription of a recording is available for download. |

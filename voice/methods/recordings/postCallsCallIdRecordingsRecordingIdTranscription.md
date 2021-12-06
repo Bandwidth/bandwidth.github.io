@@ -51,38 +51,38 @@ HTTP/1.1 204
 {% sample lang="java" %}
 
 ```java
-ApiTranscribeRecordingRequest requestBody = new ApiTranscribeRecordingRequest();
+TranscribeRecordingRequest requestBody = new TranscribeRecordingRequest();
 requestBody.setCallbackUrl("https://example.server.com");
 
-ApiResponse<Void> response = controller.createTranscribeRecording(accountId, callId, recordingId, requestBody);
+ApiResponse<Void> response = controller.createTranscribeCallRecording(accountId, callId, recordingId, requestBody);
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-var apiTranscribeRecordingRequest = new ApiTranscribeRecordingRequest
+var apiTranscribeRecordingRequest = new TranscribeRecordingRequest
 {
     CallbackUrl = "https://example.com"
 };
-controller.CreateTranscribeRecording(accountId, callId, recordingId, apiTranscribeRecordingRequest);
+controller.CreateTranscribeCallRecording(accountId, callId, recordingId, apiTranscribeRecordingRequest);
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-body = ApiTranscribeRecordingRequest.new
+body = TranscribeRecordingRequest.new
 body.callback_url = "https://www.myapp.com/transcription"
 
-voice_client.create_transcribe_recording(VOICE_ACCOUNT_ID, call_id, recording_id, :body => body)
+voice_client.create_transcribe_call_recording(VOICE_ACCOUNT_ID, call_id, recording_id, :body => body)
 ```
 
 {% sample lang="python" %}
 
 ```python
-body = ApiTranscribeRecordingRequest()
+body = TranscribeRecordingRequest()
 body.callback_url = "https://www.myapp.com/transcription"
 
-voice_client.create_transcribe_recording(VOICE_ACCOUNT_ID, call_id, recording_id, body=body)
+voice_client.create_transcribe_call_recording(VOICE_ACCOUNT_ID, call_id, recording_id, body=body)
 ```
 
 {% sample lang="js" %}
@@ -101,7 +101,7 @@ const accountId = '1111111';
 const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
 const recordingId = 'r-abc12345-6def-abc1-2345-6defabc12345';
 
-const response = await controller.createTranscribeRecording(accountId, callId, recordingId, {
+const response = await controller.createTranscribeCallRecording(accountId, callId, recordingId, {
     callbackUrl: 'https://www.myapp.com/transcription'
 });
 ```
@@ -109,10 +109,10 @@ const response = await controller.createTranscribeRecording(accountId, callId, r
 {% sample lang="php" %}
 
 ```php
-$body = new BandwidthLib\Voice\Models\ApiTranscribeRecordingRequest();
+$body = new BandwidthLib\Voice\Models\TranscribeRecordingRequest();
 $body->callbackUrl = "https://www.myapp.com/transcription";
 
-$voiceClient->createTranscribeRecording($accountId, $callId, $recordingId, $body);
+$voiceClient->createTranscribeCallRecording($accountId, $callId, $recordingId, $body);
 ```
 
 {% endmethod %}

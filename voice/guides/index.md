@@ -3,6 +3,7 @@
 ### BXML
 
 * [BXML Recording](bxmlRecording.md)
+* [Machine Detection](machineDetection.md)
 
 ### CNAM
 

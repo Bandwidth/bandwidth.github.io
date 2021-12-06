@@ -1,3 +1,11 @@
+<div id="banner">
+  <div class="bannerContainer">
+    <p>The WebRTC documentation has migrated. Please visit <a href="https://new.dev.bandwidth.com/apis/webrtc#operation/updateParticipantSubscriptions">our new API Reference site</a> for the most up-to-date documentation.</p>
+    <p id="bannerClose"><i class="fa fa-close"></i></p>
+  </div>
+</div>
+<br/>
+<br/>
 {% method %}
 
 ## Update a participant's subscriptions
@@ -29,10 +37,10 @@ Bandwidth WebRTC API leverages Basic Authentication with your Dashboard API Cred
 
 {% sample lang="http" %}
 ```bash
-curl -X PUT 
-  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}/subscriptions' 
-  -u '{username}:{password}' 
-  -H 'Content-type: application/json' 
+curl -X PUT
+  --url 'https://api.webrtc.bandwidth.com/v1/accounts/{accountId}/sessions/{sessionId}/participants/{participantId}/subscriptions'
+  -u '{username}:{password}'
+  -H 'Content-type: application/json'
 	 --data-raw '
 {
   "sessionId": "d8886aad-b956-4e1b-b2f4-d7c9f8162772",

@@ -39,6 +39,9 @@ The Account Management API resources are authenticated with your [API Credential
 6. [Fetch Brand](#fetch-brand)
 7. [Fetch Detailed Brand List](#fetch-detailed-brand-list)
 8. [Fetch Abbreviated Brand List](#fetch-abbreviated-brand-list)
+9. [Create External Brand Vet](#create-external-brand-vet)
+10. [Import External Brand Vet](#import-external-brand-vet)
+11. [Fetch External Brand Vet](#fetch-list-of-external-brand-vets)
 
 ## Create campaign settings
 
@@ -394,24 +397,27 @@ HTTP/1.1 429 Too Many Requests
 
 | Brand                      | Mandatory | Description                                                    |
 |:---------------------------|:----------|:---------------------------------------------------------------|
-| `EntityType`               | Yes       |  Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
+| `EntityType`               | Yes       |  Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT', 'GOVERNMENT', SOLE_PROPRIETOR   |
 | `AltBusinessId`            | No        | 	Alternate business identifier such as DUNS, LEI, GIIN |
 | `AltBusinessIdType`        | No        | 	Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
-| `City`                     | No        | 	City name. Max Length 100 characters  |
-| `CompanyName`              | Yes       | 	Legal Company Name. Max Length 100 characters   |
+| `BrandRelationship`        | Yes       |  Enum value describing the relationship with your Account. Supported values: 'BASIC_ACCOUNT', 'SMALL_ACCOUNT', 'MEDIUM_ACCOUNT', 'LARGE_ACCOUNT', 'KEY_ACCOUNT' | 
+| `City`                     | Yes       | 	City name. Max Length 100 characters  |
+| `CompanyName`              | Yes (Not required for Sole Proprietor)      | 	Legal Company Name. Max Length 100 characters   |
 | `Country`                  | Yes       | 	ISO2 2 characters country code. Example: US - United States   |
 | `DisplayName`              | Yes       | 	Display or marketing name of the brand. Max 100 characters   |
-| `Ein`                      | No (Required for non-profit)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
-| `Email`                    | Yes      | 	Valid email address of brand support contact. Max 100 characters   |
-| `Phone`                    | No       | 	Valid phone number in e.164 international format '+18009999999' |
-| `PostalCode`               | No       | 	Postal codes. Use 5 digit zipcode for United States  |
-| `State`                    | No       | 	State name. Must be 2 letters code for United States  |
-| `Street`                   | No       | 	street name. Max Length 100 characters |
+| `Ein`                      | Yes (Not required for Sole_Proprietor)  | 	Government assigned corporate tax ID. EIN is 9-digits in U.S   |
+| `Email`                    | Yes       | 	Valid email address of brand support contact. Max 100 characters   |
+| `FirstName`                | No (Required for Sole_Proprietor)       | 	First of given name.   |
+| `LastName`                 | No (Required for Sole_proprietor)      | 	Last or Surname.  |
+| `Phone`                    | Yes       | 	Valid phone number in e.164 international format '+18009999999' |
+| `PostalCode`               | Yes       | 	Postal codes. Use 5 digit zipcode for United States  |
+| `State`                    | Yes       | 	State name. Must be 2 letters code for United States  |
+| `Street`                   | Yes       | 	street name. Max Length 100 characters |
 | `StockExchange`            | No (Required for public)       | 	Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
-| `StockSymbol`             | No (Required for public)      | 	Stock symbol  |
-| `Vertical`                 | Yes      | 	Enum value describing vertical or industry segment of the brand   |
-| `Website`                  | No       | 	Brand website URL. Max Length 100 characters  |
-| `IsMain`                   | Yes      | 	true or false. True if creating 'My Brand', false if creating 'Customer Brand'  |
+| `StockSymbol`              | No (Required for public)      | 	Stock symbol  |
+| `Vertical`                 | Yes (Disabled for Sole_Proprietor)     | 	Enum value describing vertical or industry segment of the brand   |
+| `Website`                  | No        | 	Brand website URL. Max Length 100 characters  |
+| `IsMain`                   | Yes       | 	true or false. True if creating 'My Brand', false if creating 'Customer Brand'  |
 
 
 #### Request Authentication
@@ -435,12 +441,15 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <EntityType>NON_PROFIT</EntityType>
   <AltBusinessId>111111111</AltBusinessId>
   <AltBusinessIdType>DUNS</AltBusinessIdType>
+  <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
   <City>Raleigh</City>
   <CompanyName>Bandwidth</CompanyName>
   <Country>US</Country>
   <DisplayName>Bandwidth</DisplayName>
   <Ein>111111111</Ein>
   <Email>Test1@bandwidth.com</Email>
+  <FirstName>John</FirstName>
+  <LastName>Doe</LastName>
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
@@ -468,11 +477,14 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <EntityType>NON_PROFIT</EntityType>
       <AltBusinessId>111111111</AltBusinessId>
       <AltBusinessIdType>DUNS</AltBusinessIdType>
+      <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
       <City>Raleigh</City>
       <CompanyName>Bandwidth</CompanyName>
       <Country>US</Country>
       <DisplayName>Bandwidth</DisplayName>
       <Ein>111111111</Ein>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <UniversalEin>111111111</UniversalEin>
       <Email>Test1@bandwidth.com</Email>
       <Phone>+18009999999</Phone>
@@ -533,6 +545,8 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <DisplayName>Bandwidth Customer</DisplayName>
   <Ein>111111110</Ein>
   <Email>Test1@bandwidthcustomer.com</Email>
+  <FirstName>John</FirstName>
+  <LastName>Doe</LastName>
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
@@ -566,6 +580,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <DisplayName>Bandwidth Customer</DisplayName>
       <Ein>111111110</Ein>
       <Email>Test1@bandwidthcustomer.com</Email>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
@@ -620,18 +636,21 @@ _Note_: Non-editable fields will be ignored and will not be updated.
 |:---------------------------|:----------|:---------|:-----------------------------------------------------|
 | `DisplayName`              | Yes       | Yes      | Display or marketing name of the brand. Max 100 characters   |
 | `Website`                  | No        | Yes      | Brand website URL. Max Length 100 characters  |
-| `Street`                   | No        | Yes      | street name. Max Length 100 characters |
-| `City`                     | No        | Yes      | City name. Max Length 100 characters  |
-| `State`                    | No        | Yes      | State name. Must be 2 letters code for United States  |
-| `PostalCode`               | No        | Yes      | Postal codes. Use 5 digit zipcode for United States  |
+| `Street`                   | Yes       | Yes      | street name. Max Length 100 characters |
+| `City`                     | Yes       | Yes      | City name. Max Length 100 characters  |
+| `State`                    | Yes       | Yes      | State name. Must be 2 letters code for United States  |
+| `PostalCode`               | Yes       | Yes      | Postal codes. Use 5 digit zipcode for United States  |
 | `Country`                  | Yes       | Yes      | ISO2 2 characters country code. Example: US - United States   |
 | `Email`                    | Yes       | Yes      | Valid email address of brand support contact. Max 100 characters   |
-| `Phone`                    | No        | Yes      | Valid phone number in e.164 international format '+18009999999' |
-| `Vertical`                 | Yes       | Yes      | Enum value describing vertical or industry segment of the brand   |
+| `FirstName`                | No (Required for Sole_Proprietor)      | Yes |	First of given name.   |
+| `LastName`                 | No (Required for Sole_proprietor)      | Yes | 	Last or Surname.  |
+| `Phone`                    | Yes       | Yes      | Valid phone number in e.164 international format '+18009999999' |
+| `Vertical`                 | Yes (Not required for Sole_Proprietor)       | Yes      | Enum value describing vertical or industry segment of the brand   |
+| `BrandRelationship`        | Yes       | Yes      | Enum value describing the relationship with your Account. Supported values: 'BASIC_ACCOUNT', 'SMALL_ACCOUNT', 'MEDIUM_ACCOUNT', 'LARGE_ACCOUNT', 'KEY_ACCOUNT' |
 | `EntityType`               | Yes       | No       | Entity type behind the brand. THis is the form of business establishment. 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT'   |
 | `AltBusinessId`            | No        | No       | Alternate business identifier such as DUNS, LEI, GIIN |
 | `AltBusinessIdType`        | No        | No       | Enum value describing AltBussinessId. 'NONE', 'DUNS', 'LEI', 'GIIN'   |
-| `Ein`                      | No (Required for non-profit)  | No    	| Government assigned corporate tax ID. EIN is 9-digits in U.S   |
+| `Ein`                      | Yes (Not required for Sole_Proprietor)  | No    	| Government assigned corporate tax ID. EIN is 9-digits in U.S   |
 | `StockExchange`            | No (Required for public)      | No    	| Stock exchange. 'NONE', NASDAQ', 'NYSE', etc.   |
 | `StockSymbol`              | No (Required for public)      | No    	| Stock symbol  |
 | `Website`                  | No        | No    	| Brand website URL. Max Length 100 characters  |
@@ -652,12 +671,15 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
   <EntityType>NON_PROFIT</EntityType>
   <AltBusinessId>111111110</AltBusinessId>
   <AltBusinessIdType>DUNS</AltBusinessIdType>
+  <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
   <City>Raleigh</City>
   <CompanyName>Bandwidth Customer</CompanyName>
   <Country>US</Country>
   <DisplayName>Bandwidth Customer</DisplayName>
   <Ein>111111110</Ein>
   <Email>Test1@bandwidthcustomer.com</Email>
+  <FirstName>John</FirstName>
+  <LastName>Doe</LastName>
   <Phone>+18009999999</Phone>
   <PostalCode>27606</PostalCode>
   <State>NC</State>
@@ -685,12 +707,15 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <EntityType>NON_PROFIT</EntityType>
       <AltBusinessId>111111110</AltBusinessId>
       <AltBusinessIdType>DUNS</AltBusinessIdType>
+      <BrandRelationship>MEDIUM_ACCOUNT</BrandRelationship>
       <City>Raleigh</City>
       <CompanyName>Bandwidth Customer</CompanyName>
       <Country>US</Country>
       <DisplayName>Bandwidth Customer</DisplayName>
       <Ein>111111110</Ein>
       <Email>Test1@bandwidthcustomer.com</Email>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
@@ -768,6 +793,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
       <DisplayName>Bandwidth Customer</DisplayName>
       <Ein>111111110</Ein>
       <Email>Test1@bandwidthcustomer.com</Email>
+      <FirstName>John</FirstName>
+      <LastName>Doe</LastName>
       <Phone>+18009999999</Phone>
       <PostalCode>27606</PostalCode>
       <State>NC</State>
@@ -851,6 +878,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
           <DisplayName>Bandwidth Customer</DisplayName>
           <Ein>111111110</Ein>
           <Email>Test1@bandwidthcustomer.com</Email>
+          <FirstName>John</FirstName>
+          <LastName>Doe</LastName>
           <Phone>+18009999999</Phone>
           <PostalCode>27606</PostalCode>
           <State>NC</State>
@@ -935,6 +964,8 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
           <DisplayName>Bandwidth Customer</DisplayName>
           <Ein>111111110</Ein>
           <Email>Test1@bandwidthcustomer.com</Email>
+          <FirstName>John</FirstName>
+          <LastName>Doe</LastName>
           <Phone>+18009999999</Phone>
           <PostalCode>27606</PostalCode>
           <State>NC</State>
@@ -964,6 +995,246 @@ Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManag
         <Description>CampaignManagement feature is not enabled on account 9999999</Description>
     </ResponseStatus>
 </BrandsResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 429 Too Many Requests
+```
+
+{% endextendmethod %}
+
+## Create external brand vet
+
+{% extendmethod %}
+
+#### Request URL
+<code class="put">POST</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `BrandVetting`             | Yes       | 	An object containing external brand vet information                                                                                      |
+
+| BrandVetting               | Mandatory | Description                                                    |
+|:---------------------------|:----------|:-----------------------------------------------------|
+| `EvpId`                    | Yes       | External vetting provider ID for the brand.          |
+| `VettingClass`             | Yes       | Identifies the vetting classification.               |
+
+#### Request Authentication
+
+### POST external brand vet
+
+{% sample lang="http" %}
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<BrandVetting>
+  <EvpId>AEGIS</EvpId>
+  <VettingClass>STANDARD</VettingClass>
+</BrandVetting>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandVettingResponse>
+   <BrandVetting>
+     <EvpId>AEGIS</EvpId>
+     <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+     <VettingToken>YAQ45SM</VettingToken>
+     <VettingScore>0</VettingScore>
+     <VettingClass>STANDARD</VettingClass>
+     <VettingStatus>PENDING</VettingStatus>
+     <CreateDate>2021-09-27T19:09:40.981Z</CreateDate>
+     <VettedDate>2021-09-27T19:09:40.981Z</VettedDate>
+     <BrandId>B111111</BrandId>
+   </BrandVetting>
+</BrandVettingResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandVettingResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>VettingClass is required</Description>
+    </ResponseStatus>
+</BrandVettingResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 429 Too Many Requests
+```
+
+{% endextendmethod %}
+
+## Import external brand vet
+
+{% extendmethod %}
+
+#### Request URL
+<code class="put">PUT</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting`
+
+| Request Body               | Mandatory | Description                                                                                                                  |
+|:---------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------|
+| `BrandVetting`                    | Yes       | 	An object containing external brand vet information                                                                                    |
+
+| BrandVetting               | Mandatory | Description                                                    |
+|:---------------------------|:----------|:-----------------------------------------------------|
+| `EvpId`                    | Yes       | External vetting provider ID for the brand.          |
+| `VettingId`                | Yes       | Unique ID that identifies a vetting transaction performed by a vetting provider. This ID is provided by the vetting provider at time of vetting.             |
+| `VettingToken`             | No (Required for Aeigis Mobile)       | Required by some providers for vetting record confirmation.               |
+
+#### Request Authentication
+
+### PUT external brand vet
+
+{% sample lang="http" %}
+
+```http
+PUT https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<BrandVetting>
+  <EvpId>AEGIS</EvpId>
+  <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+  <VettingToken>YAQ45SM</VettingToken>
+</BrandVetting>
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandVettingResponse>
+   <BrandVetting>
+     <EvpId>AEGIS</EvpId>
+     <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+     <VettingToken>YAQ45SM</VettingToken>
+     <VettingScore>0</VettingScore>
+     <VettingClass>STANDARD</VettingClass>
+     <VettingStatus>PENDING</VettingStatus>
+     <CreateDate>2021-09-27T19:09:40.981Z</CreateDate>
+     <VettedDate>2021-09-27T19:09:40.981Z</VettedDate>
+     <BrandId>B111111</BrandId>
+   </BrandVetting>
+</BrandVettingResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandVettingResponse>
+    <ResponseStatus>
+        <ErrorCode>1003</ErrorCode>
+        <Description>VettingToken is required</Description>
+    </ResponseStatus>
+</BrandVettingResponse>
+```
+
+### Error Codes
+```http
+HTTP/1.1 400 Bad Request
+HTTP/1.1 403 Unauthorized
+HTTP/1.1 404 Not Found
+HTTP/1.1 429 Too Many Requests
+```
+
+{% endextendmethod %}
+
+## Fetch list of external brand vets
+
+{% extendmethod %}
+
+#### Request URL
+<code class="get">GET</code>`https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true`
+
+| Optional Query Params  | Description                                                                                                                  |
+|:---------------------------|:-----------------------------------------------------|
+| `evpId`                    | External vetting provider ID for the brand.          |
+| `vettingClass`             | Identifies the vetting classification.               |
+| `vettingStatus`            | Identifies the vetting request status.               |
+| `includePending`           | true/false boolean to include pending vetting records|
+
+### GET external brand vets
+
+{% sample lang="http" %}
+
+```http
+GET https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true HTTP/1.1
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+```
+
+### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandVettingsResponse>
+    <BrandVettings>
+       <BrandVetting>
+         <EvpId>AEGIS</EvpId>
+         <VettingId>69823255-96b3-412f-9120-3e77f94c6be5</VettingId>
+         <VettingToken>YAQ45SM</VettingToken>
+         <VettingScore>0</VettingScore>
+         <VettingClass>STANDARD</VettingClass>
+         <VettingStatus>PENDING</VettingStatus>
+         <CreateDate>2021-09-27T19:09:40.981Z</CreateDate>
+         <VettedDate>2021-09-27T19:09:40.981Z</VettedDate>
+         <BrandId>B111111</BrandId>
+       </BrandVetting>
+    </BrandVettings>
+</BrandVettingsResponse>
+```
+
+### Error Response
+
+```http
+HTTP/1.1 403 Unauthorized
+Content-Type: application/xml
+Location: https://dashboard.bandwidth.com/api/accounts/{accountId}/campaignManagement/10dlc/brands/{brandId}/vetting?includePending=true
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BrandVettingsResponse>
+    <ResponseStatus>
+        <ErrorCode>12055</ErrorCode>
+        <Description>CampaignManagement feature is not enabled on account 9999999</Description>
+    </ResponseStatus>
+</BrandVettingsResponse>
 ```
 
 ### Error Codes

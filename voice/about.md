@@ -58,6 +58,7 @@
 | [Conference Member Join](bxml/callbacks/conferenceMemberJoin.md) | Bandwidth API sends this when a new member joins a conference.                                                                                                                                  |
 | [Conference Member Exit](bxml/callbacks/conferenceMemberExit.md) | Bandwidth API sends this when a member leaves a conference.                                                                                                                                     |
 | [Conference Redirect](bxml/callbacks/conferenceRedirect.md)      | Bandwidth API sends this to the application when a POST request is made to the [/conferences/{conferenceId}](methods/conferences/postConferencesConferenceId.md) endpoint requesting to modify a conference. |
+| [Machine Detection Complete](bxml/callbacks/machineDetectionComplete.md) | Bandwidth API sends this when a machine detection operation is completed. |
 
 ## Asynchronous Callbacks
 | Callback                                                            | Description                                                                                                                      |

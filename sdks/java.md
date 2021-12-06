@@ -26,6 +26,7 @@ The Java SDK(s) are available via [Maven](https://mvnrepository.com/) & Github
 | 3.8.0 | Added conference management endpoints |
 | 4.0.0 | Renamed `CallEngineModifyConferenceRequest` to `ApiModifyConferenceRequest`, and removed `from` and `digits` from `TwoFactorVerifyRequestSchema` |
 | 5.0.0 | Added get messages function, and updated the `body` parameter in the create message function to be required. Updated the MFA error bodies and added message priority |
+| 6.0.0 | Updated voice, messaging, and MFA objects as well as corrected WebRTC `participantId` and `sessionId` parameter ordering in a number of requests. |
 
 ## Download & Install
 
@@ -48,7 +49,7 @@ Maven:
 BandwidthClient client = new BandwidthClient.Builder()
             .messagingBasicAuthCredentials("MESSAGING_API_TOKEN", "MESSAGING_API_SECRET")
             .voiceBasicAuthCredentials("VOICE_API_USERNAME", "VOICE_API_PASSWORD")
-            .twoFactorAuthBasicAuthCredentials("username", "password")
+            .multiFactorAuthBasicAuthCredentials("username", "password")
             .environment(com.bandwidth.Environment.CUSTOM) // Optional - sets the enviroment to a custom base URL
             .baseUrl("https://test.com") // Optional - sets the base Url
             .build();
@@ -64,8 +65,8 @@ com.bandwidth.voice.controllers.APIController voiceController = client.getVoiceC
 ```java
 import com.bandwidth.voice.models.ApiCreateCallRequest;
 
-//Create the ApiCreateCallRequst object and populate.
-ApiCreateCallRequest callRequest = new ApiCreateCallRequest();
+//Create the CreateCallRequest object and populate.
+CreateCallRequest callRequest = new CreateCallRequest();
 
 callRequest.setApplicationId("application.Id");
 callRequest.setTo("+19999999999");

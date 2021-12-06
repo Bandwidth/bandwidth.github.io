@@ -58,6 +58,20 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | errorMessage    | (optional) Populated only if the call ended with an error, with a text explaining the reason.                            |
 | errorId         | (optional) Populated only if the call ended with an error, with a Bandwidth internal id that references the error event. |
 | lastUpdate      | The last time the call had a state update, in ISO 8601 format.                                                           |
+| identity        | (optional) The value of the `Identity` header from the inbound invite request. Only present for inbound calls and if the account is configured to forward this header. |
+| [stirShaken](#stirshaken-properties) | (optional) The verification status provided by Bandwidth STIR/SHAKEN implementation. Only present for inbound calls. |
+
+#### STIR/SHAKEN properties
+
+For inbound calls, the Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is stored in the call state `stirShaken` property as follows.
+
+| Property          | Description |
+|:------------------|:------------|
+| verstat | (optional) The verification status indicating whether the verification was successful or not. Possible values are `TN-Verification-Passed` or `TN-Verification-Failed`. |
+| attestationIndicator | (optional) The attestation level verified by Bandwidth. Possible values are `A` (full), `B` (partial) or `C` (gateway). |
+| originatingId | (optional) A unique origination identifier. |
+
+More information: [Understanding STIR/SHAKEN](https://www.bandwidth.com/regulations/stir-shaken)
 
 {% common %}
 
@@ -94,16 +108,16 @@ curl -X GET \
 {% sample lang="csharp" %}
 
 ```csharp
-var response = voiceClient.GetCallState(accountId, callID);
+var response = voiceClient.GetCall(accountId, callID);
 Console.WriteLine(response.State);
 ```
 
 {% sample lang="java" %}
 
 ```java
-ApiResponse<ApiCallStateResponse> response = null;
+ApiResponse<CallState> response = null;
 try {
-    response = voiceController.getCallState(accountId, callId);
+    response = voiceController.getCall(accountId, callId);
 } catch (IOException | ApiException e) {
     System.out.println(e.getMessage());
 }
@@ -112,14 +126,14 @@ try {
 {% sample lang="ruby" %}
 
 ```ruby
-result = voice_client.get_call_state(account_id, call_id)
+result = voice_client.get_call(account_id, call_id)
 puts result.data.state
 ```
 
 {% sample lang="python" %}
 
 ```python
-response = voice_client.get_call_state(account_id, call_id)
+response = voice_client.get_call(account_id, call_id)
 print(response.body.state)
 ```
 
@@ -138,13 +152,13 @@ const controller = new ApiController(client);
 const accountId = '1111111';
 const callId = 'c-abc12345-6defabc1-2345-6def-abc1-23456defabc1';
 
-const response = await controller.getCallState(accountId, callId);
+const response = await controller.getCall(accountId, callId);
 ```
 
 {% sample lang="php" %}
 
 ```php
-$response = $voiceClient->getCallState($accountId, $callId);
+$response = $voiceClient->getCall($accountId, $callId);
 print_r($response->getResult()->state);
 ```
 
