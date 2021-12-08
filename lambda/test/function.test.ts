@@ -123,7 +123,7 @@ test('Redirect AP-docs', async () => {
     headers: {
       location: [{
         key: 'Location',
-        value: 'https://old.dev.bandwidth.com/ap-docs/potato'
+        value: 'https://v1.dev.bandwidth.com/ap-docs/potato'
       }]
     }
   })
