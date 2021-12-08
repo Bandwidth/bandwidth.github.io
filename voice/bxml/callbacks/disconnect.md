@@ -35,6 +35,7 @@ HTTP/1.1 204
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | callId            | The call id associated with the event. |
 | callUrl           | The URL of the call associated with the event. |
+| enqueuedTime      | (optional) If [call queueing](../../rateLimits.md) is enabled, time the call was queued, in ISO 8601 format. |
 | startTime         | Time the call was started, in ISO 8601 format. |
 | answerTime        | (optional) Time the call was answered, in ISO 8601 format. |
 | endTime           | Time the call ended, in ISO 8601 format. |
@@ -62,6 +63,32 @@ POST http://[External server URL]
 	"direction"     : "outbound",
 	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"callUrl"       : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"startTime"     : "2019-06-20T15:54:22.234Z",
+	"endTime"       : "2019-06-20T15:55:54.123Z",
+	"cause"         : "busy",
+	"errorMessage"  : "Callee is busy",
+	"errorId"       : "4642074b-7b58-478b-96e4-3a60955c6765"
+}
+```
+
+#### Example: Call ended due to a busy signal with Enqueued Time
+
+```http
+POST http://[External server URL]
+```
+
+```json
+{
+	"eventType"     : "disconnect",
+	"eventTime"     : "2019-06-20T15:55:55.533Z",
+	"accountId"     : "55555555",
+	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"from"          : "+15551112222",
+	"to"            : "+15553334444",
+	"direction"     : "outbound",
+	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"       : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"enqueuedTime"  : "2019-06-20T15:54:05.005Z",
 	"startTime"     : "2019-06-20T15:54:22.234Z",
 	"endTime"       : "2019-06-20T15:55:54.123Z",
 	"cause"         : "busy",

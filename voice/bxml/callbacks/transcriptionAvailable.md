@@ -23,6 +23,7 @@ HTTP/1.1 204
 | from              | The provided identifier string of the caller used in the `from` field of the original call. |
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | tag               | (optional) The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be present. |
+| enqueuedTime      | (optional) If [call queueing](../../rateLimits.md) is enabled, time the call was queued, in ISO 8601 format. |
 | startTime         | Time the recording started (in ISO8601 format). |
 | endTime           | Time the recording ended (in ISO8601 format). |
 | duration          | Length of the recording (in ISO8601 format). |
@@ -60,6 +61,39 @@ POST http://[External server URL]
 	"direction"     : "outbound",
 	"from"          : "+15551112222",
 	"to"            : "+15553334444",
+	"startTime"     : "2019-09-13T16:48:29.235Z",
+	"endTime"       : "2019-09-13T16:48:48.890Z",
+	"duration"      : "PT20.056S",
+	"fileFormat"    : "wav",
+	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
+	"mediaUrl"      : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/media",
+	"transcription" : {
+		"id"            : "t-1a68a908-544f-48ae-b30d-d1747dca3723",
+		"url"           : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/transcription",
+		"status"        : "available",
+		"completedTime" : "2019-09-13T16:49:28.883Z"
+	}
+}
+```
+
+#### Example: Recording Available event with Enqueued Time
+
+```http
+POST http://[External server URL]
+```
+
+```json
+{
+	"eventType"     : "transcriptionAvailable",
+	"eventTime"     : "2019-09-13T16:53:34.229Z",
+	"accountId"     : "55555555",
+	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
+	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"direction"     : "outbound",
+	"from"          : "+15551112222",
+	"to"            : "+15553334444",
+	"enqueuedTime"  : "2019-09-13T16:48:23.770Z",
 	"startTime"     : "2019-09-13T16:48:29.235Z",
 	"endTime"       : "2019-09-13T16:48:48.890Z",
 	"duration"      : "PT20.056S",
