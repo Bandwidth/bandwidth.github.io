@@ -24,7 +24,7 @@ HTTP/1.1 204
 | callId           | The call id associated with the event. |
 | digit            | The digit collected in the call. |
 | callUrl          | The URL of the call associated with the event. |
-| enqueuedTime     | (optional) If [call queueing](../../methods/postCalls) is enabled, time the call was queued, in ISO 8601 format. |
+| enqueuedTime     | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled, time the call was queued, in ISO 8601 format. |
 | startTime        | Time the call was started, in ISO 8601 format. |
 | answerTime       | Time the call was answered, in ISO 8601 format. |
 | parentCallId     | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be present. |
