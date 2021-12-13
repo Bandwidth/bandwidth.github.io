@@ -8,8 +8,8 @@ Calls are created immediately unless your account has outbound call queueing ena
 
 To enable call queueing on your account, contact our Account Management team.
 
-<aside class="alert_general">
-**Please note:** Calls submitted to your queue will be placed aproximately in order, but exact ordering is not guaranteed.
+<aside class="alert general">
+<b>Please note:</b> Calls submitted to your queue will be placed aproximately in order, but exact ordering is not guaranteed.
 </aside>
 
 ### Request URL
