@@ -1,7 +1,16 @@
 {% method %}
 
 ## Create Call
+
 Creates a new outbound phone call.
+
+Calls are created immediately unless your account has outbound call queueing enabled. When enabled, your outbound calls will be queued and initiated at a specific dequeueing rate, enabling your application to "fire and forget" when creating calls. Queued calls may not be modified until they are dequeued and placed, but may be removed from your queue on demand.
+
+To enable call queueing on your account, contact our Account Management team.
+
+<aside class="alert_general">
+**Please note:** Calls submitted to your queue will be placed aproximately in order, but exact ordering is not guaranteed.
+</aside>
 
 ### Request URL
 
@@ -16,7 +25,6 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 <p>IMPORTANT NOTE ABOUT AUTHORIZATION!</p>
 You should not include sensitive or personally-identifiable information in any tag or URL field! Always use the proper username and password fields for authorization.
 </aside>
-
 
 ---
 
@@ -42,7 +50,7 @@ You should not include sensitive or personally-identifiable information in any t
 | callbackTimeout | (optional) This is the timeout (in seconds) to use when delivering callbacks for the call. Can be any numeric value (including decimals) between 1 and 25. Default: 15 | No |
 | uui | (optional) A comma-separated list of `User-To-User` headers to send within the initial `INVITE`. Each value must end with the `encoding` parameter as specified in [`RFC 7433`](https://tools.ietf.org/html/rfc7433). Only `base64` and `jwt` encodings are currently allowed. The entire value cannot exceed 350 characters, including parameters and separators. Example: `<jwt-value>;encoding=jwt,<base64-value>;encoding=base64` | No |
 | machineDetection | (optional) The [machine detection request](#machine-detection-request) used to perform a [machine detection](../../guides/machineDetection.md) operation on the answerer leg. | No |
-| priority | (optional) If [outbound call queueing](../../rateLimits.md) is enabled, the priority of this call over other calls from your account. For example, if during a call your application needs to place a new call and bridge it with the current call, you might want to create the call with priority 1 so that it will be the next call picked off your queue, after any previously queued priority 1 calls and ahead of other less time sensitive calls. A lower value means higher priority, so a priority 1 call takes precedence over a priority 2 call. Range: integer values between 1 - 5. Default value is 5. | No |
+| priority | (optional) If outbound call queueing is enabled, the priority of this call over other calls from your account. For example, if during a call your application needs to place a new call and bridge it with the current call, you might want to create the call with priority 1 so that it will be the next call picked off your queue, after any previously queued priority 1 calls and ahead of other less time sensitive calls. A lower value means higher priority, so a priority 1 call takes precedence over a priority 2 call. Range: integer values between 1 - 5. Default value is 5. | No |
 
 **NOTE:** Any error that causes the call to be hung up (for example invalid BXML or rate limiting) will be delivered to the `disconnectUrl` via a [Disconnect](../../bxml/callbacks/disconnect.md) event.  This is currently the only way to receive user errors, so while `disconnectUrl` is not mandatory, we highly recommend providing it so that user errors can be delivered.
 
