@@ -31,7 +31,7 @@ Content-Type: application/xml; charset=utf-8
 | recordingId       | The unique id for this recording. |
 | callUrl           | The URL of the call associated with the event. |
 | mediaUrl          | URL to retrieve the contents of the recording. |
-| enqueuedTime      | (optional) If [call queueing](../../methods/postCalls.md) is enabled, time the call was queued, in ISO 8601 format. |
+| enqueuedTime      | (optional) If [call queueing](../../methods/postCalls) is enabled, time the call was queued, in ISO 8601 format. |
 | answerTime        | Time the call was answered, in ISO 8601 format. |
 | startTime         | Time the recording was started, in ISO 8601 format. |
 | endTime           | Time the recording ended, in ISO 8601 format. |
