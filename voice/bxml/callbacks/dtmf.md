@@ -24,6 +24,7 @@ HTTP/1.1 204
 | callId           | The call id associated with the event. |
 | digit            | The digit collected in the call. |
 | callUrl          | The URL of the call associated with the event. |
+| enqueuedTime     | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. |
 | startTime        | Time the call was started, in ISO 8601 format. |
 | answerTime       | Time the call was answered, in ISO 8601 format. |
 | parentCallId     | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be present. |
@@ -45,6 +46,30 @@ POST http://[External server URL]
 	"eventTime"        : "2019-06-20T15:54:48.992Z",
 	"accountId"        : "55555555",
 	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"startTime"        : "2019-06-20T15:54:22.234Z",
+	"answerTime"       : "2019-06-20T15:54:25.432Z",
+	"from"             : "+15551112222",
+	"to"               : "+15553334444",
+	"direction"        : "outbound",
+	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"digit"            : "2"
+}
+```
+
+#### Example: DTMF event with Enqueued Time
+
+```http
+POST http://[External server URL]
+```
+
+```json
+{
+	"eventType"        : "dtmf",
+	"eventTime"        : "2019-06-20T15:54:48.992Z",
+	"accountId"        : "55555555",
+	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"enqueuedTime"     : "2019-06-29T15:52:48.338Z",
 	"startTime"        : "2019-06-20T15:54:22.234Z",
 	"answerTime"       : "2019-06-20T15:54:25.432Z",
 	"from"             : "+15551112222",

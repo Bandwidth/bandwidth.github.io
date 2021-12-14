@@ -43,6 +43,7 @@ Content-Type: application/xml; charset=utf-8
 | direction         | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | callId            | The call id associated with the event. |
 | callUrl           | The URL of the call associated with the event. |
+| enqueuedTime      | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. |
 | startTime         | Time the call was started, in ISO 8601 format. |
 | answerTime        | Time the call was answered, in ISO 8601 format. |
 | tag               | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be present. |
@@ -73,6 +74,32 @@ POST http://[External server URL]
 	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
 	"transferCallerId" : "+15551115555",
 	"transferTo"       : "+15556667777",
+	"startTime"        : "2019-07-31T13:13:34.859Z",
+	"answerTime"       : "2019-07-31T13:13:40.644Z",
+	"cause"            : "hangup",
+}
+```
+
+#### Example: Successful transfer to 1-555-666-7777 with Enqueued Time
+
+```http
+POST http://[External server URL]
+```
+
+```json
+{
+	"eventType"        : "transferComplete",
+	"eventTime"        : "2019-07-31T13:20:39.810Z",
+	"accountId"        : "55555555",
+	"applicationId"    : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"from"             : "+15551112222",
+	"to"               : "+15553334444",
+	"direction"        : "outbound",
+	"callId"           : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"callUrl"          : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"transferCallerId" : "+15551115555",
+	"transferTo"       : "+15556667777",
+	"enqueuedTime"     : "2019-07-31T13:13:30.093Z",
 	"startTime"        : "2019-07-31T13:13:34.859Z",
 	"answerTime"       : "2019-07-31T13:13:40.644Z",
 	"cause"            : "hangup",

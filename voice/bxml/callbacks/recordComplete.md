@@ -31,6 +31,7 @@ Content-Type: application/xml; charset=utf-8
 | recordingId       | The unique id for this recording. |
 | callUrl           | The URL of the call associated with the event. |
 | mediaUrl          | URL to retrieve the contents of the recording. |
+| enqueuedTime      | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. |
 | answerTime        | Time the call was answered, in ISO 8601 format. |
 | startTime         | Time the recording was started, in ISO 8601 format. |
 | endTime           | Time the recording ended, in ISO 8601 format. |
@@ -62,6 +63,35 @@ POST http://[External server URL]
 	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
 	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
 	"channels"      : 1,
+	"answerTime"    : "2019-09-13T16:48:26.665Z",
+	"startTime"     : "2019-09-13T16:48:29.235Z",
+	"endTime"       : "2019-09-13T16:48:48.890Z",
+	"duration"      : "PT20.056S",
+	"fileFormat"    : "wav",
+	"mediaUrl"      : "https://../{accountId}/calls/{callId-1}/recordings/{recordingId}/media"
+}
+```
+
+#### Example: Record Complete event with Enqueued Time
+
+```http
+POST http://[External server URL]
+```
+
+```json
+{
+	"eventType"     : "recordComplete",
+	"eventTime"     : "2019-09-13T16:48:48.905Z",
+	"accountId"     : "55555555",
+	"applicationId" : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+	"to"            : "+15553334444",
+	"from"          : "+15551112222",
+	"direction"     : "outbound",
+	"callId"        : "c-95ac8d6e-1a31c52e-b38f-4198-93c1-51633ec68f8d",
+	"recordingId"   : "r-115da407-e3d9-4ea7-889f-5f4ad7386a80",
+	"callUrl"       : "https://../{accountId}/calls/{callId-1}",
+	"channels"      : 1,
+	"enqueuedTime"  : "2019-09-13T16:48:24.851Z",
 	"answerTime"    : "2019-09-13T16:48:26.665Z",
 	"startTime"     : "2019-09-13T16:48:29.235Z",
 	"endTime"       : "2019-09-13T16:48:48.890Z",

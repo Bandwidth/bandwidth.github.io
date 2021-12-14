@@ -26,6 +26,7 @@ HTTP/1.1 204
 | direction                       | The direction of the call. Either `inbound` or `outbound`. The direction of a call never changes. |
 | callId                          | The call id associated with the event. |
 | callUrl                         | The URL of the call associated with the event. |
+| enqueuedTime                    | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. |
 | startTime                       | Time the call was started, in ISO 8601 format. |
 | answerTime                      | Time the call was answered, in ISO 8601 format. |
 | machineDetectionResult          | Machine Detection Analysis Object. Possible values are `answering-machine`, `human`, `silence`, `timeout`, or `error`. |
@@ -61,5 +62,32 @@ POST http://[External server URL]
     }
 }
 ```
+
+#### Example: Machine detection operation with a human result with Enqueued Time
+
+```http
+POST http://[External server URL]
+```
+
+```json
+{
+    "eventType"              : "machineDetectionComplete",
+    "callId"                 : "c-6a0d8e3e-1c71aa98-fb05-46ca-acf8-f735db20fa28",
+    "from"                   : "+15551112222",
+    "to"                     : "+15553334444",
+    "direction"              : "outbound",
+    "applicationId"          : "7fc9698a-b04a-468b-9e8f-91238c0d0086",
+    "accountId"              : "55555555",
+    "enqueuedTime"           : "2021-11-10T11:19:45.862Z",
+    "startTime"              : "2021-11-10T11:20:02.123Z",
+    "eventTime"              : "2021-11-10T11:20:07.709Z",
+    "callUrl"                : "https://voice.bandwidth.com/api/v2/accounts/55555555/calls/c-6a0d8e3e-1c71aa98-fb05-46ca-acf8-f735db20fa28",
+    "tag"                    : "example-tag",
+    "answerTime"             : "2021-11-10T11:20:02.292Z",
+    "machineDetectionResult" : {
+        "value"    : "answering-machine",
+        "duration" : "PT4.9891287S"
+    }
+}
 
 {% endmethod %}
