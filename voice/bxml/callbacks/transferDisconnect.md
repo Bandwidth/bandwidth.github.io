@@ -37,7 +37,7 @@ HTTP/1.1 204
 | parentCallId     | The call id of the original call leg that contained the `<Transfer>` tag. |
 | callUrl          | The URL of the call associated with the event. |
 | tag              | The `tag` specified earlier in the call. If no `tag` was specified or it was previously cleared, this field will not be present. |
-| enqueuedTime     | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled, time the call was queued, in ISO 8601 format. |
+| enqueuedTime     | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. |
 | startTime        | Time the transferred leg was started, in ISO 8601 format. |
 | answerTime       | (optional) Time the transferred leg was answered, in ISO 8601 format. |
 | endTime          | Time the transferred leg ended, in ISO 8601 format. |

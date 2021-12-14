@@ -51,7 +51,7 @@ Bandwidth's Voice API leverages Basic Authentication with your Dashboard API Cre
 | from            | The phone number that made the call, in E.164 format (e.g. +15555555555).                                                                                              |
 | direction       | The direction of the call. Either `inbound` or `outbound`.                                                                                                             |
 | state           | The current state of the call: `initiated`, `answered`, or `disconnected`.                                                                                             |
-| enqueuedTime    | (optional) If [outbound call queueing](postCalls.md) is enabled, the time the call was placed in queue, in ISO 8601 format.                                            |
+| enqueuedTime    | (optional) If [outbound call queueing](postCalls.md) is enabled and this is an outbound call, the time the call was placed in queue, in ISO 8601 format.               |
 | startTime       | (optional) The time the call was initiated, in ISO 8601 format.                                                                                                        |
 | answerTime      | (optional) Populated once the call has been answered, with the time in ISO 8601 format.                                                                                |
 | endTime         | (optional) Populated once the call has ended, with the time in ISO 8601 format.                                                                                        |

@@ -23,7 +23,7 @@ HTTP/1.1 204
 | parentCallId      | (optional) If the event is related to the B leg of a `<Transfer>`, the call id of the original call leg that executed the `<Transfer>`. Otherwise, this field will not be present. |
 | recordingId       | The unique id for this recording. |
 | channels          | Number of channels in the recording (1 or 2). |
-| enqueuedTime      | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled, time the call was queued, in ISO 8601 format. |
+| enqueuedTime      | (optional) If [call queueing](../../methods/calls/postCalls.md) is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. |
 | startTime         | The time that the recording started (in ISO8601 format). |
 | endTime           | The time that the recording ended (in ISO8601 format). |
 | duration          | The duration of the recording (in ISO8601 format). |
