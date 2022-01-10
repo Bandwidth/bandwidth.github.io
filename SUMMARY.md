@@ -402,6 +402,6 @@
 	* [Faults and Limits](emergency-services/dash/faults.md)
 
 ## v1 Docs
-* [Home Page](https://old.dev.bandwidth.com)
-* [Voice](https://old.dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
-* [Messaging](https://old.dev.bandwidth.com/ap-docs/methods/messages/messages.html)
+* [Home Page](https://v1.dev.bandwidth.com)
+* [Voice](https://v1.dev.bandwidth.com/ap-docs/bxml/bxmlOverview.html)
+* [Messaging](https://v1.dev.bandwidth.com/ap-docs/methods/messages/messages.html)

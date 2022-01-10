@@ -34,7 +34,7 @@ The Python SDK(s) are available via [PyPi](https://pypi.org/) & Github
 
 ## Download & Install
 
-ℹ️ Note that bandwidth-sdk [`v5.x.x`](https://pypi.org/project/bandwidth-sdk/) and greater will only support Bandwidth's v2 APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate to v2. For v1 installation instructions, please see [old.dev.bandwidth.com](https://old.dev.bandwidth.com/clientLib/python.html).
+ℹ️ Note that bandwidth-sdk [`v5.x.x`](https://pypi.org/project/bandwidth-sdk/) and greater will only support Bandwidth's v2 APIs. Please contact [support](https://support.bandwidth.com) to learn how to migrate to v2. For v1 installation instructions, please see [v1.dev.bandwidth.com](https://v1.dev.bandwidth.com/clientLib/python.html).
 
 ```
 pip install bandwidth-sdk

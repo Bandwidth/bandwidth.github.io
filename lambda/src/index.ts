@@ -76,7 +76,7 @@ export const handler = async (event: Event, context: object) => {
             headers: {
                 location: [{
                     key: 'Location',
-                    value: `https://old.dev.bandwidth.com${urlNoLower}`
+                    value: `https://v1.dev.bandwidth.com${urlNoLower}`
                 }],
             },
         };
