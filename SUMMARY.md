@@ -23,7 +23,7 @@
     * [Postman Collections](https://github.com/Bandwidth/postman)
 * [Quickstart CLI](cli/cli.md)
 * [Developer Forum](http://bandwidthdashboard.discussion.community/)
-* [Try Sandbox](https://dzvojiq5356ni.cloudfront.net/)
+* [Try Sandbox](https://sandbox.bandwidth.com)
 
 ## Account
 * [Guides & Tutorials](account/guides/about.md)
