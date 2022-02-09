@@ -2,7 +2,7 @@
 
 ⚠️⚠️⚠️⚠️⚠️**DEPRECATED**⚠️⚠️⚠️⚠️⚠️
 
-This repository is deprectaed - please use https://github.com/Bandwidth/api-docs
+This repository is deprecated - please use https://github.com/Bandwidth/api-docs
 
 ⚠️ Ensure that for this repo (**bandwidth.github.io**) that the pull request change is opened against the branch `stop-gap-v2`
 
