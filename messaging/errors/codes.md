@@ -1,14 +1,17 @@
 # Bandwidth Messaging V2 API Error Reporting and Codes {#top}
 
 ## Resources
-* [Message Error Reporting](#error-reporting)
-* [Error Code Schema](codes.md#error-code-schema)
-* [Error Code Table](codes.md#error-codes)
-  * [Bandwidth Detected Client Errors](#client-errors)
-  * [Carrier Reported Client Errors](#carrier-client)
-  * [Bandwidth Service Failures](#service-errors)
-  * [Carrier Reported Service Failures](#carrier-service-errors)
-  * [Carrier Errors with Ambiguous Cause](#carrier-ambiguous-errors)
+- [Bandwidth Messaging V2 API Error Reporting and Codes {#top}](#bandwidth-messaging-v2-api-error-reporting-and-codes-top)
+  - [Resources](#resources)
+  - [Error Reporting {#error-reporting}](#error-reporting-error-reporting)
+  - [Error Code Schema {#error-code-schema}](#error-code-schema-error-code-schema)
+  - [Message Delivery Codes Table {#error-codes}](#message-delivery-codes-table-error-codes)
+    - [Error Types](#error-types)
+    - [Bandwidth Detected Client Errors {#client-errors}](#bandwidth-detected-client-errors-client-errors)
+    - [Carrier Reported Client Errors {#carrier-client}](#carrier-reported-client-errors-carrier-client)
+    - [Bandwidth Service Failures {#service-errors}](#bandwidth-service-failures-service-errors)
+    - [Carrier Reported Service Failures {#carrier-service-errors}](#carrier-reported-service-failures-carrier-service-errors)
+    - [Carrier Errors with Ambiguous Cause {#carrier-ambiguous-errors}](#carrier-errors-with-ambiguous-cause-carrier-ambiguous-errors)
 
 ## Error Reporting {#error-reporting}
 The Bandwidth V2 messaging API presents errors on the [callback URL](../callbacks/messageEvents.md) using the [`message-failed`](../callbacks/messageFailed.md) type in the payload body along with an errorCode and description. An example is as follows:
@@ -32,7 +35,7 @@ The Bandwidth V2 messaging API presents errors on the [callback URL](../callback
     "text"          : "Hey, check this out!",
     "applicationId" : "93de2206-9669-4e07-948d-329f4b722ee2",
     "media"         : [
-      "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+      "https://en.wikipedia.org/wiki/File:Test_image.jpg"
       ],
     "owner"         : "+12345678901",
     "direction"     : "out"
