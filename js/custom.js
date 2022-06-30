@@ -116,72 +116,95 @@ module.exports = function ($) {
             $('head').append('<meta name="description" content="Bandwidth API Reference, documentation, SDKs, guides, examples and more. Get everything you need to build with Bandwidth.">');
             $('title').remove();
             $('head').append('<title>Bandwidth APIs - Developer Docs & API Reference</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
         });
 
         $('section.getStarted').each(function(i, elem) {
             $('head').append('<meta name="description" content="Get started with Bandwidth APIs. Setup account credentials, understand the basics, and jump into overviews of the Voice, Messaging, and Phone Numbers APIs.">');
             $('title').remove();
             $('head').append('<title>Bandwidth APIs - Getting Started Guide</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.accountCredentials').each(function(i, elem) {
             $('head').append('<meta name="description" content="Understand the different credentials for interacting with Bandwidth\'s APIs, and how to authenticate on each API.">');
             $('title').remove();
             $('head').append('<title>Bandwidth API Credentials and Security</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.callbacksOverview').each(function(i, elem) {
             $('head').append('<meta name="description" content="Bandwidth\'s APIs operate on a system of callbacks. Most API requests send callbacks, and notices of incoming events (phone call, text message) are sent via callbacks as well.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Callbacks Overview</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.sdksAbout').each(function(i, elem) {
             $('head').append('<meta name="description" content="Access Bandwidth SDKs for Node.JS, C#, Ruby, Python, PHP, and Java, plus example applications and demos.">');
             $('title').remove();
             $('head').append('<title>Bandwidth SDKs & Developer Tools</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.accountManagementGuides').each(function(i, elem) {
             $('head').append('<meta name="description" content="Learn how to configure your account with Bandwidth\'s account management APIs. Setup subaccounts, locations and applications via API.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Account Management Guides</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.applicationsConfigurationGuide').each(function(i, elem) {
             $('head').append('<meta name="description" content="Learn how to configure an Application for Bandwidth\'s Voice API and Messaging AP to send and receive messages and phone calls.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Applications Configuration Guide</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.subscriptionsConfigurationGuide').each(function(i, elem) {
             $('head').append('<meta name="description" content="Learn how to configure a Subscription to get started with Bandwidth\'s Number Ordering and Porting APIs.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Subscriptions Configuration Guide</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.messagingAbout').each(function(i, elem) {
             $('head').append('<meta name="description" content="Get everything you need to send and receive SMS, MMS, and group messages with Bandwidth. API Reference, SDKs, guides, examples and more.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Messaging API</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.voiceAbout').each(function(i, elem) {
             $('head').append('<meta name="description" content="Get everything you need to send and receive phone calls with Bandwidth. API Reference, SDKs, guides, examples and more.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Voice API</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.emergencyServicesAbout').each(function(i, elem) {
             $('head').append('<meta name="description" content="Learn about how to configure Emergency Notifications with the Bandwidth Emergency Services API.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Emergency Services API</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('section.numbersAbout').each(function(i, elem) {
             $('head').append('<meta name="description" content="Get everything you need to manage, order, and port phone numbers with Bandwidth. API Reference, SDKs, guides, examples and more.">');
             $('title').remove();
             $('head').append('<title>Bandwidth Phone Numbers API</title>');
+			$('head').append('<meta name=robots class=“noindex”>');
+
         });
 
         $('a').each(function(){
